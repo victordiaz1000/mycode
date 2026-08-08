@@ -1,0 +1,961 @@
+{
+  "book": "Éphésiens",
+  "abbreviation": "Ep.",
+  "metadata": {
+    "auteur": "Paulos (Paul)",
+    "theme": "L'Assemblée, corps du Mashiah (Christ)",
+    "date": "Env. 60 ap. J.-C."
+  },
+  "introduction": "Éphèse figurait parmi les principales villes de l'Empire romain sous le règne de l'empereur Claude Ier (10 av. J.-C. – 54 ap. J.-C.). Bien que Pergame était considérée comme la capitale de l'Asie Mineure, en raison de sa position géographique et grâce à ses affluents, Éphèse possédait le plus grand port de la région, ce qui lui a valu le contrôle du trafic commercial. Richissime et prospère, elle était renommée pour son faste et sa liberté de parole, et constituait donc un endroit privilégié pour les philosophes. C'était une ville où l'activité culturelle tenait une grande place (jeux olympiques, théâtres, cirques, etc.) et où chacun pouvait y pratiquer la religion de son choix (croyances gréco-romaines, égyptiennes, judaïques, etc.).\n\nÉphèse, dont le nom signifie « désirable », était la gardienne de l'Artémision, temple dédié à la déesse grecque Artémis, la Diane des Éphésiens.\n\nL'assemblée d'Éphèse vit le jour lors du second voyage missionnaire de Paulos (50 – 52 ap. J.-C.). Quand il repartit, il laissa à Akulas et Priscilla la charge de la toute jeune assemblée. Lors de son troisième voyage (53-57), Paulos s'installa à Éphèse et y demeura presque trois ans. Il discourut pendant trois mois dans la synagogue sur le Royaume d'Elohîm, mais se retrouva confronté à l'endurcissement de certains. C'est alors qu'il se retira pour enseigner dans l'école d'un certain Turannos durant deux ans, de sorte que tous ceux qui habitaient l'Asie, Juifs et Grecs, entendirent parler de Yéhoshoua ha Mashiah.\n\nPlusieurs de ceux qui avaient cru confessèrent leurs péchés et un certain nombre de ceux qui avaient pratiqué la magie allèrent même jusqu'à brûler leurs livres publiquement. C'est ainsi que l'assemblée d'Éphèse croissait en puissance et en force. La prédication de Paulos vint troubler le marché fructueux des fabricants d'idoles, au point que Démétrios (orfèvre tirant un grand profit de cette industrie) entraîna une émeute contre lui. Paulos était cependant soutenu par des amis influents : les Asiarques.\n\nRédigée en prison, cette lettre a pour vocation d'enseigner les chrétiens d'Éphèse sur la manière dont il convient de vivre les uns avec les autres au sein de l'Assemblée, corps du Mashiah (Christ).",
+  "chapters": [
+    {
+      "chapter": 1,
+      "verses": [
+        {
+          "verse": "1:1",
+          "text": "Paulos, apôtre de Yéhoshoua Mashiah par la volonté d'Elohîm, aux saints et fidèles en Mashiah Yéhoshoua qui sont à Éphèse :"
+        },
+        {
+          "verse": "1:2",
+          "text": "à vous, grâce et shalôm, de la part d'Elohîm notre Père et Seigneur Yéhoshoua Mashiah !"
+        },
+        {
+          "verse": "1:3",
+          "text": "Béni soit l'Elohîm et Père de notre Seigneur Yéhoshoua ha Mashiah, qui nous a bénis de toute bénédiction spirituelle dans les lieux célestes en Mashiah !"
+        },
+        {
+          "verse": "1:4",
+          "text": "Selon qu'il nous a élus en lui avant la fondation du monde, afin que nous soyons saints et sans défaut devant lui dans l'amour,"
+        },
+        {
+          "verse": "1:5",
+          "text": "nous ayant prédestinés à l'adoption pour lui-même, par le moyen de Yéhoshoua Mashiah, selon le bon plaisir de sa volonté,"
+        },
+        {
+          "verse": "1:6",
+          "text": "à la louange de la gloire de sa grâce, par laquelle il nous a rendus gracieux en son bien-aimé."
+        },
+        {
+          "verse": "1:7",
+          "text": "En lui nous avons la rédemption par le moyen de son sang, le pardon des fautes selon la richesse de sa grâce,"
+        },
+        {
+          "verse": "1:8",
+          "text": "qu'il a fait abonder envers nous en toute sagesse et intelligence."
+        },
+        {
+          "verse": "1:9",
+          "text": "Il nous a fait connaître le mystère de sa volonté, selon son bon plaisir qu'il avait disposé en lui-même,"
+        },
+        {
+          "verse": "1:10",
+          "text": "pour une gestion lors de la plénitude des temps : réunir toutes choses en Mashiah, tant celles qui sont dans les cieux, que celles qui sont sur la Terre."
+        },
+        {
+          "verse": "1:11",
+          "text": "En lui, en qui aussi nous avons été faits héritiers, ayant été prédestinés selon le dessein de celui qui opère toutes choses selon le conseil de sa volonté,"
+        },
+        {
+          "verse": "1:12",
+          "text": "afin que nous soyons à la louange de sa gloire, nous qui d'avance avons espéré dans le Mashiah."
+        },
+        {
+          "verse": "1:13",
+          "text": "En qui vous êtes aussi, après avoir entendu la parole de la vérité, l'Évangile de votre salut, en lui vous avez cru et vous avez été marqués du sceau du Saint-Esprit de la promesse,",
+          "textWithNotes": "En qui vous êtes aussi, après avoir entendu la parole de la vérité, l'Évangile de votre salut, en lui vous avez cru et vous avez été marqués du sceau[Voir 2 Co. 1:22.] du Saint-Esprit de la promesse,",
+          "notes": [
+            {
+              "word": "sceau",
+              "position": 144,
+              "note": "Voir 2 Co. 1:22."
+            }
+          ]
+        },
+        {
+          "verse": "1:14",
+          "text": "lequel est le gage de notre héritage pour la rédemption de ceux qu'il s'est acquis pour la louange de sa gloire.",
+          "textWithNotes": "lequel est le gage[Vient du grec « arrhabon » qui se traduit en français par « arrhes ». Ce terme fait allusion aux monnaies données en gage d'un futur paiement, et en attendant que le solde soit payé. Voir 2 Co. 1:22, 5:5.] de notre héritage pour la rédemption de ceux qu'il s'est acquis pour la louange de sa gloire.",
+          "notes": [
+            {
+              "word": "gage",
+              "position": 14,
+              "note": "Vient du grec « arrhabon » qui se traduit en français par « arrhes ». Ce terme fait allusion aux monnaies données en gage d'un futur paiement, et en attendant que le solde soit payé. Voir 2 Co. 1:22, 5:5."
+            }
+          ]
+        },
+        {
+          "verse": "1:15",
+          "text": "En raison de cela, ayant aussi entendu parler de la foi que vous avez en notre Seigneur Yéhoshoua, et de l'amour que vous avez envers tous les saints,"
+        },
+        {
+          "verse": "1:16",
+          "text": "je ne cesse de rendre grâce en votre faveur, en faisant mention de vous dans mes prières,"
+        },
+        {
+          "verse": "1:17",
+          "text": "afin que l'Elohîm de notre Seigneur Yéhoshoua Mashiah, le Père de gloire, vous donne un esprit de sagesse et de révélation dans sa connaissance précise et correcte,"
+        },
+        {
+          "verse": "1:18",
+          "text": "les yeux de votre compréhension étant illuminés par sa connaissance, de telle sorte que vous sachiez quelle est l'espérance de sa vocation, et quelle est la richesse de la gloire de son héritage dans les saints,",
+          "textWithNotes": "les yeux de votre compréhension[L'esprit comme faculté de compréhension, sentiment, pensée. Voir 1 Jn. 5:20.] étant illuminés par sa connaissance, de telle sorte que vous sachiez quelle est l'espérance de sa vocation, et quelle est la richesse de la gloire de son héritage dans les saints,",
+          "notes": [
+            {
+              "word": "compréhension",
+              "position": 18,
+              "note": "L'esprit comme faculté de compréhension, sentiment, pensée. Voir 1 Jn. 5:20."
+            }
+          ]
+        },
+        {
+          "verse": "1:19",
+          "text": "et quelle est l'excellente grandeur de sa puissance envers nous qui croyons selon l'efficacité de la puissance de sa force souveraine,"
+        },
+        {
+          "verse": "1:20",
+          "text": "qu'il a manifestée en Mashiah, en le réveillant hors des morts, et en le faisant asseoir à sa droite dans les lieux célestes,"
+        },
+        {
+          "verse": "1:21",
+          "text": "au-dessus de toute principauté, et autorité, et puissance, et seigneurie, et au-dessus de tout nom qui se nomme, non seulement dans l'âge présent, mais aussi dans celui qui est imminent."
+        },
+        {
+          "verse": "1:22",
+          "text": "Il a aussi soumis toutes choses sous ses pieds, et il l'a donné pour tête au-dessus de toutes choses, à l'Assemblée,"
+        },
+        {
+          "verse": "1:23",
+          "text": "qui est son corps, et la plénitude de celui qui remplit tout en tous."
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "verses": [
+        {
+          "verse": "2:1",
+          "text": "Et vous, étant morts par les fautes et les péchés"
+        },
+        {
+          "verse": "2:2",
+          "text": "dans lesquels vous marchiez autrefois, selon l'âge de ce monde, selon le chef de l'autorité de l'air, de l'esprit qui opère maintenant dans les fils de l'obstination,",
+          "textWithNotes": "dans lesquels vous marchiez autrefois, selon l'âge[Le mot traduit par « âge » vient du grec « aion » qui signifie aussi « temps », « période », etc.] de ce monde, selon le chef[Voir Jn. 12:31.] de l'autorité de l'air, de l'esprit qui opère maintenant dans les fils de l'obstination,",
+          "notes": [
+            {
+              "word": "l'âge",
+              "position": 45,
+              "note": "Le mot traduit par « âge » vient du grec « aion » qui signifie aussi « temps », « période », etc."
+            },
+            {
+              "word": "chef",
+              "position": 73,
+              "note": "Voir Jn. 12:31."
+            }
+          ]
+        },
+        {
+          "verse": "2:3",
+          "text": "parmi lesquels nous vivions tous autrefois, selon les désirs de notre chair, accomplissant les désirs de la chair et de nos pensées. Et nous étions par nature des enfants de colère comme les autres.",
+          "textWithNotes": "parmi lesquels nous vivions tous autrefois, selon les désirs[Ga. 5:16,24 ; Ro. 13:14 ; 1 Pi. 2:11.] de notre chair, accomplissant les désirs de la chair et de nos pensées. Et nous étions par nature des enfants de colère comme les autres.",
+          "notes": [
+            {
+              "word": "désirs",
+              "position": 54,
+              "note": "Ga. 5:16,24 ; Ro. 13:14 ; 1 Pi. 2:11."
+            }
+          ]
+        },
+        {
+          "verse": "2:4",
+          "text": "Mais Elohîm, qui est riche en miséricorde, à cause de son grand amour dont il nous a aimés,"
+        },
+        {
+          "verse": "2:5",
+          "text": "nous aussi, étant morts par les fautes, il nous a vivifiés ensemble avec le Mashiah. C'est par grâce que vous êtes sauvés.",
+          "textWithNotes": "nous aussi, étant morts par les fautes, il nous a vivifiés ensemble avec le Mashiah. C'est par grâce[Ac. 15:11.] que vous êtes sauvés.",
+          "notes": [
+            {
+              "word": "grâce",
+              "position": 95,
+              "note": "Ac. 15:11."
+            }
+          ]
+        },
+        {
+          "verse": "2:6",
+          "text": "Et il nous a ressuscités ensemble, et nous a fait asseoir ensemble dans les lieux célestes en Mashiah Yéhoshoua,"
+        },
+        {
+          "verse": "2:7",
+          "text": "afin qu’il montre dans les âges qui viennent l'immense richesse de sa grâce par sa bénignité envers nous, en Mashiah Yéhoshoua."
+        },
+        {
+          "verse": "2:8",
+          "text": "Car vous êtes sauvés par la grâce, par le moyen de la foi, et cela n'est pas issu de vous, c'est le don d'Elohîm."
+        },
+        {
+          "verse": "2:9",
+          "text": "Ce n'est pas issu des œuvres, afin que personne ne se glorifie."
+        },
+        {
+          "verse": "2:10",
+          "text": "Car nous sommes son ouvrage, ayant été créés en Mashiah Yéhoshoua sur les bonnes œuvres qu'Elohîm a préparées d'avance, afin que nous marchions en elles.",
+          "textWithNotes": "Car nous sommes son ouvrage, ayant été créés en Mashiah Yéhoshoua sur les bonnes œuvres[Es. 26:12.] qu'Elohîm a préparées d'avance, afin que nous marchions en elles.",
+          "notes": [
+            {
+              "word": "œuvres",
+              "position": 81,
+              "note": "Es. 26:12."
+            }
+          ]
+        },
+        {
+          "verse": "2:11",
+          "text": "C'est pourquoi rappelez-vous que vous, autrefois les nations dans la chair, appelés incirconcision par ce qui est appelé la circoncision, faite dans la chair par la main de l'homme,"
+        },
+        {
+          "verse": "2:12",
+          "text": "que vous étiez en ce temps-là sans Mashiah, privés de citoyenneté en Israël et étrangers aux alliances de la promesse, n'ayant pas d'espérance et sans Elohîm dans le monde."
+        },
+        {
+          "verse": "2:13",
+          "text": "Mais maintenant, en Mashiah Yéhoshoua, vous qui étiez autrefois loin, vous êtes devenus proches dans le sang du Mashiah."
+        },
+        {
+          "verse": "2:14",
+          "text": "Car lui-même est notre paix, lui qui des deux n'en a fait qu'un en détruisant le mur de séparation, la clôture,"
+        },
+        {
+          "verse": "2:15",
+          "text": "ayant aboli dans sa chair l'inimitié, la torah des commandements avec ses dogmes, afin que des deux il créât en lui-même un seul homme nouveau, en faisant la paix,"
+        },
+        {
+          "verse": "2:16",
+          "text": "et qu'il réconciliât les uns et les autres en un seul corps avec Elohîm par le moyen de la croix, ayant détruit par elle l'inimitié."
+        },
+        {
+          "verse": "2:17",
+          "text": "Et étant venu, il a prêché la paix à vous qui étiez loin, et à ceux qui étaient proches,"
+        },
+        {
+          "verse": "2:18",
+          "text": "parce que nous avons par son moyen les uns et les autres accès auprès du Père dans un même Esprit."
+        },
+        {
+          "verse": "2:19",
+          "text": "Ainsi donc, vous n'êtes plus des étrangers ni des gens sans citoyenneté, mais concitoyens des saints et membres de la famille d'Elohîm.",
+          "textWithNotes": "Ainsi donc, vous n'êtes plus des étrangers ni des gens sans citoyenneté[Un étranger, celui qui vit dans un lieu sans avoir le droit de cité, de citoyenneté. Voir 1 Pi. 2:11.], mais concitoyens des saints et membres de la famille d'Elohîm.",
+          "notes": [
+            {
+              "word": "citoyenneté",
+              "position": 60,
+              "note": "Un étranger, celui qui vit dans un lieu sans avoir le droit de cité, de citoyenneté. Voir 1 Pi. 2:11."
+            }
+          ]
+        },
+        {
+          "verse": "2:20",
+          "text": "Ayant été édifiés sur le fondement des apôtres et prophètes, et Yéhoshoua Mashiah lui-même étant la pierre angulaire.",
+          "textWithNotes": "Ayant été édifiés sur le fondement[Le fondement a été posé une fois pour toutes par les apôtres et les prophètes. Et ce fondement est notre Seigneur Yéhoshoua ha Mashiah (1 Co. 3:11).] des apôtres et prophètes, et Yéhoshoua Mashiah lui-même étant la pierre angulaire.",
+          "notes": [
+            {
+              "word": "fondement",
+              "position": 25,
+              "note": "Le fondement a été posé une fois pour toutes par les apôtres et les prophètes. Et ce fondement est notre Seigneur Yéhoshoua ha Mashiah (1 Co. 3:11)."
+            }
+          ]
+        },
+        {
+          "verse": "2:21",
+          "text": "En qui toute la construction, ayant ses parties bien ajustées, s'élève pour être un temple saint dans le Seigneur.",
+          "textWithNotes": "En qui toute la construction, ayant ses parties bien ajustées[Ex. 26:11.], s'élève pour être un temple saint dans le Seigneur.",
+          "notes": [
+            {
+              "word": "ajustées",
+              "position": 53,
+              "note": "Ex. 26:11."
+            }
+          ]
+        },
+        {
+          "verse": "2:22",
+          "text": "C'est en lui que, vous aussi, vous êtes construits ensemble pour être une habitation d'Elohîm en Esprit."
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "verses": [
+        {
+          "verse": "3:1",
+          "text": "C'est pour cela que moi, Paulos, le prisonnier du Mashiah Yéhoshoua en faveur de vous, les nations..."
+        },
+        {
+          "verse": "3:2",
+          "text": "Si toutefois vous avez appris quelle est l'administration de la grâce d'Elohîm qui m'a été donnée pour vous.",
+          "textWithNotes": "Si toutefois vous avez appris quelle est l'administration[1 Co. 9:17.] de la grâce d'Elohîm qui m'a été donnée pour vous.",
+          "notes": [
+            {
+              "word": "l'administration",
+              "position": 41,
+              "note": "1 Co. 9:17."
+            }
+          ]
+        },
+        {
+          "verse": "3:3",
+          "text": "Parce que c'est par révélation qu'il m'a fait connaître ce mystère, ainsi que je l'ai écrit ci-dessus en peu de mots ;"
+        },
+        {
+          "verse": "3:4",
+          "text": "par où, en lisant, vous pouvez comprendre mon intelligence du mystère du Mashiah,"
+        },
+        {
+          "verse": "3:5",
+          "text": "lequel, en d’autres générations, n’a pas été connu des fils des humains, comme il a été révélé maintenant par l'Esprit à ses saints apôtres et prophètes :"
+        },
+        {
+          "verse": "3:6",
+          "text": "que les nations sont cohéritières et membres du même corps, et coparticipantes de sa promesse dans le Mashiah par le moyen de l'Évangile,"
+        },
+        {
+          "verse": "3:7",
+          "text": "dont j'ai été fait serviteur, selon le don de la grâce d'Elohîm qui m'a été donnée selon l'efficacité de sa puissance."
+        },
+        {
+          "verse": "3:8",
+          "text": "À moi, qui suis plus bas que le plus inférieur de tous les saints, cette grâce a été donnée de prêcher parmi les nations l'incompréhensible richesse du Mashiah,"
+        },
+        {
+          "verse": "3:9",
+          "text": "et de mettre en évidence devant tous quelle est la communion du mystère qui était caché de tout âge en Elohîm, qui a créé toutes choses par le moyen de Yéhoshoua Mashiah,"
+        },
+        {
+          "verse": "3:10",
+          "text": "afin que les principautés et les autorités dans les lieux célestes connaissent maintenant, par le moyen de l'Assemblée, la sagesse infiniment variée d'Elohîm,"
+        },
+        {
+          "verse": "3:11",
+          "text": "selon le dessein des âges qu'il a accompli dans le Mashiah Yéhoshoua notre Seigneur,"
+        },
+        {
+          "verse": "3:12",
+          "text": "en qui nous avons la hardiesse et l'accès avec confiance, par le moyen de la foi en lui."
+        },
+        {
+          "verse": "3:13",
+          "text": "C'est pourquoi je vous prie de ne pas vous lasser à cause de mes tribulations que j'endure en votre faveur, elles sont votre gloire."
+        },
+        {
+          "verse": "3:14",
+          "text": "À cause de cela, je fléchis les genoux devant le Père de notre Seigneur Yéhoshoua ha Mashiah,"
+        },
+        {
+          "verse": "3:15",
+          "text": "à partir de qui toute la famille dans les cieux et sur la Terre est nommée,"
+        },
+        {
+          "verse": "3:16",
+          "text": "afin que selon la richesse de sa gloire, il vous donne d'être puissamment fortifiés par le moyen de son Esprit dans l'être humain intérieur,"
+        },
+        {
+          "verse": "3:17",
+          "text": "en sorte que le Mashiah habite dans vos cœurs par le moyen de la foi. Étant enracinés et fondés dans l'amour,"
+        },
+        {
+          "verse": "3:18",
+          "text": "afin que vous puissiez éminemment saisir, avec tous les saints, quelle est la largeur et la longueur et la profondeur et la hauteur,"
+        },
+        {
+          "verse": "3:19",
+          "text": "et connaître l'amour du Mashiah qui surpasse toute connaissance, afin que vous soyez remplis jusqu'à toute la plénitude d'Elohîm."
+        },
+        {
+          "verse": "3:20",
+          "text": "Or, à celui qui, selon la puissance qui opère en nous, peut faire par-dessus toutes choses infiniment au-delà de ce que nous demandons ou pensons,"
+        },
+        {
+          "verse": "3:21",
+          "text": "à lui soit la gloire dans l'Assemblée, en Mashiah Yéhoshoua, pour toutes les générations, pour les âges des âges ! Amen !"
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "verses": [
+        {
+          "verse": "4:1",
+          "text": "Je vous prie donc, moi, le prisonnier dans le Seigneur, de marcher d'une manière digne de l'appel par lequel vous avez été appelés,"
+        },
+        {
+          "verse": "4:2",
+          "text": "avec toute humilité et douceur, avec patience, vous supportant les uns les autres dans l'amour,"
+        },
+        {
+          "verse": "4:3",
+          "text": "vous efforçant de garder l'unité de l'Esprit dans le lien de la paix :"
+        },
+        {
+          "verse": "4:4",
+          "text": "Un seul corps et un seul Esprit, comme aussi vous êtes appelés à une seule espérance par votre appel."
+        },
+        {
+          "verse": "4:5",
+          "text": "Un seul Seigneur, une seule foi, un seul baptême,"
+        },
+        {
+          "verse": "4:6",
+          "text": "un seul Elohîm et Père de tous, qui est au-dessus de tous, parmi tous et en vous tous."
+        },
+        {
+          "verse": "4:7",
+          "text": "Mais la grâce est donnée à chacun de nous selon la mesure du don du Mashiah."
+        },
+        {
+          "verse": "4:8",
+          "text": "C'est pourquoi il dit : Étant monté dans la hauteur, il a capturé la captivité et il a donné des dons aux humains.",
+          "textWithNotes": "C'est pourquoi il dit : Étant monté dans la hauteur, il a capturé[« Rendre captif », « garder captif ».] la captivité et il a donné des dons aux humains[Ps. 68:19.].",
+          "notes": [
+            {
+              "word": "capturé",
+              "position": 58,
+              "note": "« Rendre captif », « garder captif »."
+            },
+            {
+              "word": "humains",
+              "position": 106,
+              "note": "Ps. 68:19."
+            }
+          ]
+        },
+        {
+          "verse": "4:9",
+          "text": "Or que signifie : Il est monté, sinon qu'il est premièrement descendu dans les parties inférieures de la Terre ?"
+        },
+        {
+          "verse": "4:10",
+          "text": "Celui qui est descendu, c'est le même qui est monté au-dessus de tous les cieux, afin de remplir toutes choses."
+        },
+        {
+          "verse": "4:11",
+          "text": "Et lui-même a donné en effet les apôtres, et les prophètes, et les évangélistes, et les bergers et docteurs,"
+        },
+        {
+          "verse": "4:12",
+          "text": "pour l'équipement des saints, pour l'œuvre du service, pour la construction du corps du Mashiah,",
+          "textWithNotes": "pour l'équipement[Le mot « équipement » vient du grec « katartismos » qui tire son origine du terme « katartizo » : « redresser, ajuster, compléter, raccommoder (ce qui a été abîmé), réparer, équiper ». Ainsi, les divers services ont pour vocation, d'une part, à réparer les dégâts causés par le péché dans les âmes, et d'autre part, à équiper les disciples afin de rentrer à leur tour dans leur propre service.] des saints, pour l'œuvre du service[Le mot « service » vient du grec « diakonos » qui signifie « service, ministère de ceux qui répondent aux besoins des autres ». Yéhoshoua ha Mashiah lui-même a pris la forme d'un serviteur pour nous servir et non pour être servi (Mt. 20:28).], pour la construction[2 Co. 13:10.] du corps du Mashiah,",
+          "notes": [
+            {
+              "word": "l'équipement",
+              "position": 5,
+              "note": "Le mot « équipement » vient du grec « katartismos » qui tire son origine du terme « katartizo » : « redresser, ajuster, compléter, raccommoder (ce qui a été abîmé), réparer, équiper ». Ainsi, les divers services ont pour vocation, d'une part, à réparer les dégâts causés par le péché dans les âmes, et d'autre part, à équiper les disciples afin de rentrer à leur tour dans leur propre service."
+            },
+            {
+              "word": "service",
+              "position": 46,
+              "note": "Le mot « service » vient du grec « diakonos » qui signifie « service, ministère de ceux qui répondent aux besoins des autres ». Yéhoshoua ha Mashiah lui-même a pris la forme d'un serviteur pour nous servir et non pour être servi (Mt. 20:28)."
+            },
+            {
+              "word": "construction",
+              "position": 63,
+              "note": "2 Co. 13:10."
+            }
+          ]
+        },
+        {
+          "verse": "4:13",
+          "text": "jusqu’à ce que nous soyons tous arrivés à l'unité de la foi et de la connaissance précise et correcte du Fils d'Elohîm, à l’homme parfait, à la mesure de la stature de la plénitude du Mashiah,",
+          "textWithNotes": "jusqu’à ce que nous soyons tous arrivés à l'unité de la foi et de la connaissance précise et correcte du Fils d'Elohîm, à l’homme[En référence à l'âge, et pour distinguer un homme adulte d'un garçon.] parfait, à la mesure de la stature de la plénitude du Mashiah,",
+          "notes": [
+            {
+              "word": "l’homme",
+              "position": 122,
+              "note": "En référence à l'âge, et pour distinguer un homme adulte d'un garçon."
+            }
+          ]
+        },
+        {
+          "verse": "4:14",
+          "text": "afin que nous ne soyons plus des enfants ballottés par les vagues et emportés çà et là à tout vent de doctrine, par le jeu de dés des humains, par leur habileté dans l'art de l'égarement.",
+          "textWithNotes": "afin que nous ne soyons plus des enfants ballottés par les vagues et emportés çà et là à tout vent de doctrine, par le jeu de dés[Vient du grec « kubos » un (cube), c'est-à-dire un dé pour jouer. Métaphorique : la déception des hommes, car les joueurs de dés trichaient quelquefois et trompaient leurs partenaires.] des humains, par leur habileté dans l'art de l'égarement.",
+          "notes": [
+            {
+              "word": "dés",
+              "position": 126,
+              "note": "Vient du grec « kubos » un (cube), c'est-à-dire un dé pour jouer. Métaphorique : la déception des hommes, car les joueurs de dés trichaient quelquefois et trompaient leurs partenaires."
+            }
+          ]
+        },
+        {
+          "verse": "4:15",
+          "text": "Mais en disant la vérité dans l'amour, nous grandirons en toutes choses en celui qui est la tête, le Mashiah,"
+        },
+        {
+          "verse": "4:16",
+          "text": "à partir de qui tout le corps, ayant ses parties bien ajustées et liées ensemble, par le moyen de chaque jointure de son assistance, tire son accroissement selon l'efficacité qu'il distribue à chaque membre, pour se construire lui-même dans l'amour."
+        },
+        {
+          "verse": "4:17",
+          "text": "Je dis ceci donc et je déclare solennellement dans le Seigneur, que vous ne devez plus marcher comme le reste des nations qui marchent dans la perversité de leur pensée."
+        },
+        {
+          "verse": "4:18",
+          "text": "Ayant leur compréhension couverte par les ténèbres, étant étrangers à la vie d'Elohîm à cause de l'ignorance qui est en eux, à cause de l'endurcissement de leur cœur.",
+          "textWithNotes": "Ayant leur compréhension couverte par les ténèbres[Ro. 1:21.], étant étrangers à la vie d'Elohîm à cause de l'ignorance qui est en eux, à cause de l'endurcissement de leur cœur.",
+          "notes": [
+            {
+              "word": "ténèbres",
+              "position": 42,
+              "note": "Ro. 1:21."
+            }
+          ]
+        },
+        {
+          "verse": "4:19",
+          "text": "Devenus insensibles, ils se sont livrés à la luxure sans bride pour commettre toute sorte d'impureté avec cupidité."
+        },
+        {
+          "verse": "4:20",
+          "text": "Mais vous, ce n'est pas ainsi que vous avez appris le Mashiah,"
+        },
+        {
+          "verse": "4:21",
+          "text": "si toutefois vous l'avez entendu et avez été instruits par lui, conformément à la vérité qui est en Yéhoshoua :"
+        },
+        {
+          "verse": "4:22",
+          "text": "à vous débarrasser pour ce qui est de votre conduite précédente, du vieil être humain qui se corrompt selon les désirs de la tromperie,",
+          "textWithNotes": "à vous débarrasser[Mettre de côté. Voir Hé. 12:1.] pour ce qui est de votre conduite précédente, du vieil être humain qui se corrompt selon les désirs de la tromperie,",
+          "notes": [
+            {
+              "word": "débarrasser",
+              "position": 7,
+              "note": "Mettre de côté. Voir Hé. 12:1."
+            }
+          ]
+        },
+        {
+          "verse": "4:23",
+          "text": "à vous laisser renouveler par l'Esprit dans votre pensée,"
+        },
+        {
+          "verse": "4:24",
+          "text": "et à vous revêtir du nouvel être humain, créé selon Elohîm dans une justice et une sainteté de la vérité."
+        },
+        {
+          "verse": "4:25",
+          "text": "C'est pourquoi, étant débarrassés du mensonge, dites la vérité chacun à son prochain, parce que nous sommes membres les uns des autres.",
+          "textWithNotes": "C'est pourquoi, étant débarrassés[Voir Hé. 12:1.] du mensonge, dites la vérité chacun à son prochain, parce que nous sommes membres les uns des autres.",
+          "notes": [
+            {
+              "word": "débarrassés",
+              "position": 22,
+              "note": "Voir Hé. 12:1."
+            }
+          ]
+        },
+        {
+          "verse": "4:26",
+          "text": "Fâchez-vous, et ne péchez pas. Que le soleil ne se couche pas sur votre indignation."
+        },
+        {
+          "verse": "4:27",
+          "text": "Ne donnez pas une occasion d'agir au diable.",
+          "textWithNotes": "Ne donnez pas une occasion d'agir[Le mot grec « topos » signifie aussi « lieu », « espace manqué » comme s'il s'agissait d'un espace entouré.] au diable.",
+          "notes": [
+            {
+              "word": "d'agir",
+              "position": 27,
+              "note": "Le mot grec « topos » signifie aussi « lieu », « espace manqué » comme s'il s'agissait d'un espace entouré."
+            }
+          ]
+        },
+        {
+          "verse": "4:28",
+          "text": "Que le voleur ne vole plus, mais plutôt qu'il travaille en faisant de ses mains ce qui est bon, pour avoir de quoi donner à celui qui est dans le besoin."
+        },
+        {
+          "verse": "4:29",
+          "text": "Qu'aucun discours pourri ne sorte de votre bouche, mais ce qui est bon pour la construction selon le besoin, afin qu'il communique une grâce à ceux qui l'écoutent."
+        },
+        {
+          "verse": "4:30",
+          "text": "Et n'attristez pas le Saint-Esprit d'Elohîm, par lequel vous avez été marqués d’un sceau pour le jour de la rédemption.",
+          "textWithNotes": "Et n'attristez pas le Saint-Esprit d'Elohîm, par lequel vous avez été marqués d’un sceau[Voir 2 Co. 1:22.] pour le jour de la rédemption.",
+          "notes": [
+            {
+              "word": "sceau",
+              "position": 83,
+              "note": "Voir 2 Co. 1:22."
+            }
+          ]
+        },
+        {
+          "verse": "4:31",
+          "text": "Que toute espèce d'amertume, et de fureur, et de colère, et de clameur, et de blasphème, avec toute espèce de malice soient bannis du milieu de vous."
+        },
+        {
+          "verse": "4:32",
+          "text": "Mais devenez doux les uns envers les autres, pleins de compassion, et vous pardonnant les uns aux autres, comme aussi Elohîm dans le Mashiah vous a pardonné."
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "verses": [
+        {
+          "verse": "5:1",
+          "text": "Devenez donc imitateurs d'Elohîm, comme des enfants bien-aimés,"
+        },
+        {
+          "verse": "5:2",
+          "text": "et marchez dans l’amour comme aussi le Mashiah nous a aimés et s'est livré lui-même en notre faveur, en offrande et en sacrifice à Elohîm, en parfum de bonne odeur."
+        },
+        {
+          "verse": "5:3",
+          "text": "Mais que la relation sexuelle illicite, l'impureté sous toutes ses formes ou la cupidité ne soient pas même nommées parmi vous, comme il convient à des saints,"
+        },
+        {
+          "verse": "5:4",
+          "text": "et obscénité, et propos insensé, ni plaisanterie, choses qui ne sont pas convenables, mais plutôt l’action de grâce."
+        },
+        {
+          "verse": "5:5",
+          "text": "Car vous savez ceci, qu'aucun homme qui se prostitue, ni impur, ni cupide, qui est un idolâtre, n'a d'héritage dans le Royaume du Mashiah et Elohîm.",
+          "textWithNotes": "Car vous savez ceci, qu'aucun homme qui se prostitue, ni impur, ni cupide, qui est un idolâtre, n'a d'héritage dans le Royaume du Mashiah et Elohîm[Une construction identique se trouve au verset 20 du même chapitre : Elohîm et Père. Il s'agit d'un même être.].",
+          "notes": [
+            {
+              "word": "Elohîm",
+              "position": 141,
+              "note": "Une construction identique se trouve au verset 20 du même chapitre : Elohîm et Père. Il s'agit d'un même être."
+            }
+          ]
+        },
+        {
+          "verse": "5:6",
+          "text": "Que personne ne vous trompe par de vains discours, car à cause de ces choses la colère d'Elohîm vient sur les fils de l'obstination."
+        },
+        {
+          "verse": "5:7",
+          "text": "Ne devenez donc pas leurs coparticipants."
+        },
+        {
+          "verse": "5:8",
+          "text": "Car vous étiez autrefois ténèbre, mais maintenant vous êtes lumière dans le Seigneur. Conduisez-vous donc comme des enfants de lumière !",
+          "textWithNotes": "Car vous étiez autrefois ténèbre, mais maintenant vous êtes lumière dans le Seigneur. Conduisez-vous donc comme des enfants de lumière[Les disciples de Yéhoshoua sont les enfants de la lumière (Jn. 12:36 ; 1 Th. 5:5). Yéhoshoua est la lumière du monde (Jn. 8:12).] !",
+          "notes": [
+            {
+              "word": "lumière",
+              "position": 127,
+              "note": "Les disciples de Yéhoshoua sont les enfants de la lumière (Jn. 12:36 ; 1 Th. 5:5). Yéhoshoua est la lumière du monde (Jn. 8:12)."
+            }
+          ]
+        },
+        {
+          "verse": "5:9",
+          "text": "Car le fruit de l'Esprit est en toute bonté et justice et vérité."
+        },
+        {
+          "verse": "5:10",
+          "text": "Examinant ce qui est agréable au Seigneur."
+        },
+        {
+          "verse": "5:11",
+          "text": "Et ne participez pas aux œuvres stériles de la ténèbre, mais plutôt condamnez-les en effet !",
+          "textWithNotes": "Et ne participez[Devenir un participant parmi les autres, ou être associé à une chose. Ap. 18:4.] pas aux œuvres stériles de la ténèbre, mais plutôt condamnez-les en effet !",
+          "notes": [
+            {
+              "word": "participez",
+              "position": 6,
+              "note": "Devenir un participant parmi les autres, ou être associé à une chose. Ap. 18:4."
+            }
+          ]
+        },
+        {
+          "verse": "5:12",
+          "text": "Car il est honteux de dire les choses qu'ils font en secret."
+        },
+        {
+          "verse": "5:13",
+          "text": "Mais toutes les choses qui sont condamnées sont manifestées par la lumière, car tout ce qui est manifesté est lumière."
+        },
+        {
+          "verse": "5:14",
+          "text": "C'est pourquoi il dit : Réveille-toi, toi qui dors, et relève-toi d'entre les morts, et le Mashiah brillera sur toi.",
+          "textWithNotes": "C'est pourquoi il dit : Réveille-toi, toi qui dors, et relève-toi d'entre les morts, et le Mashiah brillera[Le mot grec fait allusion au fait que le Mashiah verse sur ses disciples la vérité divine comme le soleil donne la lumière aux personnes réveillées de leur sommeil. Es. 60:1.] sur toi.",
+          "notes": [
+            {
+              "word": "brillera",
+              "position": 99,
+              "note": "Le mot grec fait allusion au fait que le Mashiah verse sur ses disciples la vérité divine comme le soleil donne la lumière aux personnes réveillées de leur sommeil. Es. 60:1."
+            }
+          ]
+        },
+        {
+          "verse": "5:15",
+          "text": "Regardez donc soigneusement comment vous marchez, non comme des insensés, mais comme des sages,"
+        },
+        {
+          "verse": "5:16",
+          "text": "rachetant le temps, parce que les jours sont mauvais."
+        },
+        {
+          "verse": "5:17",
+          "text": "En raison de cela, ne devenez pas insensés, mais comprenez quelle est la volonté du Seigneur."
+        },
+        {
+          "verse": "5:18",
+          "text": "Et ne vous enivrez pas du vin dans lequel il y a le libertinage, mais soyez remplis par l'Esprit."
+        },
+        {
+          "verse": "5:19",
+          "text": "Vous parlant entre vous par des psaumes, et des hymnes et des cantiques spirituels, chantant et célébrant dans votre cœur les louanges du Seigneur ;"
+        },
+        {
+          "verse": "5:20",
+          "text": "rendant toujours grâces en faveur de toutes choses au nom de notre Seigneur Yéhoshoua Mashiah, l'Elohîm et Père,"
+        },
+        {
+          "verse": "5:21",
+          "text": "vous soumettant les uns aux autres dans la crainte d'Elohîm.",
+          "textWithNotes": "vous soumettant les uns aux autres[1 Pi. 5:5.] dans la crainte d'Elohîm.",
+          "notes": [
+            {
+              "word": "autres",
+              "position": 28,
+              "note": "1 Pi. 5:5."
+            }
+          ]
+        },
+        {
+          "verse": "5:22",
+          "text": "Les femmes, soyez soumises à vos maris comme au Seigneur,"
+        },
+        {
+          "verse": "5:23",
+          "text": "parce que le mari est la tête de la femme, comme le Mashiah aussi est la tête de l'Assemblée qui est son corps et dont il est le Sauveur.",
+          "textWithNotes": "parce que le mari est la tête[Ou « chef ».] de la femme, comme le Mashiah aussi est la tête de l'Assemblée qui est son corps et dont il est le Sauveur.",
+          "notes": [
+            {
+              "word": "tête",
+              "position": 25,
+              "note": "Ou « chef »."
+            }
+          ]
+        },
+        {
+          "verse": "5:24",
+          "text": "Mais comme l'Assemblée est soumise au Mashiah, de même que les femmes aussi le soient à leurs propres maris en tout."
+        },
+        {
+          "verse": "5:25",
+          "text": "Les maris, aimez vos femmes, comme le Mashiah a aimé l'Assemblée, et s'est livré lui-même en faveur d'elle,"
+        },
+        {
+          "verse": "5:26",
+          "text": "afin de la sanctifier en la purifiant et en la lavant par le bain d'eau de la parole,",
+          "textWithNotes": "afin de la sanctifier en la purifiant et en la lavant par le bain[Le mot grec « loutron » traduit par « bain » signifie également « baignade », « l'action de baigner ». Voir Tit. 3:5.] d'eau de la parole,",
+          "notes": [
+            {
+              "word": "bain",
+              "position": 61,
+              "note": "Le mot grec « loutron » traduit par « bain » signifie également « baignade », « l'action de baigner ». Voir Tit. 3:5."
+            }
+          ]
+        },
+        {
+          "verse": "5:27",
+          "text": "afin qu'il se présente l'Assemblée à lui-même, glorieuse, n’ayant ni tache, ni ride, ni rien de semblable, mais sainte et sans défaut."
+        },
+        {
+          "verse": "5:28",
+          "text": "C'est ainsi que les maris doivent aimer leurs femmes comme leurs propres corps. Celui qui aime sa femme s'aime lui-même,"
+        },
+        {
+          "verse": "5:29",
+          "text": "car personne n'a jamais haï sa propre chair, mais il la nourrit et la chérit d'un tendre amour, comme le Seigneur le fait pour l'Assemblée,"
+        },
+        {
+          "verse": "5:30",
+          "text": "parce que nous sommes membres de son corps, de sa chair et de ses os."
+        },
+        {
+          "verse": "5:31",
+          "text": "C'est pourquoi l'homme quittera son père et sa mère et se joindra à sa femme, et les deux seront une seule chair."
+        },
+        {
+          "verse": "5:32",
+          "text": "Ce mystère est grand, mais moi, je parle par rapport au Mashiah et par rapport à l’Assemblée."
+        },
+        {
+          "verse": "5:33",
+          "text": "Que chacun de vous aussi aime sa femme comme lui-même, et que la femme craigne son mari."
+        }
+      ]
+    },
+    {
+      "chapter": 6,
+      "verses": [
+        {
+          "verse": "6:1",
+          "text": "Les enfants, obéissez à vos parents dans le Seigneur, car cela est juste."
+        },
+        {
+          "verse": "6:2",
+          "text": "Honore ton père et ta mère, c'est le premier commandement avec une promesse,"
+        },
+        {
+          "verse": "6:3",
+          "text": "afin que tout aille bien pour toi et que tu vives longtemps sur la Terre."
+        },
+        {
+          "verse": "6:4",
+          "text": "Et les pères, n'irritez pas vos enfants, mais nourrissez-les jusqu'à maturité par l'éducation et l'avertissement du Seigneur.",
+          "textWithNotes": "Et les pères, n'irritez pas vos enfants, mais nourrissez-les jusqu'à maturité[Le verbe « nourrir » vient du grec « ektrepho » qui signifie également « élever », « entretenir », « apporter ».] par l'éducation[Toute l'éducation des enfants (qui est relative à la culture de l'esprit et de la moralité, et qui utilise dans ce but tantôt des ordres et des avertissements, tantôt des réprimandes et des punitions). Elle inclut également l'exercice et le soin du corps. Châtiment, correction. Hé. 12:7.] et l'avertissement du Seigneur.",
+          "notes": [
+            {
+              "word": "maturité",
+              "position": 69,
+              "note": "Le verbe « nourrir » vient du grec « ektrepho » qui signifie également « élever », « entretenir », « apporter »."
+            },
+            {
+              "word": "l'éducation",
+              "position": 82,
+              "note": "Toute l'éducation des enfants (qui est relative à la culture de l'esprit et de la moralité, et qui utilise dans ce but tantôt des ordres et des avertissements, tantôt des réprimandes et des punitions). Elle inclut également l'exercice et le soin du corps. Châtiment, correction. Hé. 12:7."
+            }
+          ]
+        },
+        {
+          "verse": "6:5",
+          "text": "Les esclaves, obéissez à vos seigneurs selon la chair avec crainte et tremblement, dans la simplicité de votre cœur, comme au Mashiah,"
+        },
+        {
+          "verse": "6:6",
+          "text": "ne les servant pas seulement sous leurs yeux, comme cherchant à plaire aux humains, mais comme esclaves du Mashiah, faisant de toute votre âme la volonté d'Elohîm,"
+        },
+        {
+          "verse": "6:7",
+          "text": "servant avec bonté le Seigneur et non pas les humains,"
+        },
+        {
+          "verse": "6:8",
+          "text": "sachant que ce que chacun aura fait de bon, il le recevra du Seigneur, soit esclave, soit libre."
+        },
+        {
+          "verse": "6:9",
+          "text": "Et les seigneurs, faites de même envers eux. Renoncez à la menace, sachant que votre Seigneur à vous aussi est dans les cieux, et qu'auprès de lui il n'y a pas de partialité.",
+          "textWithNotes": "Et les seigneurs, faites de même envers eux. Renoncez à la menace, sachant que votre Seigneur[De. 10:17 ; 1 Ti. 6:15 ; Ap. 17:14, 19:16.] à vous aussi est dans les cieux, et qu'auprès de lui il n'y a pas de partialité[Ou égard à l'apparence des personnes. Ro. 2:11.].",
+          "notes": [
+            {
+              "word": "Seigneur",
+              "position": 85,
+              "note": "De. 10:17 ; 1 Ti. 6:15 ; Ap. 17:14, 19:16."
+            },
+            {
+              "word": "partialité",
+              "position": 163,
+              "note": "Ou égard à l'apparence des personnes. Ro. 2:11."
+            }
+          ]
+        },
+        {
+          "verse": "6:10",
+          "text": "Au reste, mes frères, soyez fortifiés dans le Seigneur et dans la puissance de sa force souveraine."
+        },
+        {
+          "verse": "6:11",
+          "text": "Revêtez-vous de l'armure complète d'Elohîm, afin de pouvoir résister aux ruses du diable.",
+          "textWithNotes": "Revêtez-vous de l'armure[Vient du grec « panoplia » qui signifie « l'armement complet avec bouclier, épée, lance, casque, jambières et pectoral ». Voir le verset 13 et Lu. 11:22.] complète d'Elohîm, afin de pouvoir résister aux ruses du diable.",
+          "notes": [
+            {
+              "word": "l'armure",
+              "position": 16,
+              "note": "Vient du grec « panoplia » qui signifie « l'armement complet avec bouclier, épée, lance, casque, jambières et pectoral ». Voir le verset 13 et Lu. 11:22."
+            }
+          ]
+        },
+        {
+          "verse": "6:12",
+          "text": "Parce que notre lutte n'est pas contre le sang et la chair, mais contre les principautés, contre les autorités, contre les seigneurs du monde de ténèbre de cet âge, contre les esprits de méchanceté qui sont dans les lieux célestes.",
+          "textWithNotes": "Parce que notre lutte[Le mot grec utilisé ici est « pale ». Il était employé pour parler de la lutte entre deux combattants où chacun essaye de renverser l'autre ; la victoire étant acquise par le maintien de l'adversaire au sol, et en lui mettant la main sur la nuque.] n'est pas contre le sang et la chair, mais contre les principautés[Vient du grec « arche » qui signifie « commencement, origine, la personne ou chose qui commence, la première personne ou chose d'une série, le premier, le chef ».], contre les autorités, contre les seigneurs du monde de ténèbre de cet âge, contre les esprits de méchanceté qui sont dans les lieux célestes.",
+          "notes": [
+            {
+              "word": "lutte",
+              "position": 16,
+              "note": "Le mot grec utilisé ici est « pale ». Il était employé pour parler de la lutte entre deux combattants où chacun essaye de renverser l'autre ; la victoire étant acquise par le maintien de l'adversaire au sol, et en lui mettant la main sur la nuque."
+            },
+            {
+              "word": "principautés",
+              "position": 76,
+              "note": "Vient du grec « arche » qui signifie « commencement, origine, la personne ou chose qui commence, la première personne ou chose d'une série, le premier, le chef »."
+            }
+          ]
+        },
+        {
+          "verse": "6:13",
+          "text": "En raison de cela, portez l'armure complète d'Elohîm, afin que vous puissiez résister dans le mauvais jour et, après avoir tout accompli, tenir ferme.",
+          "textWithNotes": "En raison de cela, portez l'armure complète d'Elohîm[Voir en annexe « L'armure du chrétien ».], afin que vous puissiez résister dans le mauvais jour et, après avoir tout accompli, tenir ferme.",
+          "notes": [
+            {
+              "word": "d'Elohîm",
+              "position": 44,
+              "note": "Voir en annexe « L'armure du chrétien »."
+            }
+          ]
+        },
+        {
+          "verse": "6:14",
+          "text": "Tenez donc ferme, ayant à vos reins la vérité pour ceinture, ayant revêtu la cuirasse de la justice,"
+        },
+        {
+          "verse": "6:15",
+          "text": "et ayant vos pieds chaussés, prêts pour l'Évangile de paix."
+        },
+        {
+          "verse": "6:16",
+          "text": "Par-dessus toutes choses, portant le bouclier de la foi, avec lequel vous pourrez éteindre tous les dards enflammés du Mauvais."
+        },
+        {
+          "verse": "6:17",
+          "text": "Prenez aussi le casque du salut et l'épée de l'Esprit, qui est la parole d'Elohîm.",
+          "textWithNotes": "Prenez aussi le casque du salut[Es. 59:17.] et l'épée de l'Esprit, qui est la parole d'Elohîm.",
+          "notes": [
+            {
+              "word": "salut",
+              "position": 26,
+              "note": "Es. 59:17."
+            }
+          ]
+        },
+        {
+          "verse": "6:18",
+          "text": "À travers toute prière et supplication priant en tout temps dans l’Esprit, et étant sans sommeil pour cela avec une entière persévérance et supplication au sujet de tous les saints,"
+        },
+        {
+          "verse": "6:19",
+          "text": "et en faveur de moi afin qu’à moi soit donnée une parole dans l’ouverture de ma bouche pour faire connaître avec assurance le mystère de l’Évangile,"
+        },
+        {
+          "verse": "6:20",
+          "text": "en faveur duquel je suis ambassadeur dans les chaînes, afin qu’en lui je parle avec hardiesse comme il faut que je parle."
+        },
+        {
+          "verse": "6:21",
+          "text": "Mais afin que vous sachiez aussi ce qui me concerne et ce que je fais, Tuchikos, notre frère bien-aimé et fidèle serviteur du Seigneur, vous fera tout savoir."
+        },
+        {
+          "verse": "6:22",
+          "text": "Je l'ai envoyé vers vous pour cela même, afin que vous connaissiez ce qui nous concerne et qu'il console vos cœurs."
+        },
+        {
+          "verse": "6:23",
+          "text": "Shalôm aux frères, et amour, avec la foi, de la part d'Elohîm le Père et Seigneur, Yéhoshoua Mashiah !"
+        },
+        {
+          "verse": "6:24",
+          "text": "La grâce avec tous les amoureux de notre Seigneur Yéhoshoua Mashiah dans l'incorruptibilité. Amen !"
+        }
+      ]
+    }
+  ]
+}

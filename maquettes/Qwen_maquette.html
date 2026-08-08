@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Application Bible — Maquette UI v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0f1d; --bg2:#0d1426; --paper:#f2ead8;
+  --gold:#d3a94f; --gold2:#f0d089; --verm:#c65a3a; --olive:#9aa45c; --saph:#5d84c9;
+  --line:rgba(211,169,79,.18); --line2:rgba(211,169,79,.34);
+  --mut:#93a0b8; --ink:#e9eef8;
+  --disp:'Cormorant Garamond',serif; --ui:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;overflow-x:hidden}
+::selection{background:rgba(211,169,79,.35)}
+
+/* ---------- ciel ambiant ---------- */
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(1200px 800px at 78% -10%, rgba(46,74,140,.28), transparent 60%),
+    radial-gradient(1000px 700px at -12% 112%, rgba(122,84,30,.16), transparent 60%);}
+.sky::before,.sky::after{content:"";position:absolute;inset:0;background-repeat:no-repeat}
+.sky::before{background-image:
+  radial-gradient(1.4px 1.4px at 12% 18%, rgba(242,234,208,.7), transparent 60%),
+  radial-gradient(1.2px 1.2px at 34% 8%, rgba(242,234,208,.5), transparent 60%),
+  radial-gradient(1.6px 1.6px at 58% 22%, rgba(242,234,208,.6), transparent 60%),
+  radial-gradient(1.1px 1.1px at 79% 12%, rgba(242,234,208,.55), transparent 60%),
+  radial-gradient(1.3px 1.3px at 91% 34%, rgba(242,234,208,.5), transparent 60%),
+  radial-gradient(1.2px 1.2px at 22% 46%, rgba(242,234,208,.4), transparent 60%),
+  radial-gradient(1.5px 1.5px at 47% 60%, rgba(242,234,208,.45), transparent 60%),
+  radial-gradient(1.1px 1.1px at 70% 52%, rgba(242,234,208,.4), transparent 60%),
+  radial-gradient(1.3px 1.3px at 8% 74%, rgba(242,234,208,.5), transparent 60%),
+  radial-gradient(1.2px 1.2px at 88% 78%, rgba(242,234,208,.45), transparent 60%);
+  animation:twk 9s ease-in-out infinite alternate}
+.sky::after{background-image:
+  radial-gradient(1.2px 1.2px at 26% 30%, rgba(242,234,208,.5), transparent 60%),
+  radial-gradient(1.5px 1.5px at 64% 10%, rgba(242,234,208,.6), transparent 60%),
+  radial-gradient(1.1px 1.1px at 44% 38%, rgba(242,234,208,.4), transparent 60%),
+  radial-gradient(1.3px 1.3px at 83% 58%, rgba(242,234,208,.5), transparent 60%),
+  radial-gradient(1.2px 1.2px at 15% 62%, rgba(242,234,208,.45), transparent 60%),
+  radial-gradient(1.4px 1.4px at 55% 84%, rgba(242,234,208,.5), transparent 60%),
+  radial-gradient(1.1px 1.1px at 38% 90%, rgba(242,234,208,.4), transparent 60%);
+  animation:twk 13s ease-in-out infinite alternate-reverse}
+@keyframes twk{from{opacity:.35}to{opacity:.9}}
+body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.045;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.55'/></svg>")}
+main,header.mast,footer,.topbar{position:relative;z-index:2}
+
+/* ---------- barre haute ---------- */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;gap:26px;
+  padding:12px 32px;background:rgba(10,15,29,.92);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.02em;font-size:14px;white-space:nowrap}
+.brand svg{color:var(--gold)}
+.brand small{font-weight:600;color:var(--mut);margin-left:2px}
+.tnav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.tnav a{color:var(--mut);text-decoration:none;font-size:12px;font-weight:700;padding:6px 9px;border-radius:8px;transition:.2s;letter-spacing:.04em}
+.tnav a:hover{color:var(--gold2);background:rgba(211,169,79,.1)}
+
+/* ---------- frontispice ---------- */
+.mast{max-width:1240px;margin:0 auto;padding:130px 32px 70px;display:grid;grid-template-columns:1.35fr .85fr;gap:64px;align-items:start}
+.overline{display:flex;align-items:center;gap:14px;font-size:12px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.overline::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line2),transparent)}
+.mast h1{font-family:var(--disp);font-weight:600;font-size:clamp(58px,7.5vw,104px);line-height:.98;margin:18px 0 14px;letter-spacing:.01em}
+.mast h1 em{font-style:italic;color:var(--gold2)}
+.tagline{font-size:17px;color:var(--mut);max-width:560px}
+.rule{display:flex;align-items:center;gap:14px;margin:34px 0 26px;color:var(--gold)}
+.rule::before,.rule::after{content:"";height:1px;flex:1;background:var(--line2)}
+.verse{max-width:600px}
+.verse .lettrine::first-letter{font-family:var(--disp);font-weight:600;font-size:96px;line-height:.78;float:left;color:var(--gold);padding:8px 14px 0 0}
+.verse p{font-family:var(--disp);font-size:27px;font-style:italic;line-height:1.42;color:#efe7d3}
+.verse cite{display:block;margin-top:14px;font-style:normal;font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chipm{font-size:12px;font-weight:800;letter-spacing:.08em;padding:8px 14px;border:1px solid var(--line2);border-radius:99px;color:var(--paper);background:rgba(211,169,79,.06)}
+.chipm.hl{background:var(--gold);border-color:var(--gold);color:#231a05}
+.sommaire{border:1px solid var(--line2);border-radius:18px;padding:28px 28px 20px;background:linear-gradient(160deg,rgba(211,169,79,.07),rgba(211,169,79,.02))}
+.sommaire h3{font-size:11px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.sommaire ol{list-style:none}
+.sommaire a{display:flex;align-items:baseline;gap:12px;padding:9px 0;text-decoration:none;color:var(--ink);border-bottom:1px dashed rgba(211,169,79,.14);transition:.2s}
+.sommaire a:hover{color:var(--gold2);padding-left:6px}
+.sommaire .n{font-family:var(--disp);font-style:italic;font-size:19px;color:var(--gold);min-width:30px}
+.sommaire .t{font-weight:600;font-size:14.5px}
+.sommaire .arrow{margin-left:auto;color:var(--mut);transition:.2s}
+.sommaire a:hover .arrow{color:var(--gold);transform:translateX(3px)}
+
+/* ---------- sections ---------- */
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.sec{border-top:1px solid var(--line);padding:96px 0}
+.grid{display:grid;grid-template-columns:minmax(300px,460px) auto;gap:72px;align-items:center;justify-content:center}
+.grid.flip .col-txt{order:2}.grid.flip .col-phone{order:1}
+.num{display:flex;align-items:center;gap:14px;color:var(--gold);margin-bottom:18px}
+.num svg{flex:none}
+.num b{font-family:var(--disp);font-style:italic;font-weight:500;font-size:58px;line-height:1;color:var(--gold2)}
+.sec-title{font-family:var(--disp);font-weight:600;font-size:clamp(30px,3.4vw,44px);line-height:1.12;margin-bottom:16px}
+.lead{color:#c3cbdc;font-size:15.5px;max-width:460px}
+.points{list-style:none;margin-top:26px;display:grid;gap:12px}
+.points li{position:relative;padding-left:26px;font-size:14.5px;color:#d5dbe8}
+.points li::before{content:"✦";position:absolute;left:0;top:0;color:var(--gold);font-size:13px}
+.ref{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.08em;color:var(--gold);border:1px solid var(--line2);border-radius:99px;padding:2px 8px;margin-left:8px;vertical-align:1px}
+.try{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#1d1503;background:linear-gradient(120deg,var(--gold2),var(--gold));padding:9px 16px;border-radius:99px}
+.try::before{content:"☞";font-size:14px}
+
+/* ---------- téléphone ---------- */
+.col-phone{display:flex;flex-direction:column;align-items:center;gap:24px}
+.phone{position:relative;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.phone:hover{transform:translateY(-8px)}
+.phone::before{content:"";position:absolute;inset:-50px -70px;background:radial-gradient(50% 55% at 50% 42%,rgba(211,169,79,.13),transparent 70%);z-index:0}
+.frame{position:relative;z-index:1;width:370px;background:#04060b;border:1px solid #2a3040;border-radius:58px;padding:12px;box-shadow:0 50px 100px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03) inset}
+.screen{position:relative;width:346px;height:752px;border-radius:47px;overflow:hidden;background:#f6f4ee;color:#22262f;font-family:var(--ui)}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:106px;height:27px;background:#04060b;border-radius:20px;z-index:70}
+.homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:118px;height:5px;border-radius:3px;background:rgba(130,130,130,.5);z-index:70}
+.screen.dark .homebar{background:rgba(200,200,210,.4)}
+.sbar{display:flex;justify-content:space-between;align-items:center;padding:15px 26px 0;font-size:13px;font-weight:800;position:relative;z-index:5;color:var(--sb,#1d2330)}
+.sicons svg{display:block}
+.bgart{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0;transition:opacity .6s ease}
+.veil{position:absolute;inset:0;z-index:1;pointer-events:none;transition:.6s}
+.inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column}
+.scrollzone{flex:1;overflow:hidden}
+
+/* --- thèmes écran lecture --- */
+.th-vitrail{--tx:#f4ecd7;--tx2:#d8c79e;--hd:#eec76d;--num:#d9a441;--acc:#eec76d;--panel:rgba(19,13,7,.62);--panel2:rgba(238,199,109,.16);--sb:#f0e6cc;background:#17110a}
+.th-vitrail #bgVitrail{opacity:1}
+.th-vitrail .veil{background:linear-gradient(180deg,rgba(10,7,3,.18),rgba(10,7,3,.52))}
+.th-oliveraie{--tx:#33401f;--tx2:#5f6c47;--hd:#3c4d1f;--num:#77853d;--acc:#5c6c2e;--panel:rgba(253,252,244,.86);--panel2:rgba(90,102,54,.16);--sb:#3c4a26;
+  background:radial-gradient(120% 55% at 82% -8%,#f8f0cf 0%,rgba(248,240,207,0) 58%),linear-gradient(160deg,#dfe4c2 0%,#b9c39a 48%,#8fa073 100%)}
+.th-oliveraie .veil{background:linear-gradient(180deg,rgba(255,255,246,.12),rgba(210,214,180,.28))}
+.th-desert{--tx:#3f2511;--tx2:#7c4e2a;--hd:#8a4a1d;--num:#b06a2a;--acc:#a15c25;--panel:rgba(255,248,234,.88);--panel2:rgba(161,92,37,.16);--sb:#4a2c14;
+  background:linear-gradient(180deg,#f7e6c0 0%,#eecb97 42%,#dda266 76%,#b97440 100%)}
+.th-desert #bgDesert{opacity:1}
+.th-nuit{--tx:#e6ebf7;--tx2:#a9b6d4;--hd:#e3d5a0;--num:#d8c88f;--acc:#9db4e6;--panel:rgba(9,14,34,.66);--panel2:rgba(157,180,230,.14);--sb:#dfe6f5;
+  background:radial-gradient(95% 48% at 50% -4%,#20315c 0%,rgba(32,49,92,0) 58%),linear-gradient(180deg,#0a1026 0%,#05080f 100%)}
+.th-nuit #bgStars{opacity:1}
+.tw{animation:twk 3.6s ease-in-out infinite}
+
+/* --- accueil --- */
+.sc-home{background:linear-gradient(180deg,#f7f5ee,#efeadf)}
+.h-top{display:flex;align-items:center;gap:10px;padding:16px 18px 8px}
+.wordmark{display:flex;align-items:center;gap:8px;font-family:var(--disp);font-weight:700;font-size:22px;color:#2b2417}
+.wordmark svg{color:var(--gold)}
+.iconbtn{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;color:#5c554a;background:#fff;border:1px solid #e5dfd0;cursor:pointer;transition:.2s}
+.iconbtn:hover{border-color:var(--gold);color:#8a6b1f;transform:translateY(-1px)}
+.tabbtn{margin-left:auto;min-width:36px;height:36px;border-radius:11px;display:grid;place-items:center;padding:0 8px;font-size:13px;font-weight:800;color:#fff;background:#3a3226;cursor:pointer;position:relative}
+.tabbtn::after{content:"";position:absolute;top:-4px;right:-4px;width:9px;height:9px;border-radius:50%;background:var(--gold);border:2px solid #f7f5ee}
+.h-search{margin:10px 18px;display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e3dcc9;border-radius:99px;padding:14px 18px;box-shadow:0 8px 20px rgba(90,75,40,.09);cursor:text;transition:.2s}
+.h-search:hover{border-color:var(--gold)}
+.h-search svg{color:#a08c55;flex:none}
+.h-search span{color:#9b927c;font-size:14px;flex:1}
+.kbadge{font-size:11px;font-weight:800;color:#8a6b1f;background:rgba(211,169,79,.16);border-radius:99px;padding:4px 10px;flex:none}
+.h-short{display:flex;justify-content:space-between;padding:8px 22px 4px}
+.shortcut{display:flex;flex-direction:column;align-items:center;gap:8px;width:60px;cursor:pointer}
+.shortcut i{width:52px;height:52px;border-radius:18px;display:grid;place-items:center;background:#fff;border:1px solid #e5dfd0;color:#6b6048;transition:.22s;font-style:normal}
+.shortcut:hover i{transform:translateY(-3px);border-color:var(--gold);color:#8a6b1f;box-shadow:0 10px 18px rgba(90,75,40,.14)}
+.shortcut span{font-size:10.5px;font-weight:700;color:#6e6654;text-align:center}
+.resume{margin:14px 18px;background:#fff;border:1px solid #e3dcc9;border-radius:18px;padding:16px;position:relative;overflow:hidden;cursor:pointer;transition:.22s}
+.resume:hover{transform:translateY(-2px);box-shadow:0 14px 26px rgba(90,75,40,.13)}
+.resume::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--gold2),var(--verm))}
+.resume h4{font-family:var(--disp);font-size:20px;font-weight:700;color:#2b2417}
+.resume p{font-family:var(--disp);font-style:italic;font-size:14.5px;color:#7c7157;margin:4px 0 12px;line-height:1.4}
+.r-prog{height:5px;border-radius:99px;background:#eee7d6;overflow:hidden}
+.r-prog i{display:block;height:100%;width:38%;border-radius:99px;background:linear-gradient(90deg,var(--gold),var(--verm))}
+.r-meta{display:flex;justify-content:space-between;font-size:11px;font-weight:700;color:#9b927c;margin-top:7px}
+.recents{padding:4px 18px}
+.recents h5{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#a39877;margin:8px 2px}
+.rrow{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:14px;cursor:pointer;transition:.18s}
+.rrow:hover{background:#fff;box-shadow:0 6px 14px rgba(90,75,40,.08)}
+.rrow .ric{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;flex:none;font-size:15px}
+.rrow b{display:block;font-size:13.5px;color:#33301f}
+.rrow small{font-size:11.5px;color:#9b927c;font-weight:600}
+.bnav{margin-top:auto;display:flex;justify-content:space-around;align-items:center;padding:10px 8px 22px;border-top:1px solid #e5dfcd;background:#fbf9f3}
+.bitem{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:9.5px;font-weight:800;letter-spacing:.04em;color:#a49a80;cursor:pointer;transition:.2s;text-transform:uppercase}
+.bitem:hover,.bitem.on{color:#8a6b1f}
+.bitem.on::after{content:"";width:4px;height:4px;border-radius:50%;background:var(--gold)}
+
+/* --- lecture --- */
+.tabs{display:flex;gap:8px;padding:10px 14px 0;align-items:center}
+.tab{flex:1;max-width:118px;display:flex;align-items:center;gap:7px;padding:8px 10px;border-radius:12px 12px 0 0;font-size:11px;font-weight:700;color:var(--tx2);background:rgba(0,0,0,.14);cursor:pointer;white-space:nowrap;overflow:hidden;transition:.2s;border:1px solid transparent;border-bottom:none}
+.th-oliveraie .tab{background:rgba(255,255,255,.4)}
+.tab i{font-style:normal;opacity:.6;font-size:10px}
+.tab.on{background:var(--panel);color:var(--tx);border-color:var(--panel2)}
+.tab:hover{color:var(--tx)}
+.tabplus{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;color:var(--tx2);background:var(--panel);cursor:pointer;flex:none;font-weight:800}
+.refbar{display:flex;align-items:center;gap:10px;margin:0 14px;padding:11px 14px;background:var(--panel);border-radius:14px;backdrop-filter:blur(6px);border:1px solid var(--panel2)}
+.refbar .bk{font-family:var(--disp);font-weight:700;font-size:17px;color:var(--hd);flex:1;white-space:nowrap;overflow:hidden}
+.refbar .bk small{display:block;font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tx2)}
+.tchip{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:800;color:var(--tx);background:var(--panel2);border:1px solid var(--panel2);border-radius:99px;padding:6px 11px;cursor:pointer;flex:none;transition:.2s}
+.tchip:hover{border-color:var(--acc)}
+.verses{padding:22px 26px 8px;overflow:hidden}
+.verses p{font-family:var(--disp);font-size:var(--vs,19px);line-height:1.62;color:var(--tx);margin-bottom:.85em}
+.vn{font-family:var(--ui);font-size:.58em;font-weight:800;color:var(--num);vertical-align:super;margin-right:6px}
+.hl{background:var(--hlc,rgba(238,199,109,.42));border-radius:4px;padding:1px 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone;transition:background .3s}
+.skipline{text-align:center;color:var(--tx2);letter-spacing:10px;font-size:12px;margin:2px 0 14px;opacity:.7}
+.rtools{margin-top:auto;display:flex;justify-content:center;gap:14px;padding:6px 0 26px}
+.rtools .iconbtn{background:var(--panel);border-color:var(--panel2);color:var(--tx);width:42px;height:42px;border-radius:14px}
+.rtools .iconbtn:hover{color:var(--acc);border-color:var(--acc);transform:translateY(-2px)}
+
+/* --- contrôles démo --- */
+.controls{width:370px;border:1px solid var(--line2);border-radius:20px;padding:20px 22px;background:linear-gradient(160deg,rgba(211,169,79,.08),rgba(211,169,79,.02))}
+.controls h6{font-size:10.5px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.throw{display:flex;gap:8px;flex-wrap:wrap}
+.thbtn{display:flex;align-items:center;gap:8px;font-family:var(--ui);font-size:12.5px;font-weight:800;color:var(--paper);background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:99px;padding:8px 14px;cursor:pointer;transition:.22s}
+.thbtn .dot{width:16px;height:16px;border-radius:50%;border:1px solid rgba(255,255,255,.25)}
+.thbtn:hover{transform:translateY(-2px);border-color:var(--gold)}
+.thbtn.is-on{background:var(--gold);border-color:var(--gold);color:#241a04}
+.thcaption{font-size:12px;color:var(--mut);margin-top:10px;min-height:18px}
+.sizer{margin-top:18px;display:flex;align-items:center;gap:14px}
+.sizer label{font-size:12px;font-weight:800;color:var(--paper);white-space:nowrap}
+.sizer output{font-size:12px;font-weight:800;color:var(--gold);min-width:42px;text-align:right}
+input[type=range]{flex:1;appearance:none;height:4px;border-radius:99px;background:rgba(211,169,79,.3);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:18px;height:18px;border-radius:50%;background:var(--gold);border:3px solid #241a04;box-shadow:0 0 0 2px var(--gold);transition:.2s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+
+/* --- comparaison --- */
+.c-top{display:flex;align-items:center;gap:12px;padding:14px 18px 6px}
+.c-top h4{font-size:15px;font-weight:800;color:#2c2417;flex:1}
+.vsel{margin:8px 18px;display:flex;align-items:center;justify-content:center;gap:16px;background:#fff;border:1px solid #e3dcc9;border-radius:99px;padding:10px;font-weight:800;font-size:13px;color:#3a3226}
+.vsel span{font-family:var(--disp);font-size:17px}
+.vsel i{font-style:normal;color:#b3a67f;cursor:pointer;font-size:15px;transition:.2s}
+.vsel i:hover{color:var(--verm);transform:scale(1.2)}
+.tcard{margin:0 18px 12px;background:#fff;border:1px solid #e3dcc9;border-radius:16px;padding:14px 16px;transition:.22s;cursor:pointer}
+.tcard:hover{transform:translateY(-2px);box-shadow:0 12px 22px rgba(90,75,40,.1);border-color:#d9c890}
+.tcard header{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.tcard header b{font-size:13px;color:#2c2417}
+.tbadge{font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:99px}
+.tbadge.def{background:var(--gold);color:#241a04}
+.tbadge.dl{background:#eee7d4;color:#8a7c55}
+.tcard p{font-family:var(--disp);font-size:15.5px;line-height:1.5;color:#46402f}
+.addcard{margin:2px 18px;border:2px dashed #d5c9a4;border-radius:16px;padding:14px;text-align:center;font-size:13px;font-weight:800;color:#a3946a;cursor:pointer;transition:.2s}
+.addcard:hover{border-color:var(--gold);color:#8a6b1f;background:rgba(211,169,79,.07)}
+.c-note{margin:12px 20px;font-size:11px;color:#9b927c;text-align:center;font-weight:600}
+
+/* --- recherche --- */
+.field{margin:14px 16px;display:flex;align-items:center;gap:10px;background:#fff;border:2px solid #d9c890;border-radius:16px;padding:12px 15px;box-shadow:0 10px 22px rgba(90,75,40,.1)}
+.field svg{color:#a08c55}
+.field b{font-size:15px;color:#2c2417;font-weight:700}
+.caret{width:2px;height:18px;background:#8a6b1f;animation:blink 1.1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.field .cnt{margin-left:auto;font-size:11px;font-weight:800;color:#9b927c}
+.chips{display:flex;gap:7px;padding:2px 16px 10px;overflow:hidden}
+.chip{font-size:11.5px;font-weight:800;padding:7px 13px;border-radius:99px;border:1px solid #ddd4bc;background:#fff;color:#7c7157;cursor:pointer;transition:.2s;white-space:nowrap}
+.chip:hover{border-color:var(--gold);transform:translateY(-1px)}
+.chip.on{background:#3a3226;border-color:#3a3226;color:#f2ead8}
+.res{display:flex;gap:12px;margin:0 16px 10px;background:#fff;border:1px solid #e6dfcd;border-radius:15px;padding:12px 14px;cursor:pointer;transition:.2s}
+.res:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(90,75,40,.1);border-color:#d9c890}
+.res.hide{display:none}
+.rtag{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:16px}
+.res b{font-size:12.5px;color:#2c2417;display:flex;align-items:center;gap:8px}
+.res b small{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#a3946a;border:1px solid #e6dfcd;border-radius:99px;padding:2px 7px}
+.res p{font-family:var(--disp);font-size:14px;line-height:1.45;color:#5b5442;margin-top:3px}
+.res p.ui{font-family:var(--ui);font-size:12.5px;color:#6e6654}
+.kw{background:rgba(211,169,79,.4);border-radius:3px;padding:0 2px;font-weight:600}
+
+/* --- étude --- */
+.sheet{margin-top:auto;background:var(--panel);backdrop-filter:blur(10px);border-radius:26px 26px 0 0;border-top:1px solid var(--panel2);padding:10px 20px 26px}
+.drag{width:44px;height:4px;border-radius:99px;background:var(--tx2);opacity:.5;margin:2px auto 14px}
+.sheet h6{font-size:10px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--tx2);margin-bottom:10px}
+.swrow{display:flex;gap:12px;align-items:center;margin-bottom:16px}
+.sw{width:34px;height:34px;border-radius:50%;cursor:pointer;border:2px solid transparent;box-shadow:0 2px 6px rgba(0,0,0,.18);transition:.2s;position:relative}
+.sw:hover{transform:scale(1.14)}
+.sw.on{border-color:var(--tx);transform:scale(1.1)}
+.sw.none{background:transparent;border:2px dashed var(--tx2);box-shadow:none}
+.sw.none::after{content:"";position:absolute;left:50%;top:50%;width:26px;height:2px;background:var(--tx2);transform:translate(-50%,-50%) rotate(-45deg)}
+.acts{display:flex;justify-content:space-between;gap:8px}
+.act{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--tx);background:var(--panel2);border:1px solid var(--panel2);border-radius:13px;padding:10px 4px;cursor:pointer;transition:.2s}
+.act:hover{transform:translateY(-2px);border-color:var(--acc);color:var(--hd)}
+.notecard{margin:16px 18px 0;background:var(--panel);border:1px solid var(--panel2);border-radius:15px;padding:13px 15px}
+.notecard header{display:flex;justify-content:space-between;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--num);margin-bottom:6px}
+.notecard p{font-family:var(--disp);font-style:italic;font-size:14.5px;line-height:1.5;color:var(--tx)}
+
+/* --- partage --- */
+.sc-share{background:radial-gradient(100% 55% at 50% -6%,#22304f 0%,rgba(34,48,79,0) 60%),linear-gradient(180deg,#131a2c,#0b0f1b)}
+.share-top{display:flex;align-items:center;gap:10px;padding:14px 18px 10px;color:#dfe6f5;font-size:13.5px;font-weight:800}
+.shareimg{margin:6px auto 0;width:292px;height:316px;border-radius:22px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:26px 24px;box-shadow:0 24px 50px rgba(0,0,0,.5);
+  background:linear-gradient(160deg,rgba(10,7,3,.3),rgba(10,7,3,.62)),conic-gradient(from 210deg at 55% 40%,#7d1f2d,#1d3f8f 22%,#d9a441 40%,#1f5c46 58%,#5b2a86 76%,#7d1f2d)}
+.shareimg .x{font-size:22px;color:#eec76d;text-align:center}
+.shareimg blockquote{font-family:var(--disp);font-style:italic;font-size:21px;line-height:1.45;color:#f6eed9;text-align:center}
+.shareimg footer{text-align:center;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#d8c79e}
+.shareimg footer b{color:#eec76d}
+.seg{margin:18px 40px 14px;display:flex;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:99px;padding:4px}
+.seg button{flex:1;border:0;background:transparent;color:#aeb9d2;font-family:var(--ui);font-size:12px;font-weight:800;padding:8px 0;border-radius:99px;cursor:pointer;transition:.2s}
+.seg button:hover{color:#fff}
+.seg button.on{background:var(--gold);color:#241a04}
+.apps{display:flex;justify-content:center;gap:22px;padding-bottom:6px}
+.app{display:flex;flex-direction:column;align-items:center;gap:7px;font-size:10px;font-weight:700;color:#aeb9d2;cursor:pointer}
+.app i{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;font-style:normal;transition:.22s;color:#fff}
+.app:hover i{transform:translateY(-4px) scale(1.05)}
+.s-cap{margin-top:auto;text-align:center;font-size:10.5px;color:#6e7a96;font-weight:600;padding-bottom:20px}
+
+/* --- audio --- */
+.sc-audio{background:radial-gradient(90% 45% at 50% -4%,#243355 0%,rgba(36,51,85,0) 60%),linear-gradient(180deg,#0d1220,#080b13)}
+.a-top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px 6px}
+.pillnote{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;font-weight:800;color:#9db4e6;background:rgba(157,180,230,.12);border:1px solid rgba(157,180,230,.3);border-radius:99px;padding:6px 12px}
+.art{margin:14px auto 0;width:258px;height:258px;border-radius:26px;position:relative;overflow:hidden;box-shadow:0 26px 54px rgba(0,0,0,.55);
+  background:radial-gradient(70% 45% at 78% 12%,#f7d98c 0%,rgba(247,217,140,0) 45%),linear-gradient(180deg,#f0d3a0 0%,#ddaa6c 55%,#b97440 100%)}
+.art .arch{position:absolute;left:50%;bottom:-2px;transform:translateX(-50%);opacity:.9}
+.art .big{position:absolute;left:0;right:0;top:44px;text-align:center;font-family:var(--disp);font-weight:600;font-size:52px;color:#3f2511}
+.art .sub{position:absolute;left:0;right:0;top:112px;text-align:center;font-size:10px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:#7c4e2a}
+.a-title{text-align:center;margin-top:20px}
+.a-title h4{font-family:var(--disp);font-size:22px;font-weight:700;color:#f2ead8}
+.a-title p{font-size:12px;font-weight:700;color:#8b97b4;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:5px}
+.eq{display:inline-flex;gap:2.5px;align-items:flex-end;height:13px}
+.eq i{width:3px;border-radius:2px;background:var(--gold);animation:eq 1s ease-in-out infinite}
+.eq i:nth-child(1){height:60%;animation-delay:0s}.eq i:nth-child(2){height:100%;animation-delay:.18s}
+.eq i:nth-child(3){height:45%;animation-delay:.36s}.eq i:nth-child(4){height:80%;animation-delay:.54s}
+@keyframes eq{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+.voice{margin:16px 30px 0;display:flex;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:4px}
+.vbtn{flex:1;border:0;background:transparent;color:#8b97b4;font-family:var(--ui);font-size:11.5px;font-weight:800;padding:9px 0;border-radius:10px;cursor:pointer;transition:.2s}
+.vbtn.on{background:#f2ead8;color:#22293c}
+.pbar{margin:18px 30px 4px;height:5px;border-radius:99px;background:rgba(255,255,255,.14);position:relative;cursor:pointer}
+.pbar i{position:absolute;left:0;top:0;bottom:0;width:38%;border-radius:99px;background:linear-gradient(90deg,var(--gold2),var(--gold))}
+.pbar b{position:absolute;left:38%;top:50%;transform:translate(-50%,-50%);width:13px;height:13px;border-radius:50%;background:#f2ead8;box-shadow:0 0 0 4px rgba(211,169,79,.25);transition:.2s}
+.ptimes{display:flex;justify-content:space-between;margin:0 30px;font-size:10.5px;font-weight:800;color:#8b97b4}
+.ctrls{display:flex;align-items:center;justify-content:center;gap:30px;margin-top:16px}
+.cbtn{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#dfe6f5;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);cursor:pointer;font-weight:800;font-size:11px;transition:.2s;font-family:var(--ui)}
+.cbtn:hover{transform:scale(1.08);background:rgba(255,255,255,.13)}
+.cbtn.main{width:70px;height:70px;background:linear-gradient(140deg,var(--gold2),var(--gold));color:#241a04;border:none;box-shadow:0 14px 30px rgba(211,169,79,.35)}
+.cbtn.main:hover{transform:scale(1.06)}
+
+/* --- bibliothèque --- */
+.l-top{display:flex;align-items:center;gap:10px;padding:16px 18px 8px}
+.l-top h4{font-family:var(--disp);font-size:24px;font-weight:700;color:#2b2417;flex:1}
+.stor-chip{font-size:10.5px;font-weight:800;color:#8a7c55;background:#fff;border:1px solid #e3dcc9;border-radius:99px;padding:6px 12px}
+.lsec{padding:12px 18px 0}
+.lsec h5{font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#a3946a;margin-bottom:8px}
+.lrow{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e6dfcd;border-radius:14px;padding:11px 13px;margin-bottom:8px;transition:.2s}
+.lrow:hover{border-color:#d9c890;transform:translateX(2px)}
+.lrow b{font-size:13px;color:#2c2417;display:block}
+.lrow small{font-size:11px;color:#9b927c;font-weight:600}
+.lrow .grow{flex:1}
+.dl{font-size:11px;font-weight:800;color:#8a6b1f;background:rgba(211,169,79,.16);border:1px solid rgba(211,169,79,.5);border-radius:99px;padding:7px 13px;cursor:pointer;transition:.2s;white-space:nowrap;font-family:var(--ui)}
+.dl:hover{background:var(--gold);color:#241a04;transform:translateY(-1px)}
+.installed{font-size:11px;font-weight:800;color:#5c7a3f;display:flex;align-items:center;gap:5px;white-space:nowrap}
+.stor{margin:14px 18px 0;background:#fff;border:1px solid #e6dfcd;border-radius:14px;padding:12px 14px}
+.stor .lbl{display:flex;justify-content:space-between;font-size:11px;font-weight:800;color:#7c7157;margin-bottom:7px}
+.stor .bar{height:6px;border-radius:99px;background:#eee7d6;overflow:hidden}
+.stor .bar i{display:block;height:100%;width:22%;border-radius:99px;background:linear-gradient(90deg,#9aa45c,var(--gold))}
+
+/* --- réglages --- */
+.set-top{padding:16px 18px 6px;font-family:var(--disp);font-size:24px;font-weight:700;color:#2b2417}
+.profile{margin:6px 18px;display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e3dcc9;border-radius:16px;padding:14px}
+.avatar{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--disp);font-size:22px;font-weight:700;color:#241a04;background:linear-gradient(140deg,var(--gold2),var(--gold));flex:none}
+.profile b{font-size:14px;color:#2c2417;display:block}
+.profile small{font-size:11.5px;color:#9b927c;font-weight:600}
+.profile .cta{margin-left:auto;font-size:10.5px;font-weight:800;color:#8a6b1f;border:1.5px solid var(--gold);border-radius:99px;padding:8px 12px;cursor:pointer;transition:.2s;text-align:center;line-height:1.3;font-family:var(--ui)}
+.profile .cta:hover{background:var(--gold);color:#241a04}
+.setrow{display:flex;align-items:center;gap:13px;margin:0 18px 9px;background:#fff;border:1px solid #e6dfcd;border-radius:14px;padding:13px 14px;transition:.2s}
+.setrow:hover{border-color:#d9c890}
+.setrow .sic{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;flex:none}
+.setrow b{font-size:13px;color:#2c2417;display:block}
+.setrow small{font-size:11px;color:#9b927c;font-weight:600;display:block}
+.setrow .grow{flex:1}
+.switch{position:relative;width:46px;height:26px;flex:none;cursor:pointer}
+.switch input{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:2;margin:0}
+.switch i{position:absolute;inset:0;background:#dcd6c4;border-radius:99px;transition:.25s}
+.switch i::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.3);transition:.25s}
+.switch input:checked+i{background:var(--gold)}
+.switch input:checked+i::after{transform:translateX(20px)}
+.chev{color:#b3a67f}
+.set-foot{margin-top:auto;text-align:center;font-size:10.5px;color:#a39877;font-weight:700;padding-bottom:22px}
+.paldots{display:flex;gap:4px}
+.paldots i{width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
+
+/* ---------- système visuel ---------- */
+.ds-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;margin-top:44px}
+.card{border:1px solid var(--line);border-radius:20px;padding:26px;background:linear-gradient(165deg,rgba(255,255,255,.035),rgba(255,255,255,.01));transition:.3s}
+.card:hover{border-color:var(--line2);transform:translateY(-4px)}
+.card h5{font-size:10.5px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.c-typo{grid-column:span 5}
+.c-themes{grid-column:span 7}
+.c-comp{grid-column:span 7}
+.c-icons{grid-column:span 5}
+.spec{display:flex;gap:26px;align-items:flex-end}
+.spec .g{font-family:var(--disp);font-size:84px;line-height:.9;color:var(--gold2)}
+.spec .g.u{font-family:var(--ui);font-weight:800;font-size:70px;color:var(--paper)}
+.spec dl{font-size:12px;color:var(--mut);display:grid;gap:5px}
+.spec dt{font-weight:800;color:var(--paper)}
+.spec dd{font-family:var(--disp);font-style:italic;font-size:15px;color:#c9d0df}
+.th-row{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.th-card{border:1px solid var(--line);border-radius:15px;padding:14px;transition:.25s}
+.th-card:hover{border-color:var(--line2);background:rgba(211,169,79,.05)}
+.th-card .thumb{height:52px;border-radius:10px;margin-bottom:10px}
+.th-card b{font-size:13.5px;color:var(--paper);display:block}
+.th-card small{font-size:11px;color:var(--mut);display:block;margin:3px 0 8px}
+.pd{display:flex;gap:5px}
+.pd i{width:15px;height:15px;border-radius:50%;border:1px solid rgba(255,255,255,.15);transition:.2s}
+.th-card:hover .pd i{transform:translateY(-2px)}
+.samples{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.smp-chip{font-size:11px;font-weight:800;padding:6px 12px;border-radius:99px;cursor:default}
+.smp-verse{width:100%;font-family:var(--disp);font-size:17px;color:#efe7d3;line-height:1.5;border-left:3px solid var(--gold);padding-left:14px}
+.iconrow{display:flex;flex-wrap:wrap;gap:14px}
+.icobox{width:52px;height:52px;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;color:#c9d0df;transition:.22s;cursor:default}
+.icobox:hover{color:var(--gold2);border-color:var(--gold);transform:translateY(-3px)}
+
+/* ---------- pied ---------- */
+.foot{border-top:1px solid var(--line);margin-top:40px;padding:70px 0 60px}
+.f-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;margin-top:36px}
+.fcard{border:1px solid var(--line);border-radius:20px;padding:28px}
+.fcard h4{font-family:var(--disp);font-size:26px;font-weight:700;margin-bottom:16px;color:var(--gold2)}
+.fcard ul{list-style:none;display:grid;gap:12px}
+.fcard li{font-size:14px;color:#c3cbdc;padding-left:22px;position:relative}
+.fcard li::before{content:"→";position:absolute;left:0;color:var(--gold)}
+.fcard li b{color:var(--paper)}
+.credit{margin-top:44px;text-align:center;font-size:12px;color:var(--mut);letter-spacing:.06em}
+.credit b{color:var(--gold)}
+
+/* ---------- révélations ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:1080px){
+  .grid{grid-template-columns:1fr;gap:44px;justify-items:center}
+  .grid.flip .col-txt{order:1}.grid.flip .col-phone{order:2}
+  .col-txt{max-width:560px}
+  .mast{grid-template-columns:1fr;padding-top:110px}
+  .ds-grid .card{grid-column:span 12 !important}
+  .f-grid{grid-template-columns:1fr}
+  .tnav{display:none}
+}
+@media(max-width:480px){
+  .frame{width:calc(100vw - 40px);max-width:370px}
+  .screen{width:100%;height:740px}
+  .controls{width:calc(100vw - 40px);max-width:370px}
+  .wrap{padding:0 20px}
+  .mast{padding:100px 20px 50px}
+}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+
+<nav class="topbar">
+  <div class="brand">
+    <svg width="16" height="22" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="2"/><path d="M2 30h20" stroke="currentColor" stroke-width="2"/></svg>
+    Application Bible <small>· Maquette UI v1</small>
+  </div>
+  <div class="tnav">
+    <a href="#s1">01 Accueil</a><a href="#s2">02 Lecture</a><a href="#s3">03 Comparaison</a><a href="#s4">04 Recherche</a><a href="#s5">05 Étude</a><a href="#s6">06 Partage</a><a href="#s7">07 Audio</a><a href="#s8">08 Bibliothèque</a><a href="#s9">09 Réglages</a><a href="#sys">10 Système</a>
+  </div>
+</nav>
+
+<!-- ═══════════ FRONTISPICE ═══════════ -->
+<header class="mast">
+  <div class="reveal in">
+    <div class="overline">Cahier des charges → Maquette UI · v1 · 5 août 2026</div>
+    <h1>Application <em>Bible</em></h1>
+    <p class="tagline">Lecture &amp; étude approfondie de la Bible — un compagnon gratuit, sans publicité, pensé comme un navigateur d'études et habillé comme un vitrail.</p>
+    <div class="rule">✦</div>
+    <blockquote class="verse">
+      <p class="lettrine">Ta parole est une lampe à mes pieds, une lumière sur mon sentier.</p>
+      <cite>Psaume 119 : 105</cite>
+    </blockquote>
+    <div class="meta">
+      <span class="chipm hl">100 % gratuite</span>
+      <span class="chipm">Android &amp; iOS</span>
+      <span class="chipm">Français</span>
+      <span class="chipm">Local par défaut</span>
+      <span class="chipm">Hors-ligne</span>
+    </div>
+  </div>
+  <aside class="sommaire reveal in">
+    <h3>Sommaire des écrans</h3>
+    <ol>
+      <li><a href="#s1"><span class="n">01</span><span class="t">Accueil — façon Chrome</span><span class="arrow">→</span></a></li>
+      <li><a href="#s2"><span class="n">02</span><span class="t">Lecture, onglets &amp; thèmes</span><span class="arrow">→</span></a></li>
+      <li><a href="#s3"><span class="n">03</span><span class="t">Comparaison des traductions</span><span class="arrow">→</span></a></li>
+      <li><a href="#s4"><span class="n">04</span><span class="t">Recherche unifiée</span><span class="arrow">→</span></a></li>
+      <li><a href="#s5"><span class="n">05</span><span class="t">Étude personnelle</span><span class="arrow">→</span></a></li>
+      <li><a href="#s6"><span class="n">06</span><span class="t">Partage</span><span class="arrow">→</span></a></li>
+      <li><a href="#s7"><span class="n">07</span><span class="t">Bible audio</span><span class="arrow">→</span></a></li>
+      <li><a href="#s8"><span class="n">08</span><span class="t">Bibliothèque &amp; téléchargements</span><span class="arrow">→</span></a></li>
+      <li><a href="#s9"><span class="n">09</span><span class="t">Compte &amp; synchronisation</span><span class="arrow">→</span></a></li>
+      <li><a href="#sys"><span class="n">10</span><span class="t">Système visuel</span><span class="arrow">→</span></a></li>
+    </ol>
+  </aside>
+</header>
+
+<main>
+
+<!-- ═══════════ 01 · ACCUEIL ═══════════ -->
+<section class="sec" id="s1">
+  <div class="wrap grid">
+    <div class="col-txt reveal">
+      <div class="num"><svg width="22" height="30" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="1.8"/><path d="M2 30h20" stroke="currentColor" stroke-width="1.8"/></svg><b>01</b></div>
+      <h2 class="sec-title">Un accueil à la Chrome</h2>
+      <p class="lead">Toute l'application s'articule autour d'onglets, comme un navigateur : chaque lecture, recherche ou étude vit dans son propre onglet, mémorisé localement. L'accueil reprend des codes déjà familiers — apprentissage immédiat.</p>
+      <ul class="points">
+        <li>Barre de recherche universelle : versets, livres, thèmes, dictionnaires <span class="ref">§ 3.2</span></li>
+        <li>Raccourcis vers les études épinglées et les outils <span class="ref">§ 3.3</span></li>
+        <li>Carte « Reprendre la lecture » avec progression</li>
+        <li>Compteur d'onglets ouverts, bouton « Nouvel onglet » <span class="ref">§ 3.3</span></li>
+        <li>Barre de navigation : Accueil · Lecture · Recherche · Bibliothèque · Réglages</li>
+      </ul>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen sc-home">
+        <div class="island"></div>
+        <div class="sbar"><span>09:41</span><span class="sicons"><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+        <div class="inner">
+          <div class="scrollzone">
+            <div class="h-top">
+              <span class="wordmark"><svg width="15" height="20" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="2.4"/><path d="M2 30h20" stroke="currentColor" stroke-width="2.4"/></svg>Bible</span>
+              <span class="iconbtn" title="Thèmes"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1.4" fill="currentColor" stroke="none"/><circle cx="12" cy="7.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.5" cy="10" r="1.4" fill="currentColor" stroke="none"/><path d="M12 21a3 3 0 0 1 0-6h5a4 4 0 0 0 4-3"/></svg></span>
+              <span class="tabbtn">3</span>
+            </div>
+            <div class="h-search"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg><span>Rechercher un verset, un livre, un thème…</span><span class="kbadge">Jean 3.16</span></div>
+            <div class="h-short">
+              <div class="shortcut"><i>📖</i><span>Reprendre</span></div>
+              <div class="shortcut"><i>★</i><span>Favoris</span></div>
+              <div class="shortcut"><i>🎧</i><span>Audio</span></div>
+              <div class="shortcut"><i>⇄</i><span>Comparer</span></div>
+              <div class="shortcut"><i>📚</i><span>Dico</span></div>
+            </div>
+            <div class="resume">
+              <h4>Psaume 23</h4>
+              <p>« L'Éternel est mon berger : je ne manquerai de rien… »</p>
+              <div class="r-prog"><i></i></div>
+              <div class="r-meta"><span>Reprendre la lecture</span><span>v. 3 / 6</span></div>
+            </div>
+            <div class="recents">
+              <h5>Études récentes</h5>
+              <div class="rrow"><span class="ric" style="background:rgba(211,169,79,.18);color:#8a6b1f">✦</span><span><b>Ésaïe 40 — Lecture</b><small>Onglet ouvert · hier, 21:14</small></span></div>
+              <div class="rrow"><span class="ric" style="background:rgba(93,132,201,.16);color:#3d6cae">Aa</span><span><b>Dictionnaire — « Berger »</b><small>Recherche · hier, 20:58</small></span></div>
+              <div class="rrow"><span class="ric" style="background:rgba(154,164,92,.2);color:#5c6c2e">⇄</span><span><b>Romains 8 — Comparaison</b><small>3 traductions · lundi</small></span></div>
+            </div>
+          </div>
+          <nav class="bnav">
+            <div class="bitem on"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>Accueil</div>
+            <div class="bitem"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5c-2-1.4-4.6-1.8-8-1v15c3.4-.8 6-.4 8 1 2-1.4 4.6-1.8 8-1V4c-3.4-.8-6-.4-8 1Z"/><path d="M12 5v15"/></svg>Lecture</div>
+            <div class="bitem"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>Recherche</div>
+            <div class="bitem"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>Bibliothèque</div>
+            <div class="bitem"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-5.5 8-5.5s6.5 1.5 8 5.5"/></svg>Réglages</div>
+          </nav>
+        </div>
+        <div class="homebar"></div>
+      </div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 02 · LECTURE & THÈMES ═══════════ -->
+<section class="sec" id="s2">
+  <div class="wrap grid flip">
+    <div class="col-txt reveal">
+      <div class="num"><svg width="22" height="30" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="1.8"/><path d="M2 30h20" stroke="currentColor" stroke-width="1.8"/></svg><b>02</b></div>
+      <h2 class="sec-title">Lecture, onglets &amp; thèmes vivants</h2>
+      <p class="lead">Le texte biblique est la star : Cormorant Garamond, numéros de versets dorés, taille réglable au pixel près. Quatre thèmes à fond d'image — fournis par Victor — imposent chacun sa propre palette de texte.</p>
+      <ul class="points">
+        <li>Onglets navigateur au-dessus du texte, mémorisés localement <span class="ref">§ 3.3</span></li>
+        <li>Taille du texte ajustable finement (pas de 1 px) <span class="ref">§ 3.1</span></li>
+        <li>Thèmes : Vitrail · Oliveraie · Désert · Nuit étoilée <span class="ref">§ 3.4</span></li>
+        <li>Chaque thème définit titres, paragraphes, numéros, surlignage <span class="ref">§ 3.4</span></li>
+        <li>Texte disponible hors-ligne une fois téléchargé <span class="ref">§ 3.9</span></li>
+      </ul>
+      <span class="try">Démo en direct ci-contre</span>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen th-vitrail" id="readScreen">
+        <div class="island"></div>
+        <svg class="bgart" id="bgVitrail" viewBox="0 0 346 752" preserveAspectRatio="xMidYMid slice"></svg>
+        <svg class="bgart" id="bgStars" viewBox="0 0 346 752" preserveAspectRatio="xMidYMid slice"></svg>
+        <svg class="bgart" id="bgDesert" viewBox="0 0 346 752" preserveAspectRatio="xMidYMid slice">
+          <circle cx="262" cy="140" r="44" fill="#f7d98c" opacity=".9"/><circle cx="262" cy="140" r="66" fill="#f7d98c" opacity=".16"/>
+          <path d="M0 470 C80 438 150 484 230 462 S346 468 346 468 L346 752 0 752 Z" fill="#d29a5f" opacity=".75"/>
+          <path d="M0 562 C90 530 170 588 250 558 S346 560 346 560 L346 752 0 752 Z" fill="#b97b43" opacity=".9"/>
+          <path d="M0 652 C70 628 160 670 240 642 S346 650 346 650 L346 752 0 752 Z" fill="#96562e"/>
+        </svg>
+        <div class="veil"></div>
+        <div class="sbar"><span>09:41</span><span class="sicons"><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+        <div class="inner">
+          <div class="tabs" id="readTabs">
+            <div class="tab on"><i>✕</i>Ésaïe 40</div>
+            <div class="tab"><i>✕</i>Genèse 1</div>
+            <div class="tab"><i>✕</i>Dico · Berger</div>
+            <div class="tabplus">+</div>
+          </div>
+          <div class="refbar">
+            <span class="bk">Ésaïe · chapitre 40<small>Traduction Victor</small></span>
+            <span class="tchip">Victor ▾</span>
+          </div>
+          <div class="verses scrollzone" id="verses">
+            <p><span class="vn">1</span>Consolez, consolez mon peuple, dit votre Dieu.</p>
+            <p><span class="vn">2</span>Parlez au cœur de Jérusalem, et criez-lui que sa servitude est finie, que son iniquité est expiée.</p>
+            <p><span class="vn">3</span>Une voix crie dans le désert : préparez le chemin de l'Éternel, aplanissez dans la steppe une route pour notre Dieu.</p>
+            <div class="skipline">· · ·</div>
+            <p><span class="vn">28</span>Ne le sais-tu pas ? ne l'as-tu pas appris ? Le Dieu d'éternité ne se lasse ni ne se fatigue ; sa sagesse est insondable.</p>
+            <p><span class="vn">29</span>Il donne de la force à celui qui est fatigué, et il augmente la vigueur de celui qui est sans vigueur.</p>
+            <p><span class="vn">31</span><span class="hl">Mais ceux qui espèrent en l'Éternel renouvellent leur force ; ils s'élèvent avec des ailes comme des aigles ; ils courent, et ne se lassent point ; ils marchent, et ne défaillent point.</span></p>
+          </div>
+          <div class="rtools">
+            <span class="iconbtn" title="Favori">★</span>
+            <span class="iconbtn" title="Note"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+            <span class="iconbtn" title="Surligner"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m9 11-6 6v3h3l6-6"/><path d="m14 4 6 6-8 8-6-6Z"/></svg></span>
+            <span class="iconbtn" title="Partager"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="m8.3 10.8 7.4-3.6M8.3 13.2l7.4 3.6"/></svg></span>
+            <span class="iconbtn" title="Taille du texte" style="font-weight:800;font-size:13px">Aa</span>
+          </div>
+        </div>
+        <div class="homebar"></div>
+      </div></div></div>
+      <div class="controls">
+        <h6>Thème — § 3.4 · les images finales seront celles de Victor</h6>
+        <div class="throw">
+          <button class="thbtn is-on" data-th="th-vitrail"><span class="dot" style="background:conic-gradient(from 200deg,#7d1f2d,#1d3f8f,#d9a441,#1f5c46,#7d1f2d)"></span>Vitrail</button>
+          <button class="thbtn" data-th="th-oliveraie"><span class="dot" style="background:linear-gradient(135deg,#dfe4c2,#8fa073)"></span>Oliveraie</button>
+          <button class="thbtn" data-th="th-desert"><span class="dot" style="background:linear-gradient(180deg,#f7e6c0,#b97440)"></span>Désert</button>
+          <button class="thbtn" data-th="th-nuit"><span class="dot" style="background:linear-gradient(135deg,#0a1026 60%,#24345f)"></span>Nuit étoilée</button>
+        </div>
+        <div class="thcaption" id="thCaption">Fond sombre et saturé · texte parchemin clair, titres or, numéros ambre.</div>
+        <div class="sizer">
+          <label for="sizeRange">Taille du texte</label>
+          <input type="range" id="sizeRange" min="15" max="26" value="19" step="1">
+          <output id="sizeOut">19 px</output>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 03 · COMPARAISON ═══════════ -->
+<section class="sec" id="s3">
+  <div class="wrap grid">
+    <div class="col-txt reveal">
+      <div class="num"><svg width="22" height="30" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="1.8"/><path d="M2 30h20" stroke="currentColor" stroke-width="1.8"/></svg><b>03</b></div>
+      <h2 class="sec-title">Comparer, verset par verset</h2>
+      <p class="lead">La traduction de Victor est incluse par défaut. Toutes les autres se téléchargent à la demande, au choix de l'utilisateur — jamais de téléchargement forcé. La comparaison s'opère verset par verset, en cartes empilées.</p>
+      <ul class="points">
+        <li>Sélecteur de verset : précédent / suivant d'un geste <span class="ref">§ 2.1</span></li>
+        <li>Une carte par traduction choisie, ajout et retrait libres <span class="ref">§ 2.1</span></li>
+        <li>Badge « Par défaut » sur la traduction de Victor</li>
+        <li>Accès direct à la Bibliothèque pour installer une version</li>
+      </ul>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen" style="background:#f6f4ee">
+        <div class="island"></div>
+        <div class="sbar" style="color:#1d2330"><span>09:41</span><span class="sicons"><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+        <div class="inner">
+          <div class="c-top">
+            <span class="iconbtn">←</span>
+            <h4>Comparer</h4>
+            <span class="iconbtn">⋯</span>
+          </div>
+          <div class="vsel"><i>‹</i><span>Ésaïe 40.31</span><i>›</i></div>
+          <div class="scrollzone">
+            <article class="tcard">
+              <header><b>Traduction Victor</b><span class="tbadge def">Par défaut</span></header>
+              <p>Mais ceux qui espèrent en l'Éternel renouvellent leur force ; ils s'élèvent avec des ailes comme des aigles ; ils courent, et ne se lassent point ; ils marchent, et ne défaillent point.</p>
+            </article>
+            <article class="tcard">
+              <header><b>Louis Segond 1910</b><span class="tbadge dl">Téléchargée</span></header>
+              <p>Mais ceux qui se confient en l'Éternel renouvellent leur force. Ils prennent le vol comme les aigles ; ils courent, et ne se lassent point, ils marchent, et ne défaillent point.</p>
+            </article>
+            <article class="tcard">
+              <header><b>Ostervald</b><span class="tbadge dl">Téléchargée</span></header>
+              <p>Mais ceux qui s'attendent à l'Éternel prendront de nouvelles forces ; ils s'élèveront avec des ailes, comme des aigles ; ils courront, et ils ne se fatigueront point…</p>
+            </article>
+            <div class="addcard">+ Ajouter une traduction</div>
+            <p class="c-note">Les versions non installées sont téléchargées à la demande (§ 2.1).</p>
+          </div>
+        </div>
+        <div class="homebar"></div>
+      </div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 04 · RECHERCHE ═══════════ -->
+<section class="sec" id="s4">
+  <div class="wrap grid flip">
+    <div class="col-txt reveal">
+      <div class="num"><svg width="22" height="30" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="1.8"/><path d="M2 30h20" stroke="currentColor" stroke-width="1.8"/></svg><b>04</b></div>
+      <h2 class="sec-title">Une seule recherche pour tout trouver</h2>
+      <p class="lead">Versets, chapitres, thèmes, dictionnaires et lexiques apparaissent dans une même liste unifiée — jamais d'onglets de résultats séparés. Les filtres affinent sans changer d'écran.</p>
+      <ul class="points">
+        <li>Recherche simple par mot-clé <span class="ref">§ 3.2</span></li>
+        <li>Avancée : livre, chapitre, thème, expression exacte <span class="ref">§ 3.2</span></li>
+        <li>Résultats unifiés en une seule liste <span class="ref">§ 3.2</span></li>
+        <li>Occurrences surlignées dans les extraits</li>
+      </ul>
+      <span class="try">Touchez les filtres sur l'écran</span>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen" style="background:#f6f4ee">
+        <div class="island"></div>
+        <div class="sbar" style="color:#1d2330"><span>09:41</span><span class="sicons"><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+        <div class="inner">
+          <div class="field">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+            <b>berger</b><span class="caret"></span>
+            <span class="cnt">6 résultats</span>
+          </div>
+          <div class="chips" id="chips">
+            <button class="chip on" data-f="all">Tout</button>
+            <button class="chip" data-f="verset">Versets</button>
+            <button class="chip" data-f="chapitre">Chapitres</button>
+            <button class="chip" data-f="theme">Thèmes</button>
+            <button class="chip" data-f="dico">Dico &amp; lexiques</button>
+          </div>
+          <div class="scrollzone">
+            <div class="res" data-t="verset"><span class="rtag" style="background:rgba(211,169,79,.18);color:#8a6b1f">✦</span><span><b>Psaume 23.1<small>Verset</small></b><p>L'Éternel est mon <span class="kw">berger</span> : je ne manquerai de rien.</p></span></div>
+            <div class="res" data-t="verset"><span class="rtag" style="background:rgba(211,169,79,.18);color:#8a6b1f">✦</span><span><b>Jean 10.11<small>Verset</small></b><p>Je suis le bon <span class="kw">berger</span> : le bon berger donne sa vie pour ses brebis.</p></span></div>
+            <div class="res" data-t="chapitre"><span class="rtag" style="background:rgba(154,164,92,.2);color:#5c6c2e">§</span><span><b>Psaume 23<small>Chapitre</small></b><p class="ui">Le psaume du berger — 6 versets · correspondance exacte.</p></span></div>
+            <div class="res" data-t="theme"><span class="rtag" style="background:rgba(198,90,58,.16);color:#b04f2e">☙</span><span><b>Le berger dans l'Ancien Testament<small>Thème</small></b><p class="ui">12 versets liés · références croisées cliquables.</p></span></div>
+            <div class="res" data-t="dico"><span class="rtag" style="background:rgba(93,132,201,.16);color:#3d6cae">Aa</span><span><b>Berger · רוֹעֶה<small>Dictionnaire</small></b><p class="ui">Celui qui conduit, nourrit et protège le troupeau ; image de la conduite de Dieu…</p></span></div>
+            <div class="res" data-t="dico"><span class="rtag" style="background:rgba(93,132,201,.16);color:#3d6cae">א</span><span><b>ro'eh — רֹעֶה<small>Lexique hébreu</small></b><p class="ui">Nom masculin · conducteur de troupeau · 164 occurrences (Strong H7462).</p></span></div>
+          </div>
+        </div>
+        <div class="homebar"></div>
+      </div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 05 · ÉTUDE ═══════════ -->
+<section class="sec" id="s5">
+  <div class="wrap grid">
+    <div class="col-txt reveal">
+      <div class="num"><svg width="22" height="30" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="1.8"/><path d="M2 30h20" stroke="currentColor" stroke-width="1.8"/></svg><b>05</b></div>
+      <h2 class="sec-title">Surligner, noter, retenir</h2>
+      <p class="lead">Le verset sélectionné ouvre une feuille d'étude : quatre couleurs de surlignage, note personnelle datée, favori distinct. Tout reste local, et s'exporte en fichier pour changer de téléphone sereinement.</p>
+      <ul class="points">
+        <li>Surlignage 4 couleurs, directement dans le texte <span class="ref">§ 3.5</span></li>
+        <li>Notes personnelles liées au verset <span class="ref">§ 3.5</span></li>
+        <li>Favoris / marque-pages distincts (★) <span class="ref">§ 3.5</span></li>
+        <li>Export des notes en fichier <span class="ref">§ 3.5</span></li>
+      </ul>
+      <span class="try">Choisissez une couleur ci-contre</span>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen th-oliveraie" id="studyScreen" style="--hlc:rgba(242,207,91,.55)">
+        <div class="island"></div>
+        <div class="veil"></div>
+        <div class="sbar"><span>09:41</span><span class="sicons"><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+        <div class="inner">
+          <div class="refbar" style="margin-top:8px">
+            <span class="bk">Psaume 23<small>Traduction Victor · v. 1 sélectionné</small></span>
+            <span class="tchip">✕</span>
+          </div>
+          <div class="verses scrollzone" style="--vs:19px">
+            <p style="background:var(--panel);border:1px solid var(--panel2);border-radius:12px;padding:10px 12px;margin-left:-12px;margin-right:-12px"><span class="vn">1</span>L'Éternel est mon berger : je ne manquerai de rien.</p>
+            <p><span class="vn">2</span>Il me fait reposer dans de verts pâturages, il me dirige vers des eaux paisibles.</p>
+            <p><span class="vn">3</span>Il restaure mon âme, il me conduit dans les sentiers de la justice, à cause de son nom.</p>
+            <p><span class="vn">4</span><span class="hl" id="studyHl">Quand je marche dans la vallée de l'ombre de la mort, je ne crains aucun mal, car tu es avec moi…</span></p>
+            <div class="notecard">
+              <header><span>Ma note — Psaume 23.4</span><span>mer. 5 août 2026</span></header>
+              <p>« Le berger précède le troupeau : la présence vient avant la provision. À rapprocher de Jean 10.4 — mes brebis écoutent ma voix. »</p>
+            </div>
+          </div>
+          <div class="sheet">
+            <div class="drag"></div>
+            <h6>Surligner</h6>
+            <div class="swrow" id="swrow">
+              <span class="sw on" data-c="rgba(242,207,91,.55)" style="background:#f2cf5b"></span>
+              <span class="sw" data-c="rgba(182,201,138,.6)" style="background:#b6c98a"></span>
+              <span class="sw" data-c="rgba(240,168,184,.55)" style="background:#f0a8b8"></span>
+              <span class="sw" data-c="rgba(156,194,232,.55)" style="background:#9cc2e8"></span>
+              <span class="sw none" data-c="transparent" title="Effacer"></span>
+            </div>
+            <div class="acts">
+              <span class="act">✎ Note</span>
+              <span class="act">★ Favori</span>
+              <span class="act">⇄ Comparer</span>
+              <span class="act">↗ Partager</span>
+            </div>
+          </div>
+        </div>
+        <div class="homebar"></div>
+      </div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 06 · PARTAGE ═══════════ -->
+<section class="sec" id="s6">
+  <div class="wrap grid flip">
+    <div class="col-txt reveal">
+      <div class="num"><svg width="22" height="30" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="1.8"/><path d="M2 30h20" stroke="currentColor" stroke-width="1.8"/></svg><b>06</b></div>
+      <h2 class="sec-title">Partager la Parole, joliment</h2>
+      <p class="lead">Chaque verset se partage en image générée aux couleurs du thème actif, en texte brut, ou en lien. Vers les réseaux sociaux comme vers les messageries.</p>
+      <ul class="points">
+        <li>Image composée automatiquement (thème + verset + référence) <span class="ref">§ 3.6</span></li>
+        <li>Texte brut, avec ou sans référence</li>
+        <li>Lien profond vers le verset dans l'application</li>
+        <li>Messageries et réseaux usuels</li>
+      </ul>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen dark sc-share">
+        <div class="island"></div>
+        <div class="sbar" style="--sb:#dfe6f5"><span>09:41</span><span class="sicons"><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+        <div class="inner">
+          <div class="share-top"><span class="iconbtn" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);color:#dfe6f5">✕</span>Partager — Jean 10.11</div>
+          <div class="shareimg">
+            <div class="x">✠</div>
+            <blockquote>« Je suis le bon berger : le bon berger donne sa vie pour ses brebis. »</blockquote>
+            <footer>Jean 10.11 — <b>Application Bible</b></footer>
+          </div>
+          <div class="seg" id="segShare">
+            <button class="on">Image</button><button>Texte</button><button>Lien</button>
+          </div>
+          <div class="apps">
+            <div class="app"><i style="background:linear-gradient(140deg,#34c759,#1f9d45)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.2A8 8 0 1 1 21 12Z"/></svg></i>WhatsApp</div>
+            <div class="app"><i style="background:linear-gradient(140deg,#5d84c9,#3457a3)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></i>E-mail</div>
+            <div class="app"><i style="background:linear-gradient(140deg,#d3a94f,#b07d2a)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.6" cy="8.6" r="1.6"/><path d="m21 15-4.5-4.5L9 18"/></svg></i>Instagram</div>
+            <div class="app"><i style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dfe6f5" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></i>Copier</div>
+          </div>
+          <p class="s-cap">L'image est générée aux couleurs du thème actif (§ 3.4).</p>
+        </div>
+        <div class="homebar"></div>
+      </div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 07 · AUDIO ═══════════ -->
+<section class="sec" id="s7">
+  <div class="wrap grid">
+    <div class="col-txt reveal">
+      <div class="num"><svg width="22" height="30" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="1.8"/><path d="M2 30h20" stroke="currentColor" stroke-width="1.8"/></svg><b>07</b></div>
+      <h2 class="sec-title">Écouter, au choix : synthèse ou voix humaine</h2>
+      <p class="lead">Deux expériences audio au choix de l'utilisateur : voix de synthèse (TTS) disponible partout, ou enregistrements pré-produits par de vraies voix. L'audio est en streaming — la connexion est requise.</p>
+      <ul class="points">
+        <li>Sélecteur TTS / voix humaine persistant <span class="ref">§ 3.1</span></li>
+        <li>Vitesse de lecture réglable</li>
+        <li>Retour / avance de 15 secondes</li>
+        <li>Streaming uniquement — hors-ligne réservé au texte <span class="ref">§ 3.9</span></li>
+      </ul>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen dark sc-audio">
+        <div class="island"></div>
+        <div class="sbar" style="--sb:#dfe6f5"><span>09:41</span><span class="sicons"><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+        <div class="inner">
+          <div class="a-top"><span class="pillnote">◉ En streaming — connexion requise</span><span class="iconbtn" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);color:#dfe6f5">⋯</span></div>
+          <div class="art">
+            <svg class="arch" width="150" height="190" viewBox="0 0 150 190" fill="none"><path d="M15 190V70a60 60 0 0 1 120 0v120" stroke="#7c4e2a" stroke-width="5" opacity=".55"/><path d="M40 190V82a35 35 0 0 1 70 0v108" stroke="#7c4e2a" stroke-width="4" opacity=".35"/></svg>
+            <div class="big">Jean 3</div>
+            <div class="sub">Évangile selon Jean</div>
+          </div>
+          <div class="a-title">
+            <h4>Chapitre 3 — « Il faut naître de nouveau »</h4>
+            <p><span class="eq"><i></i><i></i><i></i><i></i></span> Voix humaine · enregistrement studio</p>
+          </div>
+          <div class="voice" id="voiceSeg">
+            <button class="vbtn">Voix de synthèse (TTS)</button>
+            <button class="vbtn on">Voix humaine</button>
+          </div>
+          <div class="pbar"><i></i><b></b></div>
+          <div class="ptimes"><span>4:52</span><span>12:48</span></div>
+          <div class="ctrls">
+            <span class="cbtn">↺ 15</span>
+            <span class="cbtn main"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="cbtn">15 ↻</span>
+          </div>
+        </div>
+        <div class="homebar"></div>
+      </div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 08 · BIBLIOTHÈQUE ═══════════ -->
+<section class="sec" id="s8">
+  <div class="wrap grid flip">
+    <div class="col-txt reveal">
+      <div class="num"><svg width="22" height="30" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="1.8"/><path d="M2 30h20" stroke="currentColor" stroke-width="1.8"/></svg><b>08</b></div>
+      <h2 class="sec-title">La bibliothèque : à la demande, jamais forcée</h2>
+      <p class="lead">Seule la traduction de Victor est incluse. Traductions, dictionnaires, notes et lexiques s'installent au choix, avec leur taille affichée en clair et l'espace de stockage visible.</p>
+      <ul class="points">
+        <li>Traductions gratuites au choix, téléchargement optionnel <span class="ref">§ 2.1</span></li>
+        <li>Dictionnaires &amp; notes explicatives, plusieurs au choix <span class="ref">§ 2.2</span></li>
+        <li>Lexiques hébreu &amp; grec (Strong), gratuits <span class="ref">§ 2.2</span></li>
+        <li>Références croisées cliquables entre versets liés <span class="ref">§ 2.2</span></li>
+      </ul>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen" style="background:#f6f4ee">
+        <div class="island"></div>
+        <div class="sbar" style="color:#1d2330"><span>09:41</span><span class="sicons"><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+        <div class="inner">
+          <div class="l-top"><h4>Bibliothèque</h4><span class="stor-chip">84 Mo utilisés</span></div>
+          <div class="scrollzone">
+            <div class="lsec"><h5>Traductions</h5>
+              <div class="lrow"><span><b>Traduction Victor</b><small>Incluse par défaut · français</small></span><span class="grow"></span><span class="installed">✓ Installée</span></div>
+              <div class="lrow"><span><b>Louis Segond 1910</b><small>Domaine public · 9,2 Mo</small></span><span class="grow"></span><span class="dl">↓ Télécharger</span></div>
+              <div class="lrow"><span><b>Ostervald</b><small>Domaine public · 7,8 Mo</small></span><span class="grow"></span><span class="dl">↓ Télécharger</span></div>
+              <div class="lrow"><span><b>Darby</b><small>Domaine public · 10,1 Mo</small></span><span class="grow"></span><span class="dl">↓ Télécharger</span></div>
+            </div>
+            <div class="lsec"><h5>Dictionnaires &amp; notes</h5>
+              <div class="lrow"><span><b>Dictionnaire encyclopédique</b><small>Gratuit · 24 Mo</small></span><span class="grow"></span><span class="dl">↓ Télécharger</span></div>
+              <div class="lrow"><span><b>Notes explicatives</b><small>Domaine public · 12 Mo</small></span><span class="grow"></span><span class="dl">↓ Télécharger</span></div>
+            </div>
+            <div class="lsec"><h5>Lexiques</h5>
+              <div class="lrow"><span><b>Lexique hébreu — Strong</b><small>Avec occurrences · 18 Mo</small></span><span class="grow"></span><span class="dl">↓ Télécharger</span></div>
+              <div class="lrow"><span><b>Lexique grec — Strong</b><small>Avec occurrences · 16 Mo</small></span><span class="grow"></span><span class="dl">↓ Télécharger</span></div>
+            </div>
+            <div class="stor">
+              <div class="lbl"><span>Stockage de l'appareil</span><span>84 Mo / 128 Go</span></div>
+              <div class="bar"><i></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="homebar"></div>
+      </div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 09 · COMPTE & SYNCHRO ═══════════ -->
+<section class="sec" id="s9">
+  <div class="wrap grid">
+    <div class="col-txt reveal">
+      <div class="num"><svg width="22" height="30" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="1.8"/><path d="M2 30h20" stroke="currentColor" stroke-width="1.8"/></svg><b>09</b></div>
+      <h2 class="sec-title">Local par défaut, cloud sur consentement</h2>
+      <p class="lead">Aucun compte n'est requis pour lire, surligner ou noter : tout vit sur l'appareil. La synchronisation cloud est un choix explicite, tout comme chaque notification — limitée aux nouveautés.</p>
+      <ul class="points">
+        <li>Compte optionnel ; usage de base 100 % local <span class="ref">§ 3.7</span></li>
+        <li>Synchronisation activable d'un interrupteur <span class="ref">§ 3.7</span></li>
+        <li>Export des données (notes, surlignages, favoris) <span class="ref">§ 3.5</span></li>
+        <li>Notifications : nouveautés &amp; mises à jour uniquement <span class="ref">§ 3.8</span></li>
+      </ul>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen" style="background:#f6f4ee">
+        <div class="island"></div>
+        <div class="sbar" style="color:#1d2330"><span>09:41</span><span class="sicons"><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+        <div class="inner">
+          <div class="set-top">Réglages</div>
+          <div class="profile">
+            <span class="avatar">B</span>
+            <span><b>Compte local — Invité</b><small>Aucun compte connecté</small></span>
+            <span class="cta">Créer un compte<br>(optionnel)</span>
+          </div>
+          <div class="scrollzone" style="margin-top:14px">
+            <div class="lsec" style="padding-top:0"><h5>Données</h5>
+              <div class="setrow">
+                <span class="sic" style="background:rgba(93,132,201,.16);color:#3d6cae"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 18a4 4 0 0 1 .6-8A6 6 0 0 1 19 12a3.5 3.5 0 0 1-.5 7H7Z"/></svg></span>
+                <span class="grow"><b>Synchronisation cloud</b><small>Désactivée — vos données restent sur cet appareil</small></span>
+                <label class="switch"><input type="checkbox"><i></i></label>
+              </div>
+              <div class="setrow">
+                <span class="sic" style="background:rgba(154,164,92,.2);color:#5c6c2e"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></span>
+                <span class="grow"><b>Exporter mes données</b><small>Notes, surlignages, favoris, onglets (.zip)</small></span>
+                <span class="chev">›</span>
+              </div>
+              <div class="setrow">
+                <span class="sic" style="background:rgba(211,169,79,.18);color:#8a6b1f"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+                <span class="grow"><b>Thème de l'application</b><small>Vitrail — palette or &amp; parchemin</small></span>
+                <span class="paldots"><i style="background:#7d1f2d"></i><i style="background:#1d3f8f"></i><i style="background:#d9a441"></i><i style="background:#1f5c46"></i></span>
+                <span class="chev">›</span>
+              </div>
+            </div>
+            <div class="lsec"><h5>Notifications</h5>
+              <div class="setrow">
+                <span class="sic" style="background:rgba(198,90,58,.14);color:#b04f2e"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 9a6 6 0 1 0-12 0c0 6-2.5 7-2.5 7h17S18 15 18 9Z"/><path d="M10 20a2.2 2.2 0 0 0 4 0"/></svg></span>
+                <span class="grow"><b>Nouveautés &amp; mises à jour</b><small>Rien d'autre — jamais de rappels quotidiens</small></span>
+                <label class="switch"><input type="checkbox" checked><i></i></label>
+              </div>
+              <div class="setrow">
+                <span class="sic" style="background:rgba(154,164,92,.2);color:#5c6c2e"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20"/><path d="M5 20V9l7-5 7 5v11"/><path d="M9 20v-6h6v6"/></svg></span>
+                <span class="grow"><b>Hors-ligne</b><small>Dernier livre ouvert conservé en cache · texte seul</small></span>
+                <span class="chev">›</span>
+              </div>
+            </div>
+          </div>
+          <p class="set-foot">Application Bible · v1.0 · gratuite, sans publicité, sans compte requis</p>
+        </div>
+        <div class="homebar"></div>
+      </div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 10 · SYSTÈME VISUEL ═══════════ -->
+<section class="sec" id="sys">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="num"><svg width="22" height="30" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="1.8"/><path d="M2 30h20" stroke="currentColor" stroke-width="1.8"/></svg><b>10</b></div>
+      <h2 class="sec-title">Système visuel</h2>
+      <p class="lead">Deux familles typographiques, quatre thèmes complets, une iconographie filaire : tout ce qu'il faut pour développer l'interface sans improviser.</p>
+    </div>
+    <div class="ds-grid">
+      <div class="card c-typo reveal">
+        <h5>Typographie</h5>
+        <div class="spec">
+          <div><span class="g">Aa</span><span class="g u" style="font-size:44px">Aa</span></div>
+          <dl>
+            <dt>Cormorant Garamond</dt><dd>Display, texte biblique, versets partagés</dd>
+            <dt>Manrope</dt><dd>Interface, onglets, réglages, annotations</dd>
+            <dt>Corps de lecture</dt><dd>15 → 26 px, pas de 1 px (§ 3.1)</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="card c-themes reveal">
+        <h5>Thèmes — fonds fournis par Victor (§ 3.4)</h5>
+        <div class="th-row">
+          <div class="th-card"><div class="thumb" style="background:linear-gradient(160deg,rgba(10,7,3,.25),rgba(10,7,3,.6)),conic-gradient(from 210deg,#7d1f2d,#1d3f8f,#d9a441,#1f5c46,#7d1f2d)"></div><b>Vitrail</b><small>Fond sombre saturé · texte parchemin, titres or</small><span class="pd"><i style="background:#8e2030"></i><i style="background:#1d3f8f"></i><i style="background:#d9a441"></i><i style="background:#1f5c46"></i><i style="background:#f4ecd7"></i></span></div>
+          <div class="th-card"><div class="thumb" style="background:radial-gradient(80% 70% at 80% 0%,#f8f0cf,transparent 60%),linear-gradient(160deg,#dfe4c2,#8fa073)"></div><b>Oliveraie</b><small>Fond clair végétal · texte vert-brun profond</small><span class="pd"><i style="background:#5f6f3a"></i><i style="background:#a8b183"></i><i style="background:#f1efe2"></i><i style="background:#4a3f2d"></i><i style="background:#33401f"></i></span></div>
+          <div class="th-card"><div class="thumb" style="background:linear-gradient(180deg,#f7e6c0,#ddaa6c 60%,#b97440)"></div><b>Désert — Terre sainte</b><small>Dégradé de dunes · texte brun-terre, titres ocre</small><span class="pd"><i style="background:#e6c795"></i><i style="background:#c98a4b"></i><i style="background:#96562e"></i><i style="background:#f3e4c8"></i><i style="background:#3f2511"></i></span></div>
+          <div class="th-card"><div class="thumb" style="background:radial-gradient(60% 50% at 75% 15%,#2a3c6e,transparent),linear-gradient(180deg,#0a1026,#05080f)"></div><b>Nuit étoilée</b><small>Bleu profond · texte lune, accents bleu-argent</small><span class="pd"><i style="background:#0a1026"></i><i style="background:#2c3a66"></i><i style="background:#f2ead0"></i><i style="background:#cfd8ea"></i><i style="background:#8fa7d9"></i></span></div>
+        </div>
+      </div>
+      <div class="card c-comp reveal">
+        <h5>Composants</h5>
+        <div class="samples">
+          <span class="smp-chip" style="background:#3a3226;color:#f2ead8">Chip actif</span>
+          <span class="smp-chip" style="background:transparent;border:1px solid var(--line2);color:var(--paper)">Chip repos</span>
+          <span class="smp-chip" style="background:var(--gold);color:#241a04">Badge défaut</span>
+          <label class="switch"><input type="checkbox" checked><i></i></label>
+          <span class="smp-chip" style="background:rgba(238,199,109,.35);color:#f0d089;border:1px dashed rgba(238,199,109,.5)">★ Favori</span>
+          <div class="smp-verse"><span class="vn">16</span>Car Dieu a tant aimé le monde qu'il a donné son Fils unique… <span class="hl">Jean 3.16</span></div>
+        </div>
+      </div>
+      <div class="card c-icons reveal">
+        <h5>Iconographie — fil 1.8 px, coins arrondis</h5>
+        <div class="iconrow">
+          <span class="icobox"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg></span>
+          <span class="icobox"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5c-2-1.4-4.6-1.8-8-1v15c3.4-.8 6-.4 8 1 2-1.4 4.6-1.8 8-1V4c-3.4-.8-6-.4-8 1Z"/><path d="M12 5v15"/></svg></span>
+          <span class="icobox"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 2.7 5.6 6.3.8-4.6 4.3 1.2 6.1L12 16.9l-5.6 2.9 1.2-6.1L3 9.4l6.3-.8Z"/></svg></span>
+          <span class="icobox"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg></span>
+          <span class="icobox"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16"/><path d="M7 20V9a5 5 0 0 1 10 0v11"/></svg></span>
+          <span class="icobox"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1.3" fill="currentColor"/><circle cx="4" cy="12" r="1.3" fill="currentColor"/><circle cx="4" cy="18" r="1.3" fill="currentColor"/></svg></span>
+          <span class="icobox"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V6l12-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+          <span class="icobox"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PIED ═══════════ -->
+<section class="foot">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="num"><svg width="22" height="30" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="1.8"/><path d="M2 30h20" stroke="currentColor" stroke-width="1.8"/></svg><b>✦</b></div>
+      <h2 class="sec-title">Points ouverts — recommandations techniques</h2>
+    </div>
+    <div class="f-grid">
+      <div class="fcard reveal">
+        <h4>Stack proposée (§ 4 &amp; 5)</h4>
+        <ul>
+          <li><b>React Native (Expo)</b> en premier choix : un seul code pour Android + iOS, rendu natif et contrôle typographique fin — la priorité visuelle du cahier des charges. Flutter reste écarté, conformément au § 4.</li>
+          <li><b>SQLite embarqué</b> pour le texte biblique, les lexiques Strong et les données locales (notes, surlignages, favoris, onglets) — socle du mode hors-ligne.</li>
+          <li><b>Filebase</b> pour la synchronisation cloud optionnelle (§ 3.7) : objet simple, aucune donnée utilisateur par défaut.</li>
+          <li><b>Audio</b> : TTS via moteur natif (AVSpeechSynthesizer / Android TTS), voix humaines en flux MP3 — streaming uniquement (§ 3.1).</li>
+        </ul>
+      </div>
+      <div class="fcard reveal">
+        <h4>Rappels du périmètre</h4>
+        <ul>
+          <li>100 % gratuite, sans version premium, sans publicité.</li>
+          <li>Français uniquement dans cette version.</li>
+          <li><b>Pas de plans de lecture</b> — hors périmètre v1.</li>
+          <li>Notifications limitées aux nouveautés (§ 3.8).</li>
+          <li>Images de fond des thèmes fournies par Victor ; la maquette les simule fidèlement.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="credit">Application Bible · Maquette UI <b>v1</b> — établie le mercredi 5 août 2026, fidèle au cahier des charges · « Ta parole est une lampe à mes pieds »</p>
+  </div>
+</section>
+</main>
+
+<script>
+/* ---------- utilitaires ---------- */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+
+/* ---------- vitrail généré ---------- */
+(function(){
+  const svg=document.getElementById('bgVitrail');if(!svg)return;
+  const R=mulberry32(11905);
+  const cols=5,rows=8,W=346,H=752,cw=W/cols,ch=H/rows;
+  const pal=['#7d1f2d','#1d3f8f','#d9a441','#1f5c46','#5b2a86','#24529e','#a63a2e','#c9822e','#2a6b52','#8e2030'];
+  const pts=[];
+  for(let r=0;r<=rows;r++){pts[r]=[];for(let c=0;c<=cols;c++){
+    const jx=(c===0||c===cols)?0:(R()*2-1)*17;
+    const jy=(r===0||r===rows)?0:(R()*2-1)*17;
+    pts[r][c]=[(c*cw+jx).toFixed(1),(r*ch+jy).toFixed(1)];}}
+  let out='';
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+    const a=pts[r][c],b=pts[r][c+1],d=pts[r+1][c+1],e=pts[r+1][c];
+    out+='<polygon points="'+a+' '+b+' '+d+' '+e+'" fill="'+pal[Math.floor(R()*pal.length)]+'"/>';
+  }
+  svg.innerHTML='<g stroke="#171008" stroke-width="5.5" stroke-linejoin="round">'+out+'</g>';
+})();
+
+/* ---------- ciel étoilé généré ---------- */
+(function(){
+  const svg=document.getElementById('bgStars');if(!svg)return;
+  const R=mulberry32(4066);
+  let out='<circle cx="282" cy="96" r="30" fill="#e8e0c4" opacity=".95"/><circle cx="294" cy="88" r="26" fill="#0a1026"/>';
+  for(let i=0;i<70;i++){
+    const cx=(R()*346).toFixed(1),cy=(R()*752).toFixed(1),r=(0.6+R()*1.4).toFixed(2),o=(0.25+R()*0.7).toFixed(2);
+    const tw=R()<0.16?' class="tw" style="animation-delay:'+(R()*4).toFixed(1)+'s"':'';
+    out+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="#f2ead0" opacity="'+o+'"'+tw+'/>';
+  }
+  svg.innerHTML=out;
+})();
+
+/* ---------- commutateur de thèmes (§ 3.4) ---------- */
+const captions={
+  'th-vitrail':'Fond sombre et saturé · texte parchemin clair, titres or, numéros ambre.',
+  'th-oliveraie':'Fond clair végétal · texte vert-brun profond, titres olive, surlignage doux.',
+  'th-desert':'Dégradé de dunes · texte brun-terre, titres ocre, panneaux crème.',
+  'th-nuit':'Bleu profond étoilé · texte clair-de-lune, titres argent-doré, accents saphir.'
+};
+document.querySelectorAll('.thbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.thbtn').forEach(b=>b.classList.remove('is-on'));
+    btn.classList.add('is-on');
+    const sc=document.getElementById('readScreen');
+    sc.classList.remove('th-vitrail','th-oliveraie','th-desert','th-nuit');
+    sc.classList.add(btn.dataset.th);
+    document.getElementById('thCaption').textContent=captions[btn.dataset.th];
+  });
+});
+
+/* ---------- taille du texte (§ 3.1) ---------- */
+const range=document.getElementById('sizeRange'),out=document.getElementById('sizeOut');
+range.addEventListener('input',()=>{
+  document.getElementById('verses').style.setProperty('--vs',range.value+'px');
+  out.textContent=range.value+' px';
+});
+
+/* ---------- onglets façon Chrome (§ 3.3) ---------- */
+document.querySelectorAll('#readTabs .tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('#readTabs .tab').forEach(x=>x.classList.remove('on'));
+    t.classList.add('on');
+  });
+});
+
+/* ---------- recherche : filtres (§ 3.2) ---------- */
+document.querySelectorAll('#chips .chip').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    document.querySelectorAll('#chips .chip').forEach(c=>c.classList.remove('on'));
+    ch.classList.add('on');
+    const f=ch.dataset.f;
+    document.querySelectorAll('.res').forEach(r=>{
+      r.classList.toggle('hide',!(f==='all'||r.dataset.t===f));
+    });
+  });
+});
+
+/* ---------- surlignage (§ 3.5) ---------- */
+document.querySelectorAll('#swrow .sw').forEach(sw=>{
+  sw.addEventListener('click',()=>{
+    document.querySelectorAll('#swrow .sw').forEach(s=>s.classList.remove('on'));
+    sw.classList.add('on');
+    const hl=document.getElementById('studyHl');
+    const c=sw.dataset.c;
+    hl.style.background=(c==='transparent')?'transparent':c;
+    hl.style.outline=(c==='transparent')?'1.5px dashed rgba(51,64,31,.4)':'none';
+  });
+});
+
+/* ---------- partage : segment (§ 3.6) ---------- */
+document.querySelectorAll('#segShare button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#segShare button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+  });
+});
+
+/* ---------- audio : voix (§ 3.1) ---------- */
+document.querySelectorAll('#voiceSeg .vbtn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#voiceSeg .vbtn').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    const sub=document.querySelector('.a-title p');
+    sub.lastChild.textContent=b.textContent.trim()==='Voix humaine'?' Voix humaine · enregistrement studio':' Voix de synthèse (TTS) · moteur natif';
+  });
+});
+
+/* ---------- révélations au défilement ---------- */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

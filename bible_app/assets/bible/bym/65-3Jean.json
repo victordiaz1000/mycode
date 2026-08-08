@@ -1,0 +1,98 @@
+{
+  "book": "3 Yohanan (3 Jean)",
+  "abbreviation": "3 Jn.",
+  "metadata": {
+    "signification": "YHWH a fait grâce",
+    "auteur": "Yohanan (Jean)",
+    "theme": "Sincérité, hospitalité et caractère du chrétien",
+    "date": "Env. 85 ap. J.-C."
+  },
+  "introduction": "Cette lettre était destinée à Gaïos, l'un des responsables d'une assemblée d'Asie Mineure, dont Yohanan loue la piété et la générosité. Il l'avertit de l'orgueil et des agissements de Diotrephes qui étaient contraires à la Parole, mais souligne le bon témoignage de Démétrios.",
+  "chapters": [
+    {
+      "chapter": 1,
+      "verses": [
+        {
+          "verse": "1:1",
+          "text": "L'ancien, à Gaïos le bien-aimé que j'aime en vérité."
+        },
+        {
+          "verse": "1:2",
+          "text": "Bien-aimé, sur toutes choses je te souhaite de prospérer et d'être en bonne santé, comme prospère ton âme.",
+          "textWithNotes": "Bien-aimé, sur toutes choses je te souhaite de prospérer[Le mot grec « euodoo » signifie « concevoir un voyage prospère et diligent », « mener par une voie directe et facile », « prospérer », « être heureux ».] et d'être en bonne santé, comme prospère ton âme.",
+          "notes": [
+            {
+              "word": "prospérer",
+              "position": 47,
+              "note": "Le mot grec « euodoo » signifie « concevoir un voyage prospère et diligent », « mener par une voie directe et facile », « prospérer », « être heureux »."
+            }
+          ]
+        },
+        {
+          "verse": "1:3",
+          "text": "Car je me suis beaucoup réjoui, des frères en venant et en rendant témoignage à la vérité qui est en toi, et à la manière dont tu marches dans la vérité."
+        },
+        {
+          "verse": "1:4",
+          "text": "Je n'ai pas de plus grande joie que celles-ci, que j'apprenne que mes enfants marchent dans la vérité."
+        },
+        {
+          "verse": "1:5",
+          "text": "Bien-aimé, tu agis fidèlement dans tout ce que tu fais pour les frères et pour les étrangers,"
+        },
+        {
+          "verse": "1:6",
+          "text": "qui en présence de l'assemblée, ont rendu témoignage de ton amour. Tu feras bien en les escortant d'une manière digne d'Elohîm.",
+          "textWithNotes": "qui en présence de l'assemblée, ont rendu témoignage de ton amour. Tu feras bien en les escortant[En équipant du nécessaire pour un voyage.] d'une manière digne d'Elohîm.",
+          "notes": [
+            {
+              "word": "escortant",
+              "position": 88,
+              "note": "En équipant du nécessaire pour un voyage."
+            }
+          ]
+        },
+        {
+          "verse": "1:7",
+          "text": "Car ils sont partis en faveur de son nom, ne prenant rien des nations."
+        },
+        {
+          "verse": "1:8",
+          "text": "Nous devons donc recevoir de tels hommes, afin que nous devenions leurs compagnons d'œuvre pour la vérité."
+        },
+        {
+          "verse": "1:9",
+          "text": "J'ai écrit à l'assemblée, mais Diotrephes, désirant être le premier parmi eux, ne nous reçoit pas.",
+          "textWithNotes": "J'ai écrit à l'assemblée, mais Diotrephes[Vient de « Zeus (un père des secours) » et de « trepho (nourrir, élever) » : « nourri par Zeus ».], désirant être le premier parmi eux, ne nous reçoit pas.",
+          "notes": [
+            {
+              "word": "Diotrephes",
+              "position": 31,
+              "note": "Vient de « Zeus (un père des secours) » et de « trepho (nourrir, élever) » : « nourri par Zeus »."
+            }
+          ]
+        },
+        {
+          "verse": "1:10",
+          "text": "En raison de cela, si je viens, je rappellerai les œuvres qu'il fait en tenant contre nous de mauvais discours. Et n'étant pas satisfait de ces choses, non seulement il ne reçoit pas lui-même les frères, mais il empêche même ceux qui veulent les recevoir et les chasse hors de l'assemblée."
+        },
+        {
+          "verse": "1:11",
+          "text": "Bien-aimé, n'imite pas ce qui est mauvais, mais ce qui est bon. Celui qui fait le bien est issu d'Elohîm, mais celui qui fait le mal n'a pas vu Elohîm."
+        },
+        {
+          "verse": "1:12",
+          "text": "Pour Démétrios, témoignage lui est rendu par tous et par la vérité elle-même. Et nous aussi, nous lui rendons témoignage et vous savez que notre témoignage est véritable."
+        },
+        {
+          "verse": "1:13",
+          "text": "J'avais beaucoup de choses à écrire, mais je ne veux pas t'écrire avec l'encre et la plume."
+        },
+        {
+          "verse": "1:14",
+          "text": "Mais j'espère te voir immédiatement et nous parlerons de bouche à bouche. Shalôm à toi ! Les amis te saluent. Salue les amis, chacun par son nom."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Application Bible — Maquette v3 · Lecture avec ou sans notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0f1d; --gold:#d3a94f; --gold2:#f0d089;
+  --line:rgba(211,169,79,.18); --line2:rgba(211,169,79,.34);
+  --mut:#93a0b8; --ink:#e9eef8; --disp:'Cormorant Garamond',serif; --ui:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;overflow-x:hidden}
+::selection{background:rgba(211,169,79,.35)}
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(1200px 800px at 78% -10%,rgba(46,74,140,.28),transparent 60%),radial-gradient(1000px 700px at -12% 112%,rgba(122,84,30,.16),transparent 60%)}
+.sky::before{content:"";position:absolute;inset:0;background-image:
+  radial-gradient(1.4px 1.4px at 12% 18%,rgba(242,234,208,.7),transparent 60%),
+  radial-gradient(1.2px 1.2px at 34% 8%,rgba(242,234,208,.5),transparent 60%),
+  radial-gradient(1.6px 1.6px at 58% 22%,rgba(242,234,208,.6),transparent 60%),
+  radial-gradient(1.3px 1.3px at 91% 34%,rgba(242,234,208,.5),transparent 60%),
+  radial-gradient(1.5px 1.5px at 47% 60%,rgba(242,234,208,.45),transparent 60%),
+  radial-gradient(1.2px 1.2px at 8% 74%,rgba(242,234,208,.5),transparent 60%);
+  animation:twk 9s ease-in-out infinite alternate}
+@keyframes twk{from{opacity:.35}to{opacity:.9}}
+body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.045;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.55'/></svg>")}
+main,header.mast,footer,.topbar{position:relative;z-index:2}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;gap:26px;padding:12px 32px;background:rgba(10,15,29,.92);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;white-space:nowrap}
+.brand svg{color:var(--gold)}
+.brand small{font-weight:600;color:var(--mut)}
+.vbadge{font-size:10px;font-weight:800;letter-spacing:.1em;background:linear-gradient(120deg,var(--gold2),var(--gold));color:#241a04;border-radius:99px;padding:3px 9px}
+.tnav{display:flex;gap:4px;margin-left:auto}
+.tnav a{color:var(--mut);text-decoration:none;font-size:12px;font-weight:700;padding:6px 9px;border-radius:8px;transition:.2s}
+.tnav a:hover{color:var(--gold2);background:rgba(211,169,79,.1)}
+
+.mast{max-width:1240px;margin:0 auto;padding:126px 32px 50px}
+.overline{display:flex;align-items:center;gap:14px;font-size:12px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.overline::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line2),transparent)}
+.mast h1{font-family:var(--disp);font-weight:600;font-size:clamp(44px,5.4vw,74px);line-height:1.02;margin:16px 0 14px}
+.mast h1 em{font-style:italic;color:var(--gold2)}
+.tagline{font-size:16.5px;color:var(--mut);max-width:780px}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.chipm{font-size:12px;font-weight:800;letter-spacing:.08em;padding:8px 14px;border:1px solid var(--line2);border-radius:99px;color:#f2ead8;background:rgba(211,169,79,.06)}
+.chipm.hl{background:var(--gold);border-color:var(--gold);color:#231a05}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.sec{border-top:1px solid var(--line);padding:86px 0}
+.grid{display:grid;grid-template-columns:minmax(300px,440px) auto;gap:70px;align-items:center;justify-content:center}
+.num{display:flex;align-items:center;gap:14px;color:var(--gold);margin-bottom:16px}
+.num b{font-family:var(--disp);font-style:italic;font-weight:500;font-size:54px;line-height:1;color:var(--gold2)}
+.sec-title{font-family:var(--disp);font-weight:600;font-size:clamp(28px,3.2vw,42px);line-height:1.12;margin-bottom:14px}
+.lead{color:#c3cbdc;font-size:15.5px;max-width:470px}
+.gestures{list-style:none;margin-top:24px;display:grid;gap:11px}
+.gestures li{position:relative;padding-left:26px;font-size:14.5px;color:#d5dbe8}
+.gestures li::before{content:"☞";position:absolute;left:0;top:1px;color:var(--gold);font-size:13px}
+.gestures b{color:#fff}
+.ref{display:inline-block;font-size:10.5px;font-weight:800;color:var(--gold);border:1px solid var(--line2);border-radius:99px;padding:2px 8px;margin-left:8px;vertical-align:1px}
+.n2{font-size:9.5px;font-weight:800;letter-spacing:.08em;color:#241a04;background:linear-gradient(120deg,var(--gold2),var(--gold));border-radius:99px;padding:2px 8px;margin-left:6px;vertical-align:1px}
+
+/* ---------- téléphone ---------- */
+.phone{position:relative;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.phone:hover{transform:translateY(-8px)}
+.phone::before{content:"";position:absolute;inset:-50px -70px;background:radial-gradient(50% 55% at 50% 42%,rgba(211,169,79,.13),transparent 70%)}
+.frame{position:relative;width:370px;background:#04060b;border:1px solid #2a3040;border-radius:58px;padding:12px;box-shadow:0 50px 100px rgba(0,0,0,.6)}
+.screen{position:relative;width:346px;height:752px;border-radius:47px;overflow:hidden;font-family:var(--ui);user-select:none;-webkit-user-select:none}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:106px;height:27px;background:#04060b;border-radius:20px;z-index:70}
+.homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:118px;height:5px;border-radius:3px;background:rgba(200,200,210,.4);z-index:70}
+.sbar{display:flex;justify-content:space-between;align-items:center;padding:15px 26px 0;font-size:13px;font-weight:800;position:relative;z-index:8;color:var(--sb,#f0e6cc)}
+.view{display:flex;flex-direction:column;height:100%}
+.th-vitrail{--tx:#f4ecd7;--tx2:#d8c79e;--hd:#eec76d;--num:#d9a441;--acc:#eec76d;--panel:rgba(19,13,7,.62);--panel2:rgba(238,199,109,.18);--hlc:rgba(238,199,109,.4);--stripbg:rgba(19,13,7,.55);--striptx:#d8c79e;color:var(--tx);
+  background:linear-gradient(160deg,rgba(10,7,3,.3),rgba(10,7,3,.62)),conic-gradient(from 210deg at 55% 35%,#7d1f2d,#1d3f8f 22%,#d9a441 40%,#1f5c46 58%,#5b2a86 76%,#7d1f2d)}
+
+/* barre d'onglets */
+.strip{display:flex;align-items:center;gap:6px;padding:12px 10px 6px;overflow:hidden}
+.stab{display:flex;align-items:center;gap:6px;max-width:112px;padding:7px 9px;border-radius:11px 11px 4px 4px;font-size:10.5px;font-weight:800;white-space:nowrap;cursor:pointer;transition:.2s;background:var(--stripbg);color:var(--striptx);border:1px solid var(--panel2);flex:none}
+.stab.on{background:var(--panel);color:var(--tx);border-color:var(--acc);box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.stab i{font-style:normal;font-size:9px;opacity:.65}
+.c-ic{color:var(--gold);font-weight:800;font-size:11px}
+.scount{flex:none;min-width:29px;height:29px;border-radius:9px;display:grid;place-items:center;background:var(--gold);color:#241a04;font-size:11.5px;font-weight:800;cursor:pointer;padding:0 7px;margin-left:auto;box-shadow:0 4px 12px rgba(211,169,79,.4)}
+
+.refbar{display:flex;align-items:center;gap:10px;margin:6px 14px 0;padding:11px 14px;background:var(--panel);border-radius:14px;border:1px solid var(--panel2)}
+.refbar .bk{font-family:var(--disp);font-weight:700;font-size:17px;color:var(--hd);flex:1;white-space:nowrap;overflow:hidden}
+.refbar .bk small{display:block;font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tx2)}
+.tchip{font-size:11px;font-weight:800;color:var(--tx);background:var(--panel2);border:1px solid var(--panel2);border-radius:99px;padding:6px 11px;flex:none;cursor:pointer}
+
+/* ---------- la bascule ---------- */
+.modeseg{display:flex;margin:10px 14px 4px;background:var(--panel);border:1px solid var(--panel2);border-radius:99px;padding:4px;gap:4px}
+.modeseg button{flex:1;border:0;background:transparent;color:var(--tx2);font-family:var(--ui);font-size:11.5px;font-weight:800;padding:9px 0;border-radius:99px;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center;gap:7px}
+.modeseg button:hover{color:var(--tx)}
+.modeseg button.on{background:linear-gradient(120deg,var(--gold2),var(--gold));color:#241a04;box-shadow:0 6px 14px rgba(211,169,79,.35)}
+.nbadge{font-size:9.5px;font-weight:800;background:rgba(0,0,0,.2);border-radius:99px;padding:2px 7px}
+.modeseg button.on .nbadge{background:rgba(36,26,4,.2)}
+
+.vbody{flex:1;overflow-y:auto;scrollbar-width:none;min-height:0}
+.vbody::-webkit-scrollbar{display:none}
+.verses{padding:16px 24px 26px}
+.verses p{font-family:var(--disp);font-size:19px;line-height:1.62;margin-bottom:.8em}
+.vn{font-family:var(--ui);font-size:.58em;font-weight:800;color:var(--num);vertical-align:super;margin-right:6px}
+.nmark{color:var(--acc);font-size:.62em;vertical-align:super;margin-left:5px;cursor:pointer;display:inline-block;transition:.25s;animation:npulse 2.6s ease-in-out infinite}
+.withnotes .nmark{animation:none;opacity:.85}
+.nmark:hover{transform:scale(1.35)}
+@keyframes npulse{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.18)}}
+
+/* cartes de notes — repli/déploiement */
+.notewrap{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .5s cubic-bezier(.2,.7,.2,1),opacity .4s ease}
+.withnotes .notewrap{grid-template-rows:1fr;opacity:1}
+.noteclip{overflow:hidden}
+.note{background:var(--panel);border:1px solid var(--panel2);border-left:3px solid var(--acc);border-radius:12px;padding:12px 14px;margin:0 0 16px;transition:border-color .3s}
+.note header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+.nlbl{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--hd)}
+.nsrc{font-size:9.5px;font-weight:700;color:var(--tx2);border:1px solid var(--panel2);border-radius:99px;padding:2px 9px;white-space:nowrap}
+.note p{font-family:var(--ui);font-size:12.5px;line-height:1.6;color:var(--tx);opacity:.92;margin:0}
+.note.flash{animation:nflash 1.3s ease}
+@keyframes nflash{0%{box-shadow:0 0 0 0 rgba(238,199,109,0)}30%{box-shadow:0 0 0 5px rgba(238,199,109,.35);border-color:var(--acc)}100%{box-shadow:0 0 0 0 rgba(238,199,109,0)}}
+
+.toast{position:absolute;left:50%;bottom:66px;transform:translateX(-50%) translateY(20px);background:#f2ead8;color:#241a04;font-size:11.5px;font-weight:800;padding:9px 16px;border-radius:99px;opacity:0;transition:.3s;z-index:80;pointer-events:none;box-shadow:0 10px 24px rgba(0,0,0,.45);white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%)}
+.cap{margin-top:20px;text-align:center;font-size:12.5px;color:var(--mut);max-width:380px}
+.cap b{color:var(--gold2)}
+
+/* ---------- anatomie ---------- */
+.ana{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px;align-items:start}
+.ana-card{border:1px solid var(--line);border-radius:20px;padding:26px;background:linear-gradient(165deg,rgba(255,255,255,.035),rgba(255,255,255,.01));transition:.3s}
+.ana-card:hover{border-color:var(--line2);transform:translateY(-4px)}
+.ana-card h5{font-size:10.5px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.stage{position:relative;border-radius:16px;padding:26px 22px;margin-bottom:18px;border:1px solid rgba(255,255,255,.06);
+  background:linear-gradient(160deg,rgba(10,7,3,.35),rgba(10,7,3,.66)),conic-gradient(from 210deg at 55% 35%,#7d1f2d,#1d3f8f 22%,#d9a441 40%,#1f5c46 58%,#5b2a86 76%,#7d1f2d)}
+.stage .sv{font-family:var(--disp);font-size:21px;line-height:1.55;color:#f4ecd7;margin-bottom:14px}
+.stage .sv .vn{font-family:var(--ui);font-size:.58em;font-weight:800;color:#d9a441;vertical-align:super;margin-right:7px}
+.stage .sv .nmark{color:#eec76d;font-size:.62em;vertical-align:super;margin-left:5px}
+.bignote{background:rgba(19,13,7,.66);border:1px solid rgba(238,199,109,.2);border-left:3px solid #eec76d;border-radius:13px;padding:14px 16px}
+.bignote header{display:flex;justify-content:space-between;gap:8px;margin-bottom:7px}
+.bignote .nlbl{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#eec76d}
+.bignote .nsrc{font-size:10px;font-weight:700;color:#d8c79e;border:1px solid rgba(238,199,109,.2);border-radius:99px;padding:2px 10px}
+.bignote p{font-size:13px;line-height:1.65;color:#f4ecd7;opacity:.92}
+.mk{position:absolute;width:20px;height:20px;border-radius:50%;background:var(--gold);color:#241a04;font-size:11px;font-weight:800;display:grid;place-items:center;box-shadow:0 3px 8px rgba(0,0,0,.45);z-index:6;font-family:var(--ui)}
+.legend{list-style:none;display:grid;gap:9px}
+.legend li{font-size:13px;color:#c3cbdc;display:flex;gap:10px;align-items:baseline}
+.legend li b{flex:none;width:18px;height:18px;border-radius:50%;background:rgba(211,169,79,.16);border:1px solid var(--line2);color:var(--gold2);font-size:10.5px;display:grid;place-items:center;transform:translateY(3px)}
+.behavior{list-style:none;display:grid;gap:13px;margin-top:6px}
+.behavior li{border:1px solid var(--line);border-radius:14px;padding:15px 18px;font-size:13.5px;color:#c3cbdc;transition:.25s;background:rgba(255,255,255,.02)}
+.behavior li:hover{border-color:var(--line2);transform:translateX(4px)}
+.behavior b{color:#f2ead8;display:block;margin-bottom:2px}
+
+/* ---------- JSON ---------- */
+.codepanel{background:#0d1426;border:1px solid var(--line);border-radius:18px;padding:26px 28px;overflow-x:auto;font-family:ui-monospace,'SF Mono','Cascadia Mono',Consolas,monospace;font-size:13px;line-height:1.75;color:#c9d0df;margin-top:30px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.codepanel .k{color:#f0d089}
+.codepanel .s{color:#9cc2e8}
+.codepanel .p{color:#6e7a96}
+.codepanel .c{color:#5d6a86;font-style:italic}
+.codepanel .fn{display:block;font-family:var(--ui);font-size:10.5px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.callout{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line2);border-radius:18px;padding:22px 26px;margin-top:26px;background:linear-gradient(120deg,rgba(211,169,79,.1),rgba(211,169,79,.02))}
+.callout .ic{flex:none;width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(140deg,var(--gold2),var(--gold));color:#241a04;font-size:20px}
+.callout p{font-size:14px;color:#d5dbe8}
+.callout b{color:#fff}
+
+.foot{border-top:1px solid var(--line);padding:54px 0}
+.credit{text-align:center;font-size:12px;color:var(--mut);letter-spacing:.06em}
+.credit b{color:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:1080px){
+  .grid{grid-template-columns:1fr;gap:44px;justify-items:center}
+  .ana{grid-template-columns:1fr}
+  .tnav{display:none}
+}
+@media(max-width:480px){
+  .frame{width:calc(100vw - 40px);max-width:370px}
+  .screen{width:100%;height:740px}
+  .wrap{padding:0 20px}
+  .mast{padding:104px 20px 44px}
+}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+
+<nav class="topbar">
+  <div class="brand">
+    <svg width="16" height="22" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="2"/><path d="M2 30h20" stroke="currentColor" stroke-width="2"/></svg>
+    Application Bible <small>· Maquette — Fenêtre de lecture</small> <span class="vbadge">v3</span>
+  </div>
+  <div class="tnav">
+    <a href="#demo">Démo interactive</a><a href="#anatomie">Anatomie &amp; comportements</a><a href="#json">Structure JSON</a>
+  </div>
+</nav>
+
+<header class="mast">
+  <div class="overline">Maquette UI · v3 — Fenêtre de lecture · § 2.2 &amp; § 3.1</div>
+  <h1>La lecture <em>annotée</em></h1>
+  <p class="tagline">Un seul bouton pour basculer à tout moment entre le <b style="color:#f2ead8">texte biblique seul</b> et le <b style="color:#f2ead8">texte accompagné des notes</b> — les notes s'insèrent sous chaque verset concerné, sans quitter la lecture.</p>
+  <div class="meta">
+    <span class="chipm hl">Bouton de bascule</span>
+    <span class="chipm">Notes par verset</span>
+    <span class="chipm">Déploiement animé</span>
+    <span class="chipm">Réglage mémorisé</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════ DÉMO ═══════ -->
+<section class="sec" id="demo">
+  <div class="wrap grid">
+    <div class="col-txt reveal">
+      <div class="num"><b>01</b></div>
+      <h2 class="sec-title">Basculer d'un geste, à tout instant</h2>
+      <p class="lead">Le contrôle est posé juste sous la référence, toujours visible. En mode « Texte + notes », chaque verset qui porte une note la déploie sous lui ; les versets sans note restent compacts.</p>
+      <ul class="gestures">
+        <li><b>Basculer « Texte » ↔ « Texte + notes »</b> avec le contrôle doré — déploiement animé, sans rechargement <span class="n2">NOUVEAU v3</span></li>
+        <li><b>Marqueur ✦</b> après le numéro : signale un verset porteur de notes ; y toucher passe en mode notes et illumine la note concernée <span class="n2">NOUVEAU v3</span></li>
+        <li>Badge <b>« 4 »</b> sur le bouton : nombre de notes dans le chapitre</li>
+        <li>Notes issues des <b>modules téléchargés</b> (dictionnaires, notes explicatives) — absentes si aucun module installé <span class="ref">§ 2.2</span></li>
+        <li>Préférence <b>mémorisée par utilisateur</b>, en local <span class="ref">§ 3.5</span></li>
+      </ul>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen th-vitrail" id="readScreen">
+        <div class="island"></div>
+        <div class="sbar"><span>09:41</span><span><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+        <div class="view" id="viewRoot">
+          <div class="strip">
+            <div class="stab on"><span class="c-ic">❧</span><span>Genèse 1</span><i>✕</i></div>
+            <div class="stab"><span class="c-ic">❧</span><span>Ésaïe 40</span><i>✕</i></div>
+            <div class="stab"><span class="c-ic">Aa</span><span>Dico</span><i>✕</i></div>
+            <div class="scount">3</div>
+          </div>
+          <div class="refbar">
+            <span class="bk">Genèse · chapitre 1<small>Traduction Victor</small></span>
+            <span class="tchip">Victor ▾</span>
+          </div>
+
+          <!-- LE BOUTON DE BASCULE -->
+          <div class="modeseg" id="modeSeg" role="tablist" aria-label="Mode de lecture">
+            <button class="on" data-mode="text">Aa&nbsp; Texte seul</button>
+            <button data-mode="notes">✎&nbsp; Texte + notes <span class="nbadge">4</span></button>
+          </div>
+
+          <div class="vbody" id="vbody">
+            <div class="verses">
+
+              <p><span class="vn">1</span>Au commencement, Dieu créa les cieux et la terre.<span class="nmark" data-note="n1">✦</span></p>
+              <div class="notewrap" id="n1"><div class="noteclip"><div class="note">
+                <header><span class="nlbl">✦ Note — v. 1</span><span class="nsrc">Notes explicatives</span></header>
+                <p>Le mot hébreu rendu par « Dieu » est אֱלֹהִים (Elohim), pluriel de majesté. « Au commencement » pose le cadre de toute la révélation : Dieu précède toute chose.</p>
+              </div></div></div>
+
+              <p><span class="vn">2</span>La terre était informe et vide ; il y avait des ténèbres à la surface de l'abîme, et l'Esprit de Dieu planait au-dessus des eaux.<span class="nmark" data-note="n2">✦</span></p>
+              <div class="notewrap" id="n2"><div class="noteclip"><div class="note">
+                <header><span class="nlbl">✦ Note — v. 2</span><span class="nsrc">Notes explicatives</span></header>
+                <p>« Informe et vide » traduit l'hébreu tohu-bohu. L'Esprit de Dieu « planait » : le verbe évoque l'oiseau qui couve — présence créatrice penchée sur le chaos.</p>
+              </div></div></div>
+
+              <p><span class="vn">3</span>Dieu dit : Que la lumière soit ! Et la lumière fut.<span class="nmark" data-note="n3">✦</span></p>
+              <div class="notewrap" id="n3"><div class="noteclip"><div class="note">
+                <header><span class="nlbl">✦ Note — v. 3</span><span class="nsrc">Dictionnaire biblique</span></header>
+                <p>La lumière est créée avant les luminaires (v. 14-19) : la première des créatures n'est pas un astre, mais la lumière elle-même, appelée directement par la Parole.</p>
+              </div></div></div>
+
+              <p><span class="vn">4</span>Dieu vit que la lumière était bonne ; et Dieu sépara la lumière et les ténèbres.</p>
+
+              <p><span class="vn">5</span>Dieu appela la lumière jour, et il appela les ténèbres nuit. Ainsi, il y eut un soir, et il y eut un matin : ce fut le premier jour.<span class="nmark" data-note="n5">✦</span></p>
+              <div class="notewrap" id="n5"><div class="noteclip"><div class="note">
+                <header><span class="nlbl">✦ Note — v. 5</span><span class="nsrc">Notes explicatives</span></header>
+                <p>Le jour biblique commence par le soir : « il y eut un soir, puis un matin ». Ce rythme structurera le calendrier liturgique et le sabbat d'Israël.</p>
+              </div></div></div>
+
+              <p><span class="vn">6</span>Dieu dit : Qu'il y ait une étendue entre les eaux, et qu'elle sépare les eaux d'avec les eaux.</p>
+
+            </div>
+          </div>
+        </div>
+        <div class="toast" id="toast"></div>
+        <div class="homebar"></div>
+      </div></div></div>
+      <p class="cap">Touchez <b>« Texte + notes »</b> : les quatre notes se déploient sous leurs versets. Touchez un <b>marqueur ✦</b> en mode texte : la bascule se fait et la note correspondante s'illumine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ANATOMIE & COMPORTEMENTS ═══════ -->
+<section class="sec" id="anatomie">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="num"><b>02</b></div>
+      <h2 class="sec-title">Anatomie &amp; comportements</h2>
+      <p class="lead">La carte de note et les règles d'interaction, à remettre telles quelles au développement.</p>
+    </div>
+    <div class="ana">
+      <div class="ana-card reveal">
+        <h5>La carte de note</h5>
+        <div class="stage">
+          <div class="sv"><span class="vn">2</span>La terre était informe et vide ; l'Esprit de Dieu planait au-dessus des eaux.<span class="nmark">✦</span></div>
+          <div class="bignote">
+            <header><span class="nlbl">✦ Note — v. 2</span><span class="nsrc">Notes explicatives</span></header>
+            <p>« Informe et vide » traduit l'hébreu tohu-bohu. L'Esprit de Dieu « planait » : le verbe évoque l'oiseau qui couve…</p>
+          </div>
+          <span class="mk" style="top:20px;right:16px">1</span>
+          <span class="mk" style="bottom:64px;left:18px">2</span>
+          <span class="mk" style="bottom:64px;right:18px">3</span>
+          <span class="mk" style="bottom:18px;left:18px">4</span>
+          <span class="mk" style="top:52%;left:6px">5</span>
+        </div>
+        <ul class="legend">
+          <li><b>1</b>Marqueur ✦ sur le verset — cliquable, pulsation légère en mode texte</li>
+          <li><b>2</b>Libellé : numéro de verset, couleur d'accent du thème</li>
+          <li><b>3</b>Source de la note — module téléchargé (§ 2.2)</li>
+          <li><b>4</b>Texte en Manrope 12,5 px, distingué du texte biblique en Cormorant</li>
+          <li><b>5</b>Liseré gauche doré : signature visuelle des notes sur tous les thèmes</li>
+        </ul>
+      </div>
+      <div class="ana-card reveal">
+        <h5>Règles d'interaction</h5>
+        <ul class="behavior">
+          <li><b>Bascule instantanée</b>Le passage d'un mode à l'autre anime le déploiement (≈ 500 ms) sans recharger le chapitre ni perdre la position de défilement.</li>
+          <li><b>Préférence mémorisée</b>Le dernier mode choisi est restauré au prochain lancement, par utilisateur, en local (§ 3.5).</li>
+          <li><b>Sans module, pas de bouton</b>Si aucun dictionnaire ni note n'est téléchargé, la bascule est masquée : l'interface reste épurée (§ 2.2).</li>
+          <li><b>Hors-ligne</b>Notes et texte téléchargés sont consultables sans connexion (§ 3.9).</li>
+          <li><b>Compatibilité thèmes</b>La carte hérite de la palette du thème actif (Vitrail, Oliveraie, Désert, Nuit étoilée — § 3.4).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ JSON ═══════ -->
+<section class="sec" id="json">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="num"><b>03</b></div>
+      <h2 class="sec-title">Structure JSON supposée</h2>
+      <p class="lead">La maquette fonctionne avec n'importe quel format « verset + notes associées ». Voici la structure sur laquelle elle s'appuie aujourd'hui :</p>
+    </div>
+    <div class="codepanel reveal">
+      <span class="fn">genese.json — extrait · structure attendue</span>
+<span class="p">{</span>
+  <span class="k">"livre"</span><span class="p">:</span> <span class="s">"Genèse"</span><span class="p">,</span>
+  <span class="k">"chapitre"</span><span class="p">:</span> <span class="s">1</span><span class="p">,</span>
+  <span class="k">"traduction"</span><span class="p">:</span> <span class="s">"victor"</span><span class="p">,</span>
+  <span class="k">"versets"</span><span class="p">: [</span>
+    <span class="p">{</span>
+      <span class="k">"num"</span><span class="p">:</span> <span class="s">1</span><span class="p">,</span>
+      <span class="k">"texte"</span><span class="p">:</span> <span class="s">"Au commencement, Dieu créa les cieux et la terre."</span><span class="p">,</span>
+      <span class="k">"notes"</span><span class="p">: [</span>                            <span class="c">// absent ou vide → pas de marqueur ✦</span>
+        <span class="p">{</span>
+          <span class="k">"id"</span><span class="p">:</span> <span class="s">"gn-1-1-a"</span><span class="p">,</span>
+          <span class="k">"type"</span><span class="p">:</span> <span class="s">"explicative"</span><span class="p">,</span>           <span class="c">// explicative · dictionnaire · lexique · référence</span>
+          <span class="k">"source"</span><span class="p">:</span> <span class="s">"Notes explicatives"</span><span class="p">,</span>  <span class="c">// module téléchargé (§ 2.2)</span>
+          <span class="k">"texte"</span><span class="p">:</span> <span class="s">"Le mot hébreu rendu par « Dieu » est Elohim…"</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="k">"num"</span><span class="p">:</span> <span class="s">2</span><span class="p">,</span>
+      <span class="k">"texte"</span><span class="p">:</span> <span class="s">"La terre était informe et vide…"</span><span class="p">,</span>
+      <span class="k">"notes"</span><span class="p">: [</span> <span class="c">…</span> <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+    </div>
+    <div class="callout reveal">
+      <span class="ic">✉</span>
+      <p><b>Envoyez-moi votre fichier genese.json</b> (même un simple extrait), et j'alignerai la maquette sur votre structure exacte : noms des clés, façon dont les notes sont rattachées aux versets, types de notes, liens Strong ou lexiques, champ de source… Le bouton de bascule fonctionnera quelle que soit la structure retenue.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="credit">Application Bible · Maquette <b>v3 — Lecture annotée</b> · bouton de bascule Texte / Texte + notes · mercredi 5 août 2026</p>
+  </div>
+</footer>
+
+<script>
+const viewRoot=document.getElementById('viewRoot'),
+      vbody=document.getElementById('vbody'),
+      toast=document.getElementById('toast');
+let toastTimer;
+function say(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2000);}
+
+/* bascule Texte / Texte + notes */
+document.querySelectorAll('#modeSeg button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('#modeSeg button').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    const notes=btn.dataset.mode==='notes';
+    viewRoot.classList.toggle('withnotes',notes);
+    say(notes?'Mode Texte + notes — 4 notes déployées':'Mode Texte seul — lecture épurée');
+  });
+});
+
+/* toucher un marqueur ✦ → passer en mode notes et illuminer la note */
+document.querySelectorAll('.nmark').forEach(mk=>{
+  mk.addEventListener('click',()=>{
+    const notes=!viewRoot.classList.contains('withnotes');
+    if(notes){
+      viewRoot.classList.add('withnotes');
+      document.querySelectorAll('#modeSeg button').forEach(b=>b.classList.toggle('on',b.dataset.mode==='notes'));
+      say('Mode Texte + notes activé');
+    }
+    const target=document.getElementById(mk.dataset.note);
+    if(target){
+      const note=target.querySelector('.note');
+      setTimeout(()=>{
+        note.classList.remove('flash');void note.offsetWidth;note.classList.add('flash');
+        target.scrollIntoView({behavior:'smooth',block:'center'});
+      },notes?280:0);
+    }
+  });
+});
+
+/* révélations au défilement */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

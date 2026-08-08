@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Application Bible — Maquette v7 · Lexique depuis un autre module</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0f1d; --gold:#d3a94f; --gold2:#f0d089;
+  --line:rgba(211,169,79,.18); --line2:rgba(211,169,79,.34);
+  --mut:#93a0b8; --ink:#e9eef8; --disp:'Cormorant Garamond',serif; --ui:'Manrope',sans-serif;
+  --heb:'Noto Serif Hebrew','SBL Hebrew','Ezra SIL','Times New Roman',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;overflow-x:hidden}
+::selection{background:rgba(211,169,79,.35)}
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(1200px 800px at 78% -10%,rgba(46,74,140,.28),transparent 60%),radial-gradient(1000px 700px at -12% 112%,rgba(122,84,30,.16),transparent 60%)}
+.sky::before{content:"";position:absolute;inset:0;background-image:
+  radial-gradient(1.4px 1.4px at 12% 18%,rgba(242,234,208,.7),transparent 60%),
+  radial-gradient(1.2px 1.2px at 34% 8%,rgba(242,234,208,.5),transparent 60%),
+  radial-gradient(1.6px 1.6px at 58% 22%,rgba(242,234,208,.6),transparent 60%),
+  radial-gradient(1.3px 1.3px at 91% 34%,rgba(242,234,208,.5),transparent 60%),
+  radial-gradient(1.5px 1.5px at 47% 60%,rgba(242,234,208,.45),transparent 60%);
+  animation:twk 9s ease-in-out infinite alternate}
+@keyframes twk{from{opacity:.35}to{opacity:.9}}
+body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.045;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.55'/></svg>")}
+main,header.mast,footer,.topbar{position:relative;z-index:2}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;gap:26px;padding:12px 32px;background:rgba(10,15,29,.92);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;white-space:nowrap}
+.brand svg{color:var(--gold)}
+.brand small{font-weight:600;color:var(--mut)}
+.vbadge{font-size:10px;font-weight:800;letter-spacing:.1em;background:linear-gradient(120deg,var(--gold2),var(--gold));color:#241a04;border-radius:99px;padding:3px 9px}
+.tnav{display:flex;gap:4px;margin-left:auto}
+.tnav a{color:var(--mut);text-decoration:none;font-size:12px;font-weight:700;padding:6px 9px;border-radius:8px;transition:.2s}
+.tnav a:hover{color:var(--gold2);background:rgba(211,169,79,.1)}
+
+.mast{max-width:1240px;margin:0 auto;padding:126px 32px 50px}
+.overline{display:flex;align-items:center;gap:14px;font-size:12px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.overline::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line2),transparent)}
+.mast h1{font-family:var(--disp);font-weight:600;font-size:clamp(42px,5.2vw,72px);line-height:1.02;margin:16px 0 14px}
+.mast h1 em{font-style:italic;color:var(--gold2)}
+.tagline{font-size:16.5px;color:var(--mut);max-width:840px}
+.tagline b{color:#f2ead8}
+.changelog{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:24px}
+.cl{font-size:13px;color:var(--mut);border:1px solid var(--line);border-radius:99px;padding:9px 18px}
+.cl b{color:#f2ead8;margin-right:6px}
+.cl.gold{background:linear-gradient(120deg,rgba(211,169,79,.16),rgba(211,169,79,.05));border-color:var(--line2);color:#d5dbe8}
+.cl.gold b{color:var(--gold2)}
+.changelog .arr{color:var(--gold);font-size:18px}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.sec{border-top:1px solid var(--line);padding:86px 0}
+.grid{display:grid;grid-template-columns:minmax(300px,450px) auto;gap:66px;align-items:center;justify-content:center}
+.num{display:flex;align-items:center;gap:14px;color:var(--gold);margin-bottom:16px}
+.num b{font-family:var(--disp);font-style:italic;font-weight:500;font-size:54px;line-height:1;color:var(--gold2)}
+.sec-title{font-family:var(--disp);font-weight:600;font-size:clamp(28px,3.2vw,42px);line-height:1.12;margin-bottom:14px}
+.lead{color:#c3cbdc;font-size:15.5px;max-width:480px}
+.gestures{list-style:none;margin-top:24px;display:grid;gap:11px}
+.gestures li{position:relative;padding-left:26px;font-size:14.5px;color:#d5dbe8}
+.gestures li::before{content:"☞";position:absolute;left:0;top:1px;color:var(--gold);font-size:13px}
+.gestures b{color:#fff}
+.ref{display:inline-block;font-size:10.5px;font-weight:800;color:var(--gold);border:1px solid var(--line2);border-radius:99px;padding:2px 8px;margin-left:8px;vertical-align:1px}
+.n2{font-size:9.5px;font-weight:800;letter-spacing:.08em;color:#241a04;background:linear-gradient(120deg,var(--gold2),var(--gold));border-radius:99px;padding:2px 8px;margin-left:6px;vertical-align:1px}
+
+/* ---------- téléphone ---------- */
+.phone{position:relative;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.phone:hover{transform:translateY(-8px)}
+.phone::before{content:"";position:absolute;inset:-50px -70px;background:radial-gradient(50% 55% at 50% 42%,rgba(211,169,79,.13),transparent 70%)}
+.frame{position:relative;width:370px;background:#04060b;border:1px solid #2a3040;border-radius:58px;padding:12px;box-shadow:0 50px 100px rgba(0,0,0,.6)}
+.screen{position:relative;width:346px;height:752px;border-radius:47px;overflow:hidden;font-family:var(--ui);user-select:none;-webkit-user-select:none;display:flex;flex-direction:column}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:106px;height:27px;background:#04060b;border-radius:20px;z-index:70}
+.homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:118px;height:5px;border-radius:3px;background:rgba(200,200,210,.4);z-index:70}
+.sbar{display:flex;justify-content:space-between;align-items:center;padding:15px 26px 0;font-size:13px;font-weight:800;position:relative;z-index:8;color:#f0e6cc}
+.th-vitrail{--tx:#f4ecd7;--tx2:#d8c79e;--hd:#eec76d;--num:#d9a441;--acc:#eec76d;--panel:rgba(19,13,7,.62);--panel2:rgba(238,199,109,.18);--stripbg:rgba(19,13,7,.55);--striptx:#d8c79e;color:var(--tx);
+  background:linear-gradient(160deg,rgba(10,7,3,.3),rgba(10,7,3,.62)),conic-gradient(from 210deg at 55% 35%,#7d1f2d,#1d3f8f 22%,#d9a441 40%,#1f5c46 58%,#5b2a86 76%,#7d1f2d)}
+.strip{display:flex;align-items:center;gap:6px;padding:12px 10px 6px;overflow:hidden}
+.stab{display:flex;align-items:center;gap:6px;max-width:118px;padding:7px 9px;border-radius:11px 11px 4px 4px;font-size:10.5px;font-weight:800;white-space:nowrap;cursor:pointer;background:var(--stripbg);color:var(--striptx);border:1px solid var(--panel2);flex:none;transition:.2s}
+.stab span{overflow:hidden;text-overflow:ellipsis}
+.stab i{font-style:normal;font-size:9px;opacity:.65}
+.stab.on{background:var(--panel);color:var(--tx);border-color:var(--acc)}
+.c-ic{color:var(--gold);font-weight:800;font-size:11px;flex:none}
+.scount{flex:none;min-width:29px;height:29px;border-radius:9px;display:grid;place-items:center;background:var(--gold);color:#241a04;font-size:11.5px;font-weight:800;padding:0 7px;margin-left:auto;box-shadow:0 4px 12px rgba(211,169,79,.4);transition:.25s}
+.scount.pop{transform:scale(1.28)}
+.refbar{display:flex;align-items:center;gap:10px;margin:4px 14px 0;padding:11px 14px;background:var(--panel);border-radius:14px;border:1px solid var(--panel2)}
+.refbar .bk{font-family:var(--disp);font-weight:700;font-size:17px;color:var(--hd);flex:1;white-space:nowrap;overflow:hidden}
+.refbar .bk small{display:block;font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tx2)}
+.tchip{font-size:11px;font-weight:800;color:var(--tx);background:var(--panel2);border:1px solid var(--panel2);border-radius:99px;padding:6px 11px;flex:none}
+.vbody{flex:1;overflow-y:auto;scrollbar-width:none;min-height:0}
+.vbody::-webkit-scrollbar{display:none}
+.flow{padding:12px 20px 30px}
+.sect{display:flex;align-items:center;gap:10px;margin:8px 2px 10px}
+.sect::before,.sect::after{content:"";height:1px;width:26px;background:var(--panel2);flex:none}
+.sect span{flex:1;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-align:center;color:var(--hd)}
+.verses p{font-family:var(--disp);font-size:19px;line-height:1.62;margin-bottom:.85em;cursor:pointer;border-radius:12px;padding:5px 10px;margin-left:-10px;margin-right:-10px;transition:.22s;outline:1.5px solid transparent}
+.verses p:hover{background:rgba(238,199,109,.08)}
+.verses p.sel{background:rgba(238,199,109,.14);outline-color:rgba(238,199,109,.7)}
+.vn{font-family:var(--ui);font-size:.58em;font-weight:800;color:var(--num);vertical-align:super;margin-right:6px}
+
+/* ---------- feuille d'étude ---------- */
+.sheetbk{position:absolute;left:0;right:0;bottom:0;z-index:58;transform:translateY(108%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.sheetbk.show{transform:none}
+.sheet{background:#141927;border-radius:26px 26px 0 0;border-top:1px solid rgba(238,199,109,.3);padding:8px 18px 24px;box-shadow:0 -20px 50px rgba(0,0,0,.55)}
+.drag{width:44px;height:4px;border-radius:99px;background:#4a5570;margin:2px auto 10px}
+.sh-head{display:flex;align-items:center;gap:10px;margin-bottom:2px}
+.sh-ref{font-family:var(--disp);font-weight:700;font-size:19px;color:#eec76d;flex:1}
+.sh-x{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#dfe6f5;cursor:pointer;font-size:12px;transition:.2s;font-family:var(--ui)}
+.sh-x:hover{background:rgba(255,255,255,.16)}
+.sh-txt{font-family:var(--disp);font-style:italic;font-size:12.5px;color:#a9b6d4;line-height:1.4;margin-bottom:12px;max-height:36px;overflow:hidden}
+.sh-lbl{font-size:9.5px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#8b97b4;margin:10px 0 9px}
+.swrow{display:flex;gap:12px;align-items:center;margin-bottom:4px}
+.sw{width:32px;height:32px;border-radius:50%;cursor:pointer;border:2px solid transparent;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:.2s;position:relative;flex:none}
+.sw:hover{transform:scale(1.14)}
+.sw.on{border-color:#fff}
+.sw.none{background:transparent;border:2px dashed #4a5570;box-shadow:none}
+.sw.none::after{content:"";position:absolute;left:50%;top:50%;width:24px;height:2px;background:#4a5570;transform:translate(-50%,-50%) rotate(-45deg)}
+.actgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.act{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:9px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#dfe6f5;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:11px 4px;cursor:pointer;transition:.2s;font-family:var(--ui)}
+.act:hover{transform:translateY(-2px);border-color:rgba(238,199,109,.55);color:#f0d089}
+.act .ai{font-size:16px;color:#eec76d;line-height:1}
+.act-xl{grid-column:1/-1;flex-direction:row;justify-content:center;gap:11px;background:linear-gradient(120deg,var(--gold2),var(--gold));border:none;color:#241a04;font-size:11.5px;padding:13px;box-shadow:0 10px 22px rgba(211,169,79,.35)}
+.act-xl .ai{color:#241a04;font-size:19px;font-family:var(--heb)}
+.act-xl:hover{transform:translateY(-2px);color:#241a04}
+.act-xl small{font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:none;opacity:.75}
+
+/* ---------- écran lexique ---------- */
+.lex-top{display:flex;align-items:center;gap:10px;margin:8px 14px 0;padding:11px 14px;background:var(--panel);border-radius:14px;border:1px solid var(--panel2)}
+.backbtn{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:var(--panel2);border:1px solid var(--panel2);color:var(--tx);cursor:pointer;font-size:13px;transition:.2s;font-family:var(--ui);flex:none}
+.backbtn:hover{color:var(--hd);border-color:var(--acc)}
+.lex-top .bk{font-family:var(--disp);font-weight:700;font-size:17px;color:var(--hd);flex:1;white-space:nowrap;overflow:hidden}
+.lex-top .bk small{display:block;font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tx2)}
+.modchip{font-size:10px;font-weight:800;color:var(--tx);background:var(--panel2);border:1px solid var(--panel2);border-radius:99px;padding:6px 11px;flex:none;cursor:pointer;transition:.2s;white-space:nowrap}
+.modchip:hover{border-color:var(--acc);color:var(--hd)}
+.lex-hint{margin:10px 16px 0;display:flex;align-items:center;gap:8px;font-size:10.5px;font-weight:800;color:#241a04;background:linear-gradient(120deg,var(--gold2),var(--gold));border-radius:11px;padding:8px 12px}
+.lex-verse{margin:12px 14px;background:var(--panel);border:1px solid var(--panel2);border-radius:16px;padding:16px 16px 18px;font-family:var(--disp);font-size:19.5px;line-height:2.05}
+.lex-verse .vn{margin-right:4px}
+.wlink{border-bottom:2px dotted var(--acc);cursor:pointer;padding:1px 2px;border-radius:5px;transition:.18s}
+.wlink:hover{color:var(--hd)}
+.wlink.on{background:rgba(238,199,109,.25);color:var(--hd);border-bottom-color:var(--hd);box-shadow:0 2px 0 rgba(238,199,109,.4)}
+.entry{margin:0 14px 12px;background:var(--panel);border:1px solid var(--panel2);border-left:3px solid var(--acc);border-radius:16px;padding:15px 16px;animation:nin .35s both}
+@keyframes nin{from{opacity:0;transform:translateY(10px)}}
+.entry .erow{display:flex;align-items:center;gap:14px}
+.entry .heb{font-family:var(--heb);direction:rtl;font-size:40px;color:var(--hd);line-height:1.15}
+.entry .emeta{flex:1}
+.entry .emeta b{font-size:15px;color:var(--tx);font-weight:800}
+.entry .echips{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
+.echip{font-size:9.5px;font-weight:800;letter-spacing:.05em;color:var(--tx);background:var(--panel2);border:1px solid var(--panel2);border-radius:99px;padding:3px 9px}
+.echip.g{color:#241a04;background:var(--acc);border-color:var(--acc)}
+.entry .edef{font-family:var(--ui);font-size:12.5px;line-height:1.6;color:var(--tx);opacity:.94;margin-top:11px}
+.entry .enav{display:flex;align-items:center;gap:8px;margin-top:13px;padding-top:12px;border-top:1px dashed var(--panel2)}
+.enav button{font-family:var(--ui);font-size:10.5px;font-weight:800;color:var(--tx);background:var(--panel2);border:1px solid var(--panel2);border-radius:99px;padding:7px 12px;cursor:pointer;transition:.2s}
+.enav button:hover{color:var(--hd);border-color:var(--acc);transform:translateY(-1px)}
+.enav .mid{flex:1;text-align:center;font-size:10px;font-weight:800;color:var(--tx2);letter-spacing:.08em}
+.enav .occb{color:#241a04;background:var(--acc);border-color:var(--acc)}
+.lex-src{text-align:center;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx2);font-weight:800;padding:2px 0 10px}
+
+.toast{position:absolute;left:50%;bottom:70px;transform:translateX(-50%) translateY(20px);background:#f2ead8;color:#241a04;font-size:11.5px;font-weight:800;padding:9px 16px;border-radius:99px;opacity:0;transition:.3s;z-index:80;pointer-events:none;box-shadow:0 10px 24px rgba(0,0,0,.45);white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%)}
+.cap{margin-top:20px;text-align:center;font-size:12.5px;color:var(--mut);max-width:400px}
+.cap b{color:var(--gold2)}
+
+/* ---------- parcours / règles ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;max-width:1080px}
+.stepc{position:relative;border:1px solid var(--line);border-radius:18px;padding:24px 22px;background:linear-gradient(165deg,rgba(255,255,255,.035),rgba(255,255,255,.01));transition:.3s}
+.stepc:hover{border-color:var(--line2);transform:translateY(-5px)}
+.stepc .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(140deg,var(--gold2),var(--gold));color:#241a04;font-size:20px;margin-bottom:14px}
+.stepc .ic.heb{font-family:var(--heb)}
+.stepc b{display:block;font-size:15.5px;color:#f2ead8;margin-bottom:5px}
+.stepc p{font-size:13px;color:#c3cbdc}
+.stepc:not(:last-child)::after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:15px;z-index:3}
+.rules2{display:grid;grid-template-columns:1fr 1fr;gap:12px 40px;margin-top:36px;max-width:1080px}
+.rule2{display:flex;gap:14px;align-items:baseline;padding:14px 4px;border-bottom:1px dashed rgba(211,169,79,.16);font-size:13.5px;color:#c3cbdc;transition:.2s}
+.rule2:hover{background:rgba(211,169,79,.04);padding-left:12px}
+.rule2 b{color:#f2ead8;min-width:210px}
+.rule2 code{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;color:var(--gold2)}
+
+/* table correspondances */
+.tab2{margin-top:36px;max-width:1080px;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.tab2 .tr{display:grid;grid-template-columns:1.4fr .6fr 1fr 2fr;gap:14px;align-items:center;padding:13px 22px;border-bottom:1px solid rgba(211,169,79,.12);transition:.2s}
+.tab2 .tr:last-child{border-bottom:none}
+.tab2 .tr:hover{background:rgba(211,169,79,.05)}
+.tab2 .th{font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);background:rgba(211,169,79,.07)}
+.tab2 .fr{font-weight:800;color:#f2ead8;font-size:14px}
+.tab2 .hb{font-family:var(--heb);direction:rtl;font-size:22px;color:var(--gold2);text-align:left}
+.tab2 .st{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;color:#9cc2e8}
+.tab2 .df{font-size:12.5px;color:#c3cbdc}
+
+.callout{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line2);border-radius:18px;padding:22px 26px;margin-top:28px;background:linear-gradient(120deg,rgba(211,169,79,.1),rgba(211,169,79,.02));max-width:1080px}
+.callout .ic{flex:none;width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(140deg,var(--gold2),var(--gold));color:#241a04;font-size:20px}
+.callout p{font-size:13.5px;color:#d5dbe8}
+.callout b{color:#fff}
+
+.foot{border-top:1px solid var(--line);padding:54px 0}
+.credit{text-align:center;font-size:12px;color:var(--mut);letter-spacing:.06em}
+.credit b{color:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:1080px){
+  .grid{grid-template-columns:1fr;gap:44px;justify-items:center}
+  .steps{grid-template-columns:1fr}
+  .stepc:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-16px;transform:translateX(-50%)}
+  .rules2{grid-template-columns:1fr}
+  .tab2 .tr{grid-template-columns:1fr 1fr;gap:6px}
+  .tab2 .df{grid-column:1/-1}
+  .tnav{display:none}
+}
+@media(max-width:480px){
+  .frame{width:calc(100vw - 40px);max-width:370px}
+  .screen{width:100%;height:740px}
+  .wrap{padding:0 20px}
+  .mast{padding:104px 20px 44px}
+}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+
+<nav class="topbar">
+  <div class="brand">
+    <svg width="16" height="22" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="2"/><path d="M2 30h20" stroke="currentColor" stroke-width="2"/></svg>
+    Application Bible <small>· Maquette — Lexique</small> <span class="vbadge">v7</span>
+  </div>
+  <div class="tnav">
+    <a href="#demo">Démo interactive</a><a href="#parcours">Parcours &amp; règles</a><a href="#data">Correspondances</a>
+  </div>
+</nav>
+
+<header class="mast">
+  <div class="overline">Maquette UI · v7 — Lexique via module externe (§ 2.2) · données réelles 01-Genese.json</div>
+  <h1>Le lexique, depuis <em>un autre module</em></h1>
+  <p class="tagline">La traduction de Victor n'embarque pas de lexique : l'application s'appuie donc sur un <b>module de lexique distinct</b> (hébreu / grec — Strong), téléchargé à la demande. Le parcours : <b>clic sur un verset → feuille d'étude → bouton « Lexique » → le verset entier s'affiche mot à mot, chaque mot cliquable</b> ouvre sa fiche.</p>
+  <div class="changelog">
+    <div class="cl"><b>v5</b> feuille d'étude au clic verset</div>
+    <span class="arr">+</span>
+    <div class="cl"><b>v6</b> fiches de lexique</div>
+    <span class="arr">→</span>
+    <div class="cl gold"><b>v7</b> bouton « Lexique » dans la feuille · verset mot à mot · module externe</div>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════ DÉMO ═══════ -->
+<section class="sec" id="demo">
+  <div class="wrap grid">
+    <div class="col-txt reveal">
+      <div class="num"><b>01</b></div>
+      <h2 class="sec-title">Du verset au mot hébreu, en trois gestes</h2>
+      <p class="lead">La démo suit exactement votre parcours : toucher Genèse 1.26 (ou 27 / 28), la feuille d'étude remonte avec son nouveau bouton doré <b style="color:#f2ead8">« Lexique »</b>, puis le verset se réaffiche en entier, mot à mot.</p>
+      <ul class="gestures">
+        <li><b>Touchez un verset</b> (1.26, 1.27 ou 1.28) → la feuille d'étude apparaît, comme en v5 <span class="ref">§ 3.5</span></li>
+        <li><b>Bouton « Lexique »</b> (pleine largeur, doré) → nouvel onglet : le verset complet, chaque mot cliquable <span class="n2">NOUVEAU v7</span></li>
+        <li><b>Touchez un mot</b> → sa fiche s'affiche : mot hébreu, translittération, réf. Strong, définition <span class="ref">§ 2.2</span></li>
+        <li><b>◀ ▶</b> pour naviguer de mot en mot dans le verset, <b>« Voir les occurrences »</b> pour ouvrir la liste <span class="ref">§ 3.3</span></li>
+        <li>Chip <b>« Lexique hébreu · Strong »</b> : le module source — remplaçable si plusieurs sont installés</li>
+        <li>Retour ← : la lecture reste intacte, l'onglet lexique demeure ouvert dans la barre</li>
+      </ul>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen th-vitrail" id="scr">
+        <div class="island"></div>
+        <div class="sbar"><span>09:41</span><span><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+
+        <div class="strip" id="strip"></div>
+
+        <!-- SCÈNE LECTURE -->
+        <div id="sceneLecture" style="display:contents">
+          <div class="refbar">
+            <span class="bk">Genèse · chapitre 1<small>Bereshit · Traduction Victor</small></span>
+            <span class="tchip">Victor ▾</span>
+          </div>
+          <div class="vbody"><div class="flow">
+            <div class="sect"><span>Mission confiée à l'être humain (Adam) ; son autorité sur la création</span></div>
+            <div class="verses" id="versesArea"></div>
+          </div></div>
+        </div>
+
+        <!-- SCÈNE LEXIQUE -->
+        <div id="sceneLexique" style="display:none;flex:1;flex-direction:column;min-height:0">
+          <div class="lex-top">
+            <button class="backbtn" id="lexBack">←</button>
+            <span class="bk" id="lexTitle">Lexique — Genèse 1.26<small>Verset mot à mot</small></span>
+            <span class="modchip" id="modChip">Lexique hébreu · Strong ▾</span>
+          </div>
+          <div class="lex-hint">☞&nbsp; Touchez un mot du verset pour afficher sa fiche hébreu</div>
+          <div class="vbody">
+            <div class="lex-verse" id="lexVerse"></div>
+            <div class="entry" id="entryCard"></div>
+            <div class="lex-src">Module téléchargé · Lexique hébreu (Strong) — § 2.2</div>
+          </div>
+        </div>
+
+        <!-- FEUILLE D'ÉTUDE -->
+        <div class="sheetbk" id="sheetBk">
+          <div class="sheet">
+            <div class="drag"></div>
+            <div class="sh-head"><span class="sh-ref" id="shRef">Genèse 1.26</span><button class="sh-x" id="shClose">✕</button></div>
+            <div class="sh-txt" id="shTxt"></div>
+            <div class="sh-lbl">Surligner</div>
+            <div class="swrow">
+              <span class="sw" style="background:#f2cf5b"></span>
+              <span class="sw" style="background:#b6c98a"></span>
+              <span class="sw" style="background:#f0a8b8"></span>
+              <span class="sw" style="background:#9cc2e8"></span>
+              <span class="sw none"></span>
+            </div>
+            <div class="sh-lbl">Actions</div>
+            <div class="actgrid">
+              <button class="act act-xl" id="aLex"><span class="ai">א</span><span>Lexique&nbsp; <small>le verset mot à mot, mots cliquables</small></span></button>
+              <button class="act" data-act="note"><span class="ai">✎</span>Note</button>
+              <button class="act" data-act="fav"><span class="ai">★</span>Favori</button>
+              <button class="act" data-act="comp"><span class="ai">⇄</span>Comparer</button>
+              <button class="act" data-act="refs"><span class="ai">☙</span>Références</button>
+              <button class="act" data-act="audio"><span class="ai">♪</span>Écouter</button>
+              <button class="act" data-act="copy"><span class="ai">⧉</span>Copier</button>
+              <button class="act" data-act="share" style="grid-column:span 2"><span class="ai">↗</span>Partager</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="toast" id="toast"></div>
+        <div class="homebar"></div>
+      </div></div></div>
+      <p class="cap">Parcours complet : <b>verset → feuille → Lexique → mot → fiche</b>. Les mots sans entrée de lexique (« que », « sur », « la »…) ne sont pas cliquables.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PARCOURS & RÈGLES ═══════ -->
+<section class="sec" id="parcours">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="num"><b>02</b></div>
+      <h2 class="sec-title">Le parcours &amp; ses règles</h2>
+      <p class="lead">Trois écrans, un principe : le lexique n'appartient à aucune traduction — c'est un module à part, greffé sur n'importe quel verset.</p>
+    </div>
+    <div class="steps">
+      <div class="stepc reveal"><span class="ic">✦</span><b>1 · Le verset touché</b><p>Un toucher sélectionne le verset et remonte la feuille d'étude : couleurs, note, favori, comparaison… et le nouveau bouton « Lexique ».</p></div>
+      <div class="stepc reveal"><span class="ic heb">א</span><b>2 · Le bouton « Lexique »</b><p>Il ouvre un onglet dédié : le verset entier est réaffiché, découpé mot à mot selon le lexique installé. La traduction de Victor reste affichée telle quelle.</p></div>
+      <div class="stepc reveal"><span class="ic">✍</span><b>3 · La fiche du mot</b><p>Chaque mot cliquable ouvre sa fiche : hébreu, translittération, référence Strong, définition, occurrences — avec navigation de mot en mot.</p></div>
+    </div>
+    <div class="rules2 reveal">
+      <div class="rule2"><b>Source du lexique</b><span>Module distinct de la traduction (ex. Strong, domaine public), téléchargé à la demande dans la Bibliothèque — jamais imposé <code>§ 2.2</code>.</span></div>
+      <div class="rule2"><b>Sans module installé</b><span>Le bouton « Lexique » reste visible mais propose « Télécharger le lexique hébreu (18 Mo) » vers la Bibliothèque. Rien n'est bloqué.</span></div>
+      <div class="rule2"><b>Mots non couverts</b><span>Les mots sans entrée (articles, prépositions…) restent en texte normal, non cliquables — seuls les mots référencés sont soulignés.</span></div>
+      <div class="rule2"><b>Choix du module</b><span>Si plusieurs lexiques sont installés (hébreu / grec, ou deux sources), le chip « Lexique hébreu · Strong ▾ » permet de basculer.</span></div>
+      <div class="rule2"><b>Onglet à part entière</b><span>La vue lexique vit dans son propre onglet, mémorisé localement ; on y revient depuis la barre d'onglets <code>§ 3.3</code>.</span></div>
+      <div class="rule2"><b>Rendu hébreu</b><span>Les mots hébreux sont affichés en RTL avec une police dédiée ; la fiche garde le reste de l'écran en français LTR.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CORRESPONDANCES ═══════ -->
+<section class="sec" id="data">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="num"><b>03</b></div>
+      <h2 class="sec-title">Correspondances utilisées dans la démo</h2>
+      <p class="lead">Le lien « mot français → mot hébreu → Strong » est fourni par le module de lexique. Exemples réels sur Genèse 1.26-28 :</p>
+    </div>
+    <div class="tab2 reveal">
+      <div class="tr th"><span>Mot (Victor)</span><span>Réf. Strong</span><span>Hébreu</span><span>Sens</span></div>
+      <div class="tr"><span class="fr">Elohîm</span><span class="st">H430</span><span class="hb">אֱלֹהִים</span><span class="df">Dieu, dieux, juges</span></div>
+      <div class="tr"><span class="fr">ferons</span><span class="st">H6213</span><span class="hb">עָשָׂה</span><span class="df">faire, agir, accomplir</span></div>
+      <div class="tr"><span class="fr">humain</span><span class="st">H120</span><span class="hb">אָדָם</span><span class="df">être humain, humanité</span></div>
+      <div class="tr"><span class="fr">image</span><span class="st">H6754</span><span class="hb">צֶלֶם</span><span class="df">image, figure, représentation</span></div>
+      <div class="tr"><span class="fr">ressemblance</span><span class="st">H1823</span><span class="hb">דְּמוּת</span><span class="df">ressemblance, similitude</span></div>
+      <div class="tr"><span class="fr">domineront</span><span class="st">H7287</span><span class="hb">רָדָה</span><span class="df">dominer, régner, gouverner</span></div>
+      <div class="tr"><span class="fr">créa (1.27)</span><span class="st">H1254</span><span class="hb">בָּרָא</span><span class="df">créer — Dieu pour sujet</span></div>
+      <div class="tr"><span class="fr">assujettissez (1.28)</span><span class="st">H3533</span><span class="hb">כָּבַשׁ</span><span class="df">soumettre, assujettir</span></div>
+    </div>
+    <div class="callout reveal">
+      <span class="ic">⚙</span>
+      <p><b>Côté données :</b> votre fichier <b>01-Genese.json</b> n'a rien à changer — le lexique est un second fichier (<b>lexique-hebreu.json</b>) contenant les entrées Strong, plus une table d'alignement <code>{ "livre": "Ge.", "verset": "1:26", "mot": "humain", "strong": "H120" }</code>. Cet alignement peut provenir d'une version du domaine public déjà liée à Strong (Segond 1910, Ostervald…) puis être reporté sur le texte de Victor, mot à mot. Si vous me fournissez un extrait de la source de lexique que vous comptez utiliser, j'aligne la maquette sur sa structure exacte.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="credit">Application Bible · Maquette <b>v7 — Lexique via module externe</b> · verset mot à mot depuis la feuille d'étude · mercredi 5 août 2026</p>
+  </div>
+</footer>
+
+<script>
+/* ═══════════ DONNÉES LEXIQUE (module externe — style Strong) ═══════════ */
+const ENTRIES={
+ H120:{heb:"אָדָם",tr:"'âdâm",t:"nom masculin",def:"Être humain, humanité — littéralement « le terreux » (de ha-adamah, la glaise). Le terme le plus fréquent du Tanakh pour désigner l'humanité (Ge. 1:26-27 ; 2:7). Voir la note de Victor en Ge. 1:26."},
+ H430:{heb:"אֱלֹהִים",tr:"'elohîm",t:"nom masculin pluriel",def:"Dieu, dieux, juges. Le mot le plus courant pour désigner Dieu dans le Tanakh."},
+ H559:{heb:"אָמַר",tr:"'âmar",t:"verbe",def:"Dire, parler, répondre, ordonner."},
+ H6213:{heb:"עָשָׂה",tr:"'âsâh",t:"verbe",def:"Faire, agir, accomplir, fabriquer. Ici à l'inaccompli (voir la note de Victor sur « ferons »)."},
+ H6754:{heb:"צֶלֶם",tr:"tselem",t:"nom masculin",def:"Image, figure, représentation."},
+ H1823:{heb:"דְּמוּת",tr:"demûth",t:"nom féminin",def:"Ressemblance, similitude, modèle."},
+ H7287:{heb:"רָדָה",tr:"râdâh",t:"verbe",def:"Dominer, régner, gouverner, assujettir."},
+ H1709:{heb:"דָּג",tr:"dâg",t:"nom masculin",def:"Poisson."},
+ H3220:{heb:"יָם",tr:"yâm",t:"nom masculin",def:"Mer, grande étendue d'eau."},
+ H5775:{heb:"עוֹף",tr:"'ûph",t:"nom masculin",def:"Oiseau, créature volante ; aile."},
+ H8064:{heb:"שָׁמַיִם",tr:"shâmayim",t:"nom masculin",def:"Cieux, cieux, atmosphère."},
+ H929:{heb:"בְּהֵמָה",tr:"behêmâh",t:"nom féminin",def:"Bête, bétail, animal terrestre."},
+ H776:{heb:"אֶרֶץ",tr:"'erets",t:"nom féminin",def:"Terre, pays, sol, contrée."},
+ H7431:{heb:"רֶמֶשׂ",tr:"remes",t:"nom masculin",def:"Chose rampante, reptile, ce qui se meut sur le sol."},
+ H1254:{heb:"בָּרָא",tr:"bârâ'",t:"verbe",def:"Créer, former. Dans le Tanakh, ce verbe a toujours Dieu pour sujet (Ge. 1:1 ; 2:3)."},
+ H2145:{heb:"זָכָר",tr:"zâkâr",t:"nom masculin",def:"Mâle, homme."},
+ H5347:{heb:"נְקֵבָה",tr:"neqêbâh",t:"nom féminin",def:"Femelle, femme."},
+ H1288:{heb:"בָּרַךְ",tr:"bârak",t:"verbe",def:"Bénir ; s'agenouiller."},
+ H6509:{heb:"פָּרָה",tr:"pârâh",t:"verbe",def:"Porter du fruit, fructifier."},
+ H7235:{heb:"רָבָה",tr:"râbâh",t:"verbe",def:"Multiplier, augmenter, devenir nombreux."},
+ H4390:{heb:"מָלֵא",tr:"mâlê'",t:"verbe",def:"Remplir, être plein."},
+ H3533:{heb:"כָּבַשׁ",tr:"kâbash",t:"verbe",def:"Soumettre, assujettir, conquérir."}
+};
+
+/* Versets réels (01-Genese.json), tokenisés : "mot:Hxxx" = mot cliquable */
+const VERSES={
+ "26":{ref:"Genèse 1.26",tok:["Elohîm:H430","avait","dit",":","Nous","ferons:H6213","l'être","humain:H120","à","notre","image:H6754",",","selon","notre","ressemblance:H1823",".","Ils","domineront:H7287","sur","les","poissons:H1709","de","la","mer:H3220",",","sur","les","créatures","volantes:H5775","des","cieux:H8064",",","sur","le","bétail:H929",",","sur","toute","la","Terre:H776","et","sur","toute","chose","rampante:H7431","qui","rampe","sur","la","terre:H776","."]},
+ "27":{ref:"Genèse 1.27",tok:["Elohîm:H430","créa:H1254","l'être","humain:H120","à","son","image:H6754",",","il","l'a","créé:H1254","à","l'image","d'Elohîm:H430",".","Mâle:H2145","et","femelle:H5347","il","les","a","créés:H1254","."]},
+ "28":{ref:"Genèse 1.28",tok:["Elohîm:H430","les","bénit:H1288",",","et","Elohîm:H430","leur","dit",":","Portez","du","fruit:H6509",",","multipliez-vous:H7235",",","remplissez:H4390","la","Terre:H776","et","assujettissez-la:H3533",".","Dominez:H7287","sur","les","poissons:H1709","de","la","mer:H3220",",","sur","les","créatures","volantes:H5775","des","cieux:H8064","et","sur","tout","vivant","qui","rampe","sur","la","terre:H776","."]}
+};
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function parseTok(t){const i=t.lastIndexOf(':');return (i>0&&/^H\d+$/.test(t.slice(i+1)))?{w:t.slice(0,i),e:t.slice(i+1)}:{w:t,e:null};}
+
+/* ═══════════ ÉTAT ═══════════ */
+let tabs=[{id:'ge1',g:'❧',l:'Ge. 1'},{id:'esaie',g:'❧',l:'Ésaïe 40'}];
+let scene='lecture', sheetVerse=null, lexVerse=null, selIdx=0, clickables=[];
+const $=id=>document.getElementById(id);
+let toastTimer;
+function say(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2100);}
+
+/* ═══════════ BANDE D'ONGLETS ═══════════ */
+function renderStrip(){
+  $('strip').innerHTML=tabs.map(t=>`<div class="stab ${(scene==='lecture'&&t.id==='ge1')||(scene==='lexique'&&t.id==='lex-'+lexVerse)?'on':''}" data-tab="${t.id}"><span class="c-ic">${t.g}</span><span>${t.l}</span><i>✕</i></div>`).join('')+`<div class="scount" id="scount">${tabs.length}</div>`;
+}
+function popCount(){const c=$('scount');if(c){c.classList.add('pop');setTimeout(()=>c.classList.remove('pop'),300);}}
+$('strip').addEventListener('click',e=>{
+  const tb=e.target.closest('[data-tab]');if(!tb)return;
+  const id=tb.dataset.tab;
+  if(id.startsWith('lex-')){openLex(id.slice(4),true);}
+  else if(id==='ge1'){setScene('lecture');}
+  else say('Onglet « '+tabs.find(t=>t.id===id).l+' » (démo)');
+});
+
+/* ═══════════ SCÈNES ═══════════ */
+function setScene(s){
+  scene=s;
+  $('sceneLecture').style.display=s==='lecture'?'contents':'none';
+  $('sceneLexique').style.display=s==='lexique'?'flex':'none';
+  if(s!=='lecture')$('sheetBk').classList.remove('show');
+  renderStrip();
+}
+
+/* ═══════════ LECTURE + FEUILLE ═══════════ */
+function renderVerses(){
+  $('versesArea').innerHTML=Object.keys(VERSES).map(n=>{
+    const txt=VERSES[n].tok.map(parseTok).map(p=>esc(p.w)).join(' ');
+    return `<p data-v="${n}" class="${sheetVerse===n?'sel':''}"><span class="vn">${n}</span>${txt}</p>`;
+  }).join('');
+}
+$('versesArea').addEventListener('click',e=>{
+  const p=e.target.closest('p[data-v]');if(!p)return;
+  sheetVerse=p.dataset.v;renderVerses();
+  $('shRef').textContent=VERSES[sheetVerse].ref;
+  const txt=VERSES[sheetVerse].tok.map(parseTok).map(x=>x.w).join(' ');
+  $('shTxt').textContent='« '+(txt.length>96?txt.slice(0,96)+'…':txt)+' »';
+  $('sheetBk').classList.add('show');
+});
+$('shClose').addEventListener('click',()=>{$('sheetBk').classList.remove('show');sheetVerse=null;renderVerses();});
+document.querySelectorAll('.sw').forEach(s=>s.addEventListener('click',()=>{say('Surlignage appliqué · mémorisé en local (§ 3.5)');}));
+document.querySelectorAll('.act[data-act]').forEach(b=>b.addEventListener('click',()=>{
+  const m={note:'Éditeur de note ouvert (§ 3.5)',fav:'Ajouté aux favoris ★',comp:'Comparaison — nouvel onglet (§ 2.1)',refs:'Références croisées — nouvel onglet (§ 2.2)',audio:'Lecture audio du verset · streaming (§ 3.1)',copy:'Verset copié dans le presse-papiers',share:'Partage : image · texte · lien (§ 3.6)'};
+  say(m[b.dataset.act]);
+}));
+
+/* ═══════════ LEXIQUE ═══════════ */
+function openLex(n,silent){
+  lexVerse=n;
+  const tabId='lex-'+n;
+  if(!tabs.find(t=>t.id===tabId)){tabs.push({id:tabId,g:'א',l:'Lexique · Ge. 1.'+n});}
+  setScene('lexique');popCount();
+  $('lexTitle').innerHTML='Lexique — '+VERSES[n].ref+'<small>Verset mot à mot</small>';
+  renderLexVerse();
+  const i=clickables.findIndex(c=>c.e==='H120');
+  selectWord(i>=0?i:0);
+  if(!silent)say('Lexique ouvert dans un nouvel onglet (§ 3.3)');
+}
+$('aLex').addEventListener('click',()=>{
+  if(!sheetVerse)return;
+  $('sheetBk').classList.remove('show');
+  openLex(sheetVerse);
+});
+function renderLexVerse(){
+  clickables=[];
+  let html='<span class="vn">'+lexVerse+'</span>';
+  VERSES[lexVerse].tok.forEach(t=>{
+    const p=parseTok(t);
+    if(p.e){clickables.push(p);html+='<span class="wlink" data-i="'+(clickables.length-1)+'">'+esc(p.w)+'</span> ';}
+    else html+=esc(p.w)+' ';
+  });
+  $('lexVerse').innerHTML=html;
+}
+$('lexVerse').addEventListener('click',e=>{
+  const w=e.target.closest('.wlink');if(!w)return;
+  selectWord(parseInt(w.dataset.i,10));
+});
+function selectWord(i){
+  selIdx=i;
+  const c=clickables[i],en=ENTRIES[c.e];
+  document.querySelectorAll('.wlink').forEach(w=>w.classList.toggle('on',parseInt(w.dataset.i,10)===i));
+  $('entryCard').innerHTML=
+    `<div class="erow"><span class="heb">${en.heb}</span>
+      <span class="emeta"><b>${en.tr}</b>
+      <span class="echips"><span class="echip g">${c.e} · Strong</span><span class="echip">${en.t}</span></span></span></div>
+    <p class="edef">${en.def}</p>
+    <div class="enav">
+      <button id="wPrev">◀ Mot préc.</button>
+      <span class="mid">Mot ${i+1} / ${clickables.length} du verset</span>
+      <button id="wNext">Mot suiv. ▶</button>
+      <button class="occb" id="wOcc">Occurrences ↗</button>
+    </div>`;
+  $('wPrev').addEventListener('click',()=>selectWord((selIdx-1+clickables.length)%clickables.length));
+  $('wNext').addEventListener('click',()=>selectWord((selIdx+1)%clickables.length));
+  $('wOcc').addEventListener('click',()=>{
+    tabs.push({id:'oc'+Date.now(),g:'✦',l:'Occ. · '+c.e});renderStrip();popCount();
+    say('Occurrences de « '+en.tr+' » ('+c.e+') — nouvel onglet');
+  });
+}
+$('lexBack').addEventListener('click',()=>{setScene('lecture');});
+$('modChip').addEventListener('click',()=>say('Choix du module de lexique (§ 2.2) — hébreu ou grec, plusieurs sources possibles'));
+
+renderVerses();
+renderStrip();
+
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

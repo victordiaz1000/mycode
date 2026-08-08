@@ -1,0 +1,636 @@
+{
+  "book": "1 Thessaloniciens",
+  "abbreviation": "1 Th.",
+  "metadata": {
+    "auteur": "Paulos (Paul)",
+    "theme": "Le retour du Mashiah (Christ)",
+    "date": "Env. 51 ap. J.-C."
+  },
+  "introduction": "Autrefois appelée Therme ou Therma, qui signifie « source chaude », Thessalonique reçut son nouveau nom de Cassandre, en l'honneur de sa femme Thessalonike, qui était aussi la sœur d'Alexandre le Grand (356 – 323 av. J.-C.), à qui il succéda.\n\nCette ville est située au nord de la Grèce, sur la côte de la Mer Égée. Du temps de Paulos (Paul), la Grèce était divisée en deux parties. Dans la région du nord, la Macédoine, se trouvaient les villes de Philippes, Thessalonique et Bérée. Quant à la région du sud, l'Achaïe, elle comportait les villes d'Athènes et de Corinthe.\n\nEn ce temps-là, Thessalonique comptait environ 200 000 habitants (grecs, romains et juifs) et jouissait d'une importante fréquentation puisqu'elle figurait parmi les trois ports principaux de la Méditerranée et se situait sur l'une des plus grandes routes commerciales : La Voie Égnatienne reliant Rome à Byzance.\n\nSur le plan religieux, les habitants étaient polythéistes et pratiquaient une variété de cultes, dont le culte impérial. Durant trois semaines, Paulos enseigna dans une synagogue à Thessalonique et constitua un groupe de croyants composé de Juifs, des nations, de pauvres et de plusieurs femmes de la haute société. Toutefois, une violente persécution l'obligea à quitter promptement la ville, laissant la communauté nouvellement formée vulnérable et fragile.\n\nLa première lettre adressée par Paulos aux Thessaloniciens avait pour but d'affermir ces derniers dans les vérités fondamentales qui leur avaient été enseignées, de les exhorter à vivre une vie de sainteté pour être agréables à Elohîm, de les éclairer quant au devenir des défunts et de les assurer du retour certain du Seigneur.",
+  "chapters": [
+    {
+      "chapter": 1,
+      "verses": [
+        {
+          "verse": "1:1",
+          "text": "Paulos, et Silvanos, et Timotheos, à l'assemblée des Thessaloniciens, en Elohîm Père et Seigneur Yéhoshoua Mashiah : à vous, grâce et shalôm, de la part d'Elohîm notre Père et Seigneur Yéhoshoua Mashiah !"
+        },
+        {
+          "verse": "1:2",
+          "text": "Nous rendons toujours grâces à Elohîm au sujet de vous tous, faisant mention de vous dans nos prières,"
+        },
+        {
+          "verse": "1:3",
+          "text": "en nous rappelant sans cesse l'œuvre de votre foi, le travail de votre amour, et la persévérance de l'espérance en notre Seigneur Yéhoshoua Mashiah devant notre Elohîm et Père,"
+        },
+        {
+          "verse": "1:4",
+          "text": "sachant, frères aimés d'Elohîm, votre élection."
+        },
+        {
+          "verse": "1:5",
+          "text": "Parce que notre Évangile ne vous est pas arrivé en parole seulement, mais aussi avec puissance, avec l'Esprit Saint et avec une grande plénitude d'assurance. Vous savez en effet que c'est ainsi que nous sommes venus parmi vous à cause de vous."
+        },
+        {
+          "verse": "1:6",
+          "text": "Et vous êtes devenus nos imitateurs et ceux du Seigneur, ayant reçu la parole avec la joie du Saint-Esprit au milieu d'une grande tribulation."
+        },
+        {
+          "verse": "1:7",
+          "text": "De sorte que vous êtes devenus des modèles pour tous ceux qui croient dans la Macédoine et dans l'Achaïe.",
+          "textWithNotes": "De sorte que vous êtes devenus des modèles pour tous ceux qui croient dans la Macédoine[La Macédoine était la terre natale d'Alexandre le Grand. Elle fut conquise par les Romains et devint une province romaine, dont la capitale était Thessalonique.] et dans l'Achaïe[L'Achaïe était une province romaine placée sous l'autorité d'un proconsul résidant dans la capitale qui était Corinthe (2 Co. 1:1).].",
+          "notes": [
+            {
+              "word": "Macédoine",
+              "position": 78,
+              "note": "La Macédoine était la terre natale d'Alexandre le Grand. Elle fut conquise par les Romains et devint une province romaine, dont la capitale était Thessalonique."
+            },
+            {
+              "word": "l'Achaïe",
+              "position": 96,
+              "note": "L'Achaïe était une province romaine placée sous l'autorité d'un proconsul résidant dans la capitale qui était Corinthe (2 Co. 1:1)."
+            }
+          ]
+        },
+        {
+          "verse": "1:8",
+          "text": "Car la parole du Seigneur a retenti de chez vous, non seulement dans la Macédoine et dans l'Achaïe, mais votre foi envers Elohîm est sortie aussi en tout lieu, de sorte que nous n'avons pas besoin d'en parler."
+        },
+        {
+          "verse": "1:9",
+          "text": "Car eux-mêmes racontent à notre sujet quelle entrée nous avons eue auprès de vous et comment vous vous êtes convertis à Elohîm, loin des idoles, pour servir l'Elohîm vivant et véritable,",
+          "textWithNotes": "Car eux-mêmes racontent à notre sujet quelle entrée nous avons eue auprès de vous et comment vous vous êtes convertis[Se tourner vers. Ou vous vous êtes retournés auprès d'Elohîm.] à Elohîm, loin des idoles, pour servir l'Elohîm vivant et véritable,",
+          "notes": [
+            {
+              "word": "convertis",
+              "position": 108,
+              "note": "Se tourner vers. Ou vous vous êtes retournés auprès d'Elohîm."
+            }
+          ]
+        },
+        {
+          "verse": "1:10",
+          "text": "et pour attendre son Fils depuis les cieux, qu'il a réveillé hors des morts, Yéhoshoua, qui nous délivre de la colère qui vient.",
+          "textWithNotes": "et pour attendre son Fils depuis les cieux, qu'il a réveillé hors des morts, Yéhoshoua, qui nous délivre de la colère qui vient[La colère à venir. Voir les sept coupes de la colère d'Elohîm (Ap. 6:16, 15:5-8, 16:1-21).].",
+          "notes": [
+            {
+              "word": "vient",
+              "position": 122,
+              "note": "La colère à venir. Voir les sept coupes de la colère d'Elohîm (Ap. 6:16, 15:5-8, 16:1-21)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "verses": [
+        {
+          "verse": "2:1",
+          "text": "Car vous-mêmes, frères, vous savez que notre entrée chez vous n'était pas devenue vaine."
+        },
+        {
+          "verse": "2:2",
+          "text": "Mais ayant aussi par avance souffert et ayant été outragés à Philippes, comme vous le savez, nous avons pris de l'assurance en notre Elohîm, pour vous annoncer l'Évangile d'Elohîm au milieu d'un grand combat.",
+          "textWithNotes": "Mais ayant aussi par avance souffert et ayant été outragés à Philippes[Philippes était une ville de Macédoine située en Thrace, près de la côte nord de la Mer Égée. Voir Ac. 16:12-40 et la lettre de Paulos (Paul) aux Philippiens.], comme vous le savez, nous avons pris de l'assurance en notre Elohîm, pour vous annoncer l'Évangile d'Elohîm au milieu d'un grand combat.",
+          "notes": [
+            {
+              "word": "Philippes",
+              "position": 61,
+              "note": "Philippes était une ville de Macédoine située en Thrace, près de la côte nord de la Mer Égée. Voir Ac. 16:12-40 et la lettre de Paulos (Paul) aux Philippiens."
+            }
+          ]
+        },
+        {
+          "verse": "2:3",
+          "text": "Car notre exhortation n’est pas issue de l’égarement, ni issue de l'impureté, ni dans une tromperie."
+        },
+        {
+          "verse": "2:4",
+          "text": "Mais comme nous avons été testés par Elohîm pour nous confier l'Évangile, ainsi nous parlons non comme pour plaire aux humains, mais à Elohîm qui éprouve nos cœurs.",
+          "textWithNotes": "Mais comme nous avons été testés[Voir 1 Ti. 3:10 ; 1 Pi. 1:7.] par Elohîm pour nous confier l'Évangile, ainsi nous parlons non comme pour plaire aux humains, mais à Elohîm qui éprouve nos cœurs.",
+          "notes": [
+            {
+              "word": "testés",
+              "position": 26,
+              "note": "Voir 1 Ti. 3:10 ; 1 Pi. 1:7."
+            }
+          ]
+        },
+        {
+          "verse": "2:5",
+          "text": "Car nous ne sommes jamais arrivés avec une parole flatteuse, comme vous le savez, ni avec la cupidité pour mobile, Elohîm en est témoin.",
+          "textWithNotes": "Car nous ne sommes jamais arrivés avec une parole flatteuse, comme vous le savez, ni avec la cupidité pour mobile[Un prétexte (une raison alléguée, une cause prétendue).], Elohîm en est témoin.",
+          "notes": [
+            {
+              "word": "mobile",
+              "position": 107,
+              "note": "Un prétexte (une raison alléguée, une cause prétendue)."
+            }
+          ]
+        },
+        {
+          "verse": "2:6",
+          "text": "Nous ne cherchons pas une gloire issue des humains, ni de vous, ni des autres, étant capables d'être un fardeau comme apôtres du Mashiah,"
+        },
+        {
+          "verse": "2:7",
+          "text": "mais nous étions devenus doux au milieu de vous, de même qu'une nourrice chérit d'un tendre amour ses propres enfants."
+        },
+        {
+          "verse": "2:8",
+          "text": "Ainsi, dans notre affection pour vous, nous étions prêts à vous donner, non seulement l'Évangile d'Elohîm, mais aussi nos propres âmes, parce que vous étiez devenus nos bien-aimés."
+        },
+        {
+          "verse": "2:9",
+          "text": "Car vous vous rappelez, frères, notre peine et notre travail dur et difficile. Car c'est en travaillant nuit et jour, pour n'être à la charge d'aucun d'entre vous, que nous vous avons prêché l'Évangile d'Elohîm."
+        },
+        {
+          "verse": "2:10",
+          "text": "Vous êtes témoins et l'Elohîm aussi, combien notre conduite envers vous qui croyez a été sainte, juste, et irréprochable."
+        },
+        {
+          "verse": "2:11",
+          "text": "Ainsi que vous le savez, exhortant, consolant et implorant chacun de vous, comme un père ses propres enfants,"
+        },
+        {
+          "verse": "2:12",
+          "text": "de marcher d'une manière digne d'Elohîm, qui vous appelle à son Royaume et à sa gloire."
+        },
+        {
+          "verse": "2:13",
+          "text": "En raison de cela aussi, nous rendons sans cesse grâces à Elohîm parce qu'ayant reçu la parole d’Elohîm que nous vous avons fait entendre, vous l'avez accueillie non comme la parole des humains, mais comme ce qu'elle est vraiment : la parole d'Elohîm qui agit puissamment aussi en vous qui croyez."
+        },
+        {
+          "verse": "2:14",
+          "text": "Car vous, frères, vous êtes devenus les imitateurs des assemblées d'Elohîm qui, dans la Judée, sont dans le Mashiah Yéhoshoua, parce que vous aussi, vous avez souffert de la part de ceux de votre propre nation les mêmes choses qu'elles ont souffertes de la part des Juifs,"
+        },
+        {
+          "verse": "2:15",
+          "text": "qui ont même tué le Seigneur Yéhoshoua et leurs propres prophètes, qui vous ont persécutés, qui ne plaisent pas à Elohîm et qui sont opposés à tous les humains,"
+        },
+        {
+          "verse": "2:16",
+          "text": "nous empêchant de parler aux nations pour qu'elles soient sauvées et mettent ainsi en tout temps le comble à leur péché. Mais à la fin la colère est venue sur eux."
+        },
+        {
+          "verse": "2:17",
+          "text": "Mais pour nous, frères, après avoir été quelque temps séparés de vous de face et non de cœur, nous avons eu d'autant plus d'ardeur et d'empressement de voir votre face."
+        },
+        {
+          "verse": "2:18",
+          "text": "C’est pourquoi nous avons voulu venir chez vous, moi, Paulos, en effet, une et même deux fois, mais Satan nous en a empêchés."
+        },
+        {
+          "verse": "2:19",
+          "text": "Car qui est notre espérance, ou joie, ou couronne de gloire ? N'est-ce pas vous aussi, en face de notre Seigneur Yéhoshoua Mashiah, en sa parousie ?"
+        },
+        {
+          "verse": "2:20",
+          "text": "Car vous êtes notre gloire et la joie."
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "verses": [
+        {
+          "verse": "3:1",
+          "text": "C'est pourquoi, ne pouvant attendre davantage, nous avons trouvé bon de rester seuls à Athènes."
+        },
+        {
+          "verse": "3:2",
+          "text": "Et nous avons envoyé Timotheos, notre frère, serviteur d'Elohîm, et notre compagnon d'œuvre dans l'Évangile du Mashiah, pour vous affermir et vous exhorter au sujet de votre foi,"
+        },
+        {
+          "verse": "3:3",
+          "text": "afin que personne ne soit agité par ces tribulations, puisque vous savez vous-mêmes que nous sommes destinés à ces choses.",
+          "textWithNotes": "afin que personne ne soit agité[Agiter la queue comme un chien.] par ces tribulations, puisque vous savez vous-mêmes que nous sommes destinés à ces choses.",
+          "notes": [
+            {
+              "word": "agité",
+              "position": 26,
+              "note": "Agiter la queue comme un chien."
+            }
+          ]
+        },
+        {
+          "verse": "3:4",
+          "text": "Car aussi, lorsque nous étions avec vous, nous vous prédisions que nous avons à subir des oppressions, comme cela est aussi arrivé, et vous le savez."
+        },
+        {
+          "verse": "3:5",
+          "text": "C'est en raison de cela que, moi aussi, n'y tenant plus, j'ai envoyé pour connaître votre foi, de peur que le Tentateur ne vous ait tentés et que notre travail ne soit devenu inutile."
+        },
+        {
+          "verse": "3:6",
+          "text": "Mais Timotheos, récemment venu de chez vous vers nous, nous a apporté la bonne nouvelle de votre foi et de votre amour et du bon souvenir que vous avez toujours de nous, désirant nous voir comme nous aussi par rapport à vous."
+        },
+        {
+          "verse": "3:7",
+          "text": "À cause de cela, frères, nous avons été consolés à votre sujet par le moyen de votre foi, dans toute notre tribulation et notre calamité."
+        },
+        {
+          "verse": "3:8",
+          "text": "Parce que maintenant nous vivons, si vous demeurez fermes dans le Seigneur."
+        },
+        {
+          "verse": "3:9",
+          "text": "Car quelle action de grâce nous pouvons rendre à Elohîm à votre sujet, pour toute la joie que nous éprouvons devant notre Elohîm, à cause de vous."
+        },
+        {
+          "verse": "3:10",
+          "text": "Priant nuit et jour avec beaucoup d’insistance pour voir votre visage et compléter ce qui manque à votre foi !",
+          "textWithNotes": "Priant nuit et jour avec beaucoup d’insistance pour voir votre visage et compléter[Compléter : du grec « katartizo » qui signifie « redresser », « ajuster », « compléter », « raccommoder » (ce qui a été abîmé), « réparer ». Ce verbe est également utilisé dans Mt. 4:21 lorsque Yaacov et Yohanan (Jacques et Jean) réparaient leurs filets. Le terme « katartismos » traduit par « perfectionnement » dans Ep. 4:11 vient de ce verbe. Ainsi, l'un des rôles de ces services est le perfectionnement des saints et non leur destruction.] ce qui manque à votre foi !",
+          "notes": [
+            {
+              "word": "compléter",
+              "position": 73,
+              "note": "Compléter : du grec « katartizo » qui signifie « redresser », « ajuster », « compléter », « raccommoder » (ce qui a été abîmé), « réparer ». Ce verbe est également utilisé dans Mt. 4:21 lorsque Yaacov et Yohanan (Jacques et Jean) réparaient leurs filets. Le terme « katartismos » traduit par « perfectionnement » dans Ep. 4:11 vient de ce verbe. Ainsi, l'un des rôles de ces services est le perfectionnement des saints et non leur destruction."
+            }
+          ]
+        },
+        {
+          "verse": "3:11",
+          "text": "Mais qu'Elohîm lui-même, notre Père, et notre Seigneur Yéhoshoua Mashiah, dirige notre chemin vers vous !",
+          "textWithNotes": "Mais qu'Elohîm lui-même, notre Père, et notre Seigneur Yéhoshoua Mashiah, dirige[On constate que le verbe « diriger » est conjugué au singulier, y compris dans le texte original grec, ce qui atteste l'unité entre le Père et le Fils. Voir 2 Th. 2:16-17.] notre chemin vers vous !",
+          "notes": [
+            {
+              "word": "dirige",
+              "position": 74,
+              "note": "On constate que le verbe « diriger » est conjugué au singulier, y compris dans le texte original grec, ce qui atteste l'unité entre le Père et le Fils. Voir 2 Th. 2:16-17."
+            }
+          ]
+        },
+        {
+          "verse": "3:12",
+          "text": "Et que le Seigneur vous fasse croître et abonder en amour les uns envers les autres et envers tous, comme il en est de nous envers vous !"
+        },
+        {
+          "verse": "3:13",
+          "text": "Pour affermir vos cœurs pour qu’ils soient irréprochables en sainteté, devant notre Elohîm et Père, en la parousie de notre Seigneur Yéhoshoua Mashiah avec tous ses saints.",
+          "textWithNotes": "Pour affermir vos cœurs pour qu’ils soient irréprochables en sainteté, devant notre Elohîm et Père, en la parousie de notre Seigneur Yéhoshoua Mashiah avec tous ses saints[Yéhoshoua ha Mashiah est YHWH (Es. 34:5, 40:10-11, 62:11-12 ; Za. 14:5 ; Jud. 14-15.).].",
+          "notes": [
+            {
+              "word": "saints",
+              "position": 165,
+              "note": "Yéhoshoua ha Mashiah est YHWH (Es. 34:5, 40:10-11, 62:11-12 ; Za. 14:5 ; Jud. 14-15.)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "verses": [
+        {
+          "verse": "4:1",
+          "text": "Au reste donc, frères, nous vous le demandons et nous vous y exhortons dans le Seigneur Yéhoshoua, que, comme vous avez appris de nous de quelle manière il vous faut marcher et plaire à Elohîm, vous y abondiez de plus en plus."
+        },
+        {
+          "verse": "4:2",
+          "text": "Car vous savez quels commandements nous vous avons donnés à travers le Seigneur Yéhoshoua."
+        },
+        {
+          "verse": "4:3",
+          "text": "Car c’est ici la volonté d'Elohîm : votre sanctification. Que vous vous absteniez de relation sexuelle illicite,",
+          "textWithNotes": "Car c’est ici la volonté d'Elohîm : votre sanctification[La sanctification personnelle (1 Pi. 1:15-18 ; Hé. 12:14 ; Ap. 22:11). Chaque chrétien doit fournir un effort, en se servant quotidiennement de la parole d'Elohîm et de la prière, pour se maintenir dans la sanctification. Cela implique la séparation d'avec le mal et des mauvaises compagnies (2 Co. 6:14-18). La sanctification se développe au prix de nombreuses souffrances et de multiples sacrifices (Ro. 12:1-3).]. Que vous vous absteniez de relation sexuelle illicite,",
+          "notes": [
+            {
+              "word": "sanctification",
+              "position": 42,
+              "note": "La sanctification personnelle (1 Pi. 1:15-18 ; Hé. 12:14 ; Ap. 22:11). Chaque chrétien doit fournir un effort, en se servant quotidiennement de la parole d'Elohîm et de la prière, pour se maintenir dans la sanctification. Cela implique la séparation d'avec le mal et des mauvaises compagnies (2 Co. 6:14-18). La sanctification se développe au prix de nombreuses souffrances et de multiples sacrifices (Ro. 12:1-3)."
+            }
+          ]
+        },
+        {
+          "verse": "4:4",
+          "text": "que chacun de vous sache posséder son propre vase dans la sanctification et dans l'honneur,",
+          "textWithNotes": "que chacun de vous sache posséder son propre vase[« Vase » était une métaphore grecque commune pour « le corps » car les Grecs pensaient que l'âme vivait temporairement dans les corps.] dans la sanctification et dans l'honneur,",
+          "notes": [
+            {
+              "word": "vase",
+              "position": 45,
+              "note": "« Vase » était une métaphore grecque commune pour « le corps » car les Grecs pensaient que l'âme vivait temporairement dans les corps."
+            }
+          ]
+        },
+        {
+          "verse": "4:5",
+          "text": "non pas dans la passion du désir, comme les nations qui ne connaissent pas Elohîm.",
+          "textWithNotes": "non pas dans la passion[Voir Ro. 1:26.] du désir, comme les nations qui ne connaissent pas Elohîm.",
+          "notes": [
+            {
+              "word": "passion",
+              "position": 16,
+              "note": "Voir Ro. 1:26."
+            }
+          ]
+        },
+        {
+          "verse": "4:6",
+          "text": "Ne pas frauder et profiter de son frère en affaire, parce que le Seigneur punit toutes ces choses, comme nous vous l'avons dit et attesté.",
+          "textWithNotes": "Ne pas frauder[« Marcher sur, au-dessus de, au-delà de », « outrepasser les limites convenables, violer ».] et profiter[« Avoir plus, ou une plus grande part ou part », « avoir un avantage sur, gagner ou profiter d'un autre ».] de son frère en affaire[Une transaction commerciale.], parce que le Seigneur punit toutes ces choses, comme nous vous l'avons dit et attesté.",
+          "notes": [
+            {
+              "word": "frauder",
+              "position": 7,
+              "note": "« Marcher sur, au-dessus de, au-delà de », « outrepasser les limites convenables, violer »."
+            },
+            {
+              "word": "profiter",
+              "position": 18,
+              "note": "« Avoir plus, ou une plus grande part ou part », « avoir un avantage sur, gagner ou profiter d'un autre »."
+            },
+            {
+              "word": "affaire",
+              "position": 43,
+              "note": "Une transaction commerciale."
+            }
+          ]
+        },
+        {
+          "verse": "4:7",
+          "text": "Car Elohîm ne nous a pas appelés à l'impureté, mais dans la sanctification."
+        },
+        {
+          "verse": "4:8",
+          "text": "C'est pourquoi celui qui rejette ceci ne rejette pas un être humain, mais Elohîm qui nous a aussi donné son Saint-Esprit."
+        },
+        {
+          "verse": "4:9",
+          "text": "Mais concernant l'amour fraternel, vous n'avez pas besoin que je vous en écrive, car vous êtes vous-mêmes enseignés par Elohîm à vous aimer les uns les autres,"
+        },
+        {
+          "verse": "4:10",
+          "text": "car c'est aussi ce que vous faites à l'égard de tous les frères qui sont dans toute la Macédoine. Mais nous vous exhortons, frères, à y abonder de plus en plus,"
+        },
+        {
+          "verse": "4:11",
+          "text": "et de tâcher sincèrement de rester tranquilles, de vous occuper de vos propres affaires, et de travailler de vos propres mains, ainsi que nous vous l'avons ordonné,"
+        },
+        {
+          "verse": "4:12",
+          "text": "afin que vous marchiez d'une manière bienséante envers ceux du dehors et que vous n'ayez besoin de personne."
+        },
+        {
+          "verse": "4:13",
+          "text": "Or frères, je ne veux pas que vous soyez dans l'ignorance au sujet de ceux qui se sont endormis, afin que vous ne soyez pas attristés comme les autres aussi qui n'ont pas d'espérance."
+        },
+        {
+          "verse": "4:14",
+          "text": "Car si nous croyons que Yéhoshoua est mort et qu'il s’est relevé, de même aussi ceux qui se sont endormis en Yéhoshoua, Elohîm les ramènera avec lui."
+        },
+        {
+          "verse": "4:15",
+          "text": "Car nous vous disons ceci par la parole du Seigneur, c'est que nous, les vivants restés pour la parousie du Seigneur, nous ne précéderons jamais les endormis."
+        },
+        {
+          "verse": "4:16",
+          "text": "Parce que le Seigneur lui-même, avec un cri de commandement, avec une voix d'archange et avec la trompette d'Elohîm, descendra du ciel et les morts en Mashiah ressusciteront premièrement.",
+          "textWithNotes": "Parce que le Seigneur lui-même, avec un cri de commandement[L'expression « cri de commandement » vient du grec « keleuma », ce mot signifie un ordre, et en particulier un cri stimulant, comme celui que reçoit un animal pressé par un homme, tels les chevaux par les conducteurs de chariots, les chiens de chasse par les chasseurs, etc. ; ou par lequel un ordre est donné par le capitaine d'un navire, aux soldats par un chef, un appel de trompette. La sagesse d'Elohîm crie (Pr. 8). Yesha`yah (Ésaïe) devait crier à plein gosier (Es. 58:1). Le cri du Seigneur ne sera entendu que par l'Assemblée véritable qui est son épouse (Mt. 25:6). Voir Za. 9:14.], avec une voix d'archange et avec la trompette[Za. 9:14.] d'Elohîm, descendra du ciel et les morts en Mashiah ressusciteront premièrement.",
+          "notes": [
+            {
+              "word": "commandement",
+              "position": 47,
+              "note": "L'expression « cri de commandement » vient du grec « keleuma », ce mot signifie un ordre, et en particulier un cri stimulant, comme celui que reçoit un animal pressé par un homme, tels les chevaux par les conducteurs de chariots, les chiens de chasse par les chasseurs, etc. ; ou par lequel un ordre est donné par le capitaine d'un navire, aux soldats par un chef, un appel de trompette. La sagesse d'Elohîm crie (Pr. 8). Yesha`yah (Ésaïe) devait crier à plein gosier (Es. 58:1). Le cri du Seigneur ne sera entendu que par l'Assemblée véritable qui est son épouse (Mt. 25:6). Voir Za. 9:14."
+            },
+            {
+              "word": "trompette",
+              "position": 97,
+              "note": "Za. 9:14."
+            }
+          ]
+        },
+        {
+          "verse": "4:17",
+          "text": "Ensuite nous, les vivants, les restés, nous serons enlevés ensemble avec eux dans les nuées à la rencontre du Seigneur dans les airs, et ainsi nous serons toujours avec le Seigneur."
+        },
+        {
+          "verse": "4:18",
+          "text": "C'est pourquoi consolez-vous les uns les autres par ces paroles."
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "verses": [
+        {
+          "verse": "5:1",
+          "text": "Mais concernant les temps et les mesures de temps, frères, vous n'avez pas besoin qu'on vous en écrive,",
+          "textWithNotes": "Mais concernant les temps[Chronos est le temps physique. Il permet de segmenter le temps : passé, présent et futur.] et les mesures de temps[Kairos est un temps métaphysique. Kairos n'est pas linéaire, il est qualitatif et se ressent. C'est le temps favorable.], frères, vous n'avez pas besoin qu'on vous en écrive,",
+          "notes": [
+            {
+              "word": "temps",
+              "position": 20,
+              "note": "Chronos est le temps physique. Il permet de segmenter le temps : passé, présent et futur."
+            },
+            {
+              "word": "temps",
+              "position": 44,
+              "note": "Kairos est un temps métaphysique. Kairos n'est pas linéaire, il est qualitatif et se ressent. C'est le temps favorable."
+            }
+          ]
+        },
+        {
+          "verse": "5:2",
+          "text": "car vous savez vous-mêmes précisément que le jour du Seigneur vient comme un voleur dans la nuit.",
+          "textWithNotes": "car vous savez vous-mêmes précisément que le jour du Seigneur vient comme un voleur dans la nuit[Mt. 25:6 ; 2 Pi. 3:10 ; Ap. 3:3, 16:15.].",
+          "notes": [
+            {
+              "word": "nuit",
+              "position": 92,
+              "note": "Mt. 25:6 ; 2 Pi. 3:10 ; Ap. 3:3, 16:15."
+            }
+          ]
+        },
+        {
+          "verse": "5:3",
+          "text": "Car quand ils disent : Paix et sûreté ! alors une destruction soudaine vient soudainement sur eux, comme les douleurs de l'enfantement sur celle qui est enceinte, et ils n'échapperont jamais.",
+          "textWithNotes": "Car quand ils disent : Paix et sûreté ! alors une destruction soudaine vient soudainement sur eux, comme les douleurs de l'enfantement sur celle qui est enceinte[Littéralement « qui l'a dans le ventre ».], et ils n'échapperont jamais.",
+          "notes": [
+            {
+              "word": "enceinte",
+              "position": 153,
+              "note": "Littéralement « qui l'a dans le ventre »."
+            }
+          ]
+        },
+        {
+          "verse": "5:4",
+          "text": "Mais vous, frères, vous n'êtes pas dans la ténèbre pour que ce jour vous saisisse comme un voleur."
+        },
+        {
+          "verse": "5:5",
+          "text": "Tous vous êtes fils de lumière et fils du jour. Nous ne sommes pas de la nuit ni de la ténèbre.",
+          "textWithNotes": "Tous vous êtes fils de lumière[Les disciples de Yéhoshoua sont les enfants de la lumière (Jn. 12:36 ; Ep. 5:8). Yéhoshoua est la lumière du monde (Jn. 8:12).] et fils du jour. Nous ne sommes pas de la nuit ni de la ténèbre.",
+          "notes": [
+            {
+              "word": "lumière",
+              "position": 23,
+              "note": "Les disciples de Yéhoshoua sont les enfants de la lumière (Jn. 12:36 ; Ep. 5:8). Yéhoshoua est la lumière du monde (Jn. 8:12)."
+            }
+          ]
+        },
+        {
+          "verse": "5:6",
+          "text": "Ainsi donc ne dormons pas comme les autres, mais veillons et soyons sobres."
+        },
+        {
+          "verse": "5:7",
+          "text": "Car ceux qui dorment, dorment la nuit, et ceux qui s'enivrent sont ivres la nuit."
+        },
+        {
+          "verse": "5:8",
+          "text": "Mais nous, étant du jour, soyons sobres, ayant revêtu la cuirasse de la foi et de l'amour, et pour casque, l'espérance du salut.",
+          "textWithNotes": "Mais nous, étant du jour, soyons sobres, ayant revêtu la cuirasse de la foi et de l'amour, et pour casque, l'espérance du salut[Ro. 13:12 ; Ep. 6:14,17.].",
+          "notes": [
+            {
+              "word": "salut",
+              "position": 122,
+              "note": "Ro. 13:12 ; Ep. 6:14,17."
+            }
+          ]
+        },
+        {
+          "verse": "5:9",
+          "text": "Parce qu'il ne nous a pas placés, l'Elohîm, pour la colère, mais pour l'acquisition du salut au moyen de notre Seigneur Yéhoshoua Mashiah,",
+          "textWithNotes": "Parce qu'il ne nous a pas placés, l'Elohîm, pour la colère[La colère à venir. Voir 1 Th. 1:9-10.], mais pour l'acquisition du salut au moyen de notre Seigneur Yéhoshoua Mashiah,",
+          "notes": [
+            {
+              "word": "colère",
+              "position": 52,
+              "note": "La colère à venir. Voir 1 Th. 1:9-10."
+            }
+          ]
+        },
+        {
+          "verse": "5:10",
+          "text": "qui est mort en notre faveur, afin que soit que nous veillions, soit que nous dormions, nous vivions avec lui."
+        },
+        {
+          "verse": "5:11",
+          "text": "C'est pourquoi exhortez-vous réciproquement, et édifiez-vous tous, les uns les autres, comme aussi vous le faites."
+        },
+        {
+          "verse": "5:12",
+          "text": "Mais nous vous prions, frères, de considérer ceux qui travaillent parmi vous, et qui vous dirigent dans le Seigneur, et qui vous avertissent."
+        },
+        {
+          "verse": "5:13",
+          "text": "Et ayez pour eux beaucoup d'estime et d'amour en raison de leur œuvre. Soyez en paix entre vous.",
+          "textWithNotes": "Et ayez pour eux beaucoup d'estime et d'amour[Littéralement « agape » : amour fraternel, affection.] en raison de leur œuvre. Soyez en paix entre vous.",
+          "notes": [
+            {
+              "word": "d'amour",
+              "position": 38,
+              "note": "Littéralement « agape » : amour fraternel, affection."
+            }
+          ]
+        },
+        {
+          "verse": "5:14",
+          "text": "Mais nous vous y exhortons, frères, avertissez les désordonnés, encouragez les poltrons, supportez les faibles, et soyez patients envers tous.",
+          "textWithNotes": "Mais nous vous y exhortons, frères, avertissez les désordonnés[Mt. 18:15 ; Ga. 6:1.], encouragez les poltrons[« Ceux qui manquent d'audace », « les peureux », « trouillards », « craintifs ».], supportez les faibles, et soyez patients envers tous.",
+          "notes": [
+            {
+              "word": "désordonnés",
+              "position": 51,
+              "note": "Mt. 18:15 ; Ga. 6:1."
+            },
+            {
+              "word": "poltrons",
+              "position": 79,
+              "note": "« Ceux qui manquent d'audace », « les peureux », « trouillards », « craintifs »."
+            }
+          ]
+        },
+        {
+          "verse": "5:15",
+          "text": "Prenez garde que personne ne rende à autrui mal pour mal, mais poursuivez toujours ce qui est bon, et les uns envers les autres, et envers tous.",
+          "textWithNotes": "Prenez garde que personne ne rende à autrui mal pour mal[Mt. 5:44 ; Ro. 12:21.], mais poursuivez toujours ce qui est bon, et les uns envers les autres, et envers tous.",
+          "notes": [
+            {
+              "word": "mal",
+              "position": 53,
+              "note": "Mt. 5:44 ; Ro. 12:21."
+            }
+          ]
+        },
+        {
+          "verse": "5:16",
+          "text": "Soyez toujours joyeux."
+        },
+        {
+          "verse": "5:17",
+          "text": "Priez sans cesse."
+        },
+        {
+          "verse": "5:18",
+          "text": "En toute chose rendez grâces, car telle est la volonté d'Elohîm en Mashiah Yéhoshoua pour vous."
+        },
+        {
+          "verse": "5:19",
+          "text": "N'éteignez pas l'Esprit."
+        },
+        {
+          "verse": "5:20",
+          "text": "Ne méprisez pas les prophéties."
+        },
+        {
+          "verse": "5:21",
+          "text": "Examinez toutes choses, retenez ce qui est bon.",
+          "textWithNotes": "Examinez[Vient du grec « dokimazo » qui, en français, se traduit par « mettre à l'épreuve », « examiner », « éprouver (épreuve de métaux) », « reconnaître comme véritable après examen », « juger digne ». La racine de « dokimazo » est « dokimos » : « approuver ».] toutes choses[Voir 1 Ti. 3:10.], retenez ce qui est bon.",
+          "notes": [
+            {
+              "word": "Examinez",
+              "position": 0,
+              "note": "Vient du grec « dokimazo » qui, en français, se traduit par « mettre à l'épreuve », « examiner », « éprouver (épreuve de métaux) », « reconnaître comme véritable après examen », « juger digne ». La racine de « dokimazo » est « dokimos » : « approuver »."
+            },
+            {
+              "word": "choses",
+              "position": 16,
+              "note": "Voir 1 Ti. 3:10."
+            }
+          ]
+        },
+        {
+          "verse": "5:22",
+          "text": "Abstenez-vous de toute forme de mal."
+        },
+        {
+          "verse": "5:23",
+          "text": "Mais que l'Elohîm de paix lui-même vous sanctifie parfaitement, et que votre être entier, l’esprit, et l’âme et le corps soit gardé sans reproche en la parousie de notre Seigneur Yéhoshoua Mashiah !",
+          "textWithNotes": "Mais que l'Elohîm de paix lui-même vous sanctifie parfaitement, et que votre être entier, l’esprit, et l’âme et le corps soit gardé sans reproche en la parousie de notre Seigneur Yéhoshoua Mashiah[La parousie du Seigneur. Voir Mt. 24:1-3.] !",
+          "notes": [
+            {
+              "word": "Mashiah",
+              "position": 189,
+              "note": "La parousie du Seigneur. Voir Mt. 24:1-3."
+            }
+          ]
+        },
+        {
+          "verse": "5:24",
+          "text": "Celui qui vous appelle est fidèle, et il le fera."
+        },
+        {
+          "verse": "5:25",
+          "text": "Frères, priez à notre sujet."
+        },
+        {
+          "verse": "5:26",
+          "text": "Saluez tous les frères par un saint baiser."
+        },
+        {
+          "verse": "5:27",
+          "text": "Je vous adjure par le Seigneur que cette lettre soit lue à tous les saints frères."
+        },
+        {
+          "verse": "5:28",
+          "text": "La grâce de notre Seigneur Yéhoshoua Mashiah avec vous. Amen !"
+        }
+      ]
+    }
+  ]
+}

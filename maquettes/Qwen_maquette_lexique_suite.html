@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Application Bible — Maquette v8 · Lexique réel (01-Genese.json)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0f1d; --gold:#d3a94f; --gold2:#f0d089;
+  --line:rgba(211,169,79,.18); --line2:rgba(211,169,79,.34);
+  --mut:#93a0b8; --ink:#e9eef8; --disp:'Cormorant Garamond',serif; --ui:'Manrope',sans-serif;
+  --heb:'Noto Serif Hebrew','SBL Hebrew','Ezra SIL','Times New Roman',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;overflow-x:hidden}
+::selection{background:rgba(211,169,79,.35)}
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(1200px 800px at 78% -10%,rgba(46,74,140,.28),transparent 60%),radial-gradient(1000px 700px at -12% 112%,rgba(122,84,30,.16),transparent 60%)}
+.sky::before{content:"";position:absolute;inset:0;background-image:
+  radial-gradient(1.4px 1.4px at 12% 18%,rgba(242,234,208,.7),transparent 60%),
+  radial-gradient(1.2px 1.2px at 34% 8%,rgba(242,234,208,.5),transparent 60%),
+  radial-gradient(1.6px 1.6px at 58% 22%,rgba(242,234,208,.6),transparent 60%),
+  radial-gradient(1.3px 1.3px at 91% 34%,rgba(242,234,208,.5),transparent 60%),
+  radial-gradient(1.5px 1.5px at 47% 60%,rgba(242,234,208,.45),transparent 60%);
+  animation:twk 9s ease-in-out infinite alternate}
+@keyframes twk{from{opacity:.35}to{opacity:.9}}
+body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.045;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.55'/></svg>")}
+main,header.mast,footer,.topbar{position:relative;z-index:2}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;gap:26px;padding:12px 32px;background:rgba(10,15,29,.92);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;white-space:nowrap}
+.brand svg{color:var(--gold)}
+.brand small{font-weight:600;color:var(--mut)}
+.vbadge{font-size:10px;font-weight:800;letter-spacing:.1em;background:linear-gradient(120deg,var(--gold2),var(--gold));color:#241a04;border-radius:99px;padding:3px 9px}
+.tnav{display:flex;gap:4px;margin-left:auto}
+.tnav a{color:var(--mut);text-decoration:none;font-size:12px;font-weight:700;padding:6px 9px;border-radius:8px;transition:.2s}
+.tnav a:hover{color:var(--gold2);background:rgba(211,169,79,.1)}
+
+.mast{max-width:1240px;margin:0 auto;padding:126px 32px 50px}
+.overline{display:flex;align-items:center;gap:14px;font-size:12px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.overline::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line2),transparent)}
+.mast h1{font-family:var(--disp);font-weight:600;font-size:clamp(42px,5.2vw,72px);line-height:1.02;margin:16px 0 14px}
+.mast h1 em{font-style:italic;color:var(--gold2)}
+.tagline{font-size:16.5px;color:var(--mut);max-width:840px}
+.tagline b{color:#f2ead8}
+.tagline .hb{font-family:var(--heb);color:var(--gold2)}
+.changelog{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:24px}
+.cl{font-size:13px;color:var(--mut);border:1px solid var(--line);border-radius:99px;padding:9px 18px}
+.cl b{color:#f2ead8;margin-right:6px}
+.cl.gold{background:linear-gradient(120deg,rgba(211,169,79,.16),rgba(211,169,79,.05));border-color:var(--line2);color:#d5dbe8}
+.cl.gold b{color:var(--gold2)}
+.changelog .arr{color:var(--gold);font-size:18px}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.sec{border-top:1px solid var(--line);padding:86px 0}
+.grid{display:grid;grid-template-columns:minmax(300px,450px) auto;gap:66px;align-items:center;justify-content:center}
+.num{display:flex;align-items:center;gap:14px;color:var(--gold);margin-bottom:16px}
+.num b{font-family:var(--disp);font-style:italic;font-weight:500;font-size:54px;line-height:1;color:var(--gold2)}
+.sec-title{font-family:var(--disp);font-weight:600;font-size:clamp(28px,3.2vw,42px);line-height:1.12;margin-bottom:14px}
+.lead{color:#c3cbdc;font-size:15.5px;max-width:480px}
+.lead b{color:#f2ead8}
+.gestures{list-style:none;margin-top:24px;display:grid;gap:11px}
+.gestures li{position:relative;padding-left:26px;font-size:14.5px;color:#d5dbe8}
+.gestures li::before{content:"☞";position:absolute;left:0;top:1px;color:var(--gold);font-size:13px}
+.gestures b{color:#fff}
+.ref{display:inline-block;font-size:10.5px;font-weight:800;color:var(--gold);border:1px solid var(--line2);border-radius:99px;padding:2px 8px;margin-left:8px;vertical-align:1px}
+.n2{font-size:9.5px;font-weight:800;letter-spacing:.08em;color:#241a04;background:linear-gradient(120deg,var(--gold2),var(--gold));border-radius:99px;padding:2px 8px;margin-left:6px;vertical-align:1px}
+
+/* ---------- téléphone ---------- */
+.phone{position:relative;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.phone:hover{transform:translateY(-8px)}
+.phone::before{content:"";position:absolute;inset:-50px -70px;background:radial-gradient(50% 55% at 50% 42%,rgba(211,169,79,.13),transparent 70%)}
+.frame{position:relative;width:370px;background:#04060b;border:1px solid #2a3040;border-radius:58px;padding:12px;box-shadow:0 50px 100px rgba(0,0,0,.6)}
+.screen{position:relative;width:346px;height:752px;border-radius:47px;overflow:hidden;font-family:var(--ui);user-select:none;-webkit-user-select:none;display:flex;flex-direction:column}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:106px;height:27px;background:#04060b;border-radius:20px;z-index:70}
+.homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:118px;height:5px;border-radius:3px;background:rgba(200,200,210,.4);z-index:70}
+.sbar{display:flex;justify-content:space-between;align-items:center;padding:15px 26px 0;font-size:13px;font-weight:800;position:relative;z-index:8;color:#f0e6cc}
+.th-vitrail{--tx:#f4ecd7;--tx2:#d8c79e;--hd:#eec76d;--num:#d9a441;--acc:#eec76d;--panel:rgba(19,13,7,.62);--panel2:rgba(238,199,109,.18);--stripbg:rgba(19,13,7,.55);--striptx:#d8c79e;color:var(--tx);
+  background:linear-gradient(160deg,rgba(10,7,3,.3),rgba(10,7,3,.62)),conic-gradient(from 210deg at 55% 35%,#7d1f2d,#1d3f8f 22%,#d9a441 40%,#1f5c46 58%,#5b2a86 76%,#7d1f2d)}
+.strip{display:flex;align-items:center;gap:6px;padding:12px 10px 6px;overflow:hidden}
+.stab{display:flex;align-items:center;gap:6px;max-width:130px;padding:7px 9px;border-radius:11px 11px 4px 4px;font-size:10.5px;font-weight:800;white-space:nowrap;cursor:pointer;background:var(--stripbg);color:var(--striptx);border:1px solid var(--panel2);flex:none;transition:.2s}
+.stab span{overflow:hidden;text-overflow:ellipsis}
+.stab i{font-style:normal;font-size:9px;opacity:.65}
+.stab.on{background:var(--panel);color:var(--tx);border-color:var(--acc)}
+.c-ic{color:var(--gold);font-weight:800;font-size:11px;flex:none}
+.scount{flex:none;min-width:29px;height:29px;border-radius:9px;display:grid;place-items:center;background:var(--gold);color:#241a04;font-size:11.5px;font-weight:800;padding:0 7px;margin-left:auto;box-shadow:0 4px 12px rgba(211,169,79,.4);transition:.25s}
+.scount.pop{transform:scale(1.28)}
+.refbar{display:flex;align-items:center;gap:10px;margin:4px 14px 0;padding:11px 14px;background:var(--panel);border-radius:14px;border:1px solid var(--panel2)}
+.refbar .bk{font-family:var(--disp);font-weight:700;font-size:17px;color:var(--hd);flex:1;white-space:nowrap;overflow:hidden}
+.refbar .bk small{display:block;font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tx2)}
+.tchip{font-size:11px;font-weight:800;color:var(--tx);background:var(--panel2);border:1px solid var(--panel2);border-radius:99px;padding:6px 11px;flex:none;cursor:pointer;transition:.2s}
+.tchip:hover{border-color:var(--acc);color:var(--hd)}
+.vbody{flex:1;overflow-y:auto;scrollbar-width:none;min-height:0}
+.vbody::-webkit-scrollbar{display:none}
+.flow{padding:12px 20px 26px}
+.verses p{font-family:var(--disp);font-size:19px;line-height:1.62;margin-bottom:.85em;cursor:pointer;border-radius:12px;padding:5px 10px;margin-left:-10px;margin-right:-10px;transition:.22s;outline:1.5px solid transparent;position:relative}
+.verses p:hover{background:rgba(238,199,109,.08)}
+.verses p.sel{background:rgba(238,199,109,.14);outline-color:rgba(238,199,109,.7)}
+.verses p.flashA{animation:nflash 1.4s ease}
+@keyframes nflash{0%{box-shadow:0 0 0 0 rgba(238,199,109,0)}30%{box-shadow:0 0 0 5px rgba(238,199,109,.45)}100%{box-shadow:0 0 0 0 rgba(238,199,109,0)}}
+.vn{font-family:var(--ui);font-size:.58em;font-weight:800;color:var(--num);vertical-align:super;margin-right:6px}
+.nbadge{float:right;font-family:var(--ui);font-size:9.5px;font-weight:800;color:var(--hd);background:var(--panel2);border:1px solid var(--panel2);border-radius:99px;padding:3px 9px;margin-top:2px}
+
+/* ---------- feuille d'étude ---------- */
+.sheetbk{position:absolute;left:0;right:0;bottom:0;z-index:58;transform:translateY(108%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.sheetbk.show{transform:none}
+.sheet{background:#141927;border-radius:26px 26px 0 0;border-top:1px solid rgba(238,199,109,.3);padding:8px 18px 24px;box-shadow:0 -20px 50px rgba(0,0,0,.55)}
+.drag{width:44px;height:4px;border-radius:99px;background:#4a5570;margin:2px auto 10px}
+.sh-head{display:flex;align-items:center;gap:10px;margin-bottom:2px}
+.sh-ref{font-family:var(--disp);font-weight:700;font-size:19px;color:#eec76d;flex:1}
+.sh-x{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#dfe6f5;cursor:pointer;font-size:12px;transition:.2s;font-family:var(--ui)}
+.sh-x:hover{background:rgba(255,255,255,.16)}
+.sh-txt{font-family:var(--disp);font-style:italic;font-size:12.5px;color:#a9b6d4;line-height:1.4;margin-bottom:12px;max-height:36px;overflow:hidden}
+.sh-lbl{font-size:9.5px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#8b97b4;margin:10px 0 9px}
+.swrow{display:flex;gap:12px;align-items:center;margin-bottom:4px}
+.sw{width:32px;height:32px;border-radius:50%;cursor:pointer;border:2px solid transparent;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:.2s;flex:none}
+.sw:hover{transform:scale(1.14)}
+.sw.none{background:transparent;border:2px dashed #4a5570;box-shadow:none;position:relative}
+.sw.none::after{content:"";position:absolute;left:50%;top:50%;width:24px;height:2px;background:#4a5570;transform:translate(-50%,-50%) rotate(-45deg)}
+.actgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.act{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:9px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#dfe6f5;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:11px 4px;cursor:pointer;transition:.2s;font-family:var(--ui)}
+.act:hover{transform:translateY(-2px);border-color:rgba(238,199,109,.55);color:#f0d089}
+.act .ai{font-size:16px;color:#eec76d;line-height:1}
+.act-xl{grid-column:1/-1;flex-direction:row;justify-content:center;gap:11px;background:linear-gradient(120deg,var(--gold2),var(--gold));border:none;color:#241a04;font-size:11.5px;padding:13px;box-shadow:0 10px 22px rgba(211,169,79,.35)}
+.act-xl .ai{color:#241a04;font-size:19px;font-family:var(--heb)}
+.act-xl:hover{transform:translateY(-2px);color:#241a04}
+.act-xl small{font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:none;opacity:.75}
+.act-xl.off{background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.2);color:#8b97b4;box-shadow:none;cursor:default}
+.act-xl.off .ai{color:#8b97b4}
+.act-xl.off:hover{transform:none}
+
+/* ---------- écran lexique ---------- */
+.lex-top{display:flex;align-items:center;gap:10px;margin:6px 14px 0;padding:11px 14px;background:var(--panel);border-radius:14px;border:1px solid var(--panel2)}
+.backbtn{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:var(--panel2);border:1px solid var(--panel2);color:var(--tx);cursor:pointer;font-size:13px;transition:.2s;font-family:var(--ui);flex:none}
+.backbtn:hover{color:var(--hd);border-color:var(--acc)}
+.lex-top .bk{font-family:var(--disp);font-weight:700;font-size:17px;color:var(--hd);flex:1;white-space:nowrap;overflow:hidden}
+.lex-top .bk small{display:block;font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tx2)}
+.lex-hint{margin:10px 16px 0;display:flex;align-items:center;gap:9px;font-size:10.5px;font-weight:800;color:#241a04;background:linear-gradient(120deg,var(--gold2),var(--gold));border-radius:11px;padding:8px 12px}
+.lex-verse{margin:12px 14px;background:var(--panel);border:1px solid var(--panel2);border-radius:16px;padding:16px 16px 18px;font-family:var(--disp);font-size:19.5px;line-height:2.05}
+.lex-verse .vn{margin-right:4px}
+.wlink{border-bottom:2px dotted var(--acc);cursor:pointer;padding:1px 2px;border-radius:5px;transition:.18s}
+.wlink:hover{color:var(--hd)}
+.wlink.on{background:rgba(238,199,109,.25);color:var(--hd);border-bottom-color:var(--hd);box-shadow:0 2px 0 rgba(238,199,109,.4)}
+.entry{margin:0 14px 12px;background:var(--panel);border:1px solid var(--panel2);border-left:3px solid var(--acc);border-radius:16px;padding:15px 16px;animation:nin .35s both}
+@keyframes nin{from{opacity:0;transform:translateY(10px)}}
+.entry .erow{display:flex;align-items:center;gap:14px}
+.entry .heb{font-family:var(--heb);direction:rtl;font-size:40px;color:var(--hd);line-height:1.15}
+.entry .heb.none{font-family:var(--disp);font-size:26px;font-style:italic;color:var(--tx2)}
+.entry .emeta{flex:1}
+.entry .emeta b{font-size:15px;color:var(--tx);font-weight:800}
+.entry .echips{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
+.echip{font-size:9.5px;font-weight:800;letter-spacing:.05em;color:var(--tx);background:var(--panel2);border:1px solid var(--panel2);border-radius:99px;padding:3px 9px}
+.echip.g{color:#241a04;background:var(--acc);border-color:var(--acc)}
+.entry .edef{font-family:var(--ui);font-size:12.5px;line-height:1.6;color:var(--tx);opacity:.94;margin-top:11px}
+.entry .enav{display:flex;align-items:center;gap:8px;margin-top:13px;padding-top:12px;border-top:1px dashed var(--panel2)}
+.enav button{font-family:var(--ui);font-size:10.5px;font-weight:800;color:var(--tx);background:var(--panel2);border:1px solid var(--panel2);border-radius:99px;padding:7px 12px;cursor:pointer;transition:.2s}
+.enav button:hover{color:var(--hd);border-color:var(--acc);transform:translateY(-1px)}
+.enav .mid{flex:1;text-align:center;font-size:10px;font-weight:800;color:var(--tx2);letter-spacing:.08em}
+.enav .fullb{color:#241a04;background:var(--acc);border-color:var(--acc)}
+.lex-src{text-align:center;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx2);font-weight:800;padding:2px 0 10px}
+
+.toast{position:absolute;left:50%;bottom:70px;transform:translateX(-50%) translateY(20px);background:#f2ead8;color:#241a04;font-size:11.5px;font-weight:800;padding:9px 16px;border-radius:99px;opacity:0;transition:.3s;z-index:80;pointer-events:none;box-shadow:0 10px 24px rgba(0,0,0,.45);white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%)}
+.cap{margin-top:20px;text-align:center;font-size:12.5px;color:var(--mut);max-width:400px}
+.cap b{color:var(--gold2)}
+
+/* ---------- index réel ---------- */
+.idx-wrap{margin-top:40px;border:1px solid var(--line);border-radius:20px;overflow:hidden;max-width:1120px}
+.idx{width:100%;border-collapse:collapse}
+.idx th{font-size:9.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);background:rgba(211,169,79,.08);text-align:left;padding:13px 18px;border-bottom:1px solid var(--line)}
+.idx td{padding:12px 18px;border-bottom:1px solid rgba(211,169,79,.1);font-size:13px;color:#c3cbdc;vertical-align:baseline;transition:.15s}
+.idx tr:last-child td{border-bottom:none}
+.idx tbody tr:hover td{background:rgba(211,169,79,.05)}
+.idx .fr{font-weight:800;color:#f2ead8;font-size:13.5px}
+.idx .fr small{display:block;font-size:10.5px;color:var(--mut);font-weight:700}
+.idx .hb{font-family:var(--heb);direction:rtl;font-size:19px;color:var(--gold2);white-space:nowrap}
+.idx .st{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:#9cc2e8}
+.idx-note{padding:14px 20px;font-size:12px;color:var(--mut);background:rgba(255,255,255,.02);border-top:1px solid var(--line)}
+.idx-note b{color:var(--gold2)}
+
+/* ---------- règles & json ---------- */
+.rules2{display:grid;grid-template-columns:1fr 1fr;gap:12px 40px;margin-top:36px;max-width:1080px}
+.rule2{display:flex;gap:14px;align-items:baseline;padding:14px 4px;border-bottom:1px dashed rgba(211,169,79,.16);font-size:13.5px;color:#c3cbdc;transition:.2s}
+.rule2:hover{background:rgba(211,169,79,.04);padding-left:12px}
+.rule2 b{color:#f2ead8;min-width:215px}
+.rule2 code{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;color:var(--gold2)}
+.codepanel{background:#0d1426;border:1px solid var(--line);border-radius:18px;padding:26px 28px;overflow-x:auto;font-family:ui-monospace,'SF Mono',Consolas,monospace;font-size:12.5px;line-height:1.75;color:#c9d0df;margin-top:30px;box-shadow:0 30px 60px rgba(0,0,0,.35);max-width:1080px}
+.codepanel .k{color:#f0d089}
+.codepanel .s{color:#9cc2e8}
+.codepanel .p{color:#6e7a96}
+.codepanel .c{color:#5d6a86;font-style:italic}
+.codepanel .h{color:#e08a76;font-family:var(--heb);direction:rtl}
+.codepanel .fn{display:block;font-family:var(--ui);font-size:10.5px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.callout{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line2);border-radius:18px;padding:22px 26px;margin-top:28px;background:linear-gradient(120deg,rgba(211,169,79,.1),rgba(211,169,79,.02));max-width:1080px}
+.callout .ic{flex:none;width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(140deg,var(--gold2),var(--gold));color:#241a04;font-size:20px}
+.callout p{font-size:13.5px;color:#d5dbe8}
+.callout b{color:#fff}
+
+.foot{border-top:1px solid var(--line);padding:54px 0}
+.credit{text-align:center;font-size:12px;color:var(--mut);letter-spacing:.06em}
+.credit b{color:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:1080px){
+  .grid{grid-template-columns:1fr;gap:44px;justify-items:center}
+  .rules2{grid-template-columns:1fr}
+  .idx-wrap{overflow-x:auto}
+  .idx{min-width:760px}
+  .tnav{display:none}
+}
+@media(max-width:480px){
+  .frame{width:calc(100vw - 40px);max-width:370px}
+  .screen{width:100%;height:740px}
+  .wrap{padding:0 20px}
+  .mast{padding:104px 20px 44px}
+}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+
+<nav class="topbar">
+  <div class="brand">
+    <svg width="16" height="22" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="2"/><path d="M2 30h20" stroke="currentColor" stroke-width="2"/></svg>
+    Application Bible <small>· Maquette — Lexique réel</small> <span class="vbadge">v8</span>
+  </div>
+  <div class="tnav">
+    <a href="#demo">Démo interactive</a><a href="#index">Index réel</a><a href="#regles">Constitution du module</a>
+  </div>
+</nav>
+
+<header class="mast">
+  <div class="overline">Maquette UI · v8 — alimentée par 01-Genese.json (50 chapitres) · § 2.2</div>
+  <h1>Vos notes sont déjà <em>un lexique</em></h1>
+  <p class="tagline">En analysant votre fichier, une évidence : vos notes de traduction citent elles-mêmes les termes originaux — <span class="hb">כָּפַר</span> « kaphar » (couvrir / expier), « bayith », « tohuw », « neged », « tsela », « ehad »… Le module de lexique peut donc être <b>constitué automatiquement depuis vos notes</b>, chapitre après chapitre, sans dépendre d'un module externe — tout en restant compatible avec un lexique Strong optionnel.</p>
+  <div class="changelog">
+    <div class="cl"><b>v7</b> lexique via module externe</div>
+    <span class="arr">→</span>
+    <div class="cl gold"><b>v8</b> données réelles · lexique extrait des notes de Victor · index de toute la Genèse</div>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════ DÉMO ═══════ -->
+<section class="sec" id="demo">
+  <div class="wrap grid">
+    <div class="col-txt reveal">
+      <div class="num"><b>01</b></div>
+      <h2 class="sec-title">Le parcours, avec vos textes</h2>
+      <p class="lead">La démo utilise <b>Genèse 6:13-16</b> (l'arche) — le verset 6:14 porte quatre notes réelles de votre fichier : <b>arche</b>, <b>couvriras</b>, <b>poix</b>, <b>l'intérieur</b>.</p>
+      <ul class="gestures">
+        <li><b>Touchez Genèse 6.14</b> : la feuille d'étude remonte, avec le bouton doré « Lexique — 4 mots annotés » <span class="ref">§ 3.5</span></li>
+        <li><b>Touchez 6.13 ou 6.15</b> : la feuille s'ouvre aussi, mais « Lexique » est grisé — <b>aucun mot annoté</b> dans ces versets</li>
+        <li><b>« Lexique »</b> → nouvel onglet : le verset entier, mot à mot, les 4 mots annotés soulignés <span class="ref">§ 3.3</span></li>
+        <li><b>Touchez un mot</b> : sa fiche apparaît — terme hébreu en grand, translittération, définition tirée de votre note, références <span class="n2">RÉEL</span></li>
+        <li><b>◀ ▶</b> naviguent de mot en mot ; <b>« Note complète ↗ »</b> ramène à la lecture et illumine le verset 14</li>
+        <li>Essayez <b>« couvriras »</b> : la note révèle que couvrir = <b>kaphar, expier</b> — l'arche couverte de poix préfigure l'expiation</li>
+      </ul>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen th-vitrail">
+        <div class="island"></div>
+        <div class="sbar"><span>09:41</span><span><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+
+        <div class="strip" id="strip"></div>
+
+        <!-- SCÈNE LECTURE -->
+        <div id="sceneLecture" style="display:contents">
+          <div class="refbar">
+            <span class="bk">Genèse · chapitre 6<small>Bereshit · Traduction Victor</small></span>
+            <span class="tchip">Victor ▾</span>
+          </div>
+          <div class="vbody"><div class="flow">
+            <div class="verses" id="versesArea"></div>
+          </div></div>
+        </div>
+
+        <!-- SCÈNE LEXIQUE -->
+        <div id="sceneLexique" style="display:none;flex:1;flex-direction:column;min-height:0">
+          <div class="lex-top">
+            <button class="backbtn" id="lexBack">←</button>
+            <span class="bk">Lexique — Genèse 6.14<small>Verset mot à mot</small></span>
+            <span class="tchip" id="modChip">Lexique · notes de Victor ▾</span>
+          </div>
+          <div class="lex-hint">☞&nbsp; Touchez un mot souligné du verset pour afficher sa fiche</div>
+          <div class="vbody">
+            <div class="lex-verse" id="lexVerse"></div>
+            <div class="entry" id="entryCard"></div>
+            <div class="lex-src">Module constitué des notes de traduction — Victor (§ 2.2)</div>
+          </div>
+        </div>
+
+        <!-- FEUILLE D'ÉTUDE -->
+        <div class="sheetbk" id="sheetBk">
+          <div class="sheet">
+            <div class="drag"></div>
+            <div class="sh-head"><span class="sh-ref" id="shRef">Genèse 6.14</span><button class="sh-x" id="shClose">✕</button></div>
+            <div class="sh-txt" id="shTxt"></div>
+            <div class="sh-lbl">Surligner</div>
+            <div class="swrow">
+              <span class="sw" style="background:#f2cf5b"></span>
+              <span class="sw" style="background:#b6c98a"></span>
+              <span class="sw" style="background:#f0a8b8"></span>
+              <span class="sw" style="background:#9cc2e8"></span>
+              <span class="sw none"></span>
+            </div>
+            <div class="sh-lbl">Actions</div>
+            <div class="actgrid">
+              <button class="act act-xl" id="aLex"><span class="ai">א</span><span id="aLexLbl">Lexique&nbsp;<small>4 mots annotés dans ce verset</small></span></button>
+              <button class="act" data-act="note"><span class="ai">✎</span>Note</button>
+              <button class="act" data-act="fav"><span class="ai">★</span>Favori</button>
+              <button class="act" data-act="comp"><span class="ai">⇄</span>Comparer</button>
+              <button class="act" data-act="refs"><span class="ai">☙</span>Références</button>
+              <button class="act" data-act="audio"><span class="ai">♪</span>Écouter</button>
+              <button class="act" data-act="copy"><span class="ai">⧉</span>Copier</button>
+              <button class="act" data-act="share" style="grid-column:span 2"><span class="ai">↗</span>Partager</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="toast" id="toast"></div>
+        <div class="homebar"></div>
+      </div></div></div>
+      <p class="cap">Texte et notes <b>100 % issus de votre fichier</b> — y compris la définition de « couvriras » (kaphar) et « l'intérieur » (bayith).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ INDEX RÉEL ═══════ -->
+<section class="sec" id="index">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="num"><b>02</b></div>
+      <h2 class="sec-title">Index réel — extrait de vos notes sur toute la Genèse</h2>
+      <p class="lead">Voici ce que l'application peut <b>générer automatiquement</b> en parcourant vos 50 chapitres : chaque note qui cite un terme original devient une entrée, reliée à son verset et à son mot d'ancrage. Sélection d'une vingtaine d'entrées réelles :</p>
+    </div>
+    <div class="idx-wrap reveal">
+      <table class="idx">
+        <thead><tr><th>Mot (Victor)</th><th>Verset</th><th>Hébreu</th><th>Strong</th><th>Sens donné par votre note</th></tr></thead>
+        <tbody>
+          <tr><td class="fr">bohu<small>« tohu et bohu »</small></td><td>Ge. 1.2</td><td class="hb">תֹּהוּ / בֹּהוּ</td><td class="st">H8414 / H922</td><td>Confusion, chaos, vanité (Jé. 4:23)</td></tr>
+          <tr><td class="fr">un</td><td>Ge. 1.5</td><td class="hb">אֶחָד</td><td class="st">H259</td><td>« ehad » : un indivisible — Shema Israël (De. 6:4)</td></tr>
+          <tr><td class="fr">sol</td><td>Ge. 2.7</td><td class="hb">אֲדָמָה</td><td class="st">H127</td><td>« Ha-adamah » ; jeu de mots avec ha-adam, « le terreux » — comme homo / humus</td></tr>
+          <tr><td class="fr">reposer</td><td>Ge. 2.15</td><td class="hb">יָנַח</td><td class="st">H3240</td><td>« yanach » : la vie chrétienne commence par le repos (Ép. 2:6)</td></tr>
+          <tr><td class="fr">mangeras</td><td>Ge. 2.16</td><td class="hb">אָכַל</td><td class="st">H398</td><td>« akal » répété : la répétition hébraïque marque l'insistance, l'urgence</td></tr>
+          <tr><td class="fr">mourras</td><td>Ge. 2.17</td><td class="hb">מוּת</td><td class="st">H4191</td><td>« muwth » : infinitif + inaccompli — mort spirituelle, physique, puis seconde mort (Ap. 2:11)</td></tr>
+          <tr><td class="fr">vis-à-vis</td><td>Ge. 2.18</td><td class="hb">נֶגֶד</td><td class="st">H5048</td><td>« neged » : ce qui est visible, ce qui est en face de</td></tr>
+          <tr><td class="fr">côté</td><td>Ge. 2.22</td><td class="hb">צֵלָע</td><td class="st">H6763</td><td>« tsela » signifie d'abord <b>côté</b>, non côte — partout ailleurs traduit « côté » ou « flanc »</td></tr>
+          <tr><td class="fr">l'homme / femme</td><td>Ge. 2.23-24</td><td class="hb">אִישׁ / אִשָּׁה</td><td class="st">H376 / H802</td><td>« 'iysh » : mâle, mari ; « 'ishshah » : femme</td></tr>
+          <tr><td class="fr">Havah</td><td>Ge. 3.20</td><td class="hb">חַוָּה</td><td class="st">H2332</td><td>« Vie », « vivant » — généralement traduit par Ève</td></tr>
+          <tr><td class="fr">Nephilim</td><td>Ge. 6.4</td><td class="hb">נָפַל</td><td class="st">H5307</td><td>Vient de « naphal » : tomber</td></tr>
+          <tr><td class="fr">structure</td><td>Ge. 6.5</td><td class="hb">יֵצֶר</td><td class="st">H3336</td><td>« yetser » : forme, but, charpente, imagination, dessein — de « yatsar », façonner</td></tr>
+          <tr><td class="fr">couvriras</td><td>Ge. 6.14</td><td class="hb">כָּפַר</td><td class="st">H3722</td><td>« kaphar » : expiation, propitiation, réconciliation, pardon, apaiser (Ex. 29:33)</td></tr>
+          <tr><td class="fr">l'intérieur</td><td>Ge. 6.14</td><td class="hb">בַּיִת</td><td class="st">H1004</td><td>« bayith » : maison</td></tr>
+          <tr><td class="fr">Nimrod</td><td>Ge. 10.8</td><td class="hb">נִמְרֹד</td><td class="st">H5248</td><td>« Rebelle » — premier roi, premier empire, origine de Babel</td></tr>
+          <tr><td class="fr">Babel</td><td>Ge. 10.10 · 11.9</td><td class="hb">בָּבֶל</td><td class="st">H897</td><td>« Porte de El » ; Babylone : la confusion par le mélange</td></tr>
+          <tr><td class="fr">toi<small>« va pour toi »</small></td><td>Ge. 12.1</td><td class="hb">לֶךְ־לְךָ</td><td class="st">—</td><td>« lekh-lekha » : « va ! » + « pour toi » — décomposition grammaticale complète</td></tr>
+          <tr><td class="fr">bâtie</td><td>Ge. 16.2</td><td class="hb">בָּנָה</td><td class="st">H1129</td><td>« banah » : bâtir, rebâtir, établir — c'est YHWH qui bâtit avec perfection</td></tr>
+          <tr><td class="fr">Shaddaï</td><td>Ge. 17.1</td><td class="hb">שַׁדַּי</td><td class="st">H7706</td><td>El Shaddaï : le Dieu Tout-Puissant — le Mashiah se présente ainsi (Ap. 1:8)</td></tr>
+          <tr><td class="fr">YHWH-Yireh</td><td>Ge. 22.14</td><td class="hb">יִרְאֶה</td><td class="st">H3070</td><td>« YHWH voit » ; YHWH-Yèraé : « YHWH verra »</td></tr>
+          <tr><td class="fr">Édom</td><td>Ge. 25.30</td><td class="hb">אֱדוֹם</td><td class="st">H123</td><td>« Rouge, de couleur rousse »</td></tr>
+          <tr><td class="fr">Ben-Oni / Benyamin</td><td>Ge. 35.18</td><td class="hb">בֶּן־אוֹנִי</td><td class="st">—</td><td>« Fils de ma douleur » / « fils de ma main droite, de félicité »</td></tr>
+          <tr><td class="fr">Shiyloh</td><td>Ge. 49.10</td><td class="hb">שִׁלֹה</td><td class="st">H7886</td><td>« Le Pacifique », « le Repos », « celui à qui c'est »</td></tr>
+          <tr><td class="fr">salut</td><td>Ge. 49.18</td><td class="hb">יְשׁוּעָה</td><td class="st">H3444</td><td>« yeshuw'ah » : salut, délivrance — l'espérance de Yaacov avant de mourir</td></tr>
+        </tbody>
+      </table>
+      <div class="idx-note"><b>Note :</b> les références Strong (Hxxx) sont issues de la table standard et ajoutées par l'application — elles restent vérifiables avant publication. Vos notes elles-mêmes n'ont besoin d'aucune modification.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CONSTITUTION DU MODULE ═══════ -->
+<section class="sec" id="regles">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="num"><b>03</b></div>
+      <h2 class="sec-title">Comment le module est constitué</h2>
+      <p class="lead">Un passage automatique dans votre fichier suffit : chaque note est analysée, chaque terme cité devient une entrée, reliée à son mot d'ancrage par le champ <b style="color:var(--gold2)">position</b>.</p>
+    </div>
+    <div class="rules2 reveal">
+      <div class="rule2"><b>Source n° 1 — vos notes</b><span>Les termes entre guillemets « » (<code>kaphar</code>, <code>bayith</code>, <code>tohuw</code>…) et les mots hébreux déjà présents deviennent des fiches, avec verset + mot + position d'ancrage.</span></div>
+      <div class="rule2"><b>Source n° 2 — module externe</b><span>En complément optionnel (§ 2.2) : un lexique Strong hébreu / grec téléchargé à la demande enrichit les fiches (occurrences complètes, autres versets).</span></div>
+      <div class="rule2"><b>Ancrage</b><span>Le mot est repéré à l'index caractère <code>position</code>, avec repli sur une recherche du mot si l'index a bougé.</span></div>
+      <div class="rule2"><b>Sans fiche</b><span>Un verset sans notes (6.13, 6.15…) ouvre la feuille d'étude, mais le bouton « Lexique » est grisé — jamais d'écran vide.</span></div>
+      <div class="rule2"><b>Hébreu en RTL</b><span>Les mots hébreux sont rendus de droite à gauche avec une police dédiée ; le reste de l'écran reste en français.</span></div>
+      <div class="rule2"><b>Hors-ligne &amp; onglets</b><span>Le lexique, une fois constitué ou téléchargé, est consultable sans connexion ; chaque fiche vit dans un onglet mémorisé (§ 3.3, 3.9).</span></div>
+    </div>
+    <div class="codepanel reveal">
+      <span class="fn">lexique-genese.json — module généré depuis vos notes</span>
+<span class="p">{</span>
+  <span class="k">"module"</span><span class="p">:</span> <span class="s">"lexique-genese-victor"</span><span class="p">,</span>
+  <span class="k">"source"</span><span class="p">:</span> <span class="s">"Notes de traduction — Victor (01-Genese.json)"</span><span class="p">,</span>
+  <span class="k">"entrees"</span><span class="p">: [</span>
+    <span class="p">{</span>
+      <span class="k">"id"</span><span class="p">:</span> <span class="s">"H3722"</span><span class="p">,</span>
+      <span class="k">"mot"</span><span class="p">:</span> <span class="h">"כָּפַר"</span><span class="p">,</span>                       <span class="c">// rendu RTL</span>
+      <span class="k">"translitteration"</span><span class="p">:</span> <span class="s">"kaphar"</span><span class="p">,</span>
+      <span class="k">"type"</span><span class="p">:</span> <span class="s">"verbe"</span><span class="p">,</span>
+      <span class="k">"definition"</span><span class="p">:</span> <span class="s">"Faire une expiation — propitiation, réconciliation, pardon, apaiser"</span><span class="p">,</span>
+      <span class="k">"references"</span><span class="p">: [</span><span class="s">"Ex. 29:33"</span><span class="p">],</span>
+      <span class="k">"ancre"</span><span class="p">: {</span> <span class="k">"verset"</span><span class="p">:</span> <span class="s">"6:14"</span><span class="p">,</span> <span class="k">"mot"</span><span class="p">:</span> <span class="s">"couvriras"</span><span class="p">,</span> <span class="k">"position"</span><span class="p">:</span> <span class="s">87</span> <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="k">"id"</span><span class="p">:</span> <span class="s">"H1004"</span><span class="p">,</span>
+      <span class="k">"mot"</span><span class="p">:</span> <span class="h">"בַּיִת"</span><span class="p">,</span>
+      <span class="k">"translitteration"</span><span class="p">:</span> <span class="s">"bayith"</span><span class="p">,</span>
+      <span class="k">"type"</span><span class="p">:</span> <span class="s">"nom"</span><span class="p">,</span>
+      <span class="k">"definition"</span><span class="p">:</span> <span class="s">"Maison"</span><span class="p">,</span>
+      <span class="k">"ancre"</span><span class="p">: {</span> <span class="k">"verset"</span><span class="p">:</span> <span class="s">"6:14"</span><span class="p">,</span> <span class="k">"mot"</span><span class="p">:</span> <span class="s">"l'intérieur"</span><span class="p">,</span> <span class="k">"position"</span><span class="p">:</span> <span class="s">107</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+    </div>
+    <div class="callout reveal">
+      <span class="ic">⚙</span>
+      <p><b>Petits détails du fichier, déjà gérés :</b> clés avec espace finale (<code>"book "</code>, <code>"notes "</code>) → <code>trim()</code> à l'import ; quelques coupures de ligne dans les textes longs (« pa r », « rév éla »…) → normalisées ; certains versets des chapitres 4-15 n'ont pas de champ <code>notes</code> → simplement aucun marqueur. Rien de bloquant — votre fichier est directement exploitable.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="credit">Application Bible · Maquette <b>v8 — Lexique réel</b> · textes &amp; notes 100 % issus de 01-Genese.json · mercredi 5 août 2026 · « Au commencement »</p>
+  </div>
+</footer>
+
+<script>
+/* ═══════════ DONNÉES RÉELLES — 01-Genese.json, chapitre 6 ═══════════ */
+const VERSES=[
+ {n:'13',text:"Elohîm dit à Noah : La fin de toute chair est venue en face de moi, car la Terre est remplie de violence face à eux et voici, je les détruirai avec la Terre.",notes:[]},
+ {n:'14',text:"Fais pour toi une arche de bois de gopher ; tu feras cette arche en cellules, et tu la couvriras de poix à l'intérieur et à l'extérieur.",notes:[
+   {word:'arche',pos:18,heb:null,tr:null,strong:null,type:null,def:"Type du Mashiah, l'arche est l'image du refuge et du salut que l'on trouve en Yéhoshoua Mashiah (Jésus-Christ) (Col. 1:12-13 ; 3:3). Les animaux purs et impurs qui y entrèrent préfigurent l'Assemblée (Église) : Juifs convertis et issus des nations (Ac. 10). Noah disposa d'une centaine d'années pour la construire (Ge. 5:32 ; 7:11)."},
+   {word:'couvriras',pos:87,heb:'כָּפַר',tr:'kaphar',strong:'H3722',type:'verbe',def:"Faire une expiation (Ex. 29:33). Le mot hébreu « kaphar » signifie aussi : propitiation, réconciliation, pardon, miséricordieux, apaiser. L'arche couverte de poix préfigure l'expiation."},
+   {word:'poix',pos:100,heb:null,tr:null,strong:null,type:null,def:"Prix d'une vie, rançon, un présent (És. 43:3)."},
+   {word:"l'intérieur",pos:107,heb:'בַּיִת',tr:'bayith',strong:'H1004',type:'nom',def:"Vient de l'hébreu « bayith » qui signifie : maison."}
+ ]},
+ {n:'15',text:"Voici comment tu la feras : la longueur de l'arche sera de 300 coudées, sa largeur de 50 coudées et sa hauteur de 30 coudées.",notes:[]},
+ {n:'16',text:"Tu feras une fenêtre à l'arche et tu l'achèveras une coudée plus haut. Tu mettras la porte de l'arche sur le côté, et tu feras un étage inférieur, un deuxième et un troisième.",notes:[]}
+];
+
+/* ═══════════ ÉTAT ═══════════ */
+let scene='lecture', selVerse=null, lexSel=0, lexTab=false, openVerses=[];
+const $=id=>document.getElementById(id);
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+let toastTimer;
+function say(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2100);}
+const curNotes=()=>selVerse?VERSES.find(v=>v.n===selVerse).notes:[];
+
+/* ═══════════ BANDE D'ONGLETS ═══════════ */
+function renderStrip(){
+  let html='<div class="stab '+(scene==='lecture'?'on':'')+'" data-tab="ge6"><span class="c-ic">❧</span><span>Ge. 6</span><i>✕</i></div>';
+  if(lexTab)html+='<div class="stab '+(scene==='lexique'?'on':'')+'" data-tab="lex"><span class="c-ic">א</span><span>Lexique · Ge. 6.14</span><i data-x="lex">✕</i></div>';
+  html+='<div class="scount" id="scount">'+(lexTab?2:1)+'</div>';
+  $('strip').innerHTML=html;
+}
+function popCount(){const c=$('scount');if(c){c.classList.add('pop');setTimeout(()=>c.classList.remove('pop'),300);}}
+$('strip').addEventListener('click',e=>{
+  const x=e.target.closest('[data-x]');
+  if(x){lexTab=false;if(scene==='lexique')scene='lecture';setScene(scene);say('Onglet Lexique fermé');return;}
+  const tb=e.target.closest('[data-tab]');if(!tb)return;
+  setScene(tb.dataset.tab==='lex'?'lexique':'lecture');
+});
+
+/* ═══════════ SCÈNES ═══════════ */
+function setScene(s){
+  scene=s;
+  $('sceneLecture').style.display=s==='lecture'?'contents':'none';
+  $('sceneLexique').style.display=s==='lexique'?'flex':'none';
+  if(s!=='lecture')$('sheetBk').classList.remove('show');
+  renderStrip();
+}
+
+/* ═══════════ LECTURE ═══════════ */
+function renderVerses(){
+  $('versesArea').innerHTML=VERSES.map(v=>
+    '<p data-v="'+v.n+'" class="'+(selVerse===v.n?'sel':'')+'">'+
+    (v.notes.length?'<span class="nbadge">✦ '+v.notes.length+' notes</span>':'')+
+    '<span class="vn">'+v.n+'</span>'+esc(v.text)+'</p>'
+  ).join('');
+}
+$('versesArea').addEventListener('click',e=>{
+  const p=e.target.closest('p[data-v]');if(!p)return;
+  selVerse=p.dataset.v;renderVerses();
+  const v=VERSES.find(x=>x.n===selVerse);
+  $('shRef').textContent='Genèse 6.'+v.n;
+  const t=v.text;$('shTxt').textContent='« '+(t.length>96?t.slice(0,96)+'…':t)+' »';
+  const b=$('aLex');
+  if(v.notes.length){
+    b.classList.remove('off');
+    $('aLexLbl').innerHTML='Lexique&nbsp;<small>'+v.notes.length+' mot'+(v.notes.length>1?'s':'')+' annoté'+(v.notes.length>1?'s':'')+' dans ce verset</small>';
+  }else{
+    b.classList.add('off');
+    $('aLexLbl').innerHTML='Lexique&nbsp;<small>aucun mot annoté dans ce verset</small>';
+  }
+  $('sheetBk').classList.add('show');
+});
+$('shClose').addEventListener('click',()=>{$('sheetBk').classList.remove('show');selVerse=null;renderVerses();});
+document.querySelectorAll('.sw').forEach(s=>s.addEventListener('click',()=>say('Surlignage appliqué · mémorisé en local (§ 3.5)')));
+document.querySelectorAll('.act[data-act]').forEach(b=>b.addEventListener('click',()=>{
+  const m={note:'Éditeur de note ouvert (§ 3.5)',fav:'Ajouté aux favoris ★',comp:'Comparaison — nouvel onglet (§ 2.1)',refs:'Références croisées — nouvel onglet (§ 2.2)',audio:'Lecture audio du verset · streaming (§ 3.1)',copy:'Verset copié dans le presse-papiers',share:'Partage : image · texte · lien (§ 3.6)'};
+  say(m[b.dataset.act]);
+}));
+
+/* ═══════════ LEXIQUE ═══════════ */
+function openLex(){
+  const v=VERSES.find(x=>x.n===selVerse);
+  if(!v||!v.notes.length)return;
+  if(selVerse!=='14'){say('Démo : seul Ge. 6.14 est chargé mot à mot');return;}
+  lexTab=true;lexSel=0;
+  $('sheetBk').classList.remove('show');
+  setScene('lexique');popCount();
+  renderLexVerse();selectWord(0);
+  say('Lexique ouvert dans un nouvel onglet (§ 3.3)');
+}
+$('aLex').addEventListener('click',openLex);
+function renderLexVerse(){
+  const v=VERSES.find(x=>x.n==='14');
+  let out='<span class="vn">14</span>',posn=0;
+  [...v.notes].sort((a,b)=>a.pos-b.pos).forEach((n,i)=>{
+    let p=v.text.substr(n.pos,n.word.length).toLowerCase()===n.word.toLowerCase()?n.pos:v.text.toLowerCase().indexOf(n.word.toLowerCase(),Math.max(0,n.pos-8));
+    if(p<0)p=n.pos;
+    out+=esc(v.text.slice(posn,p))+'<span class="wlink" data-i="'+i+'">'+esc(v.text.slice(p,p+n.word.length))+'</span>';
+    posn=p+n.word.length;
+  });
+  out+=esc(v.text.slice(posn));
+  $('lexVerse').innerHTML=out;
+}
+$('lexVerse').addEventListener('click',e=>{
+  const w=e.target.closest('.wlink');if(!w)return;
+  selectWord(parseInt(w.dataset.i,10));
+});
+function selectWord(i){
+  lexSel=i;
+  const n=VERSES.find(x=>x.n==='14').notes[i];
+  document.querySelectorAll('.wlink').forEach(w=>w.classList.toggle('on',parseInt(w.dataset.i,10)===i));
+  const heb=n.heb?'<span class="heb">'+n.heb+'</span>':'<span class="heb none">✦</span>';
+  const chips=(n.tr?'<span class="echip g">'+n.tr+'</span>':'')+
+    (n.strong?'<span class="echip">'+n.strong+' · Strong</span>':'')+
+    (n.type?'<span class="echip">'+n.type+'</span>':'')+
+    '<span class="echip">Note de Ge. 6.14</span>';
+  $('entryCard').innerHTML=
+    '<div class="erow">'+heb+'<span class="emeta"><b>« '+esc(n.word)+' »</b><span class="echips">'+chips+'</span></span></div>'+
+    '<p class="edef">'+esc(n.def)+'</p>'+
+    '<div class="enav"><button id="wPrev">◀ Mot préc.</button><span class="mid">Mot '+(i+1)+' / 4 du verset</span><button id="wNext">Mot suiv. ▶</button><button class="fullb" id="fullNote">Note complète ↗</button></div>';
+  $('wPrev').addEventListener('click',()=>selectWord((lexSel-1+4)%4));
+  $('wNext').addEventListener('click',()=>selectWord((lexSel+1)%4));
+  $('fullNote').addEventListener('click',()=>{
+    setScene('lecture');
+    setTimeout(()=>{
+      const p=document.querySelector('p[data-v="14"]');
+      if(p){p.classList.remove('flashA');void p.offsetWidth;p.classList.add('flashA');p.scrollIntoView({behavior:'smooth',block:'center'});}
+      say('Note complète de Ge. 6.14 — dans la lecture');
+    },200);
+  });
+}
+$('lexBack').addEventListener('click',()=>setScene('lecture'));
+$('modChip').addEventListener('click',()=>say('Choix du module : notes de Victor (incluses) · Strong hébreu/grec (optionnel § 2.2)'));
+
+renderVerses();
+renderStrip();
+
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,4776 @@
+{
+  "book": "Mishlei (Proverbes)",
+  "abbreviation": "Pr.",
+  "metadata": {
+    "signification": "Proverbes, paraboles",
+    "auteur": "Shelomoh (Salomon), Agour et Lemouel",
+    "theme": "La sagesse",
+    "date": "10ème siècle av. J.-C."
+  },
+  "introduction": "Le mot « proverbe » désigne un genre littéraire appliqué à une sentence, une énigme, une comparaison, un oracle, une parabole ou une parole de sagesse. Le livre des proverbes est un recueil de sentences dont la majeure partie est attribuée à Shelomoh. Véritable collection de maximes morales et spirituelles, la sagesse, la crainte d'Elohîm et la tempérance en sont les thèmes principaux.\n\nCe livre met en évidence l'opposition entre la voie du méchant et celle du juste, entre la femme étrangère et la femme talentueuse, entre l'orgueil et l'humilité, entre la sagesse et la folie, entre le chemin de la vie et celui de la mort. Comme il était coutume au Moyen-Orient, ces écrits s'adressaient particulièrement aux jeunes gens en vue de leur instruction.",
+  "chapters": [
+    {
+      "chapter": 1,
+      "verses": [
+        {
+          "verse": "1:1",
+          "section": "But du livre : connaître la sagesse",
+          "text": "Les proverbes de Shelomoh, fils de David et roi d'Israël."
+        },
+        {
+          "verse": "1:2",
+          "text": "Pour connaître la sagesse et la correction, pour discerner les paroles du discernement,"
+        },
+        {
+          "verse": "1:3",
+          "text": "pour recevoir une correction de bon sens, de justice, de jugement et d'équité."
+        },
+        {
+          "verse": "1:4",
+          "text": "Pour donner de la sagacité aux stupides, de la connaissance et de la réflexion aux jeunes hommes."
+        },
+        {
+          "verse": "1:5",
+          "text": "Le sage écoutera, et il augmentera son instruction. Celui qui discerne acquerra de sages conseils,"
+        },
+        {
+          "verse": "1:6",
+          "text": "afin de discerner les proverbes et les énigmes, les discours des sages et leurs énigmes."
+        },
+        {
+          "verse": "1:7",
+          "section": "Le fondement de la sagesse : la crainte d'Elohîm",
+          "text": "La crainte de YHWH est le commencement de la connaissance. Les fous méprisent la sagesse et la correction.",
+          "textWithNotes": "La crainte de YHWH[Pr. 8:13.] est le commencement de la connaissance. Les fous méprisent la sagesse et la correction.",
+          "notes": [
+            {
+              "word": "YHWH",
+              "position": 14,
+              "note": "Pr. 8:13."
+            }
+          ]
+        },
+        {
+          "verse": "1:8",
+          "text": "Mon fils, écoute la correction de ton père et n'abandonne pas la torah de ta mère.",
+          "textWithNotes": "Mon fils, écoute la correction de ton père et n'abandonne pas la torah[« Instruction, enseignement, direction » etc.] de ta mère.",
+          "notes": [
+            {
+              "word": "torah",
+              "position": 65,
+              "note": "« Instruction, enseignement, direction » etc."
+            }
+          ]
+        },
+        {
+          "verse": "1:9",
+          "text": "Car elles sont, sur ta tête, une couronne de grâce et des colliers autour de ton cou."
+        },
+        {
+          "verse": "1:10",
+          "text": "Mon fils, si les pécheurs te séduisent, n’y consens pas."
+        },
+        {
+          "verse": "1:11",
+          "text": "S'ils disent : Viens avec nous ! Nous nous mettrons en embuscade pour le sang, nous nous cacherons pour guetter l’innocent, sans cause !"
+        },
+        {
+          "verse": "1:12",
+          "text": "Nous les engloutirons vivants comme le shéol, et tout entiers comme ceux qui descendent dans la fosse."
+        },
+        {
+          "verse": "1:13",
+          "text": "Nous trouverons toutes sortes de richesses précieuses, nous remplirons nos maisons de butin."
+        },
+        {
+          "verse": "1:14",
+          "text": "Tu tireras au sort ton lot au milieu de nous, une seule bourse sera pour nous tous !"
+        },
+        {
+          "verse": "1:15",
+          "text": "Mon fils, ne te mets pas en chemin avec eux, détourne ton pied de leur sentier !"
+        },
+        {
+          "verse": "1:16",
+          "text": "Car leurs pieds courent vers le mal, et ils se hâtent de répandre le sang.",
+          "textWithNotes": "Car leurs pieds courent vers le mal, et ils se hâtent de répandre le sang[Es. 59:7.].",
+          "notes": [
+            {
+              "word": "sang",
+              "position": 69,
+              "note": "Es. 59:7."
+            }
+          ]
+        },
+        {
+          "verse": "1:17",
+          "text": "Car en vain se tend le filet aux yeux de tout Baal ailé.",
+          "textWithNotes": "Car en vain se tend le filet aux yeux de tout Baal ailé[Ec. 10:20.].",
+          "notes": [
+            {
+              "word": "ailé",
+              "position": 51,
+              "note": "Ec. 10:20."
+            }
+          ]
+        },
+        {
+          "verse": "1:18",
+          "text": "Mais eux, c’est contre leur propre sang qu’ils se mettront en embuscade, ils se cacheront pour guetter leurs propres âmes."
+        },
+        {
+          "verse": "1:19",
+          "text": "Telle est la voie de celui qui convoite le gain injuste, qui enlève l’âme de ses maîtres."
+        },
+        {
+          "verse": "1:20",
+          "section": "La sagesse crie",
+          "text": "La sagesse crie bien haut au-dehors, elle donne de sa voix sur les places.",
+          "textWithNotes": "La sagesse crie bien haut au-dehors[Dehors, extérieur, rue, en dehors de.], elle donne de sa voix sur les places[Endroit large ou ouvert.].",
+          "notes": [
+            {
+              "word": "au-dehors",
+              "position": 26,
+              "note": "Dehors, extérieur, rue, en dehors de."
+            },
+            {
+              "word": "places",
+              "position": 67,
+              "note": "Endroit large ou ouvert."
+            }
+          ]
+        },
+        {
+          "verse": "1:21",
+          "text": "En tête des lieux tumultueux, elle crie ; aux entrées des portes, dans la ville, elle prononce ces paroles :"
+        },
+        {
+          "verse": "1:22",
+          "text": "Stupides, jusqu'à quand aimerez-vous la stupidité, et les moqueurs prendront-ils plaisir à la moquerie, et les insensés haïront-ils la connaissance ?"
+        },
+        {
+          "verse": "1:23",
+          "text": "Revenez à ma réprimande ! Voici, je verserai sur vous mon Esprit, je vous ferai connaître mes paroles."
+        },
+        {
+          "verse": "1:24",
+          "text": "Oui, j'ai appelé et vous avez refusé, j'ai étendu ma main et personne n’a été attentif !"
+        },
+        {
+          "verse": "1:25",
+          "text": "Vous avez ignoré tous mes conseils, vous n'avez pas accepté ma réprimande."
+        },
+        {
+          "verse": "1:26",
+          "text": "Moi aussi je rirai de votre malheur, je me moquerai quand la terreur viendra sur vous."
+        },
+        {
+          "verse": "1:27",
+          "text": "Quand la terreur viendra sur vous comme une tempête dévastatrice, quand votre désastre arrivera comme un vent d'orage, quand la détresse et l'angoisse viendront sur vous."
+        },
+        {
+          "verse": "1:28",
+          "text": "Alors on m’appellera et je ne répondrai pas, on me cherchera de bonne heure et on ne me trouvera pas.",
+          "textWithNotes": "Alors on m’appellera et je ne répondrai pas, on me cherchera de bonne heure et on ne me trouvera pas[De. 31:18 ; Job. 35:12.].",
+          "notes": [
+            {
+              "word": "pas",
+              "position": 97,
+              "note": "De. 31:18 ; Job. 35:12."
+            }
+          ]
+        },
+        {
+          "verse": "1:29",
+          "text": "Parce qu'ils ont haï la connaissance et qu'ils n'ont pas choisi la crainte de YHWH,"
+        },
+        {
+          "verse": "1:30",
+          "text": "qu'ils n'ont pas voulu de mes conseils et qu’ils ont rejeté toutes mes réprimandes,"
+        },
+        {
+          "verse": "1:31",
+          "text": "ils se nourriront du fruit de leur voie, ils se rassasieront de leurs propres conseils."
+        },
+        {
+          "verse": "1:32",
+          "text": "Car l'apostasie des stupides les tuera, et la tranquillité des insensés les perdra."
+        },
+        {
+          "verse": "1:33",
+          "text": "Mais celui qui m'écoute habitera en sécurité et sera tranquille, sans craindre aucun mal."
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "verses": [
+        {
+          "verse": "2:1",
+          "section": "La sagesse nous libère du mal",
+          "text": "Mon fils, si tu reçois mes paroles et que tu gardes précieusement avec toi mes commandements,"
+        },
+        {
+          "verse": "2:2",
+          "text": "si tu rends ton oreille attentive à la sagesse et que tu inclines ton cœur à l'intelligence,"
+        },
+        {
+          "verse": "2:3",
+          "text": "oui, si tu appelles à toi le discernement et que tu donnes ta voix à l'intelligence,"
+        },
+        {
+          "verse": "2:4",
+          "text": "si tu la cherches comme de l'argent et si tu la recherches soigneusement comme des trésors,"
+        },
+        {
+          "verse": "2:5",
+          "text": "alors tu connaîtras la crainte de YHWH et tu trouveras la connaissance d'Elohîm."
+        },
+        {
+          "verse": "2:6",
+          "text": "Car YHWH donne la sagesse, et de sa bouche, la connaissance et l'intelligence."
+        },
+        {
+          "verse": "2:7",
+          "text": "Il garde précieusement le succès durable pour ceux qui sont droits, et il est le bouclier de ceux qui marchent dans l'intégrité,"
+        },
+        {
+          "verse": "2:8",
+          "text": "gardien des sentiers de la justice, veillant sur la voie de ses fidèles."
+        },
+        {
+          "verse": "2:9",
+          "text": "Alors tu comprendras la justice, le jugement, l'équité, et toutes les routes du bonheur."
+        },
+        {
+          "verse": "2:10",
+          "text": "Oui, la sagesse viendra dans ton cœur et la connaissance fera les délices de ton âme."
+        },
+        {
+          "verse": "2:11",
+          "text": "La discrétion te gardera, l'intelligence veillera sur toi,"
+        },
+        {
+          "verse": "2:12",
+          "text": "pour te délivrer de la voie mauvaise et de l'homme qui parle avec perversité,"
+        },
+        {
+          "verse": "2:13",
+          "text": "de ceux qui abandonnent les sentiers de la droiture pour marcher dans les voies des ténèbres,"
+        },
+        {
+          "verse": "2:14",
+          "text": "qui se réjouissent de faire du mal et qui exultent dans la perversité des méchants,"
+        },
+        {
+          "verse": "2:15",
+          "text": "eux dont les sentiers sont tortueux et les voies pleines de détours."
+        },
+        {
+          "verse": "2:16",
+          "text": "Pour te délivrer de la femme étrange, de l'étrangère aux paroles flatteuses,",
+          "textWithNotes": "Pour te délivrer de la femme étrange[Ou « la femme étrangère ». Elle est la prostituée ou l'esprit de Iyzebel (Jézabel) qui séduit les hommes. Voir Pr. 6:24, 7:5.], de l'étrangère aux paroles flatteuses,",
+          "notes": [
+            {
+              "word": "étrange",
+              "position": 29,
+              "note": "Ou « la femme étrangère ». Elle est la prostituée ou l'esprit de Iyzebel (Jézabel) qui séduit les hommes. Voir Pr. 6:24, 7:5."
+            }
+          ]
+        },
+        {
+          "verse": "2:17",
+          "text": "qui abandonne l'ami de sa jeunesse et qui oublie l'alliance de son Elohîm."
+        },
+        {
+          "verse": "2:18",
+          "text": "Car sa maison penche vers la mort, et son chemin mène vers les fantômes.",
+          "textWithNotes": "Car sa maison penche vers la mort, et son chemin mène vers les fantômes[Vient d'un mot hébreu qui signifie « fantômes de morts, ombres, revenants » ou encore « esprits ».].",
+          "notes": [
+            {
+              "word": "fantômes",
+              "position": 63,
+              "note": "Vient d'un mot hébreu qui signifie « fantômes de morts, ombres, revenants » ou encore « esprits »."
+            }
+          ]
+        },
+        {
+          "verse": "2:19",
+          "text": "Tous ceux qui entrent chez elle ne reviennent pas, n’atteignent pas les sentiers de vies."
+        },
+        {
+          "verse": "2:20",
+          "text": "Ainsi tu marcheras dans la voie de ceux qui sont bons, et tu garderas les sentiers des justes."
+        },
+        {
+          "verse": "2:21",
+          "text": "Car les justes habiteront la Terre, les intègres y seront laissés."
+        },
+        {
+          "verse": "2:22",
+          "text": "Mais les méchants seront retranchés de la Terre, et les traîtres en seront arrachés."
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "verses": [
+        {
+          "verse": "3:1",
+          "section": "La sagesse bénit et protège",
+          "text": "Mon fils, n'oublie pas ma torah, et que ton cœur garde mes commandements,"
+        },
+        {
+          "verse": "3:2",
+          "text": "car la longueur des jours, les années de vies et la paix te seront ajoutées."
+        },
+        {
+          "verse": "3:3",
+          "text": "Que la bonté et la vérité ne t'abandonnent pas, lie-les à ton cou, écris-les sur la tablette de ton cœur,"
+        },
+        {
+          "verse": "3:4",
+          "text": "et tu trouveras la grâce et une bonne compréhension aux yeux d'Elohîm et des humains."
+        },
+        {
+          "verse": "3:5",
+          "text": "Confie-toi de tout ton cœur en YHWH et ne t'appuie pas sur ton discernement."
+        },
+        {
+          "verse": "3:6",
+          "text": "Considère-le dans toutes tes voies et il dirigera tes sentiers."
+        },
+        {
+          "verse": "3:7",
+          "text": "Ne deviens pas sage à tes propres yeux, crains YHWH et détourne-toi du mal :"
+        },
+        {
+          "verse": "3:8",
+          "text": "cela deviendra la guérison de ton nombril et un rafraîchissement pour tes os."
+        },
+        {
+          "verse": "3:9",
+          "text": "Honore YHWH avec tes richesses, avec les premiers de tout ton revenu !",
+          "textWithNotes": "Honore YHWH avec tes richesses, avec les premiers de tout ton revenu[De. 12:6.] !",
+          "notes": [
+            {
+              "word": "revenu",
+              "position": 62,
+              "note": "De. 12:6."
+            }
+          ]
+        },
+        {
+          "verse": "3:10",
+          "text": "Tes greniers seront remplis d'abondance, et tes cuves déborderont de vin nouveau.",
+          "textWithNotes": "Tes greniers seront remplis d'abondance, et tes cuves déborderont[Rompre, briser, éclater, faire une brèche.] de vin nouveau.",
+          "notes": [
+            {
+              "word": "déborderont",
+              "position": 54,
+              "note": "Rompre, briser, éclater, faire une brèche."
+            }
+          ]
+        },
+        {
+          "verse": "3:11",
+          "text": "Mon fils, ne refuse pas la correction de YHWH et n’aie pas son châtiment en aversion."
+        },
+        {
+          "verse": "3:12",
+          "text": "Car YHWH châtie celui qu'il aime, comme un père le fils auquel il prend plaisir.",
+          "textWithNotes": "Car YHWH châtie[Hé. 12:4-11 ; Ap. 3:19.] celui qu'il aime, comme un père le fils auquel il prend plaisir.",
+          "notes": [
+            {
+              "word": "châtie",
+              "position": 9,
+              "note": "Hé. 12:4-11 ; Ap. 3:19."
+            }
+          ]
+        },
+        {
+          "verse": "3:13",
+          "text": "Heureux l'humain qui a trouvé la sagesse, et l'humain qui possède l'intelligence !"
+        },
+        {
+          "verse": "3:14",
+          "text": "Car son gain est meilleur que le gain de l'argent, et son revenu est meilleur que l'or."
+        },
+        {
+          "verse": "3:15",
+          "text": "Elle est plus précieuse que les perles, et tous tes délices ne peuvent l’égaler."
+        },
+        {
+          "verse": "3:16",
+          "text": "Il y a la longueur des jours à sa droite, la richesse et la gloire à sa gauche."
+        },
+        {
+          "verse": "3:17",
+          "text": "Ses voies sont des voies agréables, et tous ses sentiers sont paix."
+        },
+        {
+          "verse": "3:18",
+          "text": "Elle est un arbre de vies pour ceux qui se fortifient en elle, et tous ceux qui la saisissent sont heureux.",
+          "textWithNotes": "Elle est un arbre de vies pour ceux qui se fortifient en elle, et tous ceux qui la saisissent sont heureux[Ge. 2:9 ; Ap. 22:2.].",
+          "notes": [
+            {
+              "word": "heureux",
+              "position": 99,
+              "note": "Ge. 2:9 ; Ap. 22:2."
+            }
+          ]
+        },
+        {
+          "verse": "3:19",
+          "text": "YHWH a fondé la Terre par la sagesse, il a disposé les cieux par l'intelligence."
+        },
+        {
+          "verse": "3:20",
+          "text": "C'est par sa connaissance que les abîmes se sont ouverts et que les nuages distillent la rosée."
+        },
+        {
+          "verse": "3:21",
+          "text": "Mon fils, que ces enseignements ne s'écartent pas de tes yeux ! Garde le succès durable et la réflexion !"
+        },
+        {
+          "verse": "3:22",
+          "text": "Ils deviendront vies pour ton âme et ornement pour ton cou."
+        },
+        {
+          "verse": "3:23",
+          "text": "Alors tu marcheras avec sécurité dans ta voie, et ton pied ne trébuchera pas."
+        },
+        {
+          "verse": "3:24",
+          "text": "Si tu te couches, tu seras sans crainte, et quand tu seras couché ton sommeil sera doux."
+        },
+        {
+          "verse": "3:25",
+          "text": "Tu ne craindras ni la terreur soudaine ni la ruine des méchants quand elle arrivera."
+        },
+        {
+          "verse": "3:26",
+          "text": "Car YHWH deviendra ton espérance, et il gardera ton pied de la capture.",
+          "textWithNotes": "Car YHWH deviendra ton espérance[Ps. 39:8, 71:5 ; 1 Ti. 1:1.], et il gardera ton pied de la capture.",
+          "notes": [
+            {
+              "word": "espérance",
+              "position": 23,
+              "note": "Ps. 39:8, 71:5 ; 1 Ti. 1:1."
+            }
+          ]
+        },
+        {
+          "verse": "3:27",
+          "text": "Ne refuse pas un bienfait à son possesseur, quand El te donne le pouvoir de le faire.",
+          "textWithNotes": "Ne refuse pas un bienfait à son possesseur, quand El te donne le pouvoir de le faire[Ga. 6:10.].",
+          "notes": [
+            {
+              "word": "faire",
+              "position": 79,
+              "note": "Ga. 6:10."
+            }
+          ]
+        },
+        {
+          "verse": "3:28",
+          "text": "Ne dis pas à ton prochain : « Va-t’en et reviens, demain je te donnerai ! » quand tu as la chose avec toi."
+        },
+        {
+          "verse": "3:29",
+          "text": "Ne médite pas le mal contre ton prochain alors qu'il demeure auprès de toi en sécurité."
+        },
+        {
+          "verse": "3:30",
+          "text": "Ne conteste pas sans motif avec un humain, s'il ne t'a fait aucun mal.",
+          "textWithNotes": "Ne conteste pas sans motif avec un humain, s'il ne t'a fait aucun mal[Ro. 12:18.].",
+          "notes": [
+            {
+              "word": "mal",
+              "position": 66,
+              "note": "Ro. 12:18."
+            }
+          ]
+        },
+        {
+          "verse": "3:31",
+          "text": "Ne porte pas envie à l'homme violent, et ne choisis aucune de ses voies."
+        },
+        {
+          "verse": "3:32",
+          "text": "Car le pervers est une abomination pour YHWH, mais son intimité est pour ceux qui sont justes."
+        },
+        {
+          "verse": "3:33",
+          "text": "La malédiction de YHWH est dans la maison du méchant, mais il bénit la demeure des justes."
+        },
+        {
+          "verse": "3:34",
+          "text": "S'il se moque des moqueurs, il accorde sa grâce aux humbles."
+        },
+        {
+          "verse": "3:35",
+          "text": "Les sages hériteront la gloire, mais la honte élève les insensés."
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "verses": [
+        {
+          "verse": "4:1",
+          "section": "Instructions et conseils d'un père",
+          "text": "Écoutez, mes fils, la correction d'un père, et soyez attentifs pour connaître le discernement."
+        },
+        {
+          "verse": "4:2",
+          "text": "Car je vous donne une bonne instruction, ne rejetez pas ma torah."
+        },
+        {
+          "verse": "4:3",
+          "text": "J'étais devenu un fils pour mon père, un fils tendre et unique auprès de ma mère."
+        },
+        {
+          "verse": "4:4",
+          "text": "Il m'a enseigné et m'a dit : Que ton cœur retienne mes paroles ! Garde mes commandements et tu vivras."
+        },
+        {
+          "verse": "4:5",
+          "text": "Acquiers la sagesse, acquiers le discernement ! N'oublie pas les paroles de ma bouche et ne t'en détourne pas."
+        },
+        {
+          "verse": "4:6",
+          "text": "Ne l'abandonne pas et elle te gardera. Aime-la et elle te protégera."
+        },
+        {
+          "verse": "4:7",
+          "text": "La principale chose, c'est la sagesse : acquiers la sagesse, et avec toutes tes possessions, acquiers le discernement."
+        },
+        {
+          "verse": "4:8",
+          "text": "Exalte-la, et elle t'élèvera. Elle te glorifiera quand tu l'auras embrassée."
+        },
+        {
+          "verse": "4:9",
+          "text": "Elle donnera à ta tête une couronne de grâce, elle te livrera une couronne de beauté."
+        },
+        {
+          "verse": "4:10",
+          "text": "Écoute, mon fils, et reçois mes paroles, ainsi les années de ta vie te seront multipliées."
+        },
+        {
+          "verse": "4:11",
+          "text": "Je t'ai enseigné la voie de la sagesse, je t'ai conduit dans les sentiers de la droiture.",
+          "textWithNotes": "Je t'ai enseigné la voie de la sagesse, je t'ai conduit dans les sentiers de la droiture[Ps. 23:3.].",
+          "notes": [
+            {
+              "word": "droiture",
+              "position": 80,
+              "note": "Ps. 23:3."
+            }
+          ]
+        },
+        {
+          "verse": "4:12",
+          "text": "Quand tu marcheras, ton pas ne sera pas à l'étroit, et si tu cours, tu ne trébucheras pas.",
+          "textWithNotes": "Quand tu marcheras, ton pas ne sera pas à l'étroit, et si tu cours, tu ne trébucheras pas[Ps. 121:3.].",
+          "notes": [
+            {
+              "word": "pas",
+              "position": 86,
+              "note": "Ps. 121:3."
+            }
+          ]
+        },
+        {
+          "verse": "4:13",
+          "text": "Fortifie-toi dans la correction, ne la laisse pas tomber ! Garde-la, car elle est ta vie."
+        },
+        {
+          "verse": "4:14",
+          "text": "N'entre pas dans le sentier des méchants et ne marche pas dans la voie des mauvais."
+        },
+        {
+          "verse": "4:15",
+          "text": "Évite-la, n'y passe pas ! Détourne-t'en et passe outre !"
+        },
+        {
+          "verse": "4:16",
+          "text": "Car ils ne dorment pas s’ils ne font pas le mal, et leur sommeil est volé s’ils ne font pas trébucher quelqu'un."
+        },
+        {
+          "verse": "4:17",
+          "text": "Parce qu'ils mangent le pain de méchanceté, et qu'ils boivent le vin des violences."
+        },
+        {
+          "verse": "4:18",
+          "text": "Le sentier des justes est comme la lumière éclatante, continuant à briller jusqu’à ce que le jour soit établi."
+        },
+        {
+          "verse": "4:19",
+          "text": "La voie des méchants c'est l'obscurité : ils ne savent pas sur quoi ils trébuchent."
+        },
+        {
+          "verse": "4:20",
+          "text": "Mon fils, sois attentif à mes paroles, incline ton oreille à mes discours."
+        },
+        {
+          "verse": "4:21",
+          "text": "Qu'ils ne s’éloignent pas de tes yeux ! Garde-les au milieu de ton cœur."
+        },
+        {
+          "verse": "4:22",
+          "text": "Car ils sont vie pour ceux qui les trouvent et santé pour toute leur chair."
+        },
+        {
+          "verse": "4:23",
+          "text": "Garde ton cœur plus que tout ce que l’on garde, car de lui procèdent les sources de vies.",
+          "textWithNotes": "Garde ton cœur plus que tout ce que l’on garde, car de lui procèdent les sources de vies[Mt. 12:35, 15:18-19.].",
+          "notes": [
+            {
+              "word": "vies",
+              "position": 84,
+              "note": "Mt. 12:35, 15:18-19."
+            }
+          ]
+        },
+        {
+          "verse": "4:24",
+          "text": "Détourne-toi de la bouche tortueuse, et éloigne de toi la perversité des lèvres."
+        },
+        {
+          "verse": "4:25",
+          "text": "Que tes yeux regardent en face et que tes paupières se dirigent droit devant toi !"
+        },
+        {
+          "verse": "4:26",
+          "text": "Aplanis la route de tes pieds et que toutes tes voies soient bien stables !"
+        },
+        {
+          "verse": "4:27",
+          "text": "Ne te tourne ni à droite ni à gauche et détourne ton pied du mal !"
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "verses": [
+        {
+          "verse": "5:1",
+          "section": "Se garder de l'immoralité",
+          "text": "Mon fils, sois attentif à ma sagesse, incline ton oreille à mon intelligence,"
+        },
+        {
+          "verse": "5:2",
+          "text": "afin que tu gardes mes avis et que tes lèvres conservent la connaissance."
+        },
+        {
+          "verse": "5:3",
+          "text": "Car les lèvres de l'étrangère distillent des rayons de miel, et son palais est plus doux que l'huile."
+        },
+        {
+          "verse": "5:4",
+          "text": "Mais à la fin elle est amère comme de l'absinthe, tranchante comme une épée à deux tranchants.",
+          "textWithNotes": "Mais à la fin elle est amère comme de l'absinthe, tranchante comme une épée à deux tranchants[Deux bouches.].",
+          "notes": [
+            {
+              "word": "tranchants",
+              "position": 83,
+              "note": "Deux bouches."
+            }
+          ]
+        },
+        {
+          "verse": "5:5",
+          "text": "Ses pieds descendent à la mort, ses pas atteignent le shéol,"
+        },
+        {
+          "verse": "5:6",
+          "text": "elle n'aplanit pas le chemin de vies, ses pistes sont errantes sans que tu le saches."
+        },
+        {
+          "verse": "5:7",
+          "text": "Maintenant, fils, écoutez-moi, et ne vous détournez pas des paroles de ma bouche !"
+        },
+        {
+          "verse": "5:8",
+          "text": "Éloigne ta voie de la femme étrangère et n'approche pas de l'entrée de sa maison !"
+        },
+        {
+          "verse": "5:9",
+          "text": "De peur que tu ne donnes ta splendeur à d'autres et tes années à ce qui est cruel,"
+        },
+        {
+          "verse": "5:10",
+          "text": "de peur que les étrangers ne se rassasient de tes biens et que le fruit de ton travail ne soit dans la maison d'un étranger,"
+        },
+        {
+          "verse": "5:11",
+          "text": "de peur que tu ne gémisses quand tu seras près de ta fin, quand ta chair et ton corps seront consumés."
+        },
+        {
+          "verse": "5:12",
+          "text": "Tu diras : Comment ai-je haï la correction ? Comment mon cœur a-t-il méprisé les réprimandes ?"
+        },
+        {
+          "verse": "5:13",
+          "text": "Comment n'ai-je pas obéi à la voix de ceux qui m'instruisaient, et n'ai-je pas incliné mon oreille à ceux qui m'enseignaient ?"
+        },
+        {
+          "verse": "5:14",
+          "text": "J’ai été presque dans toutes sortes de maux au milieu de la congrégation et de l’assemblée."
+        },
+        {
+          "verse": "5:15",
+          "text": "Bois les eaux de ta citerne et de ce qui coule du milieu de ton puits !"
+        },
+        {
+          "verse": "5:16",
+          "text": "Tes sources se disperseront-elles dans les rues ? Tes canaux d'eaux sur les places publiques ?"
+        },
+        {
+          "verse": "5:17",
+          "text": "Qu'ils soient à toi seul, et non aux étrangers avec toi."
+        },
+        {
+          "verse": "5:18",
+          "text": "Que ta source soit bénie, et réjouis-toi de la femme de ta jeunesse,"
+        },
+        {
+          "verse": "5:19",
+          "text": "biche des amours, chèvre de montagne pleine de grâce ! Que ses mamelles te rassasient en tout temps, et sois continuellement égaré par son amour !"
+        },
+        {
+          "verse": "5:20",
+          "text": "Pourquoi, mon fils, serais-tu égaré par une étrangère et embrasserais-tu le sein d'une inconnue ?"
+        },
+        {
+          "verse": "5:21",
+          "text": "Car les voies de l'homme sont devant les yeux de YHWH qui aplanit toutes ses pistes.",
+          "textWithNotes": "Car les voies de l'homme sont devant les yeux de YHWH qui aplanit toutes ses pistes[Jé. 16:17 ; Hé. 4:13.].",
+          "notes": [
+            {
+              "word": "pistes",
+              "position": 77,
+              "note": "Jé. 16:17 ; Hé. 4:13."
+            }
+          ]
+        },
+        {
+          "verse": "5:22",
+          "text": "Les iniquités du méchant le captureront, et il sera saisi par les cordes de son péché."
+        },
+        {
+          "verse": "5:23",
+          "text": "Il mourra faute de correction et il s'égarera par la grandeur de sa folie."
+        }
+      ]
+    },
+    {
+      "chapter": 6,
+      "verses": [
+        {
+          "verse": "6:1",
+          "section": "Recommandations diverses",
+          "text": "Mon fils, si tu t'es porté garant auprès de ton prochain, si tu as frappé dans la main de l'étranger,"
+        },
+        {
+          "verse": "6:2",
+          "text": "tu es enlacé par les paroles de ta bouche, tu es pris par les paroles de ta bouche."
+        },
+        {
+          "verse": "6:3",
+          "text": "Mon fils, fais maintenant ceci, et délivre-toi, car tu es venu dans la paume de ton ami, va, prosterne-toi et importune ton ami."
+        },
+        {
+          "verse": "6:4",
+          "text": "Ne donne pas de sommeil à tes yeux et ne laisse pas sommeiller tes paupières."
+        },
+        {
+          "verse": "6:5",
+          "text": "Délivre-toi comme une gazelle de la main et comme un oiseau de la main de l’oiseleur."
+        },
+        {
+          "verse": "6:6",
+          "text": "Va, paresseux, vers la fourmi, regarde ses voies et deviens sage !"
+        },
+        {
+          "verse": "6:7",
+          "text": "Elle n'a ni chef, ni commissaire, ni gouverneur."
+        },
+        {
+          "verse": "6:8",
+          "text": "Elle prépare en été son pain, elle amasse pendant la moisson sa nourriture."
+        },
+        {
+          "verse": "6:9",
+          "text": "Paresseux, jusqu'à quand resteras-tu couché ? Quand te lèveras-tu de ton sommeil ?"
+        },
+        {
+          "verse": "6:10",
+          "text": "Un peu de sommeil, un peu d'assoupissement, un peu croiser les mains en se couchant..."
+        },
+        {
+          "verse": "6:11",
+          "text": "Et elle viendra, elle arrivera, la pauvreté, et le besoin, comme l'homme au bouclier."
+        },
+        {
+          "verse": "6:12",
+          "text": "Un être humain de Bélial, un homme méchant, marche avec une bouche tortueuse.",
+          "textWithNotes": "Un être humain de Bélial[Voir commentaire en De. 13:14.], un homme méchant, marche avec une bouche tortueuse.",
+          "notes": [
+            {
+              "word": "Bélial",
+              "position": 18,
+              "note": "Voir commentaire en De. 13:14."
+            }
+          ]
+        },
+        {
+          "verse": "6:13",
+          "text": "Il fait signe de ses yeux, il parle de ses pieds, il enseigne de ses doigts."
+        },
+        {
+          "verse": "6:14",
+          "text": "Il y a la perversité dans son cœur, il complote le mal en tout temps, il fait naître des querelles."
+        },
+        {
+          "verse": "6:15",
+          "text": "C'est pourquoi sa calamité viendra soudainement, il sera subitement brisé, il n'y aura pas de guérison."
+        },
+        {
+          "verse": "6:16",
+          "text": "Il y a six choses qu'Elohîm hait, et il y en a sept qui sont en abomination à son âme :"
+        },
+        {
+          "verse": "6:17",
+          "text": "les yeux hautains, la langue mensongère, les mains qui répandent le sang innocent,",
+          "textWithNotes": "les yeux hautains[Ps. 101:5.], la langue mensongère[Ps. 120:2-3.], les mains qui répandent le sang innocent[Es. 1:15.],",
+          "notes": [
+            {
+              "word": "hautains",
+              "position": 9,
+              "note": "Ps. 101:5."
+            },
+            {
+              "word": "mensongère",
+              "position": 29,
+              "note": "Ps. 120:2-3."
+            },
+            {
+              "word": "innocent",
+              "position": 73,
+              "note": "Es. 1:15."
+            }
+          ]
+        },
+        {
+          "verse": "6:18",
+          "text": "le cœur qui complote des projets méchants, les pieds qui se hâtent de courir au mal,",
+          "textWithNotes": "le cœur qui complote des projets méchants[Ps. 36:5.], les pieds qui se hâtent de courir au mal[Es. 59:7.],",
+          "notes": [
+            {
+              "word": "méchants",
+              "position": 33,
+              "note": "Ps. 36:5."
+            },
+            {
+              "word": "mal",
+              "position": 80,
+              "note": "Es. 59:7."
+            }
+          ]
+        },
+        {
+          "verse": "6:19",
+          "text": "le faux témoin qui profère des mensonges et celui qui sème des querelles entre les frères.",
+          "textWithNotes": "le faux témoin qui profère des mensonges[Ps. 27:12.] et celui qui sème des querelles entre les frères[Jud. 1:16-19.].",
+          "notes": [
+            {
+              "word": "mensonges",
+              "position": 31,
+              "note": "Ps. 27:12."
+            },
+            {
+              "word": "frères",
+              "position": 83,
+              "note": "Jud. 1:16-19."
+            }
+          ]
+        },
+        {
+          "verse": "6:20",
+          "text": "Mon fils, garde le commandement de ton père et n'abandonne pas la torah de ta mère !"
+        },
+        {
+          "verse": "6:21",
+          "text": "Lie-les constamment sur ton cœur, attache-les à ton cou !"
+        },
+        {
+          "verse": "6:22",
+          "text": "Ils te conduiront quand tu marcheras, ils te garderont quand tu te coucheras, ils te parleront quand tu te réveilleras."
+        },
+        {
+          "verse": "6:23",
+          "text": "Car le commandement est une lampe et la torah une lumière, et les réprimandes de la correction sont la voie de vies :",
+          "textWithNotes": "Car le commandement est une lampe et la torah une lumière[Ps. 119:105.], et les réprimandes de la correction sont la voie de vies :",
+          "notes": [
+            {
+              "word": "lumière",
+              "position": 50,
+              "note": "Ps. 119:105."
+            }
+          ]
+        },
+        {
+          "verse": "6:24",
+          "text": "pour te garder de la mauvaise femme et des flatteries de la langue étrangère."
+        },
+        {
+          "verse": "6:25",
+          "text": "Ne convoite pas sa beauté dans ton cœur, qu’elle ne te prenne pas par ses paupières.",
+          "textWithNotes": "Ne convoite pas sa beauté dans ton cœur, qu’elle ne te prenne pas par ses paupières[Mt. 5:28.].",
+          "notes": [
+            {
+              "word": "paupières",
+              "position": 74,
+              "note": "Mt. 5:28."
+            }
+          ]
+        },
+        {
+          "verse": "6:26",
+          "text": "Car pour une femme prostituée on en vient jusqu’à un morceau de pain, et la femme d'un homme fait la chasse à une âme précieuse."
+        },
+        {
+          "verse": "6:27",
+          "text": "Un homme prendra-t-il du feu dans son sein sans que ses vêtements brûlent ?"
+        },
+        {
+          "verse": "6:28",
+          "text": "Si un homme marche sur des charbons ardents ses pieds ne seront-ils pas brûlés ?"
+        },
+        {
+          "verse": "6:29",
+          "text": "Ainsi en est-il de celui qui va vers la femme de son ami : quiconque la touche ne sera pas tenu pour innocent."
+        },
+        {
+          "verse": "6:30",
+          "text": "On ne méprise pas un voleur qui vole pour remplir son âme affamée,"
+        },
+        {
+          "verse": "6:31",
+          "text": "si on le trouve, il rendra sept fois autant, il donnera toutes les richesses de sa maison."
+        },
+        {
+          "verse": "6:32",
+          "text": "Celui qui commet un adultère avec une femme manque de cœur. Celui qui le fera, détruira son âme."
+        },
+        {
+          "verse": "6:33",
+          "text": "Il ne trouvera que plaies et ignominie, et son insulte ne sera pas effacée."
+        },
+        {
+          "verse": "6:34",
+          "text": "Car la jalousie est le courroux d'un homme fort, et il n'épargnera pas au jour de la vengeance."
+        },
+        {
+          "verse": "6:35",
+          "text": "Il n'aura égard à aucune rançon et n'acceptera rien, quand même tu multiplierais les pots-de-vin.",
+          "textWithNotes": "Il n'aura égard à aucune rançon[Littéralement : Il ne portera pas la face de toute rançon.] et n'acceptera rien, quand même tu multiplierais les pots-de-vin.",
+          "notes": [
+            {
+              "word": "rançon",
+              "position": 25,
+              "note": "Littéralement : Il ne portera pas la face de toute rançon."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 7,
+      "verses": [
+        {
+          "verse": "7:1",
+          "section": "Mise en garde contre la femme prostituée",
+          "text": "Mon fils, observe mes paroles, et garde avec toi mes commandements !"
+        },
+        {
+          "verse": "7:2",
+          "text": "Garde mes commandements et tu vivras. Garde ma torah comme la prunelle de tes yeux !",
+          "textWithNotes": "Garde mes commandements et tu vivras. Garde ma torah comme la prunelle de tes yeux[Lé. 18:5.] !",
+          "notes": [
+            {
+              "word": "yeux",
+              "position": 78,
+              "note": "Lé. 18:5."
+            }
+          ]
+        },
+        {
+          "verse": "7:3",
+          "text": "Lie-les à tes doigts, écris-les sur la tablette de ton cœur !"
+        },
+        {
+          "verse": "7:4",
+          "text": "Dis à la sagesse : Tu es ma sœur ! et appelle le discernement ton parent."
+        },
+        {
+          "verse": "7:5",
+          "text": "Afin qu'ils te préservent de la femme étrangère, de l'étrangère qui emploie des paroles doucereuses."
+        },
+        {
+          "verse": "7:6",
+          "text": "Comme je regardais de la fenêtre de ma maison à travers mon treillis,"
+        },
+        {
+          "verse": "7:7",
+          "text": "je vis parmi les stupides, j’aperçus parmi les fils un jeune homme qui manquait de cœur."
+        },
+        {
+          "verse": "7:8",
+          "text": "Il passait dans la rue, près de son angle, et il marchait sur le chemin de sa maison,"
+        },
+        {
+          "verse": "7:9",
+          "text": "sur le soir à la fin du jour, lorsque la nuit devenait noire et obscure."
+        },
+        {
+          "verse": "7:10",
+          "text": "Et voici qu’une femme vint à sa rencontre, ayant le vêtement d’une prostituée et la ruse dans le cœur."
+        },
+        {
+          "verse": "7:11",
+          "text": "Elle était bruyante et rebelle. Ses pieds ne restaient pas dans sa maison :"
+        },
+        {
+          "verse": "7:12",
+          "text": "tantôt dehors, tantôt sur les places, elle était en embuscade à chaque coin de rue."
+        },
+        {
+          "verse": "7:13",
+          "text": "Elle le saisit et l'embrassa et, avec une face forte, lui dit :"
+        },
+        {
+          "verse": "7:14",
+          "text": "J'ai chez moi des sacrifices d'offrande de paix, j'ai aujourd'hui accompli mes vœux."
+        },
+        {
+          "verse": "7:15",
+          "text": "C'est pourquoi je suis sortie à ta rencontre, pour chercher tes faces, et je t'ai trouvé."
+        },
+        {
+          "verse": "7:16",
+          "text": "J'ai orné mon lit de couvre-pieds, d'étoffes de fil d'Égypte."
+        },
+        {
+          "verse": "7:17",
+          "text": "J'ai aspergé ma couche de myrrhe, d'aloès et de cinnamome."
+        },
+        {
+          "verse": "7:18",
+          "text": "Viens, enivrons-nous d'amour jusqu'au matin, faisons-nous plaisir avec l'objet aimé."
+        },
+        {
+          "verse": "7:19",
+          "text": "Car mon mari n'est pas à la maison, il est parti pour un voyage lointain."
+        },
+        {
+          "verse": "7:20",
+          "text": "Il a pris dans sa main un sac d'argent. Au jour de la pleine lune, il viendra dans sa maison."
+        },
+        {
+          "verse": "7:21",
+          "text": "Elle le détourna par la multitude de ses instructions, elle le bannit, avec ses lèvres flatteuses."
+        },
+        {
+          "verse": "7:22",
+          "text": "Soudain il s'en alla après elle, comme un bœuf qui va à l'abattage, comme le fou qu'on lie pour le corriger,"
+        },
+        {
+          "verse": "7:23",
+          "text": "jusqu'à ce que la flèche lui ait transpercé le foie. Comme l'oiseau qui se hâte vers le filet, sans savoir qu’il y va de son âme même."
+        },
+        {
+          "verse": "7:24",
+          "text": "Maintenant, fils, écoutez-moi et soyez attentifs aux paroles de ma bouche."
+        },
+        {
+          "verse": "7:25",
+          "text": "Que ton cœur ne se détourne pas vers les voies d'une telle femme, ne t'égare pas dans ses sentiers."
+        },
+        {
+          "verse": "7:26",
+          "text": "Car elle en a fait tomber beaucoup, blessés à mort. Ils sont nombreux, tous ceux qu'elle a tués.",
+          "textWithNotes": "Car elle en a fait tomber beaucoup, blessés à mort. Ils sont nombreux[« Puissant », « fort ».], tous ceux qu'elle a tués.",
+          "notes": [
+            {
+              "word": "nombreux",
+              "position": 61,
+              "note": "« Puissant », « fort »."
+            }
+          ]
+        },
+        {
+          "verse": "7:27",
+          "text": "Sa maison est le chemin du shéol qui descend vers les chambres de la mort.",
+          "textWithNotes": "Sa maison est le chemin du shéol qui descend vers les chambres[« Pièce », « parloir », « partie interne », « dedans ».] de la mort.",
+          "notes": [
+            {
+              "word": "chambres",
+              "position": 54,
+              "note": "« Pièce », « parloir », « partie interne », « dedans »."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 8,
+      "verses": [
+        {
+          "verse": "8:1",
+          "section": "La sagesse préférable aux richesses",
+          "text": "La sagesse ne crie-t-elle pas ? L'intelligence ne fait-elle pas entendre sa voix ?"
+        },
+        {
+          "verse": "8:2",
+          "text": "Elle s'est présentée sur le sommet des lieux élevés, sur le chemin, aux carrefours."
+        },
+        {
+          "verse": "8:3",
+          "text": "À côté des portes, à la bouche de la ville, à l’entrée des ouvertures, elle crie :"
+        },
+        {
+          "verse": "8:4",
+          "text": "Hommes, c'est vers vous que je crie, ma voix aux fils de l’humain !"
+        },
+        {
+          "verse": "8:5",
+          "text": "Vous, esprits simples, apprenez la sagacité ! Et vous, insensés, devenez intelligents de cœur."
+        },
+        {
+          "verse": "8:6",
+          "text": "Écoutez, car je parlerai des choses princières, l'ouverture de mes lèvres est pour la droiture."
+        },
+        {
+          "verse": "8:7",
+          "text": "Car ma bouche prononce la vérité, et la méchanceté est abominable à mes lèvres."
+        },
+        {
+          "verse": "8:8",
+          "text": "Tous les discours de ma bouche sont selon la justice, il n'y a rien en eux de faux, ni de déformé."
+        },
+        {
+          "verse": "8:9",
+          "text": "Ils sont tous justes pour celui qui est intelligent, et droits pour ceux qui ont trouvé la connaissance."
+        },
+        {
+          "verse": "8:10",
+          "text": "Prenez ma correction et non pas de l'argent, la connaissance plutôt que l'or le plus précieux."
+        },
+        {
+          "verse": "8:11",
+          "text": "Car la sagesse est meilleure que les perles, et tous les délices ne peuvent l’égaler.",
+          "textWithNotes": "Car la sagesse est meilleure que les perles, et tous les délices ne peuvent l’égaler[Ps. 19:11, 119:127 ; Job. 28:18.].",
+          "notes": [
+            {
+              "word": "l’égaler",
+              "position": 76,
+              "note": "Ps. 19:11, 119:127 ; Job. 28:18."
+            }
+          ]
+        },
+        {
+          "verse": "8:12",
+          "text": "Moi, la sagesse, je demeure dans la sagacité, et je possède la connaissance de la réflexion."
+        },
+        {
+          "verse": "8:13",
+          "text": "La crainte de YHWH c'est la haine du mal. Je hais l'orgueil et l'arrogance, la voie de la méchanceté et la bouche hypocrite."
+        },
+        {
+          "verse": "8:14",
+          "text": "À moi le conseil, le succès durable. Moi, le discernement, à moi la force !"
+        },
+        {
+          "verse": "8:15",
+          "text": "Par moi règnent les rois, et par moi les princes décrètent ce qui est juste."
+        },
+        {
+          "verse": "8:16",
+          "text": "Par moi gouvernent les seigneurs, les princes, et tous les juges de la Terre."
+        },
+        {
+          "verse": "8:17",
+          "text": "J'aime ceux qui m'aiment, et ceux qui me cherchent me trouvent.",
+          "textWithNotes": "J'aime ceux qui m'aiment, et ceux qui me cherchent me trouvent[Mt. 7:7 ; Lu. 11:9 ; Jn. 14:23-24.].",
+          "notes": [
+            {
+              "word": "trouvent",
+              "position": 54,
+              "note": "Mt. 7:7 ; Lu. 11:9 ; Jn. 14:23-24."
+            }
+          ]
+        },
+        {
+          "verse": "8:18",
+          "text": "Avec moi sont la richesse et la gloire, les richesses durables et la justice."
+        },
+        {
+          "verse": "8:19",
+          "text": "Mon fruit est meilleur que l'or, que l'or raffiné, et mon produit que l'argent de choix."
+        },
+        {
+          "verse": "8:20",
+          "text": "Je marche dans le chemin de la justice, au milieu des sentiers de la droiture,"
+        },
+        {
+          "verse": "8:21",
+          "text": "pour faire hériter les biens réels à ceux qui m’aiment, et pour remplir leurs trésors."
+        },
+        {
+          "verse": "8:22",
+          "text": "YHWH m'a acquise au commencement de sa voie, avant ses œuvres, dès lors."
+        },
+        {
+          "verse": "8:23",
+          "text": "J'ai été établie depuis l'éternité, en tête, bien avant la Terre."
+        },
+        {
+          "verse": "8:24",
+          "text": "J'ai été engendrée lorsqu'il n'y avait pas encore d'abîmes, ni de sources chargées d'eaux."
+        },
+        {
+          "verse": "8:25",
+          "text": "Avant que les montagnes soient affermies, avant que les collines existent, j'ai été engendrée."
+        },
+        {
+          "verse": "8:26",
+          "text": "Il n'avait encore fait ni la Terre, ni les campagnes, ni le premier grain de la poussière du monde."
+        },
+        {
+          "verse": "8:27",
+          "text": "Quand il affermit les cieux, moi, j’étais là, quand il traça un cercle sur les faces de l'abîme,"
+        },
+        {
+          "verse": "8:28",
+          "text": "quand il fixa les nuages en haut et que les sources de l'abîme jaillirent avec force,"
+        },
+        {
+          "verse": "8:29",
+          "text": "quand il donna une limite à la mer, pour que les eaux ne franchissent pas les bords, quand il posa les fondements de la Terre,"
+        },
+        {
+          "verse": "8:30",
+          "text": "j'étais devenue architecte auprès de lui, j'étais devenue ses délices, de jour en jour, jouant en face de lui en tout temps."
+        },
+        {
+          "verse": "8:31",
+          "text": "Jouant dans le monde, sur sa terre, et trouvant mes délices avec les fils de l'être humain."
+        },
+        {
+          "verse": "8:32",
+          "text": "Maintenant, mes fils, écoutez-moi : Heureux ceux qui gardent mes voies."
+        },
+        {
+          "verse": "8:33",
+          "text": "Écoutez la correction pour devenir sages, ne la rejetez pas !"
+        },
+        {
+          "verse": "8:34",
+          "text": "Heureux l'être humain qui m'écoute, qui veille tout le jour à mes portes, et qui monte la garde aux montants de mes portes !"
+        },
+        {
+          "verse": "8:35",
+          "text": "Car celui qui me trouve trouve la vie et obtient la faveur de YHWH."
+        },
+        {
+          "verse": "8:36",
+          "text": "Mais celui qui pèche contre moi fait mal à son âme. Tous ceux qui me haïssent aiment la mort."
+        }
+      ]
+    },
+    {
+      "chapter": 9,
+      "verses": [
+        {
+          "verse": "9:1",
+          "section": "La sagesse, source de vie",
+          "text": "La Sagesse a bâti sa maison, elle a taillé ses sept colonnes."
+        },
+        {
+          "verse": "9:2",
+          "text": "Elle a abattu ses animaux, elle a mêlé son vin, elle a aussi dressé sa table."
+        },
+        {
+          "verse": "9:3",
+          "text": "Elle a envoyé ses servantes, elle crie du haut des lieux les plus élevés de la ville :"
+        },
+        {
+          "verse": "9:4",
+          "text": "Que celui qui est stupide fasse un détour par ici ! Elle dit à ceux qui manquent de cœur :"
+        },
+        {
+          "verse": "9:5",
+          "text": "Venez, mangez de mon pain, et buvez du vin que j'ai mêlé."
+        },
+        {
+          "verse": "9:6",
+          "text": "Abandonnez la naïveté et vous vivrez, marchez dans la voie du discernement !"
+        },
+        {
+          "verse": "9:7",
+          "text": "Celui qui corrige le moqueur en reçoit de l'ignominie, et celui qui reprend le méchant en reçoit une tache."
+        },
+        {
+          "verse": "9:8",
+          "text": "Ne reprends pas le moqueur, de peur qu'il ne te haïsse ! Reprends le sage et il t'aimera.",
+          "textWithNotes": "Ne reprends pas le moqueur, de peur qu'il ne te haïsse ! Reprends le sage et il t'aimera[Ps. 141:5.].",
+          "notes": [
+            {
+              "word": "t'aimera",
+              "position": 80,
+              "note": "Ps. 141:5."
+            }
+          ]
+        },
+        {
+          "verse": "9:9",
+          "text": "Donne au sage et il deviendra encore plus sage, donne la connaissance au juste et il augmentera son instruction."
+        },
+        {
+          "verse": "9:10",
+          "text": "Le commencement de la sagesse est la crainte de YHWH. La connaissance des saints, c'est le discernement.",
+          "textWithNotes": "Le commencement de la sagesse est la crainte de YHWH[Ps. 19:10.]. La connaissance des saints, c'est le discernement.",
+          "notes": [
+            {
+              "word": "YHWH",
+              "position": 48,
+              "note": "Ps. 19:10."
+            }
+          ]
+        },
+        {
+          "verse": "9:11",
+          "text": "Car tes jours se multiplieront par moi, et des années de vie te seront ajoutées."
+        },
+        {
+          "verse": "9:12",
+          "text": "Si tu es sage, tu es sage pour toi-même, si tu es moqueur, tu en porteras seul la peine."
+        },
+        {
+          "verse": "9:13",
+          "text": "La femme folle est bruyante, stupide, et elle ne connaît rien."
+        },
+        {
+          "verse": "9:14",
+          "text": "Et elle s'assied à la porte de sa maison sur un siège, dans les lieux élevés de la ville,"
+        },
+        {
+          "verse": "9:15",
+          "text": "pour appeler ceux qui passent sur la route, qui vont droit leur chemin :"
+        },
+        {
+          "verse": "9:16",
+          "text": "Que celui qui est stupide entre ici ! Et elle dit à celui qui manque de cœur :"
+        },
+        {
+          "verse": "9:17",
+          "text": "Les eaux volées sont douces et le pain pris en secret est agréable !"
+        },
+        {
+          "verse": "9:18",
+          "text": "Et il ne sait pas que là sont les fantômes, que ceux qu’elle a invités sont dans le plus profond du shéol.",
+          "textWithNotes": "Et il ne sait pas que là sont les fantômes[Vient d'un mot hébreu qui signifie « fantômes de morts, ombres, revenants » ou encore « esprits ».], que ceux qu’elle a invités sont dans le plus profond du shéol.",
+          "notes": [
+            {
+              "word": "fantômes",
+              "position": 34,
+              "note": "Vient d'un mot hébreu qui signifie « fantômes de morts, ombres, revenants » ou encore « esprits »."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 10,
+      "verses": [
+        {
+          "verse": "10:1",
+          "section": "La justice s'oppose à la méchanceté",
+          "text": "Proverbes de Shelomoh. Le fils sage réjouit son père, mais le fils insensé est le chagrin de sa mère."
+        },
+        {
+          "verse": "10:2",
+          "text": "Les trésors de méchanceté ne profitent pas, mais la justice délivre de la mort."
+        },
+        {
+          "verse": "10:3",
+          "text": "YHWH ne laisse pas l'âme du juste avoir faim, mais il repousse les désirs des méchants."
+        },
+        {
+          "verse": "10:4",
+          "text": "Celui qui agit d'une paume paresseuse s'appauvrit, mais la main des diligents enrichit."
+        },
+        {
+          "verse": "10:5",
+          "text": "L'enfant prudent amasse en été, celui qui dort durant la moisson est un enfant qui fait honte."
+        },
+        {
+          "verse": "10:6",
+          "text": "Les bénédictions seront sur la tête du juste, mais la violence couvrira la bouche des méchants."
+        },
+        {
+          "verse": "10:7",
+          "text": "La mémoire du juste est en bénédiction, mais la réputation des méchants tombe en pourriture.",
+          "textWithNotes": "La mémoire du juste est en bénédiction[Ps. 112:6.], mais la réputation des méchants tombe en pourriture.",
+          "notes": [
+            {
+              "word": "bénédiction",
+              "position": 27,
+              "note": "Ps. 112:6."
+            }
+          ]
+        },
+        {
+          "verse": "10:8",
+          "text": "Celui qui est sage de cœur reçoit les commandements, mais celui qui est fou des lèvres sera jeté dehors."
+        },
+        {
+          "verse": "10:9",
+          "text": "Celui qui marche dans l'intégrité marche avec assurance, mais celui qui pervertit ses voies sera découvert."
+        },
+        {
+          "verse": "10:10",
+          "text": "Celui qui cligne de l'œil cause de la douleur, et celui qui est fou des lèvres sera jeté dehors."
+        },
+        {
+          "verse": "10:11",
+          "text": "La bouche du juste est une source de vies, mais la violence couvre la bouche des méchants."
+        },
+        {
+          "verse": "10:12",
+          "text": "La haine excite les querelles, mais l'amour couvre toutes les transgressions.",
+          "textWithNotes": "La haine excite les querelles, mais l'amour couvre toutes les transgressions[1 Pi. 4:8.].",
+          "notes": [
+            {
+              "word": "transgressions",
+              "position": 62,
+              "note": "1 Pi. 4:8."
+            }
+          ]
+        },
+        {
+          "verse": "10:13",
+          "text": "La sagesse se trouve sur les lèvres de celui qui est intelligent, mais la verge est pour le dos de celui qui manque de cœur."
+        },
+        {
+          "verse": "10:14",
+          "text": "Les sages tiennent la connaissance en réserve, mais la bouche du fou est près de la destruction."
+        },
+        {
+          "verse": "10:15",
+          "text": "La richesse du riche est sa ville forte, mais la pauvreté des misérables est leur ruine."
+        },
+        {
+          "verse": "10:16",
+          "text": "L'œuvre du juste est pour la vie, mais le revenu du méchant est pour le péché."
+        },
+        {
+          "verse": "10:17",
+          "text": "Celui qui fait attention à la correction est dans le chemin de vies, mais celui qui néglige la réprimande s'égare."
+        },
+        {
+          "verse": "10:18",
+          "text": "Celui qui couvre la haine a des lèvres menteuses, et celui qui répand la diffamation est un insensé."
+        },
+        {
+          "verse": "10:19",
+          "text": "Dans la multitude de paroles, la transgression ne manque pas, mais celui qui retient ses lèvres est prudent."
+        },
+        {
+          "verse": "10:20",
+          "text": "La langue du juste est un argent choisi, mais le cœur des méchants est bien peu de chose."
+        },
+        {
+          "verse": "10:21",
+          "text": "Les lèvres du juste en nourrissent beaucoup, mais les fous mourront par manque de cœur."
+        },
+        {
+          "verse": "10:22",
+          "text": "La bénédiction de YHWH enrichira, et il n'y ajoutera aucune peine."
+        },
+        {
+          "verse": "10:23",
+          "text": "C'est comme un jeu pour un insensé de pratiquer la méchanceté, mais la sagesse appartient à l'homme intelligent."
+        },
+        {
+          "verse": "10:24",
+          "text": "Ce que craint le méchant, c’est ce qui lui arrive, et ce que désirent les justes leur est accordé."
+        },
+        {
+          "verse": "10:25",
+          "text": "Comme le vent d'orage passe, ainsi le méchant disparaît, mais le juste possède un fondement éternel."
+        },
+        {
+          "verse": "10:26",
+          "text": "Ce que le vinaigre est aux dents et la fumée aux yeux, tel est le paresseux pour ceux qui l'envoient."
+        },
+        {
+          "verse": "10:27",
+          "text": "La crainte de YHWH augmente les jours, mais les années des méchants sont écourtées."
+        },
+        {
+          "verse": "10:28",
+          "text": "L'espérance des justes c'est la joie, mais l'attente des méchants périra."
+        },
+        {
+          "verse": "10:29",
+          "text": "La voie de YHWH est le refuge pour l'intégrité, mais elle est la ruine pour ceux qui pratiquent la méchanceté."
+        },
+        {
+          "verse": "10:30",
+          "text": "Le juste ne sera jamais ébranlé, mais les méchants ne demeureront pas sur la Terre."
+        },
+        {
+          "verse": "10:31",
+          "text": "La bouche du juste produit la sagesse, mais la langue perverse sera retranchée."
+        },
+        {
+          "verse": "10:32",
+          "text": "Les lèvres du juste connaissent la faveur, la bouche des méchants, la perversité."
+        }
+      ]
+    },
+    {
+      "chapter": 11,
+      "verses": [
+        {
+          "verse": "11:1",
+          "section": "La justice s'oppose à la méchanceté (suite)",
+          "text": "La balance trompeuse est une abomination pour YHWH, mais le poids complet est pour lui un plaisir.",
+          "textWithNotes": "La balance trompeuse est une abomination pour YHWH, mais le poids complet est pour lui un plaisir[Lé. 19:35-36 ; De. 25:13-16.].",
+          "notes": [
+            {
+              "word": "plaisir",
+              "position": 90,
+              "note": "Lé. 19:35-36 ; De. 25:13-16."
+            }
+          ]
+        },
+        {
+          "verse": "11:2",
+          "text": "Quand l'orgueil vient, la honte vient aussi, mais la sagesse est avec ceux qui sont modestes."
+        },
+        {
+          "verse": "11:3",
+          "text": "L'intégrité des justes les conduit, mais la perversité des traîtres les détruit."
+        },
+        {
+          "verse": "11:4",
+          "text": "Les richesses ne servent à rien au jour de la colère, mais la justice délivre de la mort."
+        },
+        {
+          "verse": "11:5",
+          "text": "La justice de l'innocent rend droite sa voie, mais le méchant tombe par sa méchanceté."
+        },
+        {
+          "verse": "11:6",
+          "text": "La justice des justes les délivre, mais les traîtres sont pris par leur méchanceté."
+        },
+        {
+          "verse": "11:7",
+          "text": "Quand un être humain méchant meurt, l'espoir périt, et l'espérance douloureuse périt aussi."
+        },
+        {
+          "verse": "11:8",
+          "text": "Le juste est délivré de la détresse, et le méchant y entre à sa place."
+        },
+        {
+          "verse": "11:9",
+          "text": "Par sa bouche l'athée corrompt son prochain, mais les justes en sont délivrés par la connaissance."
+        },
+        {
+          "verse": "11:10",
+          "text": "La ville se réjouit quand les justes sont heureux, et quand les méchants périssent, ce sont des cris de joie."
+        },
+        {
+          "verse": "11:11",
+          "text": "La ville s’élève par la bénédiction des justes, mais elle est renversée par la bouche des méchants."
+        },
+        {
+          "verse": "11:12",
+          "text": "Celui qui méprise son prochain manque de cœur, mais l'homme prudent se tait."
+        },
+        {
+          "verse": "11:13",
+          "text": "Celui qui va et calomnie, révèle les secrets, mais celui dont l'esprit est fidèle couvre la chose."
+        },
+        {
+          "verse": "11:14",
+          "text": "Quand il n’y a pas de direction le peuple tombe, mais la délivrance est dans la multitude de conseillers."
+        },
+        {
+          "verse": "11:15",
+          "text": "Mauvais, c'est mauvais quand on cautionne un étranger ; celui qui hait les topes est en sécurité.",
+          "textWithNotes": "Mauvais, c'est mauvais quand on cautionne un étranger ; celui qui hait les topes[Accepter un défi, taper dans la main de quelqu'un pour signifier qu'on accepte, qu'on conclut le marché.] est en sécurité.",
+          "notes": [
+            {
+              "word": "topes",
+              "position": 75,
+              "note": "Accepter un défi, taper dans la main de quelqu'un pour signifier qu'on accepte, qu'on conclut le marché."
+            }
+          ]
+        },
+        {
+          "verse": "11:16",
+          "text": "La femme de grâce se saisit de la gloire, et les terrifiants se saisissent de la richesse."
+        },
+        {
+          "verse": "11:17",
+          "text": "Un homme de bonté fait du bien à son âme, mais le cruel trouble sa chair."
+        },
+        {
+          "verse": "11:18",
+          "text": "Le méchant fait une œuvre trompeuse, mais celui qui sème la justice a un vrai salaire.",
+          "textWithNotes": "Le méchant fait une œuvre trompeuse, mais celui qui sème la justice a un vrai salaire[Os. 10:12.].",
+          "notes": [
+            {
+              "word": "salaire",
+              "position": 78,
+              "note": "Os. 10:12."
+            }
+          ]
+        },
+        {
+          "verse": "11:19",
+          "text": "Ainsi la justice mène à la vie, mais celui qui poursuit le mal aboutit à sa mort."
+        },
+        {
+          "verse": "11:20",
+          "text": "Ceux qui ont le cœur pervers sont en abomination pour YHWH, mais ceux qui sont intègres dans leurs voies lui sont agréables."
+        },
+        {
+          "verse": "11:21",
+          "text": "De la main à la main, le méchant ne restera pas impuni, mais la semence des justes sera délivrée."
+        },
+        {
+          "verse": "11:22",
+          "text": "Une belle femme qui se détourne du jugement est un anneau d'or au groin d'un pourceau."
+        },
+        {
+          "verse": "11:23",
+          "text": "Le souhait des justes n'est que le bien, l'attente des méchants c'est l'indignation."
+        },
+        {
+          "verse": "11:24",
+          "text": "Tel éparpille et augmente encore, tel autre épargne ce qui est dû et se trouve dans la pauvreté."
+        },
+        {
+          "verse": "11:25",
+          "text": "L'âme qui bénit deviendra prospère, et celui qui arrose abondamment sera lui-même arrosé."
+        },
+        {
+          "verse": "11:26",
+          "text": "Sera maudit du peuple, celui qui cache le froment, mais la bénédiction est sur la tête de celui qui le vend."
+        },
+        {
+          "verse": "11:27",
+          "text": "Celui qui cherche ce qui est bon désire la faveur, mais le mal atteindra celui qui le recherche."
+        },
+        {
+          "verse": "11:28",
+          "text": "Celui qui se confie dans ses richesses tombera, mais les justes pousseront comme le feuillage.",
+          "textWithNotes": "Celui qui se confie dans ses richesses tombera, mais les justes pousseront comme le feuillage[Jé. 17:8 ; Ps. 1:3.].",
+          "notes": [
+            {
+              "word": "feuillage",
+              "position": 84,
+              "note": "Jé. 17:8 ; Ps. 1:3."
+            }
+          ]
+        },
+        {
+          "verse": "11:29",
+          "text": "Celui qui trouble sa maison héritera du vent, et le fou deviendra l'esclave de celui qui est sage de cœur."
+        },
+        {
+          "verse": "11:30",
+          "text": "Le fruit du juste est un arbre de vies, et celui qui gagne les âmes est sage."
+        },
+        {
+          "verse": "11:31",
+          "text": "Si le juste est payé de retour sur la Terre, combien plus le méchant et le pécheur !"
+        }
+      ]
+    },
+    {
+      "chapter": 12,
+      "verses": [
+        {
+          "verse": "12:1",
+          "section": "La justice s'oppose à la méchanceté (suite)",
+          "text": "Celui qui aime la correction aime la connaissance, mais celui qui hait la réprimande est abruti."
+        },
+        {
+          "verse": "12:2",
+          "text": "L'homme bon obtient la faveur de YHWH, mais il condamne l'homme qui forme des complots."
+        },
+        {
+          "verse": "12:3",
+          "text": "L'être humain ne sera pas affermi par la méchanceté, mais la racine des justes ne sera pas ébranlée."
+        },
+        {
+          "verse": "12:4",
+          "text": "La femme talentueuse est la couronne de son mari, mais celle qui fait honte est comme la pourriture dans ses os.",
+          "textWithNotes": "La femme talentueuse est la couronne de son mari[Pr. 31:10.], mais celle qui fait honte est comme la pourriture dans ses os.",
+          "notes": [
+            {
+              "word": "mari",
+              "position": 44,
+              "note": "Pr. 31:10."
+            }
+          ]
+        },
+        {
+          "verse": "12:5",
+          "text": "Les pensées des justes ne sont que justice, mais les conseils des méchants ne sont que fraude."
+        },
+        {
+          "verse": "12:6",
+          "text": "Les paroles des méchants ne tendent qu'à dresser des embûches pour répandre le sang, mais la bouche des justes les délivrera."
+        },
+        {
+          "verse": "12:7",
+          "text": "Les méchants sont renversés, et ils ne sont plus, mais la maison des justes se maintiendra."
+        },
+        {
+          "verse": "12:8",
+          "text": "Un homme est loué d’après sa prudence, mais celui qui a le cœur pervers devient l'objet du mépris."
+        },
+        {
+          "verse": "12:9",
+          "text": "Mieux vaut un homme méprisé qui a un serviteur qu'un homme qui se glorifie et manque de pain."
+        },
+        {
+          "verse": "12:10",
+          "text": "Le juste a égard à l'âme de sa bête, mais les matrices des méchants sont cruelles."
+        },
+        {
+          "verse": "12:11",
+          "text": "Celui qui cultive son sol sera rassasié de pain, mais celui qui court après des futilités manque de cœur."
+        },
+        {
+          "verse": "12:12",
+          "text": "Le méchant convoite le filet des hommes mauvais, mais la racine des justes produit."
+        },
+        {
+          "verse": "12:13",
+          "text": "Il y a dans la transgression des lèvres un piège pernicieux, mais le juste sortira de la détresse."
+        },
+        {
+          "verse": "12:14",
+          "text": "L'homme sera rassasié de ce qui est bon par le fruit de sa bouche, et on rendra à l'être humain selon l'œuvre de ses mains."
+        },
+        {
+          "verse": "12:15",
+          "text": "La voie du fou est droite à ses yeux, mais celui qui écoute le conseil est sage."
+        },
+        {
+          "verse": "12:16",
+          "text": "Quant au fou, sa colère est révélée le jour même, mais l'homme bien avisé couvre son ignominie."
+        },
+        {
+          "verse": "12:17",
+          "text": "Celui qui prononce des choses véritables rend un témoignage juste, mais le faux témoin fait des rapports trompeurs."
+        },
+        {
+          "verse": "12:18",
+          "text": "Tel qui parle à la légère perce comme une épée, mais la langue des sages apporte la guérison."
+        },
+        {
+          "verse": "12:19",
+          "text": "La lèvre de vérité est affermie pour toujours, mais la langue de mensonge n’est que pour un instant.",
+          "textWithNotes": "La lèvre de vérité est affermie pour toujours, mais la langue de mensonge n’est que pour un instant[Ps. 52:6-7.].",
+          "notes": [
+            {
+              "word": "instant",
+              "position": 92,
+              "note": "Ps. 52:6-7."
+            }
+          ]
+        },
+        {
+          "verse": "12:20",
+          "text": "La tromperie est dans le cœur de ceux qui complotent le mal, mais la joie est pour ceux qui conseillent la paix."
+        },
+        {
+          "verse": "12:21",
+          "text": "Aucun malheur n'arrivera au juste, mais les méchants seront remplis de maux."
+        },
+        {
+          "verse": "12:22",
+          "text": "Les lèvres mensongères sont une abomination à YHWH, mais ceux qui agissent fidèlement lui sont agréables.",
+          "textWithNotes": "Les lèvres mensongères sont une abomination à YHWH[Ap. 22:15.], mais ceux qui agissent fidèlement lui sont agréables.",
+          "notes": [
+            {
+              "word": "YHWH",
+              "position": 46,
+              "note": "Ap. 22:15."
+            }
+          ]
+        },
+        {
+          "verse": "12:23",
+          "text": "L'humain prudent cache sa connaissance, mais le cœur des insensés proclame la folie."
+        },
+        {
+          "verse": "12:24",
+          "text": "La main des diligents gouvernera, mais la main paresseuse sera tributaire."
+        },
+        {
+          "verse": "12:25",
+          "text": "L'anxiété dans le cœur de l'homme le courbe, mais une bonne parole le réjouit."
+        },
+        {
+          "verse": "12:26",
+          "text": "Le juste explore la voie pour son compagnon, mais le chemin des méchants les égare."
+        },
+        {
+          "verse": "12:27",
+          "text": "Le paresseux ne rôtit pas son gibier, mais les richesses précieuses de l'être humain sont au diligent."
+        },
+        {
+          "verse": "12:28",
+          "text": "La vie est dans le chemin de la justice, et la voie de son sentier ne tend pas à la mort."
+        }
+      ]
+    },
+    {
+      "chapter": 13,
+      "verses": [
+        {
+          "verse": "13:1",
+          "section": "La justice s'oppose à la méchanceté (suite)",
+          "text": "Un fils sage écoute la correction de son père, mais le moqueur n'écoute pas la réprimande.",
+          "textWithNotes": "Un fils sage écoute la correction de son père, mais le moqueur n'écoute pas la réprimande[Ps. 1:1.].",
+          "notes": [
+            {
+              "word": "réprimande",
+              "position": 79,
+              "note": "Ps. 1:1."
+            }
+          ]
+        },
+        {
+          "verse": "13:2",
+          "text": "Par le fruit de sa bouche l’homme mangera ce qui est bon, mais l'âme des traîtres n'est que violence."
+        },
+        {
+          "verse": "13:3",
+          "text": "Celui qui veille sur sa bouche garde son âme, mais celui qui ouvre grand ses lèvres se ruine.",
+          "textWithNotes": "Celui qui veille[Surveiller.] sur sa bouche garde son âme, mais celui qui ouvre grand ses lèvres se ruine[Ps. 39:2.].",
+          "notes": [
+            {
+              "word": "veille",
+              "position": 10,
+              "note": "Surveiller."
+            },
+            {
+              "word": "ruine",
+              "position": 87,
+              "note": "Ps. 39:2."
+            }
+          ]
+        },
+        {
+          "verse": "13:4",
+          "text": "L'âme du paresseux a des désirs qu'il ne peut satisfaire, mais l'âme des diligents sera engraissée."
+        },
+        {
+          "verse": "13:5",
+          "text": "Le juste hait la parole mensongère, mais elle rend le méchant odieux et le fait tomber dans la confusion."
+        },
+        {
+          "verse": "13:6",
+          "text": "La justice garde celui qui est intègre dans sa voie, mais la méchanceté tord le pécheur."
+        },
+        {
+          "verse": "13:7",
+          "text": "Tel fait le riche et n'a rien du tout, tel autre fait le pauvre et possède de grandes richesses."
+        },
+        {
+          "verse": "13:8",
+          "text": "Les richesses d'un homme servent de rançon pour son âme, mais le pauvre n'entend pas les réprimandes."
+        },
+        {
+          "verse": "13:9",
+          "text": "La lumière des justes réjouit, mais la lampe des méchants sera éteinte."
+        },
+        {
+          "verse": "13:10",
+          "text": "L'orgueil ne produit que des querelles, mais la sagesse est avec ceux qui écoutent les conseils."
+        },
+        {
+          "verse": "13:11",
+          "text": "Les richesses provenant de la vanité seront diminuées, mais celui qui amasse à la main les augmentera."
+        },
+        {
+          "verse": "13:12",
+          "text": "Un espoir différé fait languir le cœur, mais un désir accompli est un arbre de vies."
+        },
+        {
+          "verse": "13:13",
+          "text": "Celui qui méprise la parole sera détruit, mais celui qui craint le commandement sera récompensé."
+        },
+        {
+          "verse": "13:14",
+          "text": "La torah du sage est une source de vies pour détourner des pièges de la mort."
+        },
+        {
+          "verse": "13:15",
+          "text": "Une bonne compréhension donne de la grâce, mais la voie des traîtres est perpétuelle."
+        },
+        {
+          "verse": "13:16",
+          "text": "Tout homme prudent agit avec connaissance, mais l'insensé déploie sa folie.",
+          "textWithNotes": "Tout homme prudent agit avec connaissance, mais l'insensé déploie sa folie[Da. 11:32.].",
+          "notes": [
+            {
+              "word": "folie",
+              "position": 69,
+              "note": "Da. 11:32."
+            }
+          ]
+        },
+        {
+          "verse": "13:17",
+          "text": "Un messager méchant tombe dans le malheur, mais un messager digne de confiance apporte la guérison."
+        },
+        {
+          "verse": "13:18",
+          "text": "La pauvreté et l'ignominie arrivent à celui qui rejette la correction, mais celui qui garde la réprimande est honoré."
+        },
+        {
+          "verse": "13:19",
+          "text": "Un désir accompli est doux à l'âme, mais se détourner du mal est une abomination pour les insensés."
+        },
+        {
+          "verse": "13:20",
+          "text": "Celui qui marche avec les sages deviendra sage, mais le compagnon des insensés sera détruit.",
+          "textWithNotes": "Celui qui marche avec les sages deviendra sage, mais le compagnon[« Faire paître », « soigner », « nourrir ».] des insensés sera détruit.",
+          "notes": [
+            {
+              "word": "compagnon",
+              "position": 56,
+              "note": "« Faire paître », « soigner », « nourrir »."
+            }
+          ]
+        },
+        {
+          "verse": "13:21",
+          "text": "Le mal poursuit les pécheurs, mais le bien sera rendu aux justes."
+        },
+        {
+          "verse": "13:22",
+          "text": "Quelqu’un qui est bon laissera de quoi hériter aux fils de ses fils, mais la richesse du pécheur est mise en réserve pour le juste.",
+          "textWithNotes": "Quelqu’un qui est bon laissera de quoi hériter aux fils de ses fils, mais la richesse du pécheur est mise en réserve pour le juste[Voir Ec. 2:26.].",
+          "notes": [
+            {
+              "word": "juste",
+              "position": 125,
+              "note": "Voir Ec. 2:26."
+            }
+          ]
+        },
+        {
+          "verse": "13:23",
+          "text": "Le sol labourable du pauvre abonde de nourriture, mais il en est qui périssent faute de justice."
+        },
+        {
+          "verse": "13:24",
+          "text": "Celui qui épargne sa verge hait son fils, mais celui qui l'aime se hâte de le corriger."
+        },
+        {
+          "verse": "13:25",
+          "text": "Le juste mange jusqu’à ce que son âme soit rassasiée, mais le ventre des méchants est vide."
+        }
+      ]
+    },
+    {
+      "chapter": 14,
+      "verses": [
+        {
+          "verse": "14:1",
+          "section": "La justice s'oppose à la méchanceté (suite)",
+          "text": "La femme sage bâtit sa maison, mais la folle la ruine de ses mains."
+        },
+        {
+          "verse": "14:2",
+          "text": "Celui qui marche dans la droiture craint YHWH, mais celui dont les voies sont perverses le méprise."
+        },
+        {
+          "verse": "14:3",
+          "text": "La verge d'orgueil est dans la bouche du fou, mais les lèvres des sages les garderont."
+        },
+        {
+          "verse": "14:4",
+          "text": "Là où il n'y a pas de bœuf, la crèche est vide, mais l'abondance du revenu provient de la force du bœuf."
+        },
+        {
+          "verse": "14:5",
+          "text": "Le témoin digne de confiance ne ment pas, mais le faux témoin exhale le mensonge."
+        },
+        {
+          "verse": "14:6",
+          "text": "Le moqueur cherche la sagesse et ne la trouve pas, mais la connaissance est aisée à trouver pour l'homme intelligent."
+        },
+        {
+          "verse": "14:7",
+          "text": "Va-t’en de devant l'homme insensé : ce n'est pas sur ses lèvres que tu aperçois la connaissance."
+        },
+        {
+          "verse": "14:8",
+          "text": "La sagesse d'un homme prudent est de connaître les règles de sa voie, mais la folie des insensés est la tromperie."
+        },
+        {
+          "verse": "14:9",
+          "text": "Les fous se moquent de la culpabilité, mais parmi les justes se trouve la faveur."
+        },
+        {
+          "verse": "14:10",
+          "text": "Le cœur connaît l’amertume de son âme et nul étranger ne partage sa joie."
+        },
+        {
+          "verse": "14:11",
+          "text": "La maison des méchants sera détruite, mais la tente des justes fleurira."
+        },
+        {
+          "verse": "14:12",
+          "text": "Il y a une voie qui semble droite à l'homme, mais dont l'issue est la voie de la mort."
+        },
+        {
+          "verse": "14:13",
+          "text": "Même en riant le cœur peut être triste, et la fin de la joie c'est le chagrin."
+        },
+        {
+          "verse": "14:14",
+          "text": "Celui qui a un cœur hypocrite sera rassasié de ses voies, mais l'homme bon sera rassasié de ce qui est en lui."
+        },
+        {
+          "verse": "14:15",
+          "text": "Le simple croit à toute parole, mais le prudent discerne ses pas."
+        },
+        {
+          "verse": "14:16",
+          "text": "Le sage craint et se détourne du mal, mais l'insensé se met en colère et il est tout confiant."
+        },
+        {
+          "verse": "14:17",
+          "text": "Celui qui est prompt à la colère agit follement, et l'homme plein de ruse est haï.",
+          "textWithNotes": "Celui qui est prompt à la colère agit follement[Ps. 37:8.], et l'homme plein de ruse est haï.",
+          "notes": [
+            {
+              "word": "follement",
+              "position": 38,
+              "note": "Ps. 37:8."
+            }
+          ]
+        },
+        {
+          "verse": "14:18",
+          "text": "Les naïfs hériteront la folie, mais les prudents seront couronnés de connaissance."
+        },
+        {
+          "verse": "14:19",
+          "text": "Les mauvais s'inclinent devant les bons, et les méchants aux portes du juste."
+        },
+        {
+          "verse": "14:20",
+          "text": "Le pauvre est haï même par son ami, mais les amis du riche sont nombreux !"
+        },
+        {
+          "verse": "14:21",
+          "text": "Celui qui méprise son prochain commet un péché, mais celui qui a pitié des pauvres est heureux."
+        },
+        {
+          "verse": "14:22",
+          "text": "Ceux qui méditent le mal ne s'égarent-ils pas ? Mais la bonté et la vérité sont pour ceux qui méditent le bien."
+        },
+        {
+          "verse": "14:23",
+          "text": "Tout travail procure un profit, mais les discours des lèvres ne mènent qu'à la disette."
+        },
+        {
+          "verse": "14:24",
+          "text": "La richesse est une couronne pour les sages ; la folie des insensés est folie."
+        },
+        {
+          "verse": "14:25",
+          "text": "Le témoin fidèle délivre les âmes, mais celui qui respire le mensonge est trompeur."
+        },
+        {
+          "verse": "14:26",
+          "text": "Dans la crainte de YHWH il y a une ferme assurance, et une retraite pour ses fils."
+        },
+        {
+          "verse": "14:27",
+          "text": "La crainte de YHWH est une source de vies pour se détourner des pièges de la mort."
+        },
+        {
+          "verse": "14:28",
+          "text": "La gloire d'un roi, c'est la multitude du peuple, mais quand le peuple manque, c'est la ruine du prince."
+        },
+        {
+          "verse": "14:29",
+          "text": "Celui qui est lent à la colère a une grande intelligence, mais celui qui est prompt à s'emporter excite la folie."
+        },
+        {
+          "verse": "14:30",
+          "text": "La vie de la chair, c'est la santé du cœur, mais la jalousie est la pourriture des os."
+        },
+        {
+          "verse": "14:31",
+          "text": "Celui qui fait tort au pauvre déshonore celui qui l'a fait, mais celui qui a pitié de l'indigent honore YHWH.",
+          "textWithNotes": "Celui qui fait tort au pauvre déshonore celui qui l'a fait, mais celui qui a pitié de l'indigent honore YHWH[De. 24:11 ; Ps. 107:41.].",
+          "notes": [
+            {
+              "word": "YHWH",
+              "position": 104,
+              "note": "De. 24:11 ; Ps. 107:41."
+            }
+          ]
+        },
+        {
+          "verse": "14:32",
+          "text": "Le méchant est chassé par son mal, mais le juste trouve un refuge dans sa mort."
+        },
+        {
+          "verse": "14:33",
+          "text": "La sagesse repose dans un cœur intelligent, et elle se fait connaître au milieu des insensés."
+        },
+        {
+          "verse": "14:34",
+          "text": "La justice élève une nation, mais le péché est la honte des peuples."
+        },
+        {
+          "verse": "14:35",
+          "text": "Le roi prend plaisir au serviteur prudent, mais sa fureur sera contre celui qui lui fait honte."
+        }
+      ]
+    },
+    {
+      "chapter": 15,
+      "verses": [
+        {
+          "verse": "15:1",
+          "section": "La justice s'oppose à la méchanceté (suite)",
+          "text": "Une réponse douce détournera le courroux, mais une parole qui peine fera monter la colère."
+        },
+        {
+          "verse": "15:2",
+          "text": "La langue des sages se réjouit de la connaissance, mais la bouche des insensés proférera la sottise."
+        },
+        {
+          "verse": "15:3",
+          "text": "Les yeux de YHWH sont en tous lieux, observant les méchants et les bons."
+        },
+        {
+          "verse": "15:4",
+          "text": "La langue guérisseuse est un arbre de vies, mais celle où il y a de la perversité est une brèche dans l'esprit."
+        },
+        {
+          "verse": "15:5",
+          "text": "Le fou méprise la correction de son père, mais celui qui prend garde à la réprimande agit avec prudence."
+        },
+        {
+          "verse": "15:6",
+          "text": "Il y a un grand trésor dans la maison du juste, mais il y a du trouble dans les revenus du méchant."
+        },
+        {
+          "verse": "15:7",
+          "text": "Les lèvres des sages répandent partout la connaissance, mais il n'en est pas ainsi du cœur des insensés."
+        },
+        {
+          "verse": "15:8",
+          "text": "Le sacrifice des méchants est une abomination pour YHWH, mais la prière des justes lui est agréable."
+        },
+        {
+          "verse": "15:9",
+          "text": "La voie du méchant est une abomination pour YHWH, mais il aime celui qui poursuit la justice."
+        },
+        {
+          "verse": "15:10",
+          "text": "La correction est désagréable pour celui qui abandonne le chemin, et celui qui hait la réprimande mourra."
+        },
+        {
+          "verse": "15:11",
+          "text": "Le shéol et l'abîme sont devant YHWH. Combien plus les cœurs des fils des humains !"
+        },
+        {
+          "verse": "15:12",
+          "text": "Celui qui parle avec arrogance n'aime pas qu'on le corrige, et il ne va pas vers les sages."
+        },
+        {
+          "verse": "15:13",
+          "text": "Le cœur joyeux rend les faces heureuses, mais l'esprit est abattu par la douleur du cœur."
+        },
+        {
+          "verse": "15:14",
+          "text": "Le cœur de l'homme prudent cherche la connaissance, mais la bouche des insensés se nourrit de folie."
+        },
+        {
+          "verse": "15:15",
+          "text": "Tous les jours de l'affligé sont mauvais, mais un cœur heureux est un festin perpétuel."
+        },
+        {
+          "verse": "15:16",
+          "text": "Mieux vaut peu avec la crainte de YHWH, qu'un grand trésor avec lequel il y a du trouble.",
+          "textWithNotes": "Mieux vaut peu avec la crainte de YHWH, qu'un grand trésor avec lequel il y a du trouble[Ps. 37:16.].",
+          "notes": [
+            {
+              "word": "trouble",
+              "position": 81,
+              "note": "Ps. 37:16."
+            }
+          ]
+        },
+        {
+          "verse": "15:17",
+          "text": "Mieux vaut un plat de légumes là où il y a de l'amitié, qu'un bœuf engraissé là où il y a de la haine."
+        },
+        {
+          "verse": "15:18",
+          "text": "Un homme coléreux excite la querelle, mais l'homme lent à la colère apaise la dispute."
+        },
+        {
+          "verse": "15:19",
+          "text": "La voie du paresseux est comme une haie d'épines, mais le chemin des justes est aplani."
+        },
+        {
+          "verse": "15:20",
+          "text": "Un fils sage réjouit son père, et un homme insensé méprise sa mère."
+        },
+        {
+          "verse": "15:21",
+          "text": "La stupidité est la joie de celui qui manque de cœur, mais un homme prudent dresse ses pas au chemin de la droiture."
+        },
+        {
+          "verse": "15:22",
+          "text": "Les projets échouent là où il n'y a pas de conseil, mais ils s'accomplissent quand il y a de nombreux conseillers."
+        },
+        {
+          "verse": "15:23",
+          "text": "L'homme a de la joie dans les réponses de sa bouche, et combien est bonne une parole dite en son temps !"
+        },
+        {
+          "verse": "15:24",
+          "text": "Le chemin de vies est en haut pour celui qui est prudent, afin qu'il se détourne du shéol qui est en bas.",
+          "textWithNotes": "Le chemin de vies est en haut pour celui qui est prudent, afin qu'il se détourne du shéol qui est en bas[Es. 14:15.].",
+          "notes": [
+            {
+              "word": "bas",
+              "position": 101,
+              "note": "Es. 14:15."
+            }
+          ]
+        },
+        {
+          "verse": "15:25",
+          "text": "YHWH renverse la maison des orgueilleux, mais il affermit la borne de la veuve."
+        },
+        {
+          "verse": "15:26",
+          "text": "Les pensées mauvaises sont une abomination pour YHWH, mais les paroles pleines de bonté sont pures."
+        },
+        {
+          "verse": "15:27",
+          "text": "Celui qui est avide de gain injuste trouble sa maison, mais celui qui hait les présents vivra."
+        },
+        {
+          "verse": "15:28",
+          "text": "Le cœur du juste médite pour répondre, mais la bouche des méchants profère des choses mauvaises."
+        },
+        {
+          "verse": "15:29",
+          "text": "YHWH est loin des méchants, mais il écoute la prière des justes."
+        },
+        {
+          "verse": "15:30",
+          "text": "La lumière des yeux réjouit le cœur, et la bonne nouvelle oint les os."
+        },
+        {
+          "verse": "15:31",
+          "text": "L'oreille qui écoute la correction qui donne la vie habite parmi les sages."
+        },
+        {
+          "verse": "15:32",
+          "text": "Celui qui rejette la correction méprise son âme, mais celui qui écoute la réprimande acquiert le cœur."
+        },
+        {
+          "verse": "15:33",
+          "text": "La crainte de YHWH est la discipline de la sagesse, et l'humilité précède la gloire.",
+          "textWithNotes": "La crainte de YHWH est la discipline de la sagesse, et l'humilité précède la gloire[Ps. 19:10.].",
+          "notes": [
+            {
+              "word": "gloire",
+              "position": 77,
+              "note": "Ps. 19:10."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 16,
+      "verses": [
+        {
+          "verse": "16:1",
+          "section": "La justice s'oppose à la méchanceté (suite)",
+          "text": "Les projets du cœur dépendent de l'être humain, mais la réponse de la langue vient de YHWH."
+        },
+        {
+          "verse": "16:2",
+          "text": "Toutes les voies de l'homme sont pures à ses yeux, mais celui qui pèse les esprits, c'est YHWH."
+        },
+        {
+          "verse": "16:3",
+          "text": "Roule vers YHWH tes affaires et tes projets seront stables."
+        },
+        {
+          "verse": "16:4",
+          "text": "YHWH a tout fait pour sa réponse, même le méchant pour le jour mauvais."
+        },
+        {
+          "verse": "16:5",
+          "text": "Tout cœur hautain est en abomination à YHWH. De la main à la main, il ne restera pas impuni."
+        },
+        {
+          "verse": "16:6",
+          "text": "Par la miséricorde et la vérité on fait la propitiation de l'iniquité, et par la crainte de YHWH on se détourne du mal."
+        },
+        {
+          "verse": "16:7",
+          "text": "Quand YHWH prend plaisir aux voies d'un homme, il apaise envers lui même ses ennemis."
+        },
+        {
+          "verse": "16:8",
+          "text": "Il vaut mieux peu avec justice, qu'un gros revenu là où il n'y a pas de justice."
+        },
+        {
+          "verse": "16:9",
+          "text": "Le cœur de l'être humain médite sur sa voie, mais YHWH conduit ses pas."
+        },
+        {
+          "verse": "16:10",
+          "text": "La divination est sur les lèvres du roi : que sa bouche ne commette pas un délit dans le jugement !"
+        },
+        {
+          "verse": "16:11",
+          "text": "La balance et le poids justes sont à YHWH, tous les poids du sachet sont aussi son œuvre."
+        },
+        {
+          "verse": "16:12",
+          "text": "Agir avec méchanceté est une abomination pour les rois, car un trône s'affermit par la justice."
+        },
+        {
+          "verse": "16:13",
+          "text": "La faveur du roi est pour les lèvres justes, et celui qui parle avec droiture il l'aime."
+        },
+        {
+          "verse": "16:14",
+          "text": "Le courroux du roi est comme des messagers de mort, mais l'homme sage l'apaisera."
+        },
+        {
+          "verse": "16:15",
+          "text": "La lumière sur les faces du roi, c'est la vie, et sa faveur est comme une pluie de printemps.",
+          "textWithNotes": "La lumière sur les faces du roi, c'est la vie, et sa faveur est comme une pluie de printemps[Ou la dernière pluie.].",
+          "notes": [
+            {
+              "word": "printemps",
+              "position": 83,
+              "note": "Ou la dernière pluie."
+            }
+          ]
+        },
+        {
+          "verse": "16:16",
+          "text": "Combien acquérir la sagesse est meilleur que l'or ! Et acquérir le discernement est préférable à l'argent !"
+        },
+        {
+          "verse": "16:17",
+          "text": "La grande route des justes, c'est de se détourner du mal. Celui qui veille sur sa voie garde son âme."
+        },
+        {
+          "verse": "16:18",
+          "text": "Avant l'écrasement, il y a l'orgueil, et avant la chute, l'esprit hautain."
+        },
+        {
+          "verse": "16:19",
+          "text": "Mieux vaut être d'un esprit humble avec les humbles, que de partager le butin avec les orgueilleux."
+        },
+        {
+          "verse": "16:20",
+          "text": "Celui qui prête attention à la parole trouve le bonheur, et celui qui se confie en YHWH est heureux.",
+          "textWithNotes": "Celui qui prête attention à la parole trouve le bonheur, et celui qui se confie en YHWH est heureux[Ps. 2:12.].",
+          "notes": [
+            {
+              "word": "heureux",
+              "position": 92,
+              "note": "Ps. 2:12."
+            }
+          ]
+        },
+        {
+          "verse": "16:21",
+          "text": "On appellera prudent le sage de cœur, et la douceur des lèvres augmente l'instruction."
+        },
+        {
+          "verse": "16:22",
+          "text": "La prudence est une source de vies pour ceux qui la possèdent, mais la correction des fous c'est leur folie."
+        },
+        {
+          "verse": "16:23",
+          "text": "Le cœur sage rend la bouche prudente et augmente l'instruction sur ses lèvres."
+        },
+        {
+          "verse": "16:24",
+          "text": "Les paroles agréables sont des rayons de miel, douces à l'âme et santé pour les os."
+        },
+        {
+          "verse": "16:25",
+          "text": "Il existe une voie qui semble droite à l'homme, mais dont la fin est la voie de la mort."
+        },
+        {
+          "verse": "16:26",
+          "text": "L'âme de celui qui travaille, travaille pour lui-même, parce que sa bouche l'y excite.",
+          "textWithNotes": "L'âme de celui qui travaille, travaille pour lui-même, parce que sa bouche l'y excite[Ec. 6:7.].",
+          "notes": [
+            {
+              "word": "excite",
+              "position": 79,
+              "note": "Ec. 6:7."
+            }
+          ]
+        },
+        {
+          "verse": "16:27",
+          "text": "L'homme de Bélial creuse le mal, et il y a comme un feu brûlant sur ses lèvres.",
+          "textWithNotes": "L'homme de Bélial[Voir commentaire en De. 13:14.] creuse le mal, et il y a comme un feu brûlant sur ses lèvres.",
+          "notes": [
+            {
+              "word": "Bélial",
+              "position": 11,
+              "note": "Voir commentaire en De. 13:14."
+            }
+          ]
+        },
+        {
+          "verse": "16:28",
+          "text": "L'homme qui use de perversité sème des querelles, et le rapporteur divise les grands amis."
+        },
+        {
+          "verse": "16:29",
+          "text": "L'homme violent attire son compagnon et le fait marcher dans une voie qui n'est pas bonne."
+        },
+        {
+          "verse": "16:30",
+          "text": "Il ferme les yeux pour méditer des choses perverses, et remuant ses lèvres il exécute le mal."
+        },
+        {
+          "verse": "16:31",
+          "text": "Les cheveux gris sont une couronne d'honneur : c'est sur la voie de la justice qu'on la trouve."
+        },
+        {
+          "verse": "16:32",
+          "text": "Celui qui est lent à la colère vaut mieux que l'homme vaillant, et celui qui est maître de son cœur vaut mieux que celui qui prend des villes."
+        },
+        {
+          "verse": "16:33",
+          "text": "On jette le sort dans un creux, mais c'est de YHWH que vient tout jugement.",
+          "textWithNotes": "On jette le sort dans un creux, mais c'est de YHWH que vient tout jugement[Ou « action de décider d'une cause ».].",
+          "notes": [
+            {
+              "word": "jugement",
+              "position": 66,
+              "note": "Ou « action de décider d'une cause »."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 17,
+      "verses": [
+        {
+          "verse": "17:1",
+          "section": "La justice s'oppose à la méchanceté (suite)",
+          "text": "Mieux vaut un morceau de pain sec là où il y a la tranquillité, qu'une maison pleine de viandes, là où il y a des querelles."
+        },
+        {
+          "verse": "17:2",
+          "text": "Un serviteur prudent dominera sur le fils qui fait honte, et il partagera l'héritage avec les frères."
+        },
+        {
+          "verse": "17:3",
+          "text": "Le creuset est pour éprouver l'argent, et le fourneau l'or, mais YHWH éprouve les cœurs.",
+          "textWithNotes": "Le creuset est pour éprouver l'argent, et le fourneau l'or, mais YHWH éprouve les cœurs[Jé. 17:10 ; Mal. 3:3 ; Ps. 26:2.].",
+          "notes": [
+            {
+              "word": "cœurs",
+              "position": 82,
+              "note": "Jé. 17:10 ; Mal. 3:3 ; Ps. 26:2."
+            }
+          ]
+        },
+        {
+          "verse": "17:4",
+          "text": "Le méchant est attentif à la lèvre trompeuse, et le menteur écoute la mauvaise langue."
+        },
+        {
+          "verse": "17:5",
+          "text": "Celui qui se moque du pauvre déshonore celui qui l'a fait. Celui qui se réjouit d'un désastre ne restera pas impuni."
+        },
+        {
+          "verse": "17:6",
+          "text": "Les fils des fils sont la couronne des vieillards, et les pères sont la splendeur de leurs fils.",
+          "textWithNotes": "Les fils des fils sont la couronne des vieillards[Ps. 127:3, 128:3.], et les pères sont la splendeur de leurs fils.",
+          "notes": [
+            {
+              "word": "vieillards",
+              "position": 39,
+              "note": "Ps. 127:3, 128:3."
+            }
+          ]
+        },
+        {
+          "verse": "17:7",
+          "text": "Le langage excellent ne convient pas à un insensé. Combien moins au noble le langage de mensonge !",
+          "textWithNotes": "Le langage excellent ne convient pas à un insensé[Vient de l'hébreu « nabal » qui signifie aussi « imbécile », « bouffon ».]. Combien moins au noble le langage de mensonge !",
+          "notes": [
+            {
+              "word": "insensé",
+              "position": 42,
+              "note": "Vient de l'hébreu « nabal » qui signifie aussi « imbécile », « bouffon »."
+            }
+          ]
+        },
+        {
+          "verse": "17:8",
+          "text": "Les pots-de-vin sont une pierre précieuse aux yeux de ceux qui les possèdent : où qu'ils se tournent, ils réussissent."
+        },
+        {
+          "verse": "17:9",
+          "text": "Celui qui couvre une transgression cherche l'amour, mais celui qui répète la chose divise les amis."
+        },
+        {
+          "verse": "17:10",
+          "text": "Une réprimande pénètre plus dans celui qui est intelligent que 100 coups dans l'insensé.",
+          "textWithNotes": "Une réprimande pénètre[Vient d'un mot hébreu qui signifie « descendre, aller en bas ».] plus dans celui qui est intelligent que 100 coups dans l'insensé.",
+          "notes": [
+            {
+              "word": "pénètre",
+              "position": 15,
+              "note": "Vient d'un mot hébreu qui signifie « descendre, aller en bas »."
+            }
+          ]
+        },
+        {
+          "verse": "17:11",
+          "text": "Le méchant ne cherche que rébellion, mais le messager cruel sera envoyé contre lui."
+        },
+        {
+          "verse": "17:12",
+          "text": "Il vaut mieux qu'un homme rencontre une ourse privée de ses petits qu'un fou dans sa folie."
+        },
+        {
+          "verse": "17:13",
+          "text": "Le mal ne partira pas de la maison de celui qui rend le mal pour le bien."
+        },
+        {
+          "verse": "17:14",
+          "text": "Le commencement d'une dispute, ce sont des eaux qui s'échappent : avant que la querelle ne soit exposée, va-t’en !"
+        },
+        {
+          "verse": "17:15",
+          "text": "Celui qui déclare juste le méchant et celui qui déclare méchant le juste, sont tous deux en abomination à YHWH.",
+          "textWithNotes": "Celui qui déclare juste le méchant et celui qui déclare méchant le juste, sont tous deux en abomination à YHWH[Ex. 23:7 ; Es. 5:23.].",
+          "notes": [
+            {
+              "word": "YHWH",
+              "position": 106,
+              "note": "Ex. 23:7 ; Es. 5:23."
+            }
+          ]
+        },
+        {
+          "verse": "17:16",
+          "text": "À quoi sert le prix dans la main du fou ? Il n'a pas à cœur d'acheter la sagesse !"
+        },
+        {
+          "verse": "17:17",
+          "text": "L'ami aime en tout temps, et un frère est né pour la détresse."
+        },
+        {
+          "verse": "17:18",
+          "text": "L'être humain qui manque de cœur frappe dans la paume et s'engage comme caution envers son prochain."
+        },
+        {
+          "verse": "17:19",
+          "text": "Celui qui aime les querelles aime la transgression, celui qui élève sa porte cherche sa ruine."
+        },
+        {
+          "verse": "17:20",
+          "text": "Un cœur pervers ne trouve pas le bonheur, et celui qui tourne sa langue ici et là tombe dans le malheur."
+        },
+        {
+          "verse": "17:21",
+          "text": "Celui qui engendre un insensé en aura du chagrin, et le père d'un insensé ne se réjouira pas."
+        },
+        {
+          "verse": "17:22",
+          "text": "Le cœur joyeux est un remède, mais l'esprit abattu dessèche les os."
+        },
+        {
+          "verse": "17:23",
+          "text": "Le méchant prend les pots-de-vin en secret pour pervertir les voies du jugement."
+        },
+        {
+          "verse": "17:24",
+          "text": "La sagesse est en face de l'homme prudent, mais les yeux du fou sont à l'extrémité de la Terre."
+        },
+        {
+          "verse": "17:25",
+          "text": "Un fils insensé est le chagrin de son père, et l'amertume de celle qui l'a enfanté."
+        },
+        {
+          "verse": "17:26",
+          "text": "Il n'est pas bon de condamner l'innocent à l'amende, ni aux nobles de frapper quelqu'un pour avoir agi avec droiture."
+        },
+        {
+          "verse": "17:27",
+          "text": "Celui qui retient ses paroles sait ce qu'est la connaissance, et celui qui a l'esprit calme est un homme intelligent."
+        },
+        {
+          "verse": "17:28",
+          "text": "Même un fou, en se taisant est réputé sage, et celui qui ferme ses lèvres est intelligent."
+        }
+      ]
+    },
+    {
+      "chapter": 18,
+      "verses": [
+        {
+          "verse": "18:1",
+          "section": "La justice s'oppose à la méchanceté (suite)",
+          "text": "Celui qui veut se séparer cherche son propre désir, et il s'emporte contre tout succès durable."
+        },
+        {
+          "verse": "18:2",
+          "text": "L'insensé ne prend pas plaisir à l'intelligence, mais à ce que son cœur soit manifesté."
+        },
+        {
+          "verse": "18:3",
+          "text": "Quand vient le méchant, vient aussi le mépris, et avec la honte, l’insulte."
+        },
+        {
+          "verse": "18:4",
+          "text": "Les paroles de la bouche d'un homme sont des eaux profondes, et la source de la sagesse est un torrent qui bouillonne.",
+          "textWithNotes": "Les paroles de la bouche d'un homme sont des eaux profondes, et la source de la sagesse est un torrent qui bouillonne[Jn. 4:14.].",
+          "notes": [
+            {
+              "word": "bouillonne",
+              "position": 107,
+              "note": "Jn. 4:14."
+            }
+          ]
+        },
+        {
+          "verse": "18:5",
+          "text": "Il n'est pas bon de porter les faces du méchant en faisant fléchir le droit du juste."
+        },
+        {
+          "verse": "18:6",
+          "text": "Les lèvres de l'insensé entrent en querelle, et sa bouche appelle les combats."
+        },
+        {
+          "verse": "18:7",
+          "text": "La bouche de l'insensé est une ruine pour lui, et ses lèvres sont un piège pour son âme."
+        },
+        {
+          "verse": "18:8",
+          "text": "Les paroles du rapporteur sont comme des friandises, elles descendent jusqu'au fond des entrailles."
+        },
+        {
+          "verse": "18:9",
+          "text": "Celui qui se relâche dans son travail est frère du maître destructeur."
+        },
+        {
+          "verse": "18:10",
+          "text": "Le nom de YHWH est une tour forte, le juste y court et y trouve une haute retraite."
+        },
+        {
+          "verse": "18:11",
+          "text": "Les richesses du riche sont sa ville forte et comme une haute muraille de retraite, selon son imagination."
+        },
+        {
+          "verse": "18:12",
+          "text": "Le cœur de l'homme s'élève avant que la ruine arrive, mais l'humilité précède la gloire."
+        },
+        {
+          "verse": "18:13",
+          "text": "Celui qui répond à un discours avant de l'avoir entendu, fait un acte de folie et attire la confusion."
+        },
+        {
+          "verse": "18:14",
+          "text": "L'esprit d'un homme le soutiendra dans sa maladie, mais l'esprit abattu, qui le relèvera ?"
+        },
+        {
+          "verse": "18:15",
+          "text": "Le cœur de celui qui est intelligent acquiert la connaissance, et l'oreille des sages cherche la connaissance."
+        },
+        {
+          "verse": "18:16",
+          "text": "Le présent d'un être humain l'élargit et le conduit devant les grands."
+        },
+        {
+          "verse": "18:17",
+          "text": "Dans un procès, le premier est juste, mais son prochain vient, et l’examine."
+        },
+        {
+          "verse": "18:18",
+          "text": "Le sort fait cesser les procès et fait les partages entre les puissants."
+        },
+        {
+          "verse": "18:19",
+          "text": "Un frère qui se rebelle est plus inaccessible qu'une ville forte, et les disputes sont comme les verrous d'une forteresse."
+        },
+        {
+          "verse": "18:20",
+          "text": "Le ventre de chacun est rassasié du fruit de sa bouche, il se rassasie du revenu de ses lèvres."
+        },
+        {
+          "verse": "18:21",
+          "text": "La mort et la vie sont au pouvoir de la langue, et celui qui l'aime en mangera les fruits.",
+          "textWithNotes": "La mort et la vie sont au pouvoir de la langue[Littéralement : « Mort et vie dans la main de la langue. ». Mt. 12:37.], et celui qui l'aime en mangera les fruits.",
+          "notes": [
+            {
+              "word": "langue",
+              "position": 40,
+              "note": "Littéralement : « Mort et vie dans la main de la langue. ». Mt. 12:37."
+            }
+          ]
+        },
+        {
+          "verse": "18:22",
+          "text": "Celui qui trouve une femme trouve le bonheur et il obtient une faveur de YHWH."
+        },
+        {
+          "verse": "18:23",
+          "text": "Le pauvre ne prononce que des supplications, mais le riche répond avec des paroles fortes."
+        },
+        {
+          "verse": "18:24",
+          "text": "Avoir des amis peut être nuisible à un homme, mais il existe tel ami plus attaché qu’un frère."
+        }
+      ]
+    },
+    {
+      "chapter": 19,
+      "verses": [
+        {
+          "verse": "19:1",
+          "section": "La justice s'oppose à la méchanceté (suite)",
+          "text": "Le pauvre qui marche dans son intégrité vaut mieux que celui qui pervertit ses lèvres et qui est un insensé."
+        },
+        {
+          "verse": "19:2",
+          "text": "De même, il n'est pas bon que l'âme soit sans la connaissance, et celui qui se hâte avec ses pieds pèche.",
+          "textWithNotes": "De même, il n'est pas bon que l'âme soit sans la connaissance, et celui qui se hâte avec ses pieds pèche[Ou manque le but.].",
+          "notes": [
+            {
+              "word": "pèche",
+              "position": 99,
+              "note": "Ou manque le but."
+            }
+          ]
+        },
+        {
+          "verse": "19:3",
+          "text": "La folie de l'être humain tord sa voie et c'est contre YHWH que son cœur se fâche."
+        },
+        {
+          "verse": "19:4",
+          "text": "Les richesses attirent un grand nombre d'amis, mais celui qui est pauvre est abandonné même par son ami."
+        },
+        {
+          "verse": "19:5",
+          "text": "Le faux témoin ne restera pas impuni, et celui qui profère des mensonges n'échappera pas."
+        },
+        {
+          "verse": "19:6",
+          "text": "Beaucoup supplient en face l'homme généreux, et tout le monde est ami de l'homme qui fait des présents."
+        },
+        {
+          "verse": "19:7",
+          "text": "Tous les frères du pauvre le haïssent, à plus forte raison ses amis s'éloignent-ils de lui ! Il les poursuit de ses discours, mais ils ne sont plus là."
+        },
+        {
+          "verse": "19:8",
+          "text": "Celui qui acquiert un cœur aime son âme, et celui qui prend garde à l'intelligence trouvera le bonheur."
+        },
+        {
+          "verse": "19:9",
+          "text": "Le faux témoin ne restera pas impuni, et celui qui profère des mensonges périra."
+        },
+        {
+          "verse": "19:10",
+          "text": "Il ne convient pas à un insensé de vivre dans le luxe, encore moins à un esclave de gouverner les princes !"
+        },
+        {
+          "verse": "19:11",
+          "text": "La prudence d'un humain retient sa colère, et sa splendeur, c'est de passer par-dessus la transgression."
+        },
+        {
+          "verse": "19:12",
+          "text": "La fureur du roi est comme le rugissement d'un jeune lion, mais sa faveur est comme la rosée sur l'herbe."
+        },
+        {
+          "verse": "19:13",
+          "text": "Un fils insensé est un grand malheur pour son père, et les querelles d'une femme sont une gouttière continuelle."
+        },
+        {
+          "verse": "19:14",
+          "text": "Maison et richesse sont l’héritage des pères, mais la femme prudente vient de YHWH."
+        },
+        {
+          "verse": "19:15",
+          "text": "La paresse fait venir le sommeil, et l'âme paresseuse a faim."
+        },
+        {
+          "verse": "19:16",
+          "text": "Celui qui garde le commandement garde son âme, celui qui méprise ses voies mourra."
+        },
+        {
+          "verse": "19:17",
+          "text": "Celui qui a pitié du pauvre prête à YHWH, qui lui rendra son bienfait."
+        },
+        {
+          "verse": "19:18",
+          "text": "Châtie ton fils quand il y a de l’espoir. Ne sois pas exalté en ton âme pour le faire mourir."
+        },
+        {
+          "verse": "19:19",
+          "text": "Un homme qui se laisse emporter par le courroux en portera la peine. Si tu l'en délivres, tu devras recommencer."
+        },
+        {
+          "verse": "19:20",
+          "text": "Écoute le conseil et reçois la correction, afin que tu deviennes sage à la fin de tes jours."
+        },
+        {
+          "verse": "19:21",
+          "text": "Il y a dans le cœur de l'homme beaucoup de projets, mais c'est le conseil de YHWH qui s'accomplit.",
+          "textWithNotes": "Il y a dans le cœur de l'homme beaucoup de projets, mais c'est le conseil de YHWH qui s'accomplit[Es. 46:10 ; Ps. 33:11.].",
+          "notes": [
+            {
+              "word": "s'accomplit",
+              "position": 86,
+              "note": "Es. 46:10 ; Ps. 33:11."
+            }
+          ]
+        },
+        {
+          "verse": "19:22",
+          "text": "Le désir d'un être humain c'est la bonté, et le pauvre vaut mieux que l’homme menteur."
+        },
+        {
+          "verse": "19:23",
+          "text": "La crainte de YHWH conduit à la vie et, rassasié, on passera la nuit, on ne sera pas visité par le mal."
+        },
+        {
+          "verse": "19:24",
+          "text": "Le paresseux cache sa main dans le plat, mais il ne la ramène pas à sa bouche."
+        },
+        {
+          "verse": "19:25",
+          "text": "Frappe le moqueur, le stupide prendra garde. Corrige celui qui est intelligent, et il comprendra la connaissance."
+        },
+        {
+          "verse": "19:26",
+          "text": "Celui qui ruine son père et qui fait fuir sa mère est un fils qui fait honte et qui cause de l'embarras."
+        },
+        {
+          "verse": "19:27",
+          "text": "Cesse, mon fils, d'obéir à une discipline, si c'est pour t'égarer loin des paroles de la sagesse."
+        },
+        {
+          "verse": "19:28",
+          "text": "Le témoin de Bélial se moque de la justice, et la bouche des méchants engloutit l'iniquité.",
+          "textWithNotes": "Le témoin de Bélial[Voir commentaire en De. 13:14.] se moque de la justice, et la bouche des méchants engloutit l'iniquité.",
+          "notes": [
+            {
+              "word": "Bélial",
+              "position": 13,
+              "note": "Voir commentaire en De. 13:14."
+            }
+          ]
+        },
+        {
+          "verse": "19:29",
+          "text": "Les jugements sont établis pour les moqueurs, et les coups pour le dos des insensés."
+        }
+      ]
+    },
+    {
+      "chapter": 20,
+      "verses": [
+        {
+          "verse": "20:1",
+          "section": "La justice s'oppose à la méchanceté (suite)",
+          "text": "Le vin est moqueur et la boisson forte est bruyante, quiconque en fait excès n'est pas sage."
+        },
+        {
+          "verse": "20:2",
+          "text": "La terreur du roi est comme le rugissement d'un jeune lion, celui qui se met en colère contre lui pèche contre son âme."
+        },
+        {
+          "verse": "20:3",
+          "text": "C'est une gloire pour l'homme de s'abstenir des disputes, mais chaque fou s'emportera."
+        },
+        {
+          "verse": "20:4",
+          "text": "Le paresseux ne laboure pas à cause de l’hiver, au temps de la moisson, il demandera, mais il n’y aura rien."
+        },
+        {
+          "verse": "20:5",
+          "text": "Le conseil dans le cœur d’un homme est une eau profonde, et l’homme d’intelligence y puise."
+        },
+        {
+          "verse": "20:6",
+          "text": "Beaucoup d'humains se proclament hommes de bonté, mais qui trouvera un homme de confiance ?"
+        },
+        {
+          "verse": "20:7",
+          "text": "Le juste marche dans son intégrité, heureux ses fils après lui !"
+        },
+        {
+          "verse": "20:8",
+          "text": "Le roi assis sur le trône de justice, de ses yeux, il disperse tout mal !"
+        },
+        {
+          "verse": "20:9",
+          "text": "Qui est-ce qui peut dire : J'ai purifié mon cœur, je suis pur de mon péché ?"
+        },
+        {
+          "verse": "20:10",
+          "text": "Pierre et pierre, épha et épha : les deux sont aussi en abomination pour YHWH.",
+          "textWithNotes": "Pierre et pierre, épha et épha[Deux poids, deux mesures.] : les deux sont aussi en abomination pour YHWH.",
+          "notes": [
+            {
+              "word": "épha",
+              "position": 26,
+              "note": "Deux poids, deux mesures."
+            }
+          ]
+        },
+        {
+          "verse": "20:11",
+          "text": "On reconnaît en effet par les actions d'un jeune homme si son œuvre sera pure et si elle sera droite."
+        },
+        {
+          "verse": "20:12",
+          "text": "L'oreille qui entend et l'œil qui voit, YHWH les a faits tous les deux."
+        },
+        {
+          "verse": "20:13",
+          "text": "N'aime pas le sommeil ! De peur que tu ne deviennes pauvre. Ouvre tes yeux et tu seras rassasié de pain."
+        },
+        {
+          "verse": "20:14",
+          "text": "Mauvais ! Mauvais ! Dit l'acheteur, puis il s'en va et se vante."
+        },
+        {
+          "verse": "20:15",
+          "text": "Il y a de l'or et beaucoup de perles, mais les lèvres de la connaissance sont un vase précieux."
+        },
+        {
+          "verse": "20:16",
+          "text": "Si quelqu'un se porte garant pour un étranger, saisis son vêtement et prends de lui un gage, à cause de cet inconnu !"
+        },
+        {
+          "verse": "20:17",
+          "text": "Le pain du mensonge est doux à l'homme, mais ensuite sa bouche sera remplie de gravier."
+        },
+        {
+          "verse": "20:18",
+          "text": "Les projets s'affermissent par le conseil : fais la guerre avec de sages conseils."
+        },
+        {
+          "verse": "20:19",
+          "text": "Celui qui marche en calomniant révèle les secrets. Ne te mêle pas avec celui qui séduit par ses lèvres."
+        },
+        {
+          "verse": "20:20",
+          "text": "La lampe de celui qui traite avec mépris son père ou sa mère, s'éteindra au milieu des ténèbres les plus noires.",
+          "textWithNotes": "La lampe de celui qui traite avec mépris son père ou sa mère, s'éteindra au milieu des ténèbres les plus noires[Ex. 21:17 ; Lé. 20:9 ; Mt. 15:4.].",
+          "notes": [
+            {
+              "word": "noires",
+              "position": 105,
+              "note": "Ex. 21:17 ; Lé. 20:9 ; Mt. 15:4."
+            }
+          ]
+        },
+        {
+          "verse": "20:21",
+          "text": "L'héritage pour lequel on s'est hâté d'acquérir au début ne sera pas béni à la fin."
+        },
+        {
+          "verse": "20:22",
+          "text": "Ne dis pas : Je rendrai le mal. Mais espère en YHWH, et il te sauvera."
+        },
+        {
+          "verse": "20:23",
+          "text": "Pierre et pierre sont en abomination à YHWH, et une balance trompeuse n'est pas une chose bonne.",
+          "textWithNotes": "Pierre et pierre[Le double poids.] sont en abomination à YHWH, et une balance trompeuse n'est pas une chose bonne.",
+          "notes": [
+            {
+              "word": "pierre",
+              "position": 10,
+              "note": "Le double poids."
+            }
+          ]
+        },
+        {
+          "verse": "20:24",
+          "text": "Les pas de l'homme fort sont dirigés par YHWH, comment l'être humain peut-il comprendre sa voie ?"
+        },
+        {
+          "verse": "20:25",
+          "text": "C'est un piège pour l'être humain de dire précipitamment : C'est sacré ! et, après les vœux, de réfléchir."
+        },
+        {
+          "verse": "20:26",
+          "text": "Un roi sage dissipe les méchants et fait tourner la roue sur eux."
+        },
+        {
+          "verse": "20:27",
+          "text": "L'esprit de l'être humain est une lampe de YHWH : elle fouille jusqu'au fond des entrailles."
+        },
+        {
+          "verse": "20:28",
+          "text": "La bonté et la vérité gardent le roi, et il soutient son trône par la bonté."
+        },
+        {
+          "verse": "20:29",
+          "text": "La force des jeunes hommes est leur splendeur, et les cheveux gris sont l'honneur des anciens."
+        },
+        {
+          "verse": "20:30",
+          "text": "Les plaies d'une blessure sont un remède au mal, de même les coups qui pénètrent jusqu'au fond de l'âme."
+        }
+      ]
+    },
+    {
+      "chapter": 21,
+      "verses": [
+        {
+          "verse": "21:1",
+          "section": "La justice s'oppose à la méchanceté (suite)",
+          "text": "Le cœur du roi est un canal d'eau dans la main de YHWH : il l'incline partout où il veut."
+        },
+        {
+          "verse": "21:2",
+          "text": "Chaque voie de l'homme lui semble droite, mais c'est YHWH qui pèse les cœurs."
+        },
+        {
+          "verse": "21:3",
+          "text": "Pratiquer la justice et le droit est pour YHWH préférable au sacrifice."
+        },
+        {
+          "verse": "21:4",
+          "text": "Les yeux hautains et le cœur enflé, ce sol labourable des méchants n'est que péché."
+        },
+        {
+          "verse": "21:5",
+          "text": "Les projets d'un homme diligent produisent l'abondance, mais tout homme qui se presse tombe dans la pauvreté."
+        },
+        {
+          "verse": "21:6",
+          "text": "Acquérir des trésors par une langue trompeuse, c'est une vanité poussée au loin par ceux qui cherchent la mort."
+        },
+        {
+          "verse": "21:7",
+          "text": "La violence des méchants les abat, parce qu'ils refusent de pratiquer le droit."
+        },
+        {
+          "verse": "21:8",
+          "text": "La voie de l'homme criminel est tortueuse, mais l'œuvre de celui qui est pur est droite."
+        },
+        {
+          "verse": "21:9",
+          "text": "Il vaut mieux habiter au coin d'un toit, que dans une maison spacieuse avec une femme querelleuse."
+        },
+        {
+          "verse": "21:10",
+          "text": "L'âme du méchant désire le mal, et son prochain ne trouve pas grâce à ses yeux."
+        },
+        {
+          "verse": "21:11",
+          "text": "Quand on punit le moqueur, le stupide devient sage, et quand on instruit le sage, il reçoit la connaissance."
+        },
+        {
+          "verse": "21:12",
+          "text": "Le juste considère la maison du méchant et il tord les méchants dans la détresse."
+        },
+        {
+          "verse": "21:13",
+          "text": "Celui qui ferme son oreille au cri du pauvre criera lui-même et on ne lui répondra pas.",
+          "textWithNotes": "Celui qui ferme son oreille au cri[Cri de détresse.] du pauvre criera lui-même et on ne lui répondra pas.",
+          "notes": [
+            {
+              "word": "cri",
+              "position": 31,
+              "note": "Cri de détresse."
+            }
+          ]
+        },
+        {
+          "verse": "21:14",
+          "text": "Le présent fait en secret apaise le courroux, et un pot-de-vin fait en cachette calme une fureur violente."
+        },
+        {
+          "verse": "21:15",
+          "text": "C'est une joie pour le juste de pratiquer le droit, mais la destruction est pour ceux qui pratiquent la méchanceté."
+        },
+        {
+          "verse": "21:16",
+          "text": "L'humain qui se détourne du chemin de la sagesse aura sa demeure dans l'assemblée des fantômes.",
+          "textWithNotes": "L'humain qui se détourne du chemin de la sagesse aura sa demeure dans l'assemblée des fantômes[Vient d'un mot hébreu qui signifie « fantômes de morts, ombres, revenants » ou encore « esprits ».].",
+          "notes": [
+            {
+              "word": "fantômes",
+              "position": 86,
+              "note": "Vient d'un mot hébreu qui signifie « fantômes de morts, ombres, revenants » ou encore « esprits »."
+            }
+          ]
+        },
+        {
+          "verse": "21:17",
+          "text": "L'homme qui aime les plaisirs sera dans la pauvreté, et celui qui aime le vin et l'huile ne s'enrichit pas."
+        },
+        {
+          "verse": "21:18",
+          "text": "Le méchant sert de rançon pour l'innocent, et le traître pour les justes."
+        },
+        {
+          "verse": "21:19",
+          "text": "Il vaut mieux habiter dans une terre déserte qu'avec une femme querelleuse et qui se met en colère."
+        },
+        {
+          "verse": "21:20",
+          "text": "Il y a un trésor précieux et de l'huile dans la demeure du sage, mais un être humain fou les engloutit."
+        },
+        {
+          "verse": "21:21",
+          "text": "Celui qui poursuit la justice et la miséricorde trouve la vie, la justice et la gloire."
+        },
+        {
+          "verse": "21:22",
+          "text": "Le sage entre dans la ville des hommes vaillants et il rabaisse la force de sa confiance."
+        },
+        {
+          "verse": "21:23",
+          "text": "Celui qui garde sa bouche et sa langue garde son âme de la détresse."
+        },
+        {
+          "verse": "21:24",
+          "text": "Moqueur, tel est le nom de l'arrogant, de l'orgueilleux qui agit dans un débordement d'orgueil."
+        },
+        {
+          "verse": "21:25",
+          "text": "Le désir du paresseux le tue, parce que ses mains refusent de travailler."
+        },
+        {
+          "verse": "21:26",
+          "text": "Tout le jour il convoite et il désire, mais le juste donne et n'épargne rien."
+        },
+        {
+          "verse": "21:27",
+          "text": "Le sacrifice des méchants est une abomination, combien plus quand ils l'apportent avec une mauvaise intention ?",
+          "textWithNotes": "Le sacrifice des méchants est une abomination, combien plus quand ils l'apportent avec une mauvaise intention[1 S. 15:22.] ?",
+          "notes": [
+            {
+              "word": "intention",
+              "position": 100,
+              "note": "1 S. 15:22."
+            }
+          ]
+        },
+        {
+          "verse": "21:28",
+          "text": "Le témoin menteur périra, mais l'homme qui écoute parlera avec gain de cause."
+        },
+        {
+          "verse": "21:29",
+          "text": "L'homme méchant durcit ses faces, mais le juste affermit ses voies."
+        },
+        {
+          "verse": "21:30",
+          "text": "Il n'y a ni sagesse, ni intelligence, ni conseil, contre YHWH."
+        },
+        {
+          "verse": "21:31",
+          "text": "Le cheval est équipé pour le jour de la bataille, mais la délivrance vient de YHWH."
+        }
+      ]
+    },
+    {
+      "chapter": 22,
+      "verses": [
+        {
+          "verse": "22:1",
+          "section": "La justice s'oppose à la méchanceté (suite)",
+          "text": "Un nom est préférable à de grandes richesses, et la grâce est meilleure que l'or et l'argent.",
+          "textWithNotes": "Un nom[Vient de l'hébreu « shem » et signifie aussi « réputation », « renommée ». Voir Es. 56:5 ; Ec. 7:1 ; Ap. 2:17.] est préférable à de grandes richesses[Ec. 7:1.], et la grâce est meilleure que l'or et l'argent.",
+          "notes": [
+            {
+              "word": "nom",
+              "position": 3,
+              "note": "Vient de l'hébreu « shem » et signifie aussi « réputation », « renommée ». Voir Es. 56:5 ; Ec. 7:1 ; Ap. 2:17."
+            },
+            {
+              "word": "richesses",
+              "position": 35,
+              "note": "Ec. 7:1."
+            }
+          ]
+        },
+        {
+          "verse": "22:2",
+          "text": "Le riche et le pauvre se rencontrent. Celui qui les a tous faits, c’est YHWH.",
+          "textWithNotes": "Le riche et le pauvre se rencontrent. Celui qui les a tous faits, c’est YHWH[Lu. 16.].",
+          "notes": [
+            {
+              "word": "YHWH",
+              "position": 72,
+              "note": "Lu. 16."
+            }
+          ]
+        },
+        {
+          "verse": "22:3",
+          "text": "Le prudent voit le mal et se cache, mais les stupides passent et sont punis."
+        },
+        {
+          "verse": "22:4",
+          "text": "La récompense de l'humilité et de la crainte de YHWH sont les richesses, la gloire et la vie."
+        },
+        {
+          "verse": "22:5",
+          "text": "Il y a des épines et des pièges sur la voie du pervers, celui qui aime son âme s'en éloigne."
+        },
+        {
+          "verse": "22:6",
+          "text": "Entraîne le jeune homme à l'entrée de sa voie, même quand il sera vieux, il ne s'en détournera pas.",
+          "textWithNotes": "Entraîne[« Entraîner », « dédier », « inaugurer ». Littéralement : « Consacre » ou « dédie », ou encore : « entraîne le jeune homme à la bouche (entrée) de sa voie ».] le jeune homme à l'entrée[Bouche.] de sa voie, même quand il sera vieux, il ne s'en détournera pas.",
+          "notes": [
+            {
+              "word": "Entraîne",
+              "position": 0,
+              "note": "« Entraîner », « dédier », « inaugurer ». Littéralement : « Consacre » ou « dédie », ou encore : « entraîne le jeune homme à la bouche (entrée) de sa voie »."
+            },
+            {
+              "word": "l'entrée",
+              "position": 26,
+              "note": "Bouche."
+            }
+          ]
+        },
+        {
+          "verse": "22:7",
+          "text": "Le riche domine sur les pauvres, et celui qui emprunte est l'esclave de l'homme qui prête.",
+          "textWithNotes": "Le riche domine sur les pauvres[Ja. 2:6.], et celui qui emprunte est l'esclave de l'homme qui prête.",
+          "notes": [
+            {
+              "word": "pauvres",
+              "position": 24,
+              "note": "Ja. 2:6."
+            }
+          ]
+        },
+        {
+          "verse": "22:8",
+          "text": "Celui qui sème l'injustice moissonne le malheur, et la verge de sa colère prendra fin.",
+          "textWithNotes": "Celui qui sème l'injustice moissonne le malheur[Job. 4:8 ; Ga. 6:7.], et la verge de sa colère prendra fin.",
+          "notes": [
+            {
+              "word": "malheur",
+              "position": 40,
+              "note": "Job. 4:8 ; Ga. 6:7."
+            }
+          ]
+        },
+        {
+          "verse": "22:9",
+          "text": "Celui qui a l'œil bienveillant sera béni, parce qu'il donne de son pain au pauvre."
+        },
+        {
+          "verse": "22:10",
+          "text": "Chasse le moqueur et la discorde s’en ira, les disputes et la honte cesseront."
+        },
+        {
+          "verse": "22:11",
+          "text": "Le roi est ami de celui qui aime la pureté de cœur, et qui a de la grâce dans ses paroles."
+        },
+        {
+          "verse": "22:12",
+          "text": "Les yeux de YHWH veillent sur la connaissance, et il tord les paroles du traître."
+        },
+        {
+          "verse": "22:13",
+          "text": "Le paresseux dit : Le lion est dehors ! Je serai tué dans les rues !"
+        },
+        {
+          "verse": "22:14",
+          "text": "La bouche des étrangers est une fosse profonde, celui contre qui YHWH est indigné y tombera."
+        },
+        {
+          "verse": "22:15",
+          "text": "La folie est liée au cœur du jeune homme, la verge de la correction l'éloignera de lui."
+        },
+        {
+          "verse": "22:16",
+          "text": "Celui qui opprime le pauvre pour s’accroître ou qui donne au riche, finira en effet dans la pauvreté."
+        },
+        {
+          "verse": "22:17",
+          "text": "Prête ton oreille, écoute les paroles des sages et applique ton cœur à ma connaissance."
+        },
+        {
+          "verse": "22:18",
+          "text": "Car il est agréable que tu les gardes dans ton ventre, pour qu’elles soient établies ensemble sur tes lèvres."
+        },
+        {
+          "verse": "22:19",
+          "text": "Afin que ta confiance soit en YHWH, je te l'ai aujourd'hui fait connaître à toi."
+        },
+        {
+          "verse": "22:20",
+          "text": "N’ai-je pas écrit pour toi comme auparavant sur le conseil et la connaissance,"
+        },
+        {
+          "verse": "22:21",
+          "text": "pour te faire connaître la vérité, des paroles de vérité, afin de répondre par des paroles de vérité à ceux qui t'envoient ?"
+        },
+        {
+          "verse": "22:22",
+          "text": "Ne dépouille pas le pauvre parce qu'il est pauvre, et n'opprime pas le malheureux à la porte."
+        },
+        {
+          "verse": "22:23",
+          "text": "Car YHWH défendra leur cause et il dépouillera l’âme de ceux qui les auront dépouillés."
+        },
+        {
+          "verse": "22:24",
+          "text": "Ne t'associe pas au maître colère, ne va pas avec l'homme coléreux !"
+        },
+        {
+          "verse": "22:25",
+          "text": "De peur que tu n'apprennes ses voies et que tu ne reçoives un piège pour ton âme.",
+          "textWithNotes": "De peur que tu n'apprennes ses voies[1 Co. 15:33.] et que tu ne reçoives un piège pour ton âme.",
+          "notes": [
+            {
+              "word": "voies",
+              "position": 31,
+              "note": "1 Co. 15:33."
+            }
+          ]
+        },
+        {
+          "verse": "22:26",
+          "text": "Ne sois pas parmi ceux qui frappent dans la paume, parmi ceux qui se portent garants pour des prêts."
+        },
+        {
+          "verse": "22:27",
+          "text": "Si tu n'as pas de quoi payer, pourquoi prendrait-on ton lit de dessous toi ?"
+        },
+        {
+          "verse": "22:28",
+          "text": "Ne déplace pas la borne ancienne que tes pères ont faite."
+        },
+        {
+          "verse": "22:29",
+          "text": "As-tu vu un homme habile dans son travail ? Il se tiendra devant des rois, il ne se tiendra pas devant des gens insignifiants."
+        }
+      ]
+    },
+    {
+      "chapter": 23,
+      "verses": [
+        {
+          "verse": "23:1",
+          "section": "La justice s'oppose à la méchanceté (suite)",
+          "text": "Quand tu t'assieds pour manger avec un gouverneur, considère avec attention celui qui est devant toi."
+        },
+        {
+          "verse": "23:2",
+          "text": "Mets un couteau à la gorge si tu es maître de ton âme !"
+        },
+        {
+          "verse": "23:3",
+          "text": "Ne désire pas ses mets, car c'est une nourriture trompeuse."
+        },
+        {
+          "verse": "23:4",
+          "text": "Ne te fatigue pas pour devenir riche, aie le discernement de t'arrêter.",
+          "textWithNotes": "Ne te fatigue[« Peiner », « travailler », « se lasser », « être las ».] pas pour devenir riche[1 Ti. 6:9.], aie le discernement de t'arrêter.",
+          "notes": [
+            {
+              "word": "fatigue",
+              "position": 6,
+              "note": "« Peiner », « travailler », « se lasser », « être las »."
+            },
+            {
+              "word": "riche",
+              "position": 31,
+              "note": "1 Ti. 6:9."
+            }
+          ]
+        },
+        {
+          "verse": "23:5",
+          "text": "Tes yeux voleraient-ils vers elle ? Elle ne sera plus là ! Car elle se fera, elle se fera des ailes et s'envolera, elle s'envolera comme un aigle vers les cieux."
+        },
+        {
+          "verse": "23:6",
+          "text": "Ne mange pas le pain de celui qui a mauvais œil, et ne désire pas ses mets,"
+        },
+        {
+          "verse": "23:7",
+          "text": "car il est tel qu'il pense dans son âme. Il te dira bien : Mange et bois, mais son cœur n'est pas avec toi."
+        },
+        {
+          "verse": "23:8",
+          "text": "Tu vomiras le morceau que tu as mangé, et tu auras perdu tes paroles agréables."
+        },
+        {
+          "verse": "23:9",
+          "text": "Ne parle pas aux oreilles de l'insensé, car il méprise la prudence de ton discours."
+        },
+        {
+          "verse": "23:10",
+          "text": "Ne déplace pas la borne ancienne et n'entre pas dans les champs des orphelins,"
+        },
+        {
+          "verse": "23:11",
+          "text": "car leur Racheteur est puissant, il défendra leur cause contre toi."
+        },
+        {
+          "verse": "23:12",
+          "text": "Applique ton cœur à la correction, et tes oreilles aux paroles de connaissance."
+        },
+        {
+          "verse": "23:13",
+          "text": "Ne refuse pas la correction au garçon ! Si tu le frappes de la verge, il n'en mourra pas."
+        },
+        {
+          "verse": "23:14",
+          "text": "En le frappant de la verge, tu sauveras son âme du shéol."
+        },
+        {
+          "verse": "23:15",
+          "text": "Mon fils, si ton cœur est sage, mon cœur à moi s'en réjouira."
+        },
+        {
+          "verse": "23:16",
+          "text": "Mes reins se réjouiront quand tes lèvres diront ce qui est droit."
+        },
+        {
+          "verse": "23:17",
+          "text": "Que ton cœur ne porte pas d'envie aux pécheurs, mais sois tout le jour dans la crainte de YHWH."
+        },
+        {
+          "verse": "23:18",
+          "text": "Car il y aura certainement une issue, et ton espérance ne sera pas détruite."
+        },
+        {
+          "verse": "23:19",
+          "text": "Toi, mon fils, écoute et sois sage ! Dirige ton cœur dans cette voie !"
+        },
+        {
+          "verse": "23:20",
+          "text": "Ne sois pas parmi les ivrognes, parmi les gaspilleurs des viandes.",
+          "textWithNotes": "Ne sois pas parmi les ivrognes, parmi les gaspilleurs des viandes[Ga. 5:18-21 ; Ro. 13:13 ; Ep. 5:18.].",
+          "notes": [
+            {
+              "word": "viandes",
+              "position": 58,
+              "note": "Ga. 5:18-21 ; Ro. 13:13 ; Ep. 5:18."
+            }
+          ]
+        },
+        {
+          "verse": "23:21",
+          "text": "Car l'ivrogne et le gaspilleur s'appauvrissent, et la paresse fait porter des vêtements déchirés."
+        },
+        {
+          "verse": "23:22",
+          "text": "Écoute ton père, celui qui t'a engendré ! Ne méprise pas ta mère quand elle sera devenue vieille !"
+        },
+        {
+          "verse": "23:23",
+          "text": "Achète la vérité, et ne la vends pas, achète la sagesse, la correction et le discernement."
+        },
+        {
+          "verse": "23:24",
+          "text": "Le père du juste sera dans l’allégresse, il exultera, et celui qui engendre un sage s'en réjouira."
+        },
+        {
+          "verse": "23:25",
+          "text": "Ton père et ta mère se réjouiront, celle qui t'a enfanté exultera !"
+        },
+        {
+          "verse": "23:26",
+          "text": "Mon fils, donne-moi ton cœur, et que tes yeux observent mes voies."
+        },
+        {
+          "verse": "23:27",
+          "text": "Car la femme débauchée est une fosse profonde, et l'étrangère un puits de détresse."
+        },
+        {
+          "verse": "23:28",
+          "text": "Même elle se tient en embuscade pour une proie, et elle augmente parmi les humains le nombre des traîtres."
+        },
+        {
+          "verse": "23:29",
+          "text": "Pour qui le malheur ? Pour qui les hélas ? Pour qui les disputes ? Pour qui les bruits ? Pour qui les blessures sans cause ? Pour qui les yeux rouges ?"
+        },
+        {
+          "verse": "23:30",
+          "text": "Pour ceux qui s'arrêtent auprès du vin, pour ceux qui vont chercher des vins mélangés."
+        },
+        {
+          "verse": "23:31",
+          "text": "Ne regarde pas le vin quand il se montre rouge, quand il donne sa couleur dans la coupe, et qu'il coule aisément."
+        },
+        {
+          "verse": "23:32",
+          "text": "Il mord par derrière comme un serpent, et il pique comme une vipère."
+        },
+        {
+          "verse": "23:33",
+          "text": "Tes yeux regarderont les femmes étrangères, et ton cœur dira des choses perverses."
+        },
+        {
+          "verse": "23:34",
+          "text": "Tu deviendras comme celui qui se couche au cœur de la mer, comme celui qui se couche au sommet d'un mât :"
+        },
+        {
+          "verse": "23:35",
+          "text": "On m'a battu, mais je ne suis pas devenu malade ! On m’a battu, mais je ne l’ai pas su ! Quand me réveillerai-je ? J'irai en chercher encore !"
+        }
+      ]
+    },
+    {
+      "chapter": 24,
+      "verses": [
+        {
+          "verse": "24:1",
+          "section": "La justice s'oppose à la méchanceté (suite et fin)",
+          "text": "Tu n'envieras pas les hommes mauvais et tu ne désireras pas être avec eux."
+        },
+        {
+          "verse": "24:2",
+          "text": "Car leur cœur médite la destruction et leurs lèvres parlent de malheur."
+        },
+        {
+          "verse": "24:3",
+          "text": "C'est par la sagesse qu'une maison sera bâtie et c'est par l'intelligence qu'elle sera affermie."
+        },
+        {
+          "verse": "24:4",
+          "text": "Par la connaissance les chambres seront remplies de toutes les richesses précieuses et agréables."
+        },
+        {
+          "verse": "24:5",
+          "text": "Un homme fort et sage a de la force, un homme qui a de la connaissance affermit son pouvoir."
+        },
+        {
+          "verse": "24:6",
+          "text": "Car c'est avec de sages conseils que tu feras la guerre, et le salut est dans le grand nombre des conseillers."
+        },
+        {
+          "verse": "24:7",
+          "text": "Il n'y a pas de sagesse qui ne soit trop haute pour le fou, il n'ouvrira pas sa bouche à la porte."
+        },
+        {
+          "verse": "24:8",
+          "text": "Celui qui projette de faire le mal, on l'appelle le maître des complots."
+        },
+        {
+          "verse": "24:9",
+          "text": "Le méchant dessein de la folie n'est que péché, et le moqueur est en abomination aux humains."
+        },
+        {
+          "verse": "24:10",
+          "text": "Si tu perds courage au jour de la détresse, ta force sera étroite."
+        },
+        {
+          "verse": "24:11",
+          "text": "Ne te retiens pas de délivrer ceux qu’on emmène vers la mort, ceux qui sont sur le point d'être assassinés."
+        },
+        {
+          "verse": "24:12",
+          "text": "Quand tu diras : Voici, nous ne savions pas ! Le Peseur des cœurs ne le discernera-t-il pas, lui ? Le Surveillant de ton âme ne le saura-t-il pas ? Et ne rend-il pas à l'être humain selon son œuvre ?",
+          "textWithNotes": "Quand tu diras : Voici, nous ne savions pas ! Le Peseur des cœurs ne le discernera-t-il pas, lui ? Le Surveillant[1 Pi. 2:25.] de ton âme ne le saura-t-il pas ? Et ne rend-il pas à l'être humain selon son œuvre ?",
+          "notes": [
+            {
+              "word": "Surveillant",
+              "position": 102,
+              "note": "1 Pi. 2:25."
+            }
+          ]
+        },
+        {
+          "verse": "24:13",
+          "text": "Mon fils, mange le miel, car il est bon. Le rayon de miel, car il est doux à ton palais."
+        },
+        {
+          "verse": "24:14",
+          "text": "De même, connais la sagesse pour ton âme : si tu la trouves, il y a une issue pour toi et ton espérance ne sera pas retranchée."
+        },
+        {
+          "verse": "24:15",
+          "text": "Méchant, n'épie pas le domicile du juste, et ne détruis pas le lieu où il se repose."
+        },
+        {
+          "verse": "24:16",
+          "text": "Car le juste tombe sept fois et se relève, mais les méchants trébuchent dans le mal.",
+          "textWithNotes": "Car le juste tombe sept fois et se relève[Ps. 34:20 ; Job. 5:19.], mais les méchants trébuchent dans le mal.",
+          "notes": [
+            {
+              "word": "relève",
+              "position": 35,
+              "note": "Ps. 34:20 ; Job. 5:19."
+            }
+          ]
+        },
+        {
+          "verse": "24:17",
+          "text": "Si ton ennemi tombe, ne t'en réjouis pas ! S'il trébuche, que ton cœur n'exulte pas,"
+        },
+        {
+          "verse": "24:18",
+          "text": "de peur que YHWH ne le voie, que cela ne lui déplaise et qu'il ne détourne de lui sa colère."
+        },
+        {
+          "verse": "24:19",
+          "text": "Ne t'irrite pas à cause de ceux qui font le mal, ne porte pas envie aux méchants,"
+        },
+        {
+          "verse": "24:20",
+          "text": "car il n'y a pas de récompense pour le méchant, la lampe des méchants sera éteinte."
+        },
+        {
+          "verse": "24:21",
+          "text": "Mon fils, crains YHWH et le roi ! N'entreprends rien avec ceux qui s'altèrent,"
+        },
+        {
+          "verse": "24:22",
+          "text": "car leur désastre s'élèvera soudainement, et qui connaît la ruine des deux ?"
+        },
+        {
+          "verse": "24:23",
+          "text": "Ces choses aussi sont pour les sages : Reconnaître les faces dans le jugement n’est pas bon."
+        },
+        {
+          "verse": "24:24",
+          "text": "Celui qui dit au méchant : Tu es juste ! Les peuples le maudiront et les nations seront indignées contre lui."
+        },
+        {
+          "verse": "24:25",
+          "text": "Mais ceux qui le réprimandent seront agréables, sur eux viendra une heureuse bénédiction."
+        },
+        {
+          "verse": "24:26",
+          "text": "Il donne un baiser sur les lèvres, celui qui répond par des paroles justes."
+        },
+        {
+          "verse": "24:27",
+          "text": "Arrange ton travail au-dehors, prépare ton champ ! Après tu bâtiras ta maison."
+        },
+        {
+          "verse": "24:28",
+          "text": "Ne témoigne pas contre ton prochain sans cause ! Car voudrais-tu tromper de tes lèvres ?",
+          "textWithNotes": "Ne témoigne pas contre ton prochain sans cause ! Car voudrais-tu tromper de tes lèvres[Ep. 4:25.] ?",
+          "notes": [
+            {
+              "word": "lèvres",
+              "position": 80,
+              "note": "Ep. 4:25."
+            }
+          ]
+        },
+        {
+          "verse": "24:29",
+          "text": "Ne dis pas : Je le traiterai comme il m'a traité, je rendrai à cet homme selon ce qu'il m'a fait."
+        },
+        {
+          "verse": "24:30",
+          "text": "Je suis passé près du champ d'un homme paresseux, et près de la vigne d'un humain qui manque de cœur,"
+        },
+        {
+          "verse": "24:31",
+          "text": "et voici, les chardons y croissaient partout, les orties en couvraient la surface et son mur de pierres était renversé."
+        },
+        {
+          "verse": "24:32",
+          "text": "En voyant cela, je l’ai mis dans mon cœur et j'ai reçu la correction de ce que j'ai vu."
+        },
+        {
+          "verse": "24:33",
+          "text": "Un peu de sommeil, un peu d'assoupissement, un peu croiser les mains pour dormir ! ..."
+        },
+        {
+          "verse": "24:34",
+          "text": "Et ta pauvreté viendra, elle arrivera, et ton besoin comme un homme au bouclier."
+        }
+      ]
+    },
+    {
+      "chapter": 25,
+      "verses": [
+        {
+          "verse": "25:1",
+          "section": "Avertissements et conseils",
+          "text": "Ceux-ci aussi sont des proverbes de Shelomoh, que les hommes d'Hizqiyah, roi de Yéhouda, ont recueillis.",
+          "textWithNotes": "Ceux-ci aussi sont des proverbes de Shelomoh[1 R. 5:10.], que les hommes d'Hizqiyah[Ézéchias.], roi de Yéhouda, ont recueillis.",
+          "notes": [
+            {
+              "word": "Shelomoh",
+              "position": 36,
+              "note": "1 R. 5:10."
+            },
+            {
+              "word": "d'Hizqiyah",
+              "position": 61,
+              "note": "Ézéchias."
+            }
+          ]
+        },
+        {
+          "verse": "25:2",
+          "text": "La gloire d'Elohîm, c'est de cacher les choses, et la gloire des rois, c'est de sonder les choses."
+        },
+        {
+          "verse": "25:3",
+          "text": "Les cieux dans leur hauteur, la terre dans sa profondeur, et le cœur des rois, sont insondables."
+        },
+        {
+          "verse": "25:4",
+          "text": "Ôte les scories de l'argent, et il en sortira un vase pour l'orfèvre."
+        },
+        {
+          "verse": "25:5",
+          "text": "De même, ôte le méchant de devant le roi, et son trône sera affermi par la justice."
+        },
+        {
+          "verse": "25:6",
+          "text": "Ne te glorifie pas devant le roi, et ne te tiens pas à la place des grands."
+        },
+        {
+          "verse": "25:7",
+          "text": "Car il vaut mieux qu'on te dise : Monte ici ! que si l'on t'abaisse devant un prince que tes yeux voient.",
+          "textWithNotes": "Car il vaut mieux qu'on te dise : Monte ici ! que si l'on t'abaisse devant un prince que tes yeux voient[Lu. 14:8-11.].",
+          "notes": [
+            {
+              "word": "voient",
+              "position": 98,
+              "note": "Lu. 14:8-11."
+            }
+          ]
+        },
+        {
+          "verse": "25:8",
+          "text": "Ne sors pas à la hâte pour contester, car que feras-tu à la fin, - quand ton prochain t’aura confondu ?"
+        },
+        {
+          "verse": "25:9",
+          "text": "Plaide ta cause contre ton prochain, mais ne révèle pas le secret d'un autre."
+        },
+        {
+          "verse": "25:10",
+          "text": "De peur que celui qui l'entend ne te couvre de honte et que ta diffamation soit sans retour."
+        },
+        {
+          "verse": "25:11",
+          "text": "Des pommes d'or avec des images sculptées d'argent, telle est une parole dite à propos."
+        },
+        {
+          "verse": "25:12",
+          "text": "Quand on reprend le sage qui a l'oreille attentive, c'est comme une bague d'or ou comme un joyau d'or fin."
+        },
+        {
+          "verse": "25:13",
+          "text": "Le messager fidèle est pour ceux qui l'envoient comme la fraîcheur de la neige au temps de la moisson : il restaure l'âme de son seigneur."
+        },
+        {
+          "verse": "25:14",
+          "text": "Vent et nuages sans pluie, tel est l'homme qui se vante d'un don mensonger."
+        },
+        {
+          "verse": "25:15",
+          "text": "Le chef est fléchi par la patience, et la langue douce brise les os."
+        },
+        {
+          "verse": "25:16",
+          "text": "Si tu trouves du miel, manges-en ce qui te suffit, de peur qu'en étant rassasié, tu ne le vomisses."
+        },
+        {
+          "verse": "25:17",
+          "text": "Que ton pied soit rare dans la maison de ton prochain, de peur qu'étant rassasié de toi, il ne te haïsse.",
+          "textWithNotes": "Que ton pied soit rare[Estimer, être prisé, avoir de la valeur, être précieux, coûteux, être apprécié.] dans la maison de ton prochain, de peur qu'étant rassasié de toi, il ne te haïsse.",
+          "notes": [
+            {
+              "word": "rare",
+              "position": 18,
+              "note": "Estimer, être prisé, avoir de la valeur, être précieux, coûteux, être apprécié."
+            }
+          ]
+        },
+        {
+          "verse": "25:18",
+          "text": "L'homme qui porte un faux témoignage contre son prochain est un marteau, une épée et une flèche aiguisée."
+        },
+        {
+          "verse": "25:19",
+          "text": "La confiance qu'on met en un traître au jour de la détresse est une dent cassée et un pied qui glisse."
+        },
+        {
+          "verse": "25:20",
+          "text": "Celui qui chante des chansons à un cœur triste est comme celui qui ôte sa robe dans un jour froid, et comme du vinaigre répandu sur le savon."
+        },
+        {
+          "verse": "25:21",
+          "text": "Si celui qui te hait a faim, donne-lui du pain à manger, et, s’il a soif, donne-lui de l’eau à boire.",
+          "textWithNotes": "Si celui qui te hait a faim, donne-lui du pain à manger, et, s’il a soif, donne-lui de l’eau à boire[Mt. 5:39-44.].",
+          "notes": [
+            {
+              "word": "boire",
+              "position": 95,
+              "note": "Mt. 5:39-44."
+            }
+          ]
+        },
+        {
+          "verse": "25:22",
+          "text": "Car tu amasseras des charbons ardents sur sa tête, et YHWH te le rendra.",
+          "textWithNotes": "Car tu amasseras des charbons ardents sur sa tête[Cette expression peut également être traduite par « ce sont des braises que tu enlèves de sa tête ». Cette expression est une métaphore qui tire son origine de la méthode consistant à fondre les métaux dans les anciens fours. Ces métaux étaient introduits dans un four ; ensuite, on mettait du charbon au-dessous et une couche épaisse au-dessus de leur partie supérieure. La chaleur étant augmentée, le métal fondait et se séparait des impuretés qu’il contenait. L’amas de charbons à sa partie supérieure amollissait et purifiait le minerai. Ainsi, témoigner de l’amour envers un ennemi peut l’aider à se séparer des impuretés. Ro. 12:20.], et YHWH te le rendra.",
+          "notes": [
+            {
+              "word": "tête",
+              "position": 45,
+              "note": "Cette expression peut également être traduite par « ce sont des braises que tu enlèves de sa tête ». Cette expression est une métaphore qui tire son origine de la méthode consistant à fondre les métaux dans les anciens fours. Ces métaux étaient introduits dans un four ; ensuite, on mettait du charbon au-dessous et une couche épaisse au-dessus de leur partie supérieure. La chaleur étant augmentée, le métal fondait et se séparait des impuretés qu’il contenait. L’amas de charbons à sa partie supérieure amollissait et purifiait le minerai. Ainsi, témoigner de l’amour envers un ennemi peut l’aider à se séparer des impuretés. Ro. 12:20."
+            }
+          ]
+        },
+        {
+          "verse": "25:23",
+          "text": "Le vent du nord engendre la pluie, et la langue calomnieuse les faces indignées."
+        },
+        {
+          "verse": "25:24",
+          "text": "Il vaut mieux habiter à l'angle d'un toit que de partager la demeure d'une femme querelleuse."
+        },
+        {
+          "verse": "25:25",
+          "text": "De l'eau fraîche pour une âme altérée et épuisée, telle est une bonne nouvelle venant d'une terre lointaine."
+        },
+        {
+          "verse": "25:26",
+          "text": "Le juste qui tremble devant le méchant est une fontaine foulée aux pieds et une source corrompue."
+        },
+        {
+          "verse": "25:27",
+          "text": "Il n'est pas bon de manger beaucoup de miel, ni de rechercher gloire sur gloire."
+        },
+        {
+          "verse": "25:28",
+          "text": "Une ville en brèche, sans murailles, tel est l'homme qui n'a pas autorité sur son esprit."
+        }
+      ]
+    },
+    {
+      "chapter": 26,
+      "verses": [
+        {
+          "verse": "26:1",
+          "section": "Avertissements et conseils (suite)",
+          "text": "Comme la neige en été, et la pluie pendant la moisson, ainsi la gloire ne convient pas à un insensé."
+        },
+        {
+          "verse": "26:2",
+          "text": "Comme l'oiseau qui va çà et là, comme l’hirondelle qui s’envole, ainsi la malédiction sans cause n'atteint pas.",
+          "textWithNotes": "Comme l'oiseau qui va çà et là, comme l’hirondelle qui s’envole, ainsi la malédiction sans cause[Job. 2:3.] n'atteint pas.",
+          "notes": [
+            {
+              "word": "cause",
+              "position": 91,
+              "note": "Job. 2:3."
+            }
+          ]
+        },
+        {
+          "verse": "26:3",
+          "text": "Le fouet est pour le cheval, le mors pour l'âne, et la verge pour le dos des insensés."
+        },
+        {
+          "verse": "26:4",
+          "text": "Ne réponds pas à l'insensé selon sa folie, de peur que tu ne lui ressembles toi-même."
+        },
+        {
+          "verse": "26:5",
+          "text": "Réponds à l'insensé selon sa folie, de peur qu’il ne devienne un sage à ses yeux."
+        },
+        {
+          "verse": "26:6",
+          "text": "Celui qui envoie des paroles par la main d'un insensé se coupe les pieds et boit la violence."
+        },
+        {
+          "verse": "26:7",
+          "text": "Les jambes du boiteux sont sans force : tel est un proverbe dans la bouche des insensés."
+        },
+        {
+          "verse": "26:8",
+          "text": "Celui qui donne gloire à un insensé, c'est comme s'il jetait un sachet de pierres précieuses dans un monceau de pierres."
+        },
+        {
+          "verse": "26:9",
+          "text": "Une épine montée dans la main d’un ivrogne, tel est un proverbe dans la bouche des insensés."
+        },
+        {
+          "verse": "26:10",
+          "text": "Les grands font trembler tout le monde : ils prennent à gage les insensés et les transgresseurs."
+        },
+        {
+          "verse": "26:11",
+          "text": "Comme le chien retourne à ce qu'il a vomi, l'insensé répète sa folie.",
+          "textWithNotes": "Comme le chien retourne à ce qu'il a vomi, l'insensé répète sa folie[2 Pi. 2:22.].",
+          "notes": [
+            {
+              "word": "folie",
+              "position": 63,
+              "note": "2 Pi. 2:22."
+            }
+          ]
+        },
+        {
+          "verse": "26:12",
+          "text": "Si tu vois un homme qui est sage à ses propres yeux, il y a plus à espérer d'un insensé que de lui."
+        },
+        {
+          "verse": "26:13",
+          "text": "Le paresseux dit : Il y a un lion rugissant sur le chemin, il y a un lion dans les rues."
+        },
+        {
+          "verse": "26:14",
+          "text": "La porte tourne sur ses gonds, et le paresseux sur son lit."
+        },
+        {
+          "verse": "26:15",
+          "text": "Le paresseux plonge sa main dans le plat, et il trouve fatigant de la ramener à sa bouche."
+        },
+        {
+          "verse": "26:16",
+          "text": "Le paresseux est plus sage à ses yeux que sept qui répondent avec bon goût."
+        },
+        {
+          "verse": "26:17",
+          "text": "Celui qui, en passant, se met en colère pour une dispute qui ne le touche en rien est comme celui qui prend un chien par les oreilles."
+        },
+        {
+          "verse": "26:18",
+          "text": "Tel celui qui, faisant le fou, lance des flèches enflammées, des flèches et la mort,"
+        },
+        {
+          "verse": "26:19",
+          "text": "tel est l'homme qui trompe son ami, et qui après cela dit : C'était pour rire !"
+        },
+        {
+          "verse": "26:20",
+          "text": "Le feu s'éteint faute de bois, ainsi quand il n'y a plus de rapporteurs les querelles s'apaisent."
+        },
+        {
+          "verse": "26:21",
+          "text": "Du charbon sur le brasier et du bois sur le feu, ainsi est l'homme de disputes pour enflammer les querelles."
+        },
+        {
+          "verse": "26:22",
+          "text": "Les paroles du rapporteur sont comme des friandises, elles descendent jusqu'au fond des entrailles."
+        },
+        {
+          "verse": "26:23",
+          "text": "Les lèvres brûlantes et le cœur mauvais sont comme un vase de terre recouvert de scories d'argent."
+        },
+        {
+          "verse": "26:24",
+          "text": "Celui qui a de la haine se déguise par ses discours, mais au-dedans de lui il maintient la tromperie."
+        },
+        {
+          "verse": "26:25",
+          "text": "Lorsqu'il met de la grâce dans sa voix, ne le crois pas, car il y a sept abominations dans son cœur."
+        },
+        {
+          "verse": "26:26",
+          "text": "Sa haine peut se couvrir de dissimulation, son mal sera découvert dans l'assemblée."
+        },
+        {
+          "verse": "26:27",
+          "text": "Celui qui creuse la fosse y tombe, et la pierre retourne sur celui qui la roule.",
+          "textWithNotes": "Celui qui creuse la fosse y tombe, et la pierre retourne sur celui qui la roule[Ps. 7:16-17, 57:7 ; Ec. 10:8.].",
+          "notes": [
+            {
+              "word": "roule",
+              "position": 74,
+              "note": "Ps. 7:16-17, 57:7 ; Ec. 10:8."
+            }
+          ]
+        },
+        {
+          "verse": "26:28",
+          "text": "La langue fausse a de la haine pour ceux qu'elle écrase et la bouche flatteuse fait trébucher."
+        }
+      ]
+    },
+    {
+      "chapter": 27,
+      "verses": [
+        {
+          "verse": "27:1",
+          "section": "Avertissements et conseils (suite)",
+          "text": "Ne te vante pas du jour de demain, car tu ne sais pas ce qu'un jour enfantera.",
+          "textWithNotes": "Ne te vante pas du jour de demain, car tu ne sais pas ce qu'un jour enfantera[Ja. 4:13-15.].",
+          "notes": [
+            {
+              "word": "enfantera",
+              "position": 68,
+              "note": "Ja. 4:13-15."
+            }
+          ]
+        },
+        {
+          "verse": "27:2",
+          "text": "Qu'un autre te vante, et non pas ta propre bouche, un étranger, et non pas tes lèvres."
+        },
+        {
+          "verse": "27:3",
+          "text": "La pierre est pesante, et le sable est lourd, mais l'irritation du fou est plus pesante que tous les deux."
+        },
+        {
+          "verse": "27:4",
+          "text": "Il y a de la cruauté dans le courroux et du débordement dans la colère, mais qui tiendra devant la jalousie ?"
+        },
+        {
+          "verse": "27:5",
+          "text": "Une réprimande ouverte vaut mieux qu'un amour caché."
+        },
+        {
+          "verse": "27:6",
+          "text": "Les blessures faites par un ami sont fidèles, mais les baisers d'un ennemi sont à craindre.",
+          "textWithNotes": "Les blessures faites par un ami sont fidèles, mais les baisers d'un ennemi sont à craindre[Il est question ici de Yéhouda Iskariote (Judas).].",
+          "notes": [
+            {
+              "word": "craindre",
+              "position": 82,
+              "note": "Il est question ici de Yéhouda Iskariote (Judas)."
+            }
+          ]
+        },
+        {
+          "verse": "27:7",
+          "text": "L'âme rassasiée foule les rayons de miel, mais pour l'âme qui a faim, toute chose amère est douce."
+        },
+        {
+          "verse": "27:8",
+          "text": "Tel un oiseau qui s'écarte de son nid, tel est l'homme qui erre loin de son lieu."
+        },
+        {
+          "verse": "27:9",
+          "text": "L'huile et l'encens réjouissent le cœur, telle est la douceur d'un ami dont le conseil vient de l'âme."
+        },
+        {
+          "verse": "27:10",
+          "text": "Ne quitte pas ton ami ni l'ami de ton père, et n'entre pas dans la maison de ton frère au temps de ta détresse : un voisin proche vaut mieux qu'un frère éloigné."
+        },
+        {
+          "verse": "27:11",
+          "text": "Mon fils, sois sage et réjouis mon cœur, afin que je retourne la parole à celui qui m’insulte."
+        },
+        {
+          "verse": "27:12",
+          "text": "L'homme prudent voit le mal et se cache. Les stupides passent à travers et sont punis."
+        },
+        {
+          "verse": "27:13",
+          "text": "Prends son vêtement, car il a cautionné un étranger, et exige de lui un gage à cause de l’étrangère."
+        },
+        {
+          "verse": "27:14",
+          "text": "Celui qui bénit son ami à grande voix, se levant tôt le matin, cela lui est compté pour une malédiction."
+        },
+        {
+          "verse": "27:15",
+          "text": "Une gouttière continuelle au temps de la grosse pluie et une femme querelleuse sont semblables."
+        },
+        {
+          "verse": "27:16",
+          "text": "Celui qui la cache, cache le vent, et dans sa droite l’huile crie."
+        },
+        {
+          "verse": "27:17",
+          "text": "Le fer aiguise le fer, et l'homme aiguise les faces de son prochain."
+        },
+        {
+          "verse": "27:18",
+          "text": "Celui qui garde le figuier mangera de son fruit, et celui qui garde son maître sera honoré."
+        },
+        {
+          "verse": "27:19",
+          "text": "Comme sur des eaux les faces font faces, ainsi le cœur de l’être humain pour l’être humain."
+        },
+        {
+          "verse": "27:20",
+          "text": "Le shéol et l'abîme ne sont jamais rassasiés, de même les yeux des humains ne sont jamais rassasiés.",
+          "textWithNotes": "Le shéol et l'abîme ne sont jamais rassasiés, de même les yeux des humains ne sont jamais rassasiés[Ec. 1:8 ; 2 Pi. 2:14.].",
+          "notes": [
+            {
+              "word": "rassasiés",
+              "position": 90,
+              "note": "Ec. 1:8 ; 2 Pi. 2:14."
+            }
+          ]
+        },
+        {
+          "verse": "27:21",
+          "text": "Comme le fourneau est pour éprouver l'argent, et le creuset pour l'or, ainsi est à l'homme la bouche qui le loue."
+        },
+        {
+          "verse": "27:22",
+          "text": "Si tu pilais le fou dans un mortier, au milieu des grains qu'on pile avec un pilon, sa folie ne se détournerait pas de lui."
+        },
+        {
+          "verse": "27:23",
+          "text": "Connaître, connais les faces de tes brebis, et fixe ton cœur sur tes troupeaux."
+        },
+        {
+          "verse": "27:24",
+          "text": "Car le trésor ne dure pas pour toujours, et la couronne n'est pas d'âges en âges."
+        },
+        {
+          "verse": "27:25",
+          "text": "L'herbe se découvre, la végétation se voit, et on recueille la verdure des montagnes."
+        },
+        {
+          "verse": "27:26",
+          "text": "Les agneaux sont pour te vêtir, et les boucs sont le prix d'un champ,"
+        },
+        {
+          "verse": "27:27",
+          "text": "et le lait des chèvres suffit à ta nourriture et à la nourriture de ta maison, et pour la vie de tes servantes."
+        }
+      ]
+    },
+    {
+      "chapter": 28,
+      "verses": [
+        {
+          "verse": "28:1",
+          "section": "Avertissements et conseils (suite)",
+          "text": "Le méchant prend la fuite sans qu'on le poursuive, mais les justes ont confiance comme un jeune lion."
+        },
+        {
+          "verse": "28:2",
+          "text": "Quand la rébellion règne dans une terre, ses chefs sont nombreux, mais, avec un être humain qui a du discernement et du savoir, la stabilité se prolonge."
+        },
+        {
+          "verse": "28:3",
+          "text": "Un homme fort et pauvre qui opprime les pauvres, c’est une pluie violente et plus de pain !"
+        },
+        {
+          "verse": "28:4",
+          "text": "Ceux qui abandonnent la torah louent le méchant, mais ceux qui gardent la torah lui font la guerre."
+        },
+        {
+          "verse": "28:5",
+          "text": "Les hommes mauvais ne comprennent pas la justice, mais ceux qui cherchent YHWH comprennent tout."
+        },
+        {
+          "verse": "28:6",
+          "text": "Le pauvre qui marche dans son intégrité vaut mieux qu'un pervers aux voies tortueuses quoiqu'il soit riche."
+        },
+        {
+          "verse": "28:7",
+          "text": "Celui qui garde la torah est un fils prudent, mais celui qui nourrit les gaspilleurs fait honte à son père."
+        },
+        {
+          "verse": "28:8",
+          "text": "Celui qui multiplie sa richesse par l'intérêt et l'usure, l'amasse pour celui qui a pitié des pauvres.",
+          "textWithNotes": "Celui qui multiplie sa richesse par l'intérêt et l'usure, l'amasse pour celui qui a pitié des pauvres[Ec. 2:26.].",
+          "notes": [
+            {
+              "word": "pauvres",
+              "position": 94,
+              "note": "Ec. 2:26."
+            }
+          ]
+        },
+        {
+          "verse": "28:9",
+          "text": "Celui qui détourne son oreille pour ne pas écouter la torah, sa prière même est une abomination.",
+          "textWithNotes": "Celui qui détourne son oreille pour ne pas écouter la torah, sa prière même est une abomination[La prière doit être faite selon la parole d'Elohîm, en conformité avec sa volonté. Le Seigneur n'exauce que ceux qui obéissent à sa Parole (Mt. 6:9-10 ; Jn. 9:31, 15:7 ; 1 Jn. 5:14-15).].",
+          "notes": [
+            {
+              "word": "abomination",
+              "position": 84,
+              "note": "La prière doit être faite selon la parole d'Elohîm, en conformité avec sa volonté. Le Seigneur n'exauce que ceux qui obéissent à sa Parole (Mt. 6:9-10 ; Jn. 9:31, 15:7 ; 1 Jn. 5:14-15)."
+            }
+          ]
+        },
+        {
+          "verse": "28:10",
+          "text": "Celui qui égare les justes dans le mauvais chemin tombe dans la fosse qu'il a faite, mais ceux qui sont intègres héritent le bonheur."
+        },
+        {
+          "verse": "28:11",
+          "text": "L’homme riche est sage à ses yeux, mais le pauvre qui discerne le sondera."
+        },
+        {
+          "verse": "28:12",
+          "text": "Quand les justes se réjouissent, la splendeur est grande, mais quand les méchants sont élevés, l'être humain se déguise."
+        },
+        {
+          "verse": "28:13",
+          "text": "Celui qui cache ses transgressions ne prospère pas, mais celui qui les confesse et les délaisse, obtient miséricorde.",
+          "textWithNotes": "Celui qui cache ses transgressions ne prospère pas, mais celui qui les confesse et les délaisse, obtient miséricorde[Ec. 1:8 ; 2 Pi. 2:14.].",
+          "notes": [
+            {
+              "word": "miséricorde",
+              "position": 105,
+              "note": "Ec. 1:8 ; 2 Pi. 2:14."
+            }
+          ]
+        },
+        {
+          "verse": "28:14",
+          "text": "Heureux l'être humain qui est continuellement dans la crainte, mais celui qui endurcit son cœur tombera dans la calamité."
+        },
+        {
+          "verse": "28:15",
+          "text": "Le méchant qui domine sur un peuple pauvre est un lion rugissant et un ours assoiffé."
+        },
+        {
+          "verse": "28:16",
+          "text": "Un chef qui manque d'intelligence opprime beaucoup, celui qui hait le gain injuste prolonge ses jours."
+        },
+        {
+          "verse": "28:17",
+          "text": "Un être humain chargé du sang d'une âme fuira jusqu'à la fosse sans qu'on le retienne."
+        },
+        {
+          "verse": "28:18",
+          "text": "Celui qui marche dans l'intégrité sera sauvé, mais celui qui suit des voies tortueuses tombera une fois pour toutes."
+        },
+        {
+          "verse": "28:19",
+          "text": "Celui qui travaille son sol sera rassasié de pain, mais celui qui suit les fainéants sera rassasié de pauvreté."
+        },
+        {
+          "verse": "28:20",
+          "text": "L'homme fidèle abondera en bénédictions, mais celui qui se hâte de s'enrichir ne demeurera pas impuni."
+        },
+        {
+          "verse": "28:21",
+          "text": "Il n'est pas bon d'avoir égard aux faces, et pour un morceau de pain un homme fort se révolte."
+        },
+        {
+          "verse": "28:22",
+          "text": "L'homme qui a mauvais œil est pressé d'avoir des richesses ! Il ne sait pas que la pauvreté viendra sur lui."
+        },
+        {
+          "verse": "28:23",
+          "text": "Celui qui reprend un humain trouve ensuite plus de faveur que celui qui flatte de sa langue."
+        },
+        {
+          "verse": "28:24",
+          "text": "Celui qui pille son père ou sa mère, et qui dit que ce n'est pas une transgression, est compagnon de l'homme destructeur."
+        },
+        {
+          "verse": "28:25",
+          "text": "Celui qui a l'âme enflée excite les querelles, mais celui qui se confie en YHWH sera rassasié."
+        },
+        {
+          "verse": "28:26",
+          "text": "Celui qui se confie en son propre cœur est un insensé, mais celui qui marche sagement sera délivré."
+        },
+        {
+          "verse": "28:27",
+          "text": "Celui qui donne au pauvre ne sera pas dans le besoin, mais celui qui en détourne ses yeux abondera en malédictions."
+        },
+        {
+          "verse": "28:28",
+          "text": "Quand les méchants s'élèvent, les humains se cachent, mais quand ils périssent, les justes se multiplient."
+        }
+      ]
+    },
+    {
+      "chapter": 29,
+      "verses": [
+        {
+          "verse": "29:1",
+          "section": "Avertissements et conseils (suite et fin)",
+          "text": "Un homme qui durcit son cou contre les réprimandes sera soudainement brisé sans qu'il y ait de guérison !"
+        },
+        {
+          "verse": "29:2",
+          "text": "Quand les justes se multiplient, le peuple se réjouira, mais quand le méchant domine, le peuple gémira."
+        },
+        {
+          "verse": "29:3",
+          "text": "L'homme qui aime la sagesse réjouira son père ; celui qui nourrit des prostituées détruira ses richesses.",
+          "textWithNotes": "L'homme qui aime la sagesse réjouira son père ; celui qui nourrit des prostituées détruira ses richesses[Lu. 15:11-32.].",
+          "notes": [
+            {
+              "word": "richesses",
+              "position": 95,
+              "note": "Lu. 15:11-32."
+            }
+          ]
+        },
+        {
+          "verse": "29:4",
+          "text": "Le roi maintiendra la terre par la justice, mais l'homme qui aime les offrandes la renversera."
+        },
+        {
+          "verse": "29:5",
+          "text": "L'homme fort qui flatte son prochain lui tend un piège sous ses pas."
+        },
+        {
+          "verse": "29:6",
+          "text": "Dans la transgression d'un homme méchant il y a un piège, mais le juste chante et se réjouit."
+        },
+        {
+          "verse": "29:7",
+          "text": "Le juste connaît la cause des pauvres, le méchant ne discerne pas la connaissance."
+        },
+        {
+          "verse": "29:8",
+          "text": "Les hommes moqueurs souffleront le feu dans une ville, mais les sages détourneront la colère."
+        },
+        {
+          "verse": "29:9",
+          "text": "Un homme sage qui entre en jugement avec un homme fou, qu’il s’agite ou qu’il rie, il n’aura pas de repos."
+        },
+        {
+          "verse": "29:10",
+          "text": "Les hommes de sang haïront l'innocent, mais les justes chercheront son âme."
+        },
+        {
+          "verse": "29:11",
+          "text": "L'insensé fera sortir tout son souffle, mais le sage, en arrière, le calmera."
+        },
+        {
+          "verse": "29:12",
+          "text": "Tous les serviteurs d'un prince qui prête l'oreille à la parole mensongère sont méchants."
+        },
+        {
+          "verse": "29:13",
+          "text": "Le pauvre et l’homme d’oppressions se rencontrent, c'est YHWH qui donne la lumière aux yeux de tous les deux."
+        },
+        {
+          "verse": "29:14",
+          "text": "Le trône du roi qui rend justice selon la vérité aux pauvres, sera établi à perpétuité."
+        },
+        {
+          "verse": "29:15",
+          "text": "La verge et la réprimande donneront la sagesse, mais le jeune homme abandonné fait honte à sa mère."
+        },
+        {
+          "verse": "29:16",
+          "text": "Quand les méchants se multiplient, la transgression se multipliera, mais les justes verront leur ruine."
+        },
+        {
+          "verse": "29:17",
+          "text": "Corrige ton fils, il te mettra en repos et il donnera du plaisir à ton âme."
+        },
+        {
+          "verse": "29:18",
+          "text": "Quand il n'y a pas de vision, le peuple se laissera aller, mais heureux est celui qui garde la torah !",
+          "textWithNotes": "Quand il n'y a pas de vision[Le manque de vision n'est bon pour personne. Elohîm donne une vision aux personnes qu'il a appelées. La vision peut être un rêve, une directive, une prophétie, etc. Il s'agit des objectifs à atteindre.], le peuple se laissera aller, mais heureux est celui qui garde la torah !",
+          "notes": [
+            {
+              "word": "vision",
+              "position": 22,
+              "note": "Le manque de vision n'est bon pour personne. Elohîm donne une vision aux personnes qu'il a appelées. La vision peut être un rêve, une directive, une prophétie, etc. Il s'agit des objectifs à atteindre."
+            }
+          ]
+        },
+        {
+          "verse": "29:19",
+          "text": "L'esclave ne se corrige pas par des paroles, car il comprendra mais ne répondra pas."
+        },
+        {
+          "verse": "29:20",
+          "text": "As-tu vu un homme pressé dans ses paroles ? Il y a plus à espérer d'un fou que de lui."
+        },
+        {
+          "verse": "29:21",
+          "text": "Le serviteur devient enfin fils de celui qui le traite avec délicatesse dès sa jeunesse."
+        },
+        {
+          "verse": "29:22",
+          "text": "L'homme coléreux excite les querelles, et l'homme furieux a beaucoup de transgressions."
+        },
+        {
+          "verse": "29:23",
+          "text": "L'orgueil de l'humain l'abaisse, mais celui qui est humble d'esprit obtient la gloire.",
+          "textWithNotes": "L'orgueil de l'humain l'abaisse, mais celui qui est humble d'esprit obtient la gloire[Mt. 23:12 ; Lu. 14:11 ; 1 Pi. 5:5.].",
+          "notes": [
+            {
+              "word": "gloire",
+              "position": 79,
+              "note": "Mt. 23:12 ; Lu. 14:11 ; 1 Pi. 5:5."
+            }
+          ]
+        },
+        {
+          "verse": "29:24",
+          "text": "Celui qui partage avec un voleur hait son âme : il entend bien la malédiction, mais il n'avoue pas."
+        },
+        {
+          "verse": "29:25",
+          "text": "La terreur de l’humain tend un piège, mais celui qui se confie en YHWH est inaccessiblement haut."
+        },
+        {
+          "verse": "29:26",
+          "text": "Beaucoup cherchent les faces de celui qui domine, mais c'est de YHWH que vient le jugement de tout homme."
+        },
+        {
+          "verse": "29:27",
+          "text": "L'homme injuste est en abomination aux justes, et celui dont la voie est droite est en abomination au méchant."
+        }
+      ]
+    },
+    {
+      "chapter": 30,
+      "verses": [
+        {
+          "verse": "30:1",
+          "section": "Proverbe d'Agour",
+          "text": "Les paroles d'Agour, fils de Yaqeh : fardeau. La déclaration de cet homme fort à Ithiel. À Ithiel et Oucal."
+        },
+        {
+          "verse": "30:2",
+          "text": "Oui, je suis le plus abruti de tous les hommes, et je n’ai pas le discernement de l’humain."
+        },
+        {
+          "verse": "30:3",
+          "text": "Je n'ai pas appris la sagesse, et je ne connais pas la connaissance des saints."
+        },
+        {
+          "verse": "30:4",
+          "text": "Qui est celui qui est monté aux cieux et qui en est descendu ? Qui est celui qui a recueilli le vent dans le creux de sa main, qui a lié les eaux dans son manteau, qui a dressé toutes les bornes de la Terre ? Quel est son nom, et quel est le nom de son fils, puisque tu le sais ?",
+          "textWithNotes": "Qui est celui qui est monté aux cieux et qui en est descendu[Jn. 3:13 ; Ro. 10:6-7.] ? Qui est celui qui a recueilli le vent dans le creux de sa main, qui a lié les eaux dans son manteau, qui a dressé toutes les bornes de la Terre ? Quel est son nom, et quel est le nom de son fils, puisque tu le sais ?",
+          "notes": [
+            {
+              "word": "descendu",
+              "position": 52,
+              "note": "Jn. 3:13 ; Ro. 10:6-7."
+            }
+          ]
+        },
+        {
+          "verse": "30:5",
+          "text": "Toute la parole d'Éloah est éprouvée. Il est un bouclier pour ceux qui ont leur refuge en lui.",
+          "textWithNotes": "Toute la parole d'Éloah est éprouvée. Il est un bouclier pour ceux qui ont leur refuge en lui[Ps. 18:31, 115:9-11.].",
+          "notes": [
+            {
+              "word": "lui",
+              "position": 90,
+              "note": "Ps. 18:31, 115:9-11."
+            }
+          ]
+        },
+        {
+          "verse": "30:6",
+          "text": "N'ajoute rien à ses paroles, de peur qu'il ne te reprenne et que tu ne sois convaincu de mensonge.",
+          "textWithNotes": "N'ajoute rien à ses paroles, de peur qu'il ne te reprenne et que tu ne sois convaincu de mensonge[De. 4:2 ; Ap. 22:18.].",
+          "notes": [
+            {
+              "word": "mensonge",
+              "position": 89,
+              "note": "De. 4:2 ; Ap. 22:18."
+            }
+          ]
+        },
+        {
+          "verse": "30:7",
+          "text": "Je te demande deux choses : Ne me les refuse pas avant que je meure !"
+        },
+        {
+          "verse": "30:8",
+          "text": "Éloigne de moi la vanité et la parole de mensonge. Ne me donne ni pauvreté ni richesse, fournis-moi du pain qui m'est prescrit !"
+        },
+        {
+          "verse": "30:9",
+          "text": "De peur qu'étant rassasié, je ne te renie et que je ne dise : Qui est YHWH ? De peur qu'étant appauvri, je ne vole et que je ne m’attaque au nom de mon Elohîm."
+        },
+        {
+          "verse": "30:10",
+          "text": "Ne calomnie pas un serviteur devant son maître, de peur qu’il ne te maudisse, et qu'il ne t'en arrive du mal."
+        },
+        {
+          "verse": "30:11",
+          "text": "Il existe une génération qui maudit son père et qui ne bénit pas sa mère."
+        },
+        {
+          "verse": "30:12",
+          "text": "Il existe une génération qui se croit pure et qui toutefois n'est pas lavée de ses excréments."
+        },
+        {
+          "verse": "30:13",
+          "text": "Il existe une génération dont les yeux sont hautains et les paupières élevées."
+        },
+        {
+          "verse": "30:14",
+          "text": "Il existe une génération dont les dents sont des épées et les mâchoires sont des couteaux pour dévorer les malheureux sur la Terre et les pauvres parmi les humains."
+        },
+        {
+          "verse": "30:15",
+          "text": "La sangsue a deux filles : Donne ! Donne ! Il y a trois choses qui ne se rassasient jamais, il y en a même quatre qui ne disent jamais : Assez !"
+        },
+        {
+          "verse": "30:16",
+          "text": "Le shéol, la matrice stérile, la terre qui n'est pas rassasiée d'eau et le feu qui ne dit jamais : Assez !",
+          "textWithNotes": "Le shéol, la matrice stérile[Restriction, coercition, contrainte, stérilité (de la matrice).], la terre qui n'est pas rassasiée d'eau et le feu qui ne dit jamais : Assez !",
+          "notes": [
+            {
+              "word": "stérile",
+              "position": 21,
+              "note": "Restriction, coercition, contrainte, stérilité (de la matrice)."
+            }
+          ]
+        },
+        {
+          "verse": "30:17",
+          "text": "L’œil qui se moque d’un père et qui méprise l’obéissance envers une mère, les corbeaux du torrent le crèveront et les petits de l’aigle le mangeront."
+        },
+        {
+          "verse": "30:18",
+          "text": "Il y a trois choses qui sont trop merveilleuses pour moi, même quatre que je ne connais pas :"
+        },
+        {
+          "verse": "30:19",
+          "text": "le chemin de l'aigle dans les cieux, le chemin du serpent sur un rocher, le chemin d'un navire au milieu de la mer, et le chemin de l'homme fort chez la vierge."
+        },
+        {
+          "verse": "30:20",
+          "text": "Tel est le chemin de la femme adultère : Elle mange et s'essuie la bouche, puis elle dit : Je n'ai rien fait de mal !"
+        },
+        {
+          "verse": "30:21",
+          "text": "Sous trois choses tremble la Terre, et sous quatre qu’elle ne peut porter :"
+        },
+        {
+          "verse": "30:22",
+          "text": "sous l’esclave quand il règne, et un insensé quand il est rassasié de pain,"
+        },
+        {
+          "verse": "30:23",
+          "text": "sous la haïe quand elle est épousée, et la servante quand elle dépossède sa maîtresse."
+        },
+        {
+          "verse": "30:24",
+          "text": "Il y a quatre choses petites sur la Terre, qui toutefois sont sages et bien avisées :"
+        },
+        {
+          "verse": "30:25",
+          "text": "Les fourmis, un peuple qui n'est pas fort, et qui néanmoins préparent leur nourriture pendant l'été,"
+        },
+        {
+          "verse": "30:26",
+          "text": "les damans, un peuple qui n'est pas puissant, et qui néanmoins placent leurs maisons dans les rochers,"
+        },
+        {
+          "verse": "30:27",
+          "text": "les sauterelles, qui n'ont pas de roi mais sortent toutes par divisions,"
+        },
+        {
+          "verse": "30:28",
+          "text": "le lézard, que tu peux attraper avec tes mains et qui se trouve dans les palais des rois."
+        },
+        {
+          "verse": "30:29",
+          "text": "Il y a trois choses qui ont une belle allure, même quatre, qui ont une belle marche :"
+        },
+        {
+          "verse": "30:30",
+          "text": "Le lion, qui est le plus fort parmi les animaux, et qui ne recule devant qui que ce soit,"
+        },
+        {
+          "verse": "30:31",
+          "text": "le cheval qui a les reins ceints, ou le bouc, et le roi devant qui personne ne résiste.",
+          "textWithNotes": "le cheval[Peut-être un animal disparu, sens exact inconnu. Certains traduisent par « le coq aux reins solides ».] qui a les reins ceints, ou le bouc, et le roi devant qui personne ne résiste.",
+          "notes": [
+            {
+              "word": "cheval",
+              "position": 3,
+              "note": "Peut-être un animal disparu, sens exact inconnu. Certains traduisent par « le coq aux reins solides »."
+            }
+          ]
+        },
+        {
+          "verse": "30:32",
+          "text": "Si tu as fait l’insensé en t’élevant, et si tu en as la pensée, mets la main sur ta bouche."
+        },
+        {
+          "verse": "30:33",
+          "text": "Car la pression du lait produit du beurre, la pression du nez produit du sang, et la pression de la colère produit des disputes."
+        }
+      ]
+    },
+    {
+      "chapter": 31,
+      "verses": [
+        {
+          "verse": "31:1",
+          "section": "Proverbe de Lemouel",
+          "text": "Les paroles du roi Lemouel. Le fardeau par lequel sa mère l'instruisit."
+        },
+        {
+          "verse": "31:2",
+          "text": "Quoi, mon fils ! quoi, fils de mes entrailles ! quoi, fils de mes vœux !"
+        },
+        {
+          "verse": "31:3",
+          "text": "Ne donne pas ta force aux femmes ni tes voies à celles qui détruisent les rois."
+        },
+        {
+          "verse": "31:4",
+          "text": "Ce n'est pas aux rois, Lemouel, ce n'est pas aux rois de boire du vin, ni aux princes des boissons fortes,"
+        },
+        {
+          "verse": "31:5",
+          "text": "de peur qu'en buvant, ils n'oublient les décrets, et n'altèrent la cause de tous les fils de l'affliction."
+        },
+        {
+          "verse": "31:6",
+          "text": "Donnez des boissons fortes à celui qui périt, et du vin à celui qui a l'amertume dans le cœur,"
+        },
+        {
+          "verse": "31:7",
+          "text": "qu'il boive et qu'il oublie sa pauvreté, qu'il ne se souvienne plus de sa peine !"
+        },
+        {
+          "verse": "31:8",
+          "text": "Ouvre ta bouche pour le muet, pour la cause de tous les fils destinés à la destruction."
+        },
+        {
+          "verse": "31:9",
+          "text": "Ouvre ta bouche, juge avec justice, plaide la cause du pauvre et de l'indigent."
+        },
+        {
+          "verse": "31:10",
+          "section": "La femme talentueuse",
+          "text": "[Aleph.] Qui trouvera une femme talentueuse ? Son prix dépasse de loin celui des perles."
+        },
+        {
+          "verse": "31:11",
+          "text": "[Beth.] Le cœur de son mari a entièrement confiance en elle, ainsi il ne manque pas de butin."
+        },
+        {
+          "verse": "31:12",
+          "text": "[Guimel.] Elle lui fait du bien tous les jours de sa vie, et jamais du mal."
+        },
+        {
+          "verse": "31:13",
+          "text": "[Daleth.] Elle cherche de la laine et du lin, et elle travaille de bon cœur avec ses paumes."
+        },
+        {
+          "verse": "31:14",
+          "text": "[He.] Elle est comme les navires d'un marchand, elle amène sa nourriture de loin."
+        },
+        {
+          "verse": "31:15",
+          "text": "[Vav.] Elle se lève lorsqu'il est encore nuit, elle distribue la nourriture à sa maison, et elle donne à ses servantes leur portion."
+        },
+        {
+          "verse": "31:16",
+          "text": "[Zayin.] Elle pense à un champ et le prend. Elle plante la vigne du fruit de ses paumes."
+        },
+        {
+          "verse": "31:17",
+          "text": "[Heth.] Elle ceint ses reins de force, et affermit ses bras."
+        },
+        {
+          "verse": "31:18",
+          "text": "[Teth.] Elle goûte en effet le meilleur de son gain. Sa lampe ne s'éteint pas la nuit."
+        },
+        {
+          "verse": "31:19",
+          "text": "[Yod.] Elle étend les mains vers la quenouille, et ses paumes tiennent le fuseau."
+        },
+        {
+          "verse": "31:20",
+          "text": "[Kaf.] Elle déploie ses paumes pour le pauvre, elle étend les bras vers l'indigent."
+        },
+        {
+          "verse": "31:21",
+          "text": "[Lamed.] Elle ne craint pas la neige pour sa maison, car toute sa maison est vêtue d'écarlate."
+        },
+        {
+          "verse": "31:22",
+          "text": "[Mem.] Elle se fait des couvre-pieds, le fin lin et le pourpre sont ce dont elle s'habille."
+        },
+        {
+          "verse": "31:23",
+          "text": "[Noun.] Son mari est connu aux portes, il s'assied avec les anciens de la terre."
+        },
+        {
+          "verse": "31:24",
+          "text": "[Samech.] Elle fait des chemises et les vend, et elle livre des ceintures au marchand."
+        },
+        {
+          "verse": "31:25",
+          "text": "[Ayin.] Force et splendeur sont ses vêtements, et elle se rit du jour à venir."
+        },
+        {
+          "verse": "31:26",
+          "text": "[Pe.] Elle ouvre sa bouche avec sagesse, et la torah de la bonté est sur sa langue."
+        },
+        {
+          "verse": "31:27",
+          "text": "[Tsade.] Elle surveille la marche de sa maison, et ne mange pas le pain de la paresse."
+        },
+        {
+          "verse": "31:28",
+          "text": "[Qof.] Ses fils se lèvent pour la proclamer heureuse, son mari, pour la louer :"
+        },
+        {
+          "verse": "31:29",
+          "text": "[Resh.] Beaucoup de filles agissent avec compétence, mais toi, tu es élevée au-dessus d'elles toutes !"
+        },
+        {
+          "verse": "31:30",
+          "text": "[Shin.] La grâce est trompeuse, et la beauté vaine. La femme qui craint YHWH est celle qui sera louée."
+        },
+        {
+          "verse": "31:31",
+          "text": "[Tav.] Donnez-lui du fruit de ses mains, et que ses œuvres la louent aux portes."
+        }
+      ]
+    }
+  ]
+}

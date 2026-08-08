@@ -1,0 +1,1078 @@
+{
+  "book": "Galates",
+  "abbreviation": "Ga.",
+  "metadata": {
+    "auteur": "Paulos (Paul)",
+    "theme": "Le salut par la grâce",
+    "date": "Env. 50 ap. J.-C."
+  },
+  "introduction": "Province antique de l'Asie Mineure, la Galatie se situait en Anatolie. Elle devait son nom à un peuple celte : les Galates (appelés aussi Gallogræci, « Gallo-Grecs ») qui s'étaient installés dans la région en 279 av. J.-C.\n\nLa lettre de Paulos (Paul) aux Galates est la seule épître dont le début ne contient pas de témoignage d'affection. Paulos commence par justifier l'origine de son appel, en employant un ton sec et sévère. Les Galates, qu'il avait lui-même évangélisés lors de son premier voyage, s'étaient promptement détournés de l'Évangile qu'ils avaient reçu. Ils ne l'avaient pas totalement abandonné, mais y avaient ajouté ce qui ne leur avait pas été prescrit. Troublés par les enseignements des judaïsants - des Juifs ayant cru en Yéhoshoua ha Mashiah, mais persistant toujours dans la pratique de la loi - les Galates avaient repris à leur compte leurs traditions, annihilant ainsi l'œuvre de la croix. Par cette lettre, Paulos les exhorte d'une part à revenir à l'Évangile véritable et d'autre part à marcher par l'Esprit afin d'en porter le fruit.",
+  "chapters": [
+    {
+      "chapter": 1,
+      "verses": [
+        {
+          "verse": "1:1",
+          "text": "Paulos, apôtre, non de la part des humains, ni par le moyen d'un être humain, mais par le moyen de Yéhoshoua Mashiah et d'Elohîm le Père qui l'a réveillé hors des morts,",
+          "textWithNotes": "Paulos, apôtre, non de la part des humains, ni par le moyen d'un être humain, mais par le moyen de Yéhoshoua Mashiah et d'Elohîm le Père qui l'a[Vient du grec « autos » qui signifie « lui-même », « il », « le même ». Voir Ap. 1:1.] réveillé hors des morts,",
+          "notes": [
+            {
+              "word": "l'a",
+              "position": 141,
+              "note": "Vient du grec « autos » qui signifie « lui-même », « il », « le même ». Voir Ap. 1:1."
+            }
+          ]
+        },
+        {
+          "verse": "1:2",
+          "text": "et tous les frères qui sont avec moi, aux assemblées de Galatie :",
+          "textWithNotes": "et tous les frères qui sont avec moi, aux assemblées de Galatie[La Galatie, ou Gallo-Grèce, était une province de l'Asie Mineure (région de la Turquie actuelle). Au nord, elle était délimitée par la Bithynie et la Paphlagonie, à l'est par le Pont et la Cappadoce, au sud par la Cappadoce, la Lycaonie et la Phrygie, et à l'ouest par la Phrygie et la Bithynie. Son nom vient d'un peuple celte : les Galates (appelés aussi Gallogræci, « Gallo-Grecs ») qui s'étaient installés dans la région en 279 av. J.-C. Conquise par les Romains en 189 av. J.-C., elle devint une province de l'Empire en 25 av. J.-C.] :",
+          "notes": [
+            {
+              "word": "Galatie",
+              "position": 56,
+              "note": "La Galatie, ou Gallo-Grèce, était une province de l'Asie Mineure (région de la Turquie actuelle). Au nord, elle était délimitée par la Bithynie et la Paphlagonie, à l'est par le Pont et la Cappadoce, au sud par la Cappadoce, la Lycaonie et la Phrygie, et à l'ouest par la Phrygie et la Bithynie. Son nom vient d'un peuple celte : les Galates (appelés aussi Gallogræci, « Gallo-Grecs ») qui s'étaient installés dans la région en 279 av. J.-C. Conquise par les Romains en 189 av. J.-C., elle devint une province de l'Empire en 25 av. J.-C."
+            }
+          ]
+        },
+        {
+          "verse": "1:3",
+          "text": "à vous, grâce et shalôm, de la part d'Elohîm le Père et notre Seigneur Yéhoshoua Mashiah,"
+        },
+        {
+          "verse": "1:4",
+          "text": "celui qui s'est donné lui-même en faveur de nos péchés afin qu’il nous arrache hors du sein de cet âge mauvais, selon la volonté d'Elohîm et notre Père.",
+          "textWithNotes": "celui qui s'est donné lui-même en faveur de nos péchés afin qu’il nous arrache hors du sein[Mettre dans ou parmi.] de cet âge mauvais, selon la volonté d'Elohîm et notre Père.",
+          "notes": [
+            {
+              "word": "sein",
+              "position": 87,
+              "note": "Mettre dans ou parmi."
+            }
+          ]
+        },
+        {
+          "verse": "1:5",
+          "text": "À lui soit la gloire pour les âges des âges ! Amen !"
+        },
+        {
+          "verse": "1:6",
+          "text": "Je m'étonne que vous vous désertez si rapidement loin de celui qui vous a appelés par la grâce du Mashiah vers un autre évangile,"
+        },
+        {
+          "verse": "1:7",
+          "text": "qui n’est pas un autre, sinon que certains sont ceux qui vous troublent et veulent transmuter l’Évangile du Mashiah.",
+          "textWithNotes": "qui n’est pas un autre[Un autre : par exemple pas de la même nature, forme, classe, sorte, différent.], sinon que certains sont ceux qui vous troublent et veulent transmuter l’Évangile du Mashiah.",
+          "notes": [
+            {
+              "word": "autre",
+              "position": 17,
+              "note": "Un autre : par exemple pas de la même nature, forme, classe, sorte, différent."
+            }
+          ]
+        },
+        {
+          "verse": "1:8",
+          "text": "Mais même si nous, ou un ange issu du ciel vous prêche un évangile à côté de celui que nous vous avons prêché, qu'il soit anathème !",
+          "textWithNotes": "Mais même si nous, ou un ange issu du ciel vous prêche un évangile[Voir 1 R. 13:11-34.] à côté[Vient du grec « para » qui signifie : près de, en outre.] de celui que nous vous avons prêché, qu'il soit anathème !",
+          "notes": [
+            {
+              "word": "évangile",
+              "position": 58,
+              "note": "Voir 1 R. 13:11-34."
+            },
+            {
+              "word": "côté",
+              "position": 69,
+              "note": "Vient du grec « para » qui signifie : près de, en outre."
+            }
+          ]
+        },
+        {
+          "verse": "1:9",
+          "text": "Comme nous l'avons dit d'avance, et je le dis encore maintenant : si quelqu'un vous prêche un évangile à côté de celui que vous avez reçu, qu'il soit anathème !"
+        },
+        {
+          "verse": "1:10",
+          "text": "Car maintenant je persuade des humains ou l'Elohîm ? Ou je cherche à plaire aux humains ? Car si je plaisais encore aux humains, je ne serais pas un esclave du Mashiah.",
+          "textWithNotes": "Car maintenant je persuade[Le mot grec signifie aussi « persuader », « se faire un ami », « convaincre », « lutter pour plaire à quelqu'un », etc. Voir 2 Co. 5:11.] des humains ou l'Elohîm ? Ou je cherche à plaire aux humains ? Car si je plaisais encore aux humains, je ne serais pas un esclave du Mashiah.",
+          "notes": [
+            {
+              "word": "persuade",
+              "position": 18,
+              "note": "Le mot grec signifie aussi « persuader », « se faire un ami », « convaincre », « lutter pour plaire à quelqu'un », etc. Voir 2 Co. 5:11."
+            }
+          ]
+        },
+        {
+          "verse": "1:11",
+          "text": "Mais je vous fais connaître, frères, que l'Évangile qui a été prêché par moi n'est pas selon l'être humain."
+        },
+        {
+          "verse": "1:12",
+          "text": "Car, moi non plus je ne l’ai reçu de la part d'un humain, ou que j’ai été enseigné, mais par le moyen de la révélation de Yéhoshoua Mashiah."
+        },
+        {
+          "verse": "1:13",
+          "text": "Car vous avez appris ma conduite autrefois dans le judaïsme, parce que je persécutais outre mesure l'Assemblée d'Elohîm et la détruisais,"
+        },
+        {
+          "verse": "1:14",
+          "text": "et j'avançais dans le judaïsme plus que beaucoup de ceux de mon âge, dans ma race, étant plus excessivement un zélote pour les traditions de mes pères."
+        },
+        {
+          "verse": "1:15",
+          "text": "Mais quand il a plu à Elohîm qui m’ayant mis à part dès le ventre de ma mère et m’ayant appelé par sa grâce,"
+        },
+        {
+          "verse": "1:16",
+          "text": "de révéler son Fils en moi afin que je le prêche parmi les nations, immédiatement, je ne consultai pas la chair et le sang,"
+        },
+        {
+          "verse": "1:17",
+          "text": "je ne montai pas non plus à Yeroushalaim vers les apôtres avant moi, mais je partis pour l'Arabie, et je revins encore à Damas."
+        },
+        {
+          "verse": "1:18",
+          "text": "Ensuite, après trois ans, je montai à Yeroushalaim pour connaître face à face Petros et je demeurai chez lui quinze jours.",
+          "textWithNotes": "Ensuite, après trois ans, je montai à Yeroushalaim pour connaître face à face[« S'enquérir de », « examiner », « trouver », « apprendre », « faire une enquête », « acquérir de la connaissance par une visite d'une personne distinguée », « devenir intime de », « connaître face à face ». Le mot Grec « historeo » a été traduit en Français par « histoire » et désigne une enquête ou une narration sur les faits passés de l'humanité, d’un peuple, d’une personne ou d’une société.] Petros et je demeurai chez lui quinze jours.",
+          "notes": [
+            {
+              "word": "face",
+              "position": 73,
+              "note": "« S'enquérir de », « examiner », « trouver », « apprendre », « faire une enquête », « acquérir de la connaissance par une visite d'une personne distinguée », « devenir intime de », « connaître face à face ». Le mot Grec « historeo » a été traduit en Français par « histoire » et désigne une enquête ou une narration sur les faits passés de l'humanité, d’un peuple, d’une personne ou d’une société."
+            }
+          ]
+        },
+        {
+          "verse": "1:19",
+          "text": "Mais je ne vis aucun autre des apôtres, si ce n’est Yaacov, le frère du Seigneur."
+        },
+        {
+          "verse": "1:20",
+          "text": "Or ce que je vous écris, voici, en présence d'Elohîm je ne mens pas."
+        },
+        {
+          "verse": "1:21",
+          "text": "Ensuite, j'allai dans les régions de la Syrie et de la Cilicie."
+        },
+        {
+          "verse": "1:22",
+          "text": "Or j'étais inconnu de face aux assemblées de la Judée qui sont en Mashiah,"
+        },
+        {
+          "verse": "1:23",
+          "text": "mais seulement elles, en entendant : Celui qui autrefois nous persécutait, prêche maintenant la foi qu'il détruisait autrefois,"
+        },
+        {
+          "verse": "1:24",
+          "text": "et elles glorifiaient Elohîm en moi."
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "verses": [
+        {
+          "verse": "2:1",
+          "text": "Ensuite, au bout de quatorze ans, je montai de nouveau à Yeroushalaim avec Barnabas ayant pris aussi Titos.",
+          "textWithNotes": "Ensuite, au bout de quatorze ans, je montai de nouveau à Yeroushalaim[La grande assemblée de Yeroushalaim (Jérusalem). Voir Ac. 15.] avec Barnabas ayant pris aussi Titos.",
+          "notes": [
+            {
+              "word": "Yeroushalaim",
+              "position": 57,
+              "note": "La grande assemblée de Yeroushalaim (Jérusalem). Voir Ac. 15."
+            }
+          ]
+        },
+        {
+          "verse": "2:2",
+          "text": "Or je montai selon une révélation et je leur exposai l'Évangile que je prêche dans les nations, et en particulier aux réputés, de peur que je ne coure ou que j'ai couru en vain."
+        },
+        {
+          "verse": "2:3",
+          "text": "Or, pas même Titos qui était avec moi, étant grec, n'a été contraint de se faire circoncire."
+        },
+        {
+          "verse": "2:4",
+          "text": "Mais à cause des intrus, des faux frères qui se sont introduits secrètement pour épier la liberté que nous avons en Mashiah Yéhoshoua, afin qu'ils nous réduisent en esclavage,",
+          "textWithNotes": "Mais à cause des intrus[Apporté dedans secrètement ou clandestinement, qui s'est faufilé ou glissé dans.], des faux frères qui se sont introduits secrètement pour épier la liberté que nous avons en Mashiah Yéhoshoua, afin qu'ils nous réduisent en esclavage[Voir 2 Co. 11:20 ; Ro. 8:15.],",
+          "notes": [
+            {
+              "word": "intrus",
+              "position": 17,
+              "note": "Apporté dedans secrètement ou clandestinement, qui s'est faufilé ou glissé dans."
+            },
+            {
+              "word": "esclavage",
+              "position": 165,
+              "note": "Voir 2 Co. 11:20 ; Ro. 8:15."
+            }
+          ]
+        },
+        {
+          "verse": "2:5",
+          "text": "auxquels nous n’avons pas cédé par soumission, non, pas même pour une heure, afin que la vérité de l'Évangile soit restée d'une façon permanente parmi vous."
+        },
+        {
+          "verse": "2:6",
+          "text": "Or, de ceux qui sont réputés, être quelqu'un, ce qu'ils étaient autrefois m'importe peu, Elohîm ne reçoit pas la face d’un humain, car ceux qui sont réputés ne me communiquèrent rien.",
+          "textWithNotes": "Or, de ceux qui sont réputés, être quelqu'un, ce qu'ils étaient autrefois m'importe peu, Elohîm ne reçoit[Ne fait pas acception de personnes.] pas la face d’un humain, car ceux qui sont réputés ne me communiquèrent rien.",
+          "notes": [
+            {
+              "word": "reçoit",
+              "position": 99,
+              "note": "Ne fait pas acception de personnes."
+            }
+          ]
+        },
+        {
+          "verse": "2:7",
+          "text": "Mais au contraire, voyant que l'Évangile de l'incirconcision m'a été confié, comme à Petros de la circoncision,"
+        },
+        {
+          "verse": "2:8",
+          "text": "car celui qui a agi puissamment en Petros pour l’apostolat de la circoncision, a aussi agi puissamment en moi pour les nations."
+        },
+        {
+          "verse": "2:9",
+          "text": "Et ayant reconnu la grâce qui m’a été donnée, Yaacov, et Kephas et Yohanan, qui sont réputés être des colonnes, me donnèrent, à moi et à Barnabas, les mains droites d'association, afin que nous allions, nous vers les nations, et eux vers la circoncision."
+        },
+        {
+          "verse": "2:10",
+          "text": "Seulement, que nous nous souvenions des pauvres, ce que moi-même aussi je me suis empressé de faire cela.",
+          "textWithNotes": "Seulement, que nous nous souvenions[Être conscient de, se rappeler, appeler à l'esprit, penser à et ressentir pour une personne ou une chose, faire mention de.] des pauvres, ce que moi-même aussi je me suis empressé de faire cela.",
+          "notes": [
+            {
+              "word": "souvenions",
+              "position": 25,
+              "note": "Être conscient de, se rappeler, appeler à l'esprit, penser à et ressentir pour une personne ou une chose, faire mention de."
+            }
+          ]
+        },
+        {
+          "verse": "2:11",
+          "text": "Mais quand Petros vint à Antioche, je lui résistai en face parce qu’il était condamné.",
+          "textWithNotes": "Mais quand Petros vint à Antioche, je lui résistai en face parce qu’il était condamné[« Trouver une faute », « blâmer », « accuser », « condamner ».].",
+          "notes": [
+            {
+              "word": "condamné",
+              "position": 77,
+              "note": "« Trouver une faute », « blâmer », « accuser », « condamner »."
+            }
+          ]
+        },
+        {
+          "verse": "2:12",
+          "text": "Car, avant la venue de quelques personnes de la part de Yaacov, il mangeait avec les nations, mais quand elles vinrent, il se cachait et se séparait lui-même, craignant ceux issus de la circoncision."
+        },
+        {
+          "verse": "2:13",
+          "text": "Et les autres Juifs aussi agirent d'une manière hypocrite avec lui, de sorte que Barnabas même fut emporté par leur hypocrisie.",
+          "textWithNotes": "Et les autres Juifs aussi agirent d'une manière hypocrite avec lui, de sorte que Barnabas même fut emporté par leur hypocrisie[Le rôle d'un joueur de théâtre.].",
+          "notes": [
+            {
+              "word": "hypocrisie",
+              "position": 116,
+              "note": "Le rôle d'un joueur de théâtre."
+            }
+          ]
+        },
+        {
+          "verse": "2:14",
+          "text": "Mais, quand je vis qu'ils ne marchent pas dans le droit chemin selon la vérité de l'Évangile, je dis à Petros, devant tous : Si toi qui es Juif, tu vis à la manière des nations et non à la manière des Juifs, pourquoi contrains-tu les nations à judaïser ?"
+        },
+        {
+          "verse": "2:15",
+          "text": "Nous, juifs de nature, et non pas pécheurs issus des nations,"
+        },
+        {
+          "verse": "2:16",
+          "text": "sachant que l'être humain n'est pas justifié à partir des œuvres de la torah, mais par le moyen de la foi en Yéhoshoua Mashiah, nous aussi nous avons cru en Yéhoshoua Mashiah, afin que nous soyons justifiés à partir de la foi en Mashiah et non pas à partir des œuvres de la torah, parce qu'aucune chair ne sera justifiée à partir des œuvres de la torah.",
+          "textWithNotes": "sachant que l'être humain n'est pas justifié à partir des œuvres de la torah, mais par le moyen de la foi en Yéhoshoua Mashiah[La justification. Voir Ro. 5:1.], nous aussi nous avons cru en Yéhoshoua Mashiah, afin que nous soyons justifiés à partir de la foi en Mashiah et non pas à partir des œuvres de la torah, parce qu'aucune chair ne sera justifiée à partir des œuvres de la torah.",
+          "notes": [
+            {
+              "word": "Mashiah",
+              "position": 119,
+              "note": "La justification. Voir Ro. 5:1."
+            }
+          ]
+        },
+        {
+          "verse": "2:17",
+          "text": "Or si en cherchant à être justifiés en Mashiah, nous sommes aussi trouvés pécheurs, alors Mashiah est-il serviteur du péché ? Que cela n'arrive jamais !"
+        },
+        {
+          "verse": "2:18",
+          "text": "Car si je rebâtis les choses que j'ai renversées, je montre que je suis moi-même un transgresseur."
+        },
+        {
+          "verse": "2:19",
+          "text": "Car moi, c'est au moyen de la torah que je suis mort à la torah, afin de vivre pour Elohîm."
+        },
+        {
+          "verse": "2:20",
+          "text": "J’ai été crucifié avec Mashiah. Or si je vis, ce n'est plus moi qui vis, mais c'est Mashiah qui vit en moi. Si je vis maintenant dans la chair, je vis dans la foi au Fils d'Elohîm qui m'ayant aimé et s'étant livré lui-même en ma faveur."
+        },
+        {
+          "verse": "2:21",
+          "text": "Je n'annule pas la grâce d'Elohîm, car si la justice est par le moyen de la torah, Mashiah est donc mort gratuitement."
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "verses": [
+        {
+          "verse": "3:1",
+          "text": "Ô Galates inintelligents ! Qui vous a ensorcelés pour ne plus obéir à la vérité, vous, aux yeux de qui Yéhoshoua Mashiah a été ouvertement dépeint crucifié au milieu de vous ?",
+          "textWithNotes": "Ô Galates inintelligents[Lu. 24:25.] ! Qui vous a ensorcelés[Charmer, ensorceler, jeter un sort.] pour ne plus obéir[Persuader, c'est-à-dire amener quelqu'un à croire par les mots, inciter ou amener quelqu'un à faire quelque chose.] à la vérité, vous, aux yeux de qui Yéhoshoua Mashiah a été ouvertement dépeint crucifié au milieu de vous ?",
+          "notes": [
+            {
+              "word": "inintelligents",
+              "position": 10,
+              "note": "Lu. 24:25."
+            },
+            {
+              "word": "ensorcelés",
+              "position": 38,
+              "note": "Charmer, ensorceler, jeter un sort."
+            },
+            {
+              "word": "obéir",
+              "position": 62,
+              "note": "Persuader, c'est-à-dire amener quelqu'un à croire par les mots, inciter ou amener quelqu'un à faire quelque chose."
+            }
+          ]
+        },
+        {
+          "verse": "3:2",
+          "text": "Je veux seulement apprendre ceci de vous : Avez-vous reçu l'Esprit à partir des œuvres de la torah ou à partir de l’écoute de la foi ?"
+        },
+        {
+          "verse": "3:3",
+          "text": "Êtes-vous ainsi inintelligents ? Ayant commencé par l'Esprit, vous finissez maintenant par la chair !"
+        },
+        {
+          "verse": "3:4",
+          "text": "Avez-vous souffert tant de choses en vain ? Si toutefois c'est en vain."
+        },
+        {
+          "verse": "3:5",
+          "text": "Celui donc qui vous fournit l'Esprit et qui opère des miracles en vous, est-ce à partir des œuvres de la torah ou à partir de l’écoute de la foi ?"
+        },
+        {
+          "verse": "3:6",
+          "text": "Comme Abraham crut à Elohîm, et cela lui fut compté comme justice,",
+          "textWithNotes": "Comme Abraham crut à Elohîm, et cela lui fut compté comme justice[Voir Ge. 15:6.],",
+          "notes": [
+            {
+              "word": "justice",
+              "position": 58,
+              "note": "Voir Ge. 15:6."
+            }
+          ]
+        },
+        {
+          "verse": "3:7",
+          "text": "sachez donc que ceux issus de la foi, ceux-là sont fils d’Abraham."
+        },
+        {
+          "verse": "3:8",
+          "text": "Mais l'Écriture, prévoyant qu'à partir de la foi Elohîm justifie les nations, a prêché d'avance l'Évangile à Abraham en lui disant : Toutes les nations seront bénies en toi.",
+          "textWithNotes": "Mais l'Écriture, prévoyant qu'à partir de la foi Elohîm justifie les nations, a prêché d'avance l'Évangile à Abraham en lui disant : Toutes les nations seront bénies en toi[Ge. 12:3.].",
+          "notes": [
+            {
+              "word": "toi",
+              "position": 169,
+              "note": "Ge. 12:3."
+            }
+          ]
+        },
+        {
+          "verse": "3:9",
+          "text": "C'est pourquoi ceux issus de la foi sont bénis avec Abraham le croyant."
+        },
+        {
+          "verse": "3:10",
+          "text": "Car tous ceux qui sont issus des œuvres de la torah sont sous la malédiction, car il est écrit : Maudit est quiconque ne persévère pas dans toutes les choses qui sont écrites dans le livre de la torah pour les faire.",
+          "textWithNotes": "Car tous ceux qui sont issus des œuvres de la torah sont sous la malédiction, car il est écrit : Maudit est quiconque ne persévère pas dans toutes les choses qui sont écrites dans le livre de la torah pour les faire[De. 27:26.].",
+          "notes": [
+            {
+              "word": "faire",
+              "position": 210,
+              "note": "De. 27:26."
+            }
+          ]
+        },
+        {
+          "verse": "3:11",
+          "text": "Et parce que dans la torah personne n'est justifié devant Elohîm, cela est évident, parce que : le juste vivra à partir de la foi.",
+          "textWithNotes": "Et parce que dans la torah personne n'est justifié devant Elohîm, cela est évident, parce que : le juste vivra à partir de la foi[Ha. 2:4 ; Ro. 1:17.].",
+          "notes": [
+            {
+              "word": "foi",
+              "position": 126,
+              "note": "Ha. 2:4 ; Ro. 1:17."
+            }
+          ]
+        },
+        {
+          "verse": "3:12",
+          "text": "Or la torah n’est pas à partir de la foi, mais : L'être humain qui mettra ces choses en pratique vivra en elles.",
+          "textWithNotes": "Or la torah n’est pas à partir de la foi, mais : L'être humain qui mettra ces choses en pratique vivra en elles[Lé. 18:5.].",
+          "notes": [
+            {
+              "word": "elles",
+              "position": 106,
+              "note": "Lé. 18:5."
+            }
+          ]
+        },
+        {
+          "verse": "3:13",
+          "text": "Mashiah nous a rachetés loin de la malédiction de la torah, étant devenu malédiction en notre faveur, car il est écrit : Maudit, quiconque est pendu au bois -",
+          "textWithNotes": "Mashiah nous a rachetés loin de la malédiction de la torah, étant devenu malédiction en notre faveur, car il est écrit : Maudit, quiconque est pendu au bois[De. 21:23.] -",
+          "notes": [
+            {
+              "word": "bois",
+              "position": 152,
+              "note": "De. 21:23."
+            }
+          ]
+        },
+        {
+          "verse": "3:14",
+          "text": "afin que la bénédiction d'Abraham advienne pour les nations en Mashiah Yéhoshoua, afin que nous recevions par le moyen de la foi l'Esprit de la promesse."
+        },
+        {
+          "verse": "3:15",
+          "text": "Frères, je parle selon l'humain. Néanmoins, un testament confirmé publiquement par un humain, personne ne l'annule ou n'ajoute quelque chose à ce qui a été ordonné."
+        },
+        {
+          "verse": "3:16",
+          "text": "Or les promesses ont été faites à Abraham et à sa semence. Il ne dit pas : « Et aux semences », comme de beaucoup, mais comme d'une seule : « et à ta semence », qui est le Mashiah.",
+          "textWithNotes": "Or les promesses ont été faites à Abraham et à sa semence[Ge. 15:5, 22:18.]. Il ne dit pas : « Et aux semences », comme de beaucoup, mais comme d'une seule : « et à ta semence », qui est le Mashiah.",
+          "notes": [
+            {
+              "word": "semence",
+              "position": 50,
+              "note": "Ge. 15:5, 22:18."
+            }
+          ]
+        },
+        {
+          "verse": "3:17",
+          "text": "Or je dis ceci : un testament ayant été établi d'avance par Elohîm en Mashiah, la torah, advenue 430 ans après, ne l’annule pas de manière à abolir la promesse.",
+          "textWithNotes": "Or je dis ceci : un testament ayant été établi d'avance[Sanctionner, ratifier, ou établir à l'avance.] par Elohîm en Mashiah, la torah, advenue 430 ans après, ne l’annule[Rendre nul, priver de force et d'autorité.] pas de manière à abolir la promesse.",
+          "notes": [
+            {
+              "word": "d'avance",
+              "position": 47,
+              "note": "Sanctionner, ratifier, ou établir à l'avance."
+            },
+            {
+              "word": "l’annule",
+              "position": 115,
+              "note": "Rendre nul, priver de force et d'autorité."
+            }
+          ]
+        },
+        {
+          "verse": "3:18",
+          "text": "Car si l'héritage est à partir de la torah, il n’est plus à partir de la promesse. Or Elohîm l'a donné gracieusement à Abraham par le moyen de la promesse."
+        },
+        {
+          "verse": "3:19",
+          "text": "Alors pourquoi la torah ? Elle a été ajoutée à cause des transgressions, jusqu'à ce que vienne la semence à qui la promesse avait été faite. Et elle a été prescrite par le moyen des anges et par l'entremise d'un médiateur.",
+          "textWithNotes": "Alors pourquoi la torah ? Elle a été ajoutée à cause des transgressions, jusqu'à ce que vienne la semence à qui la promesse avait été faite. Et elle a été prescrite[Le mot grec signifie aussi « arranger », « nommer », « ordonner », « donner un ordre ». Mot associé « promulguer ».] par le moyen des anges et par l'entremise d'un médiateur.",
+          "notes": [
+            {
+              "word": "prescrite",
+              "position": 155,
+              "note": "Le mot grec signifie aussi « arranger », « nommer », « ordonner », « donner un ordre ». Mot associé « promulguer »."
+            }
+          ]
+        },
+        {
+          "verse": "3:20",
+          "text": "Or le médiateur n'est pas d'un seul, mais Elohîm est un.",
+          "textWithNotes": "Or le médiateur n'est pas d'un seul, mais Elohîm est un[Za. 14:9 ; Mc. 12:29 ; Ja. 2:19 ; 1 Ti. 2:5.].",
+          "notes": [
+            {
+              "word": "un",
+              "position": 53,
+              "note": "Za. 14:9 ; Mc. 12:29 ; Ja. 2:19 ; 1 Ti. 2:5."
+            }
+          ]
+        },
+        {
+          "verse": "3:21",
+          "text": "La torah est-elle donc contre des promesses d'Elohîm ? Que cela n’arrive pas ! Car si une torah à été donnée pouvant donner vie, la justice serait vraiment à partir de la torah."
+        },
+        {
+          "verse": "3:22",
+          "text": "Mais l'Écriture a enfermé ensemble toutes les choses sous le péché, afin que la promesse à partir de la foi de Yéhoshoua Mashiah soit donnée aux croyants."
+        },
+        {
+          "verse": "3:23",
+          "text": "Or avant que la foi vienne, nous étions gardés sous la torah, ayant été enfermés ensemble, en vue de la foi qui est sur le point d'être révélée.",
+          "textWithNotes": "Or avant que la foi vienne, nous étions gardés[« Garder, protéger par une garde militaire, que ce soit pour prévenir une invasion hostile ou pour empêcher les gens de s'enfuir d'une ville assiégée ».] sous la torah, ayant été enfermés ensemble, en vue de la foi qui est sur le point d'être révélée.",
+          "notes": [
+            {
+              "word": "gardés",
+              "position": 40,
+              "note": "« Garder, protéger par une garde militaire, que ce soit pour prévenir une invasion hostile ou pour empêcher les gens de s'enfuir d'une ville assiégée »."
+            }
+          ]
+        },
+        {
+          "verse": "3:24",
+          "text": "Ainsi la torah est devenue notre pédagogue en Mashiah, afin qu'à partir de la foi nous soyons justifiés.",
+          "textWithNotes": "Ainsi la torah est devenue notre pédagogue[Le mot « pédagogue » du grec « paidagogos » : « celui qui dirige un garçon ». Un pédagogue était un tuteur, un gardien et un guide de garçons. Parmi les Grecs et les Romains, le mot était appliqué aux esclaves dignes de confiance qui étaient chargés de veiller à la vie et à la moralité des garçons appartenant aux classes supérieures. Les garçons ne pouvaient faire le moindre pas hors de la maison sans ces tuteurs tant qu'ils n'avaient pas atteint leur majorité.] en Mashiah, afin qu'à partir de la foi nous soyons justifiés.",
+          "notes": [
+            {
+              "word": "pédagogue",
+              "position": 33,
+              "note": "Le mot « pédagogue » du grec « paidagogos » : « celui qui dirige un garçon ». Un pédagogue était un tuteur, un gardien et un guide de garçons. Parmi les Grecs et les Romains, le mot était appliqué aux esclaves dignes de confiance qui étaient chargés de veiller à la vie et à la moralité des garçons appartenant aux classes supérieures. Les garçons ne pouvaient faire le moindre pas hors de la maison sans ces tuteurs tant qu'ils n'avaient pas atteint leur majorité."
+            }
+          ]
+        },
+        {
+          "verse": "3:25",
+          "text": "Mais la foi étant venue, nous ne sommes plus sous un pédagogue."
+        },
+        {
+          "verse": "3:26",
+          "text": "Car vous êtes tous fils d'Elohîm par le moyen de la foi en Mashiah Yéhoshoua,"
+        },
+        {
+          "verse": "3:27",
+          "text": "car vous tous qui avez été baptisés en Mashiah, vous avez revêtu Mashiah."
+        },
+        {
+          "verse": "3:28",
+          "text": "Il n’y a plus ni Juif ni Grec ; il n’y a plus ni esclave ni libre ; il n’y a plus de mâle et de femelle, car tous vous êtes un en Mashiah Yéhoshoua.",
+          "textWithNotes": "Il n’y a plus ni Juif ni Grec ; il n’y a plus ni esclave ni libre ; il n’y a plus de mâle et de femelle, car tous vous êtes un en Mashiah Yéhoshoua[Ro. 10:12 ; Col. 3:11.].",
+          "notes": [
+            {
+              "word": "Yéhoshoua",
+              "position": 138,
+              "note": "Ro. 10:12 ; Col. 3:11."
+            }
+          ]
+        },
+        {
+          "verse": "3:29",
+          "text": "Mais si vous êtes du Mashiah, vous êtes donc la semence d'Abraham et héritiers selon la promesse."
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "verses": [
+        {
+          "verse": "4:1",
+          "text": "Mais je dis : Aussi longtemps que l'héritier est enfant, il ne diffère en rien d'un esclave, étant le seigneur de tous.",
+          "textWithNotes": "Mais je dis : Aussi longtemps que l'héritier est enfant[« Enfant », du grec « nepios », signifie aussi « ignorant ».], il ne diffère en rien d'un esclave, étant le seigneur de tous.",
+          "notes": [
+            {
+              "word": "enfant",
+              "position": 49,
+              "note": "« Enfant », du grec « nepios », signifie aussi « ignorant »."
+            }
+          ]
+        },
+        {
+          "verse": "4:2",
+          "text": "Mais il est sous des tuteurs et des gestionnaires jusqu'au temps fixé à l'avance du Père."
+        },
+        {
+          "verse": "4:3",
+          "text": "Ainsi, nous aussi, quand nous étions enfants, nous étions sous les rudiments du monde, ayant été réduits à l'esclavage."
+        },
+        {
+          "verse": "4:4",
+          "text": "Mais quand la plénitude du temps est venue, l'Elohîm a envoyé son Fils, étant advenu à partir d'une femme, étant advenu sous la torah,",
+          "textWithNotes": "Mais quand la plénitude[Vient du grec « pleroma » qui signifie « ce qui est ( a été) rempli ». Les choses dont un bateau est rempli : fret et marchandise, marins, rameurs et soldats.] du temps est venue, l'Elohîm a envoyé son Fils, étant advenu à partir d'une femme, étant advenu sous la torah,",
+          "notes": [
+            {
+              "word": "plénitude",
+              "position": 14,
+              "note": "Vient du grec « pleroma » qui signifie « ce qui est ( a été) rempli ». Les choses dont un bateau est rempli : fret et marchandise, marins, rameurs et soldats."
+            }
+          ]
+        },
+        {
+          "verse": "4:5",
+          "text": "afin qu'il rachète ceux qui étaient sous la torah, afin que nous recevions l'adoption."
+        },
+        {
+          "verse": "4:6",
+          "text": "Mais parce que vous êtes fils, Elohîm a envoyé l'Esprit de son Fils dans vos cœurs, criant : Abba ! Père !"
+        },
+        {
+          "verse": "4:7",
+          "text": "Maintenant donc tu n'es plus esclave, mais fils. Or si tu es fils, tu es aussi héritier d'Elohîm par le moyen du Mashiah."
+        },
+        {
+          "verse": "4:8",
+          "text": "Mais alors, ne connaissant pas Elohîm en effet, vous étiez esclaves de ceux qui, par leur nature, n'étant pas elohîm."
+        },
+        {
+          "verse": "4:9",
+          "text": "Mais maintenant ayant connu Elohîm, ou plutôt ayant été connus d'Elohîm, comment retournez-vous de nouveau à ces faibles et pauvres rudiments, auxquels vous voulez de nouveau servir depuis le début ?"
+        },
+        {
+          "verse": "4:10",
+          "text": "Vous observez attentivement les jours, et les mois, et les temps, et les années."
+        },
+        {
+          "verse": "4:11",
+          "text": "Je crains pour vous que peut-être je n’aie travaillé en vain pour vous."
+        },
+        {
+          "verse": "4:12",
+          "text": "Devenez comme moi, puisque moi aussi je suis comme vous, frères, je vous en supplie. Vous ne m'avez fait aucun tort."
+        },
+        {
+          "verse": "4:13",
+          "text": "Mais vous savez que c'est à cause d'une infirmité de la chair que je vous évangélisai la première fois.",
+          "textWithNotes": "Mais vous savez que c'est à cause d'une infirmité de la chair[Les Écritures ne donnent pas de précisions au sujet de l'infirmité de la chair dont souffrait Paulos (Paul). On suppose toutefois qu'il avait un handicap au niveau de ses yeux. Quatre arguments viennent renforcer cette hypothèse. Tout d'abord, l'allusion de Paulos aux Galates qui étaient prêts à « s'arracher les yeux » pour les lui donner (Ga. 4:15) et le fait qu'il ait lui-même écrit cette épître avec de « grandes lettres » (Ga. 6:11). Ensuite, lors de sa comparution devant le sanhédrin à Yeroushalaim (Jérusalem), Paulos n'a pas reconnu le grand-prêtre pourtant facilement identifiable par sa tenue vestimentaire (Ac. 23:5). Enfin, l'apôtre avait l'habitude de dicter ses lettres, ce qui constitue un argument majeur. L'épître aux Galates était une exception parce qu'il n'avait sans doute pas de scribe à disposition.] que je vous évangélisai la première fois.",
+          "notes": [
+            {
+              "word": "chair",
+              "position": 56,
+              "note": "Les Écritures ne donnent pas de précisions au sujet de l'infirmité de la chair dont souffrait Paulos (Paul). On suppose toutefois qu'il avait un handicap au niveau de ses yeux. Quatre arguments viennent renforcer cette hypothèse. Tout d'abord, l'allusion de Paulos aux Galates qui étaient prêts à « s'arracher les yeux » pour les lui donner (Ga. 4:15) et le fait qu'il ait lui-même écrit cette épître avec de « grandes lettres » (Ga. 6:11). Ensuite, lors de sa comparution devant le sanhédrin à Yeroushalaim (Jérusalem), Paulos n'a pas reconnu le grand-prêtre pourtant facilement identifiable par sa tenue vestimentaire (Ac. 23:5). Enfin, l'apôtre avait l'habitude de dicter ses lettres, ce qui constitue un argument majeur. L'épître aux Galates était une exception parce qu'il n'avait sans doute pas de scribe à disposition."
+            }
+          ]
+        },
+        {
+          "verse": "4:14",
+          "text": "Et ma tentation, dans ma chair, vous ne l'avez ni méprisé complètement, ni rejeté. Mais comme un ange d'Elohîm vous m'avez reçu, comme Mashiah Yéhoshoua."
+        },
+        {
+          "verse": "4:15",
+          "text": "Quelle était donc votre déclaration de bénédiction ? Car je vous rends témoignage que, s’il eût été possible, ayant arraché vos yeux, vous me les auriez donnés."
+        },
+        {
+          "verse": "4:16",
+          "text": "Suis-je donc devenu votre ennemi en vous disant la vérité ?"
+        },
+        {
+          "verse": "4:17",
+          "text": "Ils sont zélés pour vous, mais pas convenablement ; ils veulent empêcher l'approche de quelqu'un afin que vous soyez zélés pour eux."
+        },
+        {
+          "verse": "4:18",
+          "text": "Mais il est bon d'être toujours zélé pour ce qui est bon, et non pas seulement pendant je suis présent parmi vous."
+        },
+        {
+          "verse": "4:19",
+          "text": "Mes petits enfants, pour qui je ressens de nouveau les douleurs de l'enfantement, jusqu'à ce que Mashiah soit formé en vous,"
+        },
+        {
+          "verse": "4:20",
+          "text": "mais je voudrais être maintenant près de vous et changer mon langage, parce que je suis perplexe à votre sujet.",
+          "textWithNotes": "mais je voudrais être maintenant près de vous et changer mon langage, parce que je suis perplexe[Voir 2 Co. 4:8.] à votre sujet.",
+          "notes": [
+            {
+              "word": "perplexe",
+              "position": 88,
+              "note": "Voir 2 Co. 4:8."
+            }
+          ]
+        },
+        {
+          "verse": "4:21",
+          "text": "Dites-moi, vous qui voulez être sous la torah, n’entendez-vous pas la torah ?"
+        },
+        {
+          "verse": "4:22",
+          "text": "Car il est écrit qu'Abraham eut deux fils, un issu de la servante, et un issu de la libre."
+        },
+        {
+          "verse": "4:23",
+          "text": "Mais celui issu de la servante fut engendré en effet selon la chair, et celui issu de la libre au moyen de la promesse."
+        },
+        {
+          "verse": "4:24",
+          "text": "Ces choses sont allégoriques, car ce sont les deux alliances. En effet, l'une du Mont Sinaï, engendrant pour l'esclavage, c'est Agar."
+        },
+        {
+          "verse": "4:25",
+          "text": "Car Agar est la montagne de Sinaï en Arabie, et correspondant à la Yeroushalaim d'à présent. Or elle est esclave avec ses enfants."
+        },
+        {
+          "verse": "4:26",
+          "text": "Mais la Yeroushalaim d'en haut est libre, elle est la mère de nous tous."
+        },
+        {
+          "verse": "4:27",
+          "text": "Car il a été écrit : Réjouis-toi, stérile, toi qui n'enfantes pas ! Éclate et pousse des cris, toi qui ne ressens pas les douleurs de l'enfantement, parce qu’il y a beaucoup plus d’enfants de la délaissée que de celle ayant un époux.",
+          "textWithNotes": "Car il a été écrit[Es. 54:1.] : Réjouis-toi, stérile, toi qui n'enfantes pas ! Éclate et pousse des cris, toi qui ne ressens pas les douleurs de l'enfantement, parce qu’il y a beaucoup plus d’enfants de la délaissée que de celle ayant un époux.",
+          "notes": [
+            {
+              "word": "écrit",
+              "position": 13,
+              "note": "Es. 54:1."
+            }
+          ]
+        },
+        {
+          "verse": "4:28",
+          "text": "Or pour nous, frères, selon Yitzhak, nous sommes enfants de la promesse."
+        },
+        {
+          "verse": "4:29",
+          "text": "Mais de même qu’alors celui ayant été engendré selon la chair persécutait celui selon l'Esprit, il en est de même maintenant."
+        },
+        {
+          "verse": "4:30",
+          "text": "Mais que dit l'Écriture ? Chasse la servante et son fils, car le fils de la servante n'héritera pas avec le fils de la libre.",
+          "textWithNotes": "Mais que dit l'Écriture ? Chasse la servante et son fils, car le fils de la servante n'héritera pas avec le fils de la libre[Ge. 21:10.].",
+          "notes": [
+            {
+              "word": "libre",
+              "position": 119,
+              "note": "Ge. 21:10."
+            }
+          ]
+        },
+        {
+          "verse": "4:31",
+          "text": "C'est pourquoi, frères, nous ne sommes pas enfants de la servante, mais de la libre."
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "verses": [
+        {
+          "verse": "5:1",
+          "text": "C'est pour la liberté que Mashiah nous a rendus libres. Demeurez donc fermes, et ne soyez pas de nouveau retenus sous un joug de l'esclavage.",
+          "textWithNotes": "C'est pour la liberté que Mashiah nous a rendus libres[Voir Jn. 8:32,36 ; Ro. 6:18,22, 8:2,21.]. Demeurez donc fermes, et ne soyez pas de nouveau retenus sous un joug de l'esclavage.",
+          "notes": [
+            {
+              "word": "libres",
+              "position": 48,
+              "note": "Voir Jn. 8:32,36 ; Ro. 6:18,22, 8:2,21."
+            }
+          ]
+        },
+        {
+          "verse": "5:2",
+          "text": "Voici, moi, Paulos, je vous dis que si vous êtes circoncis, Mashiah ne vous servira à rien."
+        },
+        {
+          "verse": "5:3",
+          "text": "Et je déclare solennellement encore une fois à tout humain étant circoncis qu'il est obligé de pratiquer la torah tout entière."
+        },
+        {
+          "verse": "5:4",
+          "text": "Vous êtes séparés loin du Mashiah, vous tous qui êtes justifiés par la torah, vous êtes déchus de la grâce.",
+          "textWithNotes": "Vous êtes séparés loin du Mashiah, vous tous qui êtes justifiés par la torah, vous êtes déchus[Tomber, chuter, échouer, déchoir d'un endroit duquel on ne peut pas se maintenir, tomber depuis une position, perdre le pouvoir, tomber à terre, être sans effet, de la promesse divine du salut.] de la grâce.",
+          "notes": [
+            {
+              "word": "déchus",
+              "position": 88,
+              "note": "Tomber, chuter, échouer, déchoir d'un endroit duquel on ne peut pas se maintenir, tomber depuis une position, perdre le pouvoir, tomber à terre, être sans effet, de la promesse divine du salut."
+            }
+          ]
+        },
+        {
+          "verse": "5:5",
+          "text": "Car nous, par l'Esprit, à partir de la foi, nous attendons assidûment et patiemment l'espérance de la justice."
+        },
+        {
+          "verse": "5:6",
+          "text": "Car, en Mashiah Yéhoshoua, ce n'est ni la circoncision qui a une quelconque force, ni le prépuce, mais la foi qui opère par le moyen de l'amour.",
+          "textWithNotes": "Car, en Mashiah Yéhoshoua, ce n'est ni la circoncision qui a une quelconque force, ni le prépuce[Voir le commentaire en 1 Co. 7:18.], mais la foi qui opère par le moyen de l'amour.",
+          "notes": [
+            {
+              "word": "prépuce",
+              "position": 89,
+              "note": "Voir le commentaire en 1 Co. 7:18."
+            }
+          ]
+        },
+        {
+          "verse": "5:7",
+          "text": "Vous couriez bien. Qui vous a arrêtés pour ne plus être persuadés par la vérité ?",
+          "textWithNotes": "Vous couriez bien. Qui vous a arrêtés pour ne plus être persuadés[Vient du grec « peitho ». Voir Mt. 27:20 ; Hé. 13:17, etc.] par la vérité ?",
+          "notes": [
+            {
+              "word": "persuadés",
+              "position": 56,
+              "note": "Vient du grec « peitho ». Voir Mt. 27:20 ; Hé. 13:17, etc."
+            }
+          ]
+        },
+        {
+          "verse": "5:8",
+          "text": "La persuasion trompeuse n'est pas issue de celui qui vous appelle."
+        },
+        {
+          "verse": "5:9",
+          "text": "Un peu de levain fait lever toute la pâte.",
+          "textWithNotes": "Un peu de levain fait lever toute la pâte[1 Co. 5:6.].",
+          "notes": [
+            {
+              "word": "pâte",
+              "position": 37,
+              "note": "1 Co. 5:6."
+            }
+          ]
+        },
+        {
+          "verse": "5:10",
+          "text": "Moi, je suis persuadé pour vous dans le Seigneur que vous n'aurez pas d'autre pensée. Mais celui qui vous trouble, quel qu'il soit, en portera la condamnation."
+        },
+        {
+          "verse": "5:11",
+          "text": "Mais moi, frères, si je prêche encore la circoncision, pourquoi suis-je encore persécuté ? Le scandale de la croix est donc aboli."
+        },
+        {
+          "verse": "5:12",
+          "text": "Si seulement aussi ceux qui vous agitent étaient retranchés !",
+          "textWithNotes": "Si seulement aussi ceux qui vous agitent[Renverser, déranger, les esprits en propageant des erreurs religieuses.] étaient retranchés !",
+          "notes": [
+            {
+              "word": "agitent",
+              "position": 33,
+              "note": "Renverser, déranger, les esprits en propageant des erreurs religieuses."
+            }
+          ]
+        },
+        {
+          "verse": "5:13",
+          "text": "Car vous, frères, vous avez été appelés à la liberté. Seulement, que cette liberté ne soit pas une occasion pour la chair. Mais, par le moyen de l'amour, soyez esclaves les uns des autres."
+        },
+        {
+          "verse": "5:14",
+          "text": "Car toute la torah est accomplie en une seule parole, en celle-ci : Tu aimeras ton prochain comme toi-même.",
+          "textWithNotes": "Car toute la torah est accomplie en une seule parole, en celle-ci : Tu aimeras ton prochain comme toi-même[Lé. 19:18 ; Mt. 22:39 ; Ga. 5:14 ; Ro. 13:9.].",
+          "notes": [
+            {
+              "word": "toi-même",
+              "position": 98,
+              "note": "Lé. 19:18 ; Mt. 22:39 ; Ga. 5:14 ; Ro. 13:9."
+            }
+          ]
+        },
+        {
+          "verse": "5:15",
+          "text": "Mais si vous vous mordez et vous vous dévorez les uns les autres, regardez, que vous ne soyez détruits les uns par les autres."
+        },
+        {
+          "verse": "5:16",
+          "text": "Mais je dis : Marchez selon l'Esprit et vous n'accomplirez jamais le désir de la chair."
+        },
+        {
+          "verse": "5:17",
+          "text": "Car la chair désire le contraire de l'Esprit et l'Esprit le contraire de la chair, et ces choses sont opposées l'une à l'autre, afin que vous ne fassiez pas les choses que vous voudriez."
+        },
+        {
+          "verse": "5:18",
+          "text": "Or si vous êtes conduits par l'Esprit, vous n'êtes pas sous la torah."
+        },
+        {
+          "verse": "5:19",
+          "text": "Mais les œuvres de la chair sont évidentes : ce sont : adultère, relation sexuelle illicite, impureté, luxure sans bride,"
+        },
+        {
+          "verse": "5:20",
+          "text": "idolâtrie, sorcellerie, inimitiés, querelles, jalousies, animosités, esprits partisans, divisions, sectes,",
+          "textWithNotes": "idolâtrie, sorcellerie[La sorcellerie : du grec « pharmakeia » : « usage ou administration de drogues », « empoisonnement », « sorcellerie », « arts magiques », souvent trouvés en liaison avec l'idolâtrie et nourrie par celle-ci.], inimitiés, querelles, jalousies, animosités, esprits partisans[Voir Ph. 2:3.], divisions, sectes,",
+          "notes": [
+            {
+              "word": "sorcellerie",
+              "position": 11,
+              "note": "La sorcellerie : du grec « pharmakeia » : « usage ou administration de drogues », « empoisonnement », « sorcellerie », « arts magiques », souvent trouvés en liaison avec l'idolâtrie et nourrie par celle-ci."
+            },
+            {
+              "word": "partisans",
+              "position": 77,
+              "note": "Voir Ph. 2:3."
+            }
+          ]
+        },
+        {
+          "verse": "5:21",
+          "text": "envies, meurtres, ivrogneries, orgies, et les choses semblables à celles-là, au sujet desquelles je vous prédis, comme je vous l'ai déjà dit, que ceux qui commettent de telles choses n'hériteront pas le Royaume d'Elohîm.",
+          "textWithNotes": "envies, meurtres, ivrogneries, orgies[Le mot grec fait allusion à une procession nocturne et rituelle de gens à moitié ivres, à l'esprit folâtre après un souper, paradant dans les rues avec torches et musique en l'honneur de Bacchus ou quelque autre divinité, et chantant et jouant devant les maisons de leurs amis, hommes ou femmes. Le mot est généralement utilisé pour les fêtes et beuveries prolongées tard dans la nuit, et se terminant en orgies.], et les choses semblables à celles-là, au sujet desquelles je vous prédis, comme je vous l'ai déjà dit, que ceux qui commettent de telles choses n'hériteront pas le Royaume d'Elohîm.",
+          "notes": [
+            {
+              "word": "orgies",
+              "position": 31,
+              "note": "Le mot grec fait allusion à une procession nocturne et rituelle de gens à moitié ivres, à l'esprit folâtre après un souper, paradant dans les rues avec torches et musique en l'honneur de Bacchus ou quelque autre divinité, et chantant et jouant devant les maisons de leurs amis, hommes ou femmes. Le mot est généralement utilisé pour les fêtes et beuveries prolongées tard dans la nuit, et se terminant en orgies."
+            }
+          ]
+        },
+        {
+          "verse": "5:22",
+          "text": "Mais le fruit de l'Esprit est : amour, joie, paix, patience, bonté, bénignité, foi,",
+          "textWithNotes": "Mais le fruit de l'Esprit est : amour[Il est question ici de l'amour « agape » : l'amour fraternel, l'amour désintéressé.], joie, paix, patience, bonté, bénignité[Vient d'un mot grec qui signifie aussi « intégrité », « bonté morale ».], foi[Fidélité.],",
+          "notes": [
+            {
+              "word": "amour",
+              "position": 32,
+              "note": "Il est question ici de l'amour « agape » : l'amour fraternel, l'amour désintéressé."
+            },
+            {
+              "word": "bénignité",
+              "position": 68,
+              "note": "Vient d'un mot grec qui signifie aussi « intégrité », « bonté morale »."
+            },
+            {
+              "word": "foi",
+              "position": 79,
+              "note": "Fidélité."
+            }
+          ]
+        },
+        {
+          "verse": "5:23",
+          "text": "douceur, contrôle de soi : contre de telles choses, il n’y a pas de torah."
+        },
+        {
+          "verse": "5:24",
+          "text": "Mais ceux qui sont au Mashiah ont crucifié la chair avec les passions et les désirs."
+        },
+        {
+          "verse": "5:25",
+          "text": "Si nous vivons par l'Esprit, marchons aussi par l'Esprit."
+        },
+        {
+          "verse": "5:26",
+          "text": "Ne devenons pas avides d'une vaine gloire, nous provoquant les uns les autres, nous enviant les uns les autres."
+        }
+      ]
+    },
+    {
+      "chapter": 6,
+      "verses": [
+        {
+          "verse": "6:1",
+          "text": "Frères, même si un humain a été surpris en quelque faute, vous, les spirituels, perfectionnez-le dans un esprit de douceur. Prends garde à toi-même, de peur que tu ne sois aussi tenté.",
+          "textWithNotes": "Frères, même si un humain a été surpris en quelque faute, vous, les spirituels, perfectionnez-le[Vient du grec « katartizo » qui signifie « raccommoder (ce qui a été cassé ou abîmé) », « ajuster », « compléter », « réparer », « équiper », « mettre en ordre », « arranger ». Voir Mt. 4:21 ; Lu. 6:40.] dans un esprit de douceur. Prends garde à toi-même, de peur que tu ne sois aussi tenté.",
+          "notes": [
+            {
+              "word": "perfectionnez-le",
+              "position": 80,
+              "note": "Vient du grec « katartizo » qui signifie « raccommoder (ce qui a été cassé ou abîmé) », « ajuster », « compléter », « réparer », « équiper », « mettre en ordre », « arranger ». Voir Mt. 4:21 ; Lu. 6:40."
+            }
+          ]
+        },
+        {
+          "verse": "6:2",
+          "text": "Portez les fardeaux les uns des autres, et vous accomplirez ainsi la torah du Mashiah."
+        },
+        {
+          "verse": "6:3",
+          "text": "Car si quelqu'un pense être quelque chose, étant rien, il se trompe lui-même."
+        },
+        {
+          "verse": "6:4",
+          "text": "Mais que chacun examine son œuvre propre, et alors il aura de quoi se glorifier en lui-même seulement, et non en un autre.",
+          "textWithNotes": "Mais que chacun examine[Voir 1 Ti. 3:10.] son œuvre propre, et alors il aura de quoi se glorifier en lui-même seulement, et non en un autre.",
+          "notes": [
+            {
+              "word": "examine",
+              "position": 16,
+              "note": "Voir 1 Ti. 3:10."
+            }
+          ]
+        },
+        {
+          "verse": "6:5",
+          "text": "Car chacun portera son propre fardeau."
+        },
+        {
+          "verse": "6:6",
+          "text": "Or que celui à qui l'on enseigne la parole entre en communion avec celui qui l'enseigne en toutes bonnes choses.",
+          "textWithNotes": "Or que celui à qui l'on enseigne la parole entre en communion avec celui qui l'enseigne en toutes bonnes choses[Le mot « bon » vient du grec « agathos » qui donne en français : « de bonne constitution ou nature », « utile », « salutaire », « bon », « agréable », « plaisant », « joyeux », « heureux », « excellent », « distingué », « droit », « honorable ». Ce terme n'a rien à voir avec les biens matériels (Voir Ga. 6:10). Ce verset ne doit en aucun cas servir de prétexte à ceux qui enseignent la parole d'Elohîm pour exiger l'argent et les biens matériels des chrétiens. Ces derniers doivent donner sans contrainte, s'ils le veulent et comme ils le veulent (2 Co. 9:7). Le salaire de l'ouvrier du Seigneur, c'est avant tout le gîte et le couvert (Mt. 10:10 ; Lu. 10:8 ; 1 Ti. 6:8). Ainsi, malgré le droit qu'il avait de moissonner les biens matériels pour avoir semé des biens spirituels (1 Co. 9:11-12), Paulos (Paul) « n'a désiré ni l'or ni l'argent » mais a travaillé de ses propres mains afin de pourvoir à ses besoins et de n'être à la charge de personne (Ac. 20:33-35 ; 1 Th. 2:9 ; 2 Th. 3:8 ; 2 Co. 12:14).].",
+          "notes": [
+            {
+              "word": "choses",
+              "position": 105,
+              "note": "Le mot « bon » vient du grec « agathos » qui donne en français : « de bonne constitution ou nature », « utile », « salutaire », « bon », « agréable », « plaisant », « joyeux », « heureux », « excellent », « distingué », « droit », « honorable ». Ce terme n'a rien à voir avec les biens matériels (Voir Ga. 6:10). Ce verset ne doit en aucun cas servir de prétexte à ceux qui enseignent la parole d'Elohîm pour exiger l'argent et les biens matériels des chrétiens. Ces derniers doivent donner sans contrainte, s'ils le veulent et comme ils le veulent (2 Co. 9:7). Le salaire de l'ouvrier du Seigneur, c'est avant tout le gîte et le couvert (Mt. 10:10 ; Lu. 10:8 ; 1 Ti. 6:8). Ainsi, malgré le droit qu'il avait de moissonner les biens matériels pour avoir semé des biens spirituels (1 Co. 9:11-12), Paulos (Paul) « n'a désiré ni l'or ni l'argent » mais a travaillé de ses propres mains afin de pourvoir à ses besoins et de n'être à la charge de personne (Ac. 20:33-35 ; 1 Th. 2:9 ; 2 Th. 3:8 ; 2 Co. 12:14)."
+            }
+          ]
+        },
+        {
+          "verse": "6:7",
+          "text": "Ne vous égarez pas : on ne se moque pas d'Elohîm. Car ce qu'un être humain sème, il le moissonnera aussi."
+        },
+        {
+          "verse": "6:8",
+          "text": "Parce que celui qui sème pour sa chair moissonnera à partir de la chair la corruption, mais celui qui sème pour l'Esprit moissonnera à partir de l'Esprit la vie éternelle."
+        },
+        {
+          "verse": "6:9",
+          "text": "Et ne nous lassons pas en pratiquant ce qui est bon, car nous moissonnerons au temps convenable, en n'étant pas découragés."
+        },
+        {
+          "verse": "6:10",
+          "text": "Ainsi donc, pendant que nous en avons le temps, pratiquons ce qui est bon envers tous, mais surtout envers ceux de la famille de la foi."
+        },
+        {
+          "verse": "6:11",
+          "text": "Voyez comme sont grandes les lettres : je vous ai écrit de ma main !"
+        },
+        {
+          "verse": "6:12",
+          "text": "Tous ceux qui veulent avoir un bel aspect dans la chair, ceux-là vous forcent à vous faire circoncire, seulement afin qu'ils ne soient pas persécutés à cause de la croix du Mashiah.",
+          "textWithNotes": "Tous ceux qui veulent avoir un bel aspect[Faire bonne présentation.] dans la chair, ceux-là vous forcent à vous faire circoncire, seulement afin qu'ils ne soient pas persécutés à cause de la croix du Mashiah.",
+          "notes": [
+            {
+              "word": "aspect",
+              "position": 35,
+              "note": "Faire bonne présentation."
+            }
+          ]
+        },
+        {
+          "verse": "6:13",
+          "text": "Car ceux-là même qui sont circoncis n'observent pas la torah, mais ils veulent vous circoncire, afin qu’ils se glorifient dans votre chair."
+        },
+        {
+          "verse": "6:14",
+          "text": "Mais qu’il ne m’arrive pas à moi de me glorifier, si ce n’est en la croix de notre Seigneur Yéhoshoua Mashiah, par le moyen de laquelle le monde est crucifié pour moi et moi pour le monde !"
+        },
+        {
+          "verse": "6:15",
+          "text": "Car en Mashiah Yéhoshoua ce n'est ni la circoncision, ni l'incirconcision qui peuvent quelque chose, mais la nouvelle création."
+        },
+        {
+          "verse": "6:16",
+          "text": "Et quant à tous ceux qui marcheront selon cette règle, paix et miséricorde sur eux et sur l'Israël d'Elohîm !",
+          "textWithNotes": "Et quant à tous ceux qui marcheront selon cette règle[Voir Ez. 40:3 ; Ph. 3:16.], paix et miséricorde sur eux et sur l'Israël d'Elohîm !",
+          "notes": [
+            {
+              "word": "règle",
+              "position": 48,
+              "note": "Voir Ez. 40:3 ; Ph. 3:16."
+            }
+          ]
+        },
+        {
+          "verse": "6:17",
+          "text": "Dorénavant que personne ne me cause d’ennuis, car moi, je porte sur mon corps les stigmates du Seigneur Yéhoshoua.",
+          "textWithNotes": "Dorénavant que personne ne me cause d’ennuis, car moi, je porte sur mon corps les stigmates[Marque que l’on imprimait, le plus souvent au fer rouge, sur le corps d’une personne pour signifier son infamie.] du Seigneur Yéhoshoua.",
+          "notes": [
+            {
+              "word": "stigmates",
+              "position": 82,
+              "note": "Marque que l’on imprimait, le plus souvent au fer rouge, sur le corps d’une personne pour signifier son infamie."
+            }
+          ]
+        },
+        {
+          "verse": "6:18",
+          "text": "La grâce de notre Seigneur Yéhoshoua Mashiah avec votre esprit, frères. Amen !"
+        }
+      ]
+    }
+  ]
+}

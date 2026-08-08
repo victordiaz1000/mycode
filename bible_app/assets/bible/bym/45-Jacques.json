@@ -1,0 +1,739 @@
+{
+  "book": "Yaacov (Jacques)",
+  "abbreviation": "Ja.",
+  "metadata": {
+    "signification": "Qui supplante",
+    "auteur": "Yaacov (Jacques)",
+    "theme": "La vie chrétienne sous son aspect pratique",
+    "date": "Env. 45 – 50 ap. J.-C."
+  },
+  "introduction": "Yaacov, frère de Yéhoshoua ha Mashiah (Jésus-Christ) homme, et ancien au sein de la première assemblée chrétienne située à Yeroushalaim (Jérusalem), écrit aux chrétiens d'origine juive dispersés dans l'Empire romain. Il les console suite à l'adversité qu'ils rencontraient et les exhorte à tenir ferme, leur expliquant que la foi authentique doit être accompagnée d'œuvres. Il les met en garde contre la convoitise, source de toutes les tentations, et les prévient également quant à l'amour du monde et la confiance que certains peuvent mettre dans l'argent. Pour terminer, il leur recommande d'être patients dans l'épreuve et de prier sans cesse jusqu'au retour du Seigneur.",
+  "chapters": [
+    {
+      "chapter": 1,
+      "verses": [
+        {
+          "verse": "1:1",
+          "text": "Yaacov, esclave d'Elohîm et Seigneur Yéhoshoua Mashiah, aux douze tribus qui sont dans la diaspora, salut !"
+        },
+        {
+          "verse": "1:2",
+          "text": "Mes frères, estimez comme une entière joie quand vous rencontrez diverses tentations,"
+        },
+        {
+          "verse": "1:3",
+          "text": "sachant que le test de votre foi produit la persévérance.",
+          "textWithNotes": "sachant que le test[La preuve, ce par quoi une chose est essayée, éprouvée, un test. 1 Pi. 1:7.] de votre foi produit la persévérance.",
+          "notes": [
+            {
+              "word": "test",
+              "position": 15,
+              "note": "La preuve, ce par quoi une chose est essayée, éprouvée, un test. 1 Pi. 1:7."
+            }
+          ]
+        },
+        {
+          "verse": "1:4",
+          "text": "Mais que la persévérance ait une œuvre parfaite, afin que vous soyez parfaits et complets, ne manquant de rien."
+        },
+        {
+          "verse": "1:5",
+          "text": "Mais si quelqu'un d’entre vous manque de sagesse, qu'il la demande à Elohîm qui la donne à tous simplement et sans reproche, et elle lui sera donnée."
+        },
+        {
+          "verse": "1:6",
+          "text": "Mais qu'il la demande avec foi, ne doutant nullement, car celui qui doute est semblable au flot de la mer, agité et poussé çà et là par le vent."
+        },
+        {
+          "verse": "1:7",
+          "text": "Que cet humain, en effet, ne s'attende pas à recevoir quelque chose du Seigneur."
+        },
+        {
+          "verse": "1:8",
+          "text": "L'homme double de cœur est inconstant dans toutes ses voies."
+        },
+        {
+          "verse": "1:9",
+          "text": "Mais que le frère de basse condition se glorifie dans son élévation,"
+        },
+        {
+          "verse": "1:10",
+          "text": "et le riche dans sa bassesse, parce qu'il passera comme la fleur de l'herbe."
+        },
+        {
+          "verse": "1:11",
+          "text": "Car le soleil s'est levé avec sa chaleur brûlante et il a desséché l'herbe, et sa fleur est tombée, et la beauté de son aspect a été détruite. Ainsi le riche se flétrira dans ses entreprises."
+        },
+        {
+          "verse": "1:12",
+          "text": "Béni est l'homme qui endure une tentation ! Parce que, ayant été approuvé, il recevra la couronne de vie, que le Seigneur a promise à ceux qui l'aiment.",
+          "textWithNotes": "Béni est l'homme qui endure une tentation[Le terme grec « peirasmos » utilisé dans ce verset veut aussi dire « épreuve ».] ! Parce que, ayant été approuvé[Vient du grec « dokimos ». Dans le monde ancien, il n'y avait pas nos systèmes bancaires actuels et toute la monnaie était en métal. Ce métal était fondu, versé dans des moules. Après démoulage, il était nécessaire d'enlever les bavures. De nombreuses personnes les rognaient soigneusement pour récupérer du métal. En un siècle, plus de 80 lois ont été promulguées à Athènes pour arrêter la pratique du rognage des pièces en circulation. Il existait quelques changeurs intègres qui n'acceptaient pas de fausse monnaie, et qui ne mettaient en circulation que des pièces au bon poids. On appelait ces hommes des « dokimos » ou « approuvés ». Voir 2 Ti. 2:15.], il recevra la couronne de vie, que le Seigneur a promise à ceux qui l'aiment.",
+          "notes": [
+            {
+              "word": "tentation",
+              "position": 32,
+              "note": "Le terme grec « peirasmos » utilisé dans ce verset veut aussi dire « épreuve »."
+            },
+            {
+              "word": "approuvé",
+              "position": 65,
+              "note": "Vient du grec « dokimos ». Dans le monde ancien, il n'y avait pas nos systèmes bancaires actuels et toute la monnaie était en métal. Ce métal était fondu, versé dans des moules. Après démoulage, il était nécessaire d'enlever les bavures. De nombreuses personnes les rognaient soigneusement pour récupérer du métal. En un siècle, plus de 80 lois ont été promulguées à Athènes pour arrêter la pratique du rognage des pièces en circulation. Il existait quelques changeurs intègres qui n'acceptaient pas de fausse monnaie, et qui ne mettaient en circulation que des pièces au bon poids. On appelait ces hommes des « dokimos » ou « approuvés ». Voir 2 Ti. 2:15."
+            }
+          ]
+        },
+        {
+          "verse": "1:13",
+          "text": "Que personne, lorsqu'il est tenté, ne dise : C’est de la part d'Elohîm que je suis tenté. Car Elohîm ne peut être tenté par le mal, et lui-même ne tente personne."
+        },
+        {
+          "verse": "1:14",
+          "text": "Mais chacun est tenté quand il est attiré et attrapé avec un appât par sa propre convoitise."
+        },
+        {
+          "verse": "1:15",
+          "text": "Ensuite la convoitise ayant conçu, enfante le péché, et le péché étant accompli, engendre la mort."
+        },
+        {
+          "verse": "1:16",
+          "text": "Mes frères bien-aimés, ne vous égarez pas :"
+        },
+        {
+          "verse": "1:17",
+          "text": "toute bonne donation et tout don parfait est d’en haut, descendant d'auprès du Père des lumières, près duquel il n’existe pas de changement ou ombre de rotation.",
+          "textWithNotes": "toute bonne donation et tout don parfait est d’en haut, descendant d'auprès du Père des lumières, près duquel il n’existe pas de changement ou ombre de rotation[Une éclipse. Un phénomène naturel lié à la position du soleil et à la rotation de la Terre.].",
+          "notes": [
+            {
+              "word": "rotation",
+              "position": 152,
+              "note": "Une éclipse. Un phénomène naturel lié à la position du soleil et à la rotation de la Terre."
+            }
+          ]
+        },
+        {
+          "verse": "1:18",
+          "text": "L’ayant voulu, il nous a engendrés par la parole de vérité afin que nous soyons en quelque sorte l'offrande du premier fruit de ses créatures.",
+          "textWithNotes": "L’ayant voulu, il nous a engendrés par la parole de vérité afin que nous soyons en quelque sorte l'offrande du premier fruit[Les prémices. Lé. 23:9-11.] de ses créatures.",
+          "notes": [
+            {
+              "word": "fruit",
+              "position": 119,
+              "note": "Les prémices. Lé. 23:9-11."
+            }
+          ]
+        },
+        {
+          "verse": "1:19",
+          "text": "Ainsi, mes frères bien-aimés, que tout être humain soit prompt à écouter, lent à parler et lent à la colère,"
+        },
+        {
+          "verse": "1:20",
+          "text": "car la colère de l'homme n'accomplit pas la justice d'Elohîm."
+        },
+        {
+          "verse": "1:21",
+          "text": "C'est pourquoi, étant débarrassés de toute souillure et de tout résidu de méchanceté, recevez avec douceur la parole qui a été plantée en vous et qui peut sauver vos âmes.",
+          "textWithNotes": "C'est pourquoi, étant débarrassés[Voir Hé. 12:1.] de toute souillure et de tout résidu[Le mot « résidu » vient du grec « perisseia » qui signifie « abondance », « surabondamment », « tout excès », « reste ». Les Grecs utilisaient ce terme pour décrire l'excès de cire dans leurs oreilles. Il est question de la méchanceté qui reste dans un chrétien et qui provient de son état antérieur à sa conversion.] de méchanceté, recevez avec douceur la parole qui a été plantée en vous et qui peut sauver vos âmes.",
+          "notes": [
+            {
+              "word": "débarrassés",
+              "position": 22,
+              "note": "Voir Hé. 12:1."
+            },
+            {
+              "word": "résidu",
+              "position": 64,
+              "note": "Le mot « résidu » vient du grec « perisseia » qui signifie « abondance », « surabondamment », « tout excès », « reste ». Les Grecs utilisaient ce terme pour décrire l'excès de cire dans leurs oreilles. Il est question de la méchanceté qui reste dans un chrétien et qui provient de son état antérieur à sa conversion."
+            }
+          ]
+        },
+        {
+          "verse": "1:22",
+          "text": "Et devenez des exécutants de la parole, et ne l'écoutez pas seulement, en vous trompant vous-mêmes par de faux raisonnements.",
+          "textWithNotes": "Et devenez des exécutants[Un fabricant, un producteur, un auteur, une personne dynamique, un exécutant, celui qui obéit ou accomplit la loi, un poète. Voir Ac. 17:28.] de la parole, et ne l'écoutez pas seulement, en vous trompant vous-mêmes par de faux raisonnements.",
+          "notes": [
+            {
+              "word": "exécutants",
+              "position": 15,
+              "note": "Un fabricant, un producteur, un auteur, une personne dynamique, un exécutant, celui qui obéit ou accomplit la loi, un poète. Voir Ac. 17:28."
+            }
+          ]
+        },
+        {
+          "verse": "1:23",
+          "text": "Parce que si quelqu'un est auditeur et non exécutant de la parole, il est semblable à un homme qui observe la face de sa genèse dans un miroir,",
+          "textWithNotes": "Parce que si quelqu'un est auditeur et non exécutant de la parole, il est semblable à un homme qui observe la face de sa genèse[Origine.] dans un miroir,",
+          "notes": [
+            {
+              "word": "genèse",
+              "position": 121,
+              "note": "Origine."
+            }
+          ]
+        },
+        {
+          "verse": "1:24",
+          "text": "car il s'est observé lui-même et s'en est allé et, immédiatement, il a oublié comment il était."
+        },
+        {
+          "verse": "1:25",
+          "text": "Mais celui qui aura regardé avec la tête penchée en avant dans la torah parfaite de la liberté, et qui aura persévéré, ne devenant pas un auditeur oublieux, mais un exécutant d’œuvre, celui-là sera béni dans son activité.",
+          "textWithNotes": "Mais celui qui aura regardé avec la tête penchée en avant dans la torah parfaite de la liberté, et qui aura persévéré, ne devenant pas un auditeur oublieux, mais un exécutant d’œuvre, celui-là sera béni dans son activité[Une fabrication, réalisation, une exécution ou œuvre.].",
+          "notes": [
+            {
+              "word": "activité",
+              "position": 212,
+              "note": "Une fabrication, réalisation, une exécution ou œuvre."
+            }
+          ]
+        },
+        {
+          "verse": "1:26",
+          "text": "Si quelqu'un parmi vous pense être dans l'adoration d'Elohîm sans brider sa langue, mais en trompant son cœur, sa religion est vaine."
+        },
+        {
+          "verse": "1:27",
+          "text": "La religion pure et sans souillure devant notre Elohîm et Père, c'est de visiter les orphelins et les veuves dans leurs tribulations, et de se conserver sans tache loin du monde."
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "verses": [
+        {
+          "verse": "2:1",
+          "text": "Mes frères, n'ayez pas de partialité dans la foi en notre glorieux Seigneur Yéhoshoua Mashiah."
+        },
+        {
+          "verse": "2:2",
+          "text": "Car, s'il entre dans votre synagogue un homme qui porte un anneau d'or et un habit brillant, et qu'il y entre aussi un pauvre misérablement vêtu,"
+        },
+        {
+          "verse": "2:3",
+          "text": "et que vous tourniez les yeux vers celui qui porte l'habit brillant, et lui disiez : Toi, assieds-toi ici honorablement ! Et que vous disiez au pauvre : Toi, tiens-toi là debout ! ou : Assieds-toi ici sur mon marchepied !"
+        },
+        {
+          "verse": "2:4",
+          "text": "Ne faites-vous pas en vous-mêmes une distinction ? Et vous êtes devenus des juges aux pensées mauvaises !"
+        },
+        {
+          "verse": "2:5",
+          "text": "Écoutez, mes frères bien-aimés : Elohîm n'a-t-il pas choisi les pauvres de ce monde pour qu'ils soient riches dans la foi et héritiers du Royaume qu'il a promis à ceux qui l'aiment ?"
+        },
+        {
+          "verse": "2:6",
+          "text": "Mais vous, vous avez déshonoré le pauvre ! Pourtant, ce sont les riches qui exercent un contrôle sévère sur vous et qui vous traînent devant les tribunaux."
+        },
+        {
+          "verse": "2:7",
+          "text": "N'est-ce pas eux qui blasphèment le beau nom qui a été invoqué sur vous ?"
+        },
+        {
+          "verse": "2:8",
+          "text": "Néanmoins, si vous accomplissez la torah royale qui est selon l'Écriture : Tu aimeras ton prochain comme toi-même, vous faites bien.",
+          "textWithNotes": "Néanmoins, si vous accomplissez la torah royale qui est selon l'Écriture : Tu aimeras ton prochain comme toi-même[Lé. 19:18.], vous faites bien.",
+          "notes": [
+            {
+              "word": "toi-même",
+              "position": 105,
+              "note": "Lé. 19:18."
+            }
+          ]
+        },
+        {
+          "verse": "2:9",
+          "text": "Mais si vous avez égard à l'apparence des personnes, vous commettez un péché et vous êtes convaincus par la torah comme des transgresseurs."
+        },
+        {
+          "verse": "2:10",
+          "text": "Car quiconque gardera toute la torah et trébuchera sur un seul point devient coupable de tout."
+        },
+        {
+          "verse": "2:11",
+          "text": "Car celui qui a dit : Tu ne commettras pas d'adultère, a dit aussi : Tu n'assassineras pas. Or si donc tu ne commets pas d'adultère, mais que tu assassines, tu deviens transgresseur de la torah.",
+          "textWithNotes": "Car celui qui a dit : Tu ne commettras pas d'adultère, a dit aussi : Tu n'assassineras pas. Or si donc tu ne commets pas d'adultère[Ex. 20:13-14.], mais que tu assassines, tu deviens transgresseur de la torah.",
+          "notes": [
+            {
+              "word": "d'adultère",
+              "position": 121,
+              "note": "Ex. 20:13-14."
+            }
+          ]
+        },
+        {
+          "verse": "2:12",
+          "text": "Ainsi parlez et ainsi agissez, comme étant sur le point d'être jugés au moyen de la torah de la liberté,"
+        },
+        {
+          "verse": "2:13",
+          "text": "car il y aura un jugement sans miséricorde pour celui qui n'aura pas usé de miséricorde. Mais la miséricorde triomphe du jugement.",
+          "textWithNotes": "car il y aura un jugement sans miséricorde pour celui qui n'aura pas usé de miséricorde[Mt. 7:2.]. Mais la miséricorde triomphe du jugement.",
+          "notes": [
+            {
+              "word": "miséricorde",
+              "position": 76,
+              "note": "Mt. 7:2."
+            }
+          ]
+        },
+        {
+          "verse": "2:14",
+          "text": "Quel avantage y a-t-il mes frères, si quelqu’un dit avoir la foi, tandis qu’il n’a pas les œuvres ? La foi peut-elle le sauver ?"
+        },
+        {
+          "verse": "2:15",
+          "text": "Et si un frère ou une sœur sont nus et manquent de la nourriture de chaque jour,"
+        },
+        {
+          "verse": "2:16",
+          "text": "et que l'un d'entre vous leur dise : Allez en paix, chauffez-vous et rassasiez-vous ! Et que vous ne leur donniez pas les choses nécessaires pour le corps, quel en serait l’avantage ?"
+        },
+        {
+          "verse": "2:17",
+          "text": "De même aussi la foi, si elle n'a pas les œuvres, elle est morte en elle-même."
+        },
+        {
+          "verse": "2:18",
+          "text": "Mais quelqu’un dira : Toi, tu as la foi, et moi j’ai les œuvres. Montre-moi ta foi à partir de tes œuvres, et moi, je te montrerai ma foi à partir de mes œuvres."
+        },
+        {
+          "verse": "2:19",
+          "text": "Toi, tu crois que l'Elohîm est un ? Tu fais bien. Les démons le croient aussi et ils frissonnent.",
+          "textWithNotes": "Toi, tu crois que l'Elohîm est un[Za. 14:9 ; Mc. 12:29 ; Ga. 3:20 ; 1 Ti. 2:5.] ? Tu fais bien. Les démons le croient aussi et ils frissonnent[Se hérisser, se raidir, se durcir, frissonner, être frappé d'une extrême crainte, être horrifié. Le mot grec fait allusion à une manifestation physique telle que le hérissement des poils ou la paralysie que l’on éprouve face à une expérience de forte peur et d’horreur.].",
+          "notes": [
+            {
+              "word": "un",
+              "position": 31,
+              "note": "Za. 14:9 ; Mc. 12:29 ; Ga. 3:20 ; 1 Ti. 2:5."
+            },
+            {
+              "word": "frissonnent",
+              "position": 85,
+              "note": "Se hérisser, se raidir, se durcir, frissonner, être frappé d'une extrême crainte, être horrifié. Le mot grec fait allusion à une manifestation physique telle que le hérissement des poils ou la paralysie que l’on éprouve face à une expérience de forte peur et d’horreur."
+            }
+          ]
+        },
+        {
+          "verse": "2:20",
+          "text": "Mais veux-tu savoir, ô humain vain, que la foi sans les œuvres est morte ?"
+        },
+        {
+          "verse": "2:21",
+          "text": "Abraham, notre père, ne fut-il pas justifié à partir des œuvres, en ayant offert son fils Yitzhak sur l'autel ?"
+        },
+        {
+          "verse": "2:22",
+          "text": "Tu vois que la foi agissait avec ses œuvres, et que c'est à partir de ses œuvres que sa foi fut rendue parfaite ?"
+        },
+        {
+          "verse": "2:23",
+          "text": "Et l’écriture a été accomplie disant : Abraham crut en Elohîm, et cela lui fut compté comme justice, et il fut appelé ami d'Elohîm.",
+          "textWithNotes": "Et l’écriture a été accomplie disant : Abraham crut en Elohîm, et cela lui fut compté comme justice[Ge. 15:6.], et il fut appelé ami d'Elohîm.",
+          "notes": [
+            {
+              "word": "justice",
+              "position": 92,
+              "note": "Ge. 15:6."
+            }
+          ]
+        },
+        {
+          "verse": "2:24",
+          "text": "Vous voyez donc que l'être humain est justifié à partir des œuvres, et non à partir de la foi seulement."
+        },
+        {
+          "verse": "2:25",
+          "text": "Et de même aussi Rahab, la prostituée, ne fut-elle pas justifiée à partir des œuvres en recevant les messagers et en les renvoyant par un autre chemin ?",
+          "textWithNotes": "Et de même aussi Rahab, la prostituée, ne fut-elle pas justifiée à partir des œuvres en recevant les messagers et en les renvoyant par un autre chemin[Jos. 2:1-21.] ?",
+          "notes": [
+            {
+              "word": "chemin",
+              "position": 144,
+              "note": "Jos. 2:1-21."
+            }
+          ]
+        },
+        {
+          "verse": "2:26",
+          "text": "Car, comme le corps sans esprit est mort, ainsi la foi sans les œuvres est morte.",
+          "textWithNotes": "Car, comme le corps sans esprit est mort[Ps. 146:4.], ainsi la foi sans les œuvres est morte.",
+          "notes": [
+            {
+              "word": "mort",
+              "position": 36,
+              "note": "Ps. 146:4."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "verses": [
+        {
+          "verse": "3:1",
+          "text": "Ne soyez pas nombreux, mes frères, à devenir des docteurs, sachant que nous recevrons un jugement plus sévère.",
+          "textWithNotes": "Ne soyez pas nombreux, mes frères, à devenir des docteurs[Du grec « didaskalos » : « maître », « professeur », « docteur chargé d'instruire, d'enseigner la parole ». Mt. 8:19, 22:16 ; 1 Co. 12:28.], sachant que nous recevrons un jugement plus sévère.",
+          "notes": [
+            {
+              "word": "docteurs",
+              "position": 49,
+              "note": "Du grec « didaskalos » : « maître », « professeur », « docteur chargé d'instruire, d'enseigner la parole ». Mt. 8:19, 22:16 ; 1 Co. 12:28."
+            }
+          ]
+        },
+        {
+          "verse": "3:2",
+          "text": "Car tous, nous trébuchons beaucoup. Si quelqu'un ne trébuche pas en parole, c'est un homme parfait, et il peut même tenir en bride tout son corps."
+        },
+        {
+          "verse": "3:3",
+          "text": "Voici, nous mettons des mors dans la bouche des chevaux afin qu'ils nous obéissent, et nous dirigeons çà et là tout leur corps."
+        },
+        {
+          "verse": "3:4",
+          "text": "Voici aussi les navires : si grands soient-ils et poussés par des vents violents, ils sont dirigés par un petit gouvernail partout où le veut l’impulsion du timonier."
+        },
+        {
+          "verse": "3:5",
+          "text": "De même aussi la langue est un petit membre et elle se vante de grandes choses. Voyez quel petit feu embrase une grande forêt !"
+        },
+        {
+          "verse": "3:6",
+          "text": "La langue aussi est un feu, c'est le monde de l'injustice. Ainsi, la langue est placée parmi nos membres, souillant tout le corps et enflammant la roue de la vie, étant elle-même enflammée par la géhenne.",
+          "textWithNotes": "La langue aussi est un feu, c'est le monde de l'injustice. Ainsi, la langue est placée parmi nos membres, souillant tout le corps et enflammant la roue de la vie[Source, origine, ou la roue de l'origine humaine, où les hommes commencent par naître, puis marcher, c'est donc la roue de la vie.], étant elle-même enflammée par la géhenne.",
+          "notes": [
+            {
+              "word": "vie",
+              "position": 158,
+              "note": "Source, origine, ou la roue de l'origine humaine, où les hommes commencent par naître, puis marcher, c'est donc la roue de la vie."
+            }
+          ]
+        },
+        {
+          "verse": "3:7",
+          "text": "Car toute nature de bêtes, non seulement d’oiseaux mais aussi de reptiles et d'animaux marins, se dompte et a été domptée par la nature humaine."
+        },
+        {
+          "verse": "3:8",
+          "text": "Mais la langue, aucun humain ne peut la dompter. C'est un mal qui ne peut être contenu : elle est pleine d'un venin mortel."
+        },
+        {
+          "verse": "3:9",
+          "text": "Par elle nous bénissons l'Elohîm et Père, et par elle nous maudissons les humains faits à la ressemblance d'Elohîm."
+        },
+        {
+          "verse": "3:10",
+          "text": "De la même bouche sortent la bénédiction et la malédiction. Il ne faut pas qu'il en soit ainsi, mes frères."
+        },
+        {
+          "verse": "3:11",
+          "text": "Une fontaine fait-elle jaillir à partir de la même ouverture le doux et l'amer ?"
+        },
+        {
+          "verse": "3:12",
+          "text": "Mes frères, un figuier peut-il produire des olives, ou une vigne des figues ? De même, aucune fontaine ne peut produire de l'eau salée et de l'eau douce."
+        },
+        {
+          "verse": "3:13",
+          "text": "Qui est sage et intelligent parmi vous ? Qu'il montre ses œuvres à partir d'une bonne conduite avec douceur et sagesse."
+        },
+        {
+          "verse": "3:14",
+          "text": "Mais si vous avez dans votre cœur un zèle amer et un esprit partisan, ne vous glorifiez pas et ne mentez pas contre la vérité.",
+          "textWithNotes": "Mais si vous avez dans votre cœur un zèle amer et un esprit partisan[Voir Ph. 2:3.], ne vous glorifiez pas et ne mentez pas contre la vérité.",
+          "notes": [
+            {
+              "word": "partisan",
+              "position": 60,
+              "note": "Voir Ph. 2:3."
+            }
+          ]
+        },
+        {
+          "verse": "3:15",
+          "text": "Elle n’est pas, celle-ci, la sagesse qui descend d'en haut : mais elle est terrestre, animale et diabolique.",
+          "textWithNotes": "Elle n’est pas, celle-ci, la sagesse qui descend d'en haut : mais elle est terrestre, animale[Animale ou charnelle.] et diabolique.",
+          "notes": [
+            {
+              "word": "animale",
+              "position": 86,
+              "note": "Animale ou charnelle."
+            }
+          ]
+        },
+        {
+          "verse": "3:16",
+          "text": "Car là où il y a de la jalousie et un esprit partisan, il y a du désordre et toutes sortes de mauvaises choses.",
+          "textWithNotes": "Car là où il y a de la jalousie et un esprit partisan[Voir Ph. 2:3.], il y a du désordre et toutes sortes de mauvaises choses.",
+          "notes": [
+            {
+              "word": "partisan",
+              "position": 45,
+              "note": "Voir Ph. 2:3."
+            }
+          ]
+        },
+        {
+          "verse": "3:17",
+          "text": "Mais la sagesse d'en haut est premièrement pure en effet, ensuite pacifique, douce, conciliante, pleine de miséricorde et de bons fruits, sans partialité et sans hypocrisie."
+        },
+        {
+          "verse": "3:18",
+          "text": "Mais le fruit de la justice se sème dans la paix pour ceux qui pratiquent la paix."
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "verses": [
+        {
+          "verse": "4:1",
+          "text": "D'où viennent des guerres et des querelles parmi vous ? N’est-ce pas de ceci ? À partir de vos plaisirs qui combattent dans vos membres ?"
+        },
+        {
+          "verse": "4:2",
+          "text": "Vous convoitez et vous n’avez pas. Vous assassinez et vous êtes jaloux et vous ne pouvez rien obtenir. Vous combattez et vous faites la guerre. Mais vous n’avez pas, parce que vous ne demandez pas."
+        },
+        {
+          "verse": "4:3",
+          "text": "Vous demandez et vous ne recevez pas, parce que vous demandez mal, afin de tout gaspiller pour vos plaisirs."
+        },
+        {
+          "verse": "4:4",
+          "text": "Adultères et femmes adultères ! Ne savez-vous pas que l'amitié pour le monde est inimitié contre Elohîm ? Celui donc qui veut être ami du monde, se constitue ennemi d'Elohîm.",
+          "textWithNotes": "Adultères[Vient du grec « moichos » qui signifie « adultère », « être infidèle envers Elohîm », « un impie ».] et femmes adultères[Vient du grec « moichalis » et signifie « femme adultère ». L'alliance intime d'Elohîm avec le peuple d'Israël étant comme un mariage, ceux qui rechutent dans l'idolâtrie sont considérés comme commettant l'adultère ou se livrant à la prostitution ou à l'apostasie. Voir Ro. 7:3.] ! Ne savez-vous pas que l'amitié pour le monde est inimitié contre Elohîm ? Celui donc qui veut être ami du monde, se constitue ennemi d'Elohîm.",
+          "notes": [
+            {
+              "word": "Adultères",
+              "position": 0,
+              "note": "Vient du grec « moichos » qui signifie « adultère », « être infidèle envers Elohîm », « un impie »."
+            },
+            {
+              "word": "adultères",
+              "position": 20,
+              "note": "Vient du grec « moichalis » et signifie « femme adultère ». L'alliance intime d'Elohîm avec le peuple d'Israël étant comme un mariage, ceux qui rechutent dans l'idolâtrie sont considérés comme commettant l'adultère ou se livrant à la prostitution ou à l'apostasie. Voir Ro. 7:3."
+            }
+          ]
+        },
+        {
+          "verse": "4:5",
+          "text": "Ou pensez-vous que l'Écriture parle en vain ? L’Esprit qui demeure en nous a-t-il du désir qui pousse à l'envie ?"
+        },
+        {
+          "verse": "4:6",
+          "text": "Mais il donne une grâce plus grande, c'est pourquoi il dit : Elohîm résiste aux orgueilleux, mais il donne sa grâce aux humbles.",
+          "textWithNotes": "Mais il donne une grâce plus grande, c'est pourquoi il dit : Elohîm résiste aux orgueilleux, mais il donne sa grâce aux humbles[Pr. 3:34.].",
+          "notes": [
+            {
+              "word": "humbles",
+              "position": 120,
+              "note": "Pr. 3:34."
+            }
+          ]
+        },
+        {
+          "verse": "4:7",
+          "text": "Soumettez-vous donc à Elohîm, résistez au diable et il fuira loin de vous."
+        },
+        {
+          "verse": "4:8",
+          "text": "Approchez-vous d'Elohîm et il s'approchera de vous. Pécheurs, nettoyez vos mains, et vous qui êtes doubles de cœur, purifiez vos cœurs."
+        },
+        {
+          "verse": "4:9",
+          "text": "Affligez-vous vous-mêmes, lamentez-vous aussi et pleurez, que votre rire se transmute en pleurs et votre joie en tristesse."
+        },
+        {
+          "verse": "4:10",
+          "text": "Humiliez-vous en présence du Seigneur et il vous élèvera."
+        },
+        {
+          "verse": "4:11",
+          "text": "Frères, ne vous diffamez pas les uns les autres. Celui qui diffame son frère et qui juge son frère, diffame la torah et juge la torah. Or si tu juges la torah, tu n'es pas un exécutant de la torah, mais un juge."
+        },
+        {
+          "verse": "4:12",
+          "text": "Un seul est le législateur, celui qui peut sauver et perdre. Qui es-tu, toi qui juges les autres ?",
+          "textWithNotes": "Un seul est le législateur[Es. 33:22.], celui qui peut sauver et perdre[1 S. 2:6-7.]. Qui es-tu, toi qui juges les autres ?",
+          "notes": [
+            {
+              "word": "législateur",
+              "position": 15,
+              "note": "Es. 33:22."
+            },
+            {
+              "word": "perdre",
+              "position": 53,
+              "note": "1 S. 2:6-7."
+            }
+          ]
+        },
+        {
+          "verse": "4:13",
+          "text": "À vous maintenant qui dites : Aujourd'hui ou demain nous irons dans telle ou telle ville, nous y passerons une année, nous trafiquerons et nous gagnerons !"
+        },
+        {
+          "verse": "4:14",
+          "text": "Vous qui ne savez pas ce qu'il en sera du lendemain ! Car qu'est-ce que votre vie ? En effet, c'est une vapeur, qui apparaît pour un peu de temps et qui ensuite s'évanouit.",
+          "textWithNotes": "Vous qui ne savez pas ce qu'il en sera du lendemain ! Car qu'est-ce que votre vie ? En effet, c'est une vapeur[Voir Ps. 39:6 et 12 ; Ps. 144:4.], qui apparaît[« Briller », « être brillant ou resplendissant ».] pour un peu de temps et qui ensuite s'évanouit[« Mettre hors de vue », « rendre invisible quelque chose qui s'évanouit », « détruire », « consumer », « priver d'éclat », « rendre laid », « défigurer », « enlaidir ».].",
+          "notes": [
+            {
+              "word": "vapeur",
+              "position": 104,
+              "note": "Voir Ps. 39:6 et 12 ; Ps. 144:4."
+            },
+            {
+              "word": "apparaît",
+              "position": 116,
+              "note": "« Briller », « être brillant ou resplendissant »."
+            },
+            {
+              "word": "s'évanouit",
+              "position": 161,
+              "note": "« Mettre hors de vue », « rendre invisible quelque chose qui s'évanouit », « détruire », « consumer », « priver d'éclat », « rendre laid », « défigurer », « enlaidir »."
+            }
+          ]
+        },
+        {
+          "verse": "4:15",
+          "text": "Au lieu de dire : Si le Seigneur le veut, nous vivrons et nous ferons ceci ou cela."
+        },
+        {
+          "verse": "4:16",
+          "text": "Mais maintenant vous vous glorifiez dans votre assurance insolente. Se glorifier de cette façon, c'est mauvais !"
+        },
+        {
+          "verse": "4:17",
+          "text": "Celui donc qui sait faire ce qui est bon et qui ne le fait pas, c'est un péché pour lui."
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "verses": [
+        {
+          "verse": "5:1",
+          "text": "À vous maintenant riches ! Pleurez et gémissez sur les malheurs qui viennent sur vous !"
+        },
+        {
+          "verse": "5:2",
+          "text": "Votre richesse est pourrie et vos vêtements sont mangés par les mites,"
+        },
+        {
+          "verse": "5:3",
+          "text": "votre or et votre argent sont rouillés, et leur rouille sera pour vous un témoignage et dévorera vos chairs comme un feu. Vous avez accumulé des richesses dans les derniers jours."
+        },
+        {
+          "verse": "5:4",
+          "text": "Voici le salaire des ouvriers qui ont moissonné vos champs : dépouillé par vous, il crie, et les cris des moissonneurs sont parvenus aux oreilles du Seigneur Tsevaot."
+        },
+        {
+          "verse": "5:5",
+          "text": "Vous avez vécu dans les grands luxes sur la Terre, vous vous êtes donnés à une vie de douceur et de luxe, et vous avez engraissé vos cœurs comme en un jour de brebis destinées à la boucherie."
+        },
+        {
+          "verse": "5:6",
+          "text": "Vous avez condamné, vous avez assassiné le juste sans qu'il vous résiste."
+        },
+        {
+          "verse": "5:7",
+          "text": "Soyez donc patients, frères, jusqu'à la parousie du Seigneur. Voici, le laboureur attend le précieux fruit de la terre, prenant patience à son égard, jusqu'à ce qu'il ait reçu la pluie de la première et de la dernière saison.",
+          "textWithNotes": "Soyez donc patients, frères, jusqu'à la parousie du Seigneur. Voici, le laboureur attend le précieux fruit de la terre, prenant patience à son égard, jusqu'à ce qu'il ait reçu la pluie de la première[La première pluie qui tombe en Octobre.] et de la dernière saison[Les dernières pluies qui tombent surtout sur les montagnes en Mars et Avril, juste avant la moisson. Voir commentaire en Za. 10:1.].",
+          "notes": [
+            {
+              "word": "première",
+              "position": 191,
+              "note": "La première pluie qui tombe en Octobre."
+            },
+            {
+              "word": "saison",
+              "position": 218,
+              "note": "Les dernières pluies qui tombent surtout sur les montagnes en Mars et Avril, juste avant la moisson. Voir commentaire en Za. 10:1."
+            }
+          ]
+        },
+        {
+          "verse": "5:8",
+          "text": "Vous aussi, attendez patiemment et affermissez vos cœurs, parce que la parousie du Seigneur s'approche."
+        },
+        {
+          "verse": "5:9",
+          "text": "Frères, ne gémissez pas les uns contre les autres afin que vous ne soyez pas condamnés. Voici, le Juge se tient à la porte."
+        },
+        {
+          "verse": "5:10",
+          "text": "Mes frères, prenez pour exemple de patience dans l'affliction les prophètes qui parlèrent au nom du Seigneur."
+        },
+        {
+          "verse": "5:11",
+          "text": "Voici, nous tenons pour bénis ceux qui persévèrent. Vous avez appris quelle a été la persévérance de Iyov, et vous avez vu la fin du Seigneur, car le Seigneur est plein de compassion et de miséricorde.",
+          "textWithNotes": "Voici, nous tenons pour bénis ceux qui persévèrent. Vous avez appris quelle a été la persévérance de Iyov[Job.], et vous avez vu la fin du Seigneur, car le Seigneur est plein de compassion et de miséricorde.",
+          "notes": [
+            {
+              "word": "Iyov",
+              "position": 101,
+              "note": "Job."
+            }
+          ]
+        },
+        {
+          "verse": "5:12",
+          "text": "Mais avant toutes choses, mes frères, ne jurez ni par le ciel, ni par la Terre, ni par aucun autre serment. Mais que votre oui soit oui, et votre non, non, afin que vous ne tombiez pas dans l'hypocrisie.",
+          "textWithNotes": "Mais avant toutes choses, mes frères, ne jurez ni par le ciel, ni par la Terre, ni par aucun autre serment. Mais que votre oui soit oui, et votre non, non, afin que vous ne tombiez pas dans l'hypocrisie[L'interprétation d'un acteur de théâtre. Mt. 5:37, 12:36.].",
+          "notes": [
+            {
+              "word": "l'hypocrisie",
+              "position": 190,
+              "note": "L'interprétation d'un acteur de théâtre. Mt. 5:37, 12:36."
+            }
+          ]
+        },
+        {
+          "verse": "5:13",
+          "text": "Quelqu'un parmi vous souffre-t-il les maux ? Qu'il prie. Quelqu'un est-il joyeux ? Qu'il chante un hymne."
+        },
+        {
+          "verse": "5:14",
+          "text": "Quelqu'un parmi vous est-il malade ? Qu'il appelle les anciens de l'assemblée, et qu'ils prient pour lui en l'oignant d'huile au nom du Seigneur,"
+        },
+        {
+          "verse": "5:15",
+          "text": "et la prière de la foi sauvera le malade, et le Seigneur le réveillera. Et s'il a commis des péchés, ils lui seront remis."
+        },
+        {
+          "verse": "5:16",
+          "text": "Confessez vos fautes les uns les autres, et priez les uns en faveur des autres, afin que vous soyez guéris. La supplication du juste agit avec une grande force."
+        },
+        {
+          "verse": "5:17",
+          "text": "Éliyah était un être humain de même nature que nous. Et en prière, il a prié pour qu'il ne pleuve pas et il n'est pas tombé de pluie sur la terre pendant 3 ans et 6 mois.",
+          "textWithNotes": "Éliyah[Élie.] était un être humain de même nature que nous. Et en prière, il a prié pour qu'il ne pleuve pas et il n'est pas tombé de pluie sur la terre pendant 3 ans et 6 mois[1 R. 17:1.].",
+          "notes": [
+            {
+              "word": "Éliyah",
+              "position": 0,
+              "note": "Élie."
+            },
+            {
+              "word": "mois",
+              "position": 165,
+              "note": "1 R. 17:1."
+            }
+          ]
+        },
+        {
+          "verse": "5:18",
+          "text": "Et il a de nouveau prié, et le ciel a donné de la pluie et la terre a produit son fruit."
+        },
+        {
+          "verse": "5:19",
+          "text": "Frères, si quelqu'un parmi vous s'est égaré loin de la vérité, et qu'un autre l'y ramène,"
+        },
+        {
+          "verse": "5:20",
+          "text": "qu'il sache que celui qui aura ramené un pécheur hors de l'égarement de sa voie, sauvera une âme hors de la mort et couvrira une multitude de péchés."
+        }
+      ]
+    }
+  ]
+}

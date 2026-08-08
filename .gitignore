@@ -1,0 +1,10 @@
+# Outils et sessions locales — pas du projet.
+.claude/
+.deep-copilot/
+
+# Systèmes de fichiers
+Thumbs.db
+.DS_Store
+
+# Note : `bible_app/` porte le .gitignore Flutter (build/, .dart_tool/, …)
+# et chaque dossier de plateforme le sien (android/.gradle, ios/…).

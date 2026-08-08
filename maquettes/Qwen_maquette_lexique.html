@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Application Bible — Maquette v6 · Lexique hébreu & déclencheurs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0f1d; --gold:#d3a94f; --gold2:#f0d089;
+  --line:rgba(211,169,79,.18); --line2:rgba(211,169,79,.34);
+  --mut:#93a0b8; --ink:#e9eef8; --disp:'Cormorant Garamond',serif; --ui:'Manrope',sans-serif;
+  --heb:'Noto Serif Hebrew','SBL Hebrew','Ezra SIL','Times New Roman',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;overflow-x:hidden}
+::selection{background:rgba(211,169,79,.35)}
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(1200px 800px at 78% -10%,rgba(46,74,140,.28),transparent 60%),radial-gradient(1000px 700px at -12% 112%,rgba(122,84,30,.16),transparent 60%)}
+.sky::before{content:"";position:absolute;inset:0;background-image:
+  radial-gradient(1.4px 1.4px at 12% 18%,rgba(242,234,208,.7),transparent 60%),
+  radial-gradient(1.2px 1.2px at 34% 8%,rgba(242,234,208,.5),transparent 60%),
+  radial-gradient(1.6px 1.6px at 58% 22%,rgba(242,234,208,.6),transparent 60%),
+  radial-gradient(1.3px 1.3px at 91% 34%,rgba(242,234,208,.5),transparent 60%),
+  radial-gradient(1.5px 1.5px at 47% 60%,rgba(242,234,208,.45),transparent 60%),
+  radial-gradient(1.2px 1.2px at 8% 74%,rgba(242,234,208,.5),transparent 60%);
+  animation:twk 9s ease-in-out infinite alternate}
+@keyframes twk{from{opacity:.35}to{opacity:.9}}
+body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.045;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.55'/></svg>")}
+main,header.mast,footer,.topbar{position:relative;z-index:2}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;gap:26px;padding:12px 32px;background:rgba(10,15,29,.92);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;white-space:nowrap}
+.brand svg{color:var(--gold)}
+.brand small{font-weight:600;color:var(--mut)}
+.vbadge{font-size:10px;font-weight:800;letter-spacing:.1em;background:linear-gradient(120deg,var(--gold2),var(--gold));color:#241a04;border-radius:99px;padding:3px 9px}
+.tnav{display:flex;gap:4px;margin-left:auto}
+.tnav a{color:var(--mut);text-decoration:none;font-size:12px;font-weight:700;padding:6px 9px;border-radius:8px;transition:.2s}
+.tnav a:hover{color:var(--gold2);background:rgba(211,169,79,.1)}
+
+.mast{max-width:1240px;margin:0 auto;padding:126px 32px 50px}
+.overline{display:flex;align-items:center;gap:14px;font-size:12px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.overline::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line2),transparent)}
+.mast h1{font-family:var(--disp);font-weight:600;font-size:clamp(44px,5.4vw,74px);line-height:1.02;margin:16px 0 14px}
+.mast h1 em{font-style:italic;color:var(--gold2)}
+.tagline{font-size:16.5px;color:var(--mut);max-width:820px}
+.tagline b{color:#f2ead8}
+.changelog{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:24px}
+.cl{font-size:13px;color:var(--mut);border:1px solid var(--line);border-radius:99px;padding:9px 18px}
+.cl b{color:#f2ead8;margin-right:6px}
+.cl.gold{background:linear-gradient(120deg,rgba(211,169,79,.16),rgba(211,169,79,.05));border-color:var(--line2);color:#d5dbe8}
+.cl.gold b{color:var(--gold2)}
+.changelog .arr{color:var(--gold);font-size:18px}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.sec{border-top:1px solid var(--line);padding:86px 0}
+.grid{display:grid;grid-template-columns:minmax(300px,450px) auto;gap:66px;align-items:center;justify-content:center}
+.num{display:flex;align-items:center;gap:14px;color:var(--gold);margin-bottom:16px}
+.num b{font-family:var(--disp);font-style:italic;font-weight:500;font-size:54px;line-height:1;color:var(--gold2)}
+.sec-title{font-family:var(--disp);font-weight:600;font-size:clamp(28px,3.2vw,42px);line-height:1.12;margin-bottom:14px}
+.lead{color:#c3cbdc;font-size:15.5px;max-width:480px}
+.gestures{list-style:none;margin-top:24px;display:grid;gap:11px}
+.gestures li{position:relative;padding-left:26px;font-size:14.5px;color:#d5dbe8}
+.gestures li::before{content:"☞";position:absolute;left:0;top:1px;color:var(--gold);font-size:13px}
+.gestures b{color:#fff}
+.ref{display:inline-block;font-size:10.5px;font-weight:800;color:var(--gold);border:1px solid var(--line2);border-radius:99px;padding:2px 8px;margin-left:8px;vertical-align:1px}
+.n2{font-size:9.5px;font-weight:800;letter-spacing:.08em;color:#241a04;background:linear-gradient(120deg,var(--gold2),var(--gold));border-radius:99px;padding:2px 8px;margin-left:6px;vertical-align:1px}
+
+/* ---------- téléphone ---------- */
+.phone{position:relative;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.phone:hover{transform:translateY(-8px)}
+.phone::before{content:"";position:absolute;inset:-50px -70px;background:radial-gradient(50% 55% at 50% 42%,rgba(211,169,79,.13),transparent 70%)}
+.frame{position:relative;width:370px;background:#04060b;border:1px solid #2a3040;border-radius:58px;padding:12px;box-shadow:0 50px 100px rgba(0,0,0,.6)}
+.screen{position:relative;width:346px;height:752px;border-radius:47px;overflow:hidden;font-family:var(--ui);user-select:none;-webkit-user-select:none;display:flex;flex-direction:column}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:106px;height:27px;background:#04060b;border-radius:20px;z-index:70}
+.homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:118px;height:5px;border-radius:3px;background:rgba(200,200,210,.4);z-index:70}
+.sbar{display:flex;justify-content:space-between;align-items:center;padding:15px 26px 0;font-size:13px;font-weight:800;position:relative;z-index:8;color:#f0e6cc}
+.th-vitrail{--tx:#f4ecd7;--tx2:#d8c79e;--hd:#eec76d;--num:#d9a441;--acc:#eec76d;--panel:rgba(19,13,7,.62);--panel2:rgba(238,199,109,.18);--stripbg:rgba(19,13,7,.55);--striptx:#d8c79e;color:var(--tx);
+  background:linear-gradient(160deg,rgba(10,7,3,.3),rgba(10,7,3,.62)),conic-gradient(from 210deg at 55% 35%,#7d1f2d,#1d3f8f 22%,#d9a441 40%,#1f5c46 58%,#5b2a86 76%,#7d1f2d)}
+.strip{display:flex;align-items:center;gap:6px;padding:12px 10px 6px;overflow:hidden}
+.stab{display:flex;align-items:center;gap:6px;max-width:118px;padding:7px 9px;border-radius:11px 11px 4px 4px;font-size:10.5px;font-weight:800;white-space:nowrap;cursor:pointer;background:var(--stripbg);color:var(--striptx);border:1px solid var(--panel2);flex:none;transition:.2s}
+.stab span{overflow:hidden;text-overflow:ellipsis}
+.stab.on{background:var(--panel);color:var(--tx);border-color:var(--acc)}
+.stab i{font-style:normal;font-size:9px;opacity:.65}
+.c-ic{color:var(--gold);font-weight:800;font-size:11px;flex:none}
+.scount{flex:none;min-width:29px;height:29px;border-radius:9px;display:grid;place-items:center;background:var(--gold);color:#241a04;font-size:11.5px;font-weight:800;padding:0 7px;margin-left:auto;box-shadow:0 4px 12px rgba(211,169,79,.4);transition:.25s}
+.scount.pop{transform:scale(1.28)}
+.refbar{display:flex;align-items:center;gap:10px;margin:4px 14px 0;padding:11px 14px;background:var(--panel);border-radius:14px;border:1px solid var(--panel2)}
+.refbar .bk{font-family:var(--disp);font-weight:700;font-size:17px;color:var(--hd);flex:1;white-space:nowrap;overflow:hidden}
+.refbar .bk small{display:block;font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tx2)}
+.tchip{font-size:11px;font-weight:800;color:var(--tx);background:var(--panel2);border:1px solid var(--panel2);border-radius:99px;padding:6px 11px;flex:none;cursor:pointer;transition:.2s}
+.tchip:hover{border-color:var(--acc)}
+.modeseg{display:flex;margin:10px 14px 4px;background:var(--panel);border:1px solid var(--panel2);border-radius:99px;padding:4px;gap:4px}
+.modeseg button{flex:1;border:0;background:transparent;color:var(--tx2);font-family:var(--ui);font-size:11.5px;font-weight:800;padding:9px 0;border-radius:99px;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center;gap:7px}
+.modeseg button.on{background:linear-gradient(120deg,var(--gold2),var(--gold));color:#241a04;box-shadow:0 6px 14px rgba(211,169,79,.35)}
+.hintbar{margin:8px 16px 0;display:flex;align-items:center;gap:9px;font-size:10.5px;font-weight:800;color:#241a04;background:linear-gradient(120deg,var(--gold2),var(--gold));border-radius:12px;padding:8px 12px;animation:hint 2.2s ease-in-out infinite}
+@keyframes hint{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.vbody{flex:1;overflow-y:auto;scrollbar-width:none;min-height:0}
+.vbody::-webkit-scrollbar{display:none}
+.flow{padding:12px 20px 30px}
+.sect{display:flex;align-items:center;gap:10px;margin:8px 2px 10px}
+.sect::before,.sect::after{content:"";height:1px;width:26px;background:var(--panel2);flex:none}
+.sect span{flex:1;font-size:9.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;text-align:center;color:var(--hd)}
+.verses p{font-family:var(--disp);font-size:18.5px;line-height:1.62;margin-bottom:.85em}
+.vn{font-family:var(--ui);font-size:.58em;font-weight:800;color:var(--num);vertical-align:super;margin-right:6px}
+.aword{border-bottom:1.5px dotted var(--acc);cursor:pointer;transition:.2s}
+.aword:hover{color:var(--hd)}
+.aword.bait{animation:bait 1.8s ease-in-out infinite;border-bottom-width:2px}
+@keyframes bait{0%,100%{color:var(--tx);text-shadow:none}50%{color:var(--hd);text-shadow:0 0 14px rgba(238,199,109,.55)}}
+.inote{font-family:var(--ui);font-size:11.5px;line-height:1.55;color:var(--tx);background:var(--panel2);border-radius:8px;padding:2px 8px;margin:0 3px;opacity:.96;cursor:pointer;transition:.2s}
+.inote:hover{background:rgba(238,199,109,.3)}
+.inote::before{content:"✦ ";color:var(--acc)}
+.inote .more{color:var(--acc);font-weight:800}
+.flashA{animation:nflash 1.4s ease}
+@keyframes nflash{0%{box-shadow:0 0 0 0 rgba(238,199,109,0)}30%{box-shadow:0 0 0 5px rgba(238,199,109,.4)}100%{box-shadow:0 0 0 0 rgba(238,199,109,0)}}
+
+/* ---------- fiche de mot (sheet) ---------- */
+.wordSheet{position:absolute;left:0;right:0;bottom:0;z-index:58;transform:translateY(110%);transition:transform .42s cubic-bezier(.2,.7,.2,1)}
+.wordSheet.show{transform:none}
+.ws-card{background:#141927;border-radius:26px 26px 0 0;border-top:1px solid rgba(238,199,109,.3);padding:14px 20px 26px;box-shadow:0 -20px 50px rgba(0,0,0,.55)}
+.drag{width:44px;height:4px;border-radius:99px;background:#4a5570;margin:2px auto 12px}
+.ws-top{display:flex;align-items:center;gap:14px}
+.hebrew{font-family:var(--heb);direction:rtl;color:#eec76d;line-height:1.1}
+.ws-top .hebrew{font-size:40px}
+.ws-ref{flex:1}
+.ws-ref b{font-size:14.5px;color:#f2ead8;font-weight:800}
+.ws-ref .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
+.wchip{font-size:9.5px;font-weight:800;letter-spacing:.05em;color:#dfe6f5;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:99px;padding:3px 9px}
+.wchip.g{color:#241a04;background:var(--gold);border-color:var(--gold)}
+.ws-def{font-size:12px;line-height:1.6;color:#c9d0df;margin:12px 0 4px}
+.ws-def i{color:#eec76d;font-style:normal;font-weight:700}
+.ws-meta{font-size:10.5px;color:#8b97b4;font-weight:700;margin:6px 0 14px;line-height:1.7}
+.ws-meta b{color:#dfe6f5}
+.ws-actions{display:flex;gap:9px}
+.btn-gold{flex:1;background:linear-gradient(120deg,var(--gold2),var(--gold));color:#241a04;border:none;border-radius:99px;padding:11px 14px;font-family:var(--ui);font-weight:800;font-size:12px;cursor:pointer;transition:.2s}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#dfe6f5;border-radius:99px;padding:11px 16px;font-family:var(--ui);font-weight:800;font-size:12px;cursor:pointer;transition:.2s}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+
+/* ---------- écran lexique ---------- */
+.lex-search{display:flex;align-items:center;gap:10px;margin:10px 14px;background:var(--panel);border:1px solid var(--panel2);border-radius:99px;padding:10px 15px;cursor:pointer;color:var(--tx2);font-size:12px;font-weight:700;transition:.2s}
+.lex-search:hover{border-color:var(--acc)}
+.lex-search .fl{color:var(--acc)}
+.lex-card{background:var(--panel);border:1px solid var(--panel2);border-radius:18px;padding:16px;margin-bottom:12px}
+.lex-head{text-align:center;padding:4px 0 10px}
+.lex-head .hebrew{font-size:54px}
+.lex-sub{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:8px}
+.lbl{font-size:9px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin-bottom:6px}
+.lex-block p{font-family:var(--ui);font-size:12.5px;line-height:1.6;color:var(--tx);opacity:.94}
+.lex-block p i{font-family:var(--heb);font-style:normal;color:var(--hd)}
+.grec-line{display:flex;align-items:center;gap:10px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--panel2)}
+.grec-line .gw{font-size:22px;color:var(--hd);font-weight:600}
+.grec-line span{flex:1;font-size:11.5px;color:var(--tx2);font-weight:700}
+.grec-line button{font-family:var(--ui);font-size:10px;font-weight:800;color:#241a04;background:var(--gold);border:none;border-radius:99px;padding:6px 11px;cursor:pointer;transition:.2s}
+.grec-line button:hover{transform:translateY(-1px)}
+.prox{display:flex;gap:8px;flex-wrap:wrap}
+.pchip{font-family:var(--ui);font-size:11px;font-weight:800;color:var(--tx);background:var(--panel2);border:1px solid var(--panel2);border-radius:99px;padding:7px 13px;cursor:pointer;transition:.2s}
+.pchip:hover{border-color:var(--acc);color:var(--hd);transform:translateY(-2px)}
+.pchip small{display:block;font-size:8.5px;color:var(--tx2);letter-spacing:.08em;text-transform:uppercase}
+.occ-row{display:flex;gap:10px;align-items:baseline;background:var(--panel);border:1px solid var(--panel2);border-radius:12px;padding:10px 12px;margin-bottom:8px;cursor:pointer;transition:.2s}
+.occ-row:hover{border-color:var(--acc);transform:translateX(3px)}
+.oref{flex:none;font-size:10px;font-weight:800;color:var(--hd);border:1px solid var(--panel2);border-radius:99px;padding:4px 9px}
+.octx{font-family:var(--disp);font-style:italic;font-size:13px;color:var(--tx);opacity:.92;line-height:1.4}
+.lex-note-link{display:flex;align-items:center;justify-content:center;gap:8px;font-size:11px;font-weight:800;color:var(--hd);border:1px dashed var(--acc);border-radius:12px;padding:10px;cursor:pointer;transition:.2s;margin-bottom:10px}
+.lex-note-link:hover{background:var(--panel2)}
+.lex-src{text-align:center;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx2);font-weight:800;padding:4px 0 8px}
+
+.toast{position:absolute;left:50%;bottom:70px;transform:translateX(-50%) translateY(20px);background:#f2ead8;color:#241a04;font-size:11.5px;font-weight:800;padding:9px 16px;border-radius:99px;opacity:0;transition:.3s;z-index:80;pointer-events:none;box-shadow:0 10px 24px rgba(0,0,0,.45);white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%)}
+.cap{margin-top:20px;text-align:center;font-size:12.5px;color:var(--mut);max-width:390px}
+.cap b{color:var(--gold2)}
+
+/* ---------- déclencheurs ---------- */
+.triggers{margin-top:42px;display:grid;gap:14px;max-width:980px}
+.trig{display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:center;border:1px solid var(--line);border-radius:18px;padding:18px 22px;background:linear-gradient(165deg,rgba(255,255,255,.035),rgba(255,255,255,.01));transition:.25s}
+.trig:hover{border-color:var(--line2);transform:translateX(6px)}
+.trig .tn{font-family:var(--disp);font-style:italic;font-size:36px;color:var(--gold);line-height:1}
+.trig .tt b{display:block;font-size:15.5px;color:#f2ead8;margin-bottom:2px}
+.trig .tt p{font-size:13px;color:#c3cbdc}
+.trig .tt code{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;color:var(--gold2);background:rgba(211,169,79,.1);border:1px solid var(--line);border-radius:6px;padding:1px 5px}
+.trig .tr{font-size:11px;font-weight:800;color:var(--gold);white-space:nowrap}
+.callout{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line2);border-radius:18px;padding:22px 26px;margin-top:26px;background:linear-gradient(120deg,rgba(211,169,79,.1),rgba(211,169,79,.02));max-width:980px}
+.callout .ic{flex:none;width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(140deg,var(--gold2),var(--gold));color:#241a04;font-size:20px}
+.callout p{font-size:13.5px;color:#d5dbe8}
+.callout b{color:#fff}
+
+/* ---------- JSON ---------- */
+.codepanel{background:#0d1426;border:1px solid var(--line);border-radius:18px;padding:26px 28px;overflow-x:auto;font-family:ui-monospace,'SF Mono',Consolas,monospace;font-size:12.5px;line-height:1.75;color:#c9d0df;margin-top:30px;box-shadow:0 30px 60px rgba(0,0,0,.35);max-width:1000px}
+.codepanel .k{color:#f0d089}
+.codepanel .s{color:#9cc2e8}
+.codepanel .p{color:#6e7a96}
+.codepanel .c{color:#5d6a86;font-style:italic}
+.codepanel .h{color:#e08a76}
+.codepanel .fn{display:block;font-family:var(--ui);font-size:10.5px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px;max-width:1000px}
+.mapcard{border:1px solid var(--line);border-radius:18px;padding:22px 24px}
+.mapcard h6{font-size:10px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.mapcard ul{list-style:none;display:grid;gap:9px}
+.mapcard li{font-size:13px;color:#c3cbdc;padding-left:20px;position:relative}
+.mapcard li::before{content:"✦";position:absolute;left:0;color:var(--gold);font-size:11px}
+.mapcard li b{color:#f2ead8}
+.mapcard li code{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;color:var(--gold2)}
+
+.foot{border-top:1px solid var(--line);padding:54px 0}
+.credit{text-align:center;font-size:12px;color:var(--mut);letter-spacing:.06em}
+.credit b{color:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:1080px){
+  .grid{grid-template-columns:1fr;gap:44px;justify-items:center}
+  .duo{grid-template-columns:1fr}
+  .trig{grid-template-columns:40px 1fr}
+  .trig .tr{display:none}
+  .tnav{display:none}
+}
+@media(max-width:480px){
+  .frame{width:calc(100vw - 40px);max-width:370px}
+  .screen{width:100%;height:740px}
+  .wrap{padding:0 20px}
+  .mast{padding:104px 20px 44px}
+}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+
+<nav class="topbar">
+  <div class="brand">
+    <svg width="16" height="22" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="2"/><path d="M2 30h20" stroke="currentColor" stroke-width="2"/></svg>
+    Application Bible <small>· Maquette — Lexique</small> <span class="vbadge">v6</span>
+  </div>
+  <div class="tnav">
+    <a href="#demo">Démo interactive</a><a href="#declencheurs">Les 5 déclencheurs</a><a href="#json">Structure JSON</a>
+  </div>
+</nav>
+
+<header class="mast">
+  <div class="overline">Maquette UI · v6 — Lexiques hébreu &amp; grec (§ 2.2) · données réelles 01-Genese.json</div>
+  <h1>Le lexique, <em>à fleur de mot</em></h1>
+  <p class="tagline">Le lexique ne vit pas dans un coin de l'application : il se déclenche <b>là où le lecteur lit</b>. Un mot annoté, touché en pleine lecture, ouvre la fiche — et la fiche s'ouvre <b>dans un onglet</b>, comme toute étude (§ 3.3). Démonstration avec votre note sur « humain » (אָדָם) en Genèse 1:26.</p>
+  <div class="changelog">
+    <div class="cl"><b>v5</b> clic verset · feuille d'étude</div>
+    <span class="arr">→</span>
+    <div class="cl gold"><b>v6</b> fiche de mot · écran lexique · 5 déclencheurs</div>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════ DÉMO ═══════ -->
+<section class="sec" id="demo">
+  <div class="wrap grid">
+    <div class="col-txt reveal">
+      <div class="num"><b>01</b></div>
+      <h2 class="sec-title">Du mot à la fiche, en deux gestes</h2>
+      <p class="lead">La démo suit le parcours réel : lecture annotée de Genèse 1.26 → toucher du mot <b style="color:#f2ead8">humain</b> → fiche de mot → ouverture de l'écran Lexique dans un nouvel onglet.</p>
+      <ul class="gestures">
+        <li><b>Touchez le mot « humain »</b> (souligné pointillé doré, v. 26) : la fiche de mot remonte, nourrie de votre note de traduction <span class="ref">§ 2.2</span></li>
+        <li><b>« Ouvrir dans le lexique ↗ »</b> : l'écran complet s'ouvre dans un <b>nouvel onglet</b> — le compteur passe de 2 à 3 <span class="ref">§ 3.3</span></li>
+        <li>Dans le lexique : <b>définition, équivalent grec, termes proches</b> (אָדָם / 'Âdâm / 'îysh — vos trois distinctions)</li>
+        <li><b>Les occurrences</b> citées par votre note (Ge 1.26-27, 2.7, 3.8-9, 4.1…) s'ouvrent chacune dans un onglet au toucher</li>
+        <li><b>« Voir la note de Ge. 1.26 »</b> ramène à la lecture et illumine la note d'origine</li>
+        <li>En mode <b>Texte seul</b>, les mots ne sont pas interactifs : le lexique ne se déclenche qu'en lecture annotée</li>
+      </ul>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen th-vitrail">
+        <div class="island"></div>
+        <div class="sbar"><span>09:41</span><span><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+
+        <div class="strip" id="strip"></div>
+        <div class="refbar" id="refbar"></div>
+
+        <!-- SCÈNE LECTURE -->
+        <div id="sceneLecture" style="display:contents">
+          <div class="modeseg" id="modeSeg">
+            <button data-m="text">Aa&nbsp; Texte seul</button>
+            <button class="on" data-m="notes">✦&nbsp; Texte + notes</button>
+          </div>
+          <div class="hintbar" id="hintBar">☞&nbsp; Touchez le mot souligné « humain » (v. 26)</div>
+          <div class="vbody"><div class="flow">
+            <div class="sect"><span>Mission confiée à l'être humain (Adam) ; son autorité sur la création</span></div>
+            <div class="verses" id="versesArea"></div>
+          </div></div>
+        </div>
+
+        <!-- SCÈNE LEXIQUE -->
+        <div id="sceneLexique" style="display:none;flex:1;flex-direction:column;min-height:0">
+          <div class="lex-search" id="lexSearch"><span class="fl">⌕</span>Rechercher un mot hébreu, une translittération, une réf. Strong…</div>
+          <div class="vbody"><div class="flow" style="padding-top:2px">
+            <div class="lex-card">
+              <div class="lex-head">
+                <div class="hebrew">אָדָם</div>
+                <div class="lex-sub">
+                  <span class="wchip g">H120 · Strong</span>
+                  <span class="wchip">'âdâm</span>
+                  <span class="wchip">aw-dawm'</span>
+                  <span class="wchip">nom masculin</span>
+                </div>
+              </div>
+            </div>
+            <div class="lex-block lex-card">
+              <div class="lbl">Définition</div>
+              <p>« Être humain », « de la terre ». Littéralement <i>« le terreux, le glaiseux »</i> : formé à partir de <i>ha-adamah</i>, « la terre, la glaise » — jeu de mots étymologique analogue au latin <i>homo</i> / <i>humus</i> (Ge. 2.7). Terme le plus fréquemment employé dans le Tanakh ; désigne le genre humain dans sa globalité.</p>
+              <div class="grec-line">
+                <span class="gw">ἄνθρωπος</span>
+                <span>Équivalent grec · ánthrōpos · G444<br>Mt. 4.4</span>
+                <button data-lex="grec">Voir la fiche grecque ↗</button>
+              </div>
+            </div>
+            <div class="lex-block lex-card">
+              <div class="lbl">Termes proches — vos distinctions de traduction</div>
+              <div class="prox">
+                <span class="pchip" data-lex="adam">אָדָם 'Âdâm<small>nom propre · Ge. 3.17</small></span>
+                <span class="pchip" data-lex="iysh">אִישׁ 'îysh<small>mâle / mari · Ge. 2.23</small></span>
+                <span class="pchip" data-lex="adamah">אֲדָמָה ha-adamah<small>la glaise · Ge. 2.7</small></span>
+              </div>
+            </div>
+            <div class="lex-block lex-card" style="background:transparent;border:none;padding:0;margin-bottom:0">
+              <div class="lbl" style="padding-left:2px">Occurrences — citées par la note de Ge. 1.26</div>
+              <div class="occ-row" data-ref="1.26"><span class="oref">Ge. 1.26</span><span class="octx">« Nous ferons l'être humain à notre image, selon notre ressemblance… »</span></div>
+              <div class="occ-row" data-ref="1.27"><span class="oref">Ge. 1.27</span><span class="octx">« Elohîm créa l'être humain à son image… »</span></div>
+              <div class="occ-row" data-ref="2.7"><span class="oref">Ge. 2.7</span><span class="octx">« YHWH Elohîm forma l'être humain à partir de la poussière du sol… »</span></div>
+              <div class="occ-row" data-ref="2.15"><span class="oref">Ge. 2.15-25</span><span class="octx">« YHWH Elohîm prit l'être humain et le fit se reposer dans le jardin d'Éden… »</span></div>
+              <div class="occ-row" data-ref="3.8"><span class="oref">Ge. 3.8-9</span><span class="octx">« L'être humain et sa femme se cachèrent… YHWH Elohîm appela Adam : Où es-tu ? »</span></div>
+              <div class="occ-row" data-ref="4.1"><span class="oref">Ge. 4.1</span><span class="octx">« Elle dit : J'ai acquis un homme avec YHWH. »</span></div>
+              <div class="lex-note-link" id="seeNote">✦&nbsp; Voir la note de traduction de Ge. 1.26 dans la lecture</div>
+              <div class="lex-src">Module · Lexique hébreu (Strong) — téléchargé (§ 2.2)</div>
+            </div>
+          </div></div>
+        </div>
+
+        <!-- FICHE DE MOT -->
+        <div class="wordSheet" id="wordSheet">
+          <div class="ws-card">
+            <div class="drag"></div>
+            <div class="ws-top">
+              <span class="hebrew">אָדָם</span>
+              <span class="ws-ref">
+                <b>'âdâm — « être humain »</b>
+                <span class="chips"><span class="wchip g">H120</span><span class="wchip">nom masc.</span><span class="wchip">hébreu</span></span>
+              </span>
+            </div>
+            <p class="ws-def">Littéralement <i>« de la terre »</i>. Le terme le plus fréquemment employé dans le Tanakh ; désigne le genre humain dans sa globalité. Équivalent grec : <i>ánthrōpos</i>.</p>
+            <div class="ws-meta"><b>Occurrences citées :</b> Ge. 1.26-27 · 2.7 · 2.15-25 · 3.8-9,12 · 4.1<br><b>Source :</b> note de traduction — Genèse 1.26 (Victor)</div>
+            <div class="ws-actions">
+              <button class="btn-gold" id="openLex">Ouvrir dans le lexique ↗</button>
+              <button class="btn-ghost" id="copyWord">⧉ Copier</button>
+              <button class="btn-ghost" id="closeSheet">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="toast" id="toast"></div>
+        <div class="homebar"></div>
+      </div></div></div>
+      <p class="cap">Parcours complet : <b>mot → fiche → lexique → occurrence → nouvel onglet</b>. La flèche retour de la barre ramène à la lecture, l'onglet lexique reste ouvert.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ DÉCLENCHEURS ═══════ -->
+<section class="sec" id="declencheurs">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="num"><b>02</b></div>
+      <h2 class="sec-title">Quand le lexique se déclenche-t-il ?</h2>
+      <p class="lead">Cinq portes d'entrée, une seule destination : la fiche de mot. Le déclencheur principal reste le texte lui-même.</p>
+    </div>
+    <div class="triggers">
+      <div class="trig reveal">
+        <span class="tn">1</span>
+        <span class="tt"><b>Mot annoté dans la lecture — déclencheur principal</b>
+        <p>En mode <b>Texte + notes</b>, chaque mot porteur d'une note est souligné en pointillé doré. Un toucher ouvre la fiche de mot, puis l'écran Lexique complet dans un onglet. En mode Texte seul, aucun déclenchement.</p></span>
+        <span class="tr">§ 2.2 · 3.1</span>
+      </div>
+      <div class="trig reveal">
+        <span class="tn">2</span>
+        <span class="tt"><b>Terme hébreu / grec cité dans une note</b>
+        <p>Les termes entre crochets de vos notes — <code>['âdâm]</code>, <code>['îysh]</code>, <code>tohuw</code>, <code>bohuw</code>, <code>neged</code>… — deviennent des liens : toucher le terme ouvre sa fiche lexique.</p></span>
+        <span class="tr">§ 2.2</span>
+      </div>
+      <div class="trig reveal">
+        <span class="tn">3</span>
+        <span class="tt"><b>Recherche unifiée</b>
+        <p>Les entrées du lexique apparaissent dans les résultats de recherche (§ 3.2) : par mot hébreu ou grec, translittération (« ro'eh »), sens (« berger ») ou référence Strong (H7462).</p></span>
+        <span class="tr">§ 3.2</span>
+      </div>
+      <div class="trig reveal">
+        <span class="tn">4</span>
+        <span class="tt"><b>Bibliothèque — parcours libre</b>
+        <p>Depuis la Bibliothèque, après téléchargement du « Lexique hébreu — Strong » ou « Lexique grec — Strong » (18 / 16 Mo, à la demande), le lecteur peut parcourir l'index alphabétique et chercher librement.</p></span>
+        <span class="tr">§ 2.2</span>
+      </div>
+      <div class="trig reveal">
+        <span class="tn">5</span>
+        <span class="tt"><b>De fiche en fiche</b>
+        <p>Depuis une fiche : équivalent grec, termes proches, occurrences cliquables et références croisées — chaque lien s'ouvre dans un onglet, sans fermer l'étude en cours.</p></span>
+        <span class="tr">§ 3.3</span>
+      </div>
+    </div>
+    <div class="callout reveal">
+      <span class="ic">⛭</span>
+      <p><b>Sans lexique téléchargé (§ 2.2, tout est optionnel) :</b> le mot annoté ouvre uniquement la note de Victor, qui reste pleinement lisible ; un bouton discret « Télécharger le lexique hébreu (18 Mo) » mène à la Bibliothèque. <b>Aucune fonction n'est bloquée</b> — la fiche enrichie est une augmentation, jamais un prérequis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ JSON ═══════ -->
+<section class="sec" id="json">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="num"><b>03</b></div>
+      <h2 class="sec-title">Structure proposée &amp; pont avec votre fichier</h2>
+      <p class="lead">Le lexique est un module séparé (téléchargeable), relié à vos notes par une simple référence. Votre fichier 01-Genese.json n'a presque rien à changer.</p>
+    </div>
+    <div class="codepanel reveal">
+      <span class="fn">lexique-hebreu.json — module (style Strong)</span>
+<span class="p">{</span>
+  <span class="k">"module"</span><span class="p">:</span> <span class="s">"lexique-hebreu-strong"</span><span class="p">,</span>
+  <span class="k">"version"</span><span class="p">:</span> <span class="s">"1.0"</span><span class="p">,</span>
+  <span class="k">"entrees"</span><span class="p">: [</span>
+    <span class="p">{</span>
+      <span class="k">"id"</span><span class="p">:</span> <span class="s">"H120"</span><span class="p">,</span>
+      <span class="k">"mot"</span><span class="p">:</span> <span class="h">"אָדָם"</span><span class="p">,</span>                       <span class="c">// rendu RTL (right-to-left)</span>
+      <span class="k">"translitteration"</span><span class="p">:</span> <span class="s">"'âdâm"</span><span class="p">,</span>
+      <span class="k">"phonetique"</span><span class="p">:</span> <span class="s">"aw-dawm'"</span><span class="p">,</span>
+      <span class="k">"type"</span><span class="p">:</span> <span class="s">"nom masculin"</span><span class="p">,</span>
+      <span class="k">"definition"</span><span class="p">:</span> <span class="s">"être humain, humanité — littéralement « le terreux, le glaiseux »"</span><span class="p">,</span>
+      <span class="k">"grec"</span><span class="p">:</span> <span class="s">"G444"</span><span class="p">,</span>                          <span class="c">// équivalent grec (module grec)</span>
+      <span class="k">"proches"</span><span class="p">:</span> <span class="p">[</span><span class="s">"H121"</span><span class="p">,</span> <span class="s">"H376"</span><span class="p">,</span> <span class="s">"H127"</span><span class="p">],</span>   <span class="c">// 'Âdâm, 'îysh, ha-adamah</span>
+      <span class="k">"occurrences"</span><span class="p">: [</span>
+        <span class="p">{</span> <span class="k">"ref"</span><span class="p">:</span> <span class="s">"Ge. 1:26"</span><span class="p">,</span> <span class="k">"contexte"</span><span class="p">:</span> <span class="s">"Nous ferons l'être humain à notre image…"</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="k">"ref"</span><span class="p">:</span> <span class="s">"Ge. 2:7"</span><span class="p">,</span> <span class="k">"contexte"</span><span class="p">:</span> <span class="s">"YHWH Elohîm forma l'être humain à partir de la poussière du sol…"</span> <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+    </div>
+    <div class="duo">
+      <div class="mapcard reveal">
+        <h6>Le pont avec votre 01-Genese.json</h6>
+        <ul>
+          <li>Vos objets <code>notes[]</code> gagnent une clé facultative : <code>"lexique": "H120"</code> sur la note de <b>« humain »</b> (Ge. 1:26) — c'est le seul ajout nécessaire.</li>
+          <li>Sans cette clé, l'appareil <b>détecte les termes entre crochets</b> de vos notes (<code>['âdâm]</code>, <code>['îysh]</code>…) et les relie par translittération.</li>
+          <li>Sans module téléchargé : la note s'affiche seule, un bouton propose le téléchargement (§ 2.2).</li>
+          <li><code>textWithNotes</code> reste facultatif : l'interface régénère l'affichage depuis <code>text</code> + <code>notes[]</code>.</li>
+        </ul>
+      </div>
+      <div class="mapcard reveal">
+        <h6>Règles de rendu</h6>
+        <ul>
+          <li><b>Hébreu en RTL</b> : la fiche passe le mot en écriture droite-à-gauche, le reste de l'écran reste en LTR.</li>
+          <li><b>Police dédiée</b> hébreu/grec (Noto Serif Hebrew ou fournie avec le module), taille 44–54 px pour la vedette.</li>
+          <li><b>Ancrage par <code>position</code></b> : le mot est repéré à l'index caractère, avec repli sur la recherche du mot (§ déjà vu v4).</li>
+          <li><b>Fiche = onglet</b> : toute ouverture de lexique crée ou réactive un onglet (§ 3.3), mémorisé localement.</li>
+          <li><b>Recherche du module</b> indexée dans la recherche unifiée (§ 3.2) : mot, translittération, Strong, sens.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="credit">Application Bible · Maquette <b>v6 — Lexique &amp; déclencheurs</b> · fiche אָדָם bâtie sur vos notes de Genèse 1.26 / 2.7 / 2.23 / 3.17 · mercredi 5 août 2026</p>
+  </div>
+</footer>
+
+<script>
+/* ═══════════ ÉTAT ═══════════ */
+let scene='lecture', mode='notes';
+let tabs=[{id:'ge1',g:'❧',l:'Ge. 1'},{id:'esaie',g:'❧',l:'Ésaïe 40'}];
+let activeTab='ge1', lexTabId=null, openedRefs=[];
+const $=id=>document.getElementById(id);
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+let toastTimer;
+function say(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2100);}
+
+/* ═══════════ DONNÉES RÉELLES ═══════════ */
+const V26="Elohîm avait dit : Nous ferons l'être humain à notre image, selon notre ressemblance. Ils domineront sur les poissons de la mer, sur les créatures volantes des cieux, sur le bétail, sur toute la Terre et sur toute chose rampante qui rampe sur la terre.";
+const NOTE26="Il existe plusieurs termes hébreux qui ont été traduits en français par « homme », mot qui peut avoir plusieurs sens. Dans cette traduction, nous avons fait le choix de mettre en évidence ces subtilités pour la bonne compréhension du lecteur. Le terme hébreu ['âdâm] signifie littéralement « être humain », « de la terre ». Ce mot, qui est le plus fréquemment employé dans le Tanakh, désigne le genre humain dans sa globalité. Son équivalent grec est [ánthrōpos] (voir commentaire dans Mt. 4:4). On le retrouve notamment dans Ge. 1:26-27, 2:7,15-25, 3:8-9,12,20-24, 4:1. Lire également les autres termes ['Âdâm] rendus par « Adam » (voir commentaire dans Ge. 3:17) et ['îysh] en rapport avec le mâle ou le mari (voir commentaire dans Ge. 2:23).";
+const V27="Elohîm créa l'être humain à son image, il l'a créé à l'image d'Elohîm. Mâle et femelle il les a créés.";
+const V28="Elohîm les bénit, et Elohîm leur dit : Portez du fruit, multipliez-vous, remplissez la Terre et assujettissez-la. Dominez sur les poissons de la mer, sur les créatures volantes des cieux et sur tout vivant qui rampe sur la terre.";
+
+/* ═══════════ BARRE D'ONGLETS ═══════════ */
+function renderStrip(){
+  let html=tabs.map(t=>`<div class="stab ${t.id===activeTab?'on':''}" data-tab="${t.id}"><span class="c-ic">${t.g}</span><span>${t.l}</span><i data-x="${t.id}">✕</i></div>`).join('');
+  html+=`<div class="scount" id="tabCount">${tabs.length}</div>`;
+  $('strip').innerHTML=html;
+}
+$('strip').addEventListener('click',e=>{
+  const x=e.target.closest('[data-x]');
+  if(x){const id=x.dataset.x;
+    if(id===lexTabId){tabs=tabs.filter(t=>t.id!==id);lexTabId=null;activeTab='ge1';setScene('lecture');say('Onglet Lexique fermé');}
+    else if(id!=='ge1'){say('Onglet fermé');tabs=tabs.filter(t=>t.id!==id);if(activeTab===id)activeTab='ge1';setScene('lecture');}
+    renderStrip();return;}
+  const tb=e.target.closest('[data-tab]');
+  if(tb){activeTab=tb.dataset.tab;setScene(tb.dataset.tab===lexTabId?'lexique':'lecture');}
+});
+function popCount(){const c=$('tabCount');if(c){c.classList.add('pop');setTimeout(()=>c.classList.remove('pop'),300);}}
+
+/* ═══════════ LECTURE ═══════════ */
+function renderVerses(){
+  const notes=mode==='notes';
+  let v26=V26;
+  if(notes){
+    const p=V26.indexOf('humain');
+    const chip='<span class="inote" id="inote26">'+esc(NOTE26.slice(0,150))+'… <span class="more">Lire la note ✦</span></span>';
+    v26=esc(V26.slice(0,p))+'<span class="aword bait" id="awHumain">humain</span>'+chip+esc(V26.slice(p+6));
+  }
+  $('versesArea').innerHTML=
+    `<p><span class="vn">26</span>${v26}</p>
+     <p><span class="vn">27</span>${esc(V27)}</p>
+     <p><span class="vn">28</span>${esc(V28)}</p>`;
+  $('hintBar').style.display=notes?'flex':'none';
+}
+$('modeSeg').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('#modeSeg button').forEach(x=>x.classList.toggle('on',x===b));
+  mode=b.dataset.m;renderVerses();closeSheet();
+  say(mode==='notes'?'Mode Texte + notes — les mots annotés deviennent tactiles':'Mode Texte seul — lexique non déclenchable');
+});
+
+/* fiche de mot */
+document.addEventListener('click',e=>{
+  if(e.target.closest('#awHumain')){openSheet();return;}
+  if(e.target.closest('#inote26')){openSheet();return;}
+});
+function openSheet(){$('wordSheet').classList.add('show');$('hintBar').style.display='none';}
+function closeSheet(){$('wordSheet').classList.remove('show');}
+$('closeSheet').addEventListener('click',closeSheet);
+$('copyWord').addEventListener('click',()=>{
+  if(navigator.clipboard)navigator.clipboard.writeText("אָדָם ('âdâm) — être humain [H120]").catch(()=>{});
+  say('Mot copié : אָדָם \u2019âdâm');
+});
+$('openLex').addEventListener('click',()=>{
+  closeSheet();
+  if(!lexTabId){
+    lexTabId='lex'+Date.now();
+    tabs.push({id:lexTabId,g:'א',l:'Lexique · אָדָם'});
+    say('Lexique ouvert dans un nouvel onglet (§ 3.3)');
+  }else say('Onglet Lexique réactivé');
+  activeTab=lexTabId;renderStrip();popCount();setScene('lexique');
+});
+
+/* ═══════════ SCÈNES ═══════════ */
+function setScene(s){
+  scene=s;
+  const L=$('sceneLecture'),X=$('sceneLexique'),bar=$('refbar'),seg=$('modeSeg');
+  if(s==='lexique'){
+    L.style.display='none';X.style.display='flex';seg.style.display='none';
+    bar.innerHTML='<span class="bk"><span style="cursor:pointer" id="backBtn">←</span> Lexique hébreu — Strong<small>Entrée H120 · module téléchargé</small></span><span class="tchip">Hébreu ▾</span>';
+    $('backBtn').addEventListener('click',()=>{activeTab='ge1';renderStrip();setScene('lecture');});
+  }else{
+    X.style.display='none';L.style.display='contents';seg.style.display='flex';
+    bar.innerHTML='<span class="bk">Genèse · chapitre 1<small>Bereshit · Traduction Victor</small></span><span class="tchip">Victor ▾</span>';
+  }
+  renderStrip();
+}
+
+/* ═══════════ ACTIONS DU LEXIQUE ═══════════ */
+$('lexSearch').addEventListener('click',()=>say('Recherche : mot hébreu, translittération ou réf. Strong (§ 3.2)'));
+document.querySelectorAll('.occ-row').forEach(r=>{
+  r.addEventListener('click',()=>{
+    const ref=r.dataset.ref;
+    if(!openedRefs.includes(ref)){
+      openedRefs.push(ref);
+      tabs.push({id:'v'+ref,g:'✦',l:'Ge. '+ref});
+      renderStrip();popCount();
+    }
+    say('Ge. '+ref+' ouvert dans un nouvel onglet');
+  });
+});
+document.querySelectorAll('[data-lex]').forEach(c=>{
+  c.addEventListener('click',()=>{
+    const m={grec:'Fiche grecque ἄνθρωπος (G444) ouverte dans un nouvel onglet',
+      adam:'Fiche « \u2019Âdâm » (nom propre · Ge. 3.17) ouverte dans un nouvel onglet',
+      iysh:'Fiche « \u2019îysh » (mâle / mari · Ge. 2.23) ouverte dans un nouvel onglet',
+      adamah:'Fiche « ha-adamah » (la glaise · Ge. 2.7) ouverte dans un nouvel onglet'};
+    say(m[c.dataset.lex]);
+    if(!lexTabId||activeTab!==lexTabId){}
+    tabs.push({id:'f'+Date.now(),g:'א',l:c.dataset.lex==='grec'?'Lexique grec · G444':'Lexique · fiche liée'});
+    renderStrip();popCount();
+  });
+});
+$('seeNote').addEventListener('click',()=>{
+  activeTab='ge1';renderStrip();setScene('lecture');
+  if(mode!=='notes'){mode='notes';document.querySelectorAll('#modeSeg button').forEach(x=>x.classList.toggle('on',x.dataset.m==='notes'));renderVerses();}
+  setTimeout(()=>{
+    const n=$('inote26');if(n){n.classList.remove('flashA');void n.offsetWidth;n.classList.add('flashA');n.scrollIntoView({behavior:'smooth',block:'center'});}
+    say('Note de Genèse 1.26 — votre traduction');
+  },200);
+});
+
+renderVerses();
+setScene('lecture');
+
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

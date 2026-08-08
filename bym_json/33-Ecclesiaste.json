@@ -1,0 +1,1531 @@
+{
+  "book": "Qohéleth (Ecclésiaste)",
+  "abbreviation": "Ec.",
+  "metadata": {
+    "signification": "Prédicateur",
+    "auteur": "Shelomoh (Salomon)",
+    "theme": "Les raisonnements humains",
+    "date": "10ème siècle av. J.-C."
+  },
+  "introduction": "Ce livre, du fait de sa date de rédaction, est généralement attribué à Shelomoh en raison de l'allusion faite au premier chapitre et du style adopté. Le livre de Qohéleth figure d'ailleurs dans le canon des livres reconnus d'inspiration divine.\n\nLa problématique centrale du livre est de savoir si la vie vaut la peine d'être vécue ou non. L'auteur y répondit en connaissance de cause car il avait obtenu tout ce que l'être humain pouvait désirer : les richesses, le luxe, la volupté, la sagesse... Sans pour autant incriminer Elohîm, il dressa le constat de ce qu'est l'expérience humaine. Selon lui, l'être humain vit dans un cycle d'éternels recommencements où tout n'est que vanité et tourment d'esprit.",
+  "chapters": [
+    {
+      "chapter": 1,
+      "verses": [
+        {
+          "verse": "1:1",
+          "section": "Tout est vanité",
+          "text": "Paroles de Qohéleth, fils de David, roi de Yeroushalaim.",
+          "textWithNotes": "Paroles de Qohéleth[Généralement traduit par Ecclésiaste. Collecteur (de sentences), prédicateur, homme public, celui qui parle dans une assemblée, dans une église, Kohéleth.], fils de David, roi de Yeroushalaim.",
+          "notes": [
+            {
+              "word": "Qohéleth",
+              "position": 11,
+              "note": "Généralement traduit par Ecclésiaste. Collecteur (de sentences), prédicateur, homme public, celui qui parle dans une assemblée, dans une église, Kohéleth."
+            }
+          ]
+        },
+        {
+          "verse": "1:2",
+          "text": "Vanité des vanités, dit Qohéleth, vanité des vanités, tout est vanité."
+        },
+        {
+          "verse": "1:3",
+          "section": "Le cycle du temps",
+          "text": "Quel avantage a l'être humain de tout son travail auquel il s'occupe sous le soleil ?",
+          "textWithNotes": "Quel avantage a l'être humain de tout son travail auquel il s'occupe sous le soleil[Ec. 2:22, 3:9.] ?",
+          "notes": [
+            {
+              "word": "soleil",
+              "position": 77,
+              "note": "Ec. 2:22, 3:9."
+            }
+          ]
+        },
+        {
+          "verse": "1:4",
+          "text": "Une génération passe et une autre génération vient, mais la Terre demeure toujours ferme."
+        },
+        {
+          "verse": "1:5",
+          "text": "Le soleil aussi se lève et le soleil se couche ; il soupire après le lieu d'où il se lève."
+        },
+        {
+          "verse": "1:6",
+          "text": "Le vent va vers le midi et il tourne vers le nord, le vent s'en va, tournant, tournant, et il revient sur ses circuits."
+        },
+        {
+          "verse": "1:7",
+          "text": "Tous les torrents vont vers la mer, mais la mer n'est pas remplie. Vers le lieu où vont les torrents, là ils retournent afin d’aller.",
+          "textWithNotes": "Tous les torrents vont vers la mer, mais la mer n'est pas remplie. Vers le lieu où vont les torrents, là ils retournent afin d’aller[Ps. 104:9-10 ; Job. 38:8-11.].",
+          "notes": [
+            {
+              "word": "d’aller",
+              "position": 125,
+              "note": "Ps. 104:9-10 ; Job. 38:8-11."
+            }
+          ]
+        },
+        {
+          "verse": "1:8",
+          "text": "Toutes les choses sont lassantes, et l'homme ne peut en parler. L'œil n'est jamais rassasié de voir et l'oreille ne se remplit pas de ce qu'elle entend.",
+          "textWithNotes": "Toutes les choses sont lassantes, et l'homme ne peut en parler. L'œil n'est jamais rassasié de voir[Pr. 27:20.] et l'oreille ne se remplit pas de ce qu'elle entend.",
+          "notes": [
+            {
+              "word": "voir",
+              "position": 95,
+              "note": "Pr. 27:20."
+            }
+          ]
+        },
+        {
+          "verse": "1:9",
+          "text": "Ce qui a existé, c'est ce qui existera, et ce qui s'est fait, c'est ce qui se fera. Il n'y a rien de nouveau sous le soleil.",
+          "textWithNotes": "Ce qui a existé, c'est ce qui existera, et ce qui s'est fait, c'est ce qui se fera. Il n'y a rien de nouveau sous le soleil[Ec. 3:15.].",
+          "notes": [
+            {
+              "word": "soleil",
+              "position": 117,
+              "note": "Ec. 3:15."
+            }
+          ]
+        },
+        {
+          "verse": "1:10",
+          "text": "Y a-t-il une chose dont on dise : Vois ceci, c'est nouveau ! Elle existait déjà aux temps anciens, elle existait déjà avant nous."
+        },
+        {
+          "verse": "1:11",
+          "text": "Il n'y a pas de souvenir des premières choses, et même pour les dernières qui existeront, il n'existera aucun souvenir d’elles, ni de celles qui existeront en dernier."
+        },
+        {
+          "verse": "1:12",
+          "section": "La sagesse des humains ne comble pas",
+          "text": "Moi, Qohéleth, je suis devenu roi sur Israël à Yeroushalaim."
+        },
+        {
+          "verse": "1:13",
+          "text": "J’ai mis mon cœur à chercher et à explorer par la sagesse tout ce qui se fait sous les cieux : c'est une occupation désagréable qu'Elohîm a donnée aux humains afin qu'ils s'y occupent.",
+          "textWithNotes": "J’ai mis mon cœur à chercher et à explorer par la sagesse tout ce qui se fait sous les cieux : c'est une occupation désagréable qu'Elohîm a donnée aux humains afin qu'ils s'y occupent[1 R. 5:10-14 ; Ec. 7:25.].",
+          "notes": [
+            {
+              "word": "occupent",
+              "position": 175,
+              "note": "1 R. 5:10-14 ; Ec. 7:25."
+            }
+          ]
+        },
+        {
+          "verse": "1:14",
+          "text": "J'ai vu toutes les œuvres qui se font sous le soleil, et voici tout est vanité et lutte d'esprit."
+        },
+        {
+          "verse": "1:15",
+          "text": "Ce qui est courbé ne peut se redresser, et ce qui manque ne peut être compté."
+        },
+        {
+          "verse": "1:16",
+          "text": "Moi, j’ai parlé avec mon cœur, en disant : Voici, je suis devenu grand et j'ai surpassé en sagesse tous ceux qui ont été avant moi sur Yeroushalaim, et mon cœur a vu beaucoup de sagesse et de connaissance."
+        },
+        {
+          "verse": "1:17",
+          "text": "J'ai appliqué mon cœur à connaître la sagesse, et à connaître la sottise et la stupidité. J'ai reconnu que cela aussi était une lutte d'esprit."
+        },
+        {
+          "verse": "1:18",
+          "text": "Car avec beaucoup de sagesse on a beaucoup de chagrin, et celui qui augmente la connaissance, augmente la douleur."
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "verses": [
+        {
+          "verse": "2:1",
+          "section": "Les richesses ne comblent pas",
+          "text": "Moi, j’ai dit en mon cœur : Allons, s'il te plaît ! Je t’éprouverai par la joie, vois le bien ! Et voilà, cela aussi est vanité.",
+          "textWithNotes": "Moi, j’ai dit en mon cœur : Allons, s'il te plaît ! Je t’éprouverai par la joie, vois le bien ! Et voilà, cela aussi est vanité[Lu. 12:19.].",
+          "notes": [
+            {
+              "word": "vanité",
+              "position": 121,
+              "note": "Lu. 12:19."
+            }
+          ]
+        },
+        {
+          "verse": "2:2",
+          "text": "Au rire, j'ai dit : Vantard ! Et à la joie : Celle-là, que fait-elle ?"
+        },
+        {
+          "verse": "2:3",
+          "text": "J'ai recherché dans mon cœur d’attirer ma chair dans le vin, tout en me conduisant avec sagesse, et de saisir la stupidité jusqu'à ce que je voie ce qu'il est bon pour les humains de faire sous les cieux pendant les jours de leur vie."
+        },
+        {
+          "verse": "2:4",
+          "text": "J'ai fait de grandes œuvres. Je me suis bâti des maisons. Je me suis planté des vignes."
+        },
+        {
+          "verse": "2:5",
+          "text": "Je me suis fait des jardins et des vergers, et j'y plantai des arbres fruitiers de toutes sortes."
+        },
+        {
+          "verse": "2:6",
+          "text": "Je me suis fait des réservoirs d'eaux pour arroser la forêt où poussent les arbres."
+        },
+        {
+          "verse": "2:7",
+          "text": "J'ai acheté des hommes et des femmes esclaves, et j'ai eu des esclaves nés dans ma maison. Et j'ai eu plus de gros et de petit bétail que tous ceux qui ont été avant moi dans Yeroushalaim."
+        },
+        {
+          "verse": "2:8",
+          "text": "J’ai aussi amassé pour moi de l’argent et de l’or, les propriétés des rois et des provinces. Je me suis acquis des chanteurs et des chanteuses, et les délices des humains, une concubine, des concubines.",
+          "textWithNotes": "J’ai aussi amassé pour moi de l’argent et de l’or, les propriétés[Le mot hébreu signifie aussi « possession », « richesses », « trésor », etc. Voir Ex. 19:5 ; De. 7:6, 14:2, 26:18 ; Mal. 3:17 ; Ps. 135:4.] des rois et des provinces[1 R. 9:28, 10:10 ; 2 Ch. 1:15.]. Je me suis acquis des chanteurs et des chanteuses, et les délices des humains, une concubine, des concubines[Certains traducteurs ont traduit la deuxième partie de ce verset par les termes « instruments de musique », or le sens du terme hébreu « shiddah » est incertain. D'autres l'ont traduit par « concubine », « harem » ou « épouse ».].",
+          "notes": [
+            {
+              "word": "propriétés",
+              "position": 55,
+              "note": "Le mot hébreu signifie aussi « possession », « richesses », « trésor », etc. Voir Ex. 19:5 ; De. 7:6, 14:2, 26:18 ; Mal. 3:17 ; Ps. 135:4."
+            },
+            {
+              "word": "provinces",
+              "position": 82,
+              "note": "1 R. 9:28, 10:10 ; 2 Ch. 1:15."
+            },
+            {
+              "word": "concubines",
+              "position": 191,
+              "note": "Certains traducteurs ont traduit la deuxième partie de ce verset par les termes « instruments de musique », or le sens du terme hébreu « shiddah » est incertain. D'autres l'ont traduit par « concubine », « harem » ou « épouse »."
+            }
+          ]
+        },
+        {
+          "verse": "2:9",
+          "text": "Je me suis agrandi et me suis accru plus que tous ceux qui ont été avant moi dans Yeroushalaim. Et ma sagesse demeura avec moi."
+        },
+        {
+          "verse": "2:10",
+          "text": "Tout ce que mes yeux demandaient, je ne leur en refusai rien. Je n'ai refusé aucune joie à mon cœur. Oui, mon cœur s'est réjoui de tout mon travail. Ceci était devenu ma part de tout mon travail."
+        },
+        {
+          "verse": "2:11",
+          "text": "Et moi, je me suis tourné vers toutes mes œuvres que mes mains avaient faites, et vers tout le travail pour lequel j'avais peiné en les faisant, et voici, tout est vanité et lutte d'esprit, et il n'y a aucun avantage sous le soleil."
+        },
+        {
+          "verse": "2:12",
+          "section": "Le sage et l'insensé ont le même sort",
+          "text": "Et moi, je me suis tourné pour voir la sagesse, la sottise et la stupidité - En effet, que fera l'être humain qui viendra après le roi ? N'est-ce pas ce qu'on a déjà fait ?"
+        },
+        {
+          "verse": "2:13",
+          "text": "J’ai vu que la sagesse a de l’avantage sur la stupidité, comme l’avantage de la lumière sur les ténèbres."
+        },
+        {
+          "verse": "2:14",
+          "text": "Le sage a les yeux à la tête et l'insensé marche dans les ténèbres. Mais j'ai aussi reconnu qu'un même accident leur arrive à tous.",
+          "textWithNotes": "Le sage a les yeux à la tête et l'insensé marche dans les ténèbres. Mais j'ai aussi reconnu qu'un même accident[Le mot hébreu traduit par « accident » signifie aussi « événement non prévu », « destin » etc.] leur arrive à tous[Ps. 49:11 ; Ec. 3:17, 9:2.].",
+          "notes": [
+            {
+              "word": "accident",
+              "position": 103,
+              "note": "Le mot hébreu traduit par « accident » signifie aussi « événement non prévu », « destin » etc."
+            },
+            {
+              "word": "tous",
+              "position": 126,
+              "note": "Ps. 49:11 ; Ec. 3:17, 9:2."
+            }
+          ]
+        },
+        {
+          "verse": "2:15",
+          "text": "Moi, j’ai dit en mon cœur : L'accident de l'insensé m'arrivera à moi aussi. Alors, moi, pourquoi suis-je plus sage ? Et j’ai déclaré en mon cœur : Cela aussi est une vanité."
+        },
+        {
+          "verse": "2:16",
+          "text": "Car le souvenir du sage n'est pas plus éternel que celui de l'insensé. Déjà dans les jours qui viennent, tout sera oublié. Et comment le sage meurt-il comme l'insensé ?",
+          "textWithNotes": "Car le souvenir du sage n'est pas plus éternel que celui de l'insensé. Déjà dans les jours qui viennent, tout sera oublié. Et comment le sage meurt-il comme l'insensé[Ec. 8:10, 9:5.] ?",
+          "notes": [
+            {
+              "word": "l'insensé",
+              "position": 157,
+              "note": "Ec. 8:10, 9:5."
+            }
+          ]
+        },
+        {
+          "verse": "2:17",
+          "text": "Et j'ai haï la vie, car pour moi l’œuvre que l'on fait sous le soleil est mauvaise, car tout est vanité et lutte d'esprit."
+        },
+        {
+          "verse": "2:18",
+          "text": "J'ai aussi haï tout mon labeur que j’ai eu pour labeur sous le soleil parce que je le laisserai à un humain qui viendra après moi.",
+          "textWithNotes": "J'ai aussi haï tout mon labeur que j’ai eu pour labeur sous le soleil parce que je le laisserai à un humain qui viendra après moi[Ec. 4:8.].",
+          "notes": [
+            {
+              "word": "moi",
+              "position": 126,
+              "note": "Ec. 4:8."
+            }
+          ]
+        },
+        {
+          "verse": "2:19",
+          "text": "Et qui sait s'il sera sage ou insensé ? Cependant il sera maître de tout mon labeur auquel j’ai travaillé et dans lequel j’ai été sage sous le soleil. Cela aussi est une vanité."
+        },
+        {
+          "verse": "2:20",
+          "text": "Et moi, je me suis retourné pour désespérer mon cœur au sujet de tout le labeur auquel j’avais travaillé sous le soleil."
+        },
+        {
+          "verse": "2:21",
+          "text": "Car il existe un humain dont le labeur a été avec sagesse, adresse et succès, mais c'est à un autre humain qui n'y a pas travaillé que sera donnée sa part. Cela aussi est une vanité et un grand mal."
+        },
+        {
+          "verse": "2:22",
+          "text": "Car qu’est-ce que l'humain a de tout son labeur et du désir de son cœur pour lequel il souffre sous le soleil ?"
+        },
+        {
+          "verse": "2:23",
+          "text": "Car tous ses jours ne sont que douleur et son occupation n'est que chagrin. Même la nuit son cœur ne se repose pas. Cela aussi est une vanité.",
+          "textWithNotes": "Car tous ses jours ne sont que douleur et son occupation n'est que chagrin. Même la nuit son cœur ne se repose pas. Cela aussi est une vanité[Ps. 90:9 ; Job. 14:1.].",
+          "notes": [
+            {
+              "word": "vanité",
+              "position": 135,
+              "note": "Ps. 90:9 ; Job. 14:1."
+            }
+          ]
+        },
+        {
+          "verse": "2:24",
+          "text": "Il n'y a de bonheur pour l'humain que de manger, de boire et de faire voir à son âme le bonheur dans son labeur. J'ai vu, moi, que cela aussi vient de la main d'Elohîm.",
+          "textWithNotes": "Il n'y a de bonheur pour l'humain que de manger, de boire et de faire voir à son âme le bonheur dans son labeur. J'ai vu, moi, que cela aussi vient de la main d'Elohîm[Ec. 3:12,22, 5:18, 8:15.].",
+          "notes": [
+            {
+              "word": "d'Elohîm",
+              "position": 159,
+              "note": "Ec. 3:12,22, 5:18, 8:15."
+            }
+          ]
+        },
+        {
+          "verse": "2:25",
+          "text": "Qui, en effet, a mangé, qui s'est réjoui plus que moi ?"
+        },
+        {
+          "verse": "2:26",
+          "text": "Car il donne à l'humain qui lui est agréable, de la sagesse, de la connaissance et de la joie, mais au pécheur, il donne pour occupation de recueillir et d'amasser afin de donner à celui qui est agréable à Elohîm. Cela aussi est vanité et lutte d'esprit.",
+          "textWithNotes": "Car il donne à l'humain qui lui est agréable, de la sagesse, de la connaissance et de la joie, mais au pécheur, il donne pour occupation de recueillir et d'amasser afin de donner à celui qui est agréable à Elohîm[Pr. 28:8.]. Cela aussi est vanité et lutte d'esprit[Pr. 13:22, 28:8 ; Job. 27:17.].",
+          "notes": [
+            {
+              "word": "Elohîm",
+              "position": 206,
+              "note": "Pr. 28:8."
+            },
+            {
+              "word": "d'esprit",
+              "position": 245,
+              "note": "Pr. 13:22, 28:8 ; Job. 27:17."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "verses": [
+        {
+          "verse": "3:1",
+          "section": "Il y a un temps pour toute chose",
+          "text": "À toute chose sa saison et à tout désir sous les cieux son temps :"
+        },
+        {
+          "verse": "3:2",
+          "text": "il y a un temps pour naître et un temps pour mourir, un temps pour planter et un temps pour arracher ce qui est planté,"
+        },
+        {
+          "verse": "3:3",
+          "text": "un temps pour tuer et un temps pour guérir, un temps pour abattre et un temps pour bâtir,"
+        },
+        {
+          "verse": "3:4",
+          "text": "un temps pour pleurer et un temps pour rire, un temps pour se lamenter et un temps pour sauter,"
+        },
+        {
+          "verse": "3:5",
+          "text": "un temps pour jeter des pierres et un temps pour ramasser des pierres, un temps pour embrasser et un temps pour s'éloigner des embrassements,"
+        },
+        {
+          "verse": "3:6",
+          "text": "un temps pour chercher et un temps pour perdre, un temps pour garder et un temps pour jeter,"
+        },
+        {
+          "verse": "3:7",
+          "text": "un temps pour déchirer et un temps pour coudre, un temps pour être silencieux et un temps pour parler,"
+        },
+        {
+          "verse": "3:8",
+          "text": "un temps pour aimer et un temps pour haïr, un temps pour la guerre et un temps pour la paix."
+        },
+        {
+          "verse": "3:9",
+          "section": "Elohîm fait toutes choses belles en leur temps",
+          "text": "Quel avantage y a-t-il pour celui qui agit dans ce à quoi il travaille ?"
+        },
+        {
+          "verse": "3:10",
+          "text": "J'ai considéré cette occupation qu'Elohîm a donnée aux fils des humains pour s'y appliquer."
+        },
+        {
+          "verse": "3:11",
+          "text": "Et toute chose, il l’a faite belle en son temps. Même l'éternité, il l'a mise dans leur cœur, sans que l’être humain ne trouve l'œuvre qu'Elohîm a faite, depuis la tête et jusqu’à la fin.",
+          "textWithNotes": "Et toute chose, il l’a faite belle en son temps. Même l'éternité, il l'a mise dans leur cœur, sans que l’être humain ne trouve l'œuvre qu'Elohîm a faite, depuis la tête et jusqu’à la fin[Ec. 8:17.].",
+          "notes": [
+            {
+              "word": "fin",
+              "position": 183,
+              "note": "Ec. 8:17."
+            }
+          ]
+        },
+        {
+          "verse": "3:12",
+          "text": "J’ai su qu’il n’y a rien de bon pour eux, si ce n’est de se réjouir et de se faire du bien pendant leur vie."
+        },
+        {
+          "verse": "3:13",
+          "text": "Et même si un être humain mange et boit, et jouit du bien-être de tout son labeur, c'est un don d'Elohîm.",
+          "textWithNotes": "Et même si un être humain mange et boit, et jouit du bien-être de tout son labeur, c'est un don d'Elohîm[Ec. 5:18, 8:15, 9:7.].",
+          "notes": [
+            {
+              "word": "d'Elohîm",
+              "position": 96,
+              "note": "Ec. 5:18, 8:15, 9:7."
+            }
+          ]
+        },
+        {
+          "verse": "3:14",
+          "text": "Je sais que tout ce qu'Elohîm fait existe pour toujours : Il n'y a rien à y ajouter et rien à en retrancher, et Elohîm le fait afin qu'on éprouve de la crainte devant lui."
+        },
+        {
+          "verse": "3:15",
+          "text": "Ce qui existe a déjà existé, et ce qui existera a déjà été, et Elohîm cherchera ce qui est derrière."
+        },
+        {
+          "verse": "3:16",
+          "text": "J'ai encore vu sous le soleil qu'au lieu établi pour juger, il y a de la méchanceté et qu'au lieu établi pour la justice, il y a de la méchanceté."
+        },
+        {
+          "verse": "3:17",
+          "text": "J’ai dit, moi, dans mon cœur : Elohîm jugera le juste et le méchant, car il y a là un temps pour toute chose et pour toute œuvre."
+        },
+        {
+          "verse": "3:18",
+          "text": "J’ai dit, moi, dans mon cœur sur la cause des fils de l'être humain, qu'Elohîm les éprouverait et qu'ils verraient qu'ils ne sont que des bêtes."
+        },
+        {
+          "verse": "3:19",
+          "text": "Car l'accident des fils des humains et l'accident de la bête est un même accident. Comme meurt celle-ci, ainsi meurt celui-là. Tous ont un esprit et la supériorité de l'être humain sur la bête est nulle. Car tout est vanité.",
+          "textWithNotes": "Car l'accident[Voir Ec. 2:14.] des fils des humains et l'accident de la bête est un même accident. Comme meurt celle-ci, ainsi meurt celui-là. Tous ont un esprit[Le mot hébreu signifie aussi souffle.] et la supériorité de l'être humain sur la bête est nulle. Car tout est vanité.",
+          "notes": [
+            {
+              "word": "l'accident",
+              "position": 4,
+              "note": "Voir Ec. 2:14."
+            },
+            {
+              "word": "esprit",
+              "position": 139,
+              "note": "Le mot hébreu signifie aussi souffle."
+            }
+          ]
+        },
+        {
+          "verse": "3:20",
+          "text": "Tout va dans un même lieu. Tout a été fait de la poussière et tout retourne à la poussière.",
+          "textWithNotes": "Tout va dans un même lieu. Tout a été fait de la poussière et tout retourne à la poussière[Ge. 3:19 ; Job. 34:15 ; Ec. 6:6.].",
+          "notes": [
+            {
+              "word": "poussière",
+              "position": 81,
+              "note": "Ge. 3:19 ; Job. 34:15 ; Ec. 6:6."
+            }
+          ]
+        },
+        {
+          "verse": "3:21",
+          "text": "Qui sait si l'esprit des fils de l'être humain monte en haut et si l'esprit de la bête descend en bas dans la terre ?",
+          "textWithNotes": "Qui sait si l'esprit des fils de l'être humain monte en haut et si l'esprit de la bête descend en bas dans la terre[Les animaux comme les humains ont une âme et un esprit (Ge. 1:20 ; Ez. 1:1-28). À leur mort, leurs esprits quittent leurs corps (Ja. 2:26). L'être humain régénéré reçoit le Saint-Esprit, ce qui n'est pas le cas des animaux (Ro. 8:16). Les animaux, tout comme la création tout entière, attendent leur rédemption, car ils ont été soumis à la corruption à cause du péché de l'être humain (Ro. 8:19-22). Dans le Royaume millénaire, il y aura des animaux (Es. 11:6-9).] ?",
+          "notes": [
+            {
+              "word": "terre",
+              "position": 110,
+              "note": "Les animaux comme les humains ont une âme et un esprit (Ge. 1:20 ; Ez. 1:1-28). À leur mort, leurs esprits quittent leurs corps (Ja. 2:26). L'être humain régénéré reçoit le Saint-Esprit, ce qui n'est pas le cas des animaux (Ro. 8:16). Les animaux, tout comme la création tout entière, attendent leur rédemption, car ils ont été soumis à la corruption à cause du péché de l'être humain (Ro. 8:19-22). Dans le Royaume millénaire, il y aura des animaux (Es. 11:6-9)."
+            }
+          ]
+        },
+        {
+          "verse": "3:22",
+          "text": "J'ai vu qu'il n'y a rien de meilleur pour l'être humain que de se réjouir de ses œuvres : c'est là sa part. Car qui le ramènera pour voir ce qui sera après lui ?"
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "verses": [
+        {
+          "verse": "4:1",
+          "section": "Un monde injuste",
+          "text": "Je me retournai et je vis toutes les oppressions qui se font sous le soleil. Voici les larmes des opprimés, ils n'ont personne pour les consoler ! La force est en main de ceux qui les oppriment, et personne ne les console !"
+        },
+        {
+          "verse": "4:2",
+          "text": "Moi, j'ai loué les morts qui sont déjà morts, plutôt que les vivants qui sont encore vivants.",
+          "textWithNotes": "Moi, j'ai loué les morts qui sont déjà morts, plutôt que les vivants qui sont encore vivants[Ec. 7:1.].",
+          "notes": [
+            {
+              "word": "vivants",
+              "position": 85,
+              "note": "Ec. 7:1."
+            }
+          ]
+        },
+        {
+          "verse": "4:3",
+          "text": "Et, mieux que les deux, celui qui n'a pas encore existé, celui qui n'a pas vu les mauvaises actions qui se commettent sous le soleil."
+        },
+        {
+          "verse": "4:4",
+          "text": "J'ai vu que tout labeur et tout succès dans le travail n'est que jalousie de l’homme contre son compagnon. Cela aussi est vanité et lutte d'esprit."
+        },
+        {
+          "verse": "4:5",
+          "text": "L'insensé se croise les mains et dévore sa propre chair.",
+          "textWithNotes": "L'insensé se croise les mains et dévore sa propre chair[Pr. 6:10, 19:24, 24:33, 26:15.].",
+          "notes": [
+            {
+              "word": "chair",
+              "position": 50,
+              "note": "Pr. 6:10, 19:24, 24:33, 26:15."
+            }
+          ]
+        },
+        {
+          "verse": "4:6",
+          "text": "Mieux vaut une paume pleine de repos, que les deux poignées pleines de labeur et de lutte d'esprit.",
+          "textWithNotes": "Mieux vaut une paume pleine de repos, que les deux poignées pleines de labeur et de lutte d'esprit[Ps. 37:16 ; Pr. 15:16-17, 16:8.].",
+          "notes": [
+            {
+              "word": "d'esprit",
+              "position": 90,
+              "note": "Ps. 37:16 ; Pr. 15:16-17, 16:8."
+            }
+          ]
+        },
+        {
+          "verse": "4:7",
+          "text": "Moi, je suis retourné pour voir la vanité sous le soleil :"
+        },
+        {
+          "verse": "4:8",
+          "text": "tel est seul, sans second, sans fils, ni frères aussi, et sans fin à tout son labeur. Ses yeux aussi ne se rassasient jamais de richesses... Pour qui est-ce que je travaille et que je prive mon âme de bonnes choses ? Cela aussi est une vanité et une mauvaise occupation.",
+          "textWithNotes": "tel est seul, sans second, sans fils, ni frères aussi, et sans fin à tout son labeur. Ses yeux aussi ne se rassasient jamais de richesses... Pour qui est-ce que je travaille et que je prive mon âme de bonnes choses ? Cela aussi est une vanité et une mauvaise occupation[Ps. 39:7 ; Ec. 2:26 ; Lu. 12:20.].",
+          "notes": [
+            {
+              "word": "occupation",
+              "position": 259,
+              "note": "Ps. 39:7 ; Ec. 2:26 ; Lu. 12:20."
+            }
+          ]
+        },
+        {
+          "verse": "4:9",
+          "text": "Deux valent mieux qu'un, parce qu'il y a pour eux un bon salaire de leur labeur."
+        },
+        {
+          "verse": "4:10",
+          "text": "Car si l'un des deux tombe, l'autre relèvera son compagnon. Mais malheur à celui qui est seul ! S'il tombe, il n'a pas de second pour le relever."
+        },
+        {
+          "verse": "4:11",
+          "text": "De plus, s'ils couchent à deux, ils auront chaud, mais celui qui est seul, comment aura-t-il chaud ?"
+        },
+        {
+          "verse": "4:12",
+          "text": "Si quelqu'un l'emporte sur un seul, les deux lui résistent, et la corde à trois fils ne se rompt pas vite."
+        },
+        {
+          "verse": "4:13",
+          "text": "Mieux vaut un enfant pauvre et sage qu'un roi vieux et insensé qui ne sait plus se laisser avertir."
+        },
+        {
+          "verse": "4:14",
+          "text": "Oui, il est sorti de la maison des prisonniers pour devenir roi, oui, il est même né pauvre dans son royaume."
+        },
+        {
+          "verse": "4:15",
+          "text": "J’ai vu tous les vivants qui marchent sous le soleil, avec le garçon, le second, qui sera établi à sa place."
+        },
+        {
+          "verse": "4:16",
+          "text": "Il n'y a pas de fin à tout le peuple, à tous ceux qui ont été en face d’eux. Oui, ceux qui viendront après ne se réjouiront plus à son sujet. Oui, cela aussi est vanité et lutte d'esprit."
+        },
+        {
+          "verse": "4:17",
+          "section": "Le sacrifice des insensés",
+          "text": "Garde tes pieds quand tu vas à la maison d'Elohîm ! Approche-toi pour écouter plutôt que pour donner le sacrifice des insensés, car ils ne savent pas qu'ils font mal."
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "verses": [
+        {
+          "verse": "5:1",
+          "text": "Ne te presse pas d'ouvrir la bouche ! Que ton cœur ne se hâte pas de sortir une parole en face d'Elohîm ! Car Elohîm est dans les cieux et toi sur la Terre. C'est pourquoi, que tes paroles soient peu nombreuses !"
+        },
+        {
+          "verse": "5:2",
+          "text": "Car le rêve vient de la multitude des occupations, et la voix des insensés de la multitude des paroles.",
+          "textWithNotes": "Car le rêve vient de la multitude des occupations, et la voix des insensés de la multitude des paroles[Pr. 10:19.].",
+          "notes": [
+            {
+              "word": "paroles",
+              "position": 95,
+              "note": "Pr. 10:19."
+            }
+          ]
+        },
+        {
+          "verse": "5:3",
+          "text": "Si tu as fait un vœu à Elohîm, ne tarde pas à l'accomplir, car il ne prend pas plaisir aux insensés. Accomplis le vœu que tu as fait.",
+          "textWithNotes": "Si tu as fait un vœu à Elohîm, ne tarde pas à l'accomplir, car il ne prend pas plaisir aux insensés. Accomplis le vœu que tu as fait[No. 30:3 ; De. 23:22.].",
+          "notes": [
+            {
+              "word": "fait",
+              "position": 128,
+              "note": "No. 30:3 ; De. 23:22."
+            }
+          ]
+        },
+        {
+          "verse": "5:4",
+          "text": "Il vaut mieux que tu ne fasses pas de vœu que d'en faire un et de ne pas l'accomplir.",
+          "textWithNotes": "Il vaut mieux que tu ne fasses pas de vœu que d'en faire un et de ne pas l'accomplir[De. 23:22-23.].",
+          "notes": [
+            {
+              "word": "l'accomplir",
+              "position": 73,
+              "note": "De. 23:22-23."
+            }
+          ]
+        },
+        {
+          "verse": "5:5",
+          "text": "Ne permets pas à ta bouche de faire pécher ta chair et ne dis pas en face du messager que c'est un péché involontaire. Pourquoi YHWH s'irriterait-il de tes paroles et détruirait-il l'œuvre de tes mains ?"
+        },
+        {
+          "verse": "5:6",
+          "text": "Oui, dans la multitude des rêves il y a des vanités, et aussi dans beaucoup de paroles. Oui, crains Elohîm !",
+          "textWithNotes": "Oui, dans la multitude des rêves il y a des vanités, et aussi dans beaucoup de paroles. Oui, crains Elohîm[Pr. 10:19 ; Ec. 10:14.] !",
+          "notes": [
+            {
+              "word": "Elohîm",
+              "position": 100,
+              "note": "Pr. 10:19 ; Ec. 10:14."
+            }
+          ]
+        },
+        {
+          "verse": "5:7",
+          "text": "Si tu vois dans une province le pauvre opprimé, le jugement et la justice violés, ne t'étonne pas de cela, car sur celui qui est élevé veille une personne élevée, et au-dessus d’eux il y a ceux qui sont élevés.",
+          "textWithNotes": "Si tu vois dans une province le pauvre opprimé, le jugement et la justice violés, ne t'étonne pas de cela, car sur celui qui est élevé veille une personne élevée, et au-dessus d’eux il y a ceux qui sont élevés[Es. 3:14-15.].",
+          "notes": [
+            {
+              "word": "élevés",
+              "position": 203,
+              "note": "Es. 3:14-15."
+            }
+          ]
+        },
+        {
+          "verse": "5:8",
+          "text": "C'est un avantage pour la terre, un roi qui travaille dans les champs."
+        },
+        {
+          "verse": "5:9",
+          "section": "Vanité des richesses",
+          "text": "Celui qui aime l'argent n'est pas rassasié par l'argent, qui aime la richesse, ce n’est pas un revenu. Cela aussi est une vanité.",
+          "textWithNotes": "Celui qui aime l'argent n'est pas rassasié par l'argent[Jé. 6:13 ; Pr. 22:7, 28:16 ; Mt. 6:33, 7:7-11 ; Lu. 12:13-20 ; Ac. 20:33 ; 2 Co. 9:5 ; Ep. 4:19, 5:5 ; Col. 3:5 ; 1 Ti. 6:10 ; Hé. 13:5.], qui aime la richesse, ce n’est pas un revenu. Cela aussi est une vanité.",
+          "notes": [
+            {
+              "word": "l'argent",
+              "position": 47,
+              "note": "Jé. 6:13 ; Pr. 22:7, 28:16 ; Mt. 6:33, 7:7-11 ; Lu. 12:13-20 ; Ac. 20:33 ; 2 Co. 9:5 ; Ep. 4:19, 5:5 ; Col. 3:5 ; 1 Ti. 6:10 ; Hé. 13:5."
+            }
+          ]
+        },
+        {
+          "verse": "5:10",
+          "text": "Quand les bonnes choses se multiplient, ceux qui les mangent se multiplient aussi, et quel avantage en revient-il à leur possesseur, sinon qu'il le voit de ses yeux ?"
+        },
+        {
+          "verse": "5:11",
+          "text": "Le sommeil de celui qui travaille est doux, qu'il mange peu ou beaucoup. Mais le rassasiement du riche ne le laisse pas dormir."
+        },
+        {
+          "verse": "5:12",
+          "text": "Il existe un malheur affligeant que j'ai vu sous le soleil : la richesse que son possesseur garde pour son malheur."
+        },
+        {
+          "verse": "5:13",
+          "text": "Cette richesse se perd à cause d’une mauvaise occupation, et s'il a engendré un fils, il n'aura rien entre les mains."
+        },
+        {
+          "verse": "5:14",
+          "text": "Comme il est sorti du ventre de sa mère, il s'en retournera nu, s'en allant comme il était venu, et il n'emportera rien de son labeur, qui s’en est allé de sa main.",
+          "textWithNotes": "Comme il est sorti du ventre de sa mère, il s'en retournera nu, s'en allant comme il était venu, et il n'emportera rien de son labeur, qui s’en est allé de sa main[1 Ti. 6:7.].",
+          "notes": [
+            {
+              "word": "main",
+              "position": 159,
+              "note": "1 Ti. 6:7."
+            }
+          ]
+        },
+        {
+          "verse": "5:15",
+          "text": "C'est aussi un malheur affligeant : tout comme il était venu, ainsi s’en va-t-il. Quel avantage a-t-il d'avoir travaillé pour du vent ?"
+        },
+        {
+          "verse": "5:16",
+          "text": "De plus, durant tous ses jours il mange dans les ténèbres, et il a beaucoup de chagrin, de colère et de maladie."
+        },
+        {
+          "verse": "5:17",
+          "text": "Voici ce que j'ai vu : c'est une chose bonne et belle de manger, de boire et de voir le bonheur dans tout son travail qu'il fait sous le soleil, pendant le nombre des jours de vie qu'Elohîm lui a donnés, car c'est là sa part."
+        },
+        {
+          "verse": "5:18",
+          "text": "En effet, si Elohîm a donné à un être humain, quel qu'il soit, des richesses et des biens, le faisant maître d’en manger, d’en prendre sa part et de se réjouir dans son labeur, c’est là un don d'Elohîm."
+        },
+        {
+          "verse": "5:19",
+          "text": "Car il ne se souviendra pas beaucoup des jours de sa vie, parce qu'Elohîm l'occupe avec la joie de son cœur."
+        }
+      ]
+    },
+    {
+      "chapter": 6,
+      "verses": [
+        {
+          "verse": "6:1",
+          "section": "Vanité de la vie de l'être humain",
+          "text": "Il existe un mal que j'ai vu sous le soleil et qui est grand pour les humains :"
+        },
+        {
+          "verse": "6:2",
+          "text": "Il y a tel homme à qui Elohîm a donné richesses, biens et gloire, à qui rien ne manque de tout ce qu'il désire, mais Elohîm ne le laisse pas maître de s’en nourrir. Car c'est un homme étranger qui s'en nourrira. Cela est une vanité et une maladie mauvaise."
+        },
+        {
+          "verse": "6:3",
+          "text": "Si un homme engendrait 100 fils et vivait un grand nombre d'années, aussi nombreux que soient les jours de sa vie, si son âme ne s'est pas rassasiée de bonheur et si, de plus, il n'a pas de sépulture, je dis qu'un avorton est plus heureux que lui."
+        },
+        {
+          "verse": "6:4",
+          "text": "Car il est venu en vain et s'en va dans les ténèbres, et son nom est couvert de ténèbres."
+        },
+        {
+          "verse": "6:5",
+          "text": "Il n’a même pas vu ni connu le soleil. Celui-ci a plus de repos que celui-là.",
+          "textWithNotes": "Il n’a même pas vu ni connu le soleil. Celui-ci a plus de repos que celui-là[Job. 3:16.].",
+          "notes": [
+            {
+              "word": "celui-là",
+              "position": 68,
+              "note": "Job. 3:16."
+            }
+          ]
+        },
+        {
+          "verse": "6:6",
+          "text": "Et s'il vivait deux fois 1 000 ans sans voir le bonheur, tous ne vont-ils pas dans un même lieu ?",
+          "textWithNotes": "Et s'il vivait deux fois 1 000 ans sans voir le bonheur, tous ne vont-ils pas dans un même lieu[Ps. 89:48 ; Job. 3:13-19, 30:23 ; Ec. 3:20 ; Hé. 9:27.] ?",
+          "notes": [
+            {
+              "word": "lieu",
+              "position": 91,
+              "note": "Ps. 89:48 ; Job. 3:13-19, 30:23 ; Ec. 3:20 ; Hé. 9:27."
+            }
+          ]
+        },
+        {
+          "verse": "6:7",
+          "text": "Tout le labeur de l'être humain est pour sa bouche, mais son âme n’est pas remplie.",
+          "textWithNotes": "Tout le labeur de l'être humain est pour sa bouche, mais son âme n’est pas remplie[Les richesses de ce monde ne peuvent jamais combler le vide de l'âme. Seul l'amour d'Elohîm peut réellement inonder nos âmes (Pr. 13:4 ; Col. 2:10).].",
+          "notes": [
+            {
+              "word": "remplie",
+              "position": 75,
+              "note": "Les richesses de ce monde ne peuvent jamais combler le vide de l'âme. Seul l'amour d'Elohîm peut réellement inonder nos âmes (Pr. 13:4 ; Col. 2:10)."
+            }
+          ]
+        },
+        {
+          "verse": "6:8",
+          "text": "Car quel avantage le sage a-t-il sur le stupide ? Le pauvre, qu’a-t-il en sachant marcher devant les vivants ?"
+        },
+        {
+          "verse": "6:9",
+          "text": "Mieux vaut ce qu'on voit de ses yeux que les grandes recherches que fait l'âme. Cela aussi est vanité et lutte d'esprit.",
+          "textWithNotes": "Mieux vaut ce qu'on voit de ses yeux que les grandes recherches que fait l'âme. Cela aussi est vanité et lutte d'esprit[1 Ti. 6:9.].",
+          "notes": [
+            {
+              "word": "d'esprit",
+              "position": 111,
+              "note": "1 Ti. 6:9."
+            }
+          ]
+        },
+        {
+          "verse": "6:10",
+          "text": "Ce qui existe a déjà été appelé par son nom et l'on sait ce qu'est l'humain : il ne peut contester avec celui qui est plus puissant que lui.",
+          "textWithNotes": "Ce qui existe a déjà été appelé par son nom[Ec. 1:9, 3:15.] et l'on sait ce qu'est l'humain : il ne peut contester avec celui qui est plus puissant que lui.",
+          "notes": [
+            {
+              "word": "nom",
+              "position": 40,
+              "note": "Ec. 1:9, 3:15."
+            }
+          ]
+        },
+        {
+          "verse": "6:11",
+          "text": "Quand on a beaucoup de choses, on a beaucoup de vanités. Quel avantage en a l'être humain ?"
+        },
+        {
+          "verse": "6:12",
+          "text": "Car qui sait ce qui est bon pour l'être humain dans la vie, pendant les jours de la vie de sa vanité qu'il passe comme une ombre ? Et qui fera connaître à l'être humain ce qui arrivera après lui sous le soleil ?",
+          "textWithNotes": "Car qui sait ce qui est bon pour l'être humain dans la vie, pendant les jours de la vie de sa vanité qu'il passe comme une ombre ? Et qui fera connaître à l'être humain ce qui arrivera après lui sous le soleil[Ps. 144:4 ; Ec. 8:7,13, 10:14 ; Ja. 4:13-14.] ?",
+          "notes": [
+            {
+              "word": "soleil",
+              "position": 203,
+              "note": "Ps. 144:4 ; Ec. 8:7,13, 10:14 ; Ja. 4:13-14."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 7,
+      "verses": [
+        {
+          "verse": "7:1",
+          "section": "La sagesse qu'enseigne la vie de l'être humain",
+          "text": "Un nom vaut mieux qu'une bonne huile, et le jour de la mort que le jour de la naissance.",
+          "textWithNotes": "Un nom[Vient de l'hébreu « shem » et signifie aussi « réputation », « renommée ». Voir Es. 56:5 ; Ap. 2:17.] vaut mieux qu'une bonne huile, et le jour de la mort que le jour de la naissance[Pr. 22:1.].",
+          "notes": [
+            {
+              "word": "nom",
+              "position": 3,
+              "note": "Vient de l'hébreu « shem » et signifie aussi « réputation », « renommée ». Voir Es. 56:5 ; Ap. 2:17."
+            },
+            {
+              "word": "naissance",
+              "position": 78,
+              "note": "Pr. 22:1."
+            }
+          ]
+        },
+        {
+          "verse": "7:2",
+          "text": "Il vaut mieux aller dans une maison de deuil que d'aller dans une maison de festin, car c'est là la fin de tout être humain, et le vivant met cela dans son cœur."
+        },
+        {
+          "verse": "7:3",
+          "text": "Il vaut mieux le chagrin que le rire, car par la tristesse des faces le cœur devient joyeux.",
+          "textWithNotes": "Il vaut mieux le chagrin que le rire, car par la tristesse des faces le cœur devient joyeux[Ec. 8:1 ; 2 Co. 7:10.].",
+          "notes": [
+            {
+              "word": "joyeux",
+              "position": 85,
+              "note": "Ec. 8:1 ; 2 Co. 7:10."
+            }
+          ]
+        },
+        {
+          "verse": "7:4",
+          "text": "Le cœur des sages est dans la maison du deuil, mais le cœur des insensés est dans la maison de joie."
+        },
+        {
+          "verse": "7:5",
+          "text": "Il vaut mieux entendre la réprimande du sage que d'entendre la chanson des hommes insensés.",
+          "textWithNotes": "Il vaut mieux entendre la réprimande du sage que d'entendre la chanson des hommes insensés[Ps. 141:5 ; Pr. 13:18, 15:31-32.].",
+          "notes": [
+            {
+              "word": "insensés",
+              "position": 82,
+              "note": "Ps. 141:5 ; Pr. 13:18, 15:31-32."
+            }
+          ]
+        },
+        {
+          "verse": "7:6",
+          "text": "Car, comme le bruit des épines sous la chaudière, tel est le rire de l'insensé. Cela aussi est une vanité."
+        },
+        {
+          "verse": "7:7",
+          "text": "En effet, l’oppression fait agir le sage comme un fou et le don détruit le cœur."
+        },
+        {
+          "verse": "7:8",
+          "text": "Mieux vaut la fin d'une chose que son commencement. Mieux vaut un esprit patient qu'un esprit hautain."
+        },
+        {
+          "verse": "7:9",
+          "text": "Ne te presse pas en ton esprit de t'irriter, car l'irritation repose dans le sein des insensés."
+        },
+        {
+          "verse": "7:10",
+          "text": "Ne dis pas : Qu’est-ce qu’il y avait que les jours précédents étaient meilleurs que ceux-ci ? Car ce n'est pas par sagesse que tu demandes cela."
+        },
+        {
+          "verse": "7:11",
+          "text": "La sagesse est bonne avec un héritage, elle est un avantage pour ceux qui voient le soleil."
+        },
+        {
+          "verse": "7:12",
+          "text": "Oui, à l’ombre de la sagesse, à l’ombre de l’argent, mais l’avantage de la connaissance, c’est que la sagesse fait vivre ses possesseurs."
+        },
+        {
+          "verse": "7:13",
+          "text": "Regarde l'œuvre d'Elohîm : car qui pourra redresser ce qu'il a courbé ?"
+        },
+        {
+          "verse": "7:14",
+          "text": "Au jour du bonheur, sois heureux, et au jour du malheur, regarde : en effet, Elohîm a fait celui-ci exactement comme celui-là, afin que l'être humain ne trouve rien après lui."
+        },
+        {
+          "verse": "7:15",
+          "text": "J’ai tout vu pendant mes jours de vanité. Il y a tel juste qui périt dans sa justice et il y a tel méchant qui prolonge ses jours dans sa méchanceté.",
+          "textWithNotes": "J’ai tout vu pendant mes jours de vanité. Il y a tel juste qui périt dans sa justice et il y a tel méchant qui prolonge ses jours dans sa méchanceté[Job. 21:7-8 ; Ec. 8:14.].",
+          "notes": [
+            {
+              "word": "méchanceté",
+              "position": 138,
+              "note": "Job. 21:7-8 ; Ec. 8:14."
+            }
+          ]
+        },
+        {
+          "verse": "7:16",
+          "text": "Ne deviens pas juste à l'excès et ne te montre pas sage outre mesure : pourquoi te ruinerais-tu ?",
+          "textWithNotes": "Ne deviens pas juste à l'excès[« Être ou devenir grand », « être ou devenir nombreux », « se multiplier ».] et ne te montre pas sage outre mesure : pourquoi te ruinerais-tu[Pr. 3:7 ; Ro. 12:16.] ?",
+          "notes": [
+            {
+              "word": "l'excès",
+              "position": 23,
+              "note": "« Être ou devenir grand », « être ou devenir nombreux », « se multiplier »."
+            },
+            {
+              "word": "ruinerais-tu",
+              "position": 83,
+              "note": "Pr. 3:7 ; Ro. 12:16."
+            }
+          ]
+        },
+        {
+          "verse": "7:17",
+          "text": "Ne sois pas trop méchant, et ne deviens pas insensé : pourquoi mourrais-tu avant ton temps ?",
+          "textWithNotes": "Ne sois pas trop méchant, et ne deviens pas insensé : pourquoi mourrais-tu avant ton temps[Job. 22:17 ; Ec. 9:16.] ?",
+          "notes": [
+            {
+              "word": "temps",
+              "position": 85,
+              "note": "Job. 22:17 ; Ec. 9:16."
+            }
+          ]
+        },
+        {
+          "verse": "7:18",
+          "text": "Il est bon que tu retiennes ceci et que tu ne retires pas ta main de cela, car celui qui craint Elohîm sort de tout."
+        },
+        {
+          "verse": "7:19",
+          "text": "La sagesse donne plus de force au sage que 10 dominateurs qui sont dans une ville."
+        },
+        {
+          "verse": "7:20",
+          "text": "En effet, il n'y a sur la Terre aucun être humain juste qui fasse ce qui est bon et qui ne pèche jamais.",
+          "textWithNotes": "En effet, il n'y a sur la Terre aucun être humain juste qui fasse ce qui est bon et qui ne pèche jamais[Ps. 14:3 ; Pr. 20:9 ; 2 Ch. 6:36 ; Ja. 3:2 ; Ro. 3:12 ; 1 Jn. 1:8.].",
+          "notes": [
+            {
+              "word": "jamais",
+              "position": 97,
+              "note": "Ps. 14:3 ; Pr. 20:9 ; 2 Ch. 6:36 ; Ja. 3:2 ; Ro. 3:12 ; 1 Jn. 1:8."
+            }
+          ]
+        },
+        {
+          "verse": "7:21",
+          "text": "Ne mets pas ton cœur à toutes les paroles qu'on dira, afin que tu n'entendes pas ton serviteur médire de toi."
+        },
+        {
+          "verse": "7:22",
+          "text": "Car, ton cœur aussi a reconnu plusieurs fois que tu as pareillement mal parlé des autres."
+        },
+        {
+          "verse": "7:23",
+          "text": "Tout cela, je l'ai mis à l'épreuve par la sagesse. J'ai dit : Je serai sage, mais elle s'est éloignée de moi."
+        },
+        {
+          "verse": "7:24",
+          "text": "Ce qui est loin et ce qui est profond, qui le trouvera ?"
+        },
+        {
+          "verse": "7:25",
+          "text": "Je me suis appliqué dans mon cœur à connaître, à sonder et à chercher la sagesse et la raison de tout, à connaître la méchanceté de la stupidité et la sottise de la folie."
+        },
+        {
+          "verse": "7:26",
+          "text": "J'ai trouvé plus amère que la mort, la femme dont le cœur est un piège et un filet, et dont les mains sont des liens. Celui qui est agréable à Elohîm lui échappera, mais le pécheur sera pris par elle.",
+          "textWithNotes": "J'ai trouvé plus amère que la mort, la femme dont le cœur est un piège et un filet, et dont les mains sont des liens. Celui qui est agréable à Elohîm lui échappera, mais le pécheur sera pris par elle[Pr. 5:3-4, 6:26, 7:13-27, 9:13-16, 22:14.].",
+          "notes": [
+            {
+              "word": "elle",
+              "position": 195,
+              "note": "Pr. 5:3-4, 6:26, 7:13-27, 9:13-16, 22:14."
+            }
+          ]
+        },
+        {
+          "verse": "7:27",
+          "text": "Vois, j'ai trouvé ceci, dit Qohéleth, en examinant les choses une à une pour en trouver la raison,"
+        },
+        {
+          "verse": "7:28",
+          "text": "ce que mon âme cherche encore et que je n’ai pas trouvé : j’ai trouvé un humain entre 1 000, mais une femme entre elles toutes, je ne l’ai pas trouvée."
+        },
+        {
+          "verse": "7:29",
+          "text": "Seulement, vois, j'ai trouvé ceci : c'est qu'Elohîm a fait les humains justes, mais ils ont cherché beaucoup d'inventions."
+        }
+      ]
+    },
+    {
+      "chapter": 8,
+      "verses": [
+        {
+          "verse": "8:1",
+          "section": "L'obéissance aux autorités",
+          "text": "Qui est comme le sage ? Qui connaît l'interprétation des choses ? La sagesse d'un humain fait briller ses faces et la puissance de ses faces en est changée.",
+          "textWithNotes": "Qui est comme le sage ? Qui connaît l'interprétation des choses ? La sagesse d'un humain fait briller ses faces et la puissance de ses faces en est changée[Pr. 15:13 ; Ec. 7:3.].",
+          "notes": [
+            {
+              "word": "changée",
+              "position": 148,
+              "note": "Pr. 15:13 ; Ec. 7:3."
+            }
+          ]
+        },
+        {
+          "verse": "8:2",
+          "text": "Moi ! Observe la bouche du roi et, à cause du serment d'Elohîm,"
+        },
+        {
+          "verse": "8:3",
+          "text": "ne te presse pas de t’en aller de devant ses faces et ne te tiens pas dans une chose mauvaise ! Car il fait tout ce qu’il désire."
+        },
+        {
+          "verse": "8:4",
+          "text": "Parce que la parole du roi c'est la maîtrise. Qui lui dira : Que fais-tu ?"
+        },
+        {
+          "verse": "8:5",
+          "text": "Celui qui garde le commandement ne connaîtra aucune chose mauvaise, et le cœur du sage connaîtra le temps et la justice."
+        },
+        {
+          "verse": "8:6",
+          "text": "Oui, il y a pour toute chose un temps et un jugement, parce que le malheur de l'être humain est abondant sur lui."
+        },
+        {
+          "verse": "8:7",
+          "text": "Car il ne sait pas ce qui arrivera, car, ce qui arrivera, qui le lui fera connaître ?"
+        },
+        {
+          "verse": "8:8",
+          "text": "Aucun être humain n'est maître du souffle pour retenir le souffle. Nul n'a de maîtrise sur le jour de la mort ; il n'y a pas de relâche dans cette bataille, et la méchanceté ne délivrera pas son possesseur.",
+          "textWithNotes": "Aucun être humain n'est maître du souffle[Le souffle ou l'esprit de l'humain quitte son corps le jour de sa mort (Ps. 39:5 ; Ja. 2:26).] pour retenir le souffle. Nul n'a de maîtrise sur le jour de la mort ; il n'y a pas de relâche dans cette bataille, et la méchanceté ne délivrera pas son possesseur.",
+          "notes": [
+            {
+              "word": "souffle",
+              "position": 34,
+              "note": "Le souffle ou l'esprit de l'humain quitte son corps le jour de sa mort (Ps. 39:5 ; Ja. 2:26)."
+            }
+          ]
+        },
+        {
+          "verse": "8:9",
+          "text": "J'ai vu tout cela et j'ai donné mon cœur à toute œuvre qui se fait sous le soleil. Il y a un temps où l'être humain domine sur l'être humain pour son malheur."
+        },
+        {
+          "verse": "8:10",
+          "text": "Ainsi j'ai vu les méchants enterrés et s'en aller tandis que ceux qui avaient agi avec droiture s'en aller loin du lieu saint et être oubliés dans la ville. Cela aussi est une vanité.",
+          "textWithNotes": "Ainsi j'ai vu les méchants enterrés et s'en aller tandis que ceux qui avaient agi avec droiture s'en aller loin du lieu saint et être oubliés dans la ville. Cela aussi est une vanité[Ec. 2:16, 9:5.].",
+          "notes": [
+            {
+              "word": "vanité",
+              "position": 176,
+              "note": "Ec. 2:16, 9:5."
+            }
+          ]
+        },
+        {
+          "verse": "8:11",
+          "text": "Parce que le décret contre les mauvaises œuvres ne s'exécute pas rapidement, à cause de cela, le cœur des fils des humains se remplit pour faire le mal.",
+          "textWithNotes": "Parce que le décret contre les mauvaises œuvres ne s'exécute pas rapidement, à cause de cela, le cœur des fils des humains se remplit pour faire le mal[Ec. 11:9.].",
+          "notes": [
+            {
+              "word": "mal",
+              "position": 148,
+              "note": "Ec. 11:9."
+            }
+          ]
+        },
+        {
+          "verse": "8:12",
+          "text": "Bien que le pécheur fasse le mal 100 fois et prolonge ses jours, je sais aussi qu'il y aura du bonheur pour ceux qui craignent Elohîm et qui sont dans la crainte en face de lui.",
+          "textWithNotes": "Bien que le pécheur fasse le mal 100 fois et prolonge ses jours, je sais aussi qu'il y aura du bonheur pour ceux qui craignent Elohîm et qui sont dans la crainte en face de lui[Es. 3:10 ; Pr. 1:33 ; Job. 22:21.].",
+          "notes": [
+            {
+              "word": "lui",
+              "position": 173,
+              "note": "Es. 3:10 ; Pr. 1:33 ; Job. 22:21."
+            }
+          ]
+        },
+        {
+          "verse": "8:13",
+          "text": "Mais le bonheur n'est pas pour le méchant et il ne prolongera pas ses jours plus que l'ombre, parce qu'il n'a pas de crainte en face d'Elohîm."
+        },
+        {
+          "verse": "8:14",
+          "text": "Il y a une vanité qui arrive sur la Terre : il y a des justes auxquels il arrive selon l'œuvre des méchants, et il y a aussi des méchants auxquels il arrive selon l'œuvre des justes. Je dis que cela aussi est une vanité."
+        },
+        {
+          "verse": "8:15",
+          "text": "Et moi, j’ai loué la joie, parce qu'il n'y a rien de bon sous le soleil pour l'être humain, que de manger, de boire et de se réjouir ; voilà ce qui l’accompagne dans son labeur, durant les jours de sa vie qu'Elohîm lui donne sous le soleil."
+        },
+        {
+          "verse": "8:16",
+          "text": "Quand j'ai donné mon cœur à connaître la sagesse et à regarder les occupations qui se font sur la Terre - car il y a quelqu’un qui, ni le jour ni la nuit, ne voit de ses yeux le sommeil -"
+        },
+        {
+          "verse": "8:17",
+          "text": "j'ai vu toute l'œuvre d'Elohîm : non, l'être humain ne peut pas trouver l'œuvre qui se fait sous le soleil. Bien que l'être humain travaille à la chercher, il ne la trouvera pas, et même si le sage dit la connaître, il ne peut la trouver."
+        }
+      ]
+    },
+    {
+      "chapter": 9,
+      "verses": [
+        {
+          "verse": "9:1",
+          "section": "L'impuissance de la sagesse face à la mort",
+          "text": "En effet, j'ai donné mon cœur à tout cela pour rendre clair tout cela : que les justes, les sages et leurs actions sont dans la main d'Elohîm. Mais les humains ne connaissent ni l'amour ni la haine de tout ce qui est devant eux."
+        },
+        {
+          "verse": "9:2",
+          "text": "Tout arrive également à tous : un même accident arrive au juste et au méchant, à celui qui est bon et pur et à celui qui est impur, à celui qui sacrifie et à celui qui ne sacrifie pas. Le bon est comme le pécheur, celui qui jure comme celui qui a eu peur du serment.",
+          "textWithNotes": "Tout arrive également à tous : un même accident[Voir Ec. 2:14.] arrive au juste et au méchant, à celui qui est bon et pur et à celui qui est impur, à celui qui sacrifie et à celui qui ne sacrifie pas. Le bon est comme le pécheur, celui qui jure comme celui qui a eu peur du serment.",
+          "notes": [
+            {
+              "word": "accident",
+              "position": 39,
+              "note": "Voir Ec. 2:14."
+            }
+          ]
+        },
+        {
+          "verse": "9:3",
+          "text": "Ceci est un mal dans tout ce qui se fait sous le soleil, c'est qu'il y a pour tous un même accident. Aussi le cœur des fils d'humain est-il plein de méchanceté et la sottise est dans leur cœur pendant leur vie. Après cela, ils vont chez les morts.",
+          "textWithNotes": "Ceci est un mal dans tout ce qui se fait sous le soleil, c'est qu'il y a pour tous un même accident[Voir Ec. 2:14.]. Aussi le cœur des fils d'humain est-il plein de méchanceté et la sottise est dans leur cœur pendant leur vie. Après cela, ils vont chez les morts.",
+          "notes": [
+            {
+              "word": "accident",
+              "position": 91,
+              "note": "Voir Ec. 2:14."
+            }
+          ]
+        },
+        {
+          "verse": "9:4",
+          "text": "Qui est-ce en effet qui est choisi ? Il y a de l'espérance pour tous ceux qui sont encore vivants. En effet, un chien vivant vaut mieux qu’un lion mort."
+        },
+        {
+          "verse": "9:5",
+          "text": "En effet, les vivants savent qu'ils mourront, mais les morts ne savent rien et ne gagnent plus rien, car leur souvenir est oublié."
+        },
+        {
+          "verse": "9:6",
+          "text": "Leur amour aussi, leur haine aussi, leur ardeur aussi ont déjà péri, et ils n’ont plus de part, à perpétuité, dans tout ce qui se fait sous le soleil."
+        },
+        {
+          "verse": "9:7",
+          "text": "Va, mange ton pain avec joie et bois ton vin d’un cœur heureux, car depuis longtemps Elohîm prend plaisir à tes œuvres."
+        },
+        {
+          "verse": "9:8",
+          "text": "Qu'en tout temps tes vêtements soient blancs et que l'huile ne manque pas sur ta tête !"
+        },
+        {
+          "verse": "9:9",
+          "text": "Vois la vie avec la femme que tu aimes, tous les jours de ta vie de vanité qui t'est donnée sous le soleil, tous les jours de ta vanité, car c’est là ta part dans la vie et dans ton labeur auquel tu as travaillé sous le soleil."
+        },
+        {
+          "verse": "9:10",
+          "text": "Tout ce que ta main trouve à faire, fais-le selon ton pouvoir, car dans le shéol où tu vas, il n'y a ni œuvre, ni raison, ni connaissance, ni sagesse."
+        },
+        {
+          "verse": "9:11",
+          "text": "Je suis retourné et j’ai vu sous le soleil que la course n'est pas aux rapides, ni la guerre aux hommes vaillants, ni le pain aux sages, ni la richesse aux intelligents, ni la grâce à ceux qui ont de la connaissance, car temps et événement leur arrivent à tous."
+        },
+        {
+          "verse": "9:12",
+          "text": "Car l'être humain ne connaît même pas son temps, comme les poissons qui sont pris au filet de malheur et les oiseaux qui sont pris au piège. Comme eux, les fils d'humain sont enlacés au temps du malheur lorsqu'il tombe subitement sur eux."
+        },
+        {
+          "verse": "9:13",
+          "text": "J'ai aussi vu cette sagesse sous le soleil, et elle a été grande pour moi."
+        },
+        {
+          "verse": "9:14",
+          "text": "Il y avait une petite ville avec peu d'hommes. Un roi puissant a marché contre elle, l’a encerclée et a bâti contre elle de grandes forteresses."
+        },
+        {
+          "verse": "9:15",
+          "text": "Mais il s’est trouvé en elle un homme pauvre et sage qui a délivré la ville par sa sagesse. Pourtant, personne ne s’est souvenu de cet homme pauvre."
+        },
+        {
+          "verse": "9:16",
+          "text": "Moi, j'ai dit : La sagesse vaut mieux que la force. Cependant, la sagesse du pauvre est méprisée et ses paroles ne sont pas écoutées."
+        },
+        {
+          "verse": "9:17",
+          "text": "Les paroles des sages sont écoutées dans la tranquillité, plus que le cri de celui qui domine parmi les insensés."
+        },
+        {
+          "verse": "9:18",
+          "text": "La sagesse vaut mieux que tous les instruments de guerre, mais un seul pécheur détruit beaucoup de biens."
+        }
+      ]
+    },
+    {
+      "chapter": 10,
+      "verses": [
+        {
+          "verse": "10:1",
+          "section": "La sagesse vaut mieux que la folie",
+          "text": "Les mouches mortes font puer et fermenter l'huile du parfumeur. Un peu de stupidité pèse plus que la sagesse, que la gloire."
+        },
+        {
+          "verse": "10:2",
+          "text": "Le cœur du sage est à sa droite, et le cœur de l'insensé est à sa gauche."
+        },
+        {
+          "verse": "10:3",
+          "text": "De plus, quand l'insensé marche dans le chemin, le cœur lui manque. Il dit à tous : C'est un insensé !"
+        },
+        {
+          "verse": "10:4",
+          "text": "Si l'esprit de celui qui gouverne s'élève contre toi, ne te repose pas de ton poste, car la guérison reposera de grands péchés."
+        },
+        {
+          "verse": "10:5",
+          "text": "Il y a un mal que j'ai vu sous le soleil, comme une erreur sortie des faces du dominateur :"
+        },
+        {
+          "verse": "10:6",
+          "text": "la folie est mise dans plusieurs lieux élevés, et les riches demeurent dans une basse condition."
+        },
+        {
+          "verse": "10:7",
+          "text": "J'ai vu des esclaves sur des chevaux et des princes marcher à terre comme des esclaves."
+        },
+        {
+          "verse": "10:8",
+          "text": "Celui qui creuse une fosse y tombera, celui qui fait une brèche dans une clôture sera mordu par un serpent.",
+          "textWithNotes": "Celui qui creuse une fosse y tombera, celui qui fait une brèche dans une clôture sera mordu par un serpent[Ps. 7:16 ; Pr. 26:27, 28:10.].",
+          "notes": [
+            {
+              "word": "serpent",
+              "position": 99,
+              "note": "Ps. 7:16 ; Pr. 26:27, 28:10."
+            }
+          ]
+        },
+        {
+          "verse": "10:9",
+          "text": "Celui qui extrait des pierres se fera mal avec, et celui qui fend du bois court un danger."
+        },
+        {
+          "verse": "10:10",
+          "text": "Si le fer est émoussé et qu'on n'en ait pas aiguisé le tranchant, il devra redoubler de force. Mais la sagesse a l'avantage de donner de l'adresse."
+        },
+        {
+          "verse": "10:11",
+          "text": "Si le serpent mord quand il n'est pas charmé, il n'y a pas d'avantage pour le maître de la langue."
+        },
+        {
+          "verse": "10:12",
+          "text": "Les paroles de la bouche du sage ne sont que grâce, mais les lèvres de l'insensé l’engloutissent.",
+          "textWithNotes": "Les paroles de la bouche du sage ne sont que grâce, mais les lèvres de l'insensé l’engloutissent[Pr. 10:21.].",
+          "notes": [
+            {
+              "word": "l’engloutissent",
+              "position": 81,
+              "note": "Pr. 10:21."
+            }
+          ]
+        },
+        {
+          "verse": "10:13",
+          "text": "Le commencement des paroles de sa bouche est stupidité, et la fin de son discours est une méchante folie."
+        },
+        {
+          "verse": "10:14",
+          "text": "L'insensé multiplie les paroles. L'être humain ne sait pas ce qui arrivera : qui lui déclarera ce qui sera après lui ?"
+        },
+        {
+          "verse": "10:15",
+          "text": "Le labeur de l'insensé le fatigue, parce qu'il ne sait pas aller à la ville."
+        },
+        {
+          "verse": "10:16",
+          "text": "Malheur à toi, terre dont le roi est un jeune homme et dont les princes mangent dès le matin !",
+          "textWithNotes": "Malheur à toi, terre dont le roi est un jeune homme et dont les princes mangent dès le matin[Es. 3:4.] !",
+          "notes": [
+            {
+              "word": "matin",
+              "position": 87,
+              "note": "Es. 3:4."
+            }
+          ]
+        },
+        {
+          "verse": "10:17",
+          "text": "Heureuse es-tu, terre dont le roi est le fils des nobles et dont les princes mangent au temps convenable, pour prendre des forces et non pour boire !"
+        },
+        {
+          "verse": "10:18",
+          "text": "À cause des mains paresseuses, la charpente s'affaisse, et à cause des mains lâches, la maison a des gouttières."
+        },
+        {
+          "verse": "10:19",
+          "text": "On fait des pains pour se réjouir, le vin réjouit les vivants et l'argent répond à tout."
+        },
+        {
+          "verse": "10:20",
+          "text": "Ne maudis pas le roi, même en pensée, et ne maudis pas le riche dans la chambre où tu couches, car la créature volante des cieux emporterait ta voix, le Baal ailé ferait connaître tes paroles.",
+          "textWithNotes": "Ne maudis pas le roi, même en pensée, et ne maudis pas le riche dans la chambre où tu couches, car la créature volante des cieux emporterait ta voix, le Baal[Le terme sémitique « baal » (en hébreu ba'al) signifie à l'origine « possesseur », « maître » ou « seigneur ». Le Baal ailé était une créature ailée. Utilisée au pluriel, l'expression « baalim de flèches » désignait des archers. Les écritures nous parlent de Baal-Zeboub (seigneur des mouches), un démon adoré à Ékron, l'une des villes des Philistins (2 R. 1:1-16). Baal-Zeboub a donné « Béelzéboul » dans les Évangiles (Mt. 10:25, 12:24,27 ; Lu. 11:15-19). Ce passage nous enseigne clairement que les démons épient les enfants d'Elohîm et vont ensuite faire leurs rapports à Satan afin de mieux les attaquer. Ils agissent comme des espions. Ces esprits sont comme des mouches et essayent de s'infiltrer partout.] ailé ferait connaître tes paroles.",
+          "notes": [
+            {
+              "word": "Baal",
+              "position": 153,
+              "note": "Le terme sémitique « baal » (en hébreu ba'al) signifie à l'origine « possesseur », « maître » ou « seigneur ». Le Baal ailé était une créature ailée. Utilisée au pluriel, l'expression « baalim de flèches » désignait des archers. Les écritures nous parlent de Baal-Zeboub (seigneur des mouches), un démon adoré à Ékron, l'une des villes des Philistins (2 R. 1:1-16). Baal-Zeboub a donné « Béelzéboul » dans les Évangiles (Mt. 10:25, 12:24,27 ; Lu. 11:15-19). Ce passage nous enseigne clairement que les démons épient les enfants d'Elohîm et vont ensuite faire leurs rapports à Satan afin de mieux les attaquer. Ils agissent comme des espions. Ces esprits sont comme des mouches et essayent de s'infiltrer partout."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 11,
+      "verses": [
+        {
+          "verse": "11:1",
+          "section": "L'être humain travaille en tâtonnant",
+          "text": "Jette ton pain sur les faces des eaux, car après beaucoup de jours tu le trouveras."
+        },
+        {
+          "verse": "11:2",
+          "text": "Donnes-en une part à sept et même à huit, car tu ne sais pas quel mal viendra sur la Terre."
+        },
+        {
+          "verse": "11:3",
+          "text": "Si les nuages sont pleins de pluie, ils se vident sur la Terre. Si un arbre tombe au sud ou au nord, à l’endroit où l’arbre tombe, là il sera."
+        },
+        {
+          "verse": "11:4",
+          "text": "Celui qui observe le vent ne sèmera pas et celui qui regarde les nuages ne moissonnera pas."
+        },
+        {
+          "verse": "11:5",
+          "text": "Comme tu ne sais pas quel est le chemin du vent, ni les os dans un ventre plein, ainsi tu ne connais pas l'œuvre d'Elohîm qui fait tout.",
+          "textWithNotes": "Comme tu ne sais pas quel est le chemin du vent, ni les os dans un ventre plein, ainsi tu ne connais pas l'œuvre d'Elohîm qui fait tout[Ceux qui sont nés d'en-haut sont insaisissables comme le vent (Jn. 3:8).].",
+          "notes": [
+            {
+              "word": "tout",
+              "position": 131,
+              "note": "Ceux qui sont nés d'en-haut sont insaisissables comme le vent (Jn. 3:8)."
+            }
+          ]
+        },
+        {
+          "verse": "11:6",
+          "text": "Le matin, sème ta semence, et le soir, ne laisse pas reposer tes mains, car tu ne sais pas ce qui réussira, ceci ou cela, ni si les deux seront également bons."
+        },
+        {
+          "verse": "11:7",
+          "text": "La lumière est douce, et il est agréable aux yeux de voir le soleil."
+        },
+        {
+          "verse": "11:8",
+          "text": "Mais si un être humain vit de nombreuses années, qu'il se réjouisse et qu'il se souvienne des jours de ténèbres qui seront en grand nombre. Tout ce qui vient est vanité."
+        },
+        {
+          "verse": "11:9",
+          "section": "Message à la jeunesse",
+          "text": "Jeune homme, réjouis-toi dans ta jeunesse ! Que ton cœur te rende joyeux pendant les jours de ton adolescence ! Marche selon les voies de ton cœur et la vision de tes yeux. Mais, sache que pour toutes ces choses Elohîm te fera venir en jugement !"
+        },
+        {
+          "verse": "11:10",
+          "text": "Ôte le chagrin de ton cœur, fais passer le mal loin de ta chair, car la jeunesse et la noirceur ne sont que vanité.",
+          "textWithNotes": "Ôte le chagrin de ton cœur, fais passer le mal loin de ta chair, car la jeunesse et la noirceur[La noirceur de la chevelure, indiquant la jeunesse.] ne sont que vanité.",
+          "notes": [
+            {
+              "word": "noirceur",
+              "position": 87,
+              "note": "La noirceur de la chevelure, indiquant la jeunesse."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 12,
+      "verses": [
+        {
+          "verse": "12:1",
+          "section": "Message à la jeunesse (suite)",
+          "text": "Souviens-toi de ton Créateur aux jours de ton adolescence, avant que viennent les jours mauvais et qu'approchent les années dont tu diras : Je n'y prends aucun plaisir."
+        },
+        {
+          "verse": "12:2",
+          "text": "Avant que le soleil et la lumière, la lune et les étoiles s'obscurcissent, et que les nuages reviennent après la pluie."
+        },
+        {
+          "verse": "12:3",
+          "text": "Le jour où les gardiens de la maison tremblent, où les hommes talentueux se courbent, où celles qui moulent cessent de travailler parce qu'elles sont diminuées, où ceux qui regardent par les fenêtres sont obscurcis,",
+          "textWithNotes": "Le jour où les gardiens de la maison tremblent[« Les gardes de la maison » représentent les mains.], où les hommes talentueux[« Les hommes talentueux » sont les jambes.] se courbent, où celles qui moulent[Les dents sont « celles qui moulent ».] cessent de travailler parce qu'elles sont diminuées, où ceux qui regardent par les fenêtres[Les yeux sont « ceux qui regardent par les fenêtres ».] sont obscurcis,",
+          "notes": [
+            {
+              "word": "tremblent",
+              "position": 37,
+              "note": "« Les gardes de la maison » représentent les mains."
+            },
+            {
+              "word": "talentueux",
+              "position": 62,
+              "note": "« Les hommes talentueux » sont les jambes."
+            },
+            {
+              "word": "moulent",
+              "position": 100,
+              "note": "Les dents sont « celles qui moulent »."
+            },
+            {
+              "word": "fenêtres",
+              "position": 191,
+              "note": "Les yeux sont « ceux qui regardent par les fenêtres »."
+            }
+          ]
+        },
+        {
+          "verse": "12:4",
+          "text": "où les deux battants de la porte se ferment sur la rue quand s'abaisse le bruit de la meule, où l’on se lève au cri de l'oiseau et où toutes les filles du chant s'affaiblissent.",
+          "textWithNotes": "où les deux battants de la porte[Les lèvres sont « les deux battants de la porte ».] se ferment sur la rue quand s'abaisse le bruit de la meule, où l’on se lève au cri de l'oiseau et où toutes les filles du chant s'affaiblissent.",
+          "notes": [
+            {
+              "word": "porte",
+              "position": 27,
+              "note": "Les lèvres sont « les deux battants de la porte »."
+            }
+          ]
+        },
+        {
+          "verse": "12:5",
+          "text": "Quand on a aussi peur de ce qui est élevé et qu'on a des terreurs en chemin. Quand l'amandier fleurit, que la sauterelle devient pesante, et que la baie qui stimule le désir se brise, car l'humain s'en va vers sa maison éternelle et ceux qui se lamentent tournent autour des rues.",
+          "textWithNotes": "Quand on a aussi peur de ce qui est élevé et qu'on a des terreurs en chemin. Quand l'amandier fleurit, que la sauterelle devient pesante, et que la baie qui stimule le désir se brise, car l'humain s'en va vers sa maison éternelle[La maison éternelle, c'est la nouvelle Yeroushalaim pour les chrétiens (Ap. 21.) et pour les païens le lac de feu (Ap. 20:11-15).] et ceux qui se lamentent tournent autour des rues.",
+          "notes": [
+            {
+              "word": "éternelle",
+              "position": 220,
+              "note": "La maison éternelle, c'est la nouvelle Yeroushalaim pour les chrétiens (Ap. 21.) et pour les païens le lac de feu (Ap. 20:11-15)."
+            }
+          ]
+        },
+        {
+          "verse": "12:6",
+          "text": "Avant que la corde d'argent se brise, que le vase d'or s’écrase, que la cruche se rompe sur la source, que la roue s'écrase sur la citerne.",
+          "textWithNotes": "Avant que la corde d'argent[Cette corde est comme le cordon ombilical, elle lie l'âme au corps. Lors de la mort, la corde d'argent est coupée. Voir Job. 7:6.] se brise, que le vase d'or[Le corps humain est comme un vase ou une tente qui renferme son esprit. Comme l'argile dans la main du potier, ainsi est l'être humain dans celle d'Elohîm. Avec cette argile, il décide souverainement de fabriquer de la même masse un vase d'honneur et un autre pour un usage vil (Jé. 18:4-6 ; Ro. 9:21 ; 2 Ti. 2:20-21).] s’écrase, que la cruche se rompe sur la source, que la roue s'écrase sur la citerne.",
+          "notes": [
+            {
+              "word": "d'argent",
+              "position": 19,
+              "note": "Cette corde est comme le cordon ombilical, elle lie l'âme au corps. Lors de la mort, la corde d'argent est coupée. Voir Job. 7:6."
+            },
+            {
+              "word": "d'or",
+              "position": 50,
+              "note": "Le corps humain est comme un vase ou une tente qui renferme son esprit. Comme l'argile dans la main du potier, ainsi est l'être humain dans celle d'Elohîm. Avec cette argile, il décide souverainement de fabriquer de la même masse un vase d'honneur et un autre pour un usage vil (Jé. 18:4-6 ; Ro. 9:21 ; 2 Ti. 2:20-21)."
+            }
+          ]
+        },
+        {
+          "verse": "12:7",
+          "text": "Avant que la poussière ne retourne à la terre, comme elle y était, et que l'esprit ne retourne à Elohîm qui l'a donné.",
+          "textWithNotes": "Avant que la poussière ne retourne à la terre, comme elle y était, et que l'esprit ne retourne à Elohîm qui l'a donné[Yéhoshoua (Jésus), qui est Elohîm, a reçu l'esprit de Stephanos (Étienne). Voir Ac. 7:59.].",
+          "notes": [
+            {
+              "word": "donné",
+              "position": 112,
+              "note": "Yéhoshoua (Jésus), qui est Elohîm, a reçu l'esprit de Stephanos (Étienne). Voir Ac. 7:59."
+            }
+          ]
+        },
+        {
+          "verse": "12:8",
+          "section": "Conclusion",
+          "text": "Vanité des vanités, dit Qohéleth, tout est vanité."
+        },
+        {
+          "verse": "12:9",
+          "text": "En plus de ce que Qohéleth était devenu sage, il a encore enseigné la connaissance au peuple. Il a pesé, recherché et mis en ordre un grand nombre de proverbes."
+        },
+        {
+          "verse": "12:10",
+          "text": "Qohéleth a cherché pour trouver des discours agréables. Ce qui a été écrit l'a été avec droiture, ce sont des paroles de vérité."
+        },
+        {
+          "verse": "12:11",
+          "text": "Les paroles des sages sont comme des aiguillons et les maîtres des recueils comme des clous plantés. Elles ont été données par un seul berger."
+        },
+        {
+          "verse": "12:12",
+          "text": "En plus de cela, mon fils, sois averti ! On n'en finirait pas, si l'on voulait faire un grand nombre de livres, et beaucoup d'étude est une fatigue pour le corps."
+        },
+        {
+          "verse": "12:13",
+          "text": "Fin du discours : Tout a été entendu : crains Elohîm et garde ses commandements, car c'est là le tout de l'être humain."
+        },
+        {
+          "verse": "12:14",
+          "text": "Car Elohîm fera venir toute œuvre en jugement, au sujet de tout ce qui est caché, soit bien, soit mal."
+        }
+      ]
+    }
+  ]
+}

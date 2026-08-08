@@ -1,0 +1,561 @@
+{
+  "book": "2 Petros (2 Pierre)",
+  "abbreviation": "2 Pi.",
+  "metadata": {
+    "signification": "Roc, pierre",
+    "auteur": "Petros (Pierre)",
+    "theme": "Appel à la sainteté et prophétie sur l'apparition de moqueurs et de maîtres corrompus",
+    "date": "Env. 66 ap. J.-C."
+  },
+  "introduction": "Sans doute écrite à Rome, cette lettre, tout comme la première, semble avoir été destinée aux assemblées d'Asie Mineure. Petros (Pierre) y exhorte les chrétiens à être vigilants quant aux faux docteurs et aux nombreuses hérésies. Il insiste sur l'appel et l'élection des chrétiens dont le comportement doit être exemplaire. Il leur rappelle la véracité des écrits prophétiques et les invite à persévérer dans la vie chrétienne.",
+  "chapters": [
+    {
+      "chapter": 1,
+      "verses": [
+        {
+          "verse": "1:1",
+          "text": "Shim’ôn Petros, esclave et apôtre de Yéhoshoua Mashiah, à ceux qui ont obtenu par le sort une foi d’égale valeur à la nôtre, par la justice de notre Elohîm et Sauveur Yéhoshoua Mashiah.",
+          "textWithNotes": "Shim’ôn Petros[Simon Pierre.], esclave et apôtre de Yéhoshoua Mashiah, à ceux qui ont obtenu par le sort une foi d’égale valeur[« également précieux, également honoré, être estimé égal à ».] à la nôtre, par la justice de notre Elohîm et Sauveur Yéhoshoua Mashiah[Petros (Pierre) affirme ici avec force la divinité de Yéhoshoua ha Mashiah (Jésus-Christ).].",
+          "notes": [
+            {
+              "word": "Petros",
+              "position": 8,
+              "note": "Simon Pierre."
+            },
+            {
+              "word": "valeur",
+              "position": 106,
+              "note": "« également précieux, également honoré, être estimé égal à »."
+            },
+            {
+              "word": "Mashiah",
+              "position": 177,
+              "note": "Petros (Pierre) affirme ici avec force la divinité de Yéhoshoua ha Mashiah (Jésus-Christ)."
+            }
+          ]
+        },
+        {
+          "verse": "1:2",
+          "text": "Grâce et shalôm à vous, multipliés dans la connaissance précise et correcte d'Elohîm et de Yéhoshoua notre Seigneur !"
+        },
+        {
+          "verse": "1:3",
+          "text": "Comme sa divine puissance nous a donné tout ce qui regarde la vie et la piété, au moyen de la connaissance précise et correcte de celui qui nous a appelés au moyen de la gloire et de la vertu,"
+        },
+        {
+          "verse": "1:4",
+          "text": "au moyen desquelles nous sont données les plus grandes et précieuses promesses, afin que par leur moyen vous deveniez participants de la nature divine, ayant échappé à la corruption qui est dans le monde par la convoitise.",
+          "textWithNotes": "au moyen desquelles nous sont données les plus grandes et précieuses promesses, afin que par leur moyen vous deveniez participants[Le terme « participants » est en mode nominatif. En grec, les mots changent de forme ou de déclinaison selon leur rôle. Le nominatif indique le sujet (qui fait l'action) et l'attribut. Voir 1 Co. 10:20.] de la nature divine, ayant échappé à la corruption qui est dans le monde par la convoitise.",
+          "notes": [
+            {
+              "word": "participants",
+              "position": 118,
+              "note": "Le terme « participants » est en mode nominatif. En grec, les mots changent de forme ou de déclinaison selon leur rôle. Le nominatif indique le sujet (qui fait l'action) et l'attribut. Voir 1 Co. 10:20."
+            }
+          ]
+        },
+        {
+          "verse": "1:5",
+          "text": "Or, pour cela même aussi, en ayant apporté en outre tout empressement, fournissez à votre foi la vertu, et à la vertu la connaissance,"
+        },
+        {
+          "verse": "1:6",
+          "text": "et à la connaissance le contrôle de soi, et au contrôle de soi la patience, et à la patience la piété,"
+        },
+        {
+          "verse": "1:7",
+          "text": "et à la piété l'amour fraternel, et à l'amour fraternel l'amour."
+        },
+        {
+          "verse": "1:8",
+          "text": "Car ces choses, en étant en vous et en se multipliant, elles ne vous rendent pas paresseux ni stériles pour la connaissance précise et correcte de notre Seigneur Yéhoshoua Mashiah."
+        },
+        {
+          "verse": "1:9",
+          "text": "Car celui en qui ces choses ne sont pas présentes est aveugle, et ne voit pas de loin, ayant oublié la purification de ses anciens péchés."
+        },
+        {
+          "verse": "1:10",
+          "text": "C'est pourquoi, frères, efforcez-vous de plus en plus à rendre ferme votre appel et votre élection, car en faisant ces choses, vous ne trébucherez jamais.",
+          "textWithNotes": "C'est pourquoi, frères, efforcez-vous de plus en plus à rendre ferme[Stable.] votre appel et votre élection, car en faisant ces choses, vous ne trébucherez jamais.",
+          "notes": [
+            {
+              "word": "ferme",
+              "position": 63,
+              "note": "Stable."
+            }
+          ]
+        },
+        {
+          "verse": "1:11",
+          "text": "Car c'est ainsi que vous sera richement fournie l'entrée dans le Royaume éternel de notre Seigneur et Sauveur Yéhoshoua Mashiah."
+        },
+        {
+          "verse": "1:12",
+          "text": "C'est pourquoi je ne négligerai pas de vous rappeler sans cesse ces choses, bien que les ayant connues et ayant été affermis dans la présente vérité."
+        },
+        {
+          "verse": "1:13",
+          "text": "Et j'estime juste, tant que je suis dans cette tente, de vous réveiller par un rappel,",
+          "textWithNotes": "Et j'estime juste, tant que je suis dans cette tente[« Tente » ou « tabernacle ». Ces termes sont utilisés comme une belle métaphore du corps humain qui est la demeure de l'esprit humain. Voir Za. 12:1.], de vous réveiller par un rappel,",
+          "notes": [
+            {
+              "word": "tente",
+              "position": 47,
+              "note": "« Tente » ou « tabernacle ». Ces termes sont utilisés comme une belle métaphore du corps humain qui est la demeure de l'esprit humain. Voir Za. 12:1."
+            }
+          ]
+        },
+        {
+          "verse": "1:14",
+          "text": "sachant que l'abandon de ma tente est imminent, comme aussi notre Seigneur Yéhoshoua Mashiah me l'a fait connaître.",
+          "textWithNotes": "sachant que l'abandon[« Rejeter », « quitter », « évacuer ».] de ma tente est imminent, comme aussi notre Seigneur Yéhoshoua Mashiah me l'a fait connaître[Voir Jn. 21:19.].",
+          "notes": [
+            {
+              "word": "l'abandon",
+              "position": 12,
+              "note": "« Rejeter », « quitter », « évacuer »."
+            },
+            {
+              "word": "connaître",
+              "position": 105,
+              "note": "Voir Jn. 21:19."
+            }
+          ]
+        },
+        {
+          "verse": "1:15",
+          "text": "Mais je m’efforcerai aussi de faire qu’après mon départ vous ayez toujours de quoi vous rappeler ces choses."
+        },
+        {
+          "verse": "1:16",
+          "text": "Car ce n'est pas en suivant des mythes inventés, que nous vous avons fait connaître la puissance et la parousie de notre Seigneur Yéhoshoua Mashiah, mais c’est en étant devenus témoins oculaires de sa grandeur.",
+          "textWithNotes": "Car ce n'est pas en suivant des mythes[Voir 1 Ti. 1:4 ; Tit. 1:14 ; 2 Ti. 4:4.] inventés, que nous vous avons fait connaître la puissance et la parousie[La parousie du Seigneur. Voir Mt. 24:3.] de notre Seigneur Yéhoshoua Mashiah, mais c’est en étant devenus témoins oculaires[Vient du grec « epoptes ». C'était le nom donné à ceux qui avait atteint le troisième degré, donc le plus haut niveau, dans l'initiation aux mystères d'Éleusis, ville proche d'Athènes, dans un culte rendu à la déesse de la végétation, Déméter.] de sa grandeur.",
+          "notes": [
+            {
+              "word": "mythes",
+              "position": 32,
+              "note": "Voir 1 Ti. 1:4 ; Tit. 1:14 ; 2 Ti. 4:4."
+            },
+            {
+              "word": "parousie",
+              "position": 103,
+              "note": "La parousie du Seigneur. Voir Mt. 24:3."
+            },
+            {
+              "word": "oculaires",
+              "position": 185,
+              "note": "Vient du grec « epoptes ». C'était le nom donné à ceux qui avait atteint le troisième degré, donc le plus haut niveau, dans l'initiation aux mystères d'Éleusis, ville proche d'Athènes, dans un culte rendu à la déesse de la végétation, Déméter."
+            }
+          ]
+        },
+        {
+          "verse": "1:17",
+          "text": "Car ayant reçu d'Elohîm le Père honneur et gloire, une telle voix lui ayant été portée par la gloire magnifique : Celui-ci est mon Fils bien-aimé, en qui j'ai pris plaisir.",
+          "textWithNotes": "Car ayant reçu d'Elohîm le Père honneur et gloire, une telle voix lui ayant été portée par la gloire magnifique : Celui-ci est mon Fils bien-aimé, en qui j'ai pris plaisir[Mt. 3:17.].",
+          "notes": [
+            {
+              "word": "plaisir",
+              "position": 164,
+              "note": "Mt. 3:17."
+            }
+          ]
+        },
+        {
+          "verse": "1:18",
+          "text": "Et nous avons entendu cette voix portée depuis le ciel, étant avec lui sur la sainte montagne."
+        },
+        {
+          "verse": "1:19",
+          "text": "Nous avons aussi la ferme parole prophétique, à laquelle vous faites bien d'être attentifs, comme à une lampe brillant dans un lieu obscur, jusqu'à ce que le jour ait brillé à travers l'obscurité de la nuit et que l'Étoile du matin se lève dans vos cœurs.",
+          "textWithNotes": "Nous avons aussi la ferme parole prophétique, à laquelle vous faites bien d'être attentifs, comme à une lampe brillant dans un lieu obscur, jusqu'à ce que le jour ait brillé[Apparaître.] à travers l'obscurité de la nuit et que l'Étoile du matin[Yéhoshoua est l'Étoile du matin. C'est cette Étoile qui indiqua aux mages le chemin de la maison où était l'enfant Yéhoshoua (Mt. 2). Balaam a également parlé de cette Étoile (No. 24:17) et Yéhoshoua lui-même s'est présenté comme l'Étoile brillante du matin (Ap. 22:16).] se lève dans vos cœurs.",
+          "notes": [
+            {
+              "word": "brillé",
+              "position": 167,
+              "note": "Apparaître."
+            },
+            {
+              "word": "matin",
+              "position": 226,
+              "note": "Yéhoshoua est l'Étoile du matin. C'est cette Étoile qui indiqua aux mages le chemin de la maison où était l'enfant Yéhoshoua (Mt. 2). Balaam a également parlé de cette Étoile (No. 24:17) et Yéhoshoua lui-même s'est présenté comme l'Étoile brillante du matin (Ap. 22:16)."
+            }
+          ]
+        },
+        {
+          "verse": "1:20",
+          "text": "Sachant d’abord ceci : qu'aucune prophétie de l'Écriture ne surgit d'une interprétation privée,"
+        },
+        {
+          "verse": "1:21",
+          "text": "car la prophétie n'a jamais été autrefois apportée par la volonté humaine, mais c'est portés par le Saint-Esprit que les saints hommes d'Elohîm ont parlé."
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "verses": [
+        {
+          "verse": "2:1",
+          "text": "Mais il y a eu aussi de faux prophètes parmi le peuple, comme il y aura aussi parmi vous de faux docteurs, qui introduiront secrètement des sectes de perdition, reniant le Seigneur qui les a achetés, et amenant sur eux-mêmes une perdition rapide."
+        },
+        {
+          "verse": "2:2",
+          "text": "Et beaucoup suivront leurs perditions - à cause desquels la voie de la vérité sera blasphémée.",
+          "textWithNotes": "Et beaucoup suivront leurs perditions[Le mot grec traduit par « perdition » signifie aussi « destruction ».] - à cause desquels la voie de la vérité sera blasphémée.",
+          "notes": [
+            {
+              "word": "perditions",
+              "position": 27,
+              "note": "Le mot grec traduit par « perdition » signifie aussi « destruction »."
+            }
+          ]
+        },
+        {
+          "verse": "2:3",
+          "text": "Et, par cupidité, ils trafiqueront de vous au moyen de paroles fabriquées, eux dont le jugement depuis longtemps n'est pas inactif et dont la perdition ne sommeille pas.",
+          "textWithNotes": "Et, par cupidité, ils trafiqueront de vous au moyen de paroles fabriquées[Vient du grec « plastos » qui signifie « moulé, modelé, formé comme dans l'argile, ce qui est feint ou trompeur ».], eux dont le jugement depuis longtemps n'est pas inactif et dont la perdition ne sommeille pas.",
+          "notes": [
+            {
+              "word": "fabriquées",
+              "position": 63,
+              "note": "Vient du grec « plastos » qui signifie « moulé, modelé, formé comme dans l'argile, ce qui est feint ou trompeur »."
+            }
+          ]
+        },
+        {
+          "verse": "2:4",
+          "text": "Car si Elohîm n'a pas épargné les anges ayant péché, mais les a livrés aux chaînes d’obscurité dans le Tartare où ils sont gardés pour le jugement,",
+          "textWithNotes": "Car si Elohîm n'a pas épargné les anges ayant péché, mais les a livrés aux chaînes d’obscurité[Voir Jud. 1:6.] dans le Tartare[Du grec « tartaroo », ce terme est le nom de la région souterraine, lugubre et sombre, considérée par les Grecs anciens comme la demeure du méchant à sa mort, où il souffre le châtiment pour ses mauvaises actions. « Tartaroo » vient de « tartaros » qui signifie « les plus profonds abîmes du Hadès ».] où ils sont gardés pour le jugement,",
+          "notes": [
+            {
+              "word": "d’obscurité",
+              "position": 83,
+              "note": "Voir Jud. 1:6."
+            },
+            {
+              "word": "Tartare",
+              "position": 103,
+              "note": "Du grec « tartaroo », ce terme est le nom de la région souterraine, lugubre et sombre, considérée par les Grecs anciens comme la demeure du méchant à sa mort, où il souffre le châtiment pour ses mauvaises actions. « Tartaroo » vient de « tartaros » qui signifie « les plus profonds abîmes du Hadès »."
+            }
+          ]
+        },
+        {
+          "verse": "2:5",
+          "text": "et n'a pas épargné l'ancien monde, mais a gardé Noah, le huitième homme, prédicateur de la justice, en ayant fait venir le déluge sur un monde d'impies,",
+          "textWithNotes": "et n'a pas épargné l'ancien monde, mais a gardé Noah[Voir Ge. 7.], le huitième homme, prédicateur de la justice, en ayant fait venir le déluge sur un monde d'impies,",
+          "notes": [
+            {
+              "word": "Noah",
+              "position": 48,
+              "note": "Voir Ge. 7."
+            }
+          ]
+        },
+        {
+          "verse": "2:6",
+          "text": "et les villes de Sodome et de Gomorrhe, les ayant réduit en cendre, condamnées au renversement, les ayant mis en exemple aux impies à venir,"
+        },
+        {
+          "verse": "2:7",
+          "text": "et Lot, le juste, étant profondément affligé par la luxure sans bride de ces hors-la-loi, il a délivré,",
+          "textWithNotes": "et Lot[Voir Ge. 18-19.], le juste, étant profondément affligé par la luxure sans bride de ces hors-la-loi, il a délivré,",
+          "notes": [
+            {
+              "word": "Lot",
+              "position": 3,
+              "note": "Voir Ge. 18-19."
+            }
+          ]
+        },
+        {
+          "verse": "2:8",
+          "text": "- car les regardant et les entendant, ce juste, habitant parmi eux, torturait de jour en jour son âme juste à cause de leurs œuvres violeuses de la torah -",
+          "textWithNotes": "- car les regardant et les entendant, ce juste, habitant parmi eux, torturait de jour en jour son âme juste à cause de leurs œuvres violeuses de la torah[Voir Mc. 15:28.] -",
+          "notes": [
+            {
+              "word": "torah",
+              "position": 148,
+              "note": "Voir Mc. 15:28."
+            }
+          ]
+        },
+        {
+          "verse": "2:9",
+          "text": "le Seigneur sait délivrer hors de la tentation les pieux et garder pour le jour du jugement les injustes pour être punis,"
+        },
+        {
+          "verse": "2:10",
+          "text": "mais principalement ceux qui suivent la chair dans un désir d’impureté et qui méprisent la seigneurie. Audacieux, arrogants, ils ne craignent pas en blasphémant les gloires,"
+        },
+        {
+          "verse": "2:11",
+          "text": "alors que les anges, qui sont plus grands en force et en puissance, ne prononcent pas contre elles de jugement blasphématoire devant le Seigneur."
+        },
+        {
+          "verse": "2:12",
+          "text": "Mais ceux-ci, comme des bêtes dépourvues de raison, gouvernées par les instincts naturels, nées pour une capture et une corruption, blasphémant ce qu'ils ignorent, ils seront corrompus par leur propre corruption."
+        },
+        {
+          "verse": "2:13",
+          "text": "Ils recevront la récompense de l'injustice. Ils estiment le plaisir d'une vie de luxe en plein jour. Ce sont des taches et des souillures, vivant dans le luxe et dans leurs propres tromperies, festoyant somptueusement avec vous."
+        },
+        {
+          "verse": "2:14",
+          "text": "Ayant les yeux pleins d'adultère et, incapables d'arrêter de pécher, attrapant avec un appât les âmes instables. Ils ont le cœur exercé à la cupidité : enfants de malédiction !",
+          "textWithNotes": "Ayant les yeux pleins d'adultère[Ou femme adultère.] et, incapables d'arrêter de pécher, attrapant avec un appât les âmes instables[Le mot grec signifie aussi « chancelant, inconstant ». Voir 2 Pi. 3:16.]. Ils ont le cœur exercé à la cupidité : enfants de malédiction !",
+          "notes": [
+            {
+              "word": "d'adultère",
+              "position": 22,
+              "note": "Ou femme adultère."
+            },
+            {
+              "word": "instables",
+              "position": 102,
+              "note": "Le mot grec signifie aussi « chancelant, inconstant ». Voir 2 Pi. 3:16."
+            }
+          ]
+        },
+        {
+          "verse": "2:15",
+          "text": "Ayant abandonné la voie droite, ils se sont égarés en suivant la voie de Balaam de Beor, qui a aimé le salaire de l'injustice,",
+          "textWithNotes": "Ayant abandonné la voie droite, ils se sont égarés en suivant la voie de Balaam[Balaam. Voir No. 22.] de Beor[Le père de Balaam. No. 24:3.], qui a aimé le salaire de l'injustice,",
+          "notes": [
+            {
+              "word": "Balaam",
+              "position": 73,
+              "note": "Balaam. Voir No. 22."
+            },
+            {
+              "word": "Beor",
+              "position": 83,
+              "note": "Le père de Balaam. No. 24:3."
+            }
+          ]
+        },
+        {
+          "verse": "2:16",
+          "text": "mais il a reçu une réprimande pour sa propre transgression : une ânesse sans la faculté de la parole, émettant un son avec une voix humaine, a empêché la folie du prophète."
+        },
+        {
+          "verse": "2:17",
+          "text": "Ce sont des sources sans eau, des nuées agitées par un tourbillon de vent : l'obscurité de la ténèbre leur est réservée pour l'éternité."
+        },
+        {
+          "verse": "2:18",
+          "text": "Car en émettant des sons enflés et dépourvus de vérité et de convenance, ils attrapent avec un appât, par les désirs de la chair et par la luxure sans bride, ceux qui ont vraiment échappé aux gens qui tournent en rond dans l'égarement,",
+          "textWithNotes": "Car en émettant des sons enflés et dépourvus de vérité et de convenance[Enflés de perversité.], ils attrapent avec un appât, par les désirs de la chair[Voir Ga. 5:16-21.] et par la luxure sans bride, ceux qui ont vraiment échappé aux gens qui tournent en rond dans l'égarement,",
+          "notes": [
+            {
+              "word": "convenance",
+              "position": 61,
+              "note": "Enflés de perversité."
+            },
+            {
+              "word": "chair",
+              "position": 123,
+              "note": "Voir Ga. 5:16-21."
+            }
+          ]
+        },
+        {
+          "verse": "2:19",
+          "text": "leur promettant la liberté, étant eux-mêmes esclaves de la corruption, car on devient esclave de celui par qui on est vaincu."
+        },
+        {
+          "verse": "2:20",
+          "text": "Car, si en ayant échappé aux souillures du monde par la connaissance précise et correcte du Seigneur et Sauveur Yéhoshoua Mashiah, ils s'y empêtrent de nouveau et sont vaincus par elles, leur dernière condition est pire que la première.",
+          "textWithNotes": "Car, si en ayant échappé aux souillures du monde par la connaissance précise et correcte du Seigneur et Sauveur Yéhoshoua Mashiah, ils s'y empêtrent[2 Ti. 2:4.] de nouveau et sont vaincus par elles, leur dernière condition est pire que la première[Mt. 12:43-45.].",
+          "notes": [
+            {
+              "word": "empêtrent",
+              "position": 139,
+              "note": "2 Ti. 2:4."
+            },
+            {
+              "word": "première",
+              "position": 227,
+              "note": "Mt. 12:43-45."
+            }
+          ]
+        },
+        {
+          "verse": "2:21",
+          "text": "Car mieux valait pour eux n'avoir pas connu la voie de la justice, que de l'avoir connue et se détourner loin du saint commandement leur ayant été donné."
+        },
+        {
+          "verse": "2:22",
+          "text": "Mais il leur est arrivé ce que dit un proverbe vrai : Le chien est retourné à son propre vomissement, et la truie lavée s'est vautrée dans le bourbier.",
+          "textWithNotes": "Mais il leur est arrivé ce que dit un proverbe vrai : Le chien est retourné à son propre vomissement[Pr. 26:11.], et la truie lavée s'est vautrée dans le bourbier.",
+          "notes": [
+            {
+              "word": "vomissement",
+              "position": 89,
+              "note": "Pr. 26:11."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "verses": [
+        {
+          "verse": "3:1",
+          "text": "Bien-aimés, voici déjà la seconde lettre que je vous écris. Dans l'une et dans l'autre je réveille par un rappel votre pure compréhension,"
+        },
+        {
+          "verse": "3:2",
+          "text": "afin que vous vous souveniez des paroles qui ont été dites auparavant par les saints prophètes, et de notre commandement à nous, les apôtres du Seigneur et Sauveur."
+        },
+        {
+          "verse": "3:3",
+          "text": "Sachant avant tout ceci : que dans les derniers jours, des moqueurs viendront, se conduisant selon leurs propres désirs,",
+          "textWithNotes": "Sachant avant tout ceci : que dans les derniers[Ou la fin des jours. Yaacov est le premier homme à avoir utilisé l'expression « derniers jours ». Ge. 49:1-2 ; Da. 2:28 ; Ac. 2:17 ; 2 Ti. 3:1 ; Jud. 1:18. Voir la résurrection des saints. Jn. 6:39-40 et 44 et 54.] jours, des moqueurs viendront, se conduisant selon leurs propres désirs,",
+          "notes": [
+            {
+              "word": "derniers",
+              "position": 39,
+              "note": "Ou la fin des jours. Yaacov est le premier homme à avoir utilisé l'expression « derniers jours ». Ge. 49:1-2 ; Da. 2:28 ; Ac. 2:17 ; 2 Ti. 3:1 ; Jud. 1:18. Voir la résurrection des saints. Jn. 6:39-40 et 44 et 54."
+            }
+          ]
+        },
+        {
+          "verse": "3:4",
+          "text": "et disant : Où est la promesse de sa parousie ? Car depuis que les pères se sont endormis, toutes choses restent permanentes comme depuis le commencement de la création."
+        },
+        {
+          "verse": "3:5",
+          "text": "Car ils ignorent volontairement ceci, que, des cieux étaient depuis longtemps et une terre issue de l’eau et rassemblée au moyen de l’eau, la parole d'Elohîm,",
+          "textWithNotes": "Car ils ignorent[Être caché, secrètement, sans savoir, inconsciemment.] volontairement ceci, que, des cieux étaient depuis longtemps et une terre issue de l’eau et rassemblée au moyen de l’eau, la parole d'Elohîm,",
+          "notes": [
+            {
+              "word": "ignorent",
+              "position": 8,
+              "note": "Être caché, secrètement, sans savoir, inconsciemment."
+            }
+          ]
+        },
+        {
+          "verse": "3:6",
+          "text": "au moyen desquelles le monde d'alors fut détruit, étant submergé par l'eau.",
+          "textWithNotes": "au moyen desquelles le monde d'alors fut détruit, étant submergé par l'eau[Voir Ge. 6.].",
+          "notes": [
+            {
+              "word": "l'eau",
+              "position": 69,
+              "note": "Voir Ge. 6."
+            }
+          ]
+        },
+        {
+          "verse": "3:7",
+          "text": "Mais les cieux et la Terre d'à présent sont gardés par la même parole, étant réservés pour le feu au jour du jugement et de la destruction des humains impies."
+        },
+        {
+          "verse": "3:8",
+          "text": "Mais n’ignorez pas cette chose, bien-aimés, c’est qu’un jour devant le Seigneur est comme 1 000 ans et 1 000 ans comme un jour.",
+          "textWithNotes": "Mais n’ignorez[Être caché, secrètement, sans savoir, inconsciemment.] pas cette chose, bien-aimés, c’est qu’un jour devant le Seigneur est comme 1 000 ans et 1 000 ans comme un jour[Ps. 90:4.].",
+          "notes": [
+            {
+              "word": "n’ignorez",
+              "position": 5,
+              "note": "Être caché, secrètement, sans savoir, inconsciemment."
+            },
+            {
+              "word": "jour",
+              "position": 122,
+              "note": "Ps. 90:4."
+            }
+          ]
+        },
+        {
+          "verse": "3:9",
+          "text": "Le Seigneur ne retarde pas la promesse, comme certains pensent qu'il y a de la lenteur. Mais il est patient envers nous, ne voulant pas que certains périssent, mais que tous laissent un espace pour la repentance.",
+          "textWithNotes": "Le Seigneur ne retarde pas la promesse, comme certains pensent qu'il y a de la lenteur. Mais il est patient envers nous, ne voulant pas que certains périssent, mais que tous laissent un espace[« Laisser un espace (qui peut être rempli ou occupé par un autre), faire une place, donner une chambre », « céder ».] pour la repentance.",
+          "notes": [
+            {
+              "word": "espace",
+              "position": 186,
+              "note": "« Laisser un espace (qui peut être rempli ou occupé par un autre), faire une place, donner une chambre », « céder »."
+            }
+          ]
+        },
+        {
+          "verse": "3:10",
+          "text": "Or le jour du Seigneur viendra comme un voleur dans la nuit. Et en ce jour-là, les cieux passeront avec un fort bruit, et les éléments embrasés seront dissous, et la Terre avec les œuvres qui sont en elle sera brûlée.",
+          "textWithNotes": "Or le jour du Seigneur[Le jour du Seigneur. Voir Za. 14:1.] viendra comme un voleur dans la nuit. Et en ce jour-là, les cieux passeront avec un fort bruit, et les éléments embrasés seront dissous, et la Terre avec les œuvres qui sont en elle sera brûlée.",
+          "notes": [
+            {
+              "word": "Seigneur",
+              "position": 14,
+              "note": "Le jour du Seigneur. Voir Za. 14:1."
+            }
+          ]
+        },
+        {
+          "verse": "3:11",
+          "text": "Puisque toutes ces choses se dissolvent ainsi, quels gens devriez-vous être en sainte conduite et en piété,"
+        },
+        {
+          "verse": "3:12",
+          "text": "attendant et hâtant la parousie du jour d'Elohîm, à cause duquel les cieux en feu seront dissous et les éléments embrasés se fondront !"
+        },
+        {
+          "verse": "3:13",
+          "text": "Mais nous attendons, selon sa promesse, de nouveaux cieux et une nouvelle Terre dans lesquels la justice habite.",
+          "textWithNotes": "Mais nous attendons, selon sa promesse, de nouveaux cieux et une nouvelle Terre[Es. 66:22.] dans lesquels la justice habite.",
+          "notes": [
+            {
+              "word": "Terre",
+              "position": 74,
+              "note": "Es. 66:22."
+            }
+          ]
+        },
+        {
+          "verse": "3:14",
+          "text": "C'est pourquoi, bien-aimés, en attendant ces choses, efforcez-vous d’être trouvés par lui sans tache et innocents dans la paix."
+        },
+        {
+          "verse": "3:15",
+          "text": "Et considérez que la patience de notre Seigneur est un salut, comme Paulos, notre frère bien-aimé vous l'a aussi écrit, selon la sagesse qui lui a été donnée."
+        },
+        {
+          "verse": "3:16",
+          "text": "Comme aussi dans toutes les lettres où il parle de ces choses, dans lesquelles certaines sont difficiles à comprendre, que les personnes ignorantes et instables tordent, comme aussi les autres Écritures, pour leur propre destruction.",
+          "textWithNotes": "Comme aussi dans toutes les lettres où il parle de ces choses, dans lesquelles certaines sont difficiles à comprendre, que les personnes ignorantes et instables[Voir 2 Pi. 2:14.] tordent[Jé. 23:36.], comme aussi les autres Écritures, pour leur propre destruction.",
+          "notes": [
+            {
+              "word": "instables",
+              "position": 151,
+              "note": "Voir 2 Pi. 2:14."
+            },
+            {
+              "word": "tordent",
+              "position": 161,
+              "note": "Jé. 23:36."
+            }
+          ]
+        },
+        {
+          "verse": "3:17",
+          "text": "Vous donc, bien-aimés, puisque vous le savez d'avance, prenez garde, de peur qu'emportés par l'égarement des hors-la-loi, vous ne perdiez votre ferme condition."
+        },
+        {
+          "verse": "3:18",
+          "text": "Mais croissez dans la grâce et dans la connaissance de notre Seigneur et Sauveur Yéhoshoua Mashiah. À lui la gloire, et maintenant et pour le jour de l'éternité ! Amen !",
+          "textWithNotes": "Mais croissez dans la grâce et dans la connaissance de notre Seigneur et Sauveur Yéhoshoua Mashiah. À lui la gloire[Mt. 6:13, 16:27 ; Lu. 2:14 ; Ro. 16:27.], et maintenant et pour le jour de l'éternité ! Amen !",
+          "notes": [
+            {
+              "word": "gloire",
+              "position": 109,
+              "note": "Mt. 6:13, 16:27 ; Lu. 2:14 ; Ro. 16:27."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

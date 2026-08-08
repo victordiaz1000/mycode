@@ -1,0 +1,1499 @@
+{
+  "book": "Ezra (Esdras)",
+  "abbreviation": "Esd.",
+  "metadata": {
+    "signification": "Secours",
+    "auteur": "Ezra (Esdras)",
+    "theme": "Édit de Cyrus et reconstruction du temple",
+    "date": "5ème siècle av. J.-C."
+  },
+  "introduction": "Conformément aux prophéties reçues par Yesha`yah (Ésaïe) et Yirmeyah (Jérémie), YHWH réveilla le cœur du roi Cyrus afin de renvoyer les fils d'Israël sur leur terre avec la mission de reconstruire le temple détruit quelques décennies auparavant. Ce livre montre comment Elohîm ramena glorieusement son peuple à Yeroushalaim (Jérusalem) et retrace la reconstruction du temple ainsi que les épreuves ayant accompagné ce projet. Il traite également des réformes sociales et religieuses mises en place dans le cadre d'un retour total à YHWH.",
+  "chapters": [
+    {
+      "chapter": 1,
+      "verses": [
+        {
+          "verse": "1:1",
+          "section": "Publication de Cyrus",
+          "text": "En l’an un de Cyrus, roi de Perse, pour accomplir la parole de YHWH par la bouche de Yirmeyah, YHWH réveilla l'esprit de Cyrus, roi de Perse, qui fit passer une voix dans tout son royaume, et même par écrit disant :",
+          "textWithNotes": "En l’an un de Cyrus[538 av. J.-C.], roi de Perse, pour accomplir la parole de YHWH par la bouche de Yirmeyah[Jé. 25:12, 29:10, 33:7-10.], YHWH réveilla l'esprit de Cyrus, roi de Perse, qui fit passer une voix dans tout son royaume, et même par écrit disant :",
+          "notes": [
+            {
+              "word": "Cyrus",
+              "position": 14,
+              "note": "538 av. J.-C."
+            },
+            {
+              "word": "Yirmeyah",
+              "position": 85,
+              "note": "Jé. 25:12, 29:10, 33:7-10."
+            }
+          ]
+        },
+        {
+          "verse": "1:2",
+          "text": "Ainsi parle Cyrus, roi de Perse : Tous les royaumes de la Terre, YHWH, l'Elohîm des cieux, me les a donnés, et lui-même m’a désigné pour lui bâtir une maison à Yeroushalaim, en Yéhouda."
+        },
+        {
+          "verse": "1:3",
+          "text": "Qui d’entre vous, quel qu’il soit, est de son peuple, que son Elohîm soit avec lui, et qu'il monte à Yeroushalaim, en Yéhouda, bâtir la maison de YHWH, l'Elohîm d'Israël - c'est l'Elohîm qui est à Yeroushalaim !"
+        },
+        {
+          "verse": "1:4",
+          "text": "Et quant à tous ceux qui restent, en tous lieux où ils séjournent, que les hommes du lieu où ils demeurent, leur viennent en aide avec de l'argent, de l'or, des biens et du bétail, outre ce qu'on offrira volontairement pour la maison d'Elohîm qui est à Yeroushalaim."
+        },
+        {
+          "verse": "1:5",
+          "section": "Les ustensiles du temple restitués ; offrandes volontaires",
+          "text": "Les têtes des pères de Yéhouda, de Benyamin, des prêtres et des Lévites, se levèrent pour conduire tous ceux dont Elohîm réveilla l'esprit, afin de monter pour bâtir la maison de YHWH, qui est à Yeroushalaim."
+        },
+        {
+          "verse": "1:6",
+          "text": "Tous ceux qui étaient autour d'eux les fortifièrent de leurs mains avec des objets en argent et en or, des biens, du bétail, et des choses précieuses, outre tout ce qu'on offrit volontairement."
+        },
+        {
+          "verse": "1:7",
+          "text": "Le roi Cyrus fit sortir les ustensiles de la maison de YHWH, que Neboukadnetsar avait fait sortir de Yeroushalaim et qu'il avait mis dans la maison de son elohîm.",
+          "textWithNotes": "Le roi Cyrus fit sortir les ustensiles de la maison de YHWH, que Neboukadnetsar avait fait sortir[2 R. 24:13 ; Da. 1:1-2 ; 2 Ch. 36:7.] de Yeroushalaim et qu'il avait mis dans la maison de son elohîm.",
+          "notes": [
+            {
+              "word": "sortir",
+              "position": 91,
+              "note": "2 R. 24:13 ; Da. 1:1-2 ; 2 Ch. 36:7."
+            }
+          ]
+        },
+        {
+          "verse": "1:8",
+          "text": "Et Cyrus, roi de Perse, les fit sortir par la main de Mithredath, le trésorier, qui en fit le compte pour Sheshbatsar, le prince de Yéhouda."
+        },
+        {
+          "verse": "1:9",
+          "text": "Et voici leur nombre : 30 bassins d'or, 1 000 bassins d'argent, 29 couteaux,"
+        },
+        {
+          "verse": "1:10",
+          "text": "30 bols d'or, 410 bols d'argent de second ordre, et d'autres ustensiles par milliers."
+        },
+        {
+          "verse": "1:11",
+          "text": "Tous les ustensiles en or et en argent étaient de 5 400. Sheshbatsar fit monter le tout avec la montée des exilés de Babel à Yeroushalaim.",
+          "textWithNotes": "Tous les ustensiles en or et en argent étaient de 5 400. Sheshbatsar fit monter le tout avec la montée des exilés de Babel[Babylone.] à Yeroushalaim.",
+          "notes": [
+            {
+              "word": "Babel",
+              "position": 117,
+              "note": "Babylone."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "verses": [
+        {
+          "verse": "2:1",
+          "section": "Dénombrement des Israélites revenus de captivité",
+          "text": "Voici les fils de la province qui montèrent de la captivité et de l'exil, ceux que Neboukadnetsar, roi de Babel, avait emmenés captifs à Babel, et qui retournèrent à Yeroushalaim et en Yéhouda. Chaque homme dans sa ville.",
+          "textWithNotes": "Voici les fils de la province qui montèrent de la captivité et de l'exil, ceux que Neboukadnetsar, roi de Babel, avait emmenés captifs à Babel, et qui retournèrent à Yeroushalaim et en Yéhouda. Chaque homme dans sa ville[Né. 7:6.].",
+          "notes": [
+            {
+              "word": "ville",
+              "position": 215,
+              "note": "Né. 7:6."
+            }
+          ]
+        },
+        {
+          "verse": "2:2",
+          "text": "Ils vinrent avec Zerubbabel, Yéshoua, Nehemyah, Serayah, Re’élayah, Mordekay, Bilshan, Mispar, Bigvaï, Rehoum, Ba`anah. Nombre des hommes du peuple d'Israël :",
+          "textWithNotes": "Ils vinrent avec Zerubbabel[Zorobabel.], Yéshoua, Nehemyah, Serayah, Re’élayah, Mordekay[Mardochée.], Bilshan, Mispar, Bigvaï, Rehoum, Ba`anah. Nombre des hommes du peuple d'Israël :",
+          "notes": [
+            {
+              "word": "Zerubbabel",
+              "position": 17,
+              "note": "Zorobabel."
+            },
+            {
+              "word": "Mordekay",
+              "position": 68,
+              "note": "Mardochée."
+            }
+          ]
+        },
+        {
+          "verse": "2:3",
+          "text": "Les fils de Pareosh : 2 172."
+        },
+        {
+          "verse": "2:4",
+          "text": "Les fils de Shephatyah : 372."
+        },
+        {
+          "verse": "2:5",
+          "text": "Les fils d'Arach : 775."
+        },
+        {
+          "verse": "2:6",
+          "text": "Les fils de Pachath-Moab, des fils de Yéshoua, de Yoab : 2 812."
+        },
+        {
+          "verse": "2:7",
+          "text": "Les fils d'Éylam : 1 254."
+        },
+        {
+          "verse": "2:8",
+          "text": "Les fils de Zatthou : 945."
+        },
+        {
+          "verse": "2:9",
+          "text": "Les fils de Zakkay : 760."
+        },
+        {
+          "verse": "2:10",
+          "text": "Les fils de Bani : 642."
+        },
+        {
+          "verse": "2:11",
+          "text": "Les fils de Bébaï : 623."
+        },
+        {
+          "verse": "2:12",
+          "text": "Les fils d'Azgad : 1 222."
+        },
+        {
+          "verse": "2:13",
+          "text": "Les fils d'Adonikam : 666."
+        },
+        {
+          "verse": "2:14",
+          "text": "Les fils de Bigvaï : 2 056."
+        },
+        {
+          "verse": "2:15",
+          "text": "Les fils d'Adin : 454."
+        },
+        {
+          "verse": "2:16",
+          "text": "Les fils d'Ather, de Yehizqiyah : 98."
+        },
+        {
+          "verse": "2:17",
+          "text": "Les fils de Betsaï : 323."
+        },
+        {
+          "verse": "2:18",
+          "text": "Les fils de Yorah : 112."
+        },
+        {
+          "verse": "2:19",
+          "text": "Les fils de Hashoum : 223."
+        },
+        {
+          "verse": "2:20",
+          "text": "Les fils de Guibbar : 95."
+        },
+        {
+          "verse": "2:21",
+          "text": "Les fils de Bethléhem : 123."
+        },
+        {
+          "verse": "2:22",
+          "text": "Les hommes de Netophah : 56."
+        },
+        {
+          "verse": "2:23",
+          "text": "Les hommes d'Anathoth : 128."
+        },
+        {
+          "verse": "2:24",
+          "text": "Les fils d'Azmaveth : 42."
+        },
+        {
+          "verse": "2:25",
+          "text": "Les fils de Qiryath-Yéarim, de Kephiyrah et de Beéroth : 743."
+        },
+        {
+          "verse": "2:26",
+          "text": "Les fils de Ramah et de Guéba : 621."
+        },
+        {
+          "verse": "2:27",
+          "text": "Les hommes de Micmas : 122."
+        },
+        {
+          "verse": "2:28",
+          "text": "Les hommes de Béth-El et de Aï : 223."
+        },
+        {
+          "verse": "2:29",
+          "text": "Les fils de Nebo : 52."
+        },
+        {
+          "verse": "2:30",
+          "text": "Les fils de Magbish : 156."
+        },
+        {
+          "verse": "2:31",
+          "text": "Les fils d'un autre Éylam : 1 254."
+        },
+        {
+          "verse": "2:32",
+          "text": "Les fils de Harim : 320."
+        },
+        {
+          "verse": "2:33",
+          "text": "Les fils de Lod, de Hadid et d'Ono : 725."
+        },
+        {
+          "verse": "2:34",
+          "text": "Les fils de Yeriycho : 345."
+        },
+        {
+          "verse": "2:35",
+          "text": "Les fils de Senaa : 3 630."
+        },
+        {
+          "verse": "2:36",
+          "section": "Dénombrement des prêtres revenus de captivité",
+          "text": "Des prêtres : Les fils de Yekda`yah, de la maison de Yéshoua : 973."
+        },
+        {
+          "verse": "2:37",
+          "text": "Les fils d'Immer : 1 052."
+        },
+        {
+          "verse": "2:38",
+          "text": "Les fils de Pashhour : 1 247."
+        },
+        {
+          "verse": "2:39",
+          "text": "Les fils de Harim : 1 017."
+        },
+        {
+          "verse": "2:40",
+          "section": "Dénombrement des Lévites revenus de captivité",
+          "text": "Des Lévites : les fils de Yéshoua et de Qadmiy'el, d'entre les fils d'Hodavyah : 74."
+        },
+        {
+          "verse": "2:41",
+          "text": "Des chanteurs : les fils d'Asaph : 128."
+        },
+        {
+          "verse": "2:42",
+          "text": "Des fils des portiers : les fils de Shalloum, les fils d'Ather, les fils de Thalmon, les fils d'Aqqoub, les fils de Hathitha, les fils de Shobaï, en tout 139."
+        },
+        {
+          "verse": "2:43",
+          "text": "Des Néthiniens : les fils de Tsicha, les fils de Hasoupha, les fils de Tabbahoth,"
+        },
+        {
+          "verse": "2:44",
+          "text": "les fils de Kéros, les fils de Siaha, les fils de Padon,"
+        },
+        {
+          "verse": "2:45",
+          "text": "les fils de Lebana, les fils de Hagaba, les fils d'Aqqoub,"
+        },
+        {
+          "verse": "2:46",
+          "text": "les fils de Hagab, les fils de Shamlaï, les fils de Hanan,"
+        },
+        {
+          "verse": "2:47",
+          "text": "les fils de Guiddel, les fils de Gachar, les fils de Reayah,"
+        },
+        {
+          "verse": "2:48",
+          "text": "les fils de Retsin, les fils de Nekoda, les fils de Gazzam,"
+        },
+        {
+          "verse": "2:49",
+          "text": "les fils d'Ouzza, les fils de Paséach, les fils de Bésaï,"
+        },
+        {
+          "verse": "2:50",
+          "text": "les fils d'Asna, les fils de Mehounim, les fils de Nephousim,"
+        },
+        {
+          "verse": "2:51",
+          "text": "les fils de Baqbouq, les fils de Haqoupha, les fils de Har-hour,"
+        },
+        {
+          "verse": "2:52",
+          "text": "les fils de Batslouth, les fils de Mehida, les fils de Harsha,"
+        },
+        {
+          "verse": "2:53",
+          "text": "les fils de Barkos, les fils de Sisera, les fils de Thamach,"
+        },
+        {
+          "verse": "2:54",
+          "text": "les fils de Netsiach, les fils de Hathipha."
+        },
+        {
+          "verse": "2:55",
+          "section": "Dénombrement des serviteurs de Shelomoh revenus de captivité",
+          "text": "Des fils des serviteurs de Shelomoh : les fils de Sothaï, les fils de Sophéreth, les fils de Perouda,"
+        },
+        {
+          "verse": "2:56",
+          "text": "les fils de Ya`ala, les fils de Darkon, les fils de Guiddel,"
+        },
+        {
+          "verse": "2:57",
+          "text": "les fils de Shephatyah, les fils de Hatthil, les fils de Pokéreth-Hatsebaïm, les fils d'Ami."
+        },
+        {
+          "verse": "2:58",
+          "text": "Total des Néthiniens et des fils des serviteurs de Shelomoh : 392."
+        },
+        {
+          "verse": "2:59",
+          "text": "Voici ceux qui montèrent de Thel-Mélach, de Thel-Harsha, de Keroub-Addân, d'Immer et qui ne purent pas faire connaître si la maison de leurs pères et leur semence étaient d’Israël :"
+        },
+        {
+          "verse": "2:60",
+          "text": "Les fils de Delayah, les fils de Tobiyah, les fils de Nekoda : 652."
+        },
+        {
+          "verse": "2:61",
+          "section": "Des prêtres sont privés de la prêtrise",
+          "text": "Parmi les fils des prêtres : les fils de Chabayah, les fils d'Hakkots, les fils de Barzillaï, qui avait pris une femme parmi les filles de Barzillaï, le Galaadite et fut appelé de leur nom.",
+          "textWithNotes": "Parmi les fils des prêtres : les fils de Chabayah, les fils d'Hakkots, les fils de Barzillaï, qui avait pris une femme parmi les filles de Barzillaï[2 S. 17:27 ; Né. 7:63.], le Galaadite et fut appelé de leur nom.",
+          "notes": [
+            {
+              "word": "Barzillaï",
+              "position": 139,
+              "note": "2 S. 17:27 ; Né. 7:63."
+            }
+          ]
+        },
+        {
+          "verse": "2:62",
+          "text": "Ceux-ci cherchèrent leurs registres généalogiques, mais ils ne les trouvèrent pas. C'est pourquoi on les déclara souillés pour la prêtrise."
+        },
+        {
+          "verse": "2:63",
+          "text": "Le gouverneur leur dit de ne pas manger du saint des saints, en attendant qu'un prêtre ait consulté l'ourim et le thoummim."
+        },
+        {
+          "verse": "2:64",
+          "section": "Ensemble des Israélites revenus de captivité",
+          "text": "L'assemblée tout entière était seulement de 42 360,"
+        },
+        {
+          "verse": "2:65",
+          "text": "outre leurs serviteurs et leurs servantes ; ceux-ci : 7 337. Leurs chanteurs et leurs chanteuses : 200."
+        },
+        {
+          "verse": "2:66",
+          "text": "Ils avaient 736 chevaux, et 245 mulets,"
+        },
+        {
+          "verse": "2:67",
+          "text": "435 chameaux et 6 720 ânes."
+        },
+        {
+          "verse": "2:68",
+          "text": "Des têtes des pères, quand elles vinrent à la maison de YHWH à Yeroushalaim, firent des offrandes volontaires pour la maison d’Elohîm, afin qu'on la rétablisse sur ses fondations."
+        },
+        {
+          "verse": "2:69",
+          "text": "Elles donnèrent au trésor de l'ouvrage, selon leurs moyens, 61 000 drachmes d'or, et 5 000 mines d'argent, et 100 tuniques de prêtres."
+        },
+        {
+          "verse": "2:70",
+          "text": "Les prêtres et les Lévites, ainsi que certains du peuple, les chanteurs, les portiers et les Néthiniens habitèrent dans leurs villes, et tout Israël dans ses villes."
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "verses": [
+        {
+          "verse": "3:1",
+          "section": "Rétablissement de l'autel et reprise des sacrifices",
+          "text": "Or le septième mois approcha et les fils d'Israël étaient dans leurs villes. Le peuple se rassembla comme un seul homme à Yeroushalaim."
+        },
+        {
+          "verse": "3:2",
+          "text": "Yéshoua, fils de Yotsadaq, avec ses frères les prêtres, et Zerubbabel, fils de Shealthiel, avec ses frères, se levèrent et bâtirent l'autel de l'Elohîm d'Israël, pour y faire monter des holocaustes, comme il est écrit dans la torah de Moshé, homme d'Elohîm."
+        },
+        {
+          "verse": "3:3",
+          "text": "Ils rétablirent l'autel d'Elohîm sur sa base, car la terreur des peuples de ces terres était sur eux, et ils y firent monter des holocaustes à YHWH, les holocaustes du matin et du soir.",
+          "textWithNotes": "Ils rétablirent l'autel d'Elohîm sur sa base, car la terreur des peuples de ces terres était sur eux, et ils y firent monter des holocaustes à YHWH, les holocaustes du matin et du soir[No. 28:3.].",
+          "notes": [
+            {
+              "word": "soir",
+              "position": 180,
+              "note": "No. 28:3."
+            }
+          ]
+        },
+        {
+          "verse": "3:4",
+          "text": "Ils firent aussi la fête des cabanes, comme il est écrit, et ils firent monter jour par jour des holocaustes, selon leur nombre, selon l’ordonnance, parole du jour en son jour."
+        },
+        {
+          "verse": "3:5",
+          "text": "Ensuite il y eut l’holocauste perpétuel et celui pour les nouvelles lunes, et pour toutes les fêtes solennelles consacrées à YHWH, ainsi que pour tous ceux qui faisaient des offrandes volontaires à YHWH."
+        },
+        {
+          "verse": "3:6",
+          "text": "Dès le premier jour du septième mois, ils commencèrent à faire monter des holocaustes à YHWH, bien que le temple de YHWH ne fût pas encore fondé."
+        },
+        {
+          "verse": "3:7",
+          "text": "Ils donnèrent de l'argent aux tailleurs de pierres et aux artisans, de la nourriture, de la boisson, de l’huile aux Sidoniens et aux Tyriens, afin qu'ils amènent du bois de cèdre du Liban par la mer de Yapho, selon la permission de Cyrus, roi de Perse, pour eux."
+        },
+        {
+          "verse": "3:8",
+          "section": "Pose des fondements de la maison de YHWH",
+          "text": "La deuxième année de leur arrivée à la maison d’Elohîm à Yeroushalaim, au deuxième mois, Zerubbabel, fils de Shealthiel, Yéshoua, fils de Yotsadaq, et le reste de leurs frères, les prêtres et les Lévites, et tous ceux qui étaient revenus de la captivité à Yeroushalaim, commencèrent le travail. Ils établirent des Lévites, des fils de 20 ans et au-dessus, afin de surveiller les travaux de la maison de YHWH."
+        },
+        {
+          "verse": "3:9",
+          "text": "Yéshoua, ses fils et ses frères, Qadmiy'el avec ses fils, fils de Yéhouda, se tenaient debout comme un seul homme pour surveiller ceux qui faisaient le travail de la maison d’Elohîm, de même que les fils de Hénadad, avec leurs fils et leurs frères, les Lévites."
+        },
+        {
+          "verse": "3:10",
+          "text": "Lorsque ceux qui bâtissaient posèrent les fondements du temple de YHWH, on y fit assister les prêtres revêtus de leurs habits avec leurs trompettes, et les Lévites, fils d'Asaph, avec les cymbales, pour qu'ils célèbrent YHWH, par la main de David, roi d'Israël."
+        },
+        {
+          "verse": "3:11",
+          "text": "Et ils se répondaient, en louant et célébrant YHWH : Car il est bon ! Car sa bonté pour Israël est éternelle ! Tout le peuple criait, de grands cris de joie, en louant YHWH, parce qu'on posait les fondements de la maison de YHWH."
+        },
+        {
+          "verse": "3:12",
+          "text": "Beaucoup de prêtres, de Lévites et de têtes de pères parmi les plus âgés, ceux qui avaient vu la maison d'autrefois pleuraient à grand bruit, tandis qu'on posait sous leurs yeux les fondations de cette maison. Beaucoup poussaient des cris de joie, en élevant leur voix."
+        },
+        {
+          "verse": "3:13",
+          "text": "Le peuple ne distinguait pas le bruit des cris de joie du bruit des pleurs du peuple, car le peuple criait, de grands cris de joie dont le bruit s'entendait jusqu’au loin."
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "verses": [
+        {
+          "verse": "4:1",
+          "section": "Tentatives de découragement des ennemis de Yéhouda et Benyamin",
+          "text": "Les ennemis de Yéhouda et de Benyamin entendirent que les fils de la captivité bâtissaient un temple à YHWH, l'Elohîm d'Israël."
+        },
+        {
+          "verse": "4:2",
+          "text": "Ils s'approchèrent de Zerubbabel et des têtes des pères et leur dirent : Nous bâtirons avec vous ! Car nous cherchons votre Elohîm comme vous, et c'est à lui que nous sacrifions depuis les jours d'Ésar-Haddon, roi d'Assyrie, qui nous a fait monter ici.",
+          "textWithNotes": "Ils s'approchèrent de Zerubbabel et des têtes des pères et leur dirent : Nous bâtirons[On ne doit jamais s'associer avec les impies pour bâtir l'œuvre du Seigneur. Satan essaie toujours de s'infiltrer dans les assemblées afin de nous éloigner de la vérité, c'est pour cela que nous devons faire preuve de discernement (2 Co. 6:14-16).] avec vous ! Car nous cherchons votre Elohîm comme vous, et c'est à lui que nous sacrifions depuis les jours d'Ésar-Haddon, roi d'Assyrie, qui nous a fait monter ici.",
+          "notes": [
+            {
+              "word": "bâtirons",
+              "position": 78,
+              "note": "On ne doit jamais s'associer avec les impies pour bâtir l'œuvre du Seigneur. Satan essaie toujours de s'infiltrer dans les assemblées afin de nous éloigner de la vérité, c'est pour cela que nous devons faire preuve de discernement (2 Co. 6:14-16)."
+            }
+          ]
+        },
+        {
+          "verse": "4:3",
+          "text": "Zerubbabel, Yéshoua et le reste des têtes des pères d'Israël, leur dirent : Il n'est pas convenable que nous bâtissions ensemble la maison de notre Elohîm, mais nous la bâtirons nous seuls pour YHWH, l'Elohîm d'Israël, comme nous l'a ordonné le roi Cyrus, roi de Perse.",
+          "textWithNotes": "Zerubbabel, Yéshoua et le reste des têtes des pères d'Israël, leur dirent : Il n'est pas convenable que nous bâtissions ensemble la maison de notre Elohîm, mais nous la bâtirons nous seuls pour YHWH, l'Elohîm d'Israël, comme nous l'a ordonné le roi Cyrus, roi de Perse[Esd. 1:1-5.].",
+          "notes": [
+            {
+              "word": "Perse",
+              "position": 263,
+              "note": "Esd. 1:1-5."
+            }
+          ]
+        },
+        {
+          "verse": "4:4",
+          "text": "Il arriva que le peuple de la terre rendit paresseuses les mains du peuple de Yéhouda, en le dérangeant pendant qu'il bâtissait."
+        },
+        {
+          "verse": "4:5",
+          "text": "Ils avaient même engagé des conseillers pour annuler leur conseil, tous les jours de Cyrus, roi de Perse, jusqu'au règne de Darius, roi de Perse."
+        },
+        {
+          "verse": "4:6",
+          "text": "Sous le règne d'Assuérus, au commencement de son règne, ils écrivirent une accusation calomnieuse contre les habitants de Yéhouda et de Yeroushalaim."
+        },
+        {
+          "verse": "4:7",
+          "section": "Lettre des opposants à Artaxerxès",
+          "text": "Aux jours d'Artaxerxès, Bishlam, Mithredath, Thabeel et le reste de leurs associés, écrivirent à Artaxerxès, roi de Perse. La lettre était écrite en caractères araméens et elle était traduite en araméen."
+        },
+        {
+          "verse": "4:8",
+          "text": "Rehoum, le seigneur des décrets et Shimshaï, le scribe, écrivirent au roi Artaxerxès une lettre contre Yeroushalaim, comme suit :"
+        },
+        {
+          "verse": "4:9",
+          "text": "Alors Rehoum, le seigneur des décrets, Shimshaï, le scribe et le reste de leurs associés, ceux de Diynay, d'Apharcekay, de Tharpel, d'Apharas, d'Érec, de Babel, de Suse, de Déha, d'Éylam,"
+        },
+        {
+          "verse": "4:10",
+          "text": "et le reste des peuples que le grand et glorieux Osnappar a emmenés en exil et fait habiter dans la ville de Samarie, et le reste au-delà du fleuve, et maintenant,"
+        },
+        {
+          "verse": "4:11",
+          "text": "voici ici la copie de la lettre qu'ils envoyèrent au roi Artaxerxès : Tes serviteurs, les hommes d'au-delà du fleuve. Et maintenant :"
+        },
+        {
+          "verse": "4:12",
+          "text": "Que le roi sache que les Juifs qui sont montés d’auprès de toi vers nous, sont venus à Yeroushalaim, qu'ils bâtissent la ville rebelle et méchante, et qu’ils posent les fondements des murailles et les relèvent."
+        },
+        {
+          "verse": "4:13",
+          "text": "Maintenant, que le roi sache que si cette ville est rebâtie et ses murs achevés, ils ne paieront ni tribut, ni d'impôt, ni de droit de passage, cela portera préjudice au trésor des rois."
+        },
+        {
+          "verse": "4:14",
+          "text": "Maintenant, puisque c’est avec le sel du palais que nous salons, et qu’il ne serait pas convenable pour nous de voir le déshonneur du roi, à cause de cela nous avons envoyé au roi et nous lui faisons savoir,"
+        },
+        {
+          "verse": "4:15",
+          "text": "qu'il cherche dans le livre des mémoires de ses pères, et il trouvera et il apprendra dans ce livre des mémoires que cette ville est une ville rebelle, qu’elle porte préjudice aux rois et aux provinces, et qu'on s'y est livré à la révolte dès les jours anciens. Donc cette ville a été détruite à cause de cela."
+        },
+        {
+          "verse": "4:16",
+          "text": "Nous faisons savoir au roi que si cette ville est rebâtie et si ses murs sont achevés, il n'aura plus de possession au-delà du fleuve."
+        },
+        {
+          "verse": "4:17",
+          "section": "Réponse du roi Artaxerxès ; suspension des travaux",
+          "text": "Le roi envoya ce rapport : À Rehoum, le seigneur des décrets, à Shimshaï, le scribe, et au reste de leurs associés demeurant à Samarie, et au reste au-delà du fleuve : Paix ! Et maintenant,"
+        },
+        {
+          "verse": "4:18",
+          "text": "la lettre que vous nous avez envoyée a été exactement lue devant moi."
+        },
+        {
+          "verse": "4:19",
+          "text": "Et j'ai pris un décret afin qu'on fasse des recherches et l'on a trouvé que dès les jours anciens, cette ville s'est soulevée contre les rois et qu'on s'y est livré à la sédition et à la révolte."
+        },
+        {
+          "verse": "4:20",
+          "text": "Il y eut à Yeroushalaim des rois puissants, qui dominèrent sur tout ce qui est au-delà du fleuve et auxquels on payait tribut, impôt et droit de passage.",
+          "textWithNotes": "Il y eut à Yeroushalaim des rois puissants, qui dominèrent sur tout ce qui est au-delà du fleuve et auxquels on payait tribut, impôt et droit de passage[2 S. 8:2,6 ; 2 Ch. 17:11.].",
+          "notes": [
+            {
+              "word": "passage",
+              "position": 145,
+              "note": "2 S. 8:2,6 ; 2 Ch. 17:11."
+            }
+          ]
+        },
+        {
+          "verse": "4:21",
+          "text": "Maintenant, donnez l'ordre de faire cesser ces hommes, afin que cette ville ne soit pas rebâtie jusqu'à ce que je l'ordonne par décret.",
+          "textWithNotes": "Maintenant, donnez l'ordre[Le mot araméen signifie littéralement « décret ».] de faire cesser ces hommes, afin que cette ville ne soit pas rebâtie jusqu'à ce que je l'ordonne par décret.",
+          "notes": [
+            {
+              "word": "l'ordre",
+              "position": 19,
+              "note": "Le mot araméen signifie littéralement « décret »."
+            }
+          ]
+        },
+        {
+          "verse": "4:22",
+          "text": "Gardez-vous de mettre en cela de la négligence, de peur que le mal n'augmente au préjudice des rois."
+        },
+        {
+          "verse": "4:23",
+          "text": "Alors, dès que la copie de la lettre du roi Artaxerxès eut été lue devant Rehoum, Shimshaï, le scribe, et leurs associés, ils allèrent en hâte à Yeroushalaim vers les Juifs, et ils les firent cesser par force et par violence."
+        },
+        {
+          "verse": "4:24",
+          "text": "Alors l'ouvrage de la maison d'Élahh à Yeroushalaim cessa. Il fut cessé jusqu'à la deuxième année du règne de Darius, roi de Perse."
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "verses": [
+        {
+          "verse": "5:1",
+          "section": "Chaggay (Aggée) et Zekaryah (Zacharie) prophétisent ; reprise des travaux",
+          "text": "Chaggay, le prophète, et Zekaryah, fils d'Iddo, le prophète, prophétisèrent aux Juifs qui étaient en Yéhouda et à Yeroushalaim, au nom de l'Élahh d'Israël qui était au-dessus d’eux."
+        },
+        {
+          "verse": "5:2",
+          "text": "Alors Zerubbabel, fils de Shealthiel, et Yeshuwa, fils de Yotsadaq, se levèrent et commencèrent à rebâtir la maison d’Élahh à Yeroushalaim. Et ils avaient avec eux les prophètes d'Élahh qui les soutenaient.",
+          "textWithNotes": "Alors Zerubbabel, fils de Shealthiel, et Yeshuwa[Vient de l'araméen et signifie « il est sauvé ».], fils de Yotsadaq, se levèrent et commencèrent à rebâtir la maison d’Élahh à Yeroushalaim. Et ils avaient avec eux les prophètes d'Élahh qui les soutenaient.",
+          "notes": [
+            {
+              "word": "Yeshuwa",
+              "position": 41,
+              "note": "Vient de l'araméen et signifie « il est sauvé »."
+            }
+          ]
+        },
+        {
+          "verse": "5:3",
+          "text": "En ce temps-là, Thathnaï, gouverneur d’au-delà du fleuve, Shethar-Boznaï et leurs associés vinrent vers eux et leur parlèrent ainsi : Qui vous a donné l'ordre de rebâtir cette maison et de relever ces murailles ?",
+          "textWithNotes": "En ce temps-là, Thathnaï, gouverneur d’au-delà du fleuve, Shethar-Boznaï et leurs associés vinrent vers eux et leur parlèrent ainsi : Qui vous a donné l'ordre[Littéralement « décret ».] de rebâtir cette maison et de relever ces murailles[Esd. 5:9.] ?",
+          "notes": [
+            {
+              "word": "l'ordre",
+              "position": 151,
+              "note": "Littéralement « décret »."
+            },
+            {
+              "word": "murailles",
+              "position": 201,
+              "note": "Esd. 5:9."
+            }
+          ]
+        },
+        {
+          "verse": "5:4",
+          "text": "Ils leur dirent alors : Quels sont les noms des hommes qui bâtissent cet édifice ?"
+        },
+        {
+          "verse": "5:5",
+          "text": "Or l'œil de leur Élahh était sur les anciens des Juifs, on ne les fit pas cesser, jusqu'à ce que l'affaire parvienne à Darius, et jusqu'à la réception d'une lettre sur cet objet."
+        },
+        {
+          "verse": "5:6",
+          "section": "Lettre des opposants à Darius",
+          "text": "Copie de la lettre envoyée au roi Darius par Thathnaï, gouverneur d’au-delà du fleuve, Shethar-Boznaï et leurs associés d'Apharcekay, d’au-delà du fleuve."
+        },
+        {
+          "verse": "5:7",
+          "text": "Ils lui envoyèrent un rapport ainsi écrit : Paix parfaite soit au roi Darius !"
+        },
+        {
+          "verse": "5:8",
+          "text": "Que le roi sache que nous sommes allés dans la province de Yéhouda, vers la maison du grand Élahh. Elle se bâtit avec des pierres de taille, et le bois se pose dans les murs ; ce travail se réalise complètement et prospère entre leurs mains."
+        },
+        {
+          "verse": "5:9",
+          "text": "Nous avons interrogé ces anciens et nous leur avons parlé ainsi : Qui vous a donné l'ordre de rebâtir cette maison et de finir ces murs ?",
+          "textWithNotes": "Nous avons interrogé ces anciens et nous leur avons parlé ainsi : Qui vous a donné l'ordre de rebâtir cette maison et de finir ces murs[Esd. 5:3.] ?",
+          "notes": [
+            {
+              "word": "murs",
+              "position": 131,
+              "note": "Esd. 5:3."
+            }
+          ]
+        },
+        {
+          "verse": "5:10",
+          "text": "Nous leur avons aussi demandé leurs noms pour te les faire connaître, et nous avons mis par écrit les noms des hommes à leur tête."
+        },
+        {
+          "verse": "5:11",
+          "text": "Voici le rapport qui nous revint, disant : Nous sommes les serviteurs de l'Élahh des cieux et de la Terre, et nous bâtissons la maison qui avait été bâtie autrefois. Il y a de nombreuses années un grand roi d'Israël l'avait bâtie et achevée."
+        },
+        {
+          "verse": "5:12",
+          "text": "Mais après que nos pères eurent provoqué la colère de l'Élahh des cieux, il les livra entre les mains de Neboukadnetsar, roi de Babel, le Chaldéen, qui détruisit cette maison et qui emmena le peuple en exil à Babel.",
+          "textWithNotes": "Mais après que nos pères eurent provoqué la colère de l'Élahh des cieux, il les livra entre les mains de Neboukadnetsar[Voir 2 R. 24 et 25.], roi de Babel, le Chaldéen, qui détruisit cette maison et qui emmena le peuple en exil à Babel.",
+          "notes": [
+            {
+              "word": "Neboukadnetsar",
+              "position": 105,
+              "note": "Voir 2 R. 24 et 25."
+            }
+          ]
+        },
+        {
+          "verse": "5:13",
+          "text": "Mais en l’an un de Cyrus, roi de Babel, le roi Cyrus prit un décret pour bâtir cette maison d’Élahh.",
+          "textWithNotes": "Mais en l’an un de Cyrus, roi de Babel, le roi Cyrus prit un décret pour bâtir cette maison d’Élahh[Esd. 1:1-2.].",
+          "notes": [
+            {
+              "word": "d’Élahh",
+              "position": 92,
+              "note": "Esd. 1:1-2."
+            }
+          ]
+        },
+        {
+          "verse": "5:14",
+          "text": "En outre, les objets de la maison d’Élahh, en or et en argent, que Neboukadnetsar avait sortis du temple de Yeroushalaim pour les apporter dans le temple de Babel, le roi Cyrus les sortit du temple de Babel pour les donner à un nommé Sheshbatsar qu’il avait établi gouverneur."
+        },
+        {
+          "verse": "5:15",
+          "text": "Il lui dit : Prends ces objets, va les déposer dans le temple de Yeroushalaim, et que la maison d’Élahh soit bâtie sur sa place."
+        },
+        {
+          "verse": "5:16",
+          "text": "Alors ce Sheshbatsar est venu, et il a posé les fondements de la maison d’Élahh à Yeroushalaim. Depuis lors jusqu’à maintenant, on la bâtit, et elle n'est pas encore achevée."
+        },
+        {
+          "verse": "5:17",
+          "text": "Maintenant, s'il semble bon au roi, que l'on fasse des recherches dans la maison des trésors du roi qui est à Babel, pour voir s'il est vrai qu'il y a eu un décret pris par Cyrus pour bâtir cette maison d’Élahh à Yeroushalaim. Puis, que le roi nous transmette sa volonté sur cet objet."
+        }
+      ]
+    },
+    {
+      "chapter": 6,
+      "verses": [
+        {
+          "verse": "6:1",
+          "section": "Recherche, découverte et confirmation de l'édit de Cyrus",
+          "text": "Alors le roi Darius prit un décret et l'on fit des recherches dans la maison des livres où l'on déposait les trésors à Babel."
+        },
+        {
+          "verse": "6:2",
+          "text": "Et l'on trouva dans un coffre, au palais royal, qui était dans la province de Médie, un rouleau à l'intérieur duquel était écrit le mémoire suivant :"
+        },
+        {
+          "verse": "6:3",
+          "text": "En l’an un du roi Cyrus, le roi Cyrus prit un décret au sujet de la maison d’Élahh à Yeroushalaim : Que cette maison soit bâtie, afin d'être un lieu où l'on offre des sacrifices, et que ses fondements soient solides pour porter sa charge. La hauteur sera de 60 coudées, et la longueur de 60 coudées,"
+        },
+        {
+          "verse": "6:4",
+          "text": "trois rangées de pierres de taille et une rangée de bois neuf. Les frais seront payés par la maison du roi."
+        },
+        {
+          "verse": "6:5",
+          "text": "En outre, les objets en or et en argent de la maison d’Élahh, que Neboukadnetsar avait sortis du temple de Yeroushalaim et apportés à Babel, seront retournés, rapportés au temple de Yeroushalaim, à leur place, déposés dans la maison d’Élahh."
+        },
+        {
+          "verse": "6:6",
+          "text": "Maintenant, vous Thathnaï, gouverneur d’au-delà du fleuve, Shethar-Boznaï et vos associés d'Apharcekay qui sont au-delà du fleuve, tenez-vous loin de là !"
+        },
+        {
+          "verse": "6:7",
+          "text": "Laissez se faire le travail de cette maison d’Élahh ! Que le gouverneur des Juifs et leurs anciens bâtissent cette maison d’Élahh à sa place."
+        },
+        {
+          "verse": "6:8",
+          "text": "Voici le décret que je prends concernant ce que vous aurez à faire avec les anciens de ces Juifs pour bâtir cette maison d’Élahh : C'est sur la richesse du roi provenant des tributs d'au-delà du fleuve, les frais seront complètement payés à ces hommes, pour ne rien arrêter."
+        },
+        {
+          "verse": "6:9",
+          "text": "Ce qui sera nécessaire pour les holocaustes de l'Élahh des cieux : jeunes taureaux, béliers et agneaux, blé, sel, vin et huile, selon l'ordre des prêtres qui sont à Yeroushalaim, leur sera donné jour par jour, sans négligence,"
+        },
+        {
+          "verse": "6:10",
+          "text": "afin qu'ils offrent des sacrifices apaisants pour l'Élahh des cieux et qu'ils prient pour la vie du roi et de ses fils.",
+          "textWithNotes": "afin qu'ils offrent des sacrifices apaisants[Da. 2:46.] pour l'Élahh des cieux et qu'ils prient pour la vie du roi et de ses fils.",
+          "notes": [
+            {
+              "word": "apaisants",
+              "position": 35,
+              "note": "Da. 2:46."
+            }
+          ]
+        },
+        {
+          "verse": "6:11",
+          "text": "Je décrète encore que tout homme qui changera ce commandement, on arrachera de sa maison une pièce de bois, on la dressera, afin qu'il y soit exterminé, et l'on fera de sa maison un tas de déchets.",
+          "textWithNotes": "Je décrète encore que tout homme qui changera ce commandement, on arrachera de sa maison une pièce de bois, on la dressera, afin qu'il y soit exterminé, et l'on fera de sa maison un tas de déchets[Da. 3:29.].",
+          "notes": [
+            {
+              "word": "déchets",
+              "position": 189,
+              "note": "Da. 3:29."
+            }
+          ]
+        },
+        {
+          "verse": "6:12",
+          "text": "Que l'Élahh, qui fait résider en ce lieu son nom, détruise tout roi et tout peuple qui étendrait sa main pour changer et détruire cette maison d’Élahh qui est à Yeroushalaim ! Moi, Darius, j'ai pris ce décret. Qu'il soit exécuté complètement."
+        },
+        {
+          "verse": "6:13",
+          "section": "Reprise des travaux encouragée par Darius ; achèvement et dédicace du temple",
+          "text": "Alors Thathnaï, gouverneur d'au-delà du fleuve, Shethar-Boznaï et leurs associés, firent exécuter ainsi complètement ce que le roi Darius leur envoya."
+        },
+        {
+          "verse": "6:14",
+          "text": "Et les anciens des Juifs bâtirent et prospérèrent par la prophétie de Chaggay, le prophète et de Zekaryah, fils d'Iddo. Ils bâtirent et finirent, d'après l'ordre de l'Élahh d'Israël, et d'après le décret de Cyrus, de Darius, et d'Artaxerxès, roi de Perse."
+        },
+        {
+          "verse": "6:15",
+          "text": "Cette maison fut achevée le troisième jour du mois d'Adar, dans la sixième année du règne du roi Darius."
+        },
+        {
+          "verse": "6:16",
+          "text": "Les fils d'Israël, les prêtres, les Lévites et le reste des fils de la captivité, firent la dédicace de cette maison d’Élahh avec joie."
+        },
+        {
+          "verse": "6:17",
+          "text": "Ils offrirent pour la dédicace de cette maison d’Élahh, 100 taureaux, 200 béliers, 400 agneaux, et 12 boucs en offrandes pour le péché de tout Israël, selon le nombre des tribus d'Israël."
+        },
+        {
+          "verse": "6:18",
+          "text": "Ils établirent les prêtres selon leurs classes, les Lévites selon leurs divisions, pour le service d'Élahh à Yeroushalaim, selon ce qui est écrit dans le livre de Moshé.",
+          "textWithNotes": "Ils établirent les prêtres selon leurs classes, les Lévites selon leurs divisions, pour le service d'Élahh à Yeroushalaim, selon ce qui est écrit dans le livre de Moshé[No. 3:6,32, 8:11.].",
+          "notes": [
+            {
+              "word": "Moshé",
+              "position": 163,
+              "note": "No. 3:6,32, 8:11."
+            }
+          ]
+        },
+        {
+          "verse": "6:19",
+          "section": "Célébration de la Pâque et de la fête des pains sans levain",
+          "text": "Les fils de la captivité firent la Pâque le quatorzième jour du premier mois.",
+          "textWithNotes": "Les fils de la captivité firent la Pâque le quatorzième jour du premier mois[Lé. 23:5 ; No. 28:16 ; De. 16:2.].",
+          "notes": [
+            {
+              "word": "mois",
+              "position": 72,
+              "note": "Lé. 23:5 ; No. 28:16 ; De. 16:2."
+            }
+          ]
+        },
+        {
+          "verse": "6:20",
+          "text": "Car les prêtres et les Lévites s'étaient purifiés comme un seul homme, tous étaient purs. Ils immolèrent la Pâque pour tous les fils de la captivité, pour leurs frères les prêtres, et pour eux-mêmes.",
+          "textWithNotes": "Car les prêtres et les Lévites s'étaient purifiés comme un seul homme, tous étaient purs. Ils immolèrent la Pâque pour tous les fils de la captivité, pour leurs frères les prêtres, et pour eux-mêmes[No. 9:11.].",
+          "notes": [
+            {
+              "word": "eux-mêmes",
+              "position": 189,
+              "note": "No. 9:11."
+            }
+          ]
+        },
+        {
+          "verse": "6:21",
+          "text": "Elle fut mangée par les fils d'Israël qui étaient revenus de la captivité, et par tous ceux qui s'étaient séparés de l'impureté des nations de la terre pour chercher YHWH, l'Elohîm d'Israël."
+        },
+        {
+          "verse": "6:22",
+          "text": "Et ils firent avec joie la fête des pains sans levain pendant sept jours, car YHWH les avait réjouis en disposant le cœur du roi d'Assyrie à fortifier leurs mains dans l'œuvre de la maison d'Elohîm, de l'Elohîm d'Israël."
+        }
+      ]
+    },
+    {
+      "chapter": 7,
+      "verses": [
+        {
+          "verse": "7:1",
+          "section": "Ezra se rend à Yeroushalaim (Jérusalem)",
+          "text": "Après ces choses, sous le règne d'Artaxerxès, roi de Perse, Ezra, fils de Serayah, fils d'Azaryah, fils de Chilqiyah,"
+        },
+        {
+          "verse": "7:2",
+          "text": "fils de Shalloum, fils de Tsadok, fils d'Ahitoub,"
+        },
+        {
+          "verse": "7:3",
+          "text": "fils d'Amaryah, fils d'Azaryah, fils de Merayoth,"
+        },
+        {
+          "verse": "7:4",
+          "text": "fils de Zerachyah, fils d'Ouzzi, fils de Bouqqi,"
+        },
+        {
+          "verse": "7:5",
+          "text": "fils d'Abishoua, fils de Phinées, fils d'Èl’azar, fils d'Aaron, prêtre en tête,"
+        },
+        {
+          "verse": "7:6",
+          "text": "lui, Ezra, était monté de Babel, lui, scribe habile dans la torah de Moshé que YHWH l'Elohîm d'Israël avait donnée. Le roi lui accorda toute sa requête, selon que la main de YHWH son Elohîm était sur lui."
+        },
+        {
+          "verse": "7:7",
+          "text": "Des fils d'Israël, des prêtres, des Lévites, des chanteurs, des portiers et des Néthiniens, montèrent à Yeroushalaim, la septième année du roi Artaxerxès."
+        },
+        {
+          "verse": "7:8",
+          "text": "Il vint à Yeroushalaim le cinquième mois de la septième année du roi,"
+        },
+        {
+          "verse": "7:9",
+          "text": "car le premier du premier mois, c'était le commencement de la montée de Babel, et le premier du cinquième mois, il vint à Yeroushalaim selon que la main de son Elohîm était bonne sur lui."
+        },
+        {
+          "verse": "7:10",
+          "text": "Car Ezra avait préparé son cœur à consulter la torah de YHWH, à la pratiquer et à enseigner, en Israël, les lois et les ordonnances."
+        },
+        {
+          "verse": "7:11",
+          "section": "Ezra mandaté par Artaxerxès pour faire la volonté de YHWH",
+          "text": "Voici la copie de la lettre que le roi Artaxerxès donna à Ezra, prêtre et scribe, enseignant les paroles des commandements de YHWH et ses ordonnances concernant Israël :"
+        },
+        {
+          "verse": "7:12",
+          "text": "Artaxerxès, roi des rois, à Ezra, prêtre et scribe de la loi de l'Élahh des cieux, etc. Maintenant,"
+        },
+        {
+          "verse": "7:13",
+          "text": "par moi un décret a été pris afin que tous ceux de mon royaume qui sont du peuple d'Israël, de ses prêtres et Lévites, qui sont volontaires pour aller à Yeroushalaim, aillent avec toi."
+        },
+        {
+          "verse": "7:14",
+          "text": "Parce que tu es envoyé de la part du roi et de ses sept conseillers, pour t’enquérir au sujet de Yéhouda et de Yeroushalaim, selon la loi de ton Élahh, laquelle est entre tes mains,"
+        },
+        {
+          "verse": "7:15",
+          "text": "et pour porter l'argent et l'or que le roi et ses conseillers ont offert volontairement à l'Élahh d'Israël, dont la demeure est à Yeroushalaim,"
+        },
+        {
+          "verse": "7:16",
+          "text": "et tout l'argent et l'or que tu trouveras dans toute la province de Babel, avec les dons volontaires du peuple et des prêtres, qu'ils donneront volontairement pour la maison de leur Élahh à Yeroushalaim."
+        },
+        {
+          "verse": "7:17",
+          "text": "Tu achèteras donc promptement, avec cet argent, des taureaux, des béliers, des agneaux, avec leurs offrandes et leurs libations, et tu les offriras sur l'autel de la maison de votre Élahh qui habite à Yeroushalaim."
+        },
+        {
+          "verse": "7:18",
+          "text": "Vous ferez, selon la volonté de votre Élahh, ce qu'il te semblera bon à toi et à tes frères de faire avec le reste de l'argent et de l'or."
+        },
+        {
+          "verse": "7:19",
+          "text": "Les objets qui te sont remis pour le service de la maison de ton Élahh, dépose-les en face de l'Élahh de Yeroushalaim."
+        },
+        {
+          "verse": "7:20",
+          "text": "Quant au reste de ce qui sera nécessaire pour la maison de ton Élahh, autant que tu auras à en donner, tu le donneras de la maison des trésors du roi."
+        },
+        {
+          "verse": "7:21",
+          "text": "Moi, le roi Artaxerxès, je donne l'ordre à tous les trésoriers qui sont d'au-delà du fleuve, que tout ce qu'Ezra, prêtre et scribe de la loi de l'Élahh des cieux vous demandera soit fait avec zèle,",
+          "textWithNotes": "Moi, le roi Artaxerxès, je donne l'ordre[Le mot araméen signifie littéralement décret.] à tous les trésoriers qui sont d'au-delà du fleuve, que tout ce qu'Ezra, prêtre et scribe de la loi de l'Élahh des cieux vous demandera soit fait avec zèle,",
+          "notes": [
+            {
+              "word": "l'ordre",
+              "position": 33,
+              "note": "Le mot araméen signifie littéralement décret."
+            }
+          ]
+        },
+        {
+          "verse": "7:22",
+          "text": "jusqu'à 100 talents d'argent, 100 cors de froment, 100 baths de vin, 100 baths d'huile, et du sel sans nombre."
+        },
+        {
+          "verse": "7:23",
+          "text": "Que tout ce qui est ordonné par l'Élahh des cieux soit promptement fait pour la maison de l'Élahh des cieux, de peur qu'il n'y ait de la colère contre le royaume et contre le roi et ses enfants."
+        },
+        {
+          "verse": "7:24",
+          "text": "De plus, nous vous faisons savoir qu'on ne pourra imposer ni tribut, ni impôt, ni droit de passage sur aucun des prêtres, des Lévites, des chanteurs, des portiers, des Néthiniens et des serviteurs de cette maison d’Élahh."
+        },
+        {
+          "verse": "7:25",
+          "text": "Quant à toi, Ezra, établis des magistrats et des juges selon la sagesse de ton Élahh que tu possèdes, afin qu'ils rendent justice à tout ce peuple d'au-delà du fleuve, à tous ceux qui connaissent les lois de ton Élahh, afin que vous enseigniez celui qui ne les connaît pas."
+        },
+        {
+          "verse": "7:26",
+          "text": "Tous ceux qui n'observeront pas la loi de ton Élahh et la loi du roi, que le jugement soit aussitôt exécuté sur eux, soit par la mort, soit par le bannissement, soit par la confiscation des richesses, soit par l'emprisonnement."
+        },
+        {
+          "verse": "7:27",
+          "section": "Ezra bénit YHWH",
+          "text": "Béni soit YHWH, l'Elohîm de nos pères, qui a mis cela au cœur du roi, pour honorer la maison de YHWH, qui habite à Yeroushalaim,"
+        },
+        {
+          "verse": "7:28",
+          "text": "et qui a fait que j'ai trouvé grâce devant le roi, devant ses conseillers et devant tous les puissants chefs ! Fortifié par la main de YHWH, mon Elohîm, qui était sur moi, j'ai rassemblé les têtes d'Israël, afin qu'elles montent avec moi."
+        }
+      ]
+    },
+    {
+      "chapter": 8,
+      "verses": [
+        {
+          "verse": "8:1",
+          "section": "Dénombrement des Juifs montés de Babel avec Ezra",
+          "text": "Voici les têtes des pères, avec le dénombrement fait selon les généalogies de ceux qui montèrent avec moi de Babel, pendant le règne du roi Artaxerxès."
+        },
+        {
+          "verse": "8:2",
+          "text": "Des fils de Phinées, Guershom ; des fils d'Ithamar, Daniye'l ; des fils de David, Hattoush ;"
+        },
+        {
+          "verse": "8:3",
+          "text": "des fils de Shekanyah ; des fils de Pareosh, Zekaryah, et avec lui, en faisant le dénombrement par leur généalogie selon les hommes, 150 hommes ;"
+        },
+        {
+          "verse": "8:4",
+          "text": "des fils de Pachath-Moab, Élyehow`eynay, fils de Zerachyah, et avec lui 200 hommes ;"
+        },
+        {
+          "verse": "8:5",
+          "text": "des fils de Shekanyah, le fils de Yachaziy'el, et avec lui 300 hommes ;"
+        },
+        {
+          "verse": "8:6",
+          "text": "des fils d'Adin, Ébed, fils de Yonathan, et avec lui 50 hommes ;"
+        },
+        {
+          "verse": "8:7",
+          "text": "des fils d'Éylam, Yesha`yah, fils d'Athalyah, et avec lui 70 hommes ;"
+        },
+        {
+          "verse": "8:8",
+          "text": "des fils de Shephatyah, Zebadyah, fils de Miyka'el, et avec lui 80 hommes ;"
+        },
+        {
+          "verse": "8:9",
+          "text": "des fils de Yoab, Obadyah, fils de Yechiy'el, et avec lui 218 hommes ;"
+        },
+        {
+          "verse": "8:10",
+          "text": "des fils de Shelomiyth, le fils de Yosiphyah, et avec lui 160 hommes ;"
+        },
+        {
+          "verse": "8:11",
+          "text": "des fils de Bébaï, Zekaryah, fils de Bébaï, et avec lui 28 hommes ;"
+        },
+        {
+          "verse": "8:12",
+          "text": "des fils d'Azgad, Yohanan, fils d'Hakkathan, et avec lui 110 hommes ;"
+        },
+        {
+          "verse": "8:13",
+          "text": "des fils d'Adonikam, les derniers, dont voici les noms : Éliyphelet, Yéïel et Shema’yah, et avec eux, 60 hommes ;"
+        },
+        {
+          "verse": "8:14",
+          "text": "des fils de Bigvaï, Outaï, Zabboud, et avec eux 70 hommes."
+        },
+        {
+          "verse": "8:15",
+          "text": "Je les rassemblai près du fleuve qui coule vers Ahava, et nous y campèrent trois jours. Puis je portai mon attention sur le peuple et les prêtres, et je n'y trouvai aucun des fils de Lévi."
+        },
+        {
+          "verse": "8:16",
+          "text": "J'envoyai Éliy`ezer, Ariel, Shema’yah, Elnathan, Yarib, Elnathan, Nathan, Zekaryah, Meshoullam, les têtes, avec les docteurs Yoyariyb et Elnathan."
+        },
+        {
+          "verse": "8:17",
+          "text": "Je leur donnai des ordres pour Iddo, la tête, demeurant à Kaciphya, et je mis dans leur bouche les paroles qu'ils devaient dire à Iddo et à ses frères les Néthiniens, qui étaient à Kaciphya, afin qu'ils nous amènent des serviteurs pour la maison de notre Elohîm.",
+          "textWithNotes": "Je leur donnai des ordres pour Iddo, la tête, demeurant à Kaciphya, et je mis dans leur bouche les paroles qu'ils devaient dire à Iddo et à ses frères les Néthiniens, qui étaient à Kaciphya, afin qu'ils nous amènent des serviteurs pour la maison de notre Elohîm[Esd. 2:43.].",
+          "notes": [
+            {
+              "word": "Elohîm",
+              "position": 255,
+              "note": "Esd. 2:43."
+            }
+          ]
+        },
+        {
+          "verse": "8:18",
+          "text": "Et ils nous amenèrent, selon que la main de notre Elohîm était bonne sur nous, un homme intelligent, d'entre les fils de Machli, fils de Lévi, fils d'Israël : Sherebyah, avec ses fils et ses frères, au nombre de 18 ;",
+          "textWithNotes": "Et ils nous amenèrent, selon que la main de notre Elohîm était bonne sur nous, un homme intelligent, d'entre les fils de Machli, fils de Lévi, fils d'Israël : Sherebyah, avec ses fils et ses frères, au nombre de 18[Esd. 7:6,9,28.] ;",
+          "notes": [
+            {
+              "word": "18",
+              "position": 212,
+              "note": "Esd. 7:6,9,28."
+            }
+          ]
+        },
+        {
+          "verse": "8:19",
+          "text": "Chashabyah, et avec lui Yesha`yah, d'entre les fils de Merari, ses frères, et leurs fils, au nombre de 20 ;"
+        },
+        {
+          "verse": "8:20",
+          "text": "et des Néthiniens, que David et les chefs du peuple avaient assignés pour le service des Lévites, 220 Néthiniens, tous désignés par leur nom.",
+          "textWithNotes": "et des Néthiniens, que David et les chefs du peuple avaient assignés pour le service des Lévites, 220 Néthiniens, tous désignés par leur nom[Esd. 2:58.].",
+          "notes": [
+            {
+              "word": "nom",
+              "position": 137,
+              "note": "Esd. 2:58."
+            }
+          ]
+        },
+        {
+          "verse": "8:21",
+          "section": "Ezra et le peuple s'humilient et prient Elohîm",
+          "text": "Et là, près du fleuve d'Ahava, je proclamai un jeûne pour que nous nous humiliions devant notre Elohîm, afin de lui demander la route droite pour nous, pour nos enfants et pour tous nos biens."
+        },
+        {
+          "verse": "8:22",
+          "text": "Car j'aurais eu honte de demander au roi une armée et des cavaliers pour nous soutenir contre des ennemis pendant le chemin, car nous avions dit au roi : La main de notre Elohîm est favorable sur tous ceux qui le cherchent ; mais sa force et sa colère sont contre ceux qui l'abandonnent."
+        },
+        {
+          "verse": "8:23",
+          "text": "Nous avons jeûné et recherché notre Elohîm à cause de cela. Et il s’est laissé implorer par nous."
+        },
+        {
+          "verse": "8:24",
+          "section": "Ezra établit douze prêtres et leur confie les trésors",
+          "text": "Je mis à part douze chefs des prêtres, Sherebyah, Chashabyah, et dix de leurs frères."
+        },
+        {
+          "verse": "8:25",
+          "text": "Je pesai l'argent, l'or et les ustensiles donnés en offrandes pour la maison de notre Elohîm par le roi, ses conseillers, ses chefs et tous ceux d'Israël qu'on avait trouvés.",
+          "textWithNotes": "Je pesai l'argent, l'or et les ustensiles donnés en offrandes pour la maison de notre Elohîm par le roi, ses conseillers, ses chefs et tous ceux d'Israël qu'on avait trouvés[Esd. 7:14-15.].",
+          "notes": [
+            {
+              "word": "trouvés",
+              "position": 166,
+              "note": "Esd. 7:14-15."
+            }
+          ]
+        },
+        {
+          "verse": "8:26",
+          "text": "Je pesai en leurs mains 650 talents d’argent, des ustensiles d’argent de 100 talents, 100 talents d’or,"
+        },
+        {
+          "verse": "8:27",
+          "text": "20 bols d'or : 1 000 drachmes, et deux ustensiles d'un beau cuivre poli, aussi précieux que de l'or."
+        },
+        {
+          "verse": "8:28",
+          "text": "Je leur dis : Vous êtes consacrés à YHWH, et les ustensiles sont consacrés, et cet argent et cet or sont une offrande volontaire faite à YHWH, l'Elohîm de vos pères."
+        },
+        {
+          "verse": "8:29",
+          "text": "Soyez vigilants et gardez-les, jusqu'à ce que vous les pesiez devant les chefs des prêtres et les Lévites, et devant les chefs des pères d'Israël, à Yeroushalaim, dans les chambres de la maison de YHWH."
+        },
+        {
+          "verse": "8:30",
+          "text": "Les prêtres et les Lévites reçurent le poids de l'argent, de l'or et des ustensiles, pour les apporter à Yeroushalaim, dans la maison de notre Elohîm."
+        },
+        {
+          "verse": "8:31",
+          "section": "Ezra et ses compagnons arrivent à Yeroushalaim (Jérusalem)",
+          "text": "Nous avons quitté le fleuve d'Ahava pour aller à Yeroushalaim, le douzième jour du premier mois. La main de notre Elohîm fut sur nous et nous délivra de la paume des ennemis et des embûches sur le chemin."
+        },
+        {
+          "verse": "8:32",
+          "text": "Arrivés à Yeroushalaim, nous y sommes restés trois jours."
+        },
+        {
+          "verse": "8:33",
+          "text": "Le quatrième jour, nous avons pesé l'argent, l'or et les ustensiles dans la maison de notre Elohîm, entre les mains de Merémoth, fils d'Ouriyah, le prêtre ; il était avec Èl’azar, fils de Phinées, et avec eux, les Lévites, Yozabad, fils de Yéshoua et No`adyah, fils de Binnouï."
+        },
+        {
+          "verse": "8:34",
+          "text": "Selon tout le nombre et le poids de toutes ces choses, et tout le poids fut mis alors par écrit."
+        },
+        {
+          "verse": "8:35",
+          "text": "Et les fils de la captivité revenus de l'exil, présentèrent en holocauste à l'Elohîm d'Israël 12 taureaux, 96 béliers, 77 agneaux et 12 boucs pour le péché de tout Israël, le tout en holocauste à YHWH."
+        },
+        {
+          "verse": "8:36",
+          "text": "Ils donnèrent les décrets du roi aux satrapes du roi et aux gouverneurs de l’autre côté du fleuve, et ceux-ci soutinrent le peuple et la maison d’Elohîm."
+        }
+      ]
+    },
+    {
+      "chapter": 9,
+      "verses": [
+        {
+          "verse": "9:1",
+          "section": "Infidélité du peuple envers YHWH",
+          "text": "Dès que ces choses furent achevées, les chefs du peuple s'approchèrent de moi, en disant : Le peuple d'Israël, les prêtres et les Lévites, ne se sont pas séparés des peuples de ces terres quant à leurs abominations, celles des Kena'ânéens, des Héthiens, des Phéréziens, des Yebousiens, des Ammonites, des Moabites, des Égyptiens et des Amoréens.",
+          "textWithNotes": "Dès que ces choses furent achevées, les chefs du peuple s'approchèrent de moi, en disant : Le peuple d'Israël, les prêtres et les Lévites, ne se sont pas séparés des peuples de ces terres quant à leurs abominations, celles des Kena'ânéens[Cananéens.], des Héthiens, des Phéréziens, des Yebousiens, des Ammonites, des Moabites, des Égyptiens et des Amoréens.",
+          "notes": [
+            {
+              "word": "Kena'ânéens",
+              "position": 227,
+              "note": "Cananéens."
+            }
+          ]
+        },
+        {
+          "verse": "9:2",
+          "text": "Car ils ont pris de leurs filles pour eux et pour leurs fils, et ont mêlé la semence sainte avec les peuples de ces terres. Et la main des chefs et des dirigeants a été la première à commettre ce péché.",
+          "textWithNotes": "Car ils ont pris de leurs filles pour eux et pour leurs fils, et ont mêlé la semence sainte avec les peuples de ces terres. Et la main des chefs et des dirigeants a été la première à commettre ce péché[Né. 13:23.].",
+          "notes": [
+            {
+              "word": "péché",
+              "position": 196,
+              "note": "Né. 13:23."
+            }
+          ]
+        },
+        {
+          "verse": "9:3",
+          "text": "En entendant ces paroles, je déchirai mes vêtements et ma robe, j'arrachai les cheveux de ma tête et ma barbe, et je m'assis tout épouvanté."
+        },
+        {
+          "verse": "9:4",
+          "text": "Et tous ceux qui tremblaient aux paroles de l'Elohîm d'Israël, se rassemblèrent auprès de moi, à cause de l'infidélité de ceux de la captivité. Je restai assis tout épouvanté jusqu'à l'offrande du soir."
+        },
+        {
+          "verse": "9:5",
+          "section": "Prière et confession d'Ezra",
+          "text": "À l’offrande du soir, je me levai du sein de mon affliction. Ayant mes vêtements et ma robe déchirés, je me mis à genoux et j'étendis mes paumes vers YHWH, mon Elohîm,"
+        },
+        {
+          "verse": "9:6",
+          "text": "et je dis : Mon Elohîm ! J'ai honte, et je suis trop confus, mon Elohîm, pour lever mes faces vers toi, car nos iniquités se sont multipliées au-dessus de nos têtes, et notre péché s'est élevé jusqu'aux cieux."
+        },
+        {
+          "verse": "9:7",
+          "text": "Depuis les jours de nos pères jusqu'à ce jour, nous sommes grandement coupables, et c'est à cause de nos iniquités que nous avons été livrés, nous, nos rois et nos prêtres entre les mains des rois des terres, à l'épée, à la captivité, au pillage, et à la honte, comme il paraît aujourd'hui."
+        },
+        {
+          "verse": "9:8",
+          "text": "Et maintenant YHWH, notre Elohîm, nous a fait grâce depuis peu de temps en nous laissant quelques rescapés et en nous donnant un piquet dans son saint lieu, afin que notre Elohîm soit la lumière de nos yeux et nous rende un peu de vie dans notre servitude."
+        },
+        {
+          "verse": "9:9",
+          "text": "Car nous sommes esclaves, mais notre Elohîm ne nous a pas abandonnés dans notre esclavage. Il nous a accordé de la faveur devant les rois de Perse, pour nous rendre la vie, afin que nous relevions la maison de notre Elohîm et que nous redressions ses désolations, et pour nous donner une clôture en Yéhouda et à Yeroushalaim."
+        },
+        {
+          "verse": "9:10",
+          "text": "Mais maintenant, notre Elohîm ! Que dirons-nous après ces choses ? Car nous avons abandonné tes commandements,"
+        },
+        {
+          "verse": "9:11",
+          "text": "que tu as ordonnés par la main de tes serviteurs les prophètes, en disant : La terre dans laquelle vous entrez pour en prendre possession est une terre souillée par les impuretés des peuples de ces terres, à cause des abominations dont ils l'ont remplie d'un bout à l'autre par leurs impuretés.",
+          "textWithNotes": "que tu as ordonnés par la main de tes serviteurs les prophètes, en disant : La terre dans laquelle vous entrez pour en prendre possession est une terre souillée par les impuretés des peuples de ces terres, à cause des abominations dont ils l'ont remplie d'un bout à l'autre par leurs impuretés[Lé. 18:25-27.].",
+          "notes": [
+            {
+              "word": "impuretés",
+              "position": 284,
+              "note": "Lé. 18:25-27."
+            }
+          ]
+        },
+        {
+          "verse": "9:12",
+          "text": "Maintenant, ne donnez pas vos filles à leurs fils et ne prenez pas leurs filles pour vos fils, ne cherchez jamais ni leur bonheur, ni leur paix, ainsi vous deviendrez forts, vous mangerez les meilleures productions de la terre, et vous la laisserez hériter à vos fils pour toujours.",
+          "textWithNotes": "Maintenant, ne donnez pas vos filles à leurs fils et ne prenez pas leurs filles pour vos fils, ne cherchez jamais ni leur bonheur, ni leur paix, ainsi vous deviendrez forts, vous mangerez les meilleures productions de la terre, et vous la laisserez hériter à vos fils pour toujours[De. 7:3.].",
+          "notes": [
+            {
+              "word": "toujours",
+              "position": 273,
+              "note": "De. 7:3."
+            }
+          ]
+        },
+        {
+          "verse": "9:13",
+          "text": "Or après toutes les choses qui nous sont arrivées à cause de nos mauvaises œuvres et de notre grande culpabilité, mais toi, notre Elohîm, tu nous as épargnés au-dessous de nos iniquités et tu nous as donné une telle délivrance."
+        },
+        {
+          "verse": "9:14",
+          "text": "Recommencerions-nous à violer tes commandements et à faire alliance avec ces peuples abominables ? Ta colère n'éclaterait-elle pas contre nous jusqu'à nous exterminer, sans aucun reste ni aucun rescapé ?"
+        },
+        {
+          "verse": "9:15",
+          "text": "YHWH, Elohîm d'Israël ! Tu es juste, car nous sommes aujourd'hui un reste de rescapés. Nous voici en face de toi dans notre culpabilité, car, à cause de cela, on ne peut se tenir en face de toi."
+        }
+      ]
+    },
+    {
+      "chapter": 10,
+      "verses": [
+        {
+          "verse": "10:1",
+          "section": "Le peuple appelé à se confesser et se séparer",
+          "text": "Tandis qu'Ezra priait et faisait la confession en pleurant et en tombant en face de la maison d’Elohîm, une grande multitude d'hommes, de femmes et de fils d'Israël s'assembla auprès de lui, et le peuple se lamenta abondamment par des pleurs."
+        },
+        {
+          "verse": "10:2",
+          "text": "Shekanyah, fils de Yechiy'el, d'entre les fils d'Éylam, répondit et dit à Ezra : Nous avons commis un délit contre notre Elohîm, en faisant habiter chez nous des femmes étrangères d'entre les peuples de cette terre. Mais Israël ne reste pas pour cela sans espérance.",
+          "textWithNotes": "Shekanyah, fils de Yechiy'el, d'entre les fils d'Éylam, répondit et dit à Ezra : Nous avons commis un délit contre notre Elohîm, en faisant habiter chez nous des femmes étrangères d'entre les peuples de cette terre. Mais Israël ne reste pas pour cela sans espérance[De. 7:22-23.].",
+          "notes": [
+            {
+              "word": "espérance",
+              "position": 256,
+              "note": "De. 7:22-23."
+            }
+          ]
+        },
+        {
+          "verse": "10:3",
+          "text": "Maintenant, traitons une alliance avec notre Elohîm, en faisant sortir toutes ces femmes et ceux qui sont nés d’elles, selon le conseil du seigneur et de ceux qui tremblent au commandement de notre Elohîm. Que l'on agisse selon la torah !",
+          "textWithNotes": "Maintenant, traitons une alliance avec notre Elohîm, en faisant sortir toutes ces femmes et ceux qui sont nés d’elles, selon le conseil du seigneur et de ceux qui tremblent au commandement de notre Elohîm. Que l'on agisse selon la torah[Mal. 3:16 ; Esd. 9:4.] !",
+          "notes": [
+            {
+              "word": "torah",
+              "position": 231,
+              "note": "Mal. 3:16 ; Esd. 9:4."
+            }
+          ]
+        },
+        {
+          "verse": "10:4",
+          "text": "Lève-toi, car cette affaire te regarde et nous serons avec toi. Fortifie-toi et agis !"
+        },
+        {
+          "verse": "10:5",
+          "text": "Ezra se leva et fit jurer aux chefs des prêtres des Lévites et de tout Israël d'agir selon cette parole. Et ils le jurèrent."
+        },
+        {
+          "verse": "10:6",
+          "text": "Ezra se leva en face de la maison d’Elohîm et s'en alla dans la chambre de Yehohanan, fils d'Élyashiyb. Et quand il y fut entré, il ne mangea pas de pain, ne but pas d'eau, parce qu'il se lamentait à cause du péché de ceux de la captivité."
+        },
+        {
+          "verse": "10:7",
+          "text": "On fit passer une voix dans Yéhouda et dans Yeroushalaim, pour que tous les fils de la captivité se rassemblent à Yeroushalaim,"
+        },
+        {
+          "verse": "10:8",
+          "text": "et que quiconque ne s'y rendrait pas dans trois jours, selon l'avis des chefs et des anciens, aurait tous ses biens complètement détruits, et que lui-même serait séparé de l'assemblée de ceux de la captivité."
+        },
+        {
+          "verse": "10:9",
+          "text": "Tous les hommes de Yéhouda et de Benyamin se rassemblèrent à Yeroushalaim dans les trois jours. C'était le vingtième jour du neuvième mois. Tout le peuple se tenait sur la place de la maison d’Elohîm, tremblant au sujet de cette affaire et à cause des pluies.",
+          "textWithNotes": "Tous les hommes de Yéhouda et de Benyamin se rassemblèrent à Yeroushalaim dans les trois jours. C'était le vingtième jour du neuvième mois. Tout le peuple se tenait sur la place de la maison d’Elohîm, tremblant au sujet de cette affaire et à cause des pluies[1 S. 12:18.].",
+          "notes": [
+            {
+              "word": "pluies",
+              "position": 252,
+              "note": "1 S. 12:18."
+            }
+          ]
+        },
+        {
+          "verse": "10:10",
+          "text": "Ezra, le prêtre, se leva et leur dit : Vous avez commis un délit en faisant habiter chez vous des femmes étrangères, pour ajouter à la culpabilité d’Israël.",
+          "textWithNotes": "Ezra, le prêtre, se leva et leur dit : Vous avez commis un délit en faisant habiter chez vous des femmes étrangères, pour ajouter à la culpabilité d’Israël[De. 7:3.].",
+          "notes": [
+            {
+              "word": "d’Israël",
+              "position": 147,
+              "note": "De. 7:3."
+            }
+          ]
+        },
+        {
+          "verse": "10:11",
+          "text": "Maintenant, donnez louange à YHWH, l'Elohîm de vos pères et faites sa volonté ! Séparez-vous des peuples de la terre et des femmes étrangères."
+        },
+        {
+          "verse": "10:12",
+          "text": "Toute l'assemblée répondit et dit à grande voix : Oui, c’est à nous de faire selon ta parole !"
+        },
+        {
+          "verse": "10:13",
+          "section": "Les anciens et les chefs établis pour juger les affaires",
+          "text": "Mais le peuple est nombreux et c'est le temps des pluies, et nous n'avons pas la force de rester dehors. D'ailleurs, ce n'est pas une affaire d'un jour, ni de deux, car nous sommes nombreux à avoir péché dans cette affaire."
+        },
+        {
+          "verse": "10:14",
+          "text": "S’il te plaît, que nos chefs se tiennent là pour toute l’assemblée et que tous ceux qui, dans nos villes, ont pris des femmes étrangères viennent aux temps fixés avec les anciens de chaque ville et ses juges, jusqu'à ce que nous détournions de nous la chaleur des narines de notre Elohîm, au sujet de cette affaire."
+        },
+        {
+          "verse": "10:15",
+          "text": "Cependant Yonathan, fils d'Asaël et Yahzeyah, fils de Tiqvah se dressèrent contre cette affaire, et Meshoullam et Shabthaï, Lévites, les aidèrent."
+        },
+        {
+          "verse": "10:16",
+          "text": "Les fils de la captivité firent ainsi. On choisit Ezra, le prêtre, et des hommes, des têtes de pères par maison de leurs pères, tous par leur nom. Ils s’assirent le premier jour du dixième mois pour étudier cette affaire."
+        },
+        {
+          "verse": "10:17",
+          "text": "Et le premier jour du premier mois, ils en finirent avec tous ceux qui avaient pris chez eux des femmes étrangères."
+        },
+        {
+          "verse": "10:18",
+          "text": "Parmi les fils des prêtres qui avaient fait habiter chez eux des femmes étrangères, se trouvaient des fils de Yéshoua fils de Yotsadaq et ses frères : Ma`aseyah, Éliy`ezer, Yarib et Gedalyah,"
+        },
+        {
+          "verse": "10:19",
+          "text": "qui, en donnant leurs mains, firent sortir leurs femmes et, comme coupables, ils offrirent pour leur culpabilité un bélier du troupeau."
+        },
+        {
+          "verse": "10:20",
+          "text": "Des fils d'Immer, Chananiy et Zebadyah ;"
+        },
+        {
+          "verse": "10:21",
+          "text": "des fils de Harim, Ma`aseyah, Éliyah, Shema’yah, Yechiy'el et Ouzyah ;"
+        },
+        {
+          "verse": "10:22",
+          "text": "des fils de Pashhour, Élyehow`eynay, Ma`aseyah, Yishmael, Netanél, Yozabad et El`asah."
+        },
+        {
+          "verse": "10:23",
+          "text": "Parmi les Lévites : Yozabad, Shimeï, Qelayah (ou Qeliyta), Pethachyah, Yéhouda et Éliy`ezer."
+        },
+        {
+          "verse": "10:24",
+          "text": "Parmi les chanteurs : Élyashiyb. Et des portiers : Shalloum, Thélem et Ouri."
+        },
+        {
+          "verse": "10:25",
+          "text": "Parmi ceux d'Israël : des fils de Pareosh, Ramyah, Yizziyah, Malkiyah, Miyamin, Èl’azar, Malkiyah et Benayah ;"
+        },
+        {
+          "verse": "10:26",
+          "text": "des fils d'Éylam, Mattanyah, Zekaryah, Yechiy'el, Abdi, Yerémoth et Éliyah ;"
+        },
+        {
+          "verse": "10:27",
+          "text": "des fils de Zatthou, Élyehow`eynay, Élyashiyb, Mattanyah, Yerémoth, Zabad et Aziyza ;"
+        },
+        {
+          "verse": "10:28",
+          "text": "des fils de Bébaï, Yehohanan, Chananyah, Zabbay et Athlaï ;"
+        },
+        {
+          "verse": "10:29",
+          "text": "des fils de Bani, Meshoullam, Mallouk, Adayah, Yashoub, Sheal et Ramoth ;"
+        },
+        {
+          "verse": "10:30",
+          "text": "des fils de Pachath-Moab, Adna, Kelal, Benayah, Ma`aseyah, Mattanyah, Betsal’el, Binnouï et Menashè ;"
+        },
+        {
+          "verse": "10:31",
+          "text": "des fils de Harim, Éliy`ezer, Yishshiyah, Malkiyah, Shema’yah, Shim’ôn,"
+        },
+        {
+          "verse": "10:32",
+          "text": "Benyamin, Mallouk, Shemaryah ;"
+        },
+        {
+          "verse": "10:33",
+          "text": "des fils de Hashoum, Matthnaï, Mattattah, Zabad, Éliyphelet, Yerémaï, Menashè et Shimeï ;"
+        },
+        {
+          "verse": "10:34",
+          "text": "des fils de Bani, Maadaï, Amram, Ouël,"
+        },
+        {
+          "verse": "10:35",
+          "text": "Benayah, Bedeyeah, Kelouhou,"
+        },
+        {
+          "verse": "10:36",
+          "text": "Vanyah, Merémoth, Élyashiyb,"
+        },
+        {
+          "verse": "10:37",
+          "text": "Mattanyah, Matthnaï, Yaasaï,"
+        },
+        {
+          "verse": "10:38",
+          "text": "Bani, Binnouï, Shimeï,"
+        },
+        {
+          "verse": "10:39",
+          "text": "Shelemyah, Nathan, Adayah,"
+        },
+        {
+          "verse": "10:40",
+          "text": "Macnadbaï, Shashaï, Sharaï,"
+        },
+        {
+          "verse": "10:41",
+          "text": "Azareel, Shelemyah, Shemaryah,"
+        },
+        {
+          "verse": "10:42",
+          "text": "Shalloum, Amaryah et Yossef ;"
+        },
+        {
+          "verse": "10:43",
+          "text": "des fils de Nebo, Yéïel, Mattithyah, Zabad, Zebiyna, Yaddaï, Yoel et Benayah."
+        },
+        {
+          "verse": "10:44",
+          "text": "Tous ceux-là avaient pris des femmes étrangères. Parmi eux, il existait des femmes qui avaient eu des fils."
+        }
+      ]
+    }
+  ]
+}

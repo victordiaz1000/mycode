@@ -1,0 +1,801 @@
+{
+  "book": "1 Petros (1 Pierre)",
+  "abbreviation": "1 Pi.",
+  "metadata": {
+    "signification": "Roc, pierre",
+    "auteur": "Petros (Pierre)",
+    "theme": "La victoire sur la souffrance",
+    "date": "Env. 65 ap. J.-C."
+  },
+  "introduction": "Cette lettre semble avoir été écrite à Rome, même si Petros y parlait de « Babel ». En ces temps de persécutions, les chrétiens devaient être prudents quant à la manière dont ils parlaient du pouvoir en place, c'est pourquoi ils utilisaient souvent des codes. C'est donc durant une période difficile que fut rédigée cette lettre qui s'adressait à des assemblées d'Asie Mineure dont la plupart furent fondées par Paulos (Paul). À travers ces quelques lignes, Petros (Pierre) exhorte les frères et sœurs à tenir ferme dans la foi malgré les souffrances liées aux épreuves, et les encourage à espérer en Yéhoshoua ha Mashiah (Jésus-Christ), leur salut. Il finit cette lettre en donnant des conseils quant à l'attitude à avoir au sein de l'assemblée.",
+  "chapters": [
+    {
+      "chapter": 1,
+      "verses": [
+        {
+          "verse": "1:1",
+          "text": "Petros, apôtre de Yéhoshoua Mashiah, aux étrangers élus de la diaspora du Pont, Galatie, Cappadoce, Asie et Bithynie,",
+          "textWithNotes": "Petros, apôtre de Yéhoshoua Mashiah, aux étrangers élus de la diaspora du Pont[Le Pont : province formant presque la totalité de l'Asie Mineure.], Galatie, Cappadoce, Asie et Bithynie,",
+          "notes": [
+            {
+              "word": "Pont",
+              "position": 74,
+              "note": "Le Pont : province formant presque la totalité de l'Asie Mineure."
+            }
+          ]
+        },
+        {
+          "verse": "1:2",
+          "text": "selon une prescience d'Elohîm Père, dans une sanctification de l'Esprit pour une obéissance et une aspersion du sang de Yéhoshoua Mashiah, à vous, grâce et shalôm, soient multipliés !"
+        },
+        {
+          "verse": "1:3",
+          "text": "Béni soit l'Elohîm et Père de notre Seigneur Yéhoshoua Mashiah, qui par sa grande miséricorde, nous a fait naître de nouveau pour une espérance vivante, par le moyen de la résurrection de Yéhoshoua Mashiah hors des morts,",
+          "textWithNotes": "Béni soit l'Elohîm et Père de notre Seigneur Yéhoshoua Mashiah, qui par sa grande miséricorde, nous a fait naître de nouveau[Le mot grec « anagennao » signifie « produire de nouveau, être né de nouveau » ou « renouvelé ».] pour une espérance vivante, par le moyen de la résurrection de Yéhoshoua Mashiah hors des morts,",
+          "notes": [
+            {
+              "word": "nouveau",
+              "position": 117,
+              "note": "Le mot grec « anagennao » signifie « produire de nouveau, être né de nouveau » ou « renouvelé »."
+            }
+          ]
+        },
+        {
+          "verse": "1:4",
+          "text": "pour un héritage incorruptible et sans souillure, et qui ne se fane pas, qui est réservé dans les cieux pour nous,"
+        },
+        {
+          "verse": "1:5",
+          "text": "qui, dans la puissance d'Elohîm, sommes gardés par le moyen de la foi, pour un salut qui est prêt à être révélé dans le dernier temps !"
+        },
+        {
+          "verse": "1:6",
+          "text": "En cela vous exultez, en étant affligés maintenant pour un peu de temps par diverses épreuves si cela est nécessaire,"
+        },
+        {
+          "verse": "1:7",
+          "text": "afin que le test de votre foi, beaucoup plus précieuse que l'or qui périt, mais qu'on éprouve au moyen du feu, soit trouvée un sujet de louange, et d'honneur et de gloire, en la révélation de Yéhoshoua Mashiah.",
+          "textWithNotes": "afin que le test[La preuve, ce par quoi une chose est essayée, éprouvée, un test. Ja. 1:3 ; 1 Th. 2:4.] de votre foi, beaucoup plus précieuse que l'or qui périt, mais qu'on éprouve au moyen du feu, soit trouvée un sujet de louange, et d'honneur et de gloire, en la révélation de Yéhoshoua Mashiah.",
+          "notes": [
+            {
+              "word": "test",
+              "position": 12,
+              "note": "La preuve, ce par quoi une chose est essayée, éprouvée, un test. Ja. 1:3 ; 1 Th. 2:4."
+            }
+          ]
+        },
+        {
+          "verse": "1:8",
+          "text": "Lequel n'ayant pas vu, vous aimez ; en qui, maintenant ne voyant pas, mais croyant, vous exultez d'une joie inexprimable et glorieuse,"
+        },
+        {
+          "verse": "1:9",
+          "text": "obtenant la fin de votre foi, le salut des âmes.",
+          "textWithNotes": "obtenant la fin[Vient du grec « telos » qui signifie « la fin », « ce par quoi se termine une chose, le but, la finalité ». Voir 1 Ti. 1:5.] de votre foi, le salut des âmes.",
+          "notes": [
+            {
+              "word": "fin",
+              "position": 12,
+              "note": "Vient du grec « telos » qui signifie « la fin », « ce par quoi se termine une chose, le but, la finalité ». Voir 1 Ti. 1:5."
+            }
+          ]
+        },
+        {
+          "verse": "1:10",
+          "text": "Salut, au sujet duquel ont fait des investigations et cherché avec anxiété et diligemment les prophètes qui ont prophétisé au sujet de la grâce qui est en vous."
+        },
+        {
+          "verse": "1:11",
+          "text": "Recherchant pour quel temps ou quelle sorte de temps indiquait l'Esprit du Mashiah qui était en eux, attestant d'avance les souffrances du Mashiah et les gloires qui suivraient."
+        },
+        {
+          "verse": "1:12",
+          "text": "Il leur fut révélé que ce n'était pas pour eux-mêmes, mais pour nous, qu'ils administraient ces choses qui maintenant vous ont été annoncées par le moyen de ceux qui vous ont prêché l'Évangile par le Saint-Esprit envoyé du ciel, et dans lesquelles les anges désirent regarder avec la tête penchée en avant."
+        },
+        {
+          "verse": "1:13",
+          "text": "C'est pourquoi, ayant ceint les reins de votre compréhension, étant sobres, ayez une entière espérance dans la grâce qui vous est apportée en la révélation de Yéhoshoua Mashiah.",
+          "textWithNotes": "C'est pourquoi, ayant ceint les reins de votre compréhension, étant sobres, ayez une entière espérance dans la grâce qui vous est apportée en la révélation[Voir commentaire en 2 Th. 1:7.] de Yéhoshoua Mashiah.",
+          "notes": [
+            {
+              "word": "révélation",
+              "position": 145,
+              "note": "Voir commentaire en 2 Th. 1:7."
+            }
+          ]
+        },
+        {
+          "verse": "1:14",
+          "text": "Comme des enfants d’obéissance, ne vous conformant pas aux convoitises d’autrefois dans votre ignorance."
+        },
+        {
+          "verse": "1:15",
+          "text": "Mais, comme celui qui vous a appelés est saint, vous aussi de même soyez saints dans toute conduite,"
+        },
+        {
+          "verse": "1:16",
+          "text": "car il est écrit : Devenez saints, parce que moi je suis saint.",
+          "textWithNotes": "car il est écrit : Devenez saints, parce que moi je suis saint[Lé. 11:44.].",
+          "notes": [
+            {
+              "word": "saint",
+              "position": 57,
+              "note": "Lé. 11:44."
+            }
+          ]
+        },
+        {
+          "verse": "1:17",
+          "text": "Et si vous invoquez le Père qui juge de façon impartiale selon l'œuvre de chacun, conduisez-vous avec crainte pendant le temps de votre demeure en terre étrangère,",
+          "textWithNotes": "Et si vous invoquez le Père[Expression qui trouve son explication dans le fait que les prières adressées à Elohîm commencent en général par une invocation du nom divin. Voir Joë. 3:5 ; Ac. 15:17, 22:16 ; 1 Co. 1:2 ; Ro. 10:12-14 ; 2 Ti. 2:22.] qui juge de façon impartiale selon l'œuvre de chacun, conduisez-vous avec crainte pendant le temps de votre demeure en terre étrangère,",
+          "notes": [
+            {
+              "word": "Père",
+              "position": 23,
+              "note": "Expression qui trouve son explication dans le fait que les prières adressées à Elohîm commencent en général par une invocation du nom divin. Voir Joë. 3:5 ; Ac. 15:17, 22:16 ; 1 Co. 1:2 ; Ro. 10:12-14 ; 2 Ti. 2:22."
+            }
+          ]
+        },
+        {
+          "verse": "1:18",
+          "text": "sachant que ce n'est pas par des choses corruptibles - argent ou or - que vous avez été rachetés hors de votre vaine manière de vivre que vos ancêtres vous avaient transmise,"
+        },
+        {
+          "verse": "1:19",
+          "text": "mais par un sang précieux, comme d'un agneau sans défaut et sans tache, Mashiah,"
+        },
+        {
+          "verse": "1:20",
+          "text": "prédestiné en effet avant la fondation du monde, et manifesté dans les derniers temps à cause de vous."
+        },
+        {
+          "verse": "1:21",
+          "text": "Par son moyen vous croyez en Elohîm qui l'a réveillé hors des morts et lui a donné gloire, afin que votre foi et votre espérance soient en Elohîm."
+        },
+        {
+          "verse": "1:22",
+          "text": "Ayant purifié vos âmes par l’obéissance à la vérité par le moyen de l'Esprit pour un amour fraternel sincère, aimez-vous ardemment les uns les autres d'un cœur pur,"
+        },
+        {
+          "verse": "1:23",
+          "text": "étant nés de nouveau non à partir d’une semence corruptible mais incorruptible, par le moyen de la parole vivante d'Elohîm et qui demeure pour l'éternité.",
+          "textWithNotes": "étant nés de nouveau[Voir 1 Pi. 1:3.] non à partir d’une semence corruptible mais incorruptible, par le moyen de la parole vivante d'Elohîm et qui demeure pour l'éternité.",
+          "notes": [
+            {
+              "word": "nouveau",
+              "position": 13,
+              "note": "Voir 1 Pi. 1:3."
+            }
+          ]
+        },
+        {
+          "verse": "1:24",
+          "text": "Parce que toute chair est comme l'herbe, et toute gloire de l'être humain comme la fleur de l'herbe. L'herbe a séché et sa fleur est tombée,"
+        },
+        {
+          "verse": "1:25",
+          "text": "mais la parole du Seigneur demeure pour l'éternité. Or c’est cette parole qui vous a été prêchée.",
+          "textWithNotes": "mais la parole du Seigneur demeure pour l'éternité[Es. 40:6-8.]. Or c’est cette parole qui vous a été prêchée.",
+          "notes": [
+            {
+              "word": "l'éternité",
+              "position": 40,
+              "note": "Es. 40:6-8."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "verses": [
+        {
+          "verse": "2:1",
+          "text": "Étant donc débarrassés de toute méchanceté, et de toute espèce de tromperie, et d'hypocrisie, et d'envie et de toutes diffamations,",
+          "textWithNotes": "Étant donc débarrassés[Voir Hé. 12:1.] de toute méchanceté, et de toute espèce de tromperie, et d'hypocrisie, et d'envie et de toutes diffamations,",
+          "notes": [
+            {
+              "word": "débarrassés",
+              "position": 11,
+              "note": "Voir Hé. 12:1."
+            }
+          ]
+        },
+        {
+          "verse": "2:2",
+          "text": "comme des bébés nouveau-nés, désirez le lait spirituel et pur, afin qu'en lui vous croissiez,"
+        },
+        {
+          "verse": "2:3",
+          "text": "si en effet vous avez goûté que le Seigneur est bon.",
+          "textWithNotes": "si en effet vous avez goûté que le Seigneur est bon[Petros (Pierre), l'apôtre, se réfère ici au Ps. 34:9 : « Goûtez et voyez combien YHWH est bon ! ». On peut noter que le nom propre YHWH a été remplacé par le nom commun « Seigneur ». Voir commentaire en Lu. 4:18-19.].",
+          "notes": [
+            {
+              "word": "bon",
+              "position": 48,
+              "note": "Petros (Pierre), l'apôtre, se réfère ici au Ps. 34:9 : « Goûtez et voyez combien YHWH est bon ! ». On peut noter que le nom propre YHWH a été remplacé par le nom commun « Seigneur ». Voir commentaire en Lu. 4:18-19."
+            }
+          ]
+        },
+        {
+          "verse": "2:4",
+          "text": "Vous approchant de lui, pierre vivante, rejetée en effet par les humains, mais choisie et précieuse devant Elohîm."
+        },
+        {
+          "verse": "2:5",
+          "text": "Et vous-mêmes, comme des pierres vivantes, vous êtes édifiés, maison spirituelle, sainte prêtrise, afin d'offrir des sacrifices spirituels, agréables à Elohîm par le moyen de Yéhoshoua Mashiah."
+        },
+        {
+          "verse": "2:6",
+          "text": "C'est pourquoi aussi, il est dit dans l'Écriture : Voici, je mets en Sion une pierre, la pierre angulaire, choisie et précieuse. Et celui qui croit en elle n'aura jamais honte.",
+          "textWithNotes": "C'est pourquoi aussi, il est dit dans l'Écriture : Voici, je mets en Sion une pierre, la pierre angulaire[Yéhoshoua Mashiah (Jésus-Christ) est la pierre rejetée par les bâtisseurs. Voir Es. 28:16 ; Ps. 118:22.], choisie et précieuse. Et celui qui croit en elle n'aura jamais honte.",
+          "notes": [
+            {
+              "word": "angulaire",
+              "position": 96,
+              "note": "Yéhoshoua Mashiah (Jésus-Christ) est la pierre rejetée par les bâtisseurs. Voir Es. 28:16 ; Ps. 118:22."
+            }
+          ]
+        },
+        {
+          "verse": "2:7",
+          "text": "C'est donc pour vous les croyants qu'elle a ce prix. Mais pour ceux qui refusent de croire, la pierre que ceux qui bâtissaient ont rejetée est devenue la tête de l'angle,",
+          "textWithNotes": "C'est donc pour vous les croyants qu'elle a ce prix. Mais pour ceux qui refusent de croire[Ps. 118:22.], la pierre que ceux qui bâtissaient ont rejetée est devenue la tête de l'angle,",
+          "notes": [
+            {
+              "word": "croire",
+              "position": 84,
+              "note": "Ps. 118:22."
+            }
+          ]
+        },
+        {
+          "verse": "2:8",
+          "text": "et une pierre d'achoppement, et un rocher de scandale. Ils se heurtent contre la parole et refusent de croire, et c'est à cela qu'ils sont destinés."
+        },
+        {
+          "verse": "2:9",
+          "text": "Mais vous, vous êtes une race élue, une prêtrise royale, une nation sainte, un peuple acquis, afin que vous proclamiez les vertus de celui qui vous a appelés de la ténèbre à sa merveilleuse lumière.",
+          "textWithNotes": "Mais vous, vous êtes une race élue, une prêtrise royale, une nation sainte, un peuple acquis, afin que vous proclamiez[Dire clairement, déclarer à l'étranger, au loin, divulguer, publier, faire connaître par l'éloge ou la proclamation, célébrer.] les vertus de celui qui vous a appelés de la ténèbre à sa merveilleuse lumière.",
+          "notes": [
+            {
+              "word": "proclamiez",
+              "position": 108,
+              "note": "Dire clairement, déclarer à l'étranger, au loin, divulguer, publier, faire connaître par l'éloge ou la proclamation, célébrer."
+            }
+          ]
+        },
+        {
+          "verse": "2:10",
+          "text": "Vous qui autrefois n'étiez pas un peuple, mais qui maintenant êtes le peuple d'Elohîm. Vous qui n'aviez pas obtenu miséricorde, mais qui maintenant avez obtenu miséricorde."
+        },
+        {
+          "verse": "2:11",
+          "text": "Bien-aimés, je vous exhorte, comme étrangers et voyageurs, à vous abstenir des désirs charnels qui combattent contre l'âme.",
+          "textWithNotes": "Bien-aimés, je vous exhorte, comme étrangers et voyageurs, à vous abstenir des désirs[Voir Ga. 5:16.] charnels qui combattent contre l'âme.",
+          "notes": [
+            {
+              "word": "désirs",
+              "position": 79,
+              "note": "Voir Ga. 5:16."
+            }
+          ]
+        },
+        {
+          "verse": "2:12",
+          "text": "Ayant une bonne conduite parmi les nations, afin que là même où elles vous calomnient comme des malfaiteurs, en regardant attentivement à partir de vos bonnes œuvres, elles glorifient Elohîm au jour de la visite d'inspection.",
+          "textWithNotes": "Ayant une bonne conduite parmi les nations, afin que là même où elles vous calomnient comme des malfaiteurs, en regardant attentivement à partir de vos bonnes œuvres, elles glorifient Elohîm au jour de la visite d'inspection[« Investigation, inspection, visite d'inspection ». Cet acte par lequel Elohîm visite les êtres humains, observe leurs voies, leurs caractères, pour leur accorder en partage joie ou tristesse.].",
+          "notes": [
+            {
+              "word": "d'inspection",
+              "position": 212,
+              "note": "« Investigation, inspection, visite d'inspection ». Cet acte par lequel Elohîm visite les êtres humains, observe leurs voies, leurs caractères, pour leur accorder en partage joie ou tristesse."
+            }
+          ]
+        },
+        {
+          "verse": "2:13",
+          "text": "Soyez donc soumis à toute institution humaine, à cause du Seigneur : soit au roi, comme étant au-dessus des autres,"
+        },
+        {
+          "verse": "2:14",
+          "text": "soit aux gouverneurs, comme étant envoyés par lui en effet pour la punition des malfaiteurs et pour la louange de ceux qui agissent correctement."
+        },
+        {
+          "verse": "2:15",
+          "text": "Parce que telle est la volonté d'Elohîm, qu'en faisant le bien vous museliez la bouche à l'ignorance des humains insensés.",
+          "textWithNotes": "Parce que telle est la volonté d'Elohîm, qu'en faisant le bien vous museliez la bouche[Du grec « phimoo » : « fermer la bouche par une muselière ».] à l'ignorance des humains insensés.",
+          "notes": [
+            {
+              "word": "bouche",
+              "position": 80,
+              "note": "Du grec « phimoo » : « fermer la bouche par une muselière »."
+            }
+          ]
+        },
+        {
+          "verse": "2:16",
+          "text": "Comme libres, et n’ayant pas la liberté comme une couverture de la malice, mais comme des esclaves d'Elohîm."
+        },
+        {
+          "verse": "2:17",
+          "text": "Honorez tout le monde, aimez la fraternité, craignez Elohîm, honorez le roi.",
+          "textWithNotes": "Honorez tout le monde, aimez la fraternité[La famille des frères.], craignez Elohîm, honorez le roi.",
+          "notes": [
+            {
+              "word": "fraternité",
+              "position": 32,
+              "note": "La famille des frères."
+            }
+          ]
+        },
+        {
+          "verse": "2:18",
+          "text": "Les domestiques, soyez soumis en toute crainte à vos maîtres, non seulement aux bons et équitables, mais aussi aux tordus."
+        },
+        {
+          "verse": "2:19",
+          "text": "Car c'est une grâce, si quelqu'un, à cause de la conscience envers Elohîm, endure des douleurs en souffrant injustement."
+        },
+        {
+          "verse": "2:20",
+          "text": "Car quelle gloire y a-t-il si, étant frappés pour avoir commis des péchés, vous l'endurez ? Mais si vous souffrez quand vous faites le bien et que vous le supportez, c'est une grâce devant Elohîm."
+        },
+        {
+          "verse": "2:21",
+          "text": "Car c'est à cela que vous avez été appelés, parce que Mashiah aussi a souffert en notre faveur, nous laissant un modèle, afin que vous suiviez ses traces :"
+        },
+        {
+          "verse": "2:22",
+          "text": "lui qui n'a pas commis de péché et dans la bouche duquel il ne s'est pas trouvé de tromperie,"
+        },
+        {
+          "verse": "2:23",
+          "text": "lui qui, insulté, n'insultait pas en retour, maltraité, ne menaçait pas mais s'en remettait à celui qui juge justement,",
+          "textWithNotes": "lui qui, insulté, n'insultait pas en retour[Riposter à des railleries.], maltraité, ne menaçait pas mais s'en remettait à celui qui juge justement,",
+          "notes": [
+            {
+              "word": "retour",
+              "position": 37,
+              "note": "Riposter à des railleries."
+            }
+          ]
+        },
+        {
+          "verse": "2:24",
+          "text": "lui qui a lui-même porté nos péchés dans son corps sur le bois, afin qu'étant morts au péché, nous vivions pour la justice. Lui, par la meurtrissure de qui vous avez été guéris.",
+          "textWithNotes": "lui qui a lui-même porté nos péchés dans son corps sur le bois, afin qu'étant morts au péché, nous vivions pour la justice. Lui, par la meurtrissure[Es. 53:5.] de qui vous avez été guéris.",
+          "notes": [
+            {
+              "word": "meurtrissure",
+              "position": 136,
+              "note": "Es. 53:5."
+            }
+          ]
+        },
+        {
+          "verse": "2:25",
+          "text": "Car vous étiez comme des brebis égarées, mais maintenant vous êtes retournés vers le Berger et le Surveillant de vos âmes.",
+          "textWithNotes": "Car vous étiez comme des brebis égarées, mais maintenant vous êtes retournés vers le Berger et le Surveillant[Pr. 24:12 ; Job. 7:20.] de vos âmes.",
+          "notes": [
+            {
+              "word": "Surveillant",
+              "position": 98,
+              "note": "Pr. 24:12 ; Job. 7:20."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "verses": [
+        {
+          "verse": "3:1",
+          "text": "De même, les femmes, soyez soumises à vos propres maris, afin que si quelques-uns refusent de croire à la parole, ils soient gagnés sans paroles par le moyen de la conduite des femmes,"
+        },
+        {
+          "verse": "3:2",
+          "text": "en regardant attentivement votre conduite pure, dans la crainte."
+        },
+        {
+          "verse": "3:3",
+          "text": "Que votre parure ne soit pas celle de l'extérieur - le tressage des cheveux et des ornements d'or ou un revêtement d'habits,",
+          "textWithNotes": "Que votre parure[Vient du grec « kosmos » qui signifie : « un arrangement habile et harmonieux d'une constitution, d'un ordre, d'un gouvernement », « ornement », « décoration », « parure », « le monde », « la totalité des biens terrestres, les richesses, avantages, plaisirs, etc., qui bien que creux, fragiles et fugitifs, poussent au désir, éloignent d'Elohîm, et sont des obstacles à la cause du Mashiah. »] ne soit pas celle de l'extérieur - le tressage des cheveux et des ornements d'or ou un revêtement d'habits,",
+          "notes": [
+            {
+              "word": "parure",
+              "position": 10,
+              "note": "Vient du grec « kosmos » qui signifie : « un arrangement habile et harmonieux d'une constitution, d'un ordre, d'un gouvernement », « ornement », « décoration », « parure », « le monde », « la totalité des biens terrestres, les richesses, avantages, plaisirs, etc., qui bien que creux, fragiles et fugitifs, poussent au désir, éloignent d'Elohîm, et sont des obstacles à la cause du Mashiah. »"
+            }
+          ]
+        },
+        {
+          "verse": "3:4",
+          "text": "mais l'être humain caché dans le cœur, l'incorruptibilité d'un esprit de douceur et de tranquillité, qui est précieux devant Elohîm.",
+          "textWithNotes": "mais l'être humain caché dans le cœur, l'incorruptibilité d'un esprit de douceur[La douceur envers Elohîm est cette disposition d'esprit par laquelle nous acceptons tout ce qu'il nous donne comme étant un bienfait, et ceci sans discussion ni résistance. Dans le Tanakh, les doux, les débonnaires, étaient ceux qui s'en remettaient entièrement à Elohîm et non à leur propre force pour les défendre contre l'injustice. Ainsi, la douceur d'Elohîm envers les méchants est de leur permettre de connaître les préjudices infligés, qu'il utilise pour purifier ses élus, ceux qu'il délivrera en son temps (Es. 41:17 ; Lu. 18:1-8). La gentillesse ou la douceur sont opposées à l'affirmation de soi-même et au propre intérêt. Le débonnaire ne s'occupe pas du tout de soi. Cet état est une œuvre du Saint-Esprit, non de la volonté humaine.] et de tranquillité, qui est précieux devant Elohîm.",
+          "notes": [
+            {
+              "word": "douceur",
+              "position": 73,
+              "note": "La douceur envers Elohîm est cette disposition d'esprit par laquelle nous acceptons tout ce qu'il nous donne comme étant un bienfait, et ceci sans discussion ni résistance. Dans le Tanakh, les doux, les débonnaires, étaient ceux qui s'en remettaient entièrement à Elohîm et non à leur propre force pour les défendre contre l'injustice. Ainsi, la douceur d'Elohîm envers les méchants est de leur permettre de connaître les préjudices infligés, qu'il utilise pour purifier ses élus, ceux qu'il délivrera en son temps (Es. 41:17 ; Lu. 18:1-8). La gentillesse ou la douceur sont opposées à l'affirmation de soi-même et au propre intérêt. Le débonnaire ne s'occupe pas du tout de soi. Cet état est une œuvre du Saint-Esprit, non de la volonté humaine."
+            }
+          ]
+        },
+        {
+          "verse": "3:5",
+          "text": "Car c'est ainsi que se paraient aussi autrefois les saintes femmes qui espéraient en Elohîm, étant soumises à leurs propres maris,",
+          "textWithNotes": "Car c'est ainsi que se paraient[Vient du verbe « kosmeo » dont la racine est « kosmos » (monde) ; « kosmeo » signifie : « mettre en ordre », « arranger », « rendre prêt », « préparer », « orner », « ornementer ».] aussi autrefois les saintes femmes qui espéraient en Elohîm, étant soumises à leurs propres maris,",
+          "notes": [
+            {
+              "word": "paraient",
+              "position": 23,
+              "note": "Vient du verbe « kosmeo » dont la racine est « kosmos » (monde) ; « kosmeo » signifie : « mettre en ordre », « arranger », « rendre prêt », « préparer », « orner », « ornementer »."
+            }
+          ]
+        },
+        {
+          "verse": "3:6",
+          "text": "comme Sarah, qui obéissait à Abraham, l'appelant seigneur, elle dont vous êtes devenues les enfants, en faisant le bien, sans être effrayées par aucune terreur."
+        },
+        {
+          "verse": "3:7",
+          "text": "Maris, également, demeurez ensemble selon la connaissance comme avec un vase faible, le féminin, les traitant avec honneur comme étant aussi cohéritières de la grâce de la vie, afin que vos prières ne soient pas interrompues.",
+          "textWithNotes": "Maris, également, demeurez ensemble selon la connaissance comme avec un vase[Petros (Pierre) utilise une métaphore connue des Grecs pour parler du corps : le vase.] faible[« Infirme », « maladif ».], le féminin, les traitant avec honneur comme étant aussi cohéritières de la grâce de la vie, afin que vos prières ne soient pas interrompues.",
+          "notes": [
+            {
+              "word": "vase",
+              "position": 72,
+              "note": "Petros (Pierre) utilise une métaphore connue des Grecs pour parler du corps : le vase."
+            },
+            {
+              "word": "faible",
+              "position": 77,
+              "note": "« Infirme », « maladif »."
+            }
+          ]
+        },
+        {
+          "verse": "3:8",
+          "text": "Mais finalement, soyez tous d'un seul esprit, sensibles aux autres, aimez-vous comme des frères et des sœurs, compatissants et amicaux.",
+          "textWithNotes": "Mais finalement, soyez tous d'un seul esprit, sensibles aux autres, aimez-vous[Vient de « philadelphos » qui signifie « aimer quelqu'un comme un frère, une sœur ».] comme des frères et des sœurs, compatissants et amicaux.",
+          "notes": [
+            {
+              "word": "aimez-vous",
+              "position": 68,
+              "note": "Vient de « philadelphos » qui signifie « aimer quelqu'un comme un frère, une sœur »."
+            }
+          ]
+        },
+        {
+          "verse": "3:9",
+          "text": "Ne rendant pas mal pour mal, ou injure pour injure ; mais au contraire, bénissant, sachant que c’est à cela que vous avez été appelés, afin que vous héritiez de la bénédiction.",
+          "textWithNotes": "Ne rendant pas mal pour mal, ou injure pour injure[Mt. 5:44.] ; mais au contraire, bénissant, sachant que c’est à cela que vous avez été appelés, afin que vous héritiez de la bénédiction.",
+          "notes": [
+            {
+              "word": "injure",
+              "position": 44,
+              "note": "Mt. 5:44."
+            }
+          ]
+        },
+        {
+          "verse": "3:10",
+          "text": "Car celui qui veut aimer la vie et voir des jours heureux, qu’il préserve sa langue de ce qui est mauvais et ses lèvres de prononcer la tromperie.",
+          "textWithNotes": "Car celui qui veut aimer la vie et voir des jours heureux, qu’il préserve[« Faire cesser ou désister », « empêcher une chose ou une personne de quelque chose ».] sa langue de ce qui est mauvais et ses lèvres de prononcer la tromperie.",
+          "notes": [
+            {
+              "word": "préserve",
+              "position": 65,
+              "note": "« Faire cesser ou désister », « empêcher une chose ou une personne de quelque chose »."
+            }
+          ]
+        },
+        {
+          "verse": "3:11",
+          "text": "Qu'il se détourne de ce qui est mauvais et fasse ce qui est bon, qu'il cherche la paix et la poursuive,"
+        },
+        {
+          "verse": "3:12",
+          "text": "parce que les yeux du Seigneur sont sur les justes et ses oreilles sont tournées vers leur supplication, mais la face du Seigneur est contre ceux qui font le mal.",
+          "textWithNotes": "parce que les yeux[Voir Ps. 33:18, 34:16.] du Seigneur sont sur les justes et ses oreilles sont tournées vers leur supplication, mais la face du Seigneur est contre ceux qui font le mal.",
+          "notes": [
+            {
+              "word": "yeux",
+              "position": 14,
+              "note": "Voir Ps. 33:18, 34:16."
+            }
+          ]
+        },
+        {
+          "verse": "3:13",
+          "text": "Et qui vous maltraitera, si vous devenez les imitateurs de celui qui est bon ?"
+        },
+        {
+          "verse": "3:14",
+          "text": "Mais si vous souffrez aussi à cause de la justice, vous êtes bénis. Ne craignez pas leur terreur et ne soyez pas troublés."
+        },
+        {
+          "verse": "3:15",
+          "text": "Mais sanctifiez le Seigneur Elohîm dans vos cœurs, et soyez toujours prêts à la plaidoirie avec douceur et crainte, contre quiconque vous demande une parole concernant l'espérance qui est en vous,",
+          "textWithNotes": "Mais sanctifiez le Seigneur Elohîm[Voir Es. 8:12-13.] dans vos cœurs, et soyez toujours prêts à la plaidoirie avec douceur et crainte, contre quiconque vous demande une parole concernant l'espérance qui est en vous,",
+          "notes": [
+            {
+              "word": "Elohîm",
+              "position": 28,
+              "note": "Voir Es. 8:12-13."
+            }
+          ]
+        },
+        {
+          "verse": "3:16",
+          "text": "ayant une bonne conscience, afin qu’en cela même où ils vous diffament comme des malfaiteurs, ceux qui accusent faussement votre bonne conduite en Mashiah soient confus."
+        },
+        {
+          "verse": "3:17",
+          "text": "Car il vaut mieux, si la volonté d'Elohîm le veut, de souffrir en faisant le bien qu'en faisant le mal."
+        },
+        {
+          "verse": "3:18",
+          "text": "Parce que Mashiah aussi a souffert une fois au sujet des péchés, lui juste en faveur des injustes, afin de nous conduire à Elohîm, ayant été en effet mis à mort par la chair, mais ramené à la vie par l'Esprit,"
+        },
+        {
+          "verse": "3:19",
+          "text": "dans lequel aussi étant allé, il a prêché aux esprits en prison,",
+          "textWithNotes": "dans lequel aussi étant allé, il a prêché aux esprits en prison[La possibilité du salut après la mort n'a aucun fondement biblique (Hé. 9:27). Dans ce passage, il est fait mention des pécheurs qui ont vécu du temps de Noah et auxquels la parole d'Elohîm avait été annoncée. Voir aussi commentaire en Mt. 16:18.],",
+          "notes": [
+            {
+              "word": "prison",
+              "position": 57,
+              "note": "La possibilité du salut après la mort n'a aucun fondement biblique (Hé. 9:27). Dans ce passage, il est fait mention des pécheurs qui ont vécu du temps de Noah et auxquels la parole d'Elohîm avait été annoncée. Voir aussi commentaire en Mt. 16:18."
+            }
+          ]
+        },
+        {
+          "verse": "3:20",
+          "text": "ayant refusé de croire, lorsque, une fois, aux jours de Noah, la patience d'Elohîm attendait, pendant la construction de l’arche, dans laquelle un petit nombre d'âmes, c'est-à-dire huit, furent préservées du danger à travers l'eau,"
+        },
+        {
+          "verse": "3:21",
+          "text": "laquelle aussi est un antitype qui maintenant nous sauve, le baptême, non pas la purification de la saleté de la chair, mais la demande à Elohîm d'une bonne conscience par le moyen de la résurrection de Yéhoshoua Mashiah,",
+          "textWithNotes": "laquelle aussi est un antitype[Chose formée d'après un certain modèle, une chose qui ressemble à une autre, sa contrepartie, une imitation, une réplique. Hé. 9:23.] qui maintenant nous sauve, le baptême, non pas la purification de la saleté de la chair, mais la demande à Elohîm d'une bonne conscience par le moyen de la résurrection de Yéhoshoua Mashiah,",
+          "notes": [
+            {
+              "word": "antitype",
+              "position": 22,
+              "note": "Chose formée d'après un certain modèle, une chose qui ressemble à une autre, sa contrepartie, une imitation, une réplique. Hé. 9:23."
+            }
+          ]
+        },
+        {
+          "verse": "3:22",
+          "text": "lequel est à la droite d'Elohîm, étant allé au ciel, anges, et autorités et puissances lui étant soumis."
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "verses": [
+        {
+          "verse": "4:1",
+          "text": "Mashiah donc ayant souffert pour nous dans la chair, vous aussi armez-vous de la même pensée. Parce que celui qui a souffert dans la chair a été libéré du péché,",
+          "textWithNotes": "Mashiah donc ayant souffert pour nous dans la chair, vous aussi armez-vous de la même pensée. Parce que celui qui a souffert dans la chair a été libéré[« Faire cesser ou désister », « préserver une chose ou une personne de quelque chose », « cesser », « laisser », « abandonner ».] du péché,",
+          "notes": [
+            {
+              "word": "libéré",
+              "position": 145,
+              "note": "« Faire cesser ou désister », « préserver une chose ou une personne de quelque chose », « cesser », « laisser », « abandonner »."
+            }
+          ]
+        },
+        {
+          "verse": "4:2",
+          "text": "pour vivre, non plus selon les désirs des humains, mais selon la volonté d'Elohîm, pendant le temps qui lui reste en plus dans la chair."
+        },
+        {
+          "verse": "4:3",
+          "text": "Car c'est assez pour nous, ayant accompli dans le temps passé la volonté des nations, en marchant dans les luxures sans bride, les convoitises, les ivrogneries, les orgies, les beuveries et les idolâtries criminelles."
+        },
+        {
+          "verse": "4:4",
+          "text": "En cela, ils sont choqués que vous ne vous précipitiez pas avec eux dans le même débordement de libertinage, blasphémant."
+        },
+        {
+          "verse": "4:5",
+          "text": "Eux qui rendront compte à celui qui est prêt à juger les vivants et les morts."
+        },
+        {
+          "verse": "4:6",
+          "text": "Car c'est pour cela que l'Évangile a été aussi annoncé aux morts, afin qu'ils soient en effet jugés selon les humains dans la chair, et qu'ils vivent selon Elohîm dans l'Esprit."
+        },
+        {
+          "verse": "4:7",
+          "text": "Or la fin de toutes choses s’est approchée : maîtrisez-vous donc et soyez sobres pour les prières."
+        },
+        {
+          "verse": "4:8",
+          "text": "Mais avant toutes choses, ayez les uns pour les autres un amour assidu, parce que l'amour couvrira une multitude de péchés,",
+          "textWithNotes": "Mais avant toutes choses, ayez les uns pour les autres un amour assidu, parce que l'amour couvrira une multitude de péchés[Voir Pr. 10:12, 17:9 ; Ja. 5:20.],",
+          "notes": [
+            {
+              "word": "péchés",
+              "position": 116,
+              "note": "Voir Pr. 10:12, 17:9 ; Ja. 5:20."
+            }
+          ]
+        },
+        {
+          "verse": "4:9",
+          "text": "étant hospitaliers les uns envers les autres, sans murmures."
+        },
+        {
+          "verse": "4:10",
+          "text": "Que chacun de vous rende service aux autres selon le don de grâce qu'il a reçu, comme de bons gestionnaires de la grâce diverse d'Elohîm."
+        },
+        {
+          "verse": "4:11",
+          "text": "Si quelqu'un parle, que ce soit comme oracles d'Elohîm. Si quelqu’un sert, que ce soit comme par la force qu'Elohîm fournit, afin qu'en toutes choses Elohîm soit glorifié par le moyen de Yéhoshoua Mashiah, auquel sont la gloire et la force souveraine, pour les âges des âges. Amen !"
+        },
+        {
+          "verse": "4:12",
+          "text": "Bien-aimés, ne soyez pas choqués de la combustion advenant parmi vous pour vous éprouver, comme quelque chose de nouveau vous arrivant."
+        },
+        {
+          "verse": "4:13",
+          "text": "Mais réjouissez-vous de ce que vous participez aux souffrances du Mashiah, afin que lors de la révélation de sa gloire, vous vous réjouissiez et exultiez."
+        },
+        {
+          "verse": "4:14",
+          "text": "Si vous êtes insultés pour le nom du Mashiah, vous êtes bénis, parce que l'Esprit de gloire et d'Elohîm repose sur vous. Il est en effet blasphémé par eux, mais il est glorifié par vous.",
+          "textWithNotes": "Si vous êtes insultés[Mt. 5:11.] pour le nom du Mashiah, vous êtes bénis, parce que l'Esprit de gloire et d'Elohîm repose sur vous. Il est en effet blasphémé par eux, mais il est glorifié par vous.",
+          "notes": [
+            {
+              "word": "insultés",
+              "position": 13,
+              "note": "Mt. 5:11."
+            }
+          ]
+        },
+        {
+          "verse": "4:15",
+          "text": "En effet, qu'aucun de vous ne souffre comme meurtrier, ou voleur, ou malfaiteur ou comme se mêlant des affaires d'autrui,"
+        },
+        {
+          "verse": "4:16",
+          "text": "mais si c'est comme chrétien, qu'il n'en ait pas honte, mais qu'il glorifie Elohîm avec cette part."
+        },
+        {
+          "verse": "4:17",
+          "text": "Parce que c'est le temps de commencer le jugement à partir de la maison d'Elohîm. Mais si c'est d'abord à partir de nous, quelle sera la fin de ceux qui refusent de croire à l'Évangile d'Elohîm ?",
+          "textWithNotes": "Parce que c'est le temps de commencer le jugement à partir de la maison d'Elohîm[Le jugement commence par la maison d'Elohîm. Ez. 9:1-11.]. Mais si c'est d'abord à partir de nous, quelle sera la fin de ceux qui refusent de croire à l'Évangile d'Elohîm ?",
+          "notes": [
+            {
+              "word": "d'Elohîm",
+              "position": 72,
+              "note": "Le jugement commence par la maison d'Elohîm. Ez. 9:1-11."
+            }
+          ]
+        },
+        {
+          "verse": "4:18",
+          "text": "Et si le juste est sauvé avec difficulté, celui qui est impie et pécheur, où apparaîtra-t-il ?"
+        },
+        {
+          "verse": "4:19",
+          "text": "C'est pourquoi aussi, que ceux qui souffrent selon la volonté d'Elohîm, lui remettent leurs âmes, comme au Créateur fidèle, en faisant le bien."
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "verses": [
+        {
+          "verse": "5:1",
+          "text": "J'exhorte les anciens qui sont parmi vous, moi, ancien avec eux et témoin des souffrances du Mashiah et participant de la gloire qui est sur le point d'être révélée :"
+        },
+        {
+          "verse": "5:2",
+          "text": "paissez le troupeau d'Elohîm qui est avec vous, exerçant la surveillance non par contrainte, mais volontairement, non par empressement pour un gain, mais de bon cœur,"
+        },
+        {
+          "verse": "5:3",
+          "text": "non comme subjuguant des lots, mais en devenant des exemples du troupeau."
+        },
+        {
+          "verse": "5:4",
+          "text": "Et le Berger en chef ayant été manifesté, vous recevrez l'incorruptible couronne de gloire.",
+          "textWithNotes": "Et le Berger[Yéhoshoua (Jésus) est notre Souverain Pasteur. Voir Ps. 23 ; Jn. 10.] en chef ayant été manifesté, vous recevrez l'incorruptible[« Imputrescible », « couronne composée d'amarante, fleur qui ne se fane jamais, symbole de perpétuité et d'immortalité ».] couronne de gloire.",
+          "notes": [
+            {
+              "word": "Berger",
+              "position": 6,
+              "note": "Yéhoshoua (Jésus) est notre Souverain Pasteur. Voir Ps. 23 ; Jn. 10."
+            },
+            {
+              "word": "l'incorruptible",
+              "position": 56,
+              "note": "« Imputrescible », « couronne composée d'amarante, fleur qui ne se fane jamais, symbole de perpétuité et d'immortalité »."
+            }
+          ]
+        },
+        {
+          "verse": "5:5",
+          "text": "De même, vous qui êtes jeunes, soyez soumis aux anciens. Et vous soumettant tous les uns aux autres, revêtez-vous d'humilité, parce qu'Elohîm résiste aux orgueilleux, mais il donne grâce aux humbles.",
+          "textWithNotes": "De même, vous qui êtes jeunes, soyez soumis aux anciens. Et vous soumettant tous les uns aux autres[Ep. 5:21.], revêtez-vous[Le verbe grec « egkomboomai » signifie « lien ou bande par laquelle deux choses sont liées ensemble, se revêtir ou se ceindre ». À l'époque, les esclaves avaient une écharpe blanche attachée à la ceinture afin de les distinguer des hommes libres. Dans ce passage, Petros (Pierre) fait allusion à cet usage, pour montrer la soumission réciproque des chrétiens. C'est aussi une référence au très humble vêtement, espèce de tablier, que les esclaves devaient porter pour ne pas se salir pendant leur travail.] d'humilité, parce qu'Elohîm résiste aux orgueilleux, mais il donne grâce aux humbles.",
+          "notes": [
+            {
+              "word": "autres",
+              "position": 93,
+              "note": "Ep. 5:21."
+            },
+            {
+              "word": "revêtez-vous",
+              "position": 101,
+              "note": "Le verbe grec « egkomboomai » signifie « lien ou bande par laquelle deux choses sont liées ensemble, se revêtir ou se ceindre ». À l'époque, les esclaves avaient une écharpe blanche attachée à la ceinture afin de les distinguer des hommes libres. Dans ce passage, Petros (Pierre) fait allusion à cet usage, pour montrer la soumission réciproque des chrétiens. C'est aussi une référence au très humble vêtement, espèce de tablier, que les esclaves devaient porter pour ne pas se salir pendant leur travail."
+            }
+          ]
+        },
+        {
+          "verse": "5:6",
+          "text": "Humiliez-vous donc sous la puissante main d'Elohîm, afin qu'il vous élève au temps convenable."
+        },
+        {
+          "verse": "5:7",
+          "text": "Jetez sur lui tout votre souci puisque lui-même prend soin de vous."
+        },
+        {
+          "verse": "5:8",
+          "text": "Soyez sobres, veillez ! Parce que le diable, votre adversaire, marche comme un lion rugissant, cherchant qui il dévorera."
+        },
+        {
+          "verse": "5:9",
+          "text": "Résistez-lui, étant fermes dans la foi, sachant que les mêmes souffrances sont imposées à votre fraternité dans le monde.",
+          "textWithNotes": "Résistez-lui, étant fermes dans la foi, sachant que les mêmes souffrances sont imposées à votre fraternité[La famille des frères.] dans le monde.",
+          "notes": [
+            {
+              "word": "fraternité",
+              "position": 96,
+              "note": "La famille des frères."
+            }
+          ]
+        },
+        {
+          "verse": "5:10",
+          "text": "Mais l'Elohîm de toute grâce, qui nous a appelés à sa gloire éternelle en Mashiah Yéhoshoua, ayant souffert un peu de temps, vous équipera lui-même, vous affermira, vous fortifiera, vous rendra stables !",
+          "textWithNotes": "Mais l'Elohîm de toute grâce, qui nous a appelés à sa gloire éternelle en Mashiah Yéhoshoua, ayant souffert un peu de temps, vous équipera[« Réparer », « ajuster ». Voir Mt. 4:21.] lui-même, vous affermira, vous fortifiera, vous rendra stables !",
+          "notes": [
+            {
+              "word": "équipera",
+              "position": 130,
+              "note": "« Réparer », « ajuster ». Voir Mt. 4:21."
+            }
+          ]
+        },
+        {
+          "verse": "5:11",
+          "text": "À lui la gloire et la force souveraine, pour les âges des âges ! Amen !"
+        },
+        {
+          "verse": "5:12",
+          "text": "C'est par le moyen de Silvanos que je considère comme un frère fidèle, que je vous ai écrit en peu de mots, exhortant et rendant témoignage que cette grâce d'Elohîm dans laquelle vous êtes établis est la vraie."
+        },
+        {
+          "verse": "5:13",
+          "text": "Celle qui est à Babel, élue avec vous, vous salue, ainsi que Markos mon fils.",
+          "textWithNotes": "Celle qui est à Babel[Le nom « Babel » signifie « la porte de El » ou « confusion par le mélange ». Généralement traduit par Babylone.], élue avec vous, vous salue, ainsi que Markos mon fils.",
+          "notes": [
+            {
+              "word": "Babel",
+              "position": 16,
+              "note": "Le nom « Babel » signifie « la porte de El » ou « confusion par le mélange ». Généralement traduit par Babylone."
+            }
+          ]
+        },
+        {
+          "verse": "5:14",
+          "text": "Saluez-vous les uns les autres par un baiser d'amour. Shalôm à vous tous qui êtes dans le Mashiah Yéhoshoua ! Amen !"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Application Bible — Maquette v4 · En-tête du livre & lecture annotée</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0f1d; --gold:#d3a94f; --gold2:#f0d089;
+  --line:rgba(211,169,79,.18); --line2:rgba(211,169,79,.34);
+  --mut:#93a0b8; --ink:#e9eef8; --disp:'Cormorant Garamond',serif; --ui:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;overflow-x:hidden}
+::selection{background:rgba(211,169,79,.35)}
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(1200px 800px at 78% -10%,rgba(46,74,140,.28),transparent 60%),radial-gradient(1000px 700px at -12% 112%,rgba(122,84,30,.16),transparent 60%)}
+.sky::before{content:"";position:absolute;inset:0;background-image:
+  radial-gradient(1.4px 1.4px at 12% 18%,rgba(242,234,208,.7),transparent 60%),
+  radial-gradient(1.2px 1.2px at 34% 8%,rgba(242,234,208,.5),transparent 60%),
+  radial-gradient(1.6px 1.6px at 58% 22%,rgba(242,234,208,.6),transparent 60%),
+  radial-gradient(1.3px 1.3px at 91% 34%,rgba(242,234,208,.5),transparent 60%),
+  radial-gradient(1.5px 1.5px at 47% 60%,rgba(242,234,208,.45),transparent 60%),
+  radial-gradient(1.2px 1.2px at 8% 74%,rgba(242,234,208,.5),transparent 60%);
+  animation:twk 9s ease-in-out infinite alternate}
+@keyframes twk{from{opacity:.35}to{opacity:.9}}
+body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.045;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.55'/></svg>")}
+main,header.mast,footer,.topbar{position:relative;z-index:2}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;gap:26px;padding:12px 32px;background:rgba(10,15,29,.92);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;white-space:nowrap}
+.brand svg{color:var(--gold)}
+.brand small{font-weight:600;color:var(--mut)}
+.vbadge{font-size:10px;font-weight:800;letter-spacing:.1em;background:linear-gradient(120deg,var(--gold2),var(--gold));color:#241a04;border-radius:99px;padding:3px 9px}
+.tnav{display:flex;gap:4px;margin-left:auto}
+.tnav a{color:var(--mut);text-decoration:none;font-size:12px;font-weight:700;padding:6px 9px;border-radius:8px;transition:.2s}
+.tnav a:hover{color:var(--gold2);background:rgba(211,169,79,.1)}
+
+.mast{max-width:1240px;margin:0 auto;padding:126px 32px 50px}
+.overline{display:flex;align-items:center;gap:14px;font-size:12px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.overline::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line2),transparent)}
+.mast h1{font-family:var(--disp);font-weight:600;font-size:clamp(44px,5.4vw,74px);line-height:1.02;margin:16px 0 14px}
+.mast h1 em{font-style:italic;color:var(--gold2)}
+.tagline{font-size:16.5px;color:var(--mut);max-width:820px}
+.tagline b{color:#f2ead8}
+.changelog{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:24px}
+.cl{font-size:13px;color:var(--mut);border:1px solid var(--line);border-radius:99px;padding:9px 18px}
+.cl b{color:#f2ead8;margin-right:6px}
+.cl.gold{background:linear-gradient(120deg,rgba(211,169,79,.16),rgba(211,169,79,.05));border-color:var(--line2);color:#d5dbe8}
+.cl.gold b{color:var(--gold2)}
+.changelog .arr{color:var(--gold);font-size:18px}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.sec{border-top:1px solid var(--line);padding:86px 0}
+.grid{display:grid;grid-template-columns:minmax(300px,450px) auto;gap:66px;align-items:center;justify-content:center}
+.num{display:flex;align-items:center;gap:14px;color:var(--gold);margin-bottom:16px}
+.num b{font-family:var(--disp);font-style:italic;font-weight:500;font-size:54px;line-height:1;color:var(--gold2)}
+.sec-title{font-family:var(--disp);font-weight:600;font-size:clamp(28px,3.2vw,42px);line-height:1.12;margin-bottom:14px}
+.lead{color:#c3cbdc;font-size:15.5px;max-width:480px}
+.lead code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;color:var(--gold2);background:rgba(211,169,79,.1);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+.gestures{list-style:none;margin-top:24px;display:grid;gap:11px}
+.gestures li{position:relative;padding-left:26px;font-size:14.5px;color:#d5dbe8}
+.gestures li::before{content:"☞";position:absolute;left:0;top:1px;color:var(--gold);font-size:13px}
+.gestures b{color:#fff}
+.gestures code,.rule2 code{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--gold2);background:rgba(211,169,79,.1);border:1px solid var(--line);border-radius:6px;padding:1px 5px}
+.n2{font-size:9.5px;font-weight:800;letter-spacing:.08em;color:#241a04;background:linear-gradient(120deg,var(--gold2),var(--gold));border-radius:99px;padding:2px 8px;margin-left:6px;vertical-align:1px}
+
+/* ---------- téléphone ---------- */
+.phone{position:relative;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.phone:hover{transform:translateY(-8px)}
+.phone::before{content:"";position:absolute;inset:-50px -70px;background:radial-gradient(50% 55% at 50% 42%,rgba(211,169,79,.13),transparent 70%)}
+.frame{position:relative;width:370px;background:#04060b;border:1px solid #2a3040;border-radius:58px;padding:12px;box-shadow:0 50px 100px rgba(0,0,0,.6)}
+.screen{position:relative;width:346px;height:752px;border-radius:47px;overflow:hidden;font-family:var(--ui);user-select:none;-webkit-user-select:none;display:flex;flex-direction:column}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:106px;height:27px;background:#04060b;border-radius:20px;z-index:70}
+.homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:118px;height:5px;border-radius:3px;background:rgba(200,200,210,.4);z-index:70}
+.sbar{display:flex;justify-content:space-between;align-items:center;padding:15px 26px 0;font-size:13px;font-weight:800;position:relative;z-index:8;color:#f0e6cc}
+.th-vitrail{--tx:#f4ecd7;--tx2:#d8c79e;--hd:#eec76d;--num:#d9a441;--acc:#eec76d;--panel:rgba(19,13,7,.62);--panel2:rgba(238,199,109,.18);--stripbg:rgba(19,13,7,.55);--striptx:#d8c79e;color:var(--tx);
+  background:linear-gradient(160deg,rgba(10,7,3,.3),rgba(10,7,3,.62)),conic-gradient(from 210deg at 55% 35%,#7d1f2d,#1d3f8f 22%,#d9a441 40%,#1f5c46 58%,#5b2a86 76%,#7d1f2d)}
+.strip{display:flex;align-items:center;gap:6px;padding:12px 10px 6px;overflow:hidden}
+.stab{display:flex;align-items:center;gap:6px;max-width:112px;padding:7px 9px;border-radius:11px 11px 4px 4px;font-size:10.5px;font-weight:800;white-space:nowrap;cursor:pointer;transition:.2s;background:var(--stripbg);color:var(--striptx);border:1px solid var(--panel2);flex:none}
+.stab.on{background:var(--panel);color:var(--tx);border-color:var(--acc)}
+.stab i{font-style:normal;font-size:9px;opacity:.65}
+.c-ic{color:var(--gold);font-weight:800;font-size:11px}
+.scount{flex:none;min-width:29px;height:29px;border-radius:9px;display:grid;place-items:center;background:var(--gold);color:#241a04;font-size:11.5px;font-weight:800;cursor:pointer;padding:0 7px;margin-left:auto;box-shadow:0 4px 12px rgba(211,169,79,.4)}
+.refbar{display:flex;align-items:center;gap:10px;margin:4px 14px 0;padding:11px 14px;background:var(--panel);border-radius:14px;border:1px solid var(--panel2)}
+.refbar .bk{font-family:var(--disp);font-weight:700;font-size:17px;color:var(--hd);flex:1;white-space:nowrap;overflow:hidden}
+.refbar .bk small{display:block;font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tx2)}
+.tchip{font-size:11px;font-weight:800;color:var(--tx);background:var(--panel2);border:1px solid var(--panel2);border-radius:99px;padding:6px 11px;flex:none}
+
+/* bascule */
+.modeseg{display:flex;margin:10px 14px 0;background:var(--panel);border:1px solid var(--panel2);border-radius:99px;padding:4px;gap:4px}
+.modeseg button{flex:1;border:0;background:transparent;color:var(--tx2);font-family:var(--ui);font-size:11.5px;font-weight:800;padding:9px 0;border-radius:99px;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center;gap:7px}
+.modeseg button:hover{color:var(--tx)}
+.modeseg button.on{background:linear-gradient(120deg,var(--gold2),var(--gold));color:#241a04;box-shadow:0 6px 14px rgba(211,169,79,.35)}
+.nbadge{font-size:9.5px;font-weight:800;background:rgba(0,0,0,.2);border-radius:99px;padding:2px 7px}
+.modeseg button.on .nbadge{background:rgba(36,26,4,.2)}
+.notestyle{display:none;align-items:center;gap:8px;margin:9px 16px 0;font-size:10.5px;font-weight:800;letter-spacing:.06em;color:var(--tx2)}
+.notestyle.show{display:flex}
+.nsbtn{font-family:var(--ui);font-size:10.5px;font-weight:800;color:var(--tx2);background:var(--panel);border:1px solid var(--panel2);padding:6px 12px;border-radius:99px;cursor:pointer;transition:.2s}
+.nsbtn:hover{color:var(--tx)}
+.nsbtn.on{color:#241a04;background:var(--gold);border-color:var(--gold)}
+
+.vbody{flex:1;overflow-y:auto;scrollbar-width:none;min-height:0}
+.vbody::-webkit-scrollbar{display:none}
+.flow{padding:12px 20px 26px}
+
+/* ══ en-tête du livre ══ */
+.bhead{background:var(--panel);border:1px solid var(--panel2);border-radius:20px;padding:20px 18px 18px;position:relative;transition:.3s}
+.b-over{font-size:9.5px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--tx2)}
+.b-over b{color:var(--acc)}
+.b-title{font-family:var(--disp);font-size:35px;font-weight:700;color:var(--hd);line-height:1.05;margin:8px 0 0}
+.b-title span{font-style:italic;font-weight:500;font-size:.6em;color:var(--tx)}
+.b-toggle{position:absolute;top:16px;right:14px;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:var(--panel2);border:1px solid var(--panel2);color:var(--tx2);cursor:pointer;font-size:12px;transition:.25s;font-family:var(--ui)}
+.b-toggle:hover{color:var(--hd)}
+.bhead.min .b-extra{display:none}
+.bhead.min .b-toggle span{transform:rotate(180deg)}
+.b-toggle span{display:block;transition:.3s}
+.b-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.bm{background:var(--panel2);border-radius:12px;padding:8px 11px;transition:.2s}
+.bm:hover{transform:translateY(-1px)}
+.bm b{display:block;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)}
+.bm span{font-size:11.5px;font-weight:700;color:var(--tx);line-height:1.35;display:block;margin-top:2px}
+.b-rule{display:flex;align-items:center;gap:10px;color:var(--acc);margin:16px 0 12px;font-size:12px}
+.b-rule::before,.b-rule::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--panel2))}
+.b-rule::after{background:linear-gradient(90deg,var(--panel2),transparent)}
+.b-intro-lbl{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--acc);font-weight:800;margin-bottom:8px}
+.b-intro p{font-family:var(--disp);font-size:14.5px;line-height:1.55;color:var(--tx);opacity:.93;margin-bottom:.7em}
+.b-intro p:first-child::first-letter{font-size:44px;line-height:.8;float:left;color:var(--hd);padding:5px 8px 0 0;font-weight:600}
+
+/* chapitre */
+.chap{margin:24px 4px 4px;text-align:center}
+.chap b{font-family:var(--disp);font-size:27px;font-weight:700;color:var(--hd)}
+.chap small{display:block;font-size:9.5px;color:var(--tx2);letter-spacing:.18em;text-transform:uppercase;margin-top:3px;font-weight:800}
+.chap .b-rule{margin:10px 30px 0}
+
+/* sections du récit */
+.sect{display:flex;align-items:center;gap:10px;margin:20px 2px 10px}
+.sect::before,.sect::after{content:"";height:1px;width:26px;background:var(--panel2);flex:none}
+.sect span{flex:1;font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;text-align:center;color:var(--hd)}
+
+/* versets */
+.verses p{font-family:var(--disp);font-size:19px;line-height:1.62;margin-bottom:.85em}
+.vn{font-family:var(--ui);font-size:.58em;font-weight:800;color:var(--num);vertical-align:super;margin-right:6px}
+.aword{border-bottom:1.5px dotted var(--acc);cursor:pointer;transition:.2s}
+.aword:hover{color:var(--hd)}
+.aword sup{color:var(--acc);font-family:var(--ui);font-size:.55em;font-weight:800;margin-left:1px}
+.inote{font-family:var(--ui);font-size:11.5px;line-height:1.55;color:var(--tx);background:var(--panel2);border-radius:8px;padding:2px 8px;margin:0 3px;opacity:.96;animation:nin .4s both}
+.inote::before{content:"✦ ";color:var(--acc)}
+.vnotes{margin:2px 0 14px}
+.vnote{background:var(--panel);border:1px solid var(--panel2);border-left:3px solid var(--acc);border-radius:12px;padding:10px 13px;margin-bottom:8px;animation:nin .45s both}
+.vnote header{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--hd);margin-bottom:4px;display:flex;gap:7px;align-items:baseline;flex-wrap:wrap}
+.vnote header .w{color:var(--tx2);text-transform:none;letter-spacing:0;font-weight:700;font-size:10.5px}
+.vnote p{font-family:var(--ui);font-size:12px;line-height:1.55;color:var(--tx);opacity:.93;margin:0}
+@keyframes nin{from{opacity:0;transform:translateY(8px)}}
+
+.toast{position:absolute;left:50%;bottom:66px;transform:translateX(-50%) translateY(20px);background:#f2ead8;color:#241a04;font-size:11.5px;font-weight:800;padding:9px 16px;border-radius:99px;opacity:0;transition:.3s;z-index:80;pointer-events:none;box-shadow:0 10px 24px rgba(0,0,0,.45);white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%)}
+.cap{margin-top:20px;text-align:center;font-size:12.5px;color:var(--mut);max-width:390px}
+.cap b{color:var(--gold2)}
+
+/* ---------- anatomie ---------- */
+.ana{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px;align-items:start}
+.ana-card{border:1px solid var(--line);border-radius:20px;padding:26px;background:linear-gradient(165deg,rgba(255,255,255,.035),rgba(255,255,255,.01));transition:.3s}
+.ana-card:hover{border-color:var(--line2);transform:translateY(-4px)}
+.ana-card h5{font-size:10.5px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.stage{position:relative;border-radius:16px;padding:24px 20px;margin-bottom:18px;border:1px solid rgba(255,255,255,.06);
+  background:linear-gradient(160deg,rgba(10,7,3,.35),rgba(10,7,3,.66)),conic-gradient(from 210deg at 55% 35%,#7d1f2d,#1d3f8f 22%,#d9a441 40%,#1f5c46 58%,#5b2a86 76%,#7d1f2d);
+  color:#f4ecd7}
+.mk{position:absolute;width:20px;height:20px;border-radius:50%;background:var(--gold);color:#241a04;font-size:11px;font-weight:800;display:grid;place-items:center;box-shadow:0 3px 8px rgba(0,0,0,.45);z-index:6;font-family:var(--ui)}
+.legend{list-style:none;display:grid;gap:9px}
+.legend li{font-size:13px;color:#c3cbdc;display:flex;gap:10px;align-items:baseline}
+.legend li b{flex:none;width:18px;height:18px;border-radius:50%;background:rgba(211,169,79,.16);border:1px solid var(--line2);color:var(--gold2);font-size:10.5px;display:grid;place-items:center;transform:translateY(3px)}
+.legend code{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;color:var(--gold2)}
+.st-over{font-size:9px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:#d8c79e}
+.st-title{font-family:var(--disp);font-size:30px;font-weight:700;color:#eec76d;line-height:1.05;margin:7px 0 0}
+.st-title span{font-style:italic;font-weight:500;font-size:.6em;color:#f4ecd7}
+.st-meta{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:13px}
+.stm{background:rgba(238,199,109,.14);border-radius:11px;padding:7px 10px}
+.stm b{display:block;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#eec76d}
+.stm span{font-size:10.5px;font-weight:700;line-height:1.3;display:block;margin-top:1px}
+.st-rule{display:flex;align-items:center;gap:9px;color:#eec76d;margin:14px 0 10px;font-size:11px}
+.st-rule::before,.st-rule::after{content:"";height:1px;flex:1;background:rgba(238,199,109,.25)}
+.st-intro{font-family:var(--disp);font-size:13px;line-height:1.5;opacity:.92;font-style:italic}
+.st-sect{display:flex;align-items:center;gap:9px;margin:16px 0 10px}
+.st-sect::before,.st-sect::after{content:"";height:1px;width:22px;background:rgba(238,199,109,.25)}
+.st-sect span{flex:1;font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;text-align:center;color:#eec76d}
+.st-v{font-family:var(--disp);font-size:16.5px;line-height:1.55}
+.st-v .vn{font-family:var(--ui);font-size:.58em;font-weight:800;color:#d9a441;vertical-align:super;margin-right:6px}
+.st-v .aword{border-bottom:1.5px dotted #eec76d}
+.st-v .aword sup{color:#eec76d;font-family:var(--ui);font-size:.55em;font-weight:800}
+.st-inote{font-family:var(--ui);font-size:10.5px;line-height:1.5;background:rgba(238,199,109,.16);border-radius:7px;padding:2px 7px;margin:0 3px}
+.st-inote::before{content:"✦ ";color:#eec76d}
+.st-card{background:rgba(19,13,7,.66);border:1px solid rgba(238,199,109,.2);border-left:3px solid #eec76d;border-radius:11px;padding:10px 12px;margin-top:12px}
+.st-card header{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#eec76d;margin-bottom:4px}
+.st-card p{font-family:var(--ui);font-size:11px;line-height:1.5;opacity:.92}
+
+/* ---------- mapping JSON ════════ */
+.maprows{margin-top:36px;max-width:1000px}
+.maprow{display:flex;gap:18px;align-items:baseline;padding:15px 4px;border-bottom:1px dashed rgba(211,169,79,.16);transition:.2s}
+.maprow:hover{background:rgba(211,169,79,.04);padding-left:12px}
+.maprow .k{flex:none;min-width:330px;font-family:ui-monospace,Consolas,monospace;font-size:12.5px;color:var(--gold2)}
+.maprow .k small{display:block;font-family:var(--ui);font-size:10px;color:var(--mut);letter-spacing:.06em}
+.maprow .v{font-size:13.5px;color:#c3cbdc}
+.maprow .v b{color:#f2ead8}
+.callout{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line2);border-radius:18px;padding:22px 26px;margin-top:30px;background:linear-gradient(120deg,rgba(211,169,79,.1),rgba(211,169,79,.02));max-width:1000px}
+.callout .ic{flex:none;width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(140deg,var(--gold2),var(--gold));color:#241a04;font-size:20px}
+.callout p{font-size:13.5px;color:#d5dbe8}
+.callout b{color:#fff}
+.callout code{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--gold2)}
+
+.foot{border-top:1px solid var(--line);padding:54px 0}
+.credit{text-align:center;font-size:12px;color:var(--mut);letter-spacing:.06em}
+.credit b{color:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:1080px){
+  .grid{grid-template-columns:1fr;gap:44px;justify-items:center}
+  .ana{grid-template-columns:1fr}
+  .maprow{flex-direction:column;gap:4px}
+  .maprow .k{min-width:0}
+  .tnav{display:none}
+}
+@media(max-width:480px){
+  .frame{width:calc(100vw - 40px);max-width:370px}
+  .screen{width:100%;height:740px}
+  .wrap{padding:0 20px}
+  .mast{padding:104px 20px 44px}
+}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+
+<nav class="topbar">
+  <div class="brand">
+    <svg width="16" height="22" viewBox="0 0 24 32" fill="none"><path d="M4 30V14a8 8 0 0 1 16 0v16" stroke="currentColor" stroke-width="2"/><path d="M2 30h20" stroke="currentColor" stroke-width="2"/></svg>
+    Application Bible <small>· Maquette — Lecture</small> <span class="vbadge">v4</span>
+  </div>
+  <div class="tnav">
+    <a href="#demo">Démo interactive</a><a href="#anatomie">Anatomie</a><a href="#mapping">JSON ↔ UI</a>
+  </div>
+</nav>
+
+<header class="mast">
+  <div class="overline">Maquette UI · v4 — alimentée par 01-Genese.json · traduction Victor</div>
+  <h1>L'ouverture <em>du livre</em></h1>
+  <p class="tagline">La fenêtre de lecture est désormais habillée par vos vraies données : <b>nom du livre</b> (« Bereshit (Genèse) »), <b>métadonnées</b> (signification, auteur, thème, datation) et <b>introduction</b> en préambule du chapitre 1 — puis le récit avec ses <b>sections</b> et ses <b>notes ancrées mot par mot</b>.</p>
+  <div class="changelog">
+    <div class="cl"><b>v3</b> bascule Texte / Texte + notes</div>
+    <span class="arr">→</span>
+    <div class="cl gold"><b>v4</b> en-tête du livre · métadonnées · introduction · sections · ancrage des notes par « position »</div>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════ DÉMO ═══════ -->
+<section class="sec" id="demo">
+  <div class="wrap grid">
+    <div class="col-txt reveal">
+      <div class="num"><b>01</b></div>
+      <h2 class="sec-title">Le livre s'ouvre, puis le texte</h2>
+      <p class="lead">Tout est rendu depuis votre fichier : <code>book</code> + <code>abbreviation</code>, <code>metadata</code>, <code>introduction</code>, puis <code>chapters[].verses[]</code> avec les champs <code>section</code>, <code>text</code> et <code>notes[]</code> (<code>word</code> + <code>position</code>).</p>
+      <ul class="gestures">
+        <li><b>En-tête du livre</b> au début du chapitre 1 : titre, abréviation « Ge. », les 4 métadonnées en grille, introduction en préambule avec lettrine <span class="n2">NOUVEAU v4</span></li>
+        <li><b>Replier l'en-tête</b> avec le chevron ⟰ pour aller droit au texte (pratique en relecture)</li>
+        <li><b>Sections du récit</b> (<code>section</code>) en intertitres dorés : « Jour "un" : Apparition de la lumière », « Second jour… », etc. <span class="n2">NOUVEAU v4</span></li>
+        <li><b>Bascule « Texte seul / Texte + notes »</b> — les 16 notes du chapitre 1, ancrées sur leur mot grâce à <code>position</code> <span class="n2">NOUVEAU v4</span></li>
+        <li><b>Deux dispositions de notes</b> : « À la suite » (inline, comme votre <code>textWithNotes</code>) ou « Sous le verset » (cartes numérotées)</li>
+        <li>En mode cartes, les exposants <b>¹ ² ³</b> renvoient aux cartes sous le verset</li>
+      </ul>
+    </div>
+    <div class="col-phone reveal">
+      <div class="phone"><div class="frame"><div class="screen th-vitrail">
+        <div class="island"></div>
+        <div class="sbar"><span>09:41</span><span><svg width="47" height="12" viewBox="0 0 47 12" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".8"/><rect x="4" y="5.4" width="2.6" height="5.6" rx=".8"/><rect x="8" y="3.6" width="2.6" height="7.4" rx=".8"/><rect x="12" y="1.8" width="2.6" height="9.2" rx=".8"/><path d="M19.5 8.4a2.4 2.4 0 0 1 3.4 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17.6 6.3a5.2 5.2 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="21.2" cy="10.2" r="1.2"/><rect x="29" y="2.2" width="15" height="8" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30.6" y="3.8" width="9" height="4.8" rx="1.2"/><rect x="45" y="4.6" width="1.8" height="3.2" rx=".9"/></svg></span></div>
+
+        <div class="strip">
+          <div class="stab on"><span class="c-ic">❧</span><span>Ge. 1</span><i>✕</i></div>
+          <div class="stab"><span class="c-ic">❧</span><span>Ésaïe 40</span><i>✕</i></div>
+          <div class="stab"><span class="c-ic">Aa</span><span>Dico</span><i>✕</i></div>
+          <div class="scount">3</div>
+        </div>
+        <div class="refbar">
+          <span class="bk">Genèse · chapitre 1<small>Bereshit · Traduction Victor</small></span>
+          <span class="tchip">Victor ▾</span>
+        </div>
+
+        <div class="modeseg" id="modeSeg">
+          <button class="on" data-mode="text">Aa&nbsp; Texte seul</button>
+          <button data-mode="notes">✦&nbsp; Texte + notes <span class="nbadge" id="nCount"></span></button>
+        </div>
+        <div class="notestyle" id="noteStyle">
+          Disposition :
+          <button class="nsbtn on" data-style="inline">À la suite</button>
+          <button class="nsbtn" data-style="cards">Sous le verset</button>
+        </div>
+
+        <div class="vbody" id="vbody"><div class="flow" id="flow"></div></div>
+        <div class="toast" id="toast"></div>
+        <div class="homebar"></div>
+      </div></div></div>
+      <p class="cap">Données réelles : <b>chapitre 1 complet</b> de votre fichier (31 versets, 8 sections, 16 notes). L'introduction ne s'affiche qu'au <b>premier chapitre</b> du livre.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ANATOMIE ═══════ -->
+<section class="sec" id="anatomie">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="num"><b>02</b></div>
+      <h2 class="sec-title">Anatomie</h2>
+      <p class="lead">L'en-tête du livre et l'annotation d'un mot, tels qu'ils seront développés.</p>
+    </div>
+    <div class="ana">
+      <div class="ana-card reveal">
+        <h5>L'en-tête du livre — 1<sup>er</sup> chapitre uniquement</h5>
+        <div class="stage">
+          <div class="st-over">Livre 1 · <b>Ge.</b> · Traduction Victor</div>
+          <div class="st-title">Bereshit <span>(Genèse)</span></div>
+          <div class="st-meta">
+            <div class="stm"><b>Signification</b><span>Au commencement</span></div>
+            <div class="stm"><b>Auteur</b><span>Probablement Moshé (Moïse)</span></div>
+            <div class="stm"><b>Thème</b><span>La création de l'être humain</span></div>
+            <div class="stm"><b>Datation</b><span>Env. 1450 – 1410 av. J.-C.</span></div>
+          </div>
+          <div class="st-rule">✦</div>
+          <div class="st-intro">Premier livre du Tanakh, Bereshit est le livre du commencement…</div>
+          <span class="mk" style="top:14px;left:14px">1</span>
+          <span class="mk" style="top:44px;left:14px">2</span>
+          <span class="mk" style="top:104px;right:14px">3</span>
+          <span class="mk" style="bottom:52px;left:14px">4</span>
+          <span class="mk" style="bottom:14px;left:14px">5</span>
+        </div>
+        <ul class="legend">
+          <li><b>1</b>Surligne : numéro du livre, abréviation <code>abbreviation</code>, traduction</li>
+          <li><b>2</b>Titre : <code>book</code> — « Bereshit » en grand, « (Genèse) » en italique</li>
+          <li><b>3</b>Les 4 métadonnées <code>metadata</code> en grille 2 × 2</li>
+          <li><b>4</b>Cul-de-lampe doré avant le préambule</li>
+          <li><b>5</b><code>introduction</code> avec lettrine — repliable via le chevron ⟰</li>
+        </ul>
+      </div>
+      <div class="ana-card reveal">
+        <h5>L'annotation d'un mot</h5>
+        <div class="stage">
+          <div class="st-sect"><span>Jour « un » : Apparition de la lumière</span></div>
+          <div class="st-v"><span class="vn">3</span>Elohîm avait dit : La lumière <span class="aword">apparaîtra<sup>1</sup></span><span class="st-inote">Es. 9:1 ; Mt. 4:16 ; Jn. 1:1-5. Cette lumière n'est autre que YHWH lui-même…</span> ! Et la lumière apparut.</div>
+          <div class="st-card">
+            <header>✦ Note 1 — sur « apparaîtra »</header>
+            <p>Es. 9:1 ; Mt. 4:16 ; Jn. 1:1-5. Cette lumière n'est autre que YHWH lui-même qui va s'incarner…</p>
+          </div>
+          <span class="mk" style="top:56px;right:96px">1</span>
+          <span class="mk" style="top:96px;left:14px">2</span>
+          <span class="mk" style="bottom:44px;left:14px">3</span>
+          <span class="mk" style="top:14px;right:14px">4</span>
+        </div>
+        <ul class="legend">
+          <li><b>1</b>Le mot de <code>notes[].word</code>, souligné pointillé, avec exposant</li>
+          <li><b>2</b>Disposition « À la suite » : la note suit le mot, comme votre <code>textWithNotes</code></li>
+          <li><b>3</b>Disposition « Sous le verset » : carte numérotée, lisible même pour les notes longues</li>
+          <li><b>4</b>Intertitre <code>section</code> — ancrage du mot calculé avec <code>position</code></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ MAPPING ═══════ -->
+<section class="sec" id="mapping">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="num"><b>03</b></div>
+      <h2 class="sec-title">Correspondance JSON ↔ interface</h2>
+      <p class="lead">Chaque champ de votre fichier a sa place exacte dans la fenêtre de lecture.</p>
+    </div>
+    <div class="maprows reveal">
+      <div class="maprow"><span class="k">book &nbsp;+&nbsp; abbreviation<small>chaînes</small></span><span class="v"><b>Titre du livre</b> en tête du chapitre 1 + badge « Ge. » dans la surligne et la barre de référence.</span></div>
+      <div class="maprow"><span class="k">metadata.signification / auteur / theme / date<small>objet</small></span><span class="v"><b>Grille 2 × 2</b> sous le titre : Signification · Auteur · Thème · Datation.</span></div>
+      <div class="maprow"><span class="k">introduction<small>paragraphes \n\n</small></span><span class="v"><b>Préambule</b> avec lettrine, après le cul-de-lampe — <b>premier chapitre uniquement</b>, repliable.</span></div>
+      <div class="maprow"><span class="k">chapters[].verses[].section<small>optionnel</small></span><span class="v"><b>Intertitre doré</b> placé avant le verset qui le porte.</span></div>
+      <div class="maprow"><span class="k">verses[].text<small>chaîne</small></span><span class="v"><b>Texte du verset</b> en Cormorant Garamond, numéro en exposant doré.</span></div>
+      <div class="maprow"><span class="k">notes[].word &nbsp;+&nbsp; notes[].position<small>ancrage</small></span><span class="v"><b>Marqueur ✦</b> : le mot est repéré à l'index caractère <b>position</b> (avec repli sur une recherche du mot si l'index a bougé).</span></div>
+      <div class="maprow"><span class="k">notes[].note<small>contenu</small></span><span class="v"><b>Note</b> : insérée à la suite du mot, ou en carte sous le verset, au choix de l'utilisateur.</span></div>
+      <div class="maprow"><span class="k">textWithNotes<small>dérivé</small></span><span class="v"><b>Facultatif pour le rendu</b> : l'application régénère cet affichage à partir de <b>text</b> + <b>notes[]</b> — aucun dédoublage à maintenir.</span></div>
+    </div>
+    <div class="callout reveal">
+      <span class="ic">⚠</span>
+      <p><b>Petits détails repérés dans le fichier, à traiter à l'import :</b> les clés portent une espace finale (<code>"book "</code>, <code>"verse "</code>, <code>"notes "</code>…) → un simple <code>trim()</code> à la lecture suffit ; quelques coupures de ligne se sont glissées dans l'introduction (« pa r », « rév éla »…) → normalisées dans cette maquette ; certains versets n'ont pas de <code>notes</code> → simplement aucun marqueur. Rien de bloquant.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="credit">Application Bible · Maquette <b>v4 — En-tête du livre & lecture annotée</b> · données réelles 01-Genese.json · mercredi 5 août 2026</p>
+  </div>
+</footer>
+
+<script>
+/* ═══════════ DONNÉES RÉELLES — 01-Genese.json (nettoyées) ═══════════ */
+const BOOK={
+  book:"Bereshit (Genèse)", abbreviation:"Ge.",
+  metadata:{signification:"Au commencement",auteur:"Probablement Moshé (Moïse)",theme:"La création de l'être humain",date:"Env. 1450 – 1410 av. J.-C."},
+  introduction:[
+    "Premier livre du Tanakh, Bereshit est le livre du commencement. Il relate l'histoire des origines de l'humanité, la création des cieux, de la Terre et de tout ce qui s'y trouve par YHWH, l'Elohîm créateur.",
+    "Il y est décrit le péché de l'être humain et sa séparation d'avec Elohîm, ainsi que la décadence de l'univers qui en résulta. En réponse à la méchanceté du cœur de l'humain, YHWH exerça sa justice en détruisant la Terre par le déluge. Dans sa prescience, YHWH avait cependant résolu de se réconcilier avec l'être humain. Il se révéla donc comme Sauveur en accordant sa grâce à Noah (Noé) et à sa famille. Après cet événement, les êtres humains se tournèrent une fois de plus vers le mal en tentant Elohîm par la construction de la tour de Babel, œuvre à l'origine de la dispersion des nations.",
+    "Ce livre présente aussi l'élection d'Abraham, originaire d'Our en Chaldée (Mésopotamie antique, dans l'actuel Irak), qui reçut la promesse divine de devenir une grande nation, en qui toutes les familles de la Terre seraient bénies. Le récit se poursuit par l'histoire de ses descendants : Yitzhak (Isaac), Yaacov (Jacob) et ses douze fils, qui formèrent par la suite la nation d'Israël."
+  ],
+  chapter1:{
+    chapter:1,
+    verses:[
+      {v:"1:1",section:"La Terre devint tohu et bohu",text:"Au commencement Elohîm créa les cieux et la Terre.",notes:[{word:"commencement",position:3,note:"Bereshit bara elohîm èth hashamaïm vehèth ah aretz. Dans ce passage le mot « èth » est composé de la première et la dernière lettre de l'alphabet hébraïque « aleph » et « tav ». Aleph Tav apparaît plus de 7 000 fois dans le Tanakh. Nous notons la présence d'Aleph Tav : au commencement (Ge. 1:1), avec la Lumière (Ge. 1:4), Adam (Ge. 4:1), Hanowk (Hénoc, Ge. 5:22), Yossef (Joseph, Ge. 37:23), Moshé (Moïse, Ex. 18:23), Aaron et le pectoral (Ex. 28:28-30), les Hébreux (No. 14:22), Shema Israël (De. 6:4). Aleph Tav est le symbole du caractère hébreu considéré comme la signature du Mashiah (Messie) : Et les Juifs regarderont vers Aleph Tav, lequel ils ont percé (Za. 12:10)."}]},
+      {v:"1:2",text:"La Terre devint tohu et bohu. La ténèbre était sur les faces de l'abîme et l'Esprit d'Elohîm planait sur les faces des eaux.",notes:[
+        {word:"devint",position:9,note:"Voir Es. 45:18."},
+        {word:"bohu",position:24,note:"Les mots hébreux « tohuw » et « bohuw » désignent la confusion, le chaos, la vanité. Voir Jé. 4:23."},
+        {word:"ténèbre",position:33,note:"Le mot hébreu est au singulier."},
+        {word:"planait",position:93,note:"De. 32:11."}]},
+      {v:"1:3",section:"Jour « un » : Apparition de la lumière",text:"Elohîm avait dit : La lumière apparaîtra ! Et la lumière apparut.",notes:[{word:"apparaîtra",position:30,note:"Es. 9:1 ; Mt. 4:16 ; Jn. 1:1-5. Cette lumière n'est autre que YHWH lui-même qui va s'incarner en la personne de Yéhoshoua Mashiah (Jésus-Christ) pour chasser la ténèbre (2 S. 22:9-12 ; Es. 60:1,19-20 ; Jn. 1:1-5, 8:12-14 ; 2 Co. 4:6)."}]},
+      {v:"1:4",text:"Elohîm vit que la lumière était bonne, et Elohîm sépara la lumière de la ténèbre.",notes:[{word:"ténèbre",position:73,note:"Ou « Elohîm mit une séparation entre la lumière et la ténèbre »."}]},
+      {v:"1:5",text:"Elohîm appela la lumière jour, et il appela la ténèbre nuit. Le soir apparut, et le matin apparut : jour un.",notes:[
+        {word:"nuit",position:55,note:"La lumière et la ténèbre, ainsi que leurs champs lexicaux respectifs, personnifient souvent Yéhoshoua (Jésus) et Satan. Ainsi, Yéhoshoua est la Lumière du monde (Jn. 9:5), l'Étoile brillante du matin (Ap. 22:16), le Soleil levant ou le Soleil de la justice (Mal. 3:20 ; Ps. 19:6-7 ; Lu. 1:78). Il est associé au jour (Jn. 9:4) d'où les expressions « Jour du Seigneur » (1 Th. 5:2) ou « Jour de YHWH » (Joë. 1:15). À l'inverse, la Bible associe Satan aux ténèbres (Es. 8:23 ; Ps. 143:3 ; Ep. 6:12 ; Col. 1:13) et à la nuit (Jn. 9:4 ; Ro. 13:12)."},
+        {word:"apparut",position:90,note:"Contrairement au calendrier grégorien où le jour commence à minuit, selon Elohîm et le calendrier hébraïque, le jour commence le soir à 18 heures pour se terminer le lendemain à la même heure. Voir commentaire en Mc. 16:9."},
+        {word:"un",position:105,note:"L'hébreu utilise le terme « ehad » qui signifie « un », au sens de l'indivisible. Elohîm se révèle aux Hébreux comme étant un. De. 6:4 : « Shema Yisrael YHWH elohénou YHWH ehad » (« Écoute Israël, YHWH [est] notre Elohîm, YHWH [est] un »). YHWH est un et indivisible."}]},
+      {v:"1:6",section:"Second jour : Un firmament entre les eaux",text:"Elohîm avait dit : Le firmament apparaîtra au milieu des eaux, et il apparut pour séparer les eaux d'avec les eaux."},
+      {v:"1:7",text:"Elohîm fit le firmament et sépara les eaux qui sont au-dessous du firmament d'avec les eaux qui sont au-dessus du firmament. Il en fut ainsi."},
+      {v:"1:8",text:"Elohîm appela le firmament cieux. Le soir apparut, et le matin apparut : jour second."},
+      {v:"1:9",section:"Troisième jour : Les mers, la terre et la végétation",text:"Elohîm avait dit : Les eaux qui sont au-dessous des cieux seront rassemblées en un lieu et le sec apparaîtra. Il en fut ainsi."},
+      {v:"1:10",text:"Elohîm appela le sec terre, et il appela la masse des eaux mers. Et Elohîm vit que cela était bon."},
+      {v:"1:11",text:"Elohîm avait dit : La terre fera sortir de la végétation, de l'herbe semant de la semence, l'arbre à fruit faisant du fruit selon son espèce, dont la semence était en lui sur la terre ! Il en fut ainsi."},
+      {v:"1:12",text:"La terre fit sortir de la végétation, de l'herbe semant de la semence, selon son espèce, et de l'arbre faisant du fruit, dont la semence était en lui, selon son espèce. Elohîm vit que cela était bon."},
+      {v:"1:13",text:"Le soir apparut, et le matin apparut : jour troisième."},
+      {v:"1:14",section:"Quatrième jour : Les luminaires des cieux",text:"Elohîm avait dit : Des luminaires apparaîtront dans le firmament des cieux pour séparer la nuit d'avec le jour. Ils deviendront des signes pour les temps fixés, pour les jours et pour les années,",notes:[{word:"fixés",position:154,note:"Voir les fêtes de YHWH en annexe. Ex. 23:15."}]},
+      {v:"1:15",text:"et ils deviendront des luminaires dans le firmament des cieux et la lumière sur la Terre. Il en fut ainsi."},
+      {v:"1:16",text:"Elohîm fit les deux grands luminaires, le grand luminaire pour dominer le jour et le petit luminaire pour dominer la nuit, ainsi que les étoiles."},
+      {v:"1:17",text:"Elohîm les plaça dans le firmament des cieux pour être la lumière sur la Terre,"},
+      {v:"1:18",text:"pour gouverner le jour et la nuit, pour séparer la lumière d'avec la ténèbre. Elohîm vit que cela était bon."},
+      {v:"1:19",text:"Le soir apparut, et le matin apparut : jour quatrième."},
+      {v:"1:20",section:"Cinquième jour : Les animaux marins et volants",text:"Elohîm avait dit : Les eaux grouilleront de choses grouillantes, d'âmes vivantes et des créatures volantes voleront sur la terre, sur les faces du firmament des cieux."},
+      {v:"1:21",text:"Elohîm créa les grands monstres marins et toutes les âmes vivantes qui se meuvent, dont grouillèrent les eaux, selon leur espèce, et toute créature volante ayant des ailes selon son espèce. Elohîm vit que cela était bon."},
+      {v:"1:22",text:"Elohîm les bénit, en disant : Portez du fruit, multipliez-vous, remplissez les eaux des mers et les créatures volantes se multiplieront sur la Terre."},
+      {v:"1:23",text:"Le soir apparut, et le matin apparut : jour cinquième."},
+      {v:"1:24",section:"Sixième jour : Les animaux terrestres",text:"Elohîm avait dit : La terre fera sortir des âmes vivantes selon leurs espèces, le bétail, les choses rampantes, le vivant de la terre, chacun selon son espèce. Il en fut ainsi."},
+      {v:"1:25",text:"Elohîm fit le vivant de la terre selon son espèce, le bétail selon son espèce, et toutes les choses rampantes du sol selon leur espèce. Elohîm vit que cela était bon."},
+      {v:"1:26",section:"Mission confiée à l'être humain (Adam) ; son autorité sur la création",text:"Elohîm avait dit : Nous ferons l'être humain à notre image, selon notre ressemblance. Ils domineront sur les poissons de la mer, sur les créatures volantes des cieux, sur le bétail, sur toute la Terre et sur toute chose rampante qui rampe sur la terre.",notes:[
+        {word:"ferons",position:24,note:"Le verbe faire ici en hébreu est à l'imparfait (ou « futur », ou non accompli). Il exprime une action, un processus ou une condition non accompli, inachevé, prolongé ou répété. YHWH est le Seul Créateur Ge. 6:7. En 2 S. 24:14, David, en parlant de lui-même, utilise un pluriel (tombons)."},
+        {word:"humain",position:38,note:"Il existe plusieurs termes hébreux qui ont été traduits en français par « homme », mot qui peut avoir plusieurs sens. Dans cette traduction, nous avons fait le choix de mettre en évidence ces subtilités pour la bonne compréhension du lecteur. Le terme hébreu [’âdâm] signifie littéralement « être humain », « de la terre ». Ce mot, qui est le plus fréquemment employé dans le Tanakh, désigne le genre humain dans sa globalité. Son équivalent grec est [ánthrōpos] (voir commentaire dans Mt. 4:4)."},
+        {word:"ressemblance",position:72,note:"L'image d'Elohîm n'est autre que Yéhoshoua ha Mashiah lui-même (Col. 1:15). Le dernier Adam (1 Co. 15:40-49) qui est venu comme Fils, afin de nous montrer le modèle de fils et de filles qu'Elohîm souhaite (Ro. 8:29). Nous avons ici une autre image de l'incarnation d'Elohîm en la personne de Yéhoshoua ha Mashiah. Ainsi, avant que l'homme ne pèche, le projet de la rédemption était déjà là (1 Pi. 1:19-21)."},
+        {word:"domineront",position:90,note:"Le verbe est au pluriel dans les sources hébraïques."}]},
+      {v:"1:27",text:"Elohîm créa l'être humain à son image, il l'a créé à l'image d'Elohîm. Mâle et femelle il les a créés."},
+      {v:"1:28",text:"Elohîm les bénit, et Elohîm leur dit : Portez du fruit, multipliez-vous, remplissez la Terre et assujettissez-la. Dominez sur les poissons de la mer, sur les créatures volantes des cieux et sur tout vivant qui rampe sur la terre."},
+      {v:"1:29",text:"Elohîm avait dit : Voici, je vous ai donné toute herbe semant de la semence qui est sur les faces de toute la terre, et tout arbre ayant en lui du fruit d'arbre et semant de la semence, cela deviendra votre nourriture."},
+      {v:"1:30",text:"Pour tout vivant de la terre, pour toute créature volante des cieux, et pour tout ce qui rampe sur la terre, ayant en soi une âme vivante, toute herbe verte sera la nourriture. Il en fut ainsi."},
+      {v:"1:31",text:"Elohîm vit tout ce qu'il avait fait, et voici cela était très bon. Le soir apparut, et le matin apparut : jour le sixième.",notes:[{word:"sixième",position:114,note:"L'adjectif numéral est précédé de l'article défini (Le)."}]}
+    ]
+  }
+};
+
+/* ═══════════ RENDU ═══════════ */
+const flow=document.getElementById('flow'),
+      toast=document.getElementById('toast'),
+      noteStyleRow=document.getElementById('noteStyle');
+let mode='text', nstyle='inline', headerMin=false, toastTimer;
+
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const noteTotal=BOOK.chapter1.verses.reduce((a,v)=>a+(v.notes?v.notes.length:0),0);
+document.getElementById('nCount').textContent=noteTotal;
+
+function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2100);}
+
+/* ancrage des notes sur leur mot, via position (repli : recherche du mot) */
+function verseHtml(v){
+  const vn=v.v.split(':')[1];
+  let body=esc(v.text), cards='';
+  if(mode==='notes'&&v.notes&&v.notes.length){
+    const notes=[...v.notes].sort((a,b)=>a.position-b.position);
+    let out='',pos=0;
+    notes.forEach((n,i)=>{
+      const w=n.word.trim();
+      let p=v.text.substr(n.position,w.length).toLowerCase()===w.toLowerCase()?n.position:v.text.toLowerCase().indexOf(w.toLowerCase(),Math.max(0,n.position-6));
+      if(p<0)p=v.text.toLowerCase().indexOf(w.toLowerCase());
+      if(p<0)p=n.position;
+      out+=esc(v.text.slice(pos,p));
+      out+='<span class="aword">'+esc(v.text.slice(p,p+w.length))+'<sup>'+(i+1)+'</sup></span>';
+      if(nstyle==='inline')out+='<span class="inote">'+esc(n.note)+'</span>';
+      else cards+='<div class="vnote" style="animation-delay:'+(i*70)+'ms"><header>✦ Note '+(i+1)+' <span class="w">sur « '+esc(w)+' »</span></header><p>'+esc(n.note)+'</p></div>';
+      pos=p+w.length;
+    });
+    body=out+esc(v.text.slice(pos));
+  }
+  return (v.section?'<div class="sect"><span>'+esc(v.section)+'</span></div>':'')+
+    '<p><span class="vn">'+vn+'</span>'+body+'</p>'+
+    (cards?'<div class="vnotes">'+cards+'</div>':'');
+}
+
+function render(){
+  let html='';
+  /* en-tête du livre */
+  html+='<div class="bhead'+(headerMin?' min':'')+'" id="bhead">'+
+    '<button class="b-toggle" id="bToggle" title="Replier / déployer l\u2019en-tête"><span>⟰</span></button>'+
+    '<div class="b-over">Livre 1 · <b>'+BOOK.abbreviation+'</b> · Traduction Victor</div>'+
+    '<div class="b-title">Bereshit <span>(Genèse)</span></div>'+
+    '<div class="b-extra">'+
+      '<div class="b-meta">'+
+        '<div class="bm"><b>Signification</b><span>'+esc(BOOK.metadata.signification)+'</span></div>'+
+        '<div class="bm"><b>Auteur</b><span>'+esc(BOOK.metadata.auteur)+'</span></div>'+
+        '<div class="bm"><b>Thème</b><span>'+esc(BOOK.metadata.theme)+'</span></div>'+
+        '<div class="bm"><b>Datation</b><span>'+esc(BOOK.metadata.date)+'</span></div>'+
+      '</div>'+
+      '<div class="b-rule">✦</div>'+
+      '<div class="b-intro-lbl">Introduction</div>'+
+      '<div class="b-intro">'+BOOK.introduction.map(p=>'<p>'+esc(p)+'</p>').join('')+'</div>'+
+    '</div>'+
+  '</div>';
+  /* chapitre */
+  html+='<div class="chap"><b>Chapitre 1</b><small>'+BOOK.chapter1.verses.length+' versets · '+noteTotal+' notes</small><div class="b-rule">✦</div></div>';
+  html+=BOOK.chapter1.verses.map(verseHtml).join('');
+  flow.innerHTML=html;
+  document.getElementById('bToggle').addEventListener('click',()=>{
+    headerMin=!headerMin;
+    document.getElementById('bhead').classList.toggle('min',headerMin);
+    say(headerMin?'En-tête replié — lecture directe':'En-tête du livre déployé');
+  });
+}
+
+/* bascule principale */
+document.querySelectorAll('#modeSeg button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    mode=btn.dataset.mode;
+    document.querySelectorAll('#modeSeg button').forEach(b=>b.classList.toggle('on',b===btn));
+    noteStyleRow.classList.toggle('show',mode==='notes');
+    render();
+    say(mode==='notes'?'Texte + notes — '+noteTotal+' notes du chapitre 1':'Texte seul — lecture épurée');
+  });
+});
+/* disposition des notes */
+document.querySelectorAll('.nsbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    nstyle=btn.dataset.style;
+    document.querySelectorAll('.nsbtn').forEach(b=>b.classList.toggle('on',b===btn));
+    render();
+    say(nstyle==='inline'?'Notes à la suite du mot annoté':'Notes en cartes sous le verset');
+  });
+});
+
+render();
+
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
