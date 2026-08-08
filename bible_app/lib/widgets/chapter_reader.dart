@@ -473,35 +473,21 @@ class _ChapterReaderState extends State<ChapterReader> {
       return;
     }
     final vn = verse.number;
-    final result = await showStudySheet(
+    final action = await showStudySheet(
       context,
       reference:
           '${catalogEntry(widget.bookIndex).abbreviation} ${verse.verse}',
       excerpt: verse.text,
       isFavorite: _favorites.contains(vn),
-      currentHighlight: _highlights[vn] ?? '',
+      currentHighlight: _highlights[vn],
       hasNotes: verse.notes.isNotEmpty,
       noteCount: verse.notes.length,
+      onHighlight: (color) => _applyHighlight(vn, color),
+      onFavorite: (value) => _applyFavorite(vn, value),
     );
-    if (result == null || !mounted) return;
+    if (action == null || !mounted) return;
 
-    if (result.didHighlight) {
-      final color = result.highlightColor;
-      await _db.setHighlight(widget.bookIndex, widget.chapter, vn, color);
-      _highlights[vn] = color ?? '';
-      setState(() {});
-    }
-    if (result.favorite != null) {
-      await _db.setFavorite(widget.bookIndex, widget.chapter, vn, result.favorite!);
-      setState(() {
-        if (result.favorite!) {
-          _favorites.add(vn);
-        } else {
-          _favorites.remove(vn);
-        }
-      });
-    }
-    switch (result.action) {
+    switch (action) {
       case StudyAction.lexicon:
         _openLexique(vn);
         break;
@@ -513,7 +499,6 @@ class _ChapterReaderState extends State<ChapterReader> {
             ClipboardData(text: '${verse.verse} ${verse.text}'));
         _snack('Versets copiés.');
         break;
-      case StudyAction.favorite:
       case StudyAction.compare:
         _snack('Comparaison — bientôt disponible.');
         break;
@@ -526,9 +511,39 @@ class _ChapterReaderState extends State<ChapterReader> {
       case StudyAction.share:
         _snack('Partage — bientôt disponible.');
         break;
-      case null:
-        break;
     }
+  }
+
+  /// Applies a colour picked in the study sheet, or clears it when null.
+  ///
+  /// The map must **lose** the key rather than hold an empty string: an empty
+  /// string is not null, so [VerseTile] would still read it as a highlight and
+  /// `_parseColor('')` would fall back to amber — an un-highlighted verse
+  /// repainted itself until the chapter was reloaded from SQLite.
+  Future<void> _applyHighlight(int verseNumber, String? color) async {
+    await _db.setHighlight(
+        widget.bookIndex, widget.chapter, verseNumber, color);
+    if (!mounted) return;
+    setState(() {
+      if (color == null || color.isEmpty) {
+        _highlights.remove(verseNumber);
+      } else {
+        _highlights[verseNumber] = color;
+      }
+    });
+  }
+
+  Future<void> _applyFavorite(int verseNumber, bool value) async {
+    await _db.setFavorite(
+        widget.bookIndex, widget.chapter, verseNumber, value);
+    if (!mounted) return;
+    setState(() {
+      if (value) {
+        _favorites.add(verseNumber);
+      } else {
+        _favorites.remove(verseNumber);
+      }
+    });
   }
 
   void _onVerseLongPress(Verse verse) {

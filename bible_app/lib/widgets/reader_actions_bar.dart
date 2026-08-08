@@ -9,6 +9,18 @@ import '../models/chapter.dart';
 
 const Color _gold = Color(0xFFD3A94F);
 
+/// Bottom padding a scrolling sheet needs to clear the system navigation.
+///
+/// The sheets are sized as a fraction of the screen, which includes the area
+/// the Android gesture bar (or the 3-button bar) sits over: with a flat 24 the
+/// last row of the list — KJV in « Version », the last chapter tile in
+/// « Livres » — was drawn underneath it and could not be tapped.
+///
+/// `viewPadding` rather than `padding`: inside a sheet the latter is already
+/// consumed by the route, and reads 0.
+double sheetBottomInset(BuildContext context) =>
+    24 + MediaQuery.viewPaddingOf(context).bottom;
+
 /// The reading action bar (maquette `modif/3boutons.jpg`): a joined pill group
 /// showing the **current reference** (`Genèse 1`) and the **active version code**
 /// (`BYM`), followed by a **double-chevron** that jumps to a verse of the chapter.
@@ -293,7 +305,7 @@ class _BooksSheetState extends State<_BooksSheet> {
         ),
         Expanded(
           child: ListView(
-            padding: const EdgeInsets.only(bottom: 24),
+            padding: EdgeInsets.only(bottom: sheetBottomInset(context)),
             children: [
               for (final section in bibleSections) ...[
                 Padding(
@@ -507,7 +519,7 @@ Future<void> showVersionSheet(
           Expanded(
             child: ListView(
               key: const Key('versionSheetList'),
-              padding: const EdgeInsets.only(bottom: 24),
+              padding: EdgeInsets.only(bottom: sheetBottomInset(sheetContext)),
               children: [
                 for (final group in versionCatalog) ...[
                   Padding(

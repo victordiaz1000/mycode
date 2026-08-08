@@ -1,7 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../data/app_preferences.dart';
+import '../data/library_store.dart';
 import '../data/tab_manager.dart';
+import '../data/version_repository.dart';
 import '../models/study_tab.dart';
 import '../widgets/chapter_reader.dart';
 import '../widgets/reader_actions_bar.dart';
@@ -129,10 +132,9 @@ class _HomeTab extends StatelessWidget {
       //appBar: AppBar(title: const Text('BYM')),
       body: Column(
         children: [
-          ReaderActionsBar(
+          _HomeActionsBar(
             onOpenChapter: (bookIndex, chapter) =>
                 manager.replaceActiveReading(bookIndex, chapter),
-            onVerses: null,
             onOpenLibrary: onOpenLibrary,
           ),
           const Expanded(child: _EmptyReadingHint()),
@@ -160,16 +162,114 @@ class _NewTabHome extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            ReaderActionsBar(
+            _HomeActionsBar(
               onOpenChapter: (bookIndex, chapter) =>
                   manager.openReading(bookIndex, chapter),
-              onVerses: null,
               onOpenLibrary: onOpenLibrary,
             ),
             const Expanded(child: _EmptyReadingHint()),
           ],
         ),
       ),
+    );
+  }
+}
+
+/// The reading bar of a tab that holds no chapter yet.
+///
+/// It exists because the plain [ReaderActionsBar] defaults `installedVersions`
+/// to `const {}`, and the two home pages used to take that default: the sheet
+/// read every downloaded translation as absent and answered « à télécharger
+/// depuis la Bibliothèque » for versions sitting on the device.
+///
+/// Picking a version here **records it for the next chapter** rather than
+/// refusing for lack of one to switch. `ChapterReader` reads the same
+/// preference at `initState`, so choosing the version and then the book — the
+/// order the pills are laid out in — opens straight into it.
+class _HomeActionsBar extends StatefulWidget {
+  final void Function(int bookIndex, int chapter) onOpenChapter;
+  final VoidCallback? onOpenLibrary;
+
+  const _HomeActionsBar({required this.onOpenChapter, this.onOpenLibrary});
+
+  @override
+  State<_HomeActionsBar> createState() => _HomeActionsBarState();
+}
+
+class _HomeActionsBarState extends State<_HomeActionsBar> {
+  final LibraryStore _library = LibraryStore();
+  AppPreferences? _prefs;
+  Map<String, InstalledVersion> _installed = const {};
+
+  /// BYM until the preferences answer — the same default the reader shows.
+  String get _versionCode =>
+      _prefs?.versionCode ?? VersionRepository.embeddedCode;
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+    // A home tab also survives in the shell's IndexedStack: without this it
+    // would keep the registry as it stood when the tab was created.
+    LibraryStore.revision.addListener(_onLibraryChanged);
+  }
+
+  @override
+  void dispose() {
+    LibraryStore.revision.removeListener(_onLibraryChanged);
+    super.dispose();
+  }
+
+  Future<void> _load() async {
+    final prefs = await AppPreferences.load();
+    final installed = await _installedVersions();
+    if (!mounted) return;
+    setState(() {
+      _prefs = prefs;
+      _installed = installed;
+    });
+  }
+
+  Future<void> _onLibraryChanged() async {
+    final installed = await _installedVersions();
+    if (!mounted) return;
+    setState(() => _installed = installed);
+
+    // The recorded version just lost its files — the reader would fall back to
+    // BYM on the next chapter anyway, so say so here rather than keep a pill
+    // pointing at nothing.
+    final code = _versionCode;
+    if (code != VersionRepository.embeddedCode &&
+        installed[code]?.isEmpty != false) {
+      _selectVersion(VersionRepository.embeddedCode);
+    }
+  }
+
+  Future<Map<String, InstalledVersion>> _installedVersions() async {
+    try {
+      return await _library.installed();
+    } catch (_) {
+      // No registry available → the bar offers the embedded BYM alone.
+      return const {};
+    }
+  }
+
+  void _selectVersion(String code) {
+    final prefs = _prefs;
+    if (prefs == null || prefs.versionCode == code) return;
+    setState(() => prefs.versionCode = code);
+    prefs.save();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ReaderActionsBar(
+      versionCode: _versionCode,
+      installedVersions: _installed,
+      onSelectVersion: _selectVersion,
+      onOpenChapter: widget.onOpenChapter,
+      onOpenLibrary: widget.onOpenLibrary,
+      onVerses: null,
     );
   }
 }

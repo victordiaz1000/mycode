@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../models/user_data.dart';
 
-/// Result of an action pressed in the study sheet.
+/// An action pressed in the study sheet — one that takes the reader somewhere
+/// else. Highlight and favourite are **not** here: they are toggles applied on
+/// the spot through the callbacks of [showStudySheet].
 enum StudyAction {
   note,
-  favorite,
   compare,
   references,
   listen,
@@ -14,36 +15,27 @@ enum StudyAction {
   lexicon,
 }
 
-class StudySheetResult {
-  final String? noteText;
-  final bool? favorite;
-  final String? highlightColor; // null = gomme => clear
-  final bool didHighlight;
-  final StudyAction? action;
-  final String? copiedText;
-
-  const StudySheetResult({
-    this.noteText,
-    this.favorite,
-    this.highlightColor,
-    this.didHighlight = false,
-    this.action,
-    this.copiedText,
-  });
-}
-
-/// Bottom sheet study actions for a verse (maquette v5). Returns the chosen
-/// action via Navigator.pop with a [StudySheetResult].
-Future<StudySheetResult?> showStudySheet(
+/// Bottom sheet study actions for a verse (maquette v5).
+///
+/// Returns the action pressed, or null when the sheet is simply closed (the ✕,
+/// a swipe down, the back button).
+///
+/// [onHighlight] and [onFavorite] fire **as the user taps**, not on close. They
+/// used to be reported through the pop value, which lost every toggle the
+/// reader did not follow with an action: picking a colour then closing the sheet
+/// saved nothing, and the favourite star was never persisted at all.
+Future<StudyAction?> showStudySheet(
   BuildContext context, {
   required String reference,
   required String excerpt,
   required bool isFavorite,
-  required String currentHighlight,
+  required String? currentHighlight,
   required bool hasNotes, // enables the Lexique button
   required int noteCount,
+  required Future<void> Function(String? color) onHighlight,
+  required Future<void> Function(bool value) onFavorite,
 }) {
-  return showModalBottomSheet<StudySheetResult>(
+  return showModalBottomSheet<StudyAction>(
     context: context,
     isScrollControlled: true,
     builder: (context) => _StudySheet(
@@ -53,6 +45,8 @@ Future<StudySheetResult?> showStudySheet(
       currentHighlight: currentHighlight,
       hasNotes: hasNotes,
       noteCount: noteCount,
+      onHighlight: onHighlight,
+      onFavorite: onFavorite,
     ),
   );
 }
@@ -61,9 +55,11 @@ class _StudySheet extends StatefulWidget {
   final String reference;
   final String verse;
   final bool isFavorite;
-  final String currentHighlight;
+  final String? currentHighlight;
   final bool hasNotes;
   final int noteCount;
+  final Future<void> Function(String? color) onHighlight;
+  final Future<void> Function(bool value) onFavorite;
 
   const _StudySheet({
     required this.reference,
@@ -72,6 +68,8 @@ class _StudySheet extends StatefulWidget {
     required this.currentHighlight,
     required this.hasNotes,
     required this.noteCount,
+    required this.onHighlight,
+    required this.onFavorite,
   });
 
   @override
@@ -80,7 +78,24 @@ class _StudySheet extends StatefulWidget {
 
 class _StudySheetState extends State<_StudySheet> {
   late String? _activeColor = widget.currentHighlight;
-  late bool _favorite = widget.isFavorite;  @override
+  late bool _favorite = widget.isFavorite;
+
+  /// Paints the verse behind the sheet, and stores it. Tapping the active colour
+  /// again clears it, so the four dots answer both ways without hunting for the
+  /// eraser.
+  Future<void> _pickColor(String? color) async {
+    final next = color == _activeColor ? null : color;
+    setState(() => _activeColor = next);
+    await widget.onHighlight(next);
+  }
+
+  Future<void> _toggleFavorite() async {
+    final next = !_favorite;
+    setState(() => _favorite = next);
+    await widget.onFavorite(next);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final accent = theme.colorScheme.primary;
@@ -91,7 +106,11 @@ class _StudySheetState extends State<_StudySheet> {
       maxChildSize: .85,
       builder: (context, scrollController) => ListView(
         controller: scrollController,
-        padding: const EdgeInsets.all(20),
+        // Same reason as the reading sheets: the sheet is sized as a fraction
+        // of the screen, so its last row lands under the Android gesture bar
+        // without the system inset added back.
+        padding: EdgeInsets.fromLTRB(
+            20, 20, 20, 20 + MediaQuery.viewPaddingOf(context).bottom),
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -126,14 +145,14 @@ class _StudySheetState extends State<_StudySheet> {
                 _ColorDot(
                   color: _parse(color),
                   selected: _activeColor == color,
-                  onTap: () => setState(() => _activeColor = color),
+                  onTap: () => _pickColor(color),
                 ),
               const SizedBox(width: 8),
               IconButton(
                 tooltip: 'Effacer le surlignage',
-                onPressed: () => setState(() => _activeColor = null),
+                onPressed: _activeColor == null ? null : () => _pickColor(null),
                 icon: Icon(Icons.format_color_reset,
-                    color: _activeColor == null ? accent : null),
+                    color: _activeColor == null ? null : accent),
               ),
             ],
           ),
@@ -145,13 +164,8 @@ class _StudySheetState extends State<_StudySheet> {
             hasNotes: widget.hasNotes,
             noteCount: widget.noteCount,
             favorite: _favorite,
-            onFavorite: () => setState(() => _favorite = !_favorite),
-            onAction: (action) => Navigator.of(context).pop(StudySheetResult(
-              favorite: action == StudyAction.favorite ? _favorite : null,
-              highlightColor: _activeColor,
-              didHighlight: _activeColor != widget.currentHighlight,
-              action: action,
-            )),
+            onFavorite: _toggleFavorite,
+            onAction: (action) => Navigator.of(context).pop(action),
           ),
         ],
       ),

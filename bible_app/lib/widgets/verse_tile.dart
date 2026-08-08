@@ -47,7 +47,10 @@ class VerseTile extends StatelessWidget {
       bg = theme.colorScheme.primary.withValues(alpha: .15);
     } else if (isFlashing) {
       bg = const Color(0x66D3A94F);
-    } else if (highlightColor != null) {
+    } else if (highlightColor != null && highlightColor!.isNotEmpty) {
+      // Empty means « no highlight », not « the fallback colour »: without the
+      // guard `_parseColor` cannot parse it and returns amber, so a cleared
+      // verse would look highlighted.
       bg = _parseColor(highlightColor!).withValues(alpha: .55);
     }
 
