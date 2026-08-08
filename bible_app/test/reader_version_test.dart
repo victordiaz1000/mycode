@@ -189,31 +189,47 @@ void main() {
     expect(find.text('Lire en BYM'), findsNothing);
   });
 
-  testWidgets('a version with nothing downloaded cannot be picked',
+  testWidgets('a version with nothing downloaded is not offered',
       (tester) async {
     await pumpReader(tester, store: FakeStore({}));
 
     await openVersionSheet(tester, 'BYM');
-    await tapVersionRow(tester, 'Bible Darby');
 
-    expect(find.text('DBY — à télécharger depuis la Bibliothèque.'),
-        findsOneWidget);
-    expect(find.text('Verset de test Ge. 1:1.'), findsOneWidget,
-        reason: 'the reading stays on BYM');
+    // It used to be listed and answer « à télécharger depuis la Bibliothèque »
+    // — a row that could not do anything, in a sheet meant for picking.
+    expect(find.text('Bible Darby'), findsNothing);
+    expect(find.text('Bible de Yehoshoua Ha Mashiah'), findsOneWidget,
+        reason: 'the embedded version is always there');
+    expect(find.text('11 autres versions à télécharger'), findsOneWidget);
   });
 
-  testWidgets('the « à télécharger » snackbar leads to the Bibliothèque',
-      (tester) async {
+  testWidgets('the footer leads to the Bibliothèque', (tester) async {
     var opened = 0;
     await pumpReader(tester,
         store: FakeStore({}), onOpenLibrary: () => opened++);
 
     await openVersionSheet(tester, 'BYM');
-    await tapVersionRow(tester, 'Bible Darby');
-
-    await tester.tap(find.text('Ouvrir'));
+    await tester.tap(find.text('Bibliothèque'));
     await tester.pumpAndSettle();
+
     expect(opened, 1);
+    expect(find.text('Version'), findsNothing, reason: 'the sheet closes too');
+  });
+
+  testWidgets('without a shell the footer only names the Bibliothèque',
+      (tester) async {
+    // Standalone use (tests, ChapterScreen on its own): no destination to
+    // switch to, so the row states the fact instead of pretending to be a
+    // button.
+    await pumpReader(tester, store: FakeStore({}));
+
+    await openVersionSheet(tester, 'BYM');
+    expect(find.text('Bibliothèque'), findsOneWidget);
+
+    await tester.tap(find.text('Bibliothèque'));
+    await tester.pumpAndSettle();
+    expect(find.text('Version'), findsOneWidget,
+        reason: 'the row is inert — closing on nothing would lose the sheet');
   });
 
   testWidgets('the missing-book panel offers the Bibliothèque', (tester) async {
@@ -255,16 +271,17 @@ void main() {
         (tester) async {
       // The bug this guards: the reader lives in the tab shell's IndexedStack,
       // so `initState` never runs again. It kept the library map read at
-      // startup, answered « à télécharger » for a version the Bibliothèque had
-      // just installed, and the user bounced between the two screens forever.
+      // startup, and a version the Bibliothèque had just installed stayed out
+      // of the sheet — the user bounced between the two screens forever.
       final store = FakeStore({});
       await pumpReader(tester, store: store);
 
       await openVersionSheet(tester, 'BYM');
-      await tapVersionRow(tester, 'Bible Darby');
-      expect(find.text('DBY — à télécharger depuis la Bibliothèque.'),
-          findsOneWidget,
+      expect(find.text('Bible Darby'), findsNothing,
           reason: 'nothing downloaded yet');
+      // The sheet has no ✕: tap the barrier above it, as a swipe down would.
+      await tester.tapAt(const Offset(10, 10));
+      await tester.pumpAndSettle();
 
       store.landBook('DBY', 1, getbibleBook(1));
       await tester.pumpAndSettle();

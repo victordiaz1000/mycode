@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:bible_app/data/library_store.dart';
 import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/screens/reader_screen.dart';
 import 'package:bible_app/widgets/chapter_reader.dart';
@@ -129,15 +130,7 @@ void main() {
     expect(find.text('Livres'), findsNothing);
   });
 
-  /// The sheet's own scrollable (its ListView carries a Key), used to bring the
-  /// lower groups into view since the list is long and lazily built.
-  final versionList = find.descendant(
-    of: find.byKey(const Key('versionSheetList')),
-    matching: find.byType(Scrollable),
-  );
-
-  testWidgets('the version pill opens the grouped Version sheet with audio marks',
-      (tester) async {
+  testWidgets('the version pill lists only what can be read', (tester) async {
     await pumpReader(tester);
 
     await tester.tap(inBar('BYM'));
@@ -145,52 +138,68 @@ void main() {
 
     expect(find.text('Version'), findsOneWidget);
     expect(find.text('Version intégrée'), findsOneWidget);
-    expect(find.text('Versions Louis Segond'), findsOneWidget);
     expect(find.text('Bible de Yehoshoua Ha Mashiah'), findsOneWidget);
-    // LSG and its Strong variant both sit under « Versions Louis Segond »…
+
+    // Nothing downloaded here, so the rest of the catalogue is not offered: it
+    // used to sit below, greyed, a dozen rows answering « à télécharger ».
+    expect(find.text('Versions Louis Segond'), findsNothing);
+    expect(find.text('Bible Segond 1910'), findsNothing);
+    expect(find.text('Bible Segond 1910 + Strongs'), findsNothing);
+    expect(find.text('Autres versions'), findsNothing);
+    expect(find.text('Bible Darby'), findsNothing);
+  });
+
+  testWidgets('the sheet ends on the way to the Bibliothèque', (tester) async {
+    // What is left out has to stay reachable, or the reader has no way of
+    // knowing there are other translations at all.
+    await pumpReader(tester);
+
+    await tester.tap(inBar('BYM'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Bibliothèque'), findsOneWidget);
+    // 12 catalogue entries, BYM being the only readable one here.
+    expect(find.text('11 autres versions à télécharger'), findsOneWidget);
+  });
+
+  testWidgets('a listed version keeps its audio glyph', (tester) async {
+    // BYM ships no audio, so the glyph has to be checked on a downloaded row —
+    // LSG, which the maquette marks with a 🔊.
+    await tester.pumpWidget(MaterialApp(
+      home: Scaffold(
+        body: ReaderActionsBar(
+          installedVersions: const {
+            'LSG': InstalledVersion(code: 'LSG', books: {1}),
+          },
+          onOpenChapter: (_, _) {},
+        ),
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    await tester.tap(inBar('BYM'));
+    await tester.pumpAndSettle();
+
     expect(find.text('Bible Segond 1910'), findsOneWidget);
-    expect(find.text('Bible Segond 1910 + Strongs'), findsOneWidget);
-    // …and both carry the audio glyph from the maquette.
     expect(find.byIcon(Icons.volume_up_outlined), findsWidgets);
   });
 
-  testWidgets('a copyright version is listed but answers « bientôt disponible »',
+  testWidgets('a version without files is absent, whatever its licence',
       (tester) async {
+    // LSGS has no free source (décision 9) and DBY is only downloadable: both
+    // used to be listed and answer a snackbar. Neither can be read, so the
+    // sheet does not carry them — the Bibliothèque does.
     await pumpReader(tester);
 
     await tester.tap(inBar('BYM'));
     await tester.pumpAndSettle();
 
-    // LSGS (Segond + Strong) has no free source (décision 9): tapping it closes
-    // the sheet and explains it is not available yet.
-    await tester.tap(find.text('Bible Segond 1910 + Strongs'));
-    await tester.pumpAndSettle();
-    expect(find.text('Version'), findsNothing);
-    expect(find.text('LSGS — bientôt disponible.'), findsOneWidget);
-  });
-
-  testWidgets('a downloadable version points to the Bibliothèque',
-      (tester) async {
-    await pumpReader(tester);
-
-    await tester.tap(inBar('BYM'));
-    await tester.pumpAndSettle();
-
-    // « Autres versions » sits low in the list: scroll it into view first.
-    await tester.scrollUntilVisible(
-      find.text('Bible Darby'),
-      200,
-      scrollable: versionList,
-    );
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.text('Bible Darby'));
-    await tester.pumpAndSettle();
-    expect(find.text('Version'), findsNothing);
-    expect(
-      find.text('DBY — à télécharger depuis la Bibliothèque.'),
-      findsOneWidget,
-    );
+    expect(find.text('Bible Segond 1910 + Strongs'), findsNothing);
+    expect(find.text('Bible Darby'), findsNothing);
+    // Only BYM and the footer are tappable, so nothing can raise these.
+    expect(find.text('LSGS — bientôt disponible.'), findsNothing);
+    expect(find.text('DBY — à télécharger depuis la Bibliothèque.'),
+        findsNothing);
   });
 
   testWidgets('the chevron opens the verse grid and jumps to the pick',

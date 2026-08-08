@@ -491,15 +491,20 @@ class _NumberTile extends StatelessWidget {
 
 /// Translations grouped as in the maquette
 /// (`modif/resultat_vers_les_versions.jpg`): a code line, the name (with a 🔊
-/// when an audio reading exists), then the date + licence. BYM is the embedded
-/// default; a version downloaded through the Bibliothèque can be picked here,
-/// the others answer « à télécharger » or « bientôt disponible ».
+/// when an audio reading exists), then the date + licence — but only the ones
+/// this device can read: the embedded BYM, and what the Bibliothèque has
+/// downloaded.
 ///
-/// [installed] comes from `LibraryStore.installed()`; a version absent from it
-/// cannot be selected, whatever the catalogue promises. [onSelect] null means
+/// The rest of the catalogue used to sit here too, greyed, answering « à
+/// télécharger depuis la Bibliothèque » when tapped — a dozen rows the reader
+/// could not use, and a second place where downloads were half-managed. Picking
+/// a version belongs here; getting one belongs to the Bibliothèque, which the
+/// footer row leads to.
+///
+/// [installed] comes from `LibraryStore.installed()`. [onSelect] null means
 /// the caller has no chapter open to switch (the « Nouvel onglet » bars).
-/// [onOpenLibrary] turns the « à télécharger » snackbar into a way out: without
-/// it the row names the Bibliothèque without leading anywhere.
+/// [onOpenLibrary] null leaves the footer naming the Bibliothèque without
+/// leading anywhere (screens used on their own).
 Future<void> showVersionSheet(
   BuildContext context, {
   String activeCode = 'BYM',
@@ -507,6 +512,26 @@ Future<void> showVersionSheet(
   ValueChanged<String>? onSelect,
   VoidCallback? onOpenLibrary,
 }) {
+  /// Readable now: the embedded BYM, or a version with books on the device.
+  /// A partial download counts — its books read, the missing ones say so.
+  bool readable(VersionEntry version) =>
+      version.embedded || installed[version.code]?.isEmpty == false;
+
+  /// The catalogue reduced to what can be opened, groups included: a heading
+  /// with nothing under it reads as a broken list.
+  final groups = [
+    for (final group in versionCatalog)
+      if (group.versions.any(readable))
+        (title: group.title, versions: group.versions.where(readable).toList()),
+  ];
+
+  /// How many the Bibliothèque still has to offer — the footer says it rather
+  /// than leaving the reader to wonder where the other translations went.
+  final elsewhere = versionCatalog
+      .expand((group) => group.versions)
+      .where((version) => !readable(version))
+      .length;
+
   return showModalBottomSheet<void>(
     context: context,
     isScrollControlled: true,
@@ -521,7 +546,7 @@ Future<void> showVersionSheet(
               key: const Key('versionSheetList'),
               padding: EdgeInsets.only(bottom: sheetBottomInset(sheetContext)),
               children: [
-                for (final group in versionCatalog) ...[
+                for (final group in groups) ...[
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 20, 20, 6),
                     child: Column(
@@ -542,9 +567,10 @@ Future<void> showVersionSheet(
                       active: version.code == activeCode,
                       state: installed[version.code],
                       onSelect: onSelect,
-                      onOpenLibrary: onOpenLibrary,
                     ),
                 ],
+                if (elsewhere > 0)
+                  _LibraryFooter(count: elsewhere, onOpen: onOpenLibrary),
               ],
             ),
           ),
@@ -552,6 +578,81 @@ Future<void> showVersionSheet(
       ),
     ),
   );
+}
+
+/// Last row of the « Version » sheet: the way to the translations the device
+/// does not hold yet.
+///
+/// The sheet lists only what can be read, so without this the other versions
+/// would simply be invisible — the reader would have no reason to suspect the
+/// Bibliothèque had more.
+class _LibraryFooter extends StatelessWidget {
+  final int count;
+
+  /// Null when the screen has no Bibliothèque to switch to (standalone use):
+  /// the row then names it rather than pretending to be a button.
+  final VoidCallback? onOpen;
+
+  const _LibraryFooter({required this.count, this.onOpen});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final open = onOpen;
+    final label = '$count autre${count > 1 ? 's' : ''} '
+        'version${count > 1 ? 's' : ''} à télécharger';
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const Padding(
+          padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+          child: Divider(height: 1),
+        ),
+        InkWell(
+          onTap: open == null
+              ? null
+              : () {
+                  Navigator.of(context).pop();
+                  open();
+                },
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+            child: Row(
+              children: [
+                Icon(Icons.library_books_outlined,
+                    size: 20, color: theme.colorScheme.primary),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Bibliothèque',
+                        style: theme.textTheme.titleMedium
+                            ?.copyWith(color: theme.colorScheme.primary),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        label,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onSurface
+                              .withValues(alpha: .6),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                if (open != null)
+                  Icon(Icons.chevron_right,
+                      color: theme.colorScheme.onSurface.withValues(alpha: .4)),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }
 
 class _VersionRow extends StatelessWidget {
@@ -563,20 +664,12 @@ class _VersionRow extends StatelessWidget {
 
   final ValueChanged<String>? onSelect;
 
-  /// Opens the Bibliothèque tab, when the shell offers one.
-  final VoidCallback? onOpenLibrary;
-
   const _VersionRow({
     required this.version,
     required this.active,
     this.state,
     this.onSelect,
-    this.onOpenLibrary,
   });
-
-  /// Readable now: the embedded BYM, or a version with books on the device.
-  /// A partial download counts — its books read, the missing ones say so.
-  bool get _readable => version.embedded || (state?.isEmpty == false);
 
   /// The extra line under the licence, for what is on the device.
   String? get _installedLine {
@@ -591,18 +684,14 @@ class _VersionRow extends StatelessWidget {
     final theme = Theme.of(context);
     final onSurface = theme.colorScheme.onSurface;
     final accent = theme.colorScheme.primary;
-    final unavailable = version.availability == VersionAvailability.unavailable;
 
-    // Faithful to the maquette: available rows read at full strength, the ones
-    // we cannot serve yet are dimmed; the active version is tinted with the
-    // primary colour.
-    final codeColor = active
-        ? accent.withValues(alpha: .7)
-        : onSurface.withValues(alpha: unavailable ? .32 : .5);
-    final nameColor = active
-        ? accent
-        : onSurface.withValues(alpha: unavailable ? .45 : 1);
-    final rightsColor = onSurface.withValues(alpha: unavailable ? .3 : .5);
+    // Every listed row is readable now, so none is dimmed — the greyed states
+    // of the maquette moved to the Bibliothèque, where they can be acted on.
+    // The active version stays tinted with the primary colour.
+    final codeColor =
+        active ? accent.withValues(alpha: .7) : onSurface.withValues(alpha: .5);
+    final nameColor = active ? accent : onSurface;
+    final rightsColor = onSurface.withValues(alpha: .5);
     final installedLine = _installedLine;
 
     return InkWell(
@@ -660,47 +749,24 @@ class _VersionRow extends StatelessWidget {
     );
   }
 
+  /// Every row of the sheet is readable, so a tap either switches or explains
+  /// there is nothing to switch — the « à télécharger » and « bientôt
+  /// disponible » answers left with the rows that carried them.
   void _select(BuildContext context) {
     final navigator = Navigator.of(context);
     final messenger = ScaffoldMessenger.of(context);
     navigator.pop();
     if (active) return;
 
-    if (_readable) {
-      // Nothing to switch without an open chapter (the « Nouvel onglet » bars).
-      if (onSelect == null) {
-        messenger.showSnackBar(const SnackBar(
-          content: Text('Ouvrez un chapitre pour changer de version.'),
-          duration: Duration(seconds: 2),
-        ));
-        return;
-      }
-      onSelect!(version.code);
-      return;
-    }
-
-    // Downloadable but absent: name the way out instead of only naming the
-    // Bibliothèque. Deliberately an action rather than an immediate jump —
-    // browsing the list should not throw the reader out of their chapter.
-    final open = onOpenLibrary;
-    if (version.downloadable && open != null) {
-      messenger.showSnackBar(SnackBar(
-        content: Text('${version.code} — à télécharger depuis la Bibliothèque.'),
-        duration: const Duration(seconds: 4),
-        action: SnackBarAction(label: 'Ouvrir', onPressed: open),
+    // Nothing to switch without an open chapter (the « Nouvel onglet » bars).
+    if (onSelect == null) {
+      messenger.showSnackBar(const SnackBar(
+        content: Text('Ouvrez un chapitre pour changer de version.'),
+        duration: Duration(seconds: 2),
       ));
       return;
     }
-
-    final message = version.downloadable
-        ? '${version.code} — à télécharger depuis la Bibliothèque.'
-        : '${version.code} — bientôt disponible.';
-    messenger.showSnackBar(
-      SnackBar(
-        content: Text(message),
-        duration: const Duration(seconds: 2),
-      ),
-    );
+    onSelect!(version.code);
   }
 }
 

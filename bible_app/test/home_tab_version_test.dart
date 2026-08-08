@@ -105,26 +105,27 @@ void main() {
         reason: 'ChapterReader reads this key at initState');
   });
 
-  testWidgets('a version with nothing on the device still says so',
+  testWidgets('a version with nothing on the device is not offered',
       (tester) async {
     await pumpHome(tester);
 
     await openVersionSheet(tester, 'BYM');
-    await tapVersionRow(tester, 'Bible Darby');
 
-    expect(find.text('DBY — à télécharger depuis la Bibliothèque.'),
-        findsOneWidget);
+    expect(find.text('Bible Darby'), findsNothing);
+    expect(find.text('11 autres versions à télécharger'), findsOneWidget,
+        reason: 'the Bibliothèque holds the rest');
     expect(inBar('BYM'), findsOneWidget, reason: 'the pill does not move');
   });
 
-  testWidgets('a version under copyright answers « bientôt disponible »',
-      (tester) async {
+  testWidgets('a version under copyright is not offered either', (tester) async {
+    // S21 has no free source: it used to be listed greyed and answer « bientôt
+    // disponible ». Nothing here can install it, so the sheet leaves it out.
     await pumpHome(tester);
 
     await openVersionSheet(tester, 'BYM');
-    await tapVersionRow(tester, 'Bible Segond 21');
 
-    expect(find.text('S21 — bientôt disponible.'), findsOneWidget);
+    expect(find.text('Bible Segond 21'), findsNothing);
+    expect(find.text('S21 — bientôt disponible.'), findsNothing);
   });
 
   testWidgets('a download landing while the home tab sits idle is picked up',
@@ -133,9 +134,10 @@ void main() {
     // is never rebuilt from scratch, so it has to listen to the registry.
     await pumpHome(tester);
     await openVersionSheet(tester, 'BYM');
-    await tapVersionRow(tester, 'Bible Darby');
-    expect(find.text('DBY — à télécharger depuis la Bibliothèque.'),
-        findsOneWidget);
+    expect(find.text('Bible Darby'), findsNothing);
+    // The sheet has no ✕: tap the barrier above it, as a swipe down would.
+    await tester.tapAt(const Offset(10, 10));
+    await tester.pumpAndSettle();
 
     SharedPreferences.setMockInitialValues({'library.installed': '{"DBY":[1]}'});
     LibraryStore.revision.value++;
@@ -169,14 +171,18 @@ void main() {
   testWidgets('the last row of the sheet clears the Android navigation bar',
       (tester) async {
     // The sheet is sized as a fraction of the screen, gesture bar included: a
-    // flat bottom padding drew KJV — the last catalogue entry — underneath it.
+    // flat bottom padding drew the last row underneath it. Four versions
+    // downloaded is what it takes to make the list scroll now that the
+    // catalogue no longer pads it out.
+    SharedPreferences.setMockInitialValues({
+      'library.installed': '{"LSG":[1],"DBY":[1],"MAR":[1],"KJV":[1]}',
+    });
     tester.view.viewPadding = const FakeViewPadding(bottom: 96);
     addTearDown(tester.view.reset);
 
     await pumpHome(tester);
     await openVersionSheet(tester, 'BYM');
-    await tester.scrollUntilVisible(
-        find.text('King James Version (anglais)'), 200,
+    await tester.scrollUntilVisible(find.text('Bibliothèque'), 200,
         scrollable: find.descendant(
             of: find.byKey(const Key('versionSheetList')),
             matching: find.byType(Scrollable)));
@@ -186,7 +192,7 @@ void main() {
         tester.view.physicalSize.height / tester.view.devicePixelRatio;
     final navBarTop = screenHeight - 96 / tester.view.devicePixelRatio;
     expect(
-        tester.getBottomLeft(find.text('King James Version (anglais)')).dy,
+        tester.getBottomLeft(find.text('Bibliothèque')).dy,
         lessThanOrEqualTo(navBarTop),
         reason: 'the row must be tappable, not behind the system bar');
   });
