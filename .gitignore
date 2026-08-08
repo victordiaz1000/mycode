@@ -2,6 +2,12 @@
 .claude/
 .deep-copilot/
 
+# Sortie régénérable du convertisseur : `python md_to_json.py` la reconstruit
+# depuis `appCodebar/bym_md/`. Les mêmes 9,3 Mo existent déjà deux fois dans le
+# dépôt (`bym_json/` et `bible_app/assets/bible/bym/`) ; une troisième copie ne
+# porte aucune information, seulement le risque qu'elle diverge des deux autres.
+appCodebar/bym_json/
+
 # Systèmes de fichiers
 Thumbs.db
 .DS_Store

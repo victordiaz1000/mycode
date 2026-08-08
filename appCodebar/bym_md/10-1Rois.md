@@ -1,0 +1,1124 @@
+# 1 Melakhim (1 Rois) (1 R.)
+
+<h>
+Signification : Roi, règne
+
+Auteur : Inconnu
+
+Thème : Unité du royaume après le schisme
+
+Date de rédaction : 6ème siècle av. J.-C.
+</h>
+
+Ce livre relate la vie de Shelomoh (Salomon) : son accession à la royauté après la mort de son père David, son alliance avec Elohîm qui lui accorda une sagesse exceptionnelle ainsi que la construction du temple de YHWH et du palais royal.
+
+Les premières années du règne de Shelomoh furent exemplaires. Malheureusement, il ne fit pas preuve de la même piété que son père et développa une affection toute particulière pour les femmes étrangères qui l'entraînèrent dans l'idolâtrie. À sa mort, son fils Rehabam (Roboam) accéda au trône et provoqua la division du royaume en deux. D'un côté les dix tribus du nord qui gardèrent le nom d'Israël, gouvernées par Yarobam (Jéroboam, serviteur de Shelomoh), et de l'autre côté les deux tribus du sud, Yéhouda et Benyamin, qui demeurèrent sous l'autorité de Rehabam.
+
+Ce livre raconte également le règne et la conduite parfois abominable des rois d'Israël et de Yéhouda jusqu'à Achab et Yehoshaphat (Josaphat). Il présente la puissance de l'appel prophétique d'Éliyah (Élie), le Tishbite, qu'Elohîm suscita pour ramener son peuple à lui et montrer sa souveraineté.
+
+## Chapitre 1
+
+### Fin de la vie de David
+
+1:1	Le roi David était vieux, avancé en âge. On le couvrait de vêtements, mais il n’avait pas chaud.
+1:2	Ses serviteurs lui dirent : Que l'on cherche pour le roi, notre seigneur, une jeune fille vierge. Qu'elle se tienne devant le roi, qu'elle le soigne et qu'elle dorme en son sein afin que le roi notre seigneur se réchauffe.
+1:3	On chercha dans toutes les contrées d'Israël une jeune et belle fille, et on trouva Abishag, la Shounamite, que l'on amena auprès du roi.
+1:4	Cette jeune femme était très belle. Elle prit soin du roi et le servit, mais le roi ne la connut pas.
+
+### Conspiration d'Adoniyah pour régner sur Israël
+
+1:5	Adoniyah, fils de Haggith, s'exalta lui-même, en disant : Moi, je régnerai ! Il se fabriqua un char, avec des cavaliers et 50 hommes qui couraient devant lui.
+1:6	Or son père ne voulait jamais le chagriner de son temps, en disant : Pourquoi agis-tu ainsi ? Il était très beau d'apparence, il était né après Abshalôm.
+1:7	Il eut des pourparlers avec Yoab fils de Tserouyah et avec le prêtre Abiathar, et ils aidèrent Adoniyah et le suivirent.
+1:8	Mais le prêtre Tsadok, Benayah fils de Yehoyada, Nathan le prophète, Shimeï, Reï et les vaillants hommes de David n'étaient pas avec Adoniyah.
+1:9	Or Adoniyah fit tuer des brebis, des bœufs et des veaux gras près de la pierre de Zohéleth qui est auprès d'En-Roguel. Il invita tous ses frères, fils du roi, et tous les hommes de Yéhouda qui étaient au service du roi.
+1:10	Mais il n'invita pas Nathan le prophète, ni Benayah, ni les vaillants hommes, ni Shelomoh son frère.
+
+### Opposition de Nathan et Bath-Shéba
+
+1:11	Nathan parla à Bath-Shéba, mère de Shelomoh, en disant : N'as-tu pas entendu qu'Adoniyah, fils de Haggith, a été fait roi ? Et David notre seigneur n'en sait rien.
+1:12	Maintenant viens, s'il te plaît, et je te donnerai un conseil, un avis, afin que tu sauves ton âme et l'âme de ton fils Shelomoh.
+1:13	Va, entre chez le roi David, et dis-lui : Roi, mon seigneur, n'as-tu pas fait serment à ta servante, en disant : Ton fils Shelomoh régnera après moi et sera assis sur mon trône ? Pourquoi Adoniyah règne-t-il ?
+1:14	Voici, pendant que tu parleras encore là avec le roi, j'entrerai moi-même après toi et je compléterai tes paroles.
+1:15	Bath-Shéba se rendit dans la chambre du roi. Or le roi était très vieux et Abishag, la Shounamite, le servait.
+1:16	Bath-Shéba s'inclina et se prosterna devant le roi. Et le roi dit : Qu'as-tu ?
+1:17	Et elle lui dit : Mon seigneur, tu as juré par YHWH ton Elohîm à ta servante, et tu lui as dit : Certainement ton fils Shelomoh régnera après moi, et sera assis sur mon trône.
+1:18	Mais maintenant voici, Adoniyah est proclamé roi ! Et tu ne le sais pas, roi, mon seigneur !
+1:19	Il a même fait tuer des bœufs, des veaux gras et des brebis en grand nombre, il a convié tous les fils du roi, avec Abiathar, le prêtre, et Yoab, chef de l'armée, mais il n'a pas convié ton serviteur Shelomoh.
+1:20	Or quant à toi, roi, mon seigneur, les yeux de tout Israël sont sur toi afin que tu lui fasses connaître qui s'assiéra sur le trône du roi mon seigneur après lui.
+1:21	Il arrivera que quand le roi, mon seigneur, sera endormi avec ses pères, nous serons traités comme coupables, moi et mon fils Shelomoh.
+1:22	Et comme elle parlait encore avec le roi, voici, Nathan le prophète entra.
+1:23	On l'annonça au roi, en disant : Voici Nathan, le prophète ! Il se présenta devant le roi et se prosterna devant lui, le visage contre terre.
+1:24	Et Nathan dit : Roi, mon seigneur ! As-tu dit : Adoniyah régnera après moi et sera assis sur mon trône ?
+1:25	Car il est descendu aujourd'hui, il a sacrifié des bœufs, des veaux gras et des brebis en grand nombre. Il a convié tous les fils du roi, les chefs de l'armée et le prêtre Abiathar. Et voici, ils mangent et boivent devant lui ; ils disent : Vive le roi Adoniyah !
+1:26	Quant à moi, ton serviteur, à Tsadok, le prêtre, à Benayah, fils de Yehoyada et à Shelomoh, ton serviteur, il ne nous a pas invités.
+1:27	Est-ce que cette parole est de mon seigneur le roi ? Tu n’as pas fait connaître à ton serviteur qui sera assis sur le trône du roi mon seigneur après lui.
+1:28	Et le roi David répondit, en disant : Appelez-moi Bath-Shéba ! Elle se présenta devant le roi et se tint debout devant le roi.
+1:29	Le roi jura et dit : YHWH qui a racheté mon âme de toute détresse est vivant !
+1:30	Oui, ainsi je te l’ai juré par YHWH, l'Elohîm d'Israël, en disant : Oui, Shelomoh ton fils régnera après moi, il s'assiéra sur mon trône à ma place, oui, je ferai ainsi en ce jour.
+1:31	Bath-Shéba s'inclina le visage contre terre et se prosterna devant le roi, en disant : Que le roi David, mon seigneur, vive éternellement !
+1:32	Le roi David dit : Appelez-moi le prêtre Tsadok, le prophète Nathan et Benayah, fils de Yehoyada ! Et ils se présentèrent devant le roi.
+1:33	Le roi leur dit : Prenez avec vous les serviteurs de votre seigneur, faites monter mon fils Shelomoh sur ma mule et faites-le descendre à Guihon.
+1:34	Là, Tsadok le prêtre et Nathan le prophète l’oindront pour roi sur Israël, puis vous sonnerez du shofar et vous direz : Vive le roi Shelomoh !
+1:35	Vous monterez après lui et il viendra, il s'assiéra sur mon trône et il régnera à ma place. J'ai ordonné qu'il devienne le chef d'Israël et de Yéhouda.
+1:36	Benayah fils de Yehoyada répondit au roi et dit : Amen ! Ainsi parle YHWH, l'Elohîm de mon seigneur le roi !
+1:37	Comme YHWH a été avec mon seigneur le roi, qu'il soit aussi avec Shelomoh, et qu'il élève son trône encore plus que le trône du roi David, mon seigneur !
+
+### Shelomoh oint roi d'Israël par Tsadok<!--Cp. 1 Ch. 29:22.-->
+
+1:38	Tsadok le prêtre descendit avec Nathan le prophète et Benayah, fils de Yehoyada, les Kéréthiens et les Péléthiens. Ils firent monter Shelomoh sur la mule du roi David et le conduisirent vers Guihon.
+1:39	Tsadok, le prêtre, prit du tabernacle une corne d'huile et il oignit Shelomoh. On sonna du shofar et tout le peuple dit : Vive le roi Shelomoh !
+1:40	Tout le monde monta après lui. Le peuple jouait de la flûte en se livrant à une grande joie, au point que la terre se fendait par leurs cris.
+1:41	Adoniyah l’entendit ainsi que tous les invités qui étaient avec lui au moment où ils finissaient de manger. Yoab ayant entendu le son du shofar dit : Pourquoi ce bruit de la ville en tumulte ?
+1:42	Et comme il parlait encore, voici Yonathan, fils du prêtre Abiathar, arriva et Adoniyah lui dit : Viens, car tu es un homme talentueux et tu apportes de bonnes nouvelles.
+1:43	Yonathan répondit et dit à Adoniyah : Oui, le roi David, notre seigneur, a établi Shelomoh roi.
+1:44	Et le roi a envoyé avec lui Tsadok le prêtre, Nathan, le prophète, Benayah, fils de Yehoyada, les Kéréthiens et les Péléthiens, et ils l'ont fait monter sur la mule du roi.
+1:45	Tsadok, le prêtre, et Nathan, le prophète, l'ont oint pour roi à Guihon, d'où ils sont remontés avec joie, et la ville s'agite. C'est là le bruit que vous avez entendu.
+1:46	Shelomoh s'est même assis sur le trône royal.
+1:47	Et les serviteurs du roi sont venus pour bénir le roi David, notre seigneur, en disant : Que ton Elohîm rende le nom de Shelomoh encore plus grand que ton nom et qu'il élève son trône encore plus que ton trône ! Et le roi s'est prosterné sur son lit.
+1:48	Et même le roi a parlé ainsi : Béni soit YHWH, l'Elohîm d'Israël, qui a donné aujourd’hui quelqu’un pour s'asseoir sur mon trône, mes yeux le voyant !
+1:49	Tous les invités d'Adoniyah furent terrifiés. Ils se levèrent et s'en allèrent, chaque homme son chemin.
+1:50	Adoniyah eut peur de Shelomoh ; il se leva aussi et s'en alla empoigner les cornes de l'autel.
+1:51	On vint l'apprendre à Shelomoh, en disant : Voici Adoniyah a peur du roi Shelomoh et il a saisi les cornes de l'autel, en disant : Que le roi Shelomoh me jure aujourd'hui qu'il ne fera pas mourir son serviteur par l'épée.
+1:52	Shelomoh dit : S'il devient un fils talentueux, il ne tombera pas un seul de ses cheveux à terre, mais s'il se trouve du mal en lui, il mourra.
+1:53	Le roi Shelomoh envoya et le fit descendre de dessus l'autel. Il vint et se prosterna devant le roi Shelomoh, et Shelomoh lui dit : Va dans ta maison.
+
+## Chapitre 2
+
+### Dernières paroles de David à Shelomoh
+
+2:1	Les jours de David s’approchaient de la mort. Il donna ses ordres à Shelomoh son fils, en disant :
+2:2	Moi, je m'en vais par la voie de toute la Terre, fortifie-toi et deviens un homme !
+2:3	Garde le dépôt<!--1 Ti. 6:20 ; 2 Ti. 1:12 et 14.--> de YHWH, ton Elohîm, en marchant dans ses voies, en gardant ses statuts, ses commandements, ses ordonnances et ses préceptes, selon ce qui est écrit dans la torah de Moshé, afin que tu agisses sagement dans tout ce que tu feras et partout où tu te tourneras,
+2:4	afin que YHWH accomplisse sa parole, qu'il a déclarée sur moi<!--2 S. 7:12-17.-->, en disant : Si tes fils gardent leur voie pour marcher devant moi dans la vérité, de tout leur cœur et de toute leur âme, pas un homme de toi, a-t-il dit, ne sera retranché du trône d’Israël.
+2:5	Tu sais aussi ce que m'a fait Yoab fils de Tserouyah, ce qu'il a fait aux deux chefs des armées d'Israël, Abner, fils de Ner et à Amasa, fils de Yether : il les a tués, en versant pendant la paix, le sang qu'on verse en temps de guerre. Il a mis de ce sang sur la ceinture qu'il avait sur ses reins et sur les sandales qu'il avait aux pieds.
+2:6	Tu agiras selon ta sagesse, en sorte que tu ne laisseras pas ses cheveux gris descendre en paix dans le shéol.
+2:7	Tu agiras avec bonté envers les fils de Barzillaï, le Galaadite, et ils seront de ceux qui mangent à ta table. Car ils se sont approchés de moi quand je fuyais en face d'Abshalôm ton frère.
+2:8	Voici, tu as avec toi Shimeï, fils de Guéra, le Benyaminite de Bahourim ; il m'a maudit d'une malédiction douloureuse le jour où j'allais à Mahanaïm. Il est descendu à ma rencontre vers le Yarden<!--Jourdain.--> et je lui ai juré par YHWH, en disant : Je ne te ferai pas mourir par l'épée.
+2:9	Maintenant, tu ne le laisseras pas impuni, car tu es un homme sage, tu sauras ce que tu lui feras pour faire descendre dans le sang ses cheveux gris au shéol.
+
+### Mort de David ; début du règne de Shelomoh<!--1 Ch. 29:23-30.-->
+
+2:10	David se coucha avec ses pères, il fut enterré dans la cité de David.
+2:11	Le temps que David régna sur Israël fut de 40 ans. Il régna 7 ans à Hébron et il régna 33 ans à Yeroushalaim.
+2:12	Shelomoh s'assit sur le trône de David, son père, et son règne fut très affermi.
+
+### Mort d'Adoniyah
+
+2:13	Adoniyah, fils de Haggith, vint vers Bath-Shéba, mère de Shelomoh, et elle dit : Viens-tu pour la paix ? Et il dit : Pour la paix.
+2:14	Il dit : Une parole de moi à toi ! Elle dit : Parle !
+2:15	Il dit : Tu sais que le royaume était à moi, et que tous en Israël avaient mis sur moi leurs faces pour que je règne. Mais la royauté s'est détournée de moi, elle est à mon frère car elle lui est venue de YHWH.
+2:16	Maintenant, je te demande une requête, ne renvoie pas mes faces. Elle lui dit : Parle !
+2:17	Et il dit : S'il te plaît, dis au roi Shelomoh - car il ne renverra pas tes faces - de me donner Abishag, la Shounamite, pour femme.
+2:18	Bath-Shéba dit : C’est bon ! Je parlerai pour toi au roi.
+2:19	Bath-Shéba entra chez le roi Shelomoh pour lui parler en faveur d'Adoniyah. Le roi se leva à sa rencontre et se prosterna devant elle, puis il s'assit sur son trône. On plaça un siège pour la mère du roi et elle s'assit à sa droite.
+2:20	Elle dit : J'ai une petite requête à te demander, ne renvoie pas mes faces. Et le roi lui dit : Demande ma mère car je ne renverrai pas tes faces.
+2:21	Elle dit : Qu'on donne Abishag, la Shounamite, pour femme à Adoniyah, ton frère.
+2:22	Mais le roi Shelomoh répondit à sa mère et dit : Pourquoi demandes-tu Abishag, la Shounamite, pour Adoniyah ? Demande plutôt le royaume pour lui, parce qu'il est mon frère aîné ! Pour lui, pour Abiathar, le prêtre, et pour Yoab, fils de Tserouyah !
+2:23	Le roi Shelomoh jura par YHWH, en disant : Qu'ainsi me traite Elohîm et qu'ainsi il y ajoute si ce n'est pas contre son âme même qu'Adoniyah a déclaré cette parole !
+2:24	Maintenant YHWH est vivant, lui qui m'a établi, qui m'a fait asseoir sur le trône de David, mon père, et qui m'a donné une maison, selon sa promesse ! Aujourd'hui Adoniyah mourra.
+2:25	Le roi Shelomoh envoya la main de Benayah, fils de Yehoyada, le frapper. C'est ainsi qu'il mourut.
+
+### Abiathar dépouillé de ses fonctions au temple
+
+2:26	Le roi dit à Abiathar, le prêtre : Va-t’en sur tes champs à Anathoth, car tu es un homme digne de mort, mais je ne te ferai pas mourir aujourd'hui, car tu as porté l'arche d'Adonaï YHWH devant David, mon père et tu as eu part à toutes les afflictions de mon père.
+2:27	Shelomoh chassa Abiathar pour qu'il ne fût plus prêtre de YHWH, accomplissant ainsi la parole que YHWH avait déclarée sur la maison d'Éli<!--1 S. 3:11-14.--> à Shiyloh.
+
+### Mort de Yoab ; Benayah à la tête de l'armée
+
+2:28	Cette nouvelle arriva jusqu’à Yoab, car Yoab s'était détourné après Adoniyah, mais ne s'était pas détourné après Abshalôm, et Yoab s'enfuit vers la tente de YHWH et saisit les cornes de l'autel.
+2:29	On informa le roi Shelomoh que Yoab s’était enfui dans la tente de YHWH : et voici, il est à côté de l'autel. Shelomoh envoya Benayah, fils de Yehoyada, et lui dit : Va et frappe-le.
+2:30	Benayah entra dans la tente de YHWH et lui dit : Ainsi a parlé le roi : Sors de là ! Mais il dit : Non ! Je mourrai ici. Et Benayah rapporta la chose au roi, en disant : Yoab m'a parlé ainsi et c'est ainsi qu'il m'a répondu.
+2:31	Et le roi dit à Benayah : Fais comme il t'a dit, frappe-le et enterre-le. Tu détourneras ainsi de moi et de la maison de mon père le sang que Yoab a versé sans cause.
+2:32	Et YHWH fera retomber son sang sur sa tête, car il a frappé deux hommes plus justes et meilleurs que lui et les a tués par l'épée, sans que mon père David le sache : Abner, fils de Ner, chef de l'armée d'Israël et Amasa, fils de Yether, chef de l'armée de Yéhouda.
+2:33	Leur sang retombera sur la tête de Yoab et sur la tête de sa semence à perpétuité. Mais pour David, pour sa semence, pour sa maison et pour son trône, il y aura paix, à perpétuité, de par YHWH.
+2:34	Benayah, fils de Yehoyada, monta et frappa Yoab à mort. Et il fut enterré dans sa maison, dans le désert.
+2:35	Le roi établit Benayah, fils de Yehoyada, sur l'armée à la place de Yoab. Le roi établit aussi Tsadok prêtre à la place d'Abiathar.
+
+### Mort de Shimeï
+
+2:36	Le roi fit appeler Shimeï et lui dit : Bâtis-toi une maison à Yeroushalaim et demeures-y. Tu n’en sortiras pas, ici ni là.
+2:37	Il arrivera qu’au jour où tu sortiras et passeras le torrent de Cédron, sache-le, mourir, tu mourras. Ton sang sera sur ta tête.
+2:38	Et Shimeï dit au roi : Cette parole est bonne ! Ton esclave fera tout ce que le roi mon seigneur a dit. Ainsi Shimeï demeura de nombreux jours à Yeroushalaim.
+2:39	Il arriva qu'au bout de 3 ans, deux esclaves de Shimeï s'enfuirent vers Akish, fils de Ma'akah, roi de Gath et on informa Shimeï, en disant : Voilà tes esclaves sont à Gath.
+2:40	Shimeï se leva, sella son âne, et s'en alla à Gath vers Akish pour chercher ses esclaves. Shimeï s'en alla et ramena de Gath ses esclaves.
+2:41	On informa Shelomoh que Shimeï était allé de Yeroushalaim à Gath, et qu'il était de retour.
+2:42	Le roi envoya appeler Shimeï et lui dit : Ne t'ai-je pas fait jurer par YHWH et ne t’ai-je pas averti en disant : Sache, sache que le jour où tu sortiras pour aller de côté et d'autre, mourir, tu mourras ? Ne m'as-tu pas dit : La parole que j'ai entendue est bonne ?
+2:43	Pourquoi n'as-tu pas observé le serment de YHWH et le commandement que je t'avais donné ?
+2:44	Le roi dit aussi à Shimeï : Tu sais en ton cœur tout le mal que tu as fait à David, mon père. C'est pourquoi YHWH a fait retomber ta méchanceté sur ta tête.
+2:45	Le roi Shelomoh sera béni et le trône de David sera affermi devant YHWH à perpétuité.
+2:46	Le roi donna un ordre à Benayah, fils de Yehoyada. Il sortit, se jeta sur lui et il mourut. La royauté fut ainsi affermie entre les mains de Shelomoh.
+
+## Chapitre 3
+
+### Shelomoh s'allie à pharaon
+
+3:1	Or Shelomoh devint le gendre de pharaon, roi d'Égypte. Il prit pour femme la fille de pharaon et l'amena dans la cité de David, jusqu'à ce qu'il eût achevé de bâtir sa maison, la maison de YHWH et la muraille de Yeroushalaim tout autour.
+3:2	Seulement le peuple sacrifiait dans les hauts lieux, car jusque-là on n'avait pas bâti de maison au nom de YHWH.
+
+### Shelomoh demande la sagesse à YHWH<!--2 Ch. 1:2-10.-->
+
+3:3	Shelomoh aimait YHWH, il marchait dans les statuts de David, son père. Seulement il sacrifiait et brûlait de l'encens sur les hauts lieux.
+3:4	Le roi alla à Gabaon pour y sacrifier, car c'était le grand haut lieu. Et Shelomoh fit monter 1 000 holocaustes sur cet autel.
+3:5	YHWH se fit voir de nuit à Shelomoh à Gabaon en rêve et Elohîm lui dit : Demande : que te donnerai-je ?
+3:6	Shelomoh dit : Tu as usé d'une grande bonté envers ton serviteur David, mon père, parce qu'il a marché en face de toi dans la vérité, dans la justice et dans la droiture de cœur envers toi. Tu as gardé cette grande bonté envers lui en lui donnant un fils qui est assis sur son trône, comme en ce jour.
+3:7	Maintenant, YHWH, mon Elohîm ! Tu as fait régner ton serviteur à la place de David, mon père, et je ne suis qu'un jeune homme, je ne sais pas sortir et entrer.
+3:8	Ton serviteur est parmi ce peuple que tu as choisi, un peuple nombreux qui ne peut être compté ni dénombré à cause de sa multitude.
+3:9	Donne à ton serviteur un cœur intelligent pour juger ton peuple, pour discerner le bien du mal ! Car qui pourrait juger ce peuple si grand ?
+
+### YHWH exauce Shelomoh<!--2 Ch. 1:11-13.-->
+
+3:10	La parole fut bonne aux yeux d'Adonaï, parce que Shelomoh avait demandé cette parole.
+3:11	Elohîm lui dit : Puisque c'est là ta demande et que tu n'as pas demandé une longue vie, ni les richesses, ni l'âme de tes ennemis, mais que tu as demandé de l'intelligence pour rendre justice,
+3:12	voici, j'agis selon ta parole. Voici, je te donne un cœur sage et intelligent, de sorte qu'il n'y aura eu personne de semblable avant toi et qu'il n'y en aura jamais de semblable après toi.
+3:13	Et même, je te donne ce que tu n’as pas demandé, même la richesse, même la gloire. Il n’y aura pas un homme comme toi parmi les rois, durant tous tes jours.
+3:14	Si tu marches dans mes voies pour garder mes ordonnances et mes commandements, comme David, ton père, je prolongerai tes jours.
+3:15	Shelomoh se réveilla, et voilà que c'était un rêve. Puis il s'en retourna à Yeroushalaim et se tint devant l'arche de l'alliance d'Adonaï. Là, il fit monter des holocaustes et fit des offrandes de paix<!--Voir commentaire en Lé. 3:1.--> et un festin à tous ses serviteurs.
+3:16	Alors deux femmes prostituées vinrent chez le roi et se présentèrent devant lui.
+3:17	L’une des femmes dit : Excusez-moi, mon Seigneur ! Nous demeurions, cette femme et moi, dans une même maison, et j'ai accouché près d'elle dans cette maison.
+3:18	Il arriva que le troisième jour après que j’eus accouché, cette femme accoucha aussi. Nous étions ensemble, aucun étranger avec nous dans la maison, à l'exception de nous deux dans la maison.
+3:19	Or le fils de cette femme est mort la nuit, parce qu'elle s'était couchée sur lui.
+3:20	Elle s'est levée au milieu de la nuit, et a pris mon fils à mes côtés pendant que ta servante dormait, et l'a couché dans son sein. Et son fils mort, elle l'a couché dans mon sein.
+3:21	Le matin, je me suis levée pour allaiter mon fils et voici qu'il était mort ! Je l'ai regardé attentivement le matin, et voici, ce n'était pas mon fils que j'avais enfanté !
+3:22	L'autre femme dit : Non, c'est mon fils qui est vivant et c'est ton fils qui est mort. Mais celle-là disait : Non, car celui qui est mort est ton fils, et c'est mon fils qui est vivant. Elles parlaient ainsi devant le roi.
+3:23	Le roi dit : Celle-ci dit : C'est mon fils qui est vivant et c'est ton fils qui est mort, et celle-là dit : Non, car c’est ton fils qui est mort, et c'est mon fils qui est vivant.
+3:24	Le roi dit : Prenez-moi une épée ! Et l’on apporta une épée devant le roi.
+3:25	Le roi dit : Coupez l’enfant vivant en deux, et donnez la moitié à l’une et l’autre moitié à l’autre.
+3:26	La femme dont le fils était vivant dit au roi, car ses matrices étaient brûlantes pour son fils : Excusez-moi, mon seigneur ! Donnez-lui l'enfant vivant, tuer, vous ne le tuerez pas ! Mais celle-ci dit : Il ne sera ni à moi ni à toi. Coupez-le !
+3:27	Le roi répondit et dit : Donnez à celle-ci l’enfant vivant ! Tuer, vous ne le tuerez pas ! C'est elle qui est sa mère.
+3:28	Tout Israël entendit parler du jugement que le roi avait prononcé, et ils craignirent en face du roi, car on vit que la sagesse d'Elohîm était en lui pour faire justice.
+
+## Chapitre 4
+
+### Shelomoh établit onze chefs et douze intendants
+
+4:1	Le roi Shelomoh devint roi sur tout Israël.
+4:2	Voici les chefs qu'il avait à son service : Azaryah, fils du prêtre Tsadok.
+4:3	Éliychoreph et Achiyah, fils de Shiysah, scribes. Yehoshaphat, fils d'Ahiloud, archiviste.
+4:4	Benayah, fils de Yehoyada, commandait l'armée. Tsadok et Abiathar étaient prêtres.
+4:5	Azaryah, fils de Nathan, était chef des intendants. Zaboud, fils de Nathan, était prêtre, ami du roi.
+4:6	Achishar, chef de la maison du roi. Adoniram, fils d'Abda, préposé sur les impôts.
+4:7	Shelomoh avait douze intendants sur tout Israël. Ils approvisionnaient le roi et sa maison. Un mois par année, chacun devait l'approvisionner.
+4:8	Voici leurs noms : le fils de Hour, sur la Montagne d'Éphraïm.
+4:9	Le fils de Déker, sur Makats, sur Saalbim, sur Beth-Shémesh, à Eylon de Beth-Chanan.
+4:10	Le fils de Hésed, à Aroubboth. Il avait Soco et toute la terre de Hépher.
+4:11	Le fils d'Abinadab avait toute la contrée de Dor. Il avait Thaphath, fille de Shelomoh, pour femme.
+4:12	Ba`ana, fils d'Ahiloud, avait Thaanac et Meguiddo, et tout Beth-Shean qui est près de Tsarthan au-dessous de Yizre`e'l, depuis Beth-Shean jusqu'à Abel-Meholah et jusqu'au-delà de Yoqme`am.
+4:13	Le fils de Guéber, à Ramoth en Galaad. Il avait les villages de Yaïr, fils de Menashè, en Galaad. Il avait aussi toute la contrée d'Argob en Bashân, 60 grandes villes à murailles et garnies de barres de cuivre.
+4:14	Achinadab, fils d'Iddo, à Mahanaïm.
+4:15	Achimaats, qui avait pour femme Basmath, fille de Shelomoh, en Nephthali.
+4:16	Ba`ana, fils de Houshaï, en Asher et sur Bealoth.
+4:17	Yehoshaphat, fils de Parouah, à Yissakar.
+4:18	Shimeï, fils d'Éla, en Benyamin.
+4:19	Guéber, fils d'Ouri, en terre de Galaad, la terre de Sihon, roi des Amoréens, et d'Og, roi de Bashân. Il y avait un seul intendant pour cette terre.
+
+### L'étendue de la domination du royaume
+
+4:20	Yéhouda et Israël étaient en grand nombre, semblable au sable sur le bord de la mer. Ils mangeaient, buvaient et se réjouissaient.
+
+## Chapitre 5
+
+5:1	Et Shelomoh dominait sur tous les royaumes depuis le fleuve jusqu'à la terre des Philistins et jusqu'à la frontière d'Égypte. Ils apportaient des présents et lui furent assujettis tous les jours de sa vie.
+5:2	Or le pain de Shelomoh pour chaque jour était de 30 cors<!--Une mesure (généralement de produit sec). Mesure égale à 10 éphas ou baths : mesure sèche contenant 6.25 boisseaux (220 litres) ; mesure liquide de 263 litres.--> de fine farine et 60 cors de farine,
+5:3	10 bœufs gras, 20 bœufs de pâturages et 100 moutons, outre les cerfs, les gazelles, les daims et les volailles engraissées.
+5:4	Il dominait sur toutes les régions de l'autre côté du fleuve, depuis Thiphsach jusqu'à Gaza, et tous les rois des régions de l'autre côté du fleuve lui étaient soumis. Il était en paix avec tous ses alentours, de tous côtés.
+5:5	Yéhouda et Israël habitèrent en sécurité chaque homme sous sa vigne et sous son figuier, depuis Dan jusqu'à Beer-Shéba, tous les jours de Shelomoh.
+5:6	Shelomoh avait aussi 40 000 crèches pour les chevaux destinés à ses chars et 12 000 cavaliers.
+5:7	Ces intendants approvisionnaient le roi Shelomoh et tous ceux qui s'approchaient de la table du roi Shelomoh, chaque homme pendant son mois. Ils ne faisaient manquer aucune parole.
+5:8	Ils faisaient aussi venir de l'orge et de la paille pour les chevaux et les coursiers dans le lieu où se trouvait le roi, chaque homme selon son ordonnance.
+
+### La sagesse de Shelomoh connue de toute la Terre
+
+5:9	Elohîm donna à Shelomoh de la sagesse, une très grande intelligence et un cœur large comme le sable qui est sur le bord de la mer.
+5:10	La sagesse de Shelomoh surpassait la sagesse de tous les fils de l'orient et toute la sagesse des Égyptiens.
+5:11	Il était plus sage que tout être humain, plus que Éthan, l'Ezrachite, plus qu'Héman, Kalkol et Darda, les fils de Machol. Et son nom était connu parmi toutes les nations d'alentour.
+5:12	Il a prononcé 3 000 paraboles<!--Ou proverbes.--> et ses cantiques furent au nombre de 1 005.
+5:13	Et il a parlé sur les arbres, depuis le cèdre du Liban jusqu'à l'hysope qui sort de la muraille. Il a parlé sur les animaux, sur les créatures volantes, sur les choses rampantes et sur les poissons.
+5:14	Et de tous les peuples, on venait pour entendre la sagesse de Shelomoh, de la part de tous les rois de la Terre qui avaient entendu parler de sa sagesse.
+
+### Shelomoh prépare la construction du temple<!--2 Ch. 1:18, 13:16.-->
+
+5:15	Hiram, roi de Tyr, envoya ses serviteurs vers Shelomoh, car il apprit qu'on l'avait oint pour roi à la place de son père, car Hiram avait toujours aimé David.
+5:16	Shelomoh envoya vers Hiram en disant :
+5:17	Toi, tu as connu David, mon père. En effet, il ne pouvait pas bâtir de maison pour le nom de YHWH, son Elohîm, à cause de la guerre qui l’entourait jusqu’à ce que YHWH les ait mis sous la plante de ses pieds.
+5:18	Maintenant YHWH, mon Elohîm, m'a donné du repos de toutes parts : pas de satan, pas d'événement fâcheux !
+5:19	Je dis: Me voici, je bâtirai une maison au nom de YHWH, mon Elohîm, selon que YHWH en a parlé à David, mon père, en disant : Ton fils que je mettrai à ta place sur ton trône sera celui qui bâtira une maison pour mon nom.
+5:20	Ordonne maintenant que l'on coupe des cèdres du Liban pour moi. Mes serviteurs seront avec tes serviteurs et je donnerai pour tes serviteurs le salaire que tu auras fixé, car tu sais qu'il n'y a personne parmi nous qui sache couper le bois comme les Sidoniens.
+5:21	Il arriva, quand Hiram entendit les paroles de Shelomoh, qu’il s’en réjouit beaucoup et il dit : Béni soit aujourd'hui YHWH, qui a donné à David un fils sage, sur ce grand peuple !
+5:22	Hiram envoya dire à Shelomoh : J'ai entendu ce que tu m'as envoyé. Je ferai tout ton plaisir au sujet des bois de cèdre et des bois de cyprès.
+5:23	Mes serviteurs les descendront du Liban à la mer, puis je les expédierai sur la mer par radeaux jusqu'au lieu que tu m'auras indiqué. Là, je les ferai délier et tu les prendras. Et tu feras ce que je désire en fournissant des vivres à ma maison.
+5:24	Il arriva que Hiram donna du bois de cèdre et du bois de cyprès à Shelomoh, tout ce qu’il désirait.
+5:25	Et Shelomoh donna à Hiram 20 000 cors de froment pour la nourriture de sa maison et 20 cors d'huile d'olives concassées. Voilà ce que Shelomoh donnait à Hiram année par année.
+5:26	Et YHWH donna de la sagesse à Shelomoh comme il lui en avait parlé. Il y eut paix entre Hiram et Shelomoh, et ils firent alliance ensemble.
+
+### Les hommes de corvée<!--2 Ch. 2:1, 17:18.-->
+
+5:27	Le roi Shelomoh leva sur tout Israël des hommes de corvée. Ils étaient au nombre de 30 000 hommes.
+5:28	Il en envoya 10 000 au Liban chaque mois, tour à tour, ils étaient un mois au Liban, et deux mois à la maison. Adoniram était préposé sur les gens de corvée.
+5:29	Shelomoh avait 70 000 hommes porteurs de fardeaux et 80 000 tailleurs de pierres dans la montagne,
+5:30	sans compter les chefs au nombre de 3 300, préposés par Shelomoh sur le suivi des travaux et chargés de surveiller ceux qui faisaient les travaux.
+5:31	Le roi ordonna d'extraire de grandes pierres, des pierres précieuses, des pierres de taille pour servir de fondements à la maison.
+5:32	De sorte que les maçons de Shelomoh et les maçons d'Hiram, taillèrent les pierres et préparèrent le bois et les pierres pour bâtir la maison.
+
+## Chapitre 6
+
+### Construction de la maison ou du temple de YHWH<!--2 Ch. 3:1-14.-->
+
+6:1	Et il arriva qu'en l'année, qu'en l'année 480 après la sortie des fils d'Israël de la terre d'Égypte, Shelomoh bâtit la maison de YHWH<!--Voir les annexes « Le temple de Shelomoh ».-->, la quatrième année du règne de Shelomoh sur Israël, au mois de Ziv, qui est le second mois.
+6:2	La maison que le roi Shelomoh bâtit pour YHWH avait 60 coudées de long, 20 de large, et 30 de haut.
+6:3	Le portique devant le temple de la maison avait 20 coudées de longueur, répondant à la largeur de la maison, et il avait 10 coudées de profondeur sur le devant de la maison.
+6:4	Il fit placer des fenêtres à la maison, fenêtres solidement grillées.
+6:5	Il bâtit contre la muraille de la maison, à l'entour, des étages qui entouraient les murs de la maison, le temple et le lieu très-saint, ainsi il fit des chambres latérales tout autour.
+6:6	L'étage inférieur était large de 5 coudées, celui du milieu de 6 coudées et le troisième de 7 coudées. Car on avait donné du retrait à la maison tout autour à l’extérieur, en sorte que cela n'était pas lié aux murs de la maison.
+6:7	En bâtissant la maison, on la bâtit de pierres entièrement taillées dans les carrières. On n’entendit dans la maison en la bâtissant ni le marteau, ni la hache, ni aucun outil de fer.
+6:8	L'entrée des chambres de l'étage inférieur était au côté droit de la maison, et on montait à l'étage du milieu par un escalier tournant, et de l'étage du milieu au troisième.
+6:9	Il bâtit ainsi la maison et l'acheva. Il lambrissa la maison de planches et de poutres de cèdre.
+6:10	Il bâtit les étages sur toute la maison de 5 coudées de hauteur et il les lia à la maison par des bois de cèdre.
+6:11	La parole de YHWH apparut à Shelomoh en disant :
+6:12	Quant à cette maison que tu bâtis, si tu marches dans mes statuts, si tu pratiques mes ordonnances et que tu gardes tous mes commandements pour y marcher, j'accomplirai en ta faveur la parole que j'ai dite à David ton père.
+6:13	J'habiterai au milieu des fils d'Israël et je n'abandonnerai pas mon peuple d'Israël.
+6:14	Shelomoh bâtit la maison et l'acheva.
+6:15	Il bâtit les murs de la maison, à l’intérieur, en planches de cèdre, depuis le sol de la maison jusqu’aux murs du plafond. Il la recouvrit de bois, à l’intérieur, puis il recouvrit le sol de la maison de planches de cyprès.
+6:16	Il bâtit, sur 20 coudées, les parties extrêmes de la maison en planches de cèdre, depuis le sol jusqu'au haut des murs, et il bâtit ainsi l'intérieur pour en faire le lieu très-saint, le Saint des saints.
+6:17	Les 40 coudées sur le devant formaient la maison, le temple.
+6:18	Le bois de cèdre à l'intérieur de la maison était sculpté en coloquintes et en fleurs épanouies. Tout l'intérieur était de cèdre, on ne voyait aucune pierre.
+6:19	Et le lieu très-saint, au milieu de la maison, à l’intérieur, il l’établit pour y mettre l’arche de l’alliance de YHWH.
+6:20	Le lieu très-saint avait par-devant 20 coudées de long, 20 coudées de large et 20 coudées de haut, et on le recouvrit d'or pur. On en recouvrit aussi l'autel, fait de planches de bois de cèdre.
+6:21	Shelomoh recouvrit d'or pur l'intérieur de la maison et il fit passer un voile avec des chaînes d'or devant le lieu très-saint qu'il recouvrit également d'or.
+6:22	Toute la maison, il la recouvrit d'or, jusqu’à l’achèvement de toute la maison. Et tout l'autel qui était devant le lieu très-saint, il le recouvrit d'or.
+6:23	Il fit dans le lieu très-saint deux chérubins de bois d'olivier sauvage, qui avaient chacun 10 coudées de haut.
+6:24	Chacune des ailes de l'un des chérubins avait 5 coudées et les ailes de l'autre chérubin avaient aussi 5 coudées. Depuis le bout d'une aile jusqu'au bout de l'autre aile, il y avait 10 coudées.
+6:25	Le second chérubin était aussi de 10 coudées. Les deux chérubins étaient d'une même mesure et taillés l'un comme l'autre.
+6:26	La hauteur d'un chérubin était de 10 coudées, et l'autre chérubin était de même.
+6:27	Il plaça les chérubins à l'intérieur, au milieu de la maison. Les ailes des chérubins étaient déployées, de sorte que l’aile de l’un touchait à un mur, et que l’aile du second chérubin touchait au second mur. Et leurs ailes, au milieu de la maison, se touchaient, aile à aile.
+6:28	Il recouvrit d'or les chérubins.
+6:29	Il fit sculpter sur tout le pourtour des murs de la maison, à l'intérieur et à l'extérieur, des sculptures en relief de chérubins, des palmes et des fleurs épanouies.
+6:30	Il recouvrit aussi d'or le sol de la maison, tant à l'intérieur qu'à l'extérieur.
+6:31	À l'entrée du lieu très-saint, il fit une porte à deux battants en bois d’arbre à huile, dont les linteaux avec les poteaux équivalaient à un cinquième du mur.
+6:32	Les deux battants étaient en bois d’arbre à huile. Il y fit sculpter des chérubins, des palmes et des fleurs épanouies qu'il recouvrit d'or, étendant également l'or sur les chérubins et sur les palmes.
+6:33	Il fit aussi, à l'entrée du temple, des poteaux en bois d’arbre à huile, quadrangulaires.
+6:34	Les deux battants étaient de bois de cyprès : un battant était formé de deux planches brisées, et le second battant de deux planches brisées.
+6:35	Il y fit sculpter des chérubins, des palmes et des fleurs épanouies, et les recouvrit d'or, ajusté sur la sculpture.
+6:36	Il bâtit aussi le parvis de l'intérieur de trois rangées de pierres de taille et d'une rangée de poutres de cèdre.
+6:37	La quatrième année, au mois de Ziv, les fondements de la maison de YHWH furent posés.
+6:38	La onzième année, au mois de Boul, qui est le huitième mois, la maison fut achevée, selon toutes ses paroles et selon tous ses jugements. Il la bâtit en sept ans.
+
+## Chapitre 7
+
+### Construction du palais royal
+
+7:1	Quant à sa maison, Shelomoh la bâtit en 13 ans, et il acheva toute sa maison.
+7:2	Il bâtit la maison de la forêt du Liban, de 100 coudées de long, de 50 coudées de large, et de 30 coudées de haut, sur quatre rangées de colonnes de cèdre et sur les colonnes il y avait des poutres de cèdre.
+7:3	On lambrissa de bois de cèdre les chambres qui portaient sur les colonnes qui étaient au nombre de 45, 15 par étages.
+7:4	Il y avait trois rangées de fenêtres à cadres, chaque ouverture faisant face à une ouverture, sur trois niveaux.
+7:5	Toutes les portes et les poteaux étaient d'une charpente carrée et, aux trois étages, chaque ouverture faisant face à une ouverture.
+7:6	Il fit aussi le portique des colonnes, long de 50 coudées, et large de 30 coudées, ainsi qu'un autre portique en avant avec des colonnes et des degrés sur leur front.
+7:7	Il fit le portique du trône, là où il jugeait, le portique du jugement. On le lambrissa de cèdre, de plancher à plancher.
+7:8	La maison où il demeurait fut construite de la même manière, dans une autre cour, derrière le portique. Shelomoh fit une maison du même genre que ce portique pour la fille de pharaon, qu'il avait prise pour femme.
+7:9	Toutes ces constructions étaient de pierres précieuses, taillées d'après des mesures, sciées à la scie, en dedans et en dehors, depuis les fondements jusqu'aux corniches, et par dehors jusqu'au grand parvis.
+7:10	Le fondement était en pierres précieuses, de grandes pierres, des pierres de 10 coudées et des pierres de 8 coudées.
+7:11	Et par-dessus il y avait des pierres précieuses, taillées d'après des mesures et de cèdre.
+7:12	Le grand parvis avait tout alentour trois rangées de pierres de taille et une rangée de poutres de cèdre, comme le parvis intérieur de la maison de YHWH, et le portique de la maison.
+
+### Hiram, artisan spécialiste en cuivre<!--2 Ch. 2:12-13.-->
+
+7:13	Le roi Shelomoh fit venir de Tyr Hiram,
+7:14	fils d'une femme veuve de la tribu de Nephtali et d'un père Tyrien, qui travaillait le cuivre. Il était rempli de sagesse, d'intelligence et de connaissance pour faire toutes sortes d'ouvrages de cuivre. Il arriva auprès du roi Shelomoh et il fit tous ses ouvrages.
+
+### Les colonnes du temple<!--2 Ch. 3:15-17.-->
+
+7:15	Il fit les deux colonnes de cuivre, la première avait 18 coudées de hauteur. Un cordon de 12 coudées mesurait le tour de la seconde.
+7:16	Il fit deux chapiteaux de cuivre fondu pour mettre sur les sommets des colonnes. Le premier chapiteau était de 5 coudées de hauteur, le second était de 5 coudées.
+7:17	Il fit des treillis en forme de maillages, des festons façonnés en forme de chaînes, pour les chapiteaux qui étaient sur le sommet des colonnes, 7 pour le premier des chapiteaux, et 7 pour le second.
+7:18	Il fit deux rangs de grenades autour de l'un des treillis, pour couvrir le chapiteau qui était sur le sommet d'une des colonnes. Il fit de même pour l'autre chapiteau.
+7:19	Les chapiteaux qui étaient sur le sommet des colonnes dans le portique étaient d’un ouvrage de lis de 4 coudées.
+7:20	Ces chapiteaux placés sur les deux colonnes étaient entourés de 200 grenades, en haut, depuis le renflement qui était au-delà du treillis. Il y avait 200 grenades, en rangées, autour du second chapiteau.
+7:21	Il dressa les colonnes au portique du temple. Il dressa la colonne de droite qu'il appela du nom de Yakiyn<!--Voir 2 Ch. 3:17.-->. Puis il dressa la colonne de gauche qu'il appela du nom de Boaz.
+7:22	Et sur le sommet des colonnes, il y avait un ouvrage de lis. Ainsi l'ouvrage des colonnes fut achevé.
+
+### La mer en métal fondu<!--2 Ch. 4:2-5.-->
+
+7:23	Il fit aussi la mer en métal fondu. Elle avait 10 coudées d’un bord à l’autre bord, ronde tout autour, avec 5 coudées de haut. Un cordon de 30 coudées en mesurait le tour.
+7:24	Au-dessous de son bord, des coloquintes l'environnaient, 10 à chaque coudée, lesquelles faisaient tout le tour de la mer. Il y avait deux rangées de coloquintes, coulées dans la même fonte.
+7:25	Elle était posée sur 12 bœufs : 3 tournés vers le nord, 3 tournés vers l'ouest, 3 tournés vers le sud et 3 tournés vers l'est. La mer était sur eux et toute la partie postérieure de leur corps était vers l'intérieur.
+7:26	Son épaisseur avait la largeur d'une main, et son bord était comme le travail du bord d'une coupe en fleur de lis. Elle contenait 2 000 baths.
+
+### Les dix bases en cuivre
+
+7:27	Il fit aussi dix bases en cuivre. Chaque base avait 4 coudées de long, 4 coudées de large et 3 coudées de haut.
+7:28	Voici quel était l’ouvrage de ces bases : elles avaient des rebords, des rebords entre les montants.
+7:29	Sur les rebords qui étaient entre les montants il y avait des lions, des bœufs et des chérubins. Et au-dessus et en dessous des lions et des bœufs, il y avait des guirlandes, ouvrage pendant.
+7:30	Chaque base avait quatre roues de cuivre avec des essieux de cuivre. Ses quatre pieds leur servaient d'épaules. Les épaules étaient fondues au-dessous de la cuve et au-delà de chacune étaient les guirlandes.
+7:31	Sa bouche, à l'intérieur du chapiteau et au-dessus, était d’une coudée. Cette bouche était ronde, comme l'ouvrage d'un piédestal et elle avait une coudée et demie. Sur sa bouche il y avait des sculptures dont les rebords étaient carrés, non pas ronds.
+7:32	Les quatre roues étaient sous les rebords et les essieux des roues fixés à la base. Chaque roue était haute d'une coudée et demie.
+7:33	Les roues étaient faites comme les roues de chars. Leurs essieux, leurs jantes, leurs rais et leurs moyeux étaient tous de fonte.
+7:34	Il y avait quatre épaules, aux quatre angles d'une base : les épaules sortaient de la base.
+7:35	Au sommet de la base, il y avait une demi-coudée de hauteur, ronde tout autour. Sur le sommet de la base étaient ses tenons et ses rebords qui sortaient d'elle.
+7:36	Il grava sur les plaques de ses tenons et sur ses rebords, des chérubins, des lions et des palmes, selon l'espace libre de chacun, et des guirlandes tout autour.
+7:37	Il fit ainsi les dix bases : d'une même fonte, d'une même mesure et d'une même forme pour toutes.
+
+### Les dix cuves en cuivre<!--2 Ch. 4:6.-->
+
+7:38	Il fit 10 cuves en cuivre dont chacune contenait 40 baths, chaque cuve était de 4 coudées, chaque cuve était sur l'une des dix bases.
+7:39	Il mit 5 bases au côté droit de la maison et 5 au côté gauche de la maison. Quant à la mer, il la mit au côté droit de la maison, vers l'orient, du côté du midi.
+
+### Totalité de l'œuvre d'Hiram
+
+7:40	Ainsi Hiram fit les cuves, les pelles et les cuvettes. Hiram acheva de faire tout l'ouvrage qu'il faisait pour le roi Shelomoh, pour la maison de YHWH :
+7:41	deux colonnes avec les deux chapiteaux et leurs bourrelets sur le sommet des colonnes : les deux maillages pour couvrir les deux bourrelets des chapiteaux qui étaient sur le sommet des colonnes ;
+7:42	les 400 grenades pour les deux maillages, deux rangs de grenades pour chaque maillage, pour couvrir les deux bourrelets des chapiteaux qui étaient sur les colonnes ;
+7:43	les 10 bases et les 10 cuves sur les bases,
+7:44	la mer avec les 12 bœufs sous la mer,
+7:45	les pots, les pelles et les cuvettes. Tous ces ustensiles que Hiram fit pour le roi Shelomoh, pour la maison de YHWH étaient de cuivre poli.
+7:46	Le roi les fit fondre dans la plaine du Yarden dans l'épaisseur du sol, entre Soukkoth et Tsarthan.
+7:47	Et Shelomoh ne pesa aucun de ces ustensiles, parce qu'ils étaient en trop grand nombre, de sorte qu'on ne rechercha pas le poids du cuivre.
+
+### Divers ustensiles d'or pour la maison de YHWH
+
+7:48	Shelomoh fit aussi tous les ustensiles pour la maison de YHWH : l'autel en or et la table sur laquelle était le pain des faces, en or,
+7:49	les chandeliers en or pur, cinq à droite et cinq à gauche devant le lieu très-saint, avec les fleurs, les lampes et les mouchettes en or,
+7:50	les bassins, les mouchettes, les cuvettes, les coupes et les encensoirs en or pur. Les gonds, même des portes de la maison, à l'entrée du Saint des saints, à la porte de la maison et à l'entrée du temple, étaient en or.
+7:51	Tout l'ouvrage que le roi Shelomoh fit pour la maison de YHWH fut achevé. Il y fit apporter l'or, l'argent et les ustensiles que David son père avait consacrés et il les mit dans les trésors de la maison de YHWH.
+
+## Chapitre 8
+
+### L'arche de l'alliance placée dans le Saint des saints ; la gloire de YHWH remplit le temple<!--2 Ch. 5:2-14.-->
+
+8:1	Alors Shelomoh rassembla à Yeroushalaim les anciens d'Israël, toutes les têtes des tribus, les princes des pères des fils d'Israël, auprès du roi Shelomoh, pour faire monter l'arche de l'alliance de YHWH de la cité de David, qui est Sion.
+8:2	Tous les hommes d'Israël se rassemblèrent auprès du roi Shelomoh, au mois d'Éthanim, qui est le septième mois, pendant la fête.
+8:3	Tous les anciens d'Israël vinrent, et les prêtres portèrent l'arche.
+8:4	Ils firent monter l'arche de YHWH, la tente de réunion et tous les ustensiles qui étaient dans le tabernacle. Les prêtres et les Lévites les firent monter.
+8:5	Le roi Shelomoh et toute l'assemblée d'Israël convoquée auprès de lui, se tinrent debout devant l'arche. Ils sacrifièrent du gros et du petit bétail en si grand nombre, qu'on ne pouvait ni compter ni dénombrer.
+8:6	Les prêtres introduisirent l'arche de l'alliance de YHWH à sa place, dans le lieu très-saint de la maison, dans le Saint des saints, sous les ailes des chérubins.
+8:7	Car les chérubins étendaient les ailes sur la place de l'arche, et les chérubins couvraient l’arche et ses barres par-dessus.
+8:8	Les barres avaient une longueur telle que les têtes des barres se voyaient du lieu saint, sur le devant du lieu très-saint, mais elles ne se voyaient pas du dehors. Elles sont restées là jusqu'à ce jour.
+8:9	Il n'y avait rien dans l'arche, excepté les deux tablettes de pierre que Moshé y déposa en Horeb, lorsque YHWH traita alliance avec les fils d'Israël à leur sortie de la terre d'Égypte.
+8:10	Il arriva qu'au moment où les prêtres sortirent du lieu saint, la nuée remplit la maison de YHWH.
+8:11	De sorte que les prêtres ne pouvaient se tenir debout pour faire le service, à cause de la nuée. La gloire de YHWH remplissait en effet la maison de YHWH.
+
+### Discours de Shelomoh<!--2 Ch. 6:1-11.-->
+
+8:12	Alors Shelomoh dit : YHWH a dit qu'il demeurerait dans les ténèbres épaisses !
+8:13	J'ai bâti, j'ai bâti une maison pour ta résidence, un lieu fixe pour que tu y habites à perpétuité.
+8:14	Le roi tourna ses faces et bénit toute l'assemblée d'Israël. Toute l'assemblée d'Israël se tenait là debout.
+8:15	Il dit : Béni soit YHWH, l'Elohîm d'Israël, qui a parlé de sa propre bouche à David, mon père, et qui a accompli par sa main ce qu'il avait déclaré, en disant :
+8:16	Depuis le jour où j'ai fait sortir d'Égypte Israël, mon peuple, je n'ai choisi aucune ville parmi toutes les tribus d'Israël pour y bâtir une maison où serait mon nom. Mais j'ai choisi David pour qu'il soit au-dessus d'Israël, mon peuple.
+8:17	David, mon père, avait à cœur de bâtir une maison au nom de YHWH, l'Elohîm d'Israël.
+8:18	Et YHWH dit à David, mon père : Puisque tu as eu à cœur de bâtir une maison à mon nom, tu as bien fait de l’avoir eu à cœur.
+8:19	Néanmoins, tu ne bâtiras pas cette maison, mais ton fils qui sortira de tes entrailles sera celui qui bâtira cette maison à mon nom.
+8:20	YHWH a accompli la parole qu'il avait déclarée. Je me suis levé à la place de David, mon père, et me suis assis sur le trône d'Israël, comme YHWH l'avait déclaré, et j'ai bâti cette maison au nom de YHWH, l'Elohîm d'Israël.
+8:21	J'y ai établi ici un lieu pour l'arche, dans laquelle est l'alliance de YHWH, qu'il traita avec nos pères quand il les fit sortir hors de la terre d'Égypte.
+
+### Prière de Shelomoh<!--2 Ch. 6:12-42.-->
+
+8:22	Shelomoh se tint debout face à l'autel de YHWH devant toute l'assemblée d'Israël, et étendant ses paumes vers les cieux,
+8:23	il dit : YHWH, Elohîm d'Israël ! Il n'y a pas d'Elohîm semblable à toi en haut dans les cieux, ni en bas sur la Terre. Tu gardes l'alliance et la miséricorde envers tes serviteurs qui marchent en face de toi de tout leur cœur !
+8:24	Tu as gardé pour ton serviteur David, mon père, ce que tu lui avais déclaré. Ce que tu avais déclaré de ta bouche, tu l'accomplis en ce jour par ta main.
+8:25	Maintenant, YHWH, Elohîm d'Israël, prête attention à la promesse faite à ton serviteur David, mon père, en disant : Pas un homme de toi, assis sur le trône d’Israël, ne sera retranché face à moi, pourvu seulement que tes fils prennent garde à leur voie et qu'ils marchent en face de moi comme tu as marché en face de moi.
+8:26	Maintenant, Elohîm d'Israël, s'il te plaît, que la parole que tu as déclarée à ton serviteur David, mon père, soit confirmée !
+8:27	Oui, vraiment, Elohîm habiterait-il sur la Terre ? Voici, les cieux et les cieux des cieux<!--De. 10:14 ; 2 Ch. 6:18.--> ne peuvent te contenir ! Combien moins cette maison que j'ai bâtie !
+8:28	Toutefois, YHWH, mon Elohîm, tu te tourneras vers la prière de ton serviteur et vers sa supplication, pour écouter le cri et la prière par lesquels ton serviteur prie, en face de toi, aujourd’hui.
+8:29	Que tes yeux soient ouverts jour et nuit sur cette maison, sur le lieu dont tu as dit : Là sera mon nom ! Écoute la prière que ton serviteur fait en ce lieu.
+8:30	Écoute la supplication de ton serviteur et de ton peuple d'Israël lorsqu'ils te prieront en ce lieu ! Écoute du lieu de ta demeure. Des cieux, écoute et pardonne !
+8:31	Si un homme pèche contre son ami et qu'on lui impose un serment pour le faire jurer, et que le serment aura été fait devant ton autel dans cette maison,
+8:32	toi, tu entendras des cieux et tu agiras. Tu jugeras tes serviteurs, tu condamneras le coupable en lui rendant selon sa conduite, tu rendras justice à l'innocent et tu le traiteras selon son innocence !
+8:33	Quand ton peuple d'Israël sera battu par l'ennemi, pour avoir péché contre toi, s'il revient à toi et rend gloire à ton nom, en t'adressant des prières et des supplications dans cette maison,
+8:34	toi, tu entendras des cieux, tu pardonneras le péché de ton peuple d'Israël et tu le ramèneras vers le sol que tu as donné à leurs pères.
+8:35	Quand les cieux seront fermés et qu'il n'y aura pas de pluie, à cause de ses péchés contre toi, s'il te fait une prière en ce lieu-ci, qu'il loue ton nom, et s'il se détourne de ses péchés, parce que tu l'auras affligé,
+8:36	toi, tu entendras des cieux, tu pardonneras le péché de tes serviteurs et de ton peuple d'Israël, à qui tu enseigneras quel est le chemin par lequel ils doivent marcher, et tu leur enverras la pluie sur la terre que tu as donnée à ton peuple pour héritage !
+8:37	Quand il y aura sur la terre la famine, quand il y aura la peste, quand il y aura la flétrissure, la nielle, les sauterelles ou la sauterelle, quand les ennemis les assiégeront sur leur terre, dans leurs portes, dans tout fléau ou toute maladie,
+8:38	toute prière, toute supplication, qui sera de tout humain, de tout ton peuple Israël, quand un homme connaîtra la plaie de son cœur et qu'il étendra ses paumes vers cette maison,
+8:39	toi, tu entendras des cieux, du lieu fixé de ta demeure ; tu pardonneras, tu agiras et tu donneras à chacun selon toutes ses voies, toi qui connais le cœur de chacun. En effet, toi seul tu connais le cœur de tous les fils des humains.
+8:40	Ainsi ils te craindront tous les jours qu'ils vivront sur les faces du sol que tu as donné à nos pères !
+8:41	Même lorsque l'étranger, qui n'est pas de ton peuple d'Israël, viendra d'une terre éloignée à cause de ton nom,
+8:42	(car on saura que ton nom est grand, ta main puissante et ton bras étendu), quand il viendra prier dans cette maison,
+8:43	toi, tu entendras des cieux, du lieu fixé de ta demeure, tu agiras selon tout ce que t'aura demandé l'étranger, afin que tous les peuples de la terre connaissent ton nom, et que, comme Israël, ton peuple, ils te craignent et qu'ils sachent que ton nom a été proclamé sur cette maison que j'ai bâtie !
+8:44	Quand ton peuple sortira pour combattre son ennemi, par la voie par laquelle tu l'auras envoyé, s'ils prient YHWH en regardant vers cette ville que tu as choisie et vers cette maison que j'ai bâtie à ton nom,
+8:45	tu entendras des cieux leurs prières et leurs supplications, et tu leur feras justice.
+8:46	Quand ils pécheront contre toi, car il n'y a pas d'être humain qui ne pèche, et que tu seras en colère contre eux et que tu les auras livrés devant l'ennemi, qui les emmènera captifs dans une terre ennemie, lointaine ou proche,
+8:47	s'ils reviennent à leur cœur sur la terre où ils auront été emmenés captifs, s'ils se repentent et te prient en terre de ceux qui les auront emmenés captifs, en disant : Nous avons péché, nous avons commis l'iniquité, nous avons agi méchamment ;
+8:48	s'ils reviennent à toi de tout leur cœur et de toute leur âme, en terre de leurs ennemis, qui les auront emmenés captifs, et s'ils t'adressent leurs prières, les regards tournés vers la terre que tu as donnée à leurs pères, vers la ville que tu as choisie, vers la maison que j'ai bâtie à ton nom,
+8:49	tu entendras des cieux, du lieu fixé de ta demeure, leurs prières et leurs supplications, et tu leur feras justice.
+8:50	Pardonne à ton peuple qui a péché contre toi, ainsi que toutes leurs transgressions par lesquelles ils ont transgressé contre toi ! Donne-les en matrices en face de ceux qui les auront emmenés captifs afin qu'ils aient pitié d'eux,
+8:51	car ils sont ton peuple et ton héritage, et tu les as fait sortir hors d'Égypte, du milieu d'une fournaise de fer !
+8:52	Que tes yeux soient ouverts sur la supplication de ton serviteur et celle de ton peuple d'Israël, pour les écouter dans tout ce pourquoi ils crieront à toi !
+8:53	Car tu les as séparés de tous les autres peuples de la Terre pour être ton héritage, comme tu l'as déclaré par la main de Moshé, ton serviteur, quand tu fis sortir nos pères hors d'Égypte, Adonaï YHWH !
+
+### Bénédictions et réjouissances<!--2 Ch. 7:4-10.-->
+
+8:54	Il arriva que, quand Shelomoh eut achevé de faire cette prière et cette supplication à YHWH, il se leva face à l'autel de YHWH où il était agenouillé et les paumes étendues vers les cieux.
+8:55	Il se tint debout, et bénit toute l'assemblée d'Israël à grande voix, en disant :
+8:56	Béni soit YHWH, qui a donné du repos à son peuple d'Israël, comme il l'avait annoncé ! Il n’est pas tombé une seule parole de toutes les bonnes paroles qu'il avait déclarées par la main de Moshé<!--Jos. 21:45 et 23:14.-->, son serviteur.
+8:57	Que YHWH, notre Elohîm, soit avec nous, comme il a été avec nos pères ! Qu'il ne nous abandonne pas et qu'il ne nous délaisse pas,
+8:58	qu'il incline nos cœurs vers lui, afin que nous marchions dans toutes ses voies, et que nous observions ses commandements, ses statuts et ses ordonnances, qu'il a prescrits à nos pères !
+8:59	Qu'il arrive que mes paroles, celles-ci, par lesquelles je demande grâce en face de YHWH, soient proches de YHWH, notre Elohîm, jour et nuit, pour faire justice à son serviteur et justice à son peuple Israël, parole du jour en son jour,
+8:60	afin que tous les peuples de la Terre sachent que c'est YHWH qui est Elohîm, qu'il n'y en a pas d'autre !
+8:61	Que votre cœur soit intègre envers YHWH, notre Elohîm, comme aujourd'hui, pour marcher dans ses statuts et pour garder ses commandements.
+8:62	Le roi et tout Israël avec lui sacrifièrent des sacrifices en face de YHWH.
+8:63	Shelomoh sacrifie un sacrifice d'offrande de paix à YHWH : 22 000 bœufs et 120 000 brebis. Le roi et tous les fils d'Israël inaugurèrent la maison de YHWH.
+8:64	En ce jour-là, le roi consacra le milieu du parvis, qui est devant la maison de YHWH. C'est là en effet qu'il fera les holocaustes, les offrandes et les graisses des sacrifices d'offrandes de paix, car l'autel de cuivre qui est devant YHWH, était trop petit pour contenir les holocaustes, les offrandes et les graisses des offrandes de paix.
+8:65	En ce temps-là, Shelomoh célébra une fête, et tout Israël avec lui, une grande multitude, depuis les environs de Hamath jusqu'au torrent d'Égypte, devant YHWH, notre Elohîm, 7 jours et 7 jours, 14 jours.
+8:66	Le huitième jour, il renvoya le peuple. Et ils bénirent le roi, et s'en allèrent dans leurs demeures, en se réjouissant, et le cœur heureux pour tout le bien que YHWH avait fait à David, son serviteur, et à Israël, son peuple.
+
+## Chapitre 9
+
+### YHWH apparaît à Shelomoh une seconde fois<!--2 Ch. 7:11-22.-->
+
+9:1	Et il arriva que, lorsque Shelomoh eut achevé de bâtir la maison de YHWH, la maison royale, et toutes les choses désirables que Shelomoh avait désirées faire,
+9:2	YHWH se fit voir à Shelomoh une seconde fois, comme il s'était fait voir à lui à Gabaon.
+9:3	Et YHWH lui dit : J'ai entendu ta prière, la supplication que tu as faite devant moi, j'ai sanctifié cette maison que tu as bâtie pour y mettre mon nom à jamais, et mes yeux et mon cœur seront toujours là.
+9:4	Quant à toi, si tu marches en face de moi comme a marché David, ton père, avec intégrité de cœur et avec droiture, en faisant tout ce que je t'ai commandé, et si tu gardes mes statuts et mes ordonnances,
+9:5	j'affermirai le trône de ton royaume sur Israël à jamais, comme je l'ai déclaré à David, ton père, en disant : Pas un homme de toi ne sera retranché sur le trône d’Israël.
+9:6	Si vous vous détournez de moi, si vous vous détournez de moi, vous et vos fils, et que vous ne gardiez pas mes commandements, mes statuts que j'ai mis devant vous, et si vous allez servir d'autres elohîm et vous prosterner devant eux,
+9:7	je retrancherai Israël du sol que je lui ai donné, je rejetterai loin de moi cette maison que j'ai consacrée à mon nom et Israël sera un sujet de parabole et de raillerie parmi tous les peuples.
+9:8	Et si haut placée qu'ait été cette maison, quiconque passera auprès d'elle sera étonné et sifflera. Et on dira : Pourquoi YHWH a-t-il ainsi traité cette terre et cette maison ?
+9:9	Et l’on dira : Parce qu'ils ont abandonné YHWH, leur Elohîm, qui avait fait sortir leurs pères de la terre d'Égypte, qu'ils se sont attachés à d'autres elohîm, se sont prosternés devant eux et les ont servis, voilà pourquoi YHWH a fait venir sur eux tous ces maux.
+
+### Les réalisations de Shelomoh<!--2 Ch. 8:1-18.-->
+
+9:10	Il arriva au bout de 20 ans, lorsque Shelomoh eut bâti les deux maisons, la maison de YHWH et la maison royale,
+9:11	Hiram, roi de Tyr, ayant fourni à Shelomoh du bois de cèdre, du bois de cyprès et de l'or, selon tout son désir, alors le roi Shelomoh donna à Hiram 20 villes en terre de Galilée.
+9:12	Hiram sortit de Tyr pour voir les villes que Shelomoh lui avait données. Mais elles ne parurent pas agréables à ses yeux.
+9:13	Il dit : Quelles villes m’as-tu données là, mon frère ! Et il les appela terre de Kaboul, jusqu’à ce jour.
+9:14	Hiram avait aussi envoyé au roi 120 talents d'or.
+9:15	Voici l'affaire de la corvée que leva le roi Shelomoh pour bâtir la maison de YHWH, sa maison, Millo, la muraille de Yeroushalaim, Hatsor, Meguiddo et Guézer.
+9:16	Pharaon, roi d'Égypte, était venu s'emparer de Guézer et l'avait incendiée, il avait tué les Kena'ânéens qui habitaient dans la ville. Puis il la donna en cadeau d'adieu à sa fille, femme de Shelomoh.
+9:17	Shelomoh bâtit Guézer, et Beth-Horon la basse,
+9:18	Baalath et Thadmor, dans le désert qui est à la terre,
+9:19	et toutes les villes-entrepôts qu'avait Shelomoh, les villes de chars et les villes de chevaux, et les choses désirables que Shelomoh avait désirées bâtir à Yeroushalaim, au Liban, et dans toute la terre de sa domination.
+9:20	Tout le peuple qui était resté des Amoréens, des Héthiens, des Phéréziens, des Héviens et des Yebousiens ne faisaient pas partie des fils d'Israël,
+9:21	leurs fils qui étaient restés après eux sur la terre et que les fils d'Israël n'avaient pu dévouer par interdit, Shelomoh les leva pour le travail forcé des esclaves jusqu'à ce jour.
+9:22	Mais des fils d’Israël, Shelomoh n’en fit pas des esclaves, car ils étaient ses hommes de guerre, ses serviteurs, ses chefs, ses officiers, les chefs de ses chars et ses hommes d'armes.
+9:23	C’étaient les chefs des préposés que Shelomoh avait établis sur l’ouvrage, 550, qui gouvernaient le peuple, lequel faisait l’ouvrage.
+9:24	Cependant la fille de pharaon monta de la cité de David dans la maison qu'il lui avait bâtie. Alors il bâtit Millo.
+9:25	Trois fois par an, Shelomoh faisait monter des holocaustes et des offrandes de paix sur l'autel qu'il avait bâti pour YHWH, et il brûlait des parfums sur celui qui était devant YHWH. Et il acheva la maison.
+9:26	Le roi Shelomoh construisit des navires à Etsyôn-Guéber, près d'Éloth, sur le rivage de la Mer Rouge, en terre d'Édom.
+9:27	Et Hiram envoya sur ces navires, auprès des serviteurs de Shelomoh, ses propres serviteurs, des hommes de navires connaissant la mer.
+9:28	Ils allèrent à Ophir, et ils prirent de là 420 talents d'or qu'ils apportèrent au roi Shelomoh.
+
+## Chapitre 10
+
+### La reine de Séba chez Shelomoh<!--2 Ch. 9:1-12.-->
+
+10:1	La reine de Séba, ayant entendu la rumeur au sujet de Shelomoh, à cause du nom de YHWH, vint l'éprouver par des énigmes.
+10:2	Elle vint à Yeroushalaim avec une très grande armée, avec des chameaux qui portaient des aromates, une grande quantité d'or, et des pierres précieuses. Elle vint vers Shelomoh et lui parla de tout ce qu'elle avait dans le cœur.
+10:3	Shelomoh lui expliqua toutes les choses dont elle parlait : il n’y eut pas une chose cachée pour le roi, pas une chose qu’il ne lui expliquât.
+10:4	La reine de Séba vit toute la sagesse de Shelomoh et la maison qu'il avait bâtie,
+10:5	les mets de sa table, la demeure de ses serviteurs, l'ordre de service, leurs vêtements, ses échansons, et les holocaustes qu'il faisait monter dans la maison de YHWH, et il n’y eut plus de souffle en elle.
+10:6	Elle dit au roi : Elle était vraie, la parole que j'ai entendue dans ma terre, sur tes paroles et sur ta sagesse !
+10:7	Je ne croyais pas à ces paroles avant d'être venue et d'avoir vu de mes yeux. Et voici, on ne m'en avait pas rapporté la moitié. Ta sagesse et ta prospérité surpassent la rumeur que j'avais entendue.
+10:8	Heureux tes hommes, heureux tes serviteurs, ceux-là qui se tiennent en face de toi continuellement, et qui entendent ta sagesse !
+10:9	Béni soit YHWH, ton Elohîm, qui a pris plaisir en toi et t'a établi sur le trône d'Israël ! Car YHWH aime Israël pour toujours, il t'a établi roi pour faire droit et justice.
+10:10	Elle donna au roi 120 talents d'or, une très grande quantité d'aromates et des pierres précieuses. Il n'arriva jamais depuis une aussi grande abondance d'aromates que celle que la reine de Séba donna au roi Shelomoh.
+10:11	Et les navires de Hiram, qui transportaient de l'or d'Ophir, faisaient venir aussi d'Ophir du bois de santal en très grande quantité et de pierres précieuses.
+10:12	Le roi fit des supports de ce bois de santal pour la maison de YHWH et pour la maison royale. Il en fit aussi des harpes et des luths pour les chanteurs. Il n'arriva plus pareil bois de santal et on n'en a plus vu jusqu'à ce jour.
+10:13	Le roi Shelomoh donna à la reine de Séba tout ce qu’elle désira et demanda, outre ce qu’il lui donna selon le pouvoir du roi Shelomoh. Elle s'en retourna et s’en alla vers sa terre, elle et ses serviteurs.
+
+### Les richesses de Shelomoh<!--2 Ch. 9:13-28.-->
+
+10:14	Le poids de l'or qui arrivait à Shelomoh en une année était de 666 talents d'or,
+10:15	outre les négociants, les hommes qui font du trafic, les marchandises de tous les rois d'Arabie et des gouverneurs de ces terres.
+10:16	Le roi Shelomoh fit 200 grands boucliers d'or battu au marteau, 600 sicles d'or montés sur un bouclier,
+10:17	et 300 autres boucliers d'or battu au marteau, 3 mines d'or montés sur un bouclier. Le roi les donna à la maison de la forêt du Liban.
+10:18	Le roi fit un grand trône en ivoire qu'il recouvrit d'or pur.
+10:19	Ce trône avait 6 marches, et la partie supérieure, le haut du trône était arrondi par derrière. Il y avait des mains de ce côté-ci et de ce côté-là à l’endroit du siège et deux lions se tenaient près des mains.
+10:20	12 lions se tenaient là, sur les six marches, de ce côté-ci et de ce côté-là. Il ne s'est rien fait de tel dans aucun royaume.
+10:21	Toute la vaisselle du buffet du roi Shelomoh était en or et toutes les coupes de la maison de la forêt du Liban étaient en or pur. Il n'y en avait pas en argent : il n’était compté pour rien aux jours de Shelomoh.
+10:22	Car le roi avait en mer des navires de Tarsis avec la flotte d'Hiram. Tous les 3 ans la flotte de Tarsis revenait, apportant de l'or, de l'argent, de l'ivoire, des singes et des paons.
+10:23	Le roi Shelomoh fut plus grand que tous les rois de la Terre, tant en richesses qu'en sagesse.
+10:24	Toute la Terre cherchait les faces de Shelomoh pour entendre la sagesse qu'Elohîm avait mise en son cœur.
+10:25	Eux, ils firent venir, chaque homme son présent : des vases d'or et d'argent, des vêtements, des armes, des aromates, des chevaux et des mulets, paroles d’année en année.
+10:26	Shelomoh rassembla des chars et des cavaliers. Il y avait 1 400 chars et 12 000 cavaliers, qu'il plaça dans les villes où il tenait ses chars et à Yeroushalaim près du roi.
+10:27	À Yeroushalaim, le roi donnait l’argent comme des pierres, et les cèdres, il les donnait comme les sycomores de la vallée, en quantité.
+10:28	C'est d'Égypte que provenaient les chevaux de Shelomoh. Une caravane de marchands du roi allait les chercher par troupes, à un prix fixe :
+10:29	et un char montait et sortait d'Égypte pour 600 sicles d'argent et chaque cheval pour 150. On en faisait venir ainsi, par leur main, pour tous les rois des Héthiens et pour les rois de Syrie.
+
+## Chapitre 11
+
+### Shelomoh détourne son cœur de YHWH
+
+11:1	Or le roi Shelomoh aima beaucoup de femmes étrangères<!--Ex. 23:32-33. Voir De. 17:17.-->, outre la fille de pharaon : des Moabites, des Ammonites, des Édomites, des Sidoniennes et des Héthiennes,
+11:2	d'entre les nations dont YHWH avait dit aux fils d'Israël : Vous ne viendrez pas chez elles et elles ne viendront pas chez vous. Elles détourneraient sûrement vos cœurs après leurs elohîm<!--De. 7:1-11.-->. Shelomoh s'attacha à elles et les aima.
+11:3	Il eut pour femmes 700 princesses et 300 concubines, et ses femmes détournèrent son cœur.
+11:4	Et il arriva au temps de la vieillesse de Shelomoh, que ses femmes détournèrent son cœur après d'autres elohîm, et son cœur ne fut plus tout entier à YHWH son Elohîm comme avait été le cœur de David son père.
+11:5	Et Shelomoh alla après Astarté, la divinité des Sidoniens, et après Milcom, l'abomination des Ammonites.
+11:6	Shelomoh fit ce qui est mal aux yeux de YHWH et il ne suivit pas pleinement YHWH, comme David, son père.
+11:7	Et Shelomoh bâtit un haut lieu à Kemosh, l'abomination des Moabites, sur la montagne qui est vis-à-vis de Yeroushalaim et à Moloc, l'abomination des fils d'Ammon.
+11:8	Il en fit de même pour toutes ses femmes étrangères qui brûlaient de l’encens et sacrifiaient à leurs elohîm.
+11:9	YHWH fut en colère contre Shelomoh, parce qu'il avait détourné son cœur de YHWH, l'Elohîm d'Israël, qui s’était fait voir à lui deux fois.
+11:10	Il lui avait ordonné, à ce sujet, de ne pas aller derrière d’autres elohîm, mais il ne garda pas ce que YHWH lui avait ordonné.
+11:11	Et YHWH dit à Shelomoh : Puisqu'il en est ainsi avec toi, et que tu n'as pas observé l'alliance et les statuts que je t'avais prescrits, déchirer, je déchirerai le royaume afin qu'il ne soit plus à toi et je le donnerai à ton serviteur.
+11:12	Cependant je ne le ferai pas dans tes jours pour l'amour de David, ton père. C'est de la main de ton fils que je le déchirerai.
+11:13	Mais je ne déchirerai pas tout le royaume, je donnerai une tribu à ton fils, pour l'amour de David, mon serviteur, et pour l'amour de Yeroushalaim, que j'ai choisie.
+
+### Elohîm suscite des ennemis à Shelomoh
+
+11:14	YHWH suscita un satan contre Shelomoh : Hadad, l'Édomite : il était de la semence du roi, en Édom.
+11:15	Il était arrivé qu'au temps où David était en Édom, Yoab, chef de l'armée, étant monté pour enterrer les morts, tua tous les mâles qui étaient en Édom.
+11:16	Car Yoab demeura là six mois avec tout Israël, jusqu'à ce qu'il eût exterminé tous les mâles d'Édom.
+11:17	Hadad s’enfuit, avec des hommes édomites d'entre les esclaves de son père pour aller en Égypte. Or Hadad était un jeune garçon.
+11:18	Une fois partis de Madian, ils allèrent à Paran, prirent avec eux des hommes de Paran, et arrivèrent en Égypte auprès de pharaon, roi d'Égypte. Celui-ci lui donna une maison, lui promit de la nourriture et lui donna une terre.
+11:19	Et Hadad trouva une grâce abondante aux yeux de pharaon, de sorte que pharaon lui donna pour femme la sœur de sa propre femme, la sœur de la reine Thachpenès.
+11:20	Et la sœur de Thachpenès lui enfanta son fils Guenoubath. Thachpenès le sevra dans la maison de pharaon. Ainsi, Guenoubath fut dans la maison de pharaon, parmi les fils de pharaon.
+11:21	Quand Hadad apprit en Égypte que David était couché avec ses pères, et que Yoab, chef de l'armée, était mort, il dit à pharaon : Laisse-moi aller, et je m'en irai vers ma terre.
+11:22	Pharaon lui dit : Mais de quoi manques-tu avec moi, pour que, voilà, tu cherches à aller vers ta terre ? Il dit : Non, mais laisse-moi aller, laisse-moi aller.
+11:23	Elohîm lui suscita un satan : Rezon, fils d'Élyada, qui s'était enfui de chez son maître Hadadézer, roi de Tsoba.
+11:24	Il avait rassemblé des hommes auprès de lui et était devenu chef de bandes, lorsque David les fit périr. Ils s'en allèrent à Damas, s'y établirent et y régnèrent.
+11:25	Il devint un satan pour Israël, tous les jours de Shelomoh, avec le mal qu’était Hadad. Il avait en aversion Israël et il régna sur la Syrie.
+11:26	Yarobam aussi, serviteur de Shelomoh, leva la main contre le roi. Il était fils de Nebath, Éphratien, de Tseréda, et sa mère était une femme veuve du nom de Tserouah.
+11:27	Voici à quelle occasion il leva la main contre le roi. Shelomoh bâtissait Millo et fermait la brèche de la cité de David, son père.
+11:28	Yarobam était un homme vaillant et talentueux. Ayant vu ce jeune homme à l'œuvre, Shelomoh lui assigna la charge de toute la maison de Yossef.
+11:29	Et il arriva en ce temps-là que Yarobam sortit de Yeroushalaim et rencontra en chemin le prophète Achiyah de Shiyloh, revêtu d'un manteau neuf. Ils étaient tous les deux seuls dans les champs.
+11:30	Et Achiyah prit le manteau neuf qu'il avait sur lui et le déchira en 12 morceaux,
+11:31	et il dit à Yarobam : Prends-en pour toi 10 morceaux ! Car ainsi parle YHWH, l'Elohîm d'Israël : Voici, je vais arracher le royaume de la main de Shelomoh et je t'en donnerai 10 tribus.
+11:32	Une seule tribu sera pour lui, pour l'amour de David, mon serviteur, et pour l'amour de Yeroushalaim, la ville que j'ai choisie parmi toutes les tribus d'Israël.
+11:33	Parce qu'ils m'ont abandonné et se sont prosternés devant Astarté, l'elohîm des Sidoniens, devant Kemosh, l'elohîm de Moab, et devant Milcom, l'elohîm des fils d'Ammon, et parce qu'ils n'ont pas marché dans mes voies pour faire ce qui est droit à mes yeux, mes statuts et mes ordonnances comme l'a fait David, son père.
+11:34	Je ne prendrai pas de sa main tout le royaume, car je l’établirai prince pour tous les jours de sa vie, pour l'amour de David, mon serviteur, que j'ai choisi, qui a observé mes commandements et mes statuts.
+11:35	Je prendrai le royaume d’entre les mains de son fils et je te le donnerai, dix tribus.
+11:36	Je donnerai une tribu à son fils afin que David mon serviteur ait toujours une lampe devant moi à Yeroushalaim, la ville que j'ai choisie pour y mettre mon nom.
+11:37	Je te prendrai, tu régneras sur tout ce que ton âme désirera, tu deviendras roi sur Israël.
+11:38	Il arrivera que si tu m'obéis dans tout ce que je t'ordonnerai, et si tu marches dans mes voies, en faisant tout ce qui est droit à mes yeux, en gardant mes statuts et mes commandements comme l'a fait David, mon serviteur, je serai avec toi, je te bâtirai une maison qui sera stable, comme je l’ai bâtie pour David. Je te donne Israël.
+11:39	J'humilierai la semence de David à cause de cela, mais non pas pour toujours.
+11:40	Shelomoh chercha à faire mourir Yarobam, mais Yarobam se leva et s'enfuit en Égypte vers Shiyshaq, roi d'Égypte. Il demeura en Égypte jusqu'à la mort de Shelomoh.
+
+### Mort de Shelomoh (Salomon)<!--2 Ch. 9:29-31.-->
+
+11:41	Et le reste des actions de Shelomoh, tout ce qu'il a fait et sa sagesse, cela n'est-il pas écrit dans le livre des actes de Shelomoh ?
+11:42	Shelomoh régna à Yeroushalaim sur tout Israël pendant 40 ans.
+11:43	Shelomoh se coucha avec ses pères, il fut enterré dans la cité de David, son père. Et Rehabam, son fils, régna à sa place.
+
+## Chapitre 12
+
+### Règne de Rehabam (Roboam)<!--2 Ch. 10:1 ; cp. Ec. 2:18-19.-->
+
+12:1	Rehabam se rendit à Shekem, parce que tout Israël était venu à Shekem pour l'établir roi.
+12:2	Or il arriva que quand Yarobam, fils de Nebath qui se trouvait encore en Égypte, où il s'était enfui de devant le roi Shelomoh, l'eut appris, Yarobam resta en Égypte.
+12:3	On envoya appeler Yarobam, et il vint avec toute l'assemblée d'Israël. Ils parlèrent à Rehabam, en disant :
+12:4	Ton père a rendu lourd notre joug. Mais toi, allège maintenant cette rude servitude de ton père et ce pesant joug qu'il a mis sur nous, et nous te servirons.
+12:5	Il leur dit : Allez, et dans 3 jours revenez vers moi. Et le peuple s'en alla.
+12:6	Le roi Rehabam demanda conseil aux anciens qui s'étaient tenus en face de Shelomoh, son père, quand il était vivant, leur disant : Quelle parole conseillez-vous de retourner à ce peuple ?
+12:7	Ils lui répondirent, en disant : Si aujourd'hui tu deviens le serviteur de ce peuple, si tu les sers, lui réponds et dis de bonnes paroles, ils deviendront tes serviteurs pour toujours.
+12:8	Mais il abandonna le conseil des anciens, celui qu’ils lui avaient conseillé, et demanda conseil aux enfants qui avaient grandi avec lui et qui se tenaient face à lui.
+12:9	Il leur dit : Que conseillez-vous ? Quelle parole allons-nous retourner à ce peuple qui m'a parlé en disant : Allège le joug que ton père a mis sur nous ?
+12:10	Les enfants qui avaient grandi avec lui, lui dirent : Tu parleras ainsi à ce peuple qui est venu te dire : Ton père nous a chargés d’un joug pesant, mais toi allège-le-nous ! Tu leur parleras ainsi : Mon petit doigt est plus gros que les reins de mon père.
+12:11	Et maintenant, mon père vous a chargés d’un joug pesant, mais moi, j'ajouterai encore à votre joug ! Mon père vous a châtiés avec des fouets, mais moi je vous châtierai avec des scorpions.
+12:12	Yarobam et tout le peuple vinrent vers Rehabam le troisième jour, comme le roi l’avait dit, en disant : Revenez vers moi le troisième jour.
+12:13	Le roi répondit durement au peuple, abandonnant le conseil des anciens qui l’avaient conseillé.
+12:14	Il leur parla selon le conseil des enfants, en leur disant : Mon père vous a chargés d’un joug pesant, mais moi, j'ajouterai encore à votre joug. Mon père vous a châtiés avec des fouets, mais moi, je vous châtierai avec des scorpions.
+12:15	Le roi n'écouta pas le peuple, car la tournure des événements venait de YHWH, pour accomplir la parole qu'il avait déclarée par la main d'Achiyah de Shiyloh, à Yarobam, fils de Nebath.
+
+### Schisme du royaume ; Yarobam (Jéroboam) devient roi d'Israël<!--2 Ch. 10:12-19, 11:1-4.-->
+
+12:16	Tout Israël vit que le roi ne les avait pas écoutés. Le peuple prononça un discours au roi en disant : Quelle part avons-nous avec David ? Nous n'avons pas de propriété avec le fils d'Isaï ! À tes tentes, Israël ! Maintenant, vois ta maison, David ! Israël s'en alla dans ses tentes.
+12:17	Les fils d'Israël qui habitaient dans les villes de Yéhouda furent les seuls sur qui Rehabam régna.
+12:18	Or le roi Rehabam envoya Adoram, qui était préposé aux impôts, mais tout Israël le lapida avec des pierres, et il mourut. Alors le roi Rehabam se hâta de monter sur un char pour s'enfuir à Yeroushalaim.
+12:19	C'est ainsi qu'Israël s'est rebellé contre la maison de David jusqu'à ce jour.
+12:20	Et il arriva que, quand tout Israël apprit que Yarobam était de retour, ils l'envoyèrent appeler au rassemblement et l'établirent roi sur tout Israël. La tribu de Yéhouda fut la seule qui suivit la maison de David.
+12:21	Rehabam arriva à Yeroushalaim, il rassembla toute la maison de Yéhouda et la tribu de Benyamin, 180 000 hommes sélectionnés et disposés à faire la guerre, pour combattre contre la maison d'Israël et ramener la royauté à Rehabam, fils de Shelomoh.
+12:22	La parole d'Elohîm apparut à Shema’yah, homme d'Elohîm, en disant :
+12:23	Parle à Rehabam, fils de Shelomoh, roi de Yéhouda, et à toute la maison de Yéhouda, et de Benyamin, et au reste du peuple, en disant :
+12:24	Ainsi parle YHWH : Vous ne monterez pas et vous ne combattrez pas contre vos frères, les fils d'Israël ! Que chacun de vous retourne dans sa maison, car c'est de moi que cela vient. Ils obéirent à la parole de YHWH et s'en retournèrent, selon la parole de YHWH.
+
+### Idolâtrie de Yarobam
+
+12:25	Or Yarobam bâtit Shekem sur la Montagne d'Éphraïm, et y demeura, puis il en sortit et bâtit Penouel.
+12:26	Yarobam dit en son cœur : Maintenant le royaume retournera à la maison de David.
+12:27	Si ce peuple monte à Yeroushalaim pour faire des sacrifices dans la maison de YHWH, le cœur de ce peuple se tournera vers son seigneur, Rehabam, roi de Yéhouda. Ils me tueront et retourneront à Rehabam, roi de Yéhouda.
+12:28	Après avoir demandé conseil, le roi fit deux veaux d’or et dit au peuple : Vous êtes longtemps montés à Yeroushalaim ! Voici tes elohîm, Israël, qui t’ont fait sortir hors de la terre d'Égypte.
+12:29	Il plaça l'un de ces veaux à Béth-El et il mit l'autre à Dan.
+12:30	Cette chose devint un péché. Le peuple alla en face de l’un jusqu’à Dan ! 
+12:31	Il fit aussi une maison de hauts lieux, et il fit des prêtres pris parmi le peuple et qui n'étaient pas des fils de Lévi.
+12:32	Yarobam fit une fête au huitième mois, le quinzième jour du mois, comme la fête qu'on célébrait en Yéhouda et il monta à l'autel. C'est ainsi qu'il agit à Béth-El, en sacrifiant aux veaux qu'il avait faits. Il établit<!--Se tenir debout.--> à Béth-El des prêtres des hauts lieux qu'il avait élevés.
+12:33	Il monta sur l'autel qu'il avait fait à Béth-El, le quinzième jour du huitième mois, le mois qu'il avait choisi lui-même. Il fit une fête pour les fils d'Israël et il monta sur l'autel pour brûler de l'encens.
+
+## Chapitre 13
+
+### Un homme d'Elohîm envoyé vers Yarobam
+
+13:1	Et voici, un homme d'Elohîm vint de Yéhouda à Béth-El avec la parole de YHWH, pendant que Yarobam se tenait debout près de l'autel pour brûler de l'encens.
+13:2	Il cria contre l'autel selon la parole de YHWH et dit : Autel ! Autel ! Ainsi parle YHWH : Voici, un fils naîtra à la maison de David. Son nom sera Yoshiyah<!--Josias.-->. Il sacrifiera sur toi les prêtres des hauts lieux qui brûlent de l'encens sur toi et on brûlera sur toi des ossements humains !
+13:3	Le même jour il donna un signe, en disant : Voici le signe dont YHWH a parlé : Voici, l'autel se fendra et la cendre qui est dessus sera répandue.
+13:4	Et il arriva que, lorsque le roi entendit la parole que l'homme d'Elohîm avait criée contre l'autel de Béth-El, Yarobam étendit sa main de l'autel, en disant : Saisissez-le ! Et la main qu'il étendit contre lui devint sèche, et il ne put la ramener à lui.
+13:5	L'autel se fendit, la cendre qui était sur l'autel fut répandue, selon le signe que l'homme d'Elohîm avait donné par la parole de YHWH.
+13:6	Le roi répondit et dit à l'homme d'Elohîm : Supplie, s’il te plaît, les faces de YHWH, ton Elohîm, et prie pour moi, afin que ma main revienne à moi. L'homme d'Elohîm supplia les faces de YHWH, et la main du roi revint à lui et elle devint comme précédemment.
+13:7	Le roi dit à l'homme d'Elohîm : Entre avec moi dans la maison, tu prendras quelque nourriture et je te donnerai un présent.
+13:8	Mais l'homme d'Elohîm dit au roi : Quand tu me donnerais la moitié de ta maison, je n'entrerai pas chez toi. Je ne mangerai pas de pain, ni ne boirai d'eau en ce lieu,
+13:9	car c’est ainsi qu’il m’a donné ordre par la parole de YHWH, en disant : Tu ne mangeras pas de pain et tu ne boiras pas d'eau, et tu ne reviendras pas par le chemin par lequel tu seras allé.
+13:10	Il s'en alla par un autre chemin, et il ne revint pas par le chemin par lequel il était venu à Béth-El.
+
+### L'homme d'Elohîm séduit par un vieux prophète
+
+13:11	Or il y avait un vieux prophète qui habitait à Béth-El. Ses fils vinrent raconter toutes les choses que l'homme d'Elohîm avait faites ce jour-là à Béth-El et les paroles qu'il avait dites au roi, ils les racontèrent à leur père.
+13:12	Et leur père leur dit : Par quel chemin s'en est-il allé ? Or ses fils avaient vu le chemin par lequel l'homme d'Elohîm qui était venu de Yéhouda s'en était allé.
+13:13	Il dit à ses fils : Sellez-moi l'âne ! Ils lui sellèrent l'âne, et il monta dessus.
+13:14	Il s’en alla après l'homme d'Elohîm et le trouva assis sous un chêne. Il lui dit : Es-tu l'homme d'Elohîm qui est venu de Yéhouda ? Il dit : C'est moi.
+13:15	Il lui dit : Viens avec moi à la maison, et manges-y du pain.
+13:16	Mais il dit : Je ne peux ni revenir avec toi, ni entrer chez toi. Je ne mangerai pas de pain, ni ne boirai d'eau avec toi en ce lieu.
+13:17	Car il m’a été dit par la parole de YHWH : Là, tu ne mangeras pas de pain, tu ne boiras pas d'eau et tu ne retourneras pas, en t’en allant, par le chemin par lequel tu es venu.
+13:18	Il lui dit : Moi aussi je suis prophète comme toi, et un ange m’a parlé avec la parole de YHWH, en disant : Fais-le revenir avec toi à ta maison, pour qu’il mange du pain et boive de l’eau. Il le trompait.
+13:19	Il revint avec lui, mangea du pain dans sa maison et but de l'eau.
+13:20	Il arriva que comme ils étaient assis à table, la parole de YHWH apparut au prophète qui l’avait fait revenir.
+13:21	Il cria à l'homme d'Elohîm qui était venu de Yéhouda, en disant : Ainsi a parlé YHWH : Parce que tu as été désobéissant au commandement de YHWH et que tu n'as pas gardé l'ordre que YHWH, ton Elohîm, t'avait donné,
+13:22	et que tu es revenu, que tu as mangé du pain et bu de l'eau dans le lieu dont il t'avait dit : N'y mange pas de pain et n'y bois pas d'eau, ton cadavre n'entrera pas dans le sépulcre de tes pères.
+13:23	Il arriva qu’après qu’il eut mangé du pain et après qu’il eut bu, il sella l’âne pour lui, pour le prophète qu’il avait fait revenir.
+13:24	Et celui-ci s'en alla. Un lion le rencontra dans le chemin et le tua. Son cadavre était jeté sur le chemin, l’âne se tenait près de lui, le lion aussi se tenait près du cadavre.
+13:25	Et voici des passants virent le cadavre jeté sur le chemin et le lion qui se tenait près du cadavre. Ils vinrent le dire dans la ville où le vieux prophète habitait.
+13:26	Le prophète qui l'avait fait revenir sur son chemin en entendit parler et il dit : C'est l'homme d'Elohîm qui a été désobéissant au commandement de YHWH, c'est pourquoi YHWH l'a livré au lion, qui l'a brisé et l'a fait mourir, selon la parole que YHWH lui avait dite.
+13:27	Il parla à ses fils, en disant : Sellez-moi un âne. Ils le lui sellèrent,
+13:28	et il s'en alla et trouva le cadavre de l'homme d'Elohîm jeté sur le chemin, l'âne et le lion qui se tenaient près du cadavre. Le lion n'avait pas dévoré le cadavre, ni brisé l'âne.
+13:29	Le prophète leva le cadavre de l'homme d'Elohîm, le fit se reposer sur l'âne et le fit revenir. Le vieux prophète revint dans la ville pour se lamenter et l'enterrer.
+13:30	Il fit se reposer le cadavre de ce prophète dans le sépulcre, et ils se lamentèrent sur lui : Hélas, mon frère !
+13:31	Il arriva qu’après qu’il l’eut enterré, il parla à ses fils, en disant : Quand je serai mort, enterrez-moi dans le sépulcre où est enterré l'homme d'Elohîm, vous déposerez mes os à côté de ses os.
+13:32	Car elle arrivera, elle arrivera la parole qu’il a proclamée, par la parole de YHWH, contre l'autel qui est à Béth-El et contre toutes les maisons des hauts lieux qui sont dans les villes de Samarie.
+
+### Yarobam continue dans le mal
+
+13:33	Après ces choses, Yarobam ne revint pas de sa mauvaise voie. Il revint et fit, des bouts du peuple, des prêtres des hauts lieux. Quiconque le désirait, il remplissait sa main, et devenait prêtre des hauts lieux.
+13:34	Cette chose devint un péché pour la maison de Yarobam, et c'est pourquoi elle fut détruite et exterminée de dessus les faces du sol.
+
+## Chapitre 14
+
+### Maladie et mort du fils de Yarobam
+
+14:1	En ce temps-là, Abiyah, le fils de Yarobam, devint malade.
+14:2	Et Yarobam dit à sa femme : Lève-toi, s'il te plaît, et déguise-toi, pour qu'on ne sache pas que tu es la femme de Yarobam, et va à Shiyloh. Voici, là est Achiyah, le prophète qui m'a dit que je serais roi sur ce peuple.
+14:3	Prends en ta main dix pains, des gâteaux et un vase de miel, et entre chez lui. Il te dira ce qui arrivera au garçon.
+14:4	La femme de Yarobam fit ainsi. Elle se leva et s'en alla à Shiyloh puis elle entra dans la maison d'Achiyah. Or Achiyah ne pouvait plus voir, parce qu'il avait les yeux figés à cause de sa vieillesse.
+14:5	Et YHWH dit à Achiyah : Voici que la femme de Yarobam vient chercher auprès de toi une parole au sujet de son fils, parce qu'il est malade. Tu lui parleras de telle et de telle manière. Il arrivera, quand elle viendra, qu’elle sera déguisée.
+14:6	Il arriva que lorsque Achiyah eut entendu le bruit de ses pieds quand elle entrait par la porte, il dit : Entre, femme de Yarobam. Pourquoi t'es-tu déguisée ? Je suis envoyé vers toi pour des choses dures.
+14:7	Va, dis à Yarobam : Ainsi parle YHWH, l'Elohîm d'Israël : Parce que je t'ai élevé du milieu du peuple et que je t'ai établi pour chef sur mon peuple d'Israël,
+14:8	et que j'ai arraché le royaume de la maison de David et que je te l'ai donné, et que tu n'as pas été comme David, mon serviteur, qui a gardé mes commandements et qui a marché après moi de tout son cœur, ne faisant que ce qui est droit à mes yeux,
+14:9	et que tu as fait le mal plus que tous ceux qui ont été avant toi, et que tu es allé te faire d'autres elohîm et des images en métal fondu pour m'irriter, et que tu m'as jeté derrière ton dos,
+14:10	à cause de cela, voici, je vais faire venir le malheur sur la maison de Yarobam. Je retrancherai de chez Yarobam quiconque qui urine contre le mur, qu'il soit esclave ou libre en Israël, et je brûlerai la maison de Yarobam comme on brûle les ordures, jusqu'à ce qu'il n'en reste plus.
+14:11	Ceux de Yarobam qui mourront dans la ville seront dévorés par les chiens, et ceux qui mourront dans les champs seront dévorés par les créatures volantes des cieux. Oui, YHWH a parlé.
+14:12	Toi lève-toi, va dans ta maison. Dès que tes pieds entreront dans la ville, l'enfant mourra.
+14:13	Tout Israël se lamentera sur lui et on l'enterrera. Lui seul, en effet, de chez Yarobam entrera dans un sépulcre, parce que YHWH, l'Elohîm d'Israël, a trouvé quelque chose de bon en lui dans la maison de Yarobam.
+14:14	YHWH établira pour lui-même un roi sur Israël qui retranchera la maison de Yarobam en ce jour. Mais quoi ? dès maintenant !
+14:15	YHWH frappera Israël, comme le roseau est agité dans l'eau. Il arrachera Israël de ce bon sol<!--2 R. 15:29, 17:6-23, 18:14-15.--> qu'il a donné à leurs pères, et les dispersera au-delà du fleuve, parce qu'ils se sont fait des asherah, irritant YHWH.
+14:16	Il livrera Israël à cause des péchés de Yarobam, par lesquels il a péché et a fait pécher Israël.
+14:17	La femme de Yarobam se leva, s'en alla et vint à Tirtsah. Au moment où elle atteignit le seuil de la maison, le garçon mourut.
+14:18	Il fut enterré et tout Israël se lamenta sur lui, selon la parole de YHWH, celle qu'il avait prononcée par la main de son serviteur Achiyah, le prophète.
+
+### Règne de Nadab sur Israël
+
+14:19	Quant au reste des actions de Yarobam, comment il a fait la guerre et comment il a régné, cela est écrit dans le livre des discours du jour des rois d'Israël.
+14:20	Le temps du règne de Yarobam fut de 22 ans, puis il s'endormit avec ses pères. Et Nadab, son fils, régna à sa place.
+
+### Yéhouda dans l'apostasie<!--2 Ch. 12:1.-->
+
+14:21	Rehabam, fils de Shelomoh, régna en Yéhouda. Il était fils de 41 ans quand il régna, et il régna 17 ans à Yeroushalaim, la ville que YHWH avait choisie d'entre toutes les tribus d'Israël pour y mettre son nom. Le nom de sa mère était Na`amah, l'Ammonite.
+14:22	Yéhouda fit ce qui est mal aux yeux de YHWH et, par les péchés qu'ils commirent, ils excitèrent sa jalousie plus que leurs pères ne l'avaient jamais fait.
+14:23	Car eux aussi se bâtirent des hauts lieux, avec des monuments et des asherah sur toute haute colline et sous tout arbre verdoyant.
+14:24	Il y eut même des hommes prostitués sacrés sur la terre. Et ils agirent selon toutes les abominations des nations que YHWH avait chassées devant les fils d'Israël.
+
+### Le roi d'Égypte emporte les trésors de Yéhouda ; mort de Rehabam (Roboam)<!--2 Ch. 12:2-16.-->
+
+14:25	Et il arriva, en la cinquième année du roi Rehabam, que Shiyshaq, roi d'Égypte, monta contre Yeroushalaim.
+14:26	Il prit les trésors de la maison de YHWH et les trésors de la maison royale, et il prit tout. Il prit aussi tous les boucliers d'or que Shelomoh avait faits.
+14:27	Le roi Rehabam fit des boucliers de cuivre au lieu de ceux-là, et les mit entre les mains des chefs des coureurs, qui gardaient la porte de la maison du roi.
+14:28	Et toutes les fois que le roi entrait dans la maison de YHWH, il arrivait que les coureurs les portaient, puis ils les rapportaient dans la chambre des coureurs.
+14:29	Le reste des actions de Rehabam, et tout ce qu'il a fait, n'est-il pas écrit dans le livre des discours du jour des rois de Yéhouda ?
+14:30	Il y eut toujours guerre entre Rehabam et Yarobam.
+14:31	Rehabam s'endormit avec ses pères et fut enterré avec eux dans la cité de David. Le nom de sa mère était Na`amah, l'Ammonite. Et Abiyam, son fils, régna à sa place.
+
+## Chapitre 15
+
+### Règne d'Abiyam (ou Abiyah) sur Yéhouda<!--2 Ch. 13:1-2.-->
+
+15:1	La dix-huitième année du roi Yarobam, fils de Nebath, Abiyam régna sur Yéhouda.
+15:2	Il régna 3 ans à Yeroushalaim. Le nom de sa mère était Ma'akah, fille d'Abshalôm.
+15:3	Il marcha dans tous les péchés que son père avait commis avant lui. Son cœur ne fut pas intègre envers YHWH, son Elohîm, comme le cœur de David son père.
+15:4	Mais pour l'amour de David, YHWH, son Elohîm, lui donna une lampe dans Yeroushalaim, lui suscitant son fils après lui et laissant subsister Yeroushalaim.
+15:5	Parce que David avait fait ce qui est droit aux yeux de YHWH, et que tous les jours de sa vie, il ne s'était pas détourné de tout ce qu’il lui avait ordonné, hormis dans l'affaire d'Ouriyah, le Héthien.
+15:6	Il y eut la guerre entre Rehabam et Yarobam tous les jours de sa vie.
+15:7	Le reste des actions d'Abiyam, et même tout ce qu'il fit, n'est-il pas écrit dans le livre des discours du jour des rois de Yéhouda ? Il y eut aussi guerre entre Abiyam et Yarobam.
+15:8	Abiyam s'endormit avec ses pères, et on l'enterra dans la cité de David. Et Asa, son fils, régna à sa place.
+
+### Règne d'Asa sur Yéhouda<!--2 Ch. 14:1-5, 15:1-19.-->
+
+15:9	La vingtième année de Yarobam, roi d'Israël, Asa régna sur Yéhouda.
+15:10	Il régna 41 ans à Yeroushalaim. Le nom de sa mère<!--Sa grand-mère, d'après le verset 2.--> était Ma'akah, fille d'Abshalôm.
+15:11	Asa fit ce qui est droit aux yeux de YHWH, comme David, son père.
+15:12	Il chassa de la terre les hommes prostitués sacrés et il fit disparaître toutes les idoles que ses pères avaient faites.
+15:13	Il retira même à sa mère Ma'akah la dignité de reine-mère, parce qu'elle avait fait une chose horrible pour Asherah. Asa mit en pièces la chose horrible qu'elle avait faite, et la brûla au torrent de Cédron.
+15:14	Mais les hauts lieux ne furent pas ôtés. Néanmoins, le cœur d'Asa fut intègre envers YHWH pendant toute sa vie.
+
+### Guerre entre Yéhouda et Israël ; Asa s'allie à la Syrie<!--1 Ch. 14:6-15, 16:1-10.-->
+
+15:15	Il fit venir à la maison de YHWH les choses que son père avait consacrées et les choses que lui-même avait consacrées : de l'argent, de l'or et des ustensiles.
+15:16	Or il y eut guerre entre Asa et Baesha, roi d'Israël, tous leurs jours.
+15:17	Baesha, roi d'Israël, monta contre Yéhouda, et bâtit Ramah, pour empêcher quiconque de sortir et entrer vers Asa, roi de Yéhouda.
+15:18	Asa prit tout l'argent et l'or qui était resté dans les trésors de YHWH et dans les trésors de la maison du roi, et les mit en la main de ses serviteurs. Le roi Asa les envoya vers Ben-Hadad, fils de Thabrimmon, fils de Hezyôn, roi de Syrie, qui demeurait à Damas, pour lui dire :
+15:19	Il y a une alliance entre moi et toi, entre mon père et ton père. Voici, je t'envoie un pot-de-vin en argent et en or. Va, romps l'alliance que tu as avec Baesha, roi d'Israël, afin qu'il se retire de moi.
+15:20	Et Ben-Hadad écouta le roi Asa. Il envoya les chefs de son armée contre les villes d'Israël, et il battit Iyôn, Dan, Abel-Beth-Ma'akah, tout Kinneroth, et toute la terre de Nephthali.
+15:21	Il arriva que quand Baesha l'apprit, il se désista de bâtir Ramah et demeura à Tirtsah.
+15:22	Le roi Asa convoqua tout Yéhouda, personne n'était exempté. Ils emportèrent les pierres et le bois avec lesquels Baesha bâtissait Ramah, et le roi Asa s'en servit pour bâtir Guéba de Benyamin, et Mitspah.
+
+### Mort d'Asa ; Yehoshaphat règne sur Yéhouda<!--2 Ch. 16:11-14, 17:1.-->
+
+15:23	Le reste de tous les discours d'Asa, toutes ses actions puissantes, tout ce qu'il a accompli, et les villes qu'il a bâties, cela n'est-il pas écrit dans le livre des discours du jour des rois de Yéhouda ? Au reste, il fut malade des pieds au temps de sa vieillesse.
+15:24	Et Asa se coucha avec ses pères, avec lesquels il fut enterré dans la cité de David, son père. Et son fils Yehoshaphat régna à sa place.
+
+### Baesha tue Nadab et devient roi d'Israël
+
+15:25	Or Nadab, fils de Yarobam, régna sur Israël la seconde année d'Asa, roi de Yéhouda, et il régna 2 ans sur Israël.
+15:26	Il fit ce qui est mauvais aux yeux de YHWH, et il marcha dans la voie de son père et dans son péché, par lequel il avait fait pécher Israël.
+15:27	Et Baesha, fils d'Achiyah, de la maison de Yissakar, fit une conspiration contre lui. Baesha le tua devant Guibbethon, qui était aux Philistins, lorsque Nadab et tout Israël assiégeaient Guibbethon.
+15:28	Baesha le fit mourir la troisième année d'Asa, roi de Yéhouda, et il régna à sa place.
+15:29	Et il arriva que, quand il fut roi, il frappa toute la maison de Yarobam et ne laissa échapper aucune âme vivante, il détruisit tout ce qui respirait, selon la parole que YHWH avait déclarée par la main de son serviteur Achiyah de Shiyloh,
+15:30	à cause des péchés de Yarobam, par lesquels il avait péché et par lesquels il avait fait pécher Israël, par sa provocation dont il avait provoqué YHWH, l'Elohîm d'Israël.
+15:31	Le reste des discours de Nadab, et même tout ce qu'il a accompli, n'est-il pas écrit dans le livre des discours du jour des rois d'Israël ?
+15:32	Or il y eut guerre entre Asa et Baesha, roi d'Israël, pendant toute leur vie.
+15:33	La troisième année d'Asa, roi de Yéhouda, Baesha, fils d'Achiyah, régna sur tout Israël à Tirtsah, pour 24 ans.
+15:34	Il fit ce qui est mauvais aux yeux de YHWH, et il marcha dans la voie de Yarobam et dans son péché, par lequel il avait fait pécher Israël.
+
+## Chapitre 16
+
+### YHWH avertit Baesha avant sa mort
+
+16:1	La parole de YHWH apparut à Yehuw, fils de Chananiy, contre Baesha, en disant :
+16:2	Parce que je t’ai élevé de la poussière, et que je t’ai établi chef sur mon peuple Israël, et que tu as marché dans la voie de Yarobam et que tu as fait pécher mon peuple Israël, pour m'irriter par leurs péchés,
+16:3	voici, je consumerai derrière Baesha et derrière sa maison, et je rendrai ta maison semblable à la maison de Yarobam, fils de Nebath.
+16:4	Quiconque de chez Baesha qui mourra dans la ville, les chiens le mangeront, et celui des siens qui mourra aux champs, les créatures volantes des cieux le mangeront.
+16:5	Le reste des discours de Baesha, ce qu'il a accompli et ses actions puissantes, n'est-il pas écrit dans le livre des discours du jour des rois d'Israël ?
+16:6	Baesha se coucha avec ses pères et fut enterré à Tirtsah. Élah, son fils, régna à sa place.
+16:7	La parole de YHWH apparut par la main de Yehuw, fils de Chananiy, le prophète, contre Baesha et contre sa maison, à cause de tout le mal qu'il avait fait aux yeux de YHWH, en l’irritant par l'œuvre de ses mains et en devenant comme la maison de Yarobam, parce qu’il tua celui-ci.
+
+### Élah puis Zimri règnent sur Israël
+
+16:8	La vingt-sixième année d'Asa, roi de Yéhouda, Élah, fils de Baesha, régna sur Israël, à Tirtsah, pour 2 ans.
+16:9	Son serviteur, Zimri, capitaine de la moitié des chars, fit une conspiration contre lui, lorsqu'il était à Tirtsah, buvant et s'enivrant dans la maison d'Artsa, chef de la maison du roi à Tirtsah.
+16:10	Zimri vint, le frappa et le tua dans la vingt-septième année d'Asa, roi de Yéhouda, et il régna à sa place.
+16:11	Il arriva que dès qu'il fut roi et qu'il s'assit sur le trône, il frappa toute la maison de Baesha. Il ne lui laissa personne qui urine contre un mur, ni racheteur ni ami.
+16:12	Zimri extermina toute la maison de Baesha, selon la parole que YHWH avait proférée contre Baesha, par la main de Yehuw, le prophète,
+16:13	à cause de tous les péchés de Baesha et des péchés d'Élah, son fils, par lesquels ils avaient péché et par lesquels ils avaient fait pécher Israël, en provoquant YHWH, l'Elohîm d'Israël, par leurs idoles.
+16:14	Le reste des actions d'Élah, et même tout ce qu'il a fait, n'est-il pas écrit dans le livre des discours du jour des rois d'Israël ?
+16:15	La vingt-septième année d'Asa, roi de Yéhouda, Zimri régna 7 jours à Tirtsah. Or le peuple était campé contre Guibbethon qui appartenait aux Philistins.
+16:16	Et le peuple qui était campé là, entendit que l'on disait : Zimri a fait une conspiration, et il a même tué le roi ! En ce même jour, tout Israël établit dans le camp pour roi d'Israël Omri, chef de l'armée d'Israël.
+16:17	Omri et tout Israël avec lui partirent de Guibbethon, et assiégèrent Tirtsah.
+16:18	Il arriva que, quand Zimri vit que la ville était prise, il entra au palais de la maison royale et brûla par le feu sur lui la maison royale. C'est ainsi qu'il mourut,
+16:19	à cause de ses péchés, par lesquels il avait péché en faisant ce qui est mauvais aux yeux de YHWH, en marchant dans la voie de Yarobam et dans son péché, qu’il avait fait pour faire pécher Israël.
+16:20	Le reste des actions de Zimri et la conspiration qu'il forma, cela n'est-il pas écrit dans le livre des discours du jour des rois d'Israël ?
+
+### Omri règne sur Israël
+
+16:21	Alors le peuple d'Israël se divisa en deux parties : la moitié du peuple était derrière Thibni, fils de Guinath, pour le faire roi, et l'autre moitié derrière Omri.
+16:22	Le peuple derrière Omri fut plus fort que le peuple derrière Thibni, fils de Guinath. Thibni mourut et Omri régna.
+16:23	La trente-et-unième année d'Asa, roi de Yéhouda, Omri régna sur Israël pour 12 ans. À Tirtsah, il régna 6 ans.
+16:24	Puis il acheta de Shémer la Montagne de Samarie pour 2 talents d'argent. Il bâtit sur la montagne et il appela la ville qu’il bâtit du nom de Samarie, d'après le nom de Shémer, seigneur de la montagne.
+16:25	Omri fit ce qui est mal aux yeux de YHWH, et il fit le mal plus que tous ceux qui avaient été avant lui.
+16:26	Il marcha dans la voie de Yarobam, fils de Nebath et dans son péché, par lequel il avait fait pécher Israël en irritant YHWH, l'Elohîm d'Israël par leurs idoles.
+16:27	Le reste des discours d'Omri, tout ce qu'il a accompli et les actions puissantes qu'il a accomplies, cela n'est-il pas écrit dans le livre des discours du jour des rois d'Israël ?
+16:28	Omri se coucha avec ses pères et fut enterré à Samarie. Achab, son fils, régna à sa place.
+
+### Achab règne sur Israël et épouse Iyzebel (Jézabel)
+
+16:29	Achab, fils d'Omri, régna sur Israël la trente-huitième année d'Asa, roi de Yéhouda. Et Achab, fils d'Omri, régna sur Israël à Samarie 22 ans.
+16:30	Et Achab, fils d'Omri, fit ce qui est mal aux yeux de YHWH, plus que tous ceux qui avaient été avant lui.
+16:31	Il arriva que, comme si c’était peu de chose qu’il marchât dans les péchés de Yarobam, fils de Nebath, il prit pour femme Iyzebel<!--Jézabel.-->, fille d'Ethbaal, roi des Sidoniens, puis il alla servir Baal et se prosterna devant lui.
+16:32	Il dressa un autel à Baal, dans la maison de Baal, qu'il bâtit à Samarie.
+16:33	Achab fit une asherah. Achab fit plus encore que tous les rois d'Israël qui avaient été avant lui, pour irriter YHWH, l'Elohîm d'Israël.
+16:34	En ses jours, Hiel de Béth-El bâtit Yeriycho. Il en jeta les fondements au prix d'Abiram, son premier-né et posa ses portes sur Segoub, son plus jeune fils, selon la parole que YHWH avait déclarée par la main de Yéhoshoua<!--Jos. 6:26.-->, fils de Noun.
+
+## Chapitre 17
+
+### Éliyah annonce trois ans de sécheresse<!--1 R. 17.-->
+
+17:1	Éliyah, le Tishbiy, l'un des habitants de Galaad, dit à Achab : YHWH, l'Elohîm d'Israël, en face de qui je me tiens debout est vivant ! Il n'y aura ces années-ci ni rosée ni pluie, sauf sur la parole de ma bouche.
+
+### Éliyah au torrent de Kerith
+
+17:2	La parole de YHWH lui est apparue, en disant :
+17:3	Va-t'en d'ici, tourne-toi vers l'orient et cache-toi près du torrent de Kerith qui est en face du Yarden.
+17:4	Tu boiras de l'eau du torrent, et j'ai ordonné aux corbeaux de t'y nourrir.
+17:5	Il s’en alla et fit selon la parole de YHWH, il s'en alla et demeura au torrent de Kerith, qui est en face du Yarden.
+17:6	Les corbeaux lui apportaient du pain et de la viande le matin, et du pain et de la viande le soir, et il buvait de l'eau du torrent.
+17:7	Il arriva qu'au bout de quelques jours, le torrent fut à sec, car il n’y avait pas eu de pluie sur la terre.
+
+### Éliyah chez la veuve de Sarepta
+
+17:8	La parole de YHWH lui est apparue, en disant :
+17:9	Lève-toi, va à Sarepta, qui appartient à Sidon, et demeure là. Voici, j'y ai ordonné à une femme veuve de t'y nourrir.
+17:10	Il se leva et s'en alla à Sarepta. Il arriva à l’entrée de la ville, et voici que là était une femme veuve qui ramassait du bois. Il l'appela et lui dit : Apporte-moi, s’il te plaît, un peu d'eau dans un vase et que je boive.
+17:11	Elle alla en chercher. Il l'appela de nouveau et dit : Apporte-moi, s’il te plaît, un morceau de pain de ta main.
+17:12	Mais elle dit : YHWH, ton Elohîm, est vivant ! Je n'ai rien de cuit, je n'ai qu'une poignée de farine dans un pot et un peu d'huile dans une cruche. Et voici, je ramasse deux morceaux de bois, puis je rentrerai et je préparerai cela pour moi et pour mon fils, nous mangerons et nous mourrons.
+17:13	Éliyah lui dit : N'aie pas peur, va, fais comme tu l'as dit. Seulement, fais-moi d'abord avec cela un petit gâteau et tu me l'apporteras, tu en feras ensuite pour toi et pour ton fils.
+17:14	Car ainsi parle YHWH, l'Elohîm d'Israël : La farine qui est dans le pot ne finira pas et l'huile qui est dans la cruche ne diminuera pas, jusqu’au jour où YHWH donnera de la pluie sur les faces du sol.
+17:15	Elle s'en alla et fit selon la parole d'Éliyah. Et elle eut à manger, elle et sa maison, ainsi qu'Éliyah pendant plusieurs jours.
+17:16	La farine du pot ne finit pas, et l'huile de la cruche ne diminua pas, selon la parole que YHWH avait déclarée par la main d'Éliyah.
+
+### Résurrection du fils de la veuve de Sarepta
+
+17:17	Après ces choses, il arriva que le fils de la femme, maîtresse de la maison, devint malade, et sa maladie fut si forte qu'il ne resta plus en lui de respiration.
+17:18	Et elle dit à Éliyah : Qu'y a-t-il entre moi et toi, homme d'Elohîm ? Es-tu venu chez moi pour rappeler mon iniquité et faire mourir mon fils ?
+17:19	Il lui dit : Donne-moi ton fils. Il le prit du sein de cette femme, le porta dans la chambre haute où il demeurait, et le coucha sur son lit.
+17:20	Il appela YHWH en disant : YHWH, mon Elohîm ! As-tu aussi fait venir du mal sur la veuve chez laquelle je séjourne, en faisant mourir son fils ? 
+17:21	Il s'étendit trois fois sur l'enfant et appela YHWH en disant : YHWH, mon Elohîm ! S’il te plaît, que l'âme de cet enfant revienne au-dedans de lui.
+17:22	Et YHWH écouta la voix d'Éliyah, l'âme de l'enfant revint au-dedans de lui et il reprit vie.
+17:23	Éliyah prit l'enfant, le descendit de la chambre haute dans la maison et le donna à sa mère, en lui disant : Regarde, ton fils est vivant.
+17:24	Et la femme dit à Éliyah : Maintenant je sais que tu es un homme d'Elohîm, et que la parole de YHWH qui est dans ta bouche est vérité.
+
+## Chapitre 18
+
+### Éliyah à la rencontre d'Obadyah puis d'Achab
+
+18:1	Il arriva, après plusieurs jours, que la parole de YHWH apparut à Éliyah, dans la troisième année, en disant : Va, montre-toi à Achab et je donnerai de la pluie sur les faces du sol.
+18:2	Et Éliyah s'en alla pour se montrer à Achab. La famine était forte à Samarie.
+18:3	Achab avait appelé Obadyah, chef de sa maison. (Or Obadyah craignait beaucoup YHWH :
+18:4	Et il était arrivé, quand Iyzebel exterminait les prophètes de YHWH, qu'Obadyah avait pris 100 prophètes et les avait cachés, 50 hommes par caverne et les avait nourris de pain et d’eau.)
+18:5	Achab dit à Obadyah : Va sur la terre vers toutes les sources d'eaux et vers tous les torrents. Peut-être que nous trouverons de l'herbe, et nous conserverons la vie aux chevaux et aux mulets, et nous n'aurons pas à tuer des bêtes.
+18:6	Ils se partagèrent entre eux la terre pour la parcourir. Achab allait seul par un chemin et Obadyah allait seul par un autre chemin.
+18:7	Il arriva que comme Obadyah était en chemin, voici, Éliyah vint à sa rencontre. Il le reconnut, il tomba sur ses faces et lui dit : N'es-tu pas mon seigneur Éliyah ?
+18:8	Il lui dit : C'est moi. Va et dis à ton seigneur : Voici Éliyah !
+18:9	Et il dit : Quel péché ai-je commis, pour que tu livres ton serviteur entre les mains d'Achab pour me faire mourir ?
+18:10	YHWH, ton Elohîm, est vivant ! Il n’existe pas de nation ni de royaume où mon seigneur n’ait envoyé te chercher. Et quand on disait que tu n'y étais pas, il faisait jurer le royaume et la nation que l'on ne t'avait pas trouvé.
+18:11	Et maintenant tu dis : Va, dis à ton seigneur : Voici Éliyah !
+18:12	Il arrivera que quand je serai parti d’auprès de toi, l'Esprit de YHWH te transportera je ne sais où et j'irai informer Achab qui ne te trouvera pas et qui me tuera. Or ton serviteur craint YHWH dès sa jeunesse.
+18:13	N'a-t-on pas raconté à mon seigneur ce que j'ai fait quand Iyzebel tuait les prophètes de YHWH ? J'ai caché 100 hommes parmi les prophètes de YHWH, 50 hommes dans une caverne et 50 hommes dans une autre et je les ai nourris de pain et d'eau ?
+18:14	Et maintenant tu dis : Va, dis à ton seigneur : Voici Éliyah ! Il me tuera !
+18:15	Éliyah dit : YHWH Tsevaot, en face de qui je me tiens debout est vivant ! Oui, aujourd'hui, je me montrerai à lui.
+18:16	Obadyah étant allé à la rencontre d'Achab, l'informa de la chose. Achab alla au-devant d'Éliyah.
+18:17	Et il arriva que, quand Achab vit Éliyah, Achab lui dit : Est-ce toi qui trouble Israël ?
+18:18	Il dit : Je ne trouble pas Israël, mais c’est toi et la maison de ton père, parce que vous avez abandonné les commandements de YHWH et que vous êtes allés après les Baalim.
+18:19	Maintenant envoie et fais rassembler tout Israël auprès de moi, sur le Mont Carmel, les 450 prophètes de Baal et les 400 prophètes d'Asherah qui mangent à la table de Iyzebel.
+
+### Confrontation entre Éliyah et les prophètes de Baal sur le Mont Carmel
+
+18:20	Achab envoya des messagers vers tous les fils d'Israël et il rassembla les prophètes sur le Mont Carmel.
+18:21	Éliyah s'approcha de tout le peuple et dit : Jusqu’à quand clocherez-vous entre les deux opinions ? Si YHWH est Elohîm, allez derrière lui ! Si c'est Baal, allez derrière lui ! Le peuple ne lui répondit pas une parole.
+18:22	Éliyah dit au peuple : Je suis resté le seul prophète de YHWH, et les prophètes de Baal sont 450 hommes.
+18:23	Que l'on nous donne deux jeunes taureaux. Qu'ils choisissent pour eux l'un des jeunes taureaux, le coupent en morceaux et le mettent sur du bois, sans y mettre le feu. Je préparerai l'autre jeune taureau et je le mettrai sur du bois, sans y mettre le feu.
+18:24	Vous invoquerez le nom de vos elohîm, et moi, j'invoquerai le nom de YHWH. L'elohîm qui répondra par le feu, c'est lui qui est Elohîm. Tout le peuple répondit et dit : Cette parole est bonne !
+18:25	Éliyah dit aux prophètes de Baal : Choisissez un jeune taureau et préparez-le les premiers, car vous êtes en plus grand nombre et invoquez le nom de vos elohîm ; mais n'y mettez pas de feu.
+18:26	Ils prirent un jeune taureau qu'on leur donna et le préparèrent. Puis ils invoquèrent le nom de Baal depuis le matin jusqu'à midi, en disant : Baal réponds-nous ! Mais il n'y eut ni voix ni réponse. Et ils sautaient sur l'autel qu'on avait fait.
+18:27	Il arriva qu’à midi, Éliyah se moqua d'eux en disant : Criez à grande voix ! Oui, elohîm, lui ! Oui, il est en méditation ! Oui, il est en déménagement ! Oui, il est en route ! Peut-être sommeille-t-il et il se réveillera. 
+18:28	Ils criaient à grande voix. Ils se faisaient des incisions avec des couteaux et des lances, selon leur coutume, en sorte que le sang coulait sur eux.
+18:29	Il arriva, quand midi fut passé, qu’ils prophétisèrent jusqu’à l’heure où monte l’offrande de grain, mais il n’y eut ni voix, ni réponse, ni signe d'attention.
+18:30	Éliyah dit à tout le peuple : Approchez-vous de moi ! Et tout le peuple s'approcha de lui. Il guérit l'autel de YHWH qui avait été renversé.
+18:31	Éliyah prit 12 pierres, selon le nombre des tribus des fils de Yaacov, à qui était venue la parole de YHWH en disant : Israël deviendra ton nom.
+18:32	Il bâtit avec ces pierres un autel au nom de YHWH. Puis il fit un fossé de la capacité de deux mesures de semence autour de l'autel.
+18:33	Il arrangea le bois, coupa le jeune taureau en morceaux et les mit sur le bois.
+18:34	Et il dit : Remplissez quatre cruches d'eau, puis versez-les sur l'holocauste et sur le bois ! Et il dit : Faites-le encore une seconde fois ! Et ils le firent une seconde fois. Il dit : Faites-le une troisième fois ! Et ils le firent pour la troisième fois.
+18:35	L’eau alla tout autour de l’autel et l'on remplit aussi d'eau le fossé.
+18:36	Et il arriva, à l’heure où monte l’offrande de grain, qu'Éliyah, le prophète, s'approcha et dit : YHWH ! Elohîm d'Abraham, de Yitzhak et d'Israël, on saura aujourd'hui que tu es Elohîm en Israël, que je suis ton serviteur et que j'ai fait toutes ces choses par ta parole !
+18:37	Réponds-moi, YHWH ! Réponds-moi, afin que ce peuple sache que c'est toi, YHWH, qui es Elohîm et que c'est toi qui ramènes leur cœur.
+18:38	Le feu de YHWH tomba et consuma l'holocauste, le bois, les pierres et la terre, et il absorba toute l'eau qui était dans le fossé.
+18:39	Et tout le peuple voyant cela, tomba sur ses faces et dit : C'est YHWH qui est Elohîm ! C'est YHWH qui est Elohîm !
+18:40	Et Éliyah leur dit : Saisissez les prophètes de Baal ! Pas un homme d’entre eux n’échappera ! Ils les saisirent. Éliyah les fit descendre au torrent de Kison, et là il les tua.
+
+### Retour de la pluie selon la parole d'Éliyah<!--Ja. 5:17-18.-->
+
+18:41	Éliyah dit à Achab : Monte, mange et bois, car il y a le bruit du tumulte d’une pluie.
+18:42	Achab monta pour manger et pour boire. Mais Éliyah monta au sommet du Carmel et, s'étant accroupi contre terre, il mit ses faces entre ses genoux.
+18:43	Il dit à son serviteur : Monte, s’il te plaît. Regarde le chemin de la mer. Le serviteur monta, il regarda et dit : Il n'y a rien. Il lui dit : « Retourne sept fois ! »
+18:44	Il arriva qu’à la septième fois, il dit : Voici un petit nuage qui s'élève de la mer, il est comme la paume d'un homme. Il dit : Monte et dis à Achab : Attelle ton char et descends de peur que la pluie ne t'arrête.
+18:45	Il arriva que, jusqu’ici et jusque-là, les cieux s'obscurcirent par les nuages et le vent, et il y eut une grande pluie. Achab monta sur son char et s’en alla à Yizre`e'l.
+18:46	La main de YHWH vint sur Éliyah, qui se ceignit les reins et courut devant Achab, jusqu'à l'entrée de Yizre`e'l.
+
+## Chapitre 19
+
+### Fuite d'Éliyah devant les menaces d'Iyzebel (Jézabel)
+
+19:1	Achab raconta à Iyzebel tout ce qu'Éliyah avait fait, et comment il avait tué par l'épée tous les prophètes.
+19:2	Et Iyzebel envoya un messager vers Éliyah, pour lui dire : Qu'ainsi me traitent les elohîm et qu'ainsi ils y ajoutent si demain, à cette heure-ci, je ne me sers pas de ton âme comme l’âme de l’un d’eux ! 
+19:3	Voyant cela, il se leva et s'en alla pour son âme. Il arriva à Beer-Shéba, qui appartient à Yéhouda, et il laissa là son serviteur.
+
+### L'Ange de YHWH fortifie Éliyah
+
+19:4	Pour lui, il marcha dans le désert, le chemin d’un jour, et il alla s'asseoir sous un genêt. Il demanda la mort pour son âme, en disant : C'en est assez, YHWH ! Prends mon âme, car je ne suis pas meilleur que mes pères.
+19:5	Il se coucha et s'endormit sous un genêt. Voici un ange le toucha et lui dit : Lève-toi, mange.
+19:6	Et il regarda, et voici à son chevet un gâteau cuit sur des pierres chaudes et une cruche d'eau. Il mangea et but, puis il retourna se coucher.
+19:7	L'Ange de YHWH vint une seconde fois, le toucha et lui dit : Lève-toi, mange, car le chemin est trop long pour toi !
+
+### Éliyah à Horeb, visitation et instructions de YHWH
+
+19:8	Il se leva, mangea et but. Puis, avec la force que lui donna cette nourriture, il marcha 40 jours et 40 nuits jusqu'à Horeb, la montagne d'Elohîm.
+19:9	Et là, il entra dans une caverne et y passa la nuit. Et voici, la parole de YHWH lui est apparue et lui dit : Que fais-tu ici Éliyah ?
+19:10	Et il dit : Être jaloux, j'ai été jaloux pour YHWH, Elohîm Tsevaot, parce que les fils d'Israël ont abandonné ton alliance, ils ont renversé tes autels, ils ont tué tes prophètes par l'épée. Je suis resté, moi seul, et ils cherchent mon âme pour l’enlever !
+19:11	Il lui dit : Sors et tiens-toi sur la montagne devant YHWH. Et voici, YHWH passa. Et devant YHWH, il y eut un grand vent impétueux qui déchirait les montagnes et brisait les rochers, mais YHWH n'était pas dans ce vent. Après le vent, un tremblement de terre, mais YHWH n'était pas dans ce tremblement de terre.
+19:12	Après le tremblement de terre, un feu. Mais YHWH n'était pas dans le feu. Et après le feu, une voix calme et petite.
+19:13	Et il arriva que dès qu'Éliyah l'entendit, il enveloppa ses faces dans son manteau, il sortit et se tint debout à l'entrée de la caverne. Et voici, vers lui une voix dit : Que fais-tu ici Éliyah ?
+19:14	Il dit : Être jaloux, j'ai été jaloux pour YHWH, Elohîm Tsevaot, parce que les fils d'Israël ont abandonné ton alliance, ils ont renversé tes autels, ils ont tué par l'épée tes prophètes. Je suis resté, moi seul, et ils cherchent mon âme pour l’enlever !
+19:15	YHWH lui dit : Va, retourne par ton chemin vers le désert de Damas. Quand tu seras arrivé, tu oindras Hazaël pour roi de Syrie.
+19:16	Tu oindras aussi Yehuw, fils de Nimshi, pour roi d'Israël et tu oindras Éliysha, fils de Shaphath, d'Abel-Meholah, pour prophète à ta place.
+19:17	Et il arrivera que quiconque échappera à l'épée de Hazaël, Yehuw le fera mourir, et quiconque échappera à l'épée de Yehuw, Éliysha le fera mourir.
+19:18	Mais je laisserai en Israël 7 000 hommes<!--Ro. 11:1-4.-->, tous les genoux qui n’ont pas fléchi devant Baal et toutes les bouches qui ne l’ont pas embrassé.
+
+### Éliysha devient disciple d'Éliyah
+
+19:19	Il partit de là et il trouva Éliysha, le fils de Shaphath, qui labourait. Il y avait douze paires d'animaux devant lui et il était avec la douzième. Éliyah passa près de lui et jeta sur lui son manteau.
+19:20	Il abandonna ses bœufs, courut après Éliyah en disant : S’il te plaît, laisse-moi embrasser mon père et ma mère, et je te suivrai. Il lui dit : Va, retourne, car que t'ai-je fait ?
+19:21	Après s'être éloigné d'Éliyah, il revint prendre une paire de bœufs qu'il offrit en sacrifice. Avec l'attelage des bœufs, il fit cuire leur chair et la donna à manger au peuple. Puis il se leva, s'en alla après Éliyah et le servait.
+
+## Chapitre 20
+
+### Achab monte contre Ben-Hadad
+
+20:1	Ben-Hadad, roi de Syrie, rassembla toute son armée. Il avait avec lui 32 rois, des chevaux et des chars. Il monta, assiégea Samarie et lui fit la guerre.
+20:2	Il envoya des messagers à Achab, roi d'Israël, dans la ville,
+20:3	pour lui dire : Ainsi parle Ben-Hadad : Ton argent et ton or sont à moi, tes femmes et tes fils les plus beaux sont à moi.
+20:4	Le roi d'Israël répondit et dit : Selon ta parole, mon seigneur le roi ! Je suis à toi avec tout ce que j'ai.
+20:5	Les messagers retournèrent et dirent : Ainsi parle Ben-Hadad, disant : Oui, je t’ai envoyé dire : Ton argent, ton or, tes femmes, tes fils, tu me les donneras,
+20:6	Oui, en ce temps, demain, j'enverrai chez toi mes serviteurs, ils fouilleront ta maison et les maisons de tes serviteurs. Tout ce qui est désirable à tes yeux, ils le mettront dans leur main et le prendront.
+20:7	Le roi d'Israël appela tous les anciens de la terre, et il dit : Sachez et considérez, s’il vous plaît, quel malheur celui-là cherche ! Oui, il a envoyé vers moi pour mes femmes, mes fils, mon argent et mon or, et je ne lui avais rien refusé.
+20:8	Tous les anciens et tout le peuple lui dirent : Ne l'écoute pas et ne consens pas.
+20:9	Il dit aux messagers de Ben-Hadad : Dites au roi, mon seigneur : Tout ce que tu as envoyé demander à ton serviteur la première fois, je le ferai, mais cette chose, je ne peux pas la faire. Les messagers s'en allèrent et lui rapportèrent cette parole.
+20:10	Ben-Hadad envoya dire à Achab : Qu'ainsi me traitent les elohîm et qu'ainsi ils y ajoutent, si la poussière de Samarie suffit pour le creux de la main de tout le peuple qui est à mes pieds.
+20:11	Le roi d'Israël répondit et dit : Dites-lui : Que celui qui met sa ceinture ne se glorifie pas comme celui qui l'enlève !
+20:12	Or il arriva qu'aussitôt qu'il entendit cette parole, (il était en train de boire sous les tentes avec les rois), il dit à ses serviteurs : Rangez-vous en bataille ! Et ils se rangèrent en bataille contre la ville.
+
+### Victoire d'Achab
+
+20:13	Et voici, un prophète s'approcha d'Achab, roi d'Israël, et lui dit : Ainsi parle YHWH : Vois-tu toute cette grande multitude ? Voici, je la livre aujourd'hui entre tes mains, pour que tu saches que c'est moi YHWH.
+20:14	Achab dit : Par qui ? Et il lui dit : Ainsi parle YHWH : Ce sera par les serviteurs des chefs des provinces. Il dit : Qui commencera le combat ? Il lui dit : Toi.
+20:15	Il dénombra les serviteurs des chefs des provinces qui furent 232. Après eux, il dénombra tout le peuple, tous les fils d'Israël, et ils étaient 7 000.
+20:16	Et ils sortirent à midi. Et Ben-Hadad en buvant, il s'enivrait dans les tentes, lui et les 32 rois qui étaient venus à son secours.
+20:17	Les serviteurs des chefs des provinces sortirent les premiers. Ben-Hadad envoya quelques-uns qui l'informèrent en disant : Des hommes sont sortis de Samarie.
+20:18	Et il dit : Qu'ils soient sortis pour la paix, ou qu'ils soient sortis pour faire la guerre, saisissez-les tous vivants.
+20:19	Ceux-là étant sortis de la ville, les serviteurs des chefs des provinces, et l’armée qui était après eux.
+20:20	Chaque homme frappa son homme, et les Syriens s’enfuirent, poursuivis par Israël. Ben-Hadad, roi de Syrie, se sauva sur un cheval, avec des cavaliers.
+20:21	Le roi d'Israël sortit et frappa les chevaux et les chars. Il frappa les Syriens d’un grand coup.
+
+### Achab monte de nouveau contre les Syriens
+
+20:22	Le prophète s'approcha du roi d'Israël et lui dit : Va, fortifie-toi, considère et vois ce que tu auras à faire. Car, au retour de l'année, le roi de Syrie montera contre toi.
+20:23	Or les serviteurs du roi de Syrie lui dirent : Leur elohîm est un elohîm de montagnes, c'est pourquoi ils ont été plus forts que nous. Mais combattons-les dans la plaine, certainement nous serons plus forts qu'eux.
+20:24	Fais cette chose : écarte chacun de ces rois de sa place et remplace-les par des chefs.
+20:25	Et toi-même, compte une armée pour toi, comme l’armée qui est tombée pour toi, cheval pour cheval, char pour char, et combattons dans la plaine, et nous serons plus forts qu’eux. Il écouta leur voix et fit ainsi.
+20:26	Il arriva, qu’au retour de l’année, Ben-Hadad dénombra les Syriens et monta à Aphek pour combattre contre Israël.
+20:27	Les fils d’Israël furent dénombrés et approvisionnés. Ils marchèrent à la rencontre des Syriens. Les fils d'Israël campèrent vis-à-vis d'eux, semblables à deux petits troupeaux de chèvres, tandis que les Syriens remplissaient la terre.
+20:28	L'homme d'Elohîm vint et dit au roi d'Israël : Ainsi parle YHWH : Parce que les Syriens ont dit : YHWH est un elohîm des montagnes et non un elohîm des vallées, je livrerai entre tes mains toute cette grande multitude, et vous saurez que c'est moi YHWH.
+20:29	Ils campèrent, ceux-ci vis-à-vis de ceux-là, 7 jours. Et il arriva, le septième jour, qu'ils entrèrent en bataille, et les fils d'Israël tuèrent les Syriens, 100 000 hommes de pied en un seul jour.
+20:30	Le reste s'enfuit à la ville d'Aphek, où la muraille tomba sur 27 000 hommes qui restaient. Et Ben-Hadad s'était enfui et il allait dans la ville de chambre en chambre.
+
+### Faute d'Achab qui épargne Ben-Hadad
+
+20:31	Ses serviteurs lui dirent : Voici, s’il te plaît, nous avons appris que les rois de la maison d'Israël sont des rois miséricordieux. S’il te plaît, mettons des sacs sur nos reins et des cordes à nos têtes, sortons vers le roi d'Israël, peut-être laissera-t-il ton âme en vie.
+20:32	Ils se mirent des sacs autour des reins et des cordes autour de leurs têtes. Ils allèrent auprès du roi d'Israël. Ils lui dirent : Ton serviteur Ben-Hadad dit : S’il te plaît, laisse vivre mon âme ! Il dit : Est-il encore vivant ? Il est mon frère.
+20:33	Ces hommes tirèrent de là un bon présage, ils se hâtèrent de le prendre au mot et ils dirent : Ben-Hadad est-il ton frère ? Et il dit : Allez ! Prenez-le ! Ben-Hadad vint vers lui, et il le fit monter sur son char.
+20:34	Il lui dit : Je te rendrai les villes que mon père avait prises à ton père et tu mettras pour toi des rues à Damas comme mon père en a mis en Samarie. Quant à moi, dans une alliance je te renverrai. Il traita alliance avec lui et le renvoya.
+20:35	Alors un homme d'entre les fils des prophètes dit à son compagnon, sur la bouche de YHWH : Frappe-moi, s’il te plaît ! Mais l'homme refusa de le frapper.
+20:36	Et il lui dit : Parce que tu n'as pas obéi à la voix de YHWH, voici, en t'en allant d'auprès de moi, un lion te frappera. Et il partit d’auprès de lui, un lion le trouva et le tua.
+20:37	Il trouva un autre homme, et lui dit : Frappe-moi, s’il te plaît. Cet homme-là le frappa et il le blessa.
+20:38	Après cela, le prophète s'en alla, et se plaça sur le chemin du roi et il se déguisa avec un bandeau sur ses yeux.
+20:39	Il arriva, comme le roi passait, qu’il cria vers le roi et dit : Ton serviteur était allé au milieu de la bataille, et voici qu’un homme se détournant m’amena un homme et dit : Garde cet homme. Manquer, s’il manquait, ton âme sera à la place de son âme ou tu paieras un talent d'argent.
+20:40	Et il est arrivé que pendant que ton serviteur agissait çà et là, l’autre n’est plus. Et le roi d'Israël lui dit : Ainsi est ton jugement : tu en as décidé.
+20:41	Le prophète ôta promptement le bandeau de dessus ses yeux et le roi d'Israël reconnut que c'était l'un des prophètes.
+20:42	Et il dit : Ainsi parle YHWH : Parce que tu as laissé échapper de tes mains l'homme que j'avais voué à une entière destruction, ton âme sera à la place de son âme et ton peuple à la place de son peuple.
+20:43	Et le roi d'Israël s’en alla dans sa maison, maussade et furieux, et il arriva en Samarie.
+
+## Chapitre 21
+
+### Achab convoite la vigne de Naboth
+
+21:1	Il arriva, après ces choses, que Naboth le Yizréélite ayant une vigne à Yizre`e'l, près du palais d'Achab, roi de Samarie,
+21:2	Achab parla à Naboth et lui dit : Donne-moi ta vigne, elle deviendra pour moi un jardin potager, car elle est proche, à côté de ma maison et je te donnerai à la place une vigne meilleure ou, si cela est bon à tes yeux, je te donnerai le prix en argent.
+21:3	Mais Naboth dit à Achab : Que YHWH me garde de te donner l'héritage de mes pères !
+21:4	Et Achab rentra dans sa maison, maussade et furieux, à cause de cette parole que lui avait dite Naboth le Yizréélite, en disant : Je ne te donnerai pas l'héritage de mes pères ! Il se coucha sur son lit, tourna ses faces et ne mangea pas de pain.
+
+### Machination d'Iyzebel (Jézabel)
+
+21:5	Iyzebel, sa femme, vint auprès de lui et lui dit : Qu’est-ce que cela ? Ton esprit est maussade, et tu ne manges pas de pain !
+21:6	Il lui dit : J'ai parlé à Naboth le Yizréélite et je lui ai dit : Donne-moi ta vigne pour de l'argent, ou si tu le désires, je te donnerai une autre vigne à sa place, mais il m'a dit : Je ne te donnerai pas ma vigne !
+21:7	Iyzebel sa femme lui dit : Toi, maintenant, tu exerceras la fonction royale sur Israël ! Lève-toi, mange du pain et que ton cœur soit heureux ! Moi, je te donnerai la vigne de Naboth le Yizréélite.
+21:8	Et elle écrivit au nom d'Achab des lettres qu'elle scella du sceau du roi, et elle envoya ces lettres aux anciens et aux nobles qui habitaient avec Naboth, dans sa ville.
+21:9	Elle écrivit dans les lettres, disant : Publiez un jeûne et faites asseoir Naboth en tête du peuple,
+21:10	et faites asseoir deux hommes, fils de Bélial, et qu'ils témoignent contre lui, en disant : Tu as béni Elohîm et le roi. Faites-le sortir, lapidez-le et qu'il meure.
+21:11	Les hommes de la ville de Naboth, les anciens et les nobles qui habitaient dans sa ville, agirent comme Iyzebel le leur avait dit, d'après ce qui était écrit dans les lettres qu'elle leur avait envoyées.
+21:12	Ils proclamèrent un jeûne et firent asseoir Naboth en tête du peuple.
+21:13	Les deux hommes, fils de Bélial vinrent s’asseoir devant lui. Et ces hommes de Bélial témoignèrent contre Naboth devant le peuple en disant : Naboth a béni Elohîm et le roi. Ils le sortirent hors de la ville, le lapidèrent avec des pierres et il mourut.
+21:14	Ils envoyèrent dire à Iyzebel : Naboth a été lapidé et il est mort.
+21:15	Il arriva que lorsque Iyzebel apprit que Naboth avait été lapidé et qu'il était mort, Iyzebel dit à Achab : Lève-toi, mets-toi en possession de la vigne de Naboth le Yizréélite, qu'il avait refusé de te donner pour de l'argent, car Naboth n'est plus vivant, il est mort.
+21:16	Il arriva que, quand Achab apprit que Naboth était mort, Achab se leva pour descendre à la vigne de Naboth, le Yizréélite, afin d'en prendre possession.
+
+### Jugement d'Achab et d'Iyzebel (Jézabel) ; Achab s'humilie devant Elohîm
+
+21:17	La parole de YHWH apparut à Éliyah, le Tishbiy, en disant :
+21:18	Lève-toi, descends au-devant d'Achab, roi d'Israël, lorsqu'il sera à Samarie. Le voilà dans la vigne de Naboth, où il est descendu pour en prendre possession.
+21:19	Tu lui parleras en disant : Ainsi parle YHWH : Tu as assassiné et tu prends possession ! Tu lui parleras en disant : Ainsi parle YHWH : Comme les chiens ont léché le sang de Naboth, les chiens lécheront aussi ton propre sang.
+21:20	Achab dit à Éliyah : M'as-tu trouvé mon ennemi ? Il dit : Je t'ai trouvé, parce que tu t'es vendu pour faire ce qui est mal aux yeux de YHWH.
+21:21	Voici, je vais faire venir du mal sur toi, je brûlerai derrière toi, je retrancherai de chez Achab quiconque urine contre un mur, qu'il soit détenu ou libéré en Israël.
+21:22	Je rendrai ta maison semblable à la maison de Yarobam, fils de Nebath, et la maison de Baesha, fils d'Achiyah, parce que tu m'as provoqué à la colère et que tu as fait pécher Israël.
+21:23	YHWH parla aussi contre Iyzebel, en disant : Les chiens mangeront Iyzebel près du rempart de Yizre`e'l.
+21:24	Celui de la maison d'Achab qui mourra dans la ville, les chiens le mangeront, et celui qui mourra aux champs, les créatures volantes des cieux le mangeront.
+21:25	Seulement, il n'y a eu personne qui se soit vendu comme Achab pour faire ce qui est mal aux yeux de YHWH, et sa femme Iyzebel l’avait séduit.
+21:26	Il agit d’une manière très abominable, en allant après les idoles, tout comme l'avaient fait les Amoréens que YHWH avait chassés de devant les fils d'Israël.
+21:27	Il arriva qu'aussitôt qu'Achab entendit ces paroles, qu'il déchira ses vêtements et mit un sac sur son corps et jeûna. Il se tenait couché avec ce sac et il marchait lentement.
+21:28	La parole de YHWH apparut à Éliyah, le Tishbiy, en disant :
+21:29	As-tu vu Achab ? Oui, il s'est humilié en face de moi. Oui, parce qu'il s'est humilié en face de moi, je ne ferai pas venir le mal durant ses jours : c’est aux jours de son fils que je ferai venir le mal sur sa maison.
+## Chapitre 22
+
+### Yehoshaphat aide Achab contre les Syriens
+
+22:1	On resta 3 ans sans guerre entre la Syrie et Israël.
+22:2	Il arriva, dans la troisième année, que Yehoshaphat, roi de Yéhouda, descendit vers le roi d'Israël.
+22:3	Le roi d'Israël dit à ses serviteurs : Ne savez-vous pas que Ramoth en Galaad nous appartient ? Et nous ne nous inquiétons pas de la reprendre des mains du roi de Syrie !
+22:4	Il dit à Yehoshaphat : Viendras-tu avec moi à la guerre contre Ramoth en Galaad ? Yehoshaphat dit au roi d'Israël : Moi comme toi, mon peuple comme ton peuple, mes chevaux comme tes chevaux.
+
+### Les prophètes de mensonge<!--2 Ch. 18:4-5,9-11.-->
+
+22:5	Yehoshaphat dit au roi d'Israël : Consulte<!--Ex. 18:15 ; 1 S. 9:9 ; 1 R. 14:5 ; 2 R. 1:2 ; 2 R. 22:13.--> aujourd'hui, s’il te plaît, la parole de YHWH.
+22:6	Et le roi d'Israël rassembla les prophètes, au nombre de 400 environ, auxquels il dit : Irai-je à la guerre contre Ramoth en Galaad ou m’abstiendrai-je ? Ils dirent : Monte, car Adonaï la livrera entre les mains du roi.
+22:7	Mais Yehoshaphat dit : N'y a-t-il pas encore ici un prophète de YHWH ? Nous le consulterons.
+22:8	Et le roi d'Israël dit à Yehoshaphat : Il y a encore un homme pour consulter YHWH par son moyen, mais je le hais, car il ne prophétise rien de bon, mais seulement du mal : c'est Miykayeh, fils de Yimla. Yehoshaphat dit : Que le roi ne parle pas ainsi !
+22:9	Le roi d'Israël appela un eunuque auquel il dit : Fais venir promptement Miykayeh, fils de Yimla.
+22:10	Or, le roi d'Israël et Yehoshaphat, roi de Yéhouda, étaient assis, chaque homme sur son trône, revêtus de leurs habits, sur la place qui se trouve à l'entrée de la porte de Samarie, et tous les prophètes prophétisaient en face d’eux.
+22:11	Tsidqiyah<!--Généralement traduit par « Sédécias ».-->, fils de Kena`anah, s'était fait des cornes de fer et il dit : Ainsi parle YHWH : De ces cornes-ci tu heurteras les Syriens, jusqu'à les détruire.
+22:12	Tous les prophètes prophétisaient de même, en disant : Monte à Ramoth de Galaad et réussis, et YHWH la livrera entre les mains du roi.
+
+### Miykayeh (Michée) annonce la défaite et la mort d'Achab<!--2 Ch. 18:6-8,12-27,28-34.-->
+
+22:13	Or le messager qui était allé appeler Miykayeh, lui parla en disant : Voici les paroles des prophètes, d'une seule bouche elles annoncent ce qui est bon au roi. S’il te plaît, que ta parole devienne comme la parole de l'un d'eux ! Déclare ce qui est bon !
+22:14	Mais Miykayeh lui dit : YHWH est vivant ! Je déclarerai ce que YHWH me dira.
+22:15	Il vint vers le roi, et le roi lui dit : Miykayeh, irons-nous à la guerre à Ramoth de Galaad, ou nous abstiendrons-nous ? Et il lui dit : Monte et réussis, et YHWH la livrera entre les mains du roi.
+22:16	Le roi lui dit : Combien de fois te ferai-je encore jurer de me déclarer seulement la vérité au nom de YHWH ?
+22:17	Il dit : J'ai vu tout Israël dispersé sur les montagnes comme un troupeau de brebis qui n'a pas de berger. Et YHWH a dit : Ceux-ci n'ont pas de seigneur. Que chaque homme retourne en paix dans sa maison !
+22:18	Le roi d'Israël dit à Yehoshaphat : Ne t'avais-je pas dit : Il ne prophétise pas du bien sur moi, mais plutôt du mal ! 
+22:19	Il lui dit : C'est pourquoi, écoute la parole de YHWH ! J'ai vu YHWH assis sur son trône, et toute l'armée des cieux se tenant debout près de lui, à sa droite et à sa gauche.
+22:20	Et YHWH a dit : Qui séduira Achab afin qu'il monte et qu'il tombe à Ramoth en Galaad ? Et celui-ci dit ainsi, et celui-là dit ainsi.
+22:21	Un esprit sortit et se tint debout en face de YHWH, et dit : Moi, je le séduirai. Et YHWH lui dit : Comment ?
+22:22	Il dit : Je sortirai et je deviendrai un esprit de mensonge dans la bouche de tous ses prophètes. Et il dit : Tu le séduiras et tu le vaincras aussi. Sors et fais ainsi !
+22:23	Maintenant voici, YHWH a mis un esprit de mensonge dans la bouche de tous tes prophètes qui sont ici et YHWH a prononcé du mal contre toi.
+22:24	Tsidqiyah, fils de Kena`anah, s'approcha et frappa Miykayeh sur la joue, et dit : Par où l'Esprit de YHWH est-il sorti de moi pour s'adresser à toi ?
+22:25	Miykayeh dit : Voici, tu le verras le jour où tu iras de chambre en chambre pour te cacher.
+22:26	Le roi d'Israël dit : Qu'on prenne Miykayeh et qu'on le mène vers Amon, capitaine de la ville et vers Yoash, le fils du roi.
+22:27	Tu diras : Ainsi a parlé le roi : Mettez cet homme en maison d'arrêt, et nourrissez-le du pain d'oppression et de l'eau d'oppression, jusqu'à ce que je rentre en paix.
+22:28	Miykayeh dit : Revenir, si tu reviens en paix, YHWH n'a pas parlé par moi. Il dit aussi : Vous tous, peuples, entendez !
+22:29	Le roi d'Israël monta avec Yehoshaphat, roi de Yéhouda, contre Ramoth en Galaad.
+22:30	Et le roi d'Israël dit à Yehoshaphat : Je me déguiserai pour aller à la guerre, mais toi, revêts-toi de tes habits ! Le roi d'Israël se déguisa et alla à la guerre.
+22:31	Or le roi de Syrie avait donné un ordre aux 32 chefs de ses chars, en disant : Vous ne combattrez ni petits ni grands, mais seulement le roi d'Israël.
+22:32	Il arriva que quand les chefs des chars virent Yehoshaphat, ils dirent : C’est sûrement le roi d'Israël. Et ils s'approchèrent de lui pour le combattre, mais Yehoshaphat s'écria.
+22:33	Il arriva que quand les chefs des chars virent que ce n'était pas le roi d'Israël, ils se détournèrent de lui.
+
+### Mort d'Achab
+
+22:34	Or un homme tira en son innocence avec son arc et frappa le roi d'Israël entre les jointures de la cuirasse. Et il dit à son conducteur de char : Tourne ta main et fais-moi sortir du camp, car je suis blessé.
+22:35	La guerre se renforça ce jour-là et le roi resta debout sur son char face aux Syriens, et il mourut sur le soir. Le sang de sa blessure coulait au fond du char.
+22:36	Au coucher du soleil, un cri retentissant passa dans le camp, en disant : Chaque homme à sa ville et chaque homme à sa terre !
+22:37	Ainsi mourut le roi. Il fut ramené à Samarie et l'on enterra le roi à Samarie.
+22:38	Lorsqu'on lava le char à l'étang de Samarie, les chiens léchèrent le sang d'Achab et les prostituées s'y baignèrent, selon la parole que YHWH avait déclarée<!--Voir 1 R. 21:19.-->.
+22:39	Le reste des discours d'Achab, tout ce qu'il a accompli et quant à la maison d'ivoire qu'il construisit et toutes les villes qu'il a bâties, toutes ces choses ne sont-elles pas écrites dans le livre des discours du jour des rois d'Israël ?
+
+### Règne de Yehoshaphat sur Yéhouda<!--2 Ch. 17:1-9.-->
+
+22:40	Achab se coucha avec ses pères. Achazyah, son fils, régna à sa place.
+22:41	Yehoshaphat, fils d'Asa, régna sur Yéhouda la quatrième année d'Achab, roi d'Israël.
+22:42	Yehoshaphat était fils de 35 ans quand il régna, et il régna 25 ans à Yeroushalaim. Le nom de sa mère était Azoubah, fille de Shilchiy.
+22:43	Il marcha dans toute la voie d'Asa, son père. Il ne s'en détourna pas, faisant tout ce qui est droit aux yeux de YHWH.
+22:44	Seulement les hauts lieux ne furent pas abolis : le peuple sacrifiait encore et brûlait de l'encens sur les hauts lieux.
+22:45	Yehoshaphat fit aussi la paix avec le roi d'Israël.
+22:46	Le reste des discours de Yehoshaphat, ses actions puissantes et les guerres qu’il fit, cela n'est-il pas écrit dans le livre des discours du jour des rois de Yéhouda ?
+22:47	Il extermina de la terre le reste des hommes prostitués sacrés, qui restaient depuis le temps d'Asa, son père.
+22:48	Il n'y avait pas de roi en Édom, mais un roi y était établi.
+22:49	Yehoshaphat construisit des navires de Tarsis pour aller chercher de l'or à Ophir mais il n'y alla pas, parce que les navires se brisèrent à Etsyôn-Guéber.
+22:50	Alors Achazyah, fils d'Achab, dit à Yehoshaphat : Mes serviteurs iront avec tes serviteurs sur les navires. Mais Yehoshaphat n'accepta pas.
+
+### Yehoram (Yoram) règne sur Yéhouda<!--2 Ch. 21:1.-->
+
+22:51	Yehoshaphat se coucha avec ses pères et fut enterré avec eux dans la cité de David, son père. Et Yehoram, son fils, régna à sa place.
+
+### Achazyah règne sur Israël
+
+22:52	Achazyah, fils d'Achab, régna sur Israël à Samarie la dix-septième année de Yehoshaphat, roi de Yéhouda. Et il régna 2 ans sur Israël.
+22:53	Il fit ce qui est mal aux yeux de YHWH : il marcha dans la voie de son père, dans la voie de sa mère et dans la voie de Yarobam, fils de Nebath, qui avait fait pécher Israël.
+22:54	Il servit Baal, il se prosterna devant lui et il irrita YHWH, l'Elohîm d'Israël, comme l'avait fait son père.
