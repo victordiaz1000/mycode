@@ -367,6 +367,70 @@ void main() {
       expect(find.textContaining('Traduction BYM'), findsOneWidget);
     });
   });
+
+  group('the notes menu', () {
+    /// Opens the ⋯ menu of the reading bar.
+    Future<void> openDisplayMenu(WidgetTester tester) async {
+      await tester.tap(find.byIcon(Icons.more_vert));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('a downloaded version drops the note entries', (tester) async {
+      // `bookFromGetbible` copies the bare text into `textWithNotes` and leaves
+      // `notes` empty, so « Texte + notes » toggled between two identical
+      // renderings and the two dispositions governed nothing.
+      SharedPreferences.setMockInitialValues({'reading.versionCode': 'DBY'});
+      await pumpReader(tester, store: darbyGenesisOnly());
+
+      await openDisplayMenu(tester);
+
+      expect(find.text('Texte seul'), findsNothing);
+      expect(find.text('Texte + notes'), findsNothing);
+      expect(find.text('Notes à la suite'), findsNothing);
+      expect(find.text('Notes sous le verset'), findsNothing);
+      // One line that says why, rather than four dead entries.
+      expect(find.text('Notes — BYM uniquement'), findsOneWidget);
+      // The size ladder still applies — it is not about notes.
+      expect(find.text('Taille du texte'), findsOneWidget);
+    });
+
+    testWidgets('a stored « notes on » does not follow onto a download',
+        (tester) async {
+      SharedPreferences.setMockInitialValues({
+        'reading.versionCode': 'DBY',
+        'reading.notesMode': true,
+      });
+      await pumpReader(tester, store: darbyGenesisOnly());
+
+      // Notes off ⇒ a plain Text; the annotated path builds a RichText, which
+      // `find.text` skips unless asked for it.
+      expect(find.text('Texte téléchargé 1:1.'), findsOneWidget,
+          reason: 'the verse reads as text, not through the note renderer');
+    });
+
+    testWidgets('the choice is found again on the return to BYM',
+        (tester) async {
+      // The guard is a display rule, not a write: forcing `reading.notesMode`
+      // to false would have cost the reader its setting on a single detour
+      // through a downloaded version.
+      SharedPreferences.setMockInitialValues({
+        'reading.versionCode': 'DBY',
+        'reading.notesMode': true,
+      });
+      await pumpReader(tester, store: darbyGenesisOnly());
+      expect(
+          find.textContaining('Note de test', findRichText: true), findsNothing);
+
+      await openVersionSheet(tester, 'DBY');
+      await tapVersionRow(tester, 'Bible de Yehoshoua Ha Mashiah');
+
+      expect(find.textContaining('Note de test', findRichText: true),
+          findsWidgets,
+          reason: 'the preference was never overwritten');
+      await openDisplayMenu(tester);
+      expect(find.text('Texte + notes'), findsOneWidget);
+    });
+  });
 }
 
 /// Reads back the persisted version, without exposing `AppPreferences` fields

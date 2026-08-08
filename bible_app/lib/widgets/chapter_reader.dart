@@ -270,6 +270,17 @@ class _ChapterReaderState extends State<ChapterReader> {
   bool get _showsBookHeader =>
       widget.chapter == 1 && _versionCode == VersionRepository.embeddedCode;
 
+  /// Whether the version being read carries notes at all.
+  ///
+  /// **BYM only**, for the same reason as [_showsBookHeader]: `bookFromGetbible`
+  /// sets `textWithNotes` to the bare text and leaves `notes` empty, so « Texte
+  /// + notes » on a downloaded version toggled between two identical renderings
+  /// — a menu that answers nothing reads as broken.
+  ///
+  /// Deliberately a *display* guard, not a write to the preference: the choice
+  /// belongs to the reader and is found again when the reading returns to BYM.
+  bool get _supportsNotes => _versionCode == VersionRepository.embeddedCode;
+
   /// Reads the preferences and the library, *then* the book.
   ///
   /// In that order because the preferences carry the active version: loading
@@ -402,6 +413,7 @@ class _ChapterReaderState extends State<ChapterReader> {
           onNextChapter: _stepTo(_next),
           trailing: _DisplayMenu(
             notesMode: _prefs.notesMode,
+            notesAvailable: _supportsNotes,
             disposition: _prefs.disposition,
             fontSize: _prefs.fontSize,
             onNotesMode: _setNotesMode,
@@ -438,7 +450,7 @@ class _ChapterReaderState extends State<ChapterReader> {
               }
               return ChapterVerseList(
                 chapter: chapter,
-                showNotes: _prefs.notesMode,
+                showNotes: _prefs.notesMode && _supportsNotes,
                 disposition: _prefs.disposition,
                 fontSize: _prefs.fontSize,
                 header: _showsBookHeader ? _BookHeader(book: book) : null,
@@ -744,6 +756,12 @@ enum _DisplayChoice { textOnly, textWithNotes, inline, below }
 /// [_TextSizeRow], which pops the menu itself.
 class _DisplayMenu extends StatelessWidget {
   final bool notesMode;
+
+  /// False on a downloaded version, which carries no notes: the four note
+  /// entries collapse into one disabled line naming the reason. Greying them out
+  /// in place would leave five dead rows in a popup that then holds nothing but
+  /// the size ladder.
+  final bool notesAvailable;
   final NoteDisposition disposition;
   final double fontSize;
   final ValueChanged<bool> onNotesMode;
@@ -752,6 +770,7 @@ class _DisplayMenu extends StatelessWidget {
 
   const _DisplayMenu({
     required this.notesMode,
+    required this.notesAvailable,
     required this.disposition,
     required this.fontSize,
     required this.onNotesMode,
@@ -782,27 +801,38 @@ class _DisplayMenu extends StatelessWidget {
         }
       },
       itemBuilder: (context) => [
-        CheckedPopupMenuItem<_DisplayChoice>(
-          value: _DisplayChoice.textOnly,
-          checked: !notesMode,
-          child: const Text('Texte seul'),
-        ),
-        CheckedPopupMenuItem<_DisplayChoice>(
-          value: _DisplayChoice.textWithNotes,
-          checked: notesMode,
-          child: const Text('Texte + notes'),
-        ),
-        const PopupMenuDivider(),
-        CheckedPopupMenuItem<_DisplayChoice>(
-          value: _DisplayChoice.inline,
-          checked: disposition == NoteDisposition.inline,
-          child: const Text('Notes à la suite'),
-        ),
-        CheckedPopupMenuItem<_DisplayChoice>(
-          value: _DisplayChoice.below,
-          checked: disposition == NoteDisposition.below,
-          child: const Text('Notes sous le verset'),
-        ),
+        if (notesAvailable) ...[
+          CheckedPopupMenuItem<_DisplayChoice>(
+            value: _DisplayChoice.textOnly,
+            checked: !notesMode,
+            child: const Text('Texte seul'),
+          ),
+          CheckedPopupMenuItem<_DisplayChoice>(
+            value: _DisplayChoice.textWithNotes,
+            checked: notesMode,
+            child: const Text('Texte + notes'),
+          ),
+          const PopupMenuDivider(),
+          CheckedPopupMenuItem<_DisplayChoice>(
+            value: _DisplayChoice.inline,
+            checked: disposition == NoteDisposition.inline,
+            child: const Text('Notes à la suite'),
+          ),
+          CheckedPopupMenuItem<_DisplayChoice>(
+            value: _DisplayChoice.below,
+            checked: disposition == NoteDisposition.below,
+            child: const Text('Notes sous le verset'),
+          ),
+        ] else
+          PopupMenuItem<_DisplayChoice>(
+            // One line that says why, rather than four greyed entries the
+            // reader would try before concluding the menu is broken.
+            enabled: false,
+            child: Text(
+              'Notes — BYM uniquement',
+              style: TextStyle(color: Theme.of(context).colorScheme.outline),
+            ),
+          ),
         const PopupMenuDivider(),
         PopupMenuItem<_DisplayChoice>(
           // Not selectable itself: the chips inside carry the taps.
