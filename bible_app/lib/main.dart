@@ -92,7 +92,11 @@ class _HomeShellState extends State<HomeShell> {
             onOpenLibrary: () =>
                 _selectDestination(BymDestination.bibliotheque),
           ),
-          SearchScreen(onOpenReading: _openReading),
+          SearchScreen(
+            onOpenReading: _openReading,
+            onOpenLibrary: () =>
+                _selectDestination(BymDestination.bibliotheque),
+          ),
           const LibraryScreen(),
           const SettingsScreen(),
         ],

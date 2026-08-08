@@ -8,6 +8,7 @@ import '../data/app_database.dart';
 import '../data/app_preferences.dart';
 import '../data/book_catalog.dart';
 import '../data/library_store.dart';
+import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
 import '../models/bible_book.dart';
 import '../models/chapter.dart';
@@ -263,23 +264,25 @@ class _ChapterReaderState extends State<ChapterReader> {
 
   /// Whether chapter 1 opens on the book header (metadata grid + introduction).
   ///
-  /// **BYM only.** Those fields come from the BYM JSON; a version downloaded
-  /// from getbible carries text and nothing else, so `bookFromGetbible` fills
-  /// them with empty strings. Rendering the card anyway showed a title over
-  /// four blank cells — the reader reads that as a bug, not as an absence.
-  bool get _showsBookHeader =>
-      widget.chapter == 1 && _versionCode == VersionRepository.embeddedCode;
+  /// Keyed on the **format**, not on the code: those fields come from the BYM
+  /// schema, and a version downloaded from getbible carries text and nothing
+  /// else, so `bookFromGetbible` fills them with empty strings. Rendering the
+  /// card anyway showed a title over four blank cells — the reader reads that as
+  /// a bug, not as an absence. A BYM-format version served from elsewhere would
+  /// have them, and gets the header.
+  bool get _showsBookHeader => widget.chapter == 1 && _supportsNotes;
 
   /// Whether the version being read carries notes at all.
   ///
-  /// **BYM only**, for the same reason as [_showsBookHeader]: `bookFromGetbible`
-  /// sets `textWithNotes` to the bare text and leaves `notes` empty, so « Texte
-  /// + notes » on a downloaded version toggled between two identical renderings
-  /// — a menu that answers nothing reads as broken.
+  /// Same source as [_showsBookHeader]: `bookFromGetbible` sets `textWithNotes`
+  /// to the bare text and leaves `notes` empty, so « Texte + notes » on a
+  /// downloaded getbible version toggled between two identical renderings — a
+  /// menu that answers nothing reads as broken.
   ///
   /// Deliberately a *display* guard, not a write to the preference: the choice
-  /// belongs to the reader and is found again when the reading returns to BYM.
-  bool get _supportsNotes => _versionCode == VersionRepository.embeddedCode;
+  /// belongs to the reader and is found again when the reading returns to a
+  /// version that has notes.
+  bool get _supportsNotes => versionByCode(_versionCode)?.carriesNotes ?? false;
 
   /// Reads the preferences and the library, *then* the book.
   ///

@@ -68,11 +68,17 @@ class SearchScreen extends StatefulWidget {
   /// the same reason as [engine]: the real one reads through path_provider.
   final LibraryStore? store;
 
+  /// Switches to the Bibliothèque destination. Null when the screen stands
+  /// alone (tests): the « Version » menu then still names what is missing, but
+  /// its last row leads nowhere rather than to a dead end.
+  final VoidCallback? onOpenLibrary;
+
   const SearchScreen({
     super.key,
     required this.onOpenReading,
     this.engine,
     this.store,
+    this.onOpenLibrary,
   });
 
   @override
@@ -279,6 +285,7 @@ class _SearchScreenState extends State<SearchScreen> {
               filters: _filters,
               onChanged: _applyFilters,
               installed: _installed,
+              onOpenLibrary: widget.onOpenLibrary,
             ),
             Divider(height: 1, color: theme.dividerColor.withValues(alpha: .5)),
             Expanded(child: _body()),
@@ -528,14 +535,39 @@ class _FilterBar extends StatelessWidget {
   /// Versions with books on the device — searchable alongside the BYM.
   final Map<String, InstalledVersion> installed;
 
+  /// Switches to the Bibliothèque, for the last row of the « Version » menu.
+  final VoidCallback? onOpenLibrary;
+
   const _FilterBar({
     required this.filters,
     required this.onChanged,
     this.installed = const {},
+    this.onOpenLibrary,
   });
+
+  /// The versions that can actually be searched.
+  ///
+  /// Searchable = indexable offline: the bundled BYM, or a version whose books
+  /// are on the device. A partial download counts — its books are searched, and
+  /// the passages header says how many are covered.
+  ///
+  /// The rest used to be listed, greyed, answering a snackbar. Twelve rows for
+  /// one usable choice, in a menu whose only job is to choose.
+  List<VersionEntry> get _searchable => [
+        for (final group in versionCatalog)
+          for (final version in group.versions)
+            if (version.embedded || installed[version.code]?.isEmpty == false)
+              version,
+      ];
 
   @override
   Widget build(BuildContext context) {
+    final searchable = _searchable;
+    final missing = versionCatalog.fold<int>(
+          0,
+          (total, group) => total + group.versions.length,
+        ) -
+        searchable.length;
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       padding: const EdgeInsets.fromLTRB(16, 4, 16, 10),
@@ -545,24 +577,22 @@ class _FilterBar extends StatelessWidget {
             label: 'Version',
             value: filters.versionCode,
             options: [
-              for (final group in versionCatalog)
-                for (final version in group.versions)
-                  _FilterOption(
-                    value: version.code,
-                    label: version.code,
-                    detail: _detailFor(version),
-                    // Searchable = indexable offline: the bundled BYM, or a
-                    // version whose books are on the device. A partial download
-                    // counts — its books are searched, and the passages header
-                    // says how many are covered.
-                    enabled: version.embedded ||
-                        installed[version.code]?.isEmpty == false,
-                    disabledReason: version.downloadable
-                        ? '${version.name} — à télécharger depuis la '
-                            'Bibliothèque pour la chercher hors ligne.'
-                        : '${version.name} — bientôt disponible.',
-                  ),
+              for (final version in searchable)
+                _FilterOption(
+                  value: version.code,
+                  label: version.code,
+                  detail: _detailFor(version),
+                ),
             ],
+            // What is left out has to stay reachable, or nothing on this screen
+            // says the other translations exist at all.
+            footer: missing == 0
+                ? null
+                : _FilterFooter(
+                    label: 'Bibliothèque',
+                    detail: '$missing autres versions à télécharger',
+                    onTap: onOpenLibrary,
+                  ),
             onSelected: (code) =>
                 onChanged(filters.copyWith(versionCode: code)),
           ),
@@ -617,15 +647,27 @@ class _FilterOption<T> {
   final T value;
   final String label;
   final String? detail;
-  final bool enabled;
-  final String? disabledReason;
 
-  const _FilterOption({
-    required this.value,
+  const _FilterOption({required this.value, required this.label, this.detail});
+}
+
+/// The last row of a [_FilterMenu]: not an option, but the way out towards what
+/// the list leaves off.
+///
+/// Selects nothing — its `PopupMenuItem` carries no value, so `onSelected` is
+/// never called and the filter keeps whatever was picked before.
+class _FilterFooter {
+  final String label;
+  final String detail;
+
+  /// Null when there is no destination to switch to (standalone screen, tests):
+  /// the row then states the fact instead of pretending to be a button.
+  final VoidCallback? onTap;
+
+  const _FilterFooter({
     required this.label,
-    this.detail,
-    this.enabled = true,
-    this.disabledReason,
+    required this.detail,
+    this.onTap,
   });
 }
 
@@ -640,12 +682,16 @@ class _FilterMenu<T> extends StatelessWidget {
   final List<_FilterOption<T>> options;
   final ValueChanged<T> onSelected;
 
+  /// Optional last row, under a divider — see [_FilterFooter].
+  final _FilterFooter? footer;
+
   const _FilterMenu({
     required this.label,
     required this.value,
     required this.options,
     required this.onSelected,
     this.valueLabel,
+    this.footer,
   });
 
   @override
@@ -655,55 +701,69 @@ class _FilterMenu<T> extends StatelessWidget {
     return PopupMenuButton<T>(
       tooltip: label,
       position: PopupMenuPosition.under,
-      onSelected: (picked) {
-        final option = options.where((o) => o.value == picked).firstOrNull;
-        if (option != null && !option.enabled) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(option.disabledReason ?? 'Bientôt disponible.'),
-              duration: const Duration(seconds: 2),
-            ),
-          );
-          return;
-        }
-        onSelected(picked);
-      },
+      onSelected: onSelected,
       itemBuilder: (context) => [
         for (final option in options)
           PopupMenuItem<T>(
             value: option.value,
-            child: Opacity(
-              opacity: option.enabled ? 1 : .45,
-              child: Row(
-                children: [
-                  Icon(
-                    option.value == value
-                        ? Icons.radio_button_checked
-                        : Icons.radio_button_unchecked,
-                    size: 17,
-                    color: theme.colorScheme.primary,
-                  ),
-                  const SizedBox(width: 10),
-                  Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(option.label),
-                        if (option.detail != null)
-                          Text(
-                            option.detail!,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.colorScheme.onSurfaceVariant,
-                            ),
+            child: Row(
+              children: [
+                Icon(
+                  option.value == value
+                      ? Icons.radio_button_checked
+                      : Icons.radio_button_unchecked,
+                  size: 17,
+                  color: theme.colorScheme.primary,
+                ),
+                const SizedBox(width: 10),
+                Flexible(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(option.label),
+                      if (option.detail != null)
+                        Text(
+                          option.detail!,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
                           ),
-                      ],
-                    ),
+                        ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
+        if (footer != null) ...[
+          const PopupMenuDivider(),
+          PopupMenuItem<T>(
+            // No value: picking it must not change the filter.
+            onTap: footer!.onTap,
+            child: Row(
+              children: [
+                Icon(Icons.library_books_outlined,
+                    size: 17, color: theme.colorScheme.onSurfaceVariant),
+                const SizedBox(width: 10),
+                Flexible(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(footer!.label),
+                      Text(
+                        footer!.detail,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ],
       child: _FilterLabel(
         label: label,

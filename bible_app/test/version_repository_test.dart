@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:bible_app/data/book_catalog.dart';
 import 'package:bible_app/data/library_store.dart';
 import 'package:bible_app/data/local_repository.dart';
+import 'package:bible_app/data/version_catalog.dart';
 import 'package:bible_app/data/version_repository.dart';
 
 import 'support/fake_bible_bundle.dart';
@@ -163,6 +164,41 @@ void main() {
       expect(await repository.nextChapter(1, 1), (1, 2));
       expect(await repository.nextChapter(1, 2), (2, 1));
       expect(await repository.previousChapter(2, 1), (1, 2));
+    });
+  });
+
+  group('the format of a version', () {
+    test('only the BYM schema is said to carry notes', () {
+      expect(versionByCode('BYM')!.carriesNotes, isTrue);
+      // What the reader keys « Texte + notes » and the book header on. getbible
+      // serves text alone, so claiming notes here would show an empty toggle.
+      expect(versionByCode('DBY')!.carriesNotes, isFalse);
+      expect(versionByCode('LSG')!.carriesNotes, isFalse);
+    });
+
+    test('everything downloadable today is getbible', () {
+      // The flag is not free-standing: `loadBook` chooses its parser from it, so
+      // a downloadable entry left on the wrong format would parse to an empty
+      // book at the first download rather than fail loudly.
+      final downloadable = [
+        for (final group in versionCatalog)
+          for (final version in group.versions)
+            if (version.downloadable) version,
+      ];
+      expect(downloadable, isNotEmpty);
+      for (final version in downloadable) {
+        expect(version.format, VersionFormat.getbible,
+            reason: '${version.code} is served by getbible');
+        expect(version.getbibleId, isNotNull, reason: version.code);
+      }
+    });
+
+    test('an unknown code falls on the poorer schema', () {
+      // The default matters: a code absent from the catalogue must not be read
+      // as BYM-format, which would look for metadata that is not there.
+      expect(versionByCode('ZZZ'), isNull);
+      expect(const VersionEntry(code: 'ZZZ', name: 'z', rights: 'z').format,
+          VersionFormat.getbible);
     });
   });
 }

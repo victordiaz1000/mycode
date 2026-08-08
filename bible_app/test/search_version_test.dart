@@ -241,9 +241,7 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    /// Taps a version row of the open menu. Its items are all built, but the
-    /// twelve of them overflow the test screen, so the row has to be brought
-    /// into view before it can be hit.
+    /// Taps a version row of the open menu, bringing it into view first.
     Future<void> tapVersion(WidgetTester tester, String code) async {
       await tester.ensureVisible(find.text(code));
       await tester.pumpAndSettle();
@@ -259,26 +257,63 @@ void main() {
 
       expect(find.text('Bible Darby · 2/${bookCatalog.length} livres'),
           findsOneWidget);
-      // Nothing downloaded: the name alone, no count to promise.
-      expect(find.text('Bible Segond 1910'), findsOneWidget);
     });
 
-    testWidgets('a version with nothing downloaded cannot be searched',
+    testWidgets('a version with nothing downloaded is not offered',
         (tester) async {
+      // It used to be listed, greyed, and answer « à télécharger depuis la
+      // Bibliothèque » — a row that could not do anything, in a menu whose only
+      // job is to choose. Ten of the twelve catalogue entries were like that.
       await tester.pumpWidget(app(darbyPartial()));
       await tester.pumpAndSettle();
       await openVersionMenu(tester);
-      await tapVersion(tester, 'LSG');
 
-      expect(
-          find.textContaining('à télécharger depuis la Bibliothèque'),
-          findsOneWidget);
-      expect(
-        find.descendant(
-            of: find.byType(SearchScreen), matching: find.text('BYM')),
-        findsWidgets,
-        reason: 'the menu still reads BYM',
-      );
+      expect(find.text('Bible Segond 1910'), findsNothing);
+      expect(find.text('LSG'), findsNothing);
+      expect(find.textContaining('à télécharger depuis la Bibliothèque'),
+          findsNothing);
+      expect(find.text('BYM'), findsWidgets,
+          reason: 'the embedded version is always searchable');
+      expect(find.text('DBY'), findsOneWidget);
+    });
+
+    testWidgets('the menu ends on the way to the Bibliothèque', (tester) async {
+      // What is left out has to stay reachable, or nothing on this screen says
+      // the other translations exist at all.
+      var opened = 0;
+      await tester.pumpWidget(MaterialApp(
+        home: SearchScreen(
+          onOpenReading: (_, _, {verse}) {},
+          engine: SearchEngine(
+              ambientDatabase: false, versions: useStore(FakeStore({}))),
+          store: FakeStore({}),
+          onOpenLibrary: () => opened++,
+        ),
+      ));
+      await tester.pumpAndSettle();
+      await openVersionMenu(tester);
+
+      // 12 catalogue entries, BYM being the only searchable one here.
+      expect(find.text('11 autres versions à télécharger'), findsOneWidget);
+      await tester.tap(find.text('Bibliothèque'));
+      await tester.pumpAndSettle();
+      expect(opened, 1);
+    });
+
+    testWidgets('the footer does not change the version filter', (tester) async {
+      // It is the last row of a radio menu: it must lead out, not select.
+      await tester.pumpWidget(app(darbyPartial()));
+      await tester.pumpAndSettle();
+      await openVersionMenu(tester);
+      await tapVersion(tester, 'DBY');
+      expect(find.text('DBY'), findsOneWidget);
+
+      await openVersionMenu(tester);
+      await tester.tap(find.text('Bibliothèque'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('DBY'), findsOneWidget,
+          reason: 'the pick made just before must survive the footer tap');
     });
 
     testWidgets('picking a downloaded version swaps the text searched',

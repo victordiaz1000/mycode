@@ -4,6 +4,7 @@ import '../models/verse.dart';
 import 'book_catalog.dart';
 import 'library_store.dart';
 import 'local_repository.dart';
+import 'version_catalog.dart';
 
 /// Le livre demandé n'est pas sur l'appareil dans cette version.
 ///
@@ -68,7 +69,13 @@ class VersionRepository {
     final raw = await _store.loadBook(code, bymIndex);
     if (raw == null) throw BookNotDownloaded(code, bymIndex);
 
-    final book = bookFromGetbible(raw, bymIndex: bymIndex);
+    // Deux axes distincts : *où* vit le fichier (assets / disque) et *quel*
+    // schéma il porte. La BYM embarquée les confondait, étant seule à porter le
+    // format riche ; une version au format BYM servie d'ailleurs les sépare.
+    // Défaut prudent : format inconnu → getbible, le schéma le plus pauvre.
+    final book = versionByCode(code)?.format == VersionFormat.bym
+        ? BibleBook.fromJson(raw, number: bymIndex)
+        : bookFromGetbible(raw, bymIndex: bymIndex);
     _cache[key] = book;
     return book;
   }

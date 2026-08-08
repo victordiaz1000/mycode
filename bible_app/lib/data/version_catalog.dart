@@ -1,3 +1,24 @@
+/// The JSON layout the files of a version carry.
+///
+/// Independent of *where* the files live: the app conflated the two axes as
+/// long as « embarquée » and « format BYM » named the same single version. A
+/// BYM-format text served from elsewhere and downloaded onto the device is the
+/// case that separates them.
+///
+/// What follows from it, beyond the parser: only [bym] carries the book header
+/// (metadata + introduction), the section titles and the notes. Everything that
+/// asks « is this the embedded version? » to answer « does it have notes? »
+/// should ask [VersionEntry.carriesNotes] instead.
+enum VersionFormat {
+  /// The rich schema of `bym_json/` — `metadata`, `introduction`, per-verse
+  /// `section`, `textWithNotes` and `notes`. Read by `BibleBook.fromJson`.
+  bym,
+
+  /// getbible.net's bare schema — `chapters[].verses[].text`, nothing else.
+  /// Read by `bookFromGetbible`.
+  getbible,
+}
+
 /// How a version can actually be consulted from the reading « Version » sheet.
 enum VersionAvailability {
   /// Shipped inside the app, readable offline — the BYM default (décision 3).
@@ -9,7 +30,8 @@ enum VersionAvailability {
 
   /// Listed for completeness to match the maquette
   /// (`modif/resultat_vers_les_versions.jpg`) but under copyright / without a
-  /// free source yet — shown greyed, « bientôt disponible » when tapped.
+  /// free source yet. Not offered anywhere it could not be honoured: the
+  /// reading sheet and the search menu leave it out, the Bibliothèque names it.
   unavailable,
 }
 
@@ -27,6 +49,11 @@ class VersionEntry {
   /// Whether we can serve it, and how.
   final VersionAvailability availability;
 
+  /// Which parser reads its files. Defaults to [VersionFormat.getbible]: every
+  /// version we can serve today comes from there, and an unknown entry must
+  /// fall on the poorer schema rather than look for fields that are not there.
+  final VersionFormat format;
+
   /// getbible.net translation id for [VersionAvailability.downloadable] entries;
   /// null otherwise.
   final String? getbibleId;
@@ -39,6 +66,7 @@ class VersionEntry {
     required this.name,
     required this.rights,
     this.availability = VersionAvailability.unavailable,
+    this.format = VersionFormat.getbible,
     this.getbibleId,
     this.hasAudio = false,
   });
@@ -48,6 +76,13 @@ class VersionEntry {
 
   /// True when the version can be fetched from a free source right now.
   bool get downloadable => availability == VersionAvailability.downloadable;
+
+  /// Whether its files carry notes, sections and book metadata.
+  ///
+  /// The reader keys the book header, the « Texte + notes » toggle and the note
+  /// dispositions on this. Asking the format rather than the code is what lets
+  /// a BYM-format version downloaded from elsewhere keep its notes.
+  bool get carriesNotes => format == VersionFormat.bym;
 }
 
 class VersionGroup {
@@ -76,6 +111,7 @@ const List<VersionGroup> versionCatalog = [
       name: 'Bible de Yehoshoua Ha Mashiah',
       rights: 'Traduction BYM · embarquée, hors ligne',
       availability: VersionAvailability.embedded,
+      format: VersionFormat.bym,
     ),
   ]),
   VersionGroup('Versions Louis Segond', [
