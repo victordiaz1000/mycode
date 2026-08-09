@@ -1,0 +1,5619 @@
+{
+  "book": "Habakuk",
+  "abbreviation": "Ha.",
+  "bym_index": 22,
+  "osis_id": "Hab",
+  "chapters": [
+    {
+      "chapter": 1,
+      "verses": [
+        {
+          "verse": 1,
+          "tokens": [
+            {
+              "text": "Oracle",
+              "strong": "H4853"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "révélé",
+              "strong": "H2372"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "à",
+              "strong": "H0834"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "Habakuk",
+              "strong": "H2265"
+            },
+            {
+              "text": ", le ",
+              "strong": null
+            },
+            {
+              "text": "prophète",
+              "strong": "H5030"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 2,
+          "tokens": [
+            {
+              "text": "Jusqu’",
+              "strong": "H5704"
+            },
+            {
+              "text": "à ",
+              "strong": null
+            },
+            {
+              "text": "quand",
+              "strong": "H0575"
+            },
+            {
+              "text": ", ô ",
+              "strong": null
+            },
+            {
+              "text": "Éternel",
+              "strong": "H3068"
+            },
+            {
+              "text": " ?… J’ai ",
+              "strong": null
+            },
+            {
+              "text": "crié",
+              "strong": "H7768"
+            },
+            {
+              "text": ", Et tu n’",
+              "strong": null
+            },
+            {
+              "text": "écoutes",
+              "strong": "H8085"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " ! J’ai ",
+              "strong": null
+            },
+            {
+              "text": "crié",
+              "strong": "H2199"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "vers",
+              "strong": "H0413"
+            },
+            {
+              "text": " toi à la ",
+              "strong": null
+            },
+            {
+              "text": "violence",
+              "strong": "H2555"
+            },
+            {
+              "text": ", Et tu ne ",
+              "strong": null
+            },
+            {
+              "text": "secours",
+              "strong": "H3467"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " !",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 3,
+          "tokens": [
+            {
+              "text": "Pourquoi",
+              "strong": "H4100"
+            },
+            {
+              "text": " me fais-tu ",
+              "strong": null
+            },
+            {
+              "text": "voir",
+              "strong": "H7200"
+            },
+            {
+              "text": " l’",
+              "strong": null
+            },
+            {
+              "text": "iniquité",
+              "strong": "H0205"
+            },
+            {
+              "text": ", Et ",
+              "strong": null
+            },
+            {
+              "text": "contemples",
+              "strong": "H5027"
+            },
+            {
+              "text": "-tu l’",
+              "strong": null
+            },
+            {
+              "text": "injustice",
+              "strong": "H5999"
+            },
+            {
+              "text": " ? Pourquoi l’",
+              "strong": null
+            },
+            {
+              "text": "oppression",
+              "strong": "H7701"
+            },
+            {
+              "text": " et la ",
+              "strong": null
+            },
+            {
+              "text": "violence",
+              "strong": "H2555"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "sont",
+              "strong": "H1961"
+            },
+            {
+              "text": "-elles devant ",
+              "strong": null
+            },
+            {
+              "text": "moi",
+              "strong": "H5048"
+            },
+            {
+              "text": " ? Il y a des ",
+              "strong": null
+            },
+            {
+              "text": "querelles",
+              "strong": "H7379"
+            },
+            {
+              "text": ", et la ",
+              "strong": null
+            },
+            {
+              "text": "discorde",
+              "strong": "H4066"
+            },
+            {
+              "text": " s’",
+              "strong": null
+            },
+            {
+              "text": "élève",
+              "strong": "H5375"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 4,
+          "tokens": [
+            {
+              "text": "Aussi",
+              "strong": "H3651"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "loi",
+              "strong": "H8451"
+            },
+            {
+              "text": " n’a ",
+              "strong": null
+            },
+            {
+              "text": "point",
+              "strong": "H5921"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "vie",
+              "strong": "H6313"
+            },
+            {
+              "text": ", La ",
+              "strong": null
+            },
+            {
+              "text": "justice",
+              "strong": "H4941"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "n’",
+              "strong": "H3808"
+            },
+            {
+              "text": "a ",
+              "strong": null
+            },
+            {
+              "text": "point",
+              "strong": "H5331"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "force",
+              "strong": "H3318"
+            },
+            {
+              "text": " ; ",
+              "strong": null
+            },
+            {
+              "text": "Car",
+              "strong": "H3588"
+            },
+            {
+              "text": " le ",
+              "strong": null
+            },
+            {
+              "text": "méchant",
+              "strong": "H7563"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "triomphe",
+              "strong": "H3803"
+            },
+            {
+              "text": " du ",
+              "strong": null
+            },
+            {
+              "text": "juste",
+              "strong": "H6662"
+            },
+            {
+              "text": ",",
+              "strong": "H5921"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "Et",
+              "strong": "H3651"
+            },
+            {
+              "text": " l’on ",
+              "strong": null
+            },
+            {
+              "text": "rend",
+              "strong": "H3318"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "jugements",
+              "strong": "H4941"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "iniques",
+              "strong": "H6127"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 5,
+          "tokens": [
+            {
+              "text": "Jetez les ",
+              "strong": null
+            },
+            {
+              "text": "yeux",
+              "strong": "H7200"
+            },
+            {
+              "text": " parmi les ",
+              "strong": null
+            },
+            {
+              "text": "nations",
+              "strong": "H1471"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "regardez",
+              "strong": "H5027"
+            },
+            {
+              "text": ", Et soyez saisis d’",
+              "strong": null
+            },
+            {
+              "text": "étonnement",
+              "strong": "H8539"
+            },
+            {
+              "text": ", d’",
+              "strong": null
+            },
+            {
+              "text": "épouvante",
+              "strong": "H8539"
+            },
+            {
+              "text": " ! ",
+              "strong": null
+            },
+            {
+              "text": "Car",
+              "strong": "H3588"
+            },
+            {
+              "text": " je vais ",
+              "strong": null
+            },
+            {
+              "text": "faire",
+              "strong": "H6466"
+            },
+            {
+              "text": " en vos ",
+              "strong": null
+            },
+            {
+              "text": "jours",
+              "strong": "H3117"
+            },
+            {
+              "text": " une ",
+              "strong": null
+            },
+            {
+              "text": "œuvre",
+              "strong": "H6467"
+            },
+            {
+              "text": ", Que vous ne ",
+              "strong": null
+            },
+            {
+              "text": "croiriez",
+              "strong": "H0539"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "si",
+              "strong": "H3588"
+            },
+            {
+              "text": " on la ",
+              "strong": null
+            },
+            {
+              "text": "racontait",
+              "strong": "H5608"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 6,
+          "tokens": [
+            {
+              "text": "Voici",
+              "strong": "H2005"
+            },
+            {
+              "text": ",",
+              "strong": "H3588"
+            },
+            {
+              "text": " je vais ",
+              "strong": null
+            },
+            {
+              "text": "susciter",
+              "strong": "H6965"
+            },
+            {
+              "text": " les ",
+              "strong": null
+            },
+            {
+              "text": "Chaldéens",
+              "strong": "H3778"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "Peuple",
+              "strong": "H1471"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "furibond",
+              "strong": "H4751"
+            },
+            {
+              "text": " et ",
+              "strong": null
+            },
+            {
+              "text": "impétueux",
+              "strong": "H4116"
+            },
+            {
+              "text": ", Qui ",
+              "strong": null
+            },
+            {
+              "text": "traverse",
+              "strong": "H1980"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "vastes",
+              "strong": "H4800"
+            },
+            {
+              "text": " étendues de ",
+              "strong": null
+            },
+            {
+              "text": "pays",
+              "strong": "H0776"
+            },
+            {
+              "text": ", Pour s’",
+              "strong": null
+            },
+            {
+              "text": "emparer",
+              "strong": "H3423"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "demeures",
+              "strong": "H4908"
+            },
+            {
+              "text": " qui ne sont ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " à lui.",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 7,
+          "tokens": [
+            {
+              "text": "Il ",
+              "strong": null
+            },
+            {
+              "text": "est",
+              "strong": "H4480"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "terrible",
+              "strong": "H0366"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "et",
+              "strong": "H1931"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "formidable",
+              "strong": "H3372"
+            },
+            {
+              "text": " ; De lui seul ",
+              "strong": null
+            },
+            {
+              "text": "viennent",
+              "strong": "H3318"
+            },
+            {
+              "text": " son ",
+              "strong": null
+            },
+            {
+              "text": "droit",
+              "strong": "H4941"
+            },
+            {
+              "text": " et sa ",
+              "strong": null
+            },
+            {
+              "text": "grandeur",
+              "strong": "H7613"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 8,
+          "tokens": [
+            {
+              "text": "Ses ",
+              "strong": null
+            },
+            {
+              "text": "chevaux",
+              "strong": "H5483"
+            },
+            {
+              "text": " sont plus ",
+              "strong": null
+            },
+            {
+              "text": "rapides",
+              "strong": "H7043"
+            },
+            {
+              "text": " que les ",
+              "strong": null
+            },
+            {
+              "text": "léopards",
+              "strong": "H5246"
+            },
+            {
+              "text": ", Plus ",
+              "strong": null
+            },
+            {
+              "text": "agiles",
+              "strong": "H2300"
+            },
+            {
+              "text": " que les ",
+              "strong": null
+            },
+            {
+              "text": "loups",
+              "strong": "H2061"
+            },
+            {
+              "text": " du ",
+              "strong": null
+            },
+            {
+              "text": "soir",
+              "strong": "H6153"
+            },
+            {
+              "text": ", Et ses ",
+              "strong": null
+            },
+            {
+              "text": "cavaliers",
+              "strong": "H6571"
+            },
+            {
+              "text": " s’",
+              "strong": null
+            },
+            {
+              "text": "avancent",
+              "strong": "H6335"
+            },
+            {
+              "text": " avec orgueil ; Ses ",
+              "strong": null
+            },
+            {
+              "text": "cavaliers",
+              "strong": "H6571"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "arrivent",
+              "strong": "H0935"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "loin",
+              "strong": "H7350"
+            },
+            {
+              "text": ", Ils ",
+              "strong": null
+            },
+            {
+              "text": "volent",
+              "strong": "H5774"
+            },
+            {
+              "text": " comme l’",
+              "strong": null
+            },
+            {
+              "text": "aigle",
+              "strong": "H5404"
+            },
+            {
+              "text": " qui ",
+              "strong": null
+            },
+            {
+              "text": "fond",
+              "strong": "H2363"
+            },
+            {
+              "text": " sur sa ",
+              "strong": null
+            },
+            {
+              "text": "proie",
+              "strong": "H0398"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 9,
+          "tokens": [
+            {
+              "text": "Tout",
+              "strong": "H3605"
+            },
+            {
+              "text": " ce peuple ",
+              "strong": null
+            },
+            {
+              "text": "vient",
+              "strong": "H0935"
+            },
+            {
+              "text": " pour se livrer au ",
+              "strong": null
+            },
+            {
+              "text": "pillage",
+              "strong": "H2555"
+            },
+            {
+              "text": " ; Ses ",
+              "strong": null
+            },
+            {
+              "text": "regards",
+              "strong": "H6440"
+            },
+            {
+              "text": " avides se ",
+              "strong": null
+            },
+            {
+              "text": "portent",
+              "strong": "H4041"
+            },
+            {
+              "text": " en ",
+              "strong": null
+            },
+            {
+              "text": "avant",
+              "strong": "H6921"
+            },
+            {
+              "text": ", Et il ",
+              "strong": null
+            },
+            {
+              "text": "assemble",
+              "strong": "H0622"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "prisonniers",
+              "strong": "H7628"
+            },
+            {
+              "text": " comme du ",
+              "strong": null
+            },
+            {
+              "text": "sable",
+              "strong": "H2344"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 10,
+          "tokens": [
+            {
+              "text": "Il ",
+              "strong": null
+            },
+            {
+              "text": "se",
+              "strong": "H1931"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "moque",
+              "strong": "H7046"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "rois",
+              "strong": "H4428"
+            },
+            {
+              "text": ", Et les ",
+              "strong": null
+            },
+            {
+              "text": "princes",
+              "strong": "H7336"
+            },
+            {
+              "text": " font l’objet de ses ",
+              "strong": null
+            },
+            {
+              "text": "railleries",
+              "strong": "H4890"
+            },
+            {
+              "text": " ; ",
+              "strong": null
+            },
+            {
+              "text": "Il",
+              "strong": "H1931"
+            },
+            {
+              "text": " se ",
+              "strong": null
+            },
+            {
+              "text": "rit",
+              "strong": "H7832"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "toutes",
+              "strong": "H3605"
+            },
+            {
+              "text": " les ",
+              "strong": null
+            },
+            {
+              "text": "forteresses",
+              "strong": "H4013"
+            },
+            {
+              "text": ", Il ",
+              "strong": null
+            },
+            {
+              "text": "amoncelle",
+              "strong": "H6651"
+            },
+            {
+              "text": " de la ",
+              "strong": null
+            },
+            {
+              "text": "terre",
+              "strong": "H6083"
+            },
+            {
+              "text": ", et il les ",
+              "strong": null
+            },
+            {
+              "text": "prend",
+              "strong": "H3920"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 11,
+          "tokens": [
+            {
+              "text": "Alors",
+              "strong": "H0227"
+            },
+            {
+              "text": " son ",
+              "strong": null
+            },
+            {
+              "text": "ardeur",
+              "strong": "H7307"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "redouble",
+              "strong": "H2498"
+            },
+            {
+              "text": ", Il ",
+              "strong": null
+            },
+            {
+              "text": "poursuit",
+              "strong": "H5674"
+            },
+            {
+              "text": " sa marche, et il se rend ",
+              "strong": null
+            },
+            {
+              "text": "coupable",
+              "strong": "H0816"
+            },
+            {
+              "text": ". Sa ",
+              "strong": null
+            },
+            {
+              "text": "force",
+              "strong": "H3581"
+            },
+            {
+              "text": " à ",
+              "strong": null
+            },
+            {
+              "text": "lui",
+              "strong": "H2098"
+            },
+            {
+              "text": ", voilà son ",
+              "strong": null
+            },
+            {
+              "text": "dieu",
+              "strong": "H0430"
+            },
+            {
+              "text": " !",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 12,
+          "tokens": [
+            {
+              "text": "N’es-tu ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "de",
+              "strong": "H0859"
+            },
+            {
+              "text": " toute ",
+              "strong": null
+            },
+            {
+              "text": "éternité",
+              "strong": "H6924"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "Éternel",
+              "strong": "H3068"
+            },
+            {
+              "text": ", mon ",
+              "strong": null
+            },
+            {
+              "text": "Dieu",
+              "strong": "H0430"
+            },
+            {
+              "text": ", mon ",
+              "strong": null
+            },
+            {
+              "text": "Saint",
+              "strong": "H6918"
+            },
+            {
+              "text": " ? Nous ne ",
+              "strong": null
+            },
+            {
+              "text": "mourrons",
+              "strong": "H4191"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " ! Ô ",
+              "strong": null
+            },
+            {
+              "text": "Éternel",
+              "strong": "H3068"
+            },
+            {
+              "text": ", tu as ",
+              "strong": null
+            },
+            {
+              "text": "établi",
+              "strong": "H7760"
+            },
+            {
+              "text": " ce peuple pour exercer tes ",
+              "strong": null
+            },
+            {
+              "text": "jugements",
+              "strong": "H4941"
+            },
+            {
+              "text": " ; Ô mon ",
+              "strong": null
+            },
+            {
+              "text": "rocher",
+              "strong": "H6697"
+            },
+            {
+              "text": ", tu l’as ",
+              "strong": null
+            },
+            {
+              "text": "suscité",
+              "strong": "H3245"
+            },
+            {
+              "text": " pour infliger tes ",
+              "strong": null
+            },
+            {
+              "text": "châtiments",
+              "strong": "H3198"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 13,
+          "tokens": [
+            {
+              "text": "Tes ",
+              "strong": null
+            },
+            {
+              "text": "yeux",
+              "strong": "H5869"
+            },
+            {
+              "text": " sont trop ",
+              "strong": null
+            },
+            {
+              "text": "purs",
+              "strong": "H2890"
+            },
+            {
+              "text": " pour ",
+              "strong": null
+            },
+            {
+              "text": "voir",
+              "strong": "H7200"
+            },
+            {
+              "text": " le ",
+              "strong": null
+            },
+            {
+              "text": "mal",
+              "strong": "H7451"
+            },
+            {
+              "text": ", Et tu ne ",
+              "strong": null
+            },
+            {
+              "text": "peux",
+              "strong": "H3201"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "regarder",
+              "strong": "H5027"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "l’",
+              "strong": "H0413"
+            },
+            {
+              "text": "iniquité",
+              "strong": "H5999"
+            },
+            {
+              "text": ". ",
+              "strong": null
+            },
+            {
+              "text": "Pourquoi",
+              "strong": "H4100"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "regarderais",
+              "strong": "H5027"
+            },
+            {
+              "text": "-tu les ",
+              "strong": null
+            },
+            {
+              "text": "perfides",
+              "strong": "H0898"
+            },
+            {
+              "text": ", et te ",
+              "strong": null
+            },
+            {
+              "text": "tairais",
+              "strong": "H2790"
+            },
+            {
+              "text": "-tu, Quand le ",
+              "strong": null
+            },
+            {
+              "text": "méchant",
+              "strong": "H7563"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "dévore",
+              "strong": "H1104"
+            },
+            {
+              "text": " celui qui est plus ",
+              "strong": null
+            },
+            {
+              "text": "juste",
+              "strong": "H6662"
+            },
+            {
+              "text": " que ",
+              "strong": null
+            },
+            {
+              "text": "lui",
+              "strong": "H4480"
+            },
+            {
+              "text": " ?",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 14,
+          "tokens": [
+            {
+              "text": "Traiterais",
+              "strong": "H6213"
+            },
+            {
+              "text": "-tu l’",
+              "strong": null
+            },
+            {
+              "text": "homme",
+              "strong": "H0120"
+            },
+            {
+              "text": " comme les ",
+              "strong": null
+            },
+            {
+              "text": "poissons",
+              "strong": "H1709"
+            },
+            {
+              "text": " de la ",
+              "strong": null
+            },
+            {
+              "text": "mer",
+              "strong": "H3220"
+            },
+            {
+              "text": ", Comme le ",
+              "strong": null
+            },
+            {
+              "text": "reptile",
+              "strong": "H7431"
+            },
+            {
+              "text": " qui n’a ",
+              "strong": null
+            },
+            {
+              "text": "point",
+              "strong": "H3808"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "maître",
+              "strong": "H4910"
+            },
+            {
+              "text": " ?",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 15,
+          "tokens": [
+            {
+              "text": "Il les fait ",
+              "strong": null
+            },
+            {
+              "text": "tous",
+              "strong": "H3605"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "monter",
+              "strong": "H5927"
+            },
+            {
+              "text": " avec l’",
+              "strong": null
+            },
+            {
+              "text": "hameçon",
+              "strong": "H2443"
+            },
+            {
+              "text": ", Il les ",
+              "strong": null
+            },
+            {
+              "text": "attire",
+              "strong": "H1641"
+            },
+            {
+              "text": " dans son ",
+              "strong": null
+            },
+            {
+              "text": "filet",
+              "strong": "H2764"
+            },
+            {
+              "text": ", Il les ",
+              "strong": null
+            },
+            {
+              "text": "assemble",
+              "strong": "H0622"
+            },
+            {
+              "text": " dans ses ",
+              "strong": null
+            },
+            {
+              "text": "rets",
+              "strong": "H4365"
+            },
+            {
+              "text": " : Aussi ",
+              "strong": null
+            },
+            {
+              "text": "est",
+              "strong": "H5921"
+            },
+            {
+              "text": "-il ",
+              "strong": null
+            },
+            {
+              "text": "dans",
+              "strong": "H3651"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "joie",
+              "strong": "H8055"
+            },
+            {
+              "text": " et dans l’",
+              "strong": null
+            },
+            {
+              "text": "allégresse",
+              "strong": "H1523"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 16,
+          "tokens": [
+            {
+              "text": "C’",
+              "strong": null
+            },
+            {
+              "text": "est",
+              "strong": "H5921"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pourquoi",
+              "strong": "H3651"
+            },
+            {
+              "text": " il ",
+              "strong": null
+            },
+            {
+              "text": "sacrifie",
+              "strong": "H2076"
+            },
+            {
+              "text": " à son ",
+              "strong": null
+            },
+            {
+              "text": "filet",
+              "strong": "H2764"
+            },
+            {
+              "text": ", Il offre de l’",
+              "strong": null
+            },
+            {
+              "text": "encens",
+              "strong": "H6999"
+            },
+            {
+              "text": " à ses ",
+              "strong": null
+            },
+            {
+              "text": "rets",
+              "strong": "H4365"
+            },
+            {
+              "text": " ; ",
+              "strong": null
+            },
+            {
+              "text": "Car",
+              "strong": "H3588"
+            },
+            {
+              "text": " par ",
+              "strong": null
+            },
+            {
+              "text": "eux",
+              "strong": "H1992"
+            },
+            {
+              "text": " sa ",
+              "strong": null
+            },
+            {
+              "text": "portion",
+              "strong": "H2506"
+            },
+            {
+              "text": " est ",
+              "strong": null
+            },
+            {
+              "text": "grasse",
+              "strong": "H8082"
+            },
+            {
+              "text": ", Et sa ",
+              "strong": null
+            },
+            {
+              "text": "nourriture",
+              "strong": "H3978"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "succulente",
+              "strong": "H1277"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 17,
+          "tokens": [
+            {
+              "text": "Videra",
+              "strong": "H7324"
+            },
+            {
+              "text": "-t-il ",
+              "strong": null
+            },
+            {
+              "text": "pour",
+              "strong": "H5921"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "cela",
+              "strong": "H3651"
+            },
+            {
+              "text": " son ",
+              "strong": null
+            },
+            {
+              "text": "filet",
+              "strong": "H2764"
+            },
+            {
+              "text": ", Et ",
+              "strong": null
+            },
+            {
+              "text": "toujours",
+              "strong": "H8548"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "égorgera",
+              "strong": "H2026"
+            },
+            {
+              "text": "-t-il ",
+              "strong": null
+            },
+            {
+              "text": "sans",
+              "strong": "H3808"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pitié",
+              "strong": "H2550"
+            },
+            {
+              "text": " les ",
+              "strong": null
+            },
+            {
+              "text": "nations",
+              "strong": "H1471"
+            },
+            {
+              "text": " ?",
+              "strong": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "verses": [
+        {
+          "verse": 1,
+          "tokens": [
+            {
+              "text": "J’",
+              "strong": null
+            },
+            {
+              "text": "étais",
+              "strong": "H5975"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "à",
+              "strong": "H5921"
+            },
+            {
+              "text": " mon ",
+              "strong": null
+            },
+            {
+              "text": "poste",
+              "strong": "H4931"
+            },
+            {
+              "text": ", Et je me ",
+              "strong": null
+            },
+            {
+              "text": "tenais",
+              "strong": "H3320"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "sur",
+              "strong": "H5921"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "tour",
+              "strong": "H4692"
+            },
+            {
+              "text": " ; Je ",
+              "strong": null
+            },
+            {
+              "text": "veillais",
+              "strong": "H6822"
+            },
+            {
+              "text": ", pour ",
+              "strong": null
+            },
+            {
+              "text": "voir",
+              "strong": "H7200"
+            },
+            {
+              "text": " ce ",
+              "strong": null
+            },
+            {
+              "text": "que",
+              "strong": "H4100"
+            },
+            {
+              "text": " l’Éternel me ",
+              "strong": null
+            },
+            {
+              "text": "dirait",
+              "strong": "H1696"
+            },
+            {
+              "text": ", Et ce ",
+              "strong": null
+            },
+            {
+              "text": "que",
+              "strong": "H4100"
+            },
+            {
+              "text": " je ",
+              "strong": null
+            },
+            {
+              "text": "répliquerais",
+              "strong": "H7725"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "après",
+              "strong": "H5921"
+            },
+            {
+              "text": " ma ",
+              "strong": null
+            },
+            {
+              "text": "plainte",
+              "strong": "H8433"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 2,
+          "tokens": [
+            {
+              "text": "L’",
+              "strong": null
+            },
+            {
+              "text": "Éternel",
+              "strong": "H3068"
+            },
+            {
+              "text": " m’adressa la ",
+              "strong": null
+            },
+            {
+              "text": "parole",
+              "strong": "H6030"
+            },
+            {
+              "text": ", et il ",
+              "strong": null
+            },
+            {
+              "text": "dit",
+              "strong": "H0559"
+            },
+            {
+              "text": " : ",
+              "strong": null
+            },
+            {
+              "text": "Écris",
+              "strong": "H3789"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "prophétie",
+              "strong": "H2377"
+            },
+            {
+              "text": " : ",
+              "strong": null
+            },
+            {
+              "text": "Grave",
+              "strong": "H0874"
+            },
+            {
+              "text": "-la ",
+              "strong": null
+            },
+            {
+              "text": "sur",
+              "strong": "H5921"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "tables",
+              "strong": "H3871"
+            },
+            {
+              "text": ", Afin ",
+              "strong": null
+            },
+            {
+              "text": "qu’",
+              "strong": "H4616"
+            },
+            {
+              "text": "on la ",
+              "strong": null
+            },
+            {
+              "text": "lise",
+              "strong": "H7121"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "couramment",
+              "strong": "H7323"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 3,
+          "tokens": [
+            {
+              "text": "Car",
+              "strong": "H3588"
+            },
+            {
+              "text": " c’",
+              "strong": null
+            },
+            {
+              "text": "est",
+              "strong": "H5750"
+            },
+            {
+              "text": " une ",
+              "strong": null
+            },
+            {
+              "text": "prophétie",
+              "strong": "H2377"
+            },
+            {
+              "text": " dont le temps est déjà ",
+              "strong": null
+            },
+            {
+              "text": "fixé",
+              "strong": "H4150"
+            },
+            {
+              "text": ", Elle ",
+              "strong": null
+            },
+            {
+              "text": "marche",
+              "strong": "H6315"
+            },
+            {
+              "text": " vers son ",
+              "strong": null
+            },
+            {
+              "text": "terme",
+              "strong": "H7093"
+            },
+            {
+              "text": ", et elle ne ",
+              "strong": null
+            },
+            {
+              "text": "mentira",
+              "strong": "H3576"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " ; ",
+              "strong": null
+            },
+            {
+              "text": "Si",
+              "strong": "H0518"
+            },
+            {
+              "text": " elle ",
+              "strong": null
+            },
+            {
+              "text": "tarde",
+              "strong": "H4102"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "attends",
+              "strong": "H2442"
+            },
+            {
+              "text": "-la, ",
+              "strong": null
+            },
+            {
+              "text": "Car",
+              "strong": "H3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "elle",
+              "strong": "H0935"
+            },
+            {
+              "text": " s’",
+              "strong": null
+            },
+            {
+              "text": "accomplira",
+              "strong": "H0935"
+            },
+            {
+              "text": ", elle s’",
+              "strong": null
+            },
+            {
+              "text": "accomplira",
+              "strong": "H0309"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "certainement",
+              "strong": "H3808"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 4,
+          "tokens": [
+            {
+              "text": "Voici",
+              "strong": "H2009"
+            },
+            {
+              "text": ", son ",
+              "strong": null
+            },
+            {
+              "text": "âme",
+              "strong": "H5315"
+            },
+            {
+              "text": " s’est ",
+              "strong": null
+            },
+            {
+              "text": "enflée",
+              "strong": "H6075"
+            },
+            {
+              "text": ", elle n’est ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "droite",
+              "strong": "H3474"
+            },
+            {
+              "text": " en lui ; Mais le ",
+              "strong": null
+            },
+            {
+              "text": "juste",
+              "strong": "H6662"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "vivra",
+              "strong": "H2421"
+            },
+            {
+              "text": " par sa ",
+              "strong": null
+            },
+            {
+              "text": "foi",
+              "strong": "H0530"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 5,
+          "tokens": [
+            {
+              "text": "Pareil",
+              "strong": "H3196"
+            },
+            {
+              "text": " à celui ",
+              "strong": null
+            },
+            {
+              "text": "qui",
+              "strong": "H0834"
+            },
+            {
+              "text": " est ",
+              "strong": null
+            },
+            {
+              "text": "ivre",
+              "strong": "H0898"
+            },
+            {
+              "text": " et ",
+              "strong": null
+            },
+            {
+              "text": "arrogant",
+              "strong": "H3093"
+            },
+            {
+              "text": ",",
+              "strong": "H0637"
+            },
+            {
+              "text": " L’",
+              "strong": null
+            },
+            {
+              "text": "orgueilleux",
+              "strong": "H1397"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "ne",
+              "strong": "H3808"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "demeure",
+              "strong": "H3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "tranquille",
+              "strong": "H5115"
+            },
+            {
+              "text": " ; Il ",
+              "strong": null
+            },
+            {
+              "text": "élargit",
+              "strong": "H7337"
+            },
+            {
+              "text": " sa ",
+              "strong": null
+            },
+            {
+              "text": "bouche",
+              "strong": "H5315"
+            },
+            {
+              "text": " comme le séjour des ",
+              "strong": null
+            },
+            {
+              "text": "morts",
+              "strong": "H7585"
+            },
+            {
+              "text": ", Il est ",
+              "strong": null
+            },
+            {
+              "text": "insatiable",
+              "strong": "H7646"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "comme",
+              "strong": "H1931"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "mort",
+              "strong": "H4194"
+            },
+            {
+              "text": " ; Il ",
+              "strong": null
+            },
+            {
+              "text": "attire",
+              "strong": "H0622"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "à",
+              "strong": "H0413"
+            },
+            {
+              "text": " lui ",
+              "strong": null
+            },
+            {
+              "text": "toutes",
+              "strong": "H3605"
+            },
+            {
+              "text": " les ",
+              "strong": null
+            },
+            {
+              "text": "nations",
+              "strong": "H1471"
+            },
+            {
+              "text": ", Il ",
+              "strong": null
+            },
+            {
+              "text": "assemble",
+              "strong": "H6908"
+            },
+            {
+              "text": " auprès ",
+              "strong": null
+            },
+            {
+              "text": "de",
+              "strong": "H0413"
+            },
+            {
+              "text": " lui ",
+              "strong": null
+            },
+            {
+              "text": "tous",
+              "strong": "H3605"
+            },
+            {
+              "text": " les ",
+              "strong": null
+            },
+            {
+              "text": "peuples",
+              "strong": "H5971"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 6,
+          "tokens": [
+            {
+              "text": "Ne sera-",
+              "strong": null
+            },
+            {
+              "text": "t",
+              "strong": "H3605"
+            },
+            {
+              "text": "-",
+              "strong": null
+            },
+            {
+              "text": "il",
+              "strong": "H0428"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pour",
+              "strong": "H5921"
+            },
+            {
+              "text": " tous un ",
+              "strong": null
+            },
+            {
+              "text": "sujet",
+              "strong": "H5375"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "sarcasme",
+              "strong": "H4912"
+            },
+            {
+              "text": ", De ",
+              "strong": null
+            },
+            {
+              "text": "railleries",
+              "strong": "H4426"
+            },
+            {
+              "text": " et d’",
+              "strong": null
+            },
+            {
+              "text": "énigmes",
+              "strong": "H2420"
+            },
+            {
+              "text": " ? On ",
+              "strong": null
+            },
+            {
+              "text": "dira",
+              "strong": "H0559"
+            },
+            {
+              "text": " : ",
+              "strong": null
+            },
+            {
+              "text": "Malheur",
+              "strong": "H1945"
+            },
+            {
+              "text": " à celui qui ",
+              "strong": null
+            },
+            {
+              "text": "accumule",
+              "strong": "H7235"
+            },
+            {
+              "text": " ce qui ",
+              "strong": null
+            },
+            {
+              "text": "n’",
+              "strong": "H5704"
+            },
+            {
+              "text": "est ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " à lui ! Jusques à ",
+              "strong": null
+            },
+            {
+              "text": "quand",
+              "strong": "H4970"
+            },
+            {
+              "text": " ?… Malheur à celui qui ",
+              "strong": null
+            },
+            {
+              "text": "augmente",
+              "strong": "H3513"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "le",
+              "strong": "H5921"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "fardeau",
+              "strong": "H5671"
+            },
+            {
+              "text": " de ses dettes !",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 7,
+          "tokens": [
+            {
+              "text": "Tes ",
+              "strong": null
+            },
+            {
+              "text": "créanciers",
+              "strong": "H5391"
+            },
+            {
+              "text": " ne se ",
+              "strong": null
+            },
+            {
+              "text": "lèveront",
+              "strong": "H6965"
+            },
+            {
+              "text": "-ils ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "soudain",
+              "strong": "H6621"
+            },
+            {
+              "text": " ? Tes ",
+              "strong": null
+            },
+            {
+              "text": "oppresseurs",
+              "strong": "H2111"
+            },
+            {
+              "text": " ne se ",
+              "strong": null
+            },
+            {
+              "text": "réveilleront",
+              "strong": "H6974"
+            },
+            {
+              "text": "-ils pas ? Et tu ",
+              "strong": null
+            },
+            {
+              "text": "deviendras",
+              "strong": "H1961"
+            },
+            {
+              "text": " leur ",
+              "strong": null
+            },
+            {
+              "text": "proie",
+              "strong": "H4933"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 8,
+          "tokens": [
+            {
+              "text": "Parce",
+              "strong": "H3588"
+            },
+            {
+              "text": " que ",
+              "strong": null
+            },
+            {
+              "text": "tu",
+              "strong": "H0859"
+            },
+            {
+              "text": " as ",
+              "strong": null
+            },
+            {
+              "text": "pillé",
+              "strong": "H7997"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "beaucoup",
+              "strong": "H7227"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "nations",
+              "strong": "H1471"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "Tout",
+              "strong": "H3605"
+            },
+            {
+              "text": " le ",
+              "strong": null
+            },
+            {
+              "text": "reste",
+              "strong": "H3499"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "peuples",
+              "strong": "H5971"
+            },
+            {
+              "text": " te ",
+              "strong": null
+            },
+            {
+              "text": "pillera",
+              "strong": "H7997"
+            },
+            {
+              "text": " ; Car tu as répandu le ",
+              "strong": null
+            },
+            {
+              "text": "sang",
+              "strong": "H1818"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "hommes",
+              "strong": "H0120"
+            },
+            {
+              "text": ", Tu as commis des ",
+              "strong": null
+            },
+            {
+              "text": "violences",
+              "strong": "H2555"
+            },
+            {
+              "text": " dans le ",
+              "strong": null
+            },
+            {
+              "text": "pays",
+              "strong": "H0776"
+            },
+            {
+              "text": ", Contre la ",
+              "strong": null
+            },
+            {
+              "text": "ville",
+              "strong": "H7151"
+            },
+            {
+              "text": " et ",
+              "strong": null
+            },
+            {
+              "text": "tous",
+              "strong": "H3605"
+            },
+            {
+              "text": " ses ",
+              "strong": null
+            },
+            {
+              "text": "habitants",
+              "strong": "H3427"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 9,
+          "tokens": [
+            {
+              "text": "Malheur",
+              "strong": "H1945"
+            },
+            {
+              "text": " à celui qui ",
+              "strong": null
+            },
+            {
+              "text": "amasse",
+              "strong": "H1214"
+            },
+            {
+              "text": " pour sa ",
+              "strong": null
+            },
+            {
+              "text": "maison",
+              "strong": "H1004"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "gains",
+              "strong": "H1215"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "iniques",
+              "strong": "H7451"
+            },
+            {
+              "text": ", Afin de ",
+              "strong": null
+            },
+            {
+              "text": "placer",
+              "strong": "H7760"
+            },
+            {
+              "text": " son ",
+              "strong": null
+            },
+            {
+              "text": "nid",
+              "strong": "H7064"
+            },
+            {
+              "text": " dans un lieu ",
+              "strong": null
+            },
+            {
+              "text": "élevé",
+              "strong": "H4791"
+            },
+            {
+              "text": ", Pour se ",
+              "strong": null
+            },
+            {
+              "text": "garantir",
+              "strong": "H5337"
+            },
+            {
+              "text": " de la ",
+              "strong": null
+            },
+            {
+              "text": "main",
+              "strong": "H3709"
+            },
+            {
+              "text": " du ",
+              "strong": null
+            },
+            {
+              "text": "malheur",
+              "strong": "H7451"
+            },
+            {
+              "text": " !",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 10,
+          "tokens": [
+            {
+              "text": "C’est l’",
+              "strong": null
+            },
+            {
+              "text": "opprobre",
+              "strong": "H1322"
+            },
+            {
+              "text": " de ta ",
+              "strong": null
+            },
+            {
+              "text": "maison",
+              "strong": "H1004"
+            },
+            {
+              "text": " que tu as ",
+              "strong": null
+            },
+            {
+              "text": "résolu",
+              "strong": "H3289"
+            },
+            {
+              "text": ", En ",
+              "strong": null
+            },
+            {
+              "text": "détruisant",
+              "strong": "H7096"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "peuples",
+              "strong": "H5971"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "nombreux",
+              "strong": "H7227"
+            },
+            {
+              "text": ", Et c’est contre ",
+              "strong": null
+            },
+            {
+              "text": "toi-même",
+              "strong": "H5315"
+            },
+            {
+              "text": " que tu as ",
+              "strong": null
+            },
+            {
+              "text": "péché",
+              "strong": "H2398"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 11,
+          "tokens": [
+            {
+              "text": "Car",
+              "strong": "H3588"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "pierre",
+              "strong": "H0068"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "crie",
+              "strong": "H2199"
+            },
+            {
+              "text": " du milieu de la ",
+              "strong": null
+            },
+            {
+              "text": "muraille",
+              "strong": "H7023"
+            },
+            {
+              "text": ", Et le ",
+              "strong": null
+            },
+            {
+              "text": "bois",
+              "strong": "H3714"
+            },
+            {
+              "text": " qui lie la ",
+              "strong": null
+            },
+            {
+              "text": "charpente",
+              "strong": "H6086"
+            },
+            {
+              "text": " lui ",
+              "strong": null
+            },
+            {
+              "text": "répond",
+              "strong": "H6030"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 12,
+          "tokens": [
+            {
+              "text": "Malheur",
+              "strong": "H1945"
+            },
+            {
+              "text": " à celui qui ",
+              "strong": null
+            },
+            {
+              "text": "bâtit",
+              "strong": "H1129"
+            },
+            {
+              "text": " une ",
+              "strong": null
+            },
+            {
+              "text": "ville",
+              "strong": "H5892"
+            },
+            {
+              "text": " avec le ",
+              "strong": null
+            },
+            {
+              "text": "sang",
+              "strong": "H1818"
+            },
+            {
+              "text": ", Qui ",
+              "strong": null
+            },
+            {
+              "text": "fonde",
+              "strong": "H3559"
+            },
+            {
+              "text": " une ",
+              "strong": null
+            },
+            {
+              "text": "ville",
+              "strong": "H7151"
+            },
+            {
+              "text": " avec l’",
+              "strong": null
+            },
+            {
+              "text": "iniquité",
+              "strong": "H5766"
+            },
+            {
+              "text": " !",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 13,
+          "tokens": [
+            {
+              "text": "Voici",
+              "strong": "H2009"
+            },
+            {
+              "text": ", quand",
+              "strong": null
+            },
+            {
+              "text": " l’",
+              "strong": null
+            },
+            {
+              "text": "Éternel",
+              "strong": "H3068"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "armées",
+              "strong": "H6635"
+            },
+            {
+              "text": " l’a résolu, Les ",
+              "strong": null
+            },
+            {
+              "text": "peuples",
+              "strong": "H5971"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "travaillent",
+              "strong": "H3021"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pour",
+              "strong": "H1767"
+            },
+            {
+              "text": " le ",
+              "strong": null
+            },
+            {
+              "text": "feu",
+              "strong": "H0784"
+            },
+            {
+              "text": ", Les ",
+              "strong": null
+            },
+            {
+              "text": "nations",
+              "strong": "H3816"
+            },
+            {
+              "text": " se ",
+              "strong": null
+            },
+            {
+              "text": "fatiguent",
+              "strong": "H3286"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "en",
+              "strong": "H1767"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "vain",
+              "strong": "H7385"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 14,
+          "tokens": [
+            {
+              "text": "Car",
+              "strong": "H3588"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "terre",
+              "strong": "H0776"
+            },
+            {
+              "text": " sera ",
+              "strong": null
+            },
+            {
+              "text": "remplie",
+              "strong": "H4390"
+            },
+            {
+              "text": " de la ",
+              "strong": null
+            },
+            {
+              "text": "connaissance",
+              "strong": "H3045"
+            },
+            {
+              "text": " de la ",
+              "strong": null
+            },
+            {
+              "text": "gloire",
+              "strong": "H3519"
+            },
+            {
+              "text": " de l’",
+              "strong": null
+            },
+            {
+              "text": "Éternel",
+              "strong": "H3068"
+            },
+            {
+              "text": ", Comme le fond de ",
+              "strong": null
+            },
+            {
+              "text": "la",
+              "strong": "H5921"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "mer",
+              "strong": "H3220"
+            },
+            {
+              "text": " par les ",
+              "strong": null
+            },
+            {
+              "text": "eaux",
+              "strong": "H4325"
+            },
+            {
+              "text": " qui le ",
+              "strong": null
+            },
+            {
+              "text": "couvrent",
+              "strong": "H3680"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 15,
+          "tokens": [
+            {
+              "text": "Malheur",
+              "strong": "H1945"
+            },
+            {
+              "text": " à celui qui fait ",
+              "strong": null
+            },
+            {
+              "text": "boire",
+              "strong": "H8248"
+            },
+            {
+              "text": " son ",
+              "strong": null
+            },
+            {
+              "text": "prochain",
+              "strong": "H7453"
+            },
+            {
+              "text": ", À toi qui ",
+              "strong": null
+            },
+            {
+              "text": "verses",
+              "strong": "H5596"
+            },
+            {
+              "text": " ton ",
+              "strong": null
+            },
+            {
+              "text": "outre",
+              "strong": "H2573"
+            },
+            {
+              "text": " et ",
+              "strong": null
+            },
+            {
+              "text": "qui",
+              "strong": "H0637"
+            },
+            {
+              "text": " l’",
+              "strong": null
+            },
+            {
+              "text": "enivres",
+              "strong": "H7937"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "Afin",
+              "strong": "H4616"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "voir",
+              "strong": "H5027"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "sa",
+              "strong": "H5921"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "nudité",
+              "strong": "H4589"
+            },
+            {
+              "text": " !",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 16,
+          "tokens": [
+            {
+              "text": "Tu seras ",
+              "strong": null
+            },
+            {
+              "text": "rassasié",
+              "strong": "H7646"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "honte",
+              "strong": "H7036"
+            },
+            {
+              "text": " plus que de ",
+              "strong": null
+            },
+            {
+              "text": "gloire",
+              "strong": "H3519"
+            },
+            {
+              "text": " ; ",
+              "strong": null
+            },
+            {
+              "text": "Bois",
+              "strong": "H8354"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "aussi",
+              "strong": "H1571"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "toi-même",
+              "strong": "H0859"
+            },
+            {
+              "text": ", et ",
+              "strong": null
+            },
+            {
+              "text": "découvre",
+              "strong": "H6188"
+            },
+            {
+              "text": "-toi ! La ",
+              "strong": null
+            },
+            {
+              "text": "coupe",
+              "strong": "H3563"
+            },
+            {
+              "text": " de la ",
+              "strong": null
+            },
+            {
+              "text": "droite",
+              "strong": "H3225"
+            },
+            {
+              "text": " de l’",
+              "strong": null
+            },
+            {
+              "text": "Éternel",
+              "strong": "H3068"
+            },
+            {
+              "text": " se ",
+              "strong": null
+            },
+            {
+              "text": "tournera",
+              "strong": "H5437"
+            },
+            {
+              "text": " vers ",
+              "strong": null
+            },
+            {
+              "text": "toi",
+              "strong": "H5921"
+            },
+            {
+              "text": ", Et l’",
+              "strong": null
+            },
+            {
+              "text": "ignominie",
+              "strong": "H7022"
+            },
+            {
+              "text": " souillera ",
+              "strong": null
+            },
+            {
+              "text": "ta",
+              "strong": "H5921"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "gloire",
+              "strong": "H3519"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 17,
+          "tokens": [
+            {
+              "text": "Car",
+              "strong": "H3588"
+            },
+            {
+              "text": " les ",
+              "strong": null
+            },
+            {
+              "text": "violences",
+              "strong": "H2555"
+            },
+            {
+              "text": " contre le ",
+              "strong": null
+            },
+            {
+              "text": "Liban",
+              "strong": "H3844"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "retomberont",
+              "strong": "H3680"
+            },
+            {
+              "text": " sur toi, Et les ",
+              "strong": null
+            },
+            {
+              "text": "ravages",
+              "strong": "H7701"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "bêtes",
+              "strong": "H0929"
+            },
+            {
+              "text": " t’",
+              "strong": null
+            },
+            {
+              "text": "effraieront",
+              "strong": "H2865"
+            },
+            {
+              "text": ", Parce que tu as répandu le ",
+              "strong": null
+            },
+            {
+              "text": "sang",
+              "strong": "H1818"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "hommes",
+              "strong": "H0120"
+            },
+            {
+              "text": ", Et commis des ",
+              "strong": null
+            },
+            {
+              "text": "violences",
+              "strong": "H2555"
+            },
+            {
+              "text": " dans le ",
+              "strong": null
+            },
+            {
+              "text": "pays",
+              "strong": "H0776"
+            },
+            {
+              "text": ", Contre la ",
+              "strong": null
+            },
+            {
+              "text": "ville",
+              "strong": "H7151"
+            },
+            {
+              "text": " et ",
+              "strong": null
+            },
+            {
+              "text": "tous",
+              "strong": "H3605"
+            },
+            {
+              "text": " ses ",
+              "strong": null
+            },
+            {
+              "text": "habitants",
+              "strong": "H3427"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 18,
+          "tokens": [
+            {
+              "text": "À quoi ",
+              "strong": null
+            },
+            {
+              "text": "sert",
+              "strong": "H3276"
+            },
+            {
+              "text": " une ",
+              "strong": null
+            },
+            {
+              "text": "image",
+              "strong": "H4100"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "taillée",
+              "strong": "H6459"
+            },
+            {
+              "text": ", pour ",
+              "strong": null
+            },
+            {
+              "text": "qu’",
+              "strong": "H3588"
+            },
+            {
+              "text": "un ",
+              "strong": null
+            },
+            {
+              "text": "ouvrier",
+              "strong": "H3336"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "taille",
+              "strong": "H6458"
+            },
+            {
+              "text": " ? À quoi sert une image en ",
+              "strong": null
+            },
+            {
+              "text": "fonte",
+              "strong": "H4541"
+            },
+            {
+              "text": " et qui ",
+              "strong": null
+            },
+            {
+              "text": "enseigne",
+              "strong": "H3384"
+            },
+            {
+              "text": " le ",
+              "strong": null
+            },
+            {
+              "text": "mensonge",
+              "strong": "H8267"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "Pour",
+              "strong": "H5921"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "que",
+              "strong": "H3588"
+            },
+            {
+              "text": " l’",
+              "strong": null
+            },
+            {
+              "text": "ouvrier",
+              "strong": "H3335"
+            },
+            {
+              "text": " qui l’a ",
+              "strong": null
+            },
+            {
+              "text": "faite",
+              "strong": "H3336"
+            },
+            {
+              "text": " place en elle sa ",
+              "strong": null
+            },
+            {
+              "text": "confiance",
+              "strong": "H0982"
+            },
+            {
+              "text": ", Tandis qu’il ",
+              "strong": null
+            },
+            {
+              "text": "fabrique",
+              "strong": "H6213"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "idoles",
+              "strong": "H0457"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "muettes",
+              "strong": "H0483"
+            },
+            {
+              "text": " ?",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 19,
+          "tokens": [
+            {
+              "text": "Malheur",
+              "strong": "H1945"
+            },
+            {
+              "text": " à celui qui ",
+              "strong": null
+            },
+            {
+              "text": "dit",
+              "strong": "H0559"
+            },
+            {
+              "text": " au ",
+              "strong": null
+            },
+            {
+              "text": "bois",
+              "strong": "H6086"
+            },
+            {
+              "text": " : ",
+              "strong": null
+            },
+            {
+              "text": "Lève",
+              "strong": "H6974"
+            },
+            {
+              "text": "-toi ! À une ",
+              "strong": null
+            },
+            {
+              "text": "pierre",
+              "strong": "H0068"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "muette",
+              "strong": "H1748"
+            },
+            {
+              "text": " : ",
+              "strong": null
+            },
+            {
+              "text": "Réveille",
+              "strong": "H5782"
+            },
+            {
+              "text": "-toi ! Donnera-t-",
+              "strong": null
+            },
+            {
+              "text": "elle",
+              "strong": "H1931"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "instruction",
+              "strong": "H3384"
+            },
+            {
+              "text": " ? ",
+              "strong": null
+            },
+            {
+              "text": "Voici",
+              "strong": "H2009"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "elle",
+              "strong": "H1931"
+            },
+            {
+              "text": " est ",
+              "strong": null
+            },
+            {
+              "text": "garnie",
+              "strong": "H8610"
+            },
+            {
+              "text": " d’",
+              "strong": null
+            },
+            {
+              "text": "or",
+              "strong": "H2091"
+            },
+            {
+              "text": " et d’",
+              "strong": null
+            },
+            {
+              "text": "argent",
+              "strong": "H3701"
+            },
+            {
+              "text": ", Mais il n’y ",
+              "strong": null
+            },
+            {
+              "text": "a",
+              "strong": "H3605"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "point",
+              "strong": "H0369"
+            },
+            {
+              "text": " en elle un ",
+              "strong": null
+            },
+            {
+              "text": "esprit",
+              "strong": "H7307"
+            },
+            {
+              "text": " qui l’",
+              "strong": null
+            },
+            {
+              "text": "anime",
+              "strong": "H7130"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 20,
+          "tokens": [
+            {
+              "text": "L’",
+              "strong": null
+            },
+            {
+              "text": "Éternel",
+              "strong": "H3068"
+            },
+            {
+              "text": " est dans son ",
+              "strong": null
+            },
+            {
+              "text": "saint",
+              "strong": "H6944"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "temple",
+              "strong": "H1964"
+            },
+            {
+              "text": ". Que ",
+              "strong": null
+            },
+            {
+              "text": "toute",
+              "strong": "H3605"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "terre",
+              "strong": "H0776"
+            },
+            {
+              "text": " fasse ",
+              "strong": null
+            },
+            {
+              "text": "silence",
+              "strong": "H2013"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "devant",
+              "strong": "H6440"
+            },
+            {
+              "text": " lui !",
+              "strong": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "verses": [
+        {
+          "verse": 1,
+          "tokens": [
+            {
+              "text": "Prière",
+              "strong": "H8605"
+            },
+            {
+              "text": " d’",
+              "strong": null
+            },
+            {
+              "text": "Habakuk",
+              "strong": "H2265"
+            },
+            {
+              "text": ", le ",
+              "strong": null
+            },
+            {
+              "text": "prophète",
+              "strong": "H5030"
+            },
+            {
+              "text": ". (",
+              "strong": null
+            },
+            {
+              "text": "Sur",
+              "strong": "H5921"
+            },
+            {
+              "text": " le mode des ",
+              "strong": null
+            },
+            {
+              "text": "complaintes",
+              "strong": "H7692"
+            },
+            {
+              "text": ".)",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 2,
+          "tokens": [
+            {
+              "text": "Éternel",
+              "strong": "H3068"
+            },
+            {
+              "text": ", j’ai ",
+              "strong": null
+            },
+            {
+              "text": "entendu",
+              "strong": "H8085"
+            },
+            {
+              "text": " ce que tu as ",
+              "strong": null
+            },
+            {
+              "text": "annoncé",
+              "strong": "H8088"
+            },
+            {
+              "text": ", je suis saisi de ",
+              "strong": null
+            },
+            {
+              "text": "crainte",
+              "strong": "H3372"
+            },
+            {
+              "text": ". ",
+              "strong": null
+            },
+            {
+              "text": "Accomplis",
+              "strong": "H2421"
+            },
+            {
+              "text": " ton ",
+              "strong": null
+            },
+            {
+              "text": "œuvre",
+              "strong": "H6467"
+            },
+            {
+              "text": " dans le ",
+              "strong": null
+            },
+            {
+              "text": "cours",
+              "strong": "H7130"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "années",
+              "strong": "H8141"
+            },
+            {
+              "text": ", ô ",
+              "strong": null
+            },
+            {
+              "text": "Éternel",
+              "strong": "H3068"
+            },
+            {
+              "text": " ! Dans le ",
+              "strong": null
+            },
+            {
+              "text": "cours",
+              "strong": "H7130"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "années",
+              "strong": "H8141"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "manifeste",
+              "strong": "H3045"
+            },
+            {
+              "text": "-la ! Mais dans ta ",
+              "strong": null
+            },
+            {
+              "text": "colère",
+              "strong": "H7267"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "souviens",
+              "strong": "H2142"
+            },
+            {
+              "text": "-toi de tes ",
+              "strong": null
+            },
+            {
+              "text": "compassions",
+              "strong": "H7355"
+            },
+            {
+              "text": " !",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 3,
+          "tokens": [
+            {
+              "text": "Dieu",
+              "strong": "H0433"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "vient",
+              "strong": "H0935"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "Théman",
+              "strong": "H8487"
+            },
+            {
+              "text": ", Le ",
+              "strong": null
+            },
+            {
+              "text": "Saint",
+              "strong": "H6918"
+            },
+            {
+              "text": " vient de la ",
+              "strong": null
+            },
+            {
+              "text": "montagne",
+              "strong": "H2022"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "Paran",
+              "strong": "H6290"
+            },
+            {
+              "text": "… ",
+              "strong": null
+            },
+            {
+              "text": "Pause",
+              "strong": "H5542"
+            },
+            {
+              "text": ". Sa ",
+              "strong": null
+            },
+            {
+              "text": "majesté",
+              "strong": "H1935"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "couvre",
+              "strong": "H3680"
+            },
+            {
+              "text": " les ",
+              "strong": null
+            },
+            {
+              "text": "cieux",
+              "strong": "H8064"
+            },
+            {
+              "text": ", Et sa ",
+              "strong": null
+            },
+            {
+              "text": "gloire",
+              "strong": "H8416"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "remplit",
+              "strong": "H4390"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "terre",
+              "strong": "H0776"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 4,
+          "tokens": [
+            {
+              "text": "C’",
+              "strong": null
+            },
+            {
+              "text": "est",
+              "strong": "H1961"
+            },
+            {
+              "text": " comme l’",
+              "strong": null
+            },
+            {
+              "text": "éclat",
+              "strong": "H5051"
+            },
+            {
+              "text": " de la ",
+              "strong": null
+            },
+            {
+              "text": "lumière",
+              "strong": "H0216"
+            },
+            {
+              "text": " ; Des ",
+              "strong": null
+            },
+            {
+              "text": "rayons",
+              "strong": "H7161"
+            },
+            {
+              "text": " partent de sa ",
+              "strong": null
+            },
+            {
+              "text": "main",
+              "strong": "H3027"
+            },
+            {
+              "text": " ; ",
+              "strong": null
+            },
+            {
+              "text": "Là",
+              "strong": "H8033"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "réside",
+              "strong": "H2253"
+            },
+            {
+              "text": " sa ",
+              "strong": null
+            },
+            {
+              "text": "force",
+              "strong": "H5797"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 5,
+          "tokens": [
+            {
+              "text": "Devant",
+              "strong": "H6440"
+            },
+            {
+              "text": " lui ",
+              "strong": null
+            },
+            {
+              "text": "marche",
+              "strong": "H3212"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "peste",
+              "strong": "H1698"
+            },
+            {
+              "text": ", Et la ",
+              "strong": null
+            },
+            {
+              "text": "peste",
+              "strong": "H7565"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "est",
+              "strong": "H3318"
+            },
+            {
+              "text": " sur ses ",
+              "strong": null
+            },
+            {
+              "text": "traces",
+              "strong": "H7272"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 6,
+          "tokens": [
+            {
+              "text": "Il s’",
+              "strong": null
+            },
+            {
+              "text": "arrête",
+              "strong": "H5975"
+            },
+            {
+              "text": ", et de l’œil il ",
+              "strong": null
+            },
+            {
+              "text": "mesure",
+              "strong": "H4128"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "terre",
+              "strong": "H0776"
+            },
+            {
+              "text": " ; Il ",
+              "strong": null
+            },
+            {
+              "text": "regarde",
+              "strong": "H7200"
+            },
+            {
+              "text": ", et il fait ",
+              "strong": null
+            },
+            {
+              "text": "trembler",
+              "strong": "H5425"
+            },
+            {
+              "text": " les ",
+              "strong": null
+            },
+            {
+              "text": "nations",
+              "strong": "H1471"
+            },
+            {
+              "text": " ; Les ",
+              "strong": null
+            },
+            {
+              "text": "montagnes",
+              "strong": "H2042"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "éternelles",
+              "strong": "H5703"
+            },
+            {
+              "text": " se ",
+              "strong": null
+            },
+            {
+              "text": "brisent",
+              "strong": "H6327"
+            },
+            {
+              "text": ", Les ",
+              "strong": null
+            },
+            {
+              "text": "collines",
+              "strong": "H1389"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "antiques",
+              "strong": "H5769"
+            },
+            {
+              "text": " s’",
+              "strong": null
+            },
+            {
+              "text": "abaissent",
+              "strong": "H7817"
+            },
+            {
+              "text": " ; Les ",
+              "strong": null
+            },
+            {
+              "text": "sentiers",
+              "strong": "H1979"
+            },
+            {
+              "text": " d’",
+              "strong": null
+            },
+            {
+              "text": "autrefois",
+              "strong": "H5769"
+            },
+            {
+              "text": " s’ouvrent devant lui.",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 7,
+          "tokens": [
+            {
+              "text": "Je ",
+              "strong": null
+            },
+            {
+              "text": "vois",
+              "strong": "H7200"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "dans",
+              "strong": "H8478"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "détresse",
+              "strong": "H0205"
+            },
+            {
+              "text": " les ",
+              "strong": null
+            },
+            {
+              "text": "tentes",
+              "strong": "H0168"
+            },
+            {
+              "text": " de l’",
+              "strong": null
+            },
+            {
+              "text": "Éthiopie",
+              "strong": "H3572"
+            },
+            {
+              "text": ", Et les ",
+              "strong": null
+            },
+            {
+              "text": "tentes",
+              "strong": "H3407"
+            },
+            {
+              "text": " du ",
+              "strong": null
+            },
+            {
+              "text": "pays",
+              "strong": "H0776"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "Madian",
+              "strong": "H4080"
+            },
+            {
+              "text": " sont dans l’",
+              "strong": null
+            },
+            {
+              "text": "épouvante",
+              "strong": "H7264"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 8,
+          "tokens": [
+            {
+              "text": "L’",
+              "strong": null
+            },
+            {
+              "text": "Éternel",
+              "strong": "H3068"
+            },
+            {
+              "text": " est-il ",
+              "strong": null
+            },
+            {
+              "text": "irrité",
+              "strong": "H2734"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "contre",
+              "strong": "H0518"
+            },
+            {
+              "text": " les ",
+              "strong": null
+            },
+            {
+              "text": "fleuves",
+              "strong": "H5104"
+            },
+            {
+              "text": " ? Est-ce ",
+              "strong": null
+            },
+            {
+              "text": "contre",
+              "strong": "H0518"
+            },
+            {
+              "text": " les ",
+              "strong": null
+            },
+            {
+              "text": "fleuves",
+              "strong": "H5104"
+            },
+            {
+              "text": " que s’enflamme ta ",
+              "strong": null
+            },
+            {
+              "text": "colère",
+              "strong": "H0639"
+            },
+            {
+              "text": ", Contre la ",
+              "strong": null
+            },
+            {
+              "text": "mer",
+              "strong": "H3220"
+            },
+            {
+              "text": " que se répand ta ",
+              "strong": null
+            },
+            {
+              "text": "fureur",
+              "strong": "H5678"
+            },
+            {
+              "text": ", Pour ",
+              "strong": null
+            },
+            {
+              "text": "que",
+              "strong": "H3588"
+            },
+            {
+              "text": " tu sois ",
+              "strong": null
+            },
+            {
+              "text": "monté",
+              "strong": "H7392"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "sur",
+              "strong": "H5921"
+            },
+            {
+              "text": " tes ",
+              "strong": null
+            },
+            {
+              "text": "chevaux",
+              "strong": "H5483"
+            },
+            {
+              "text": ", Sur ton ",
+              "strong": null
+            },
+            {
+              "text": "char",
+              "strong": "H4818"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "victoire",
+              "strong": "H3444"
+            },
+            {
+              "text": " ?",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 9,
+          "tokens": [
+            {
+              "text": "Ton ",
+              "strong": null
+            },
+            {
+              "text": "arc",
+              "strong": "H7198"
+            },
+            {
+              "text": " est ",
+              "strong": null
+            },
+            {
+              "text": "mis",
+              "strong": "H6181"
+            },
+            {
+              "text": " à ",
+              "strong": null
+            },
+            {
+              "text": "nu",
+              "strong": "H5783"
+            },
+            {
+              "text": " ; Les ",
+              "strong": null
+            },
+            {
+              "text": "malédictions",
+              "strong": "H7621"
+            },
+            {
+              "text": " sont les ",
+              "strong": null
+            },
+            {
+              "text": "traits",
+              "strong": "H4294"
+            },
+            {
+              "text": " de ta ",
+              "strong": null
+            },
+            {
+              "text": "parole",
+              "strong": "H0562"
+            },
+            {
+              "text": "… ",
+              "strong": null
+            },
+            {
+              "text": "Pause",
+              "strong": "H5542"
+            },
+            {
+              "text": ". Tu ",
+              "strong": null
+            },
+            {
+              "text": "fends",
+              "strong": "H1234"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "terre",
+              "strong": "H0776"
+            },
+            {
+              "text": " pour donner cours aux ",
+              "strong": null
+            },
+            {
+              "text": "fleuves",
+              "strong": "H5104"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 10,
+          "tokens": [
+            {
+              "text": "À ton ",
+              "strong": null
+            },
+            {
+              "text": "aspect",
+              "strong": "H7200"
+            },
+            {
+              "text": ", les ",
+              "strong": null
+            },
+            {
+              "text": "montagnes",
+              "strong": "H2022"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "tremblent",
+              "strong": "H2342"
+            },
+            {
+              "text": " ; Des ",
+              "strong": null
+            },
+            {
+              "text": "torrents",
+              "strong": "H2230"
+            },
+            {
+              "text": " d’",
+              "strong": null
+            },
+            {
+              "text": "eau",
+              "strong": "H4325"
+            },
+            {
+              "text": " se ",
+              "strong": null
+            },
+            {
+              "text": "précipitent",
+              "strong": "H5674"
+            },
+            {
+              "text": " ; L’",
+              "strong": null
+            },
+            {
+              "text": "abîme",
+              "strong": "H8415"
+            },
+            {
+              "text": " fait ",
+              "strong": null
+            },
+            {
+              "text": "entendre",
+              "strong": "H5414"
+            },
+            {
+              "text": " sa ",
+              "strong": null
+            },
+            {
+              "text": "voix",
+              "strong": "H6963"
+            },
+            {
+              "text": ", Il ",
+              "strong": null
+            },
+            {
+              "text": "lève",
+              "strong": "H5375"
+            },
+            {
+              "text": " ses ",
+              "strong": null
+            },
+            {
+              "text": "mains",
+              "strong": "H3027"
+            },
+            {
+              "text": " en ",
+              "strong": null
+            },
+            {
+              "text": "haut",
+              "strong": "H7315"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 11,
+          "tokens": [
+            {
+              "text": "Le ",
+              "strong": null
+            },
+            {
+              "text": "soleil",
+              "strong": "H8121"
+            },
+            {
+              "text": " et la ",
+              "strong": null
+            },
+            {
+              "text": "lune",
+              "strong": "H3394"
+            },
+            {
+              "text": " s’",
+              "strong": null
+            },
+            {
+              "text": "arrêtent",
+              "strong": "H5975"
+            },
+            {
+              "text": " dans leur ",
+              "strong": null
+            },
+            {
+              "text": "demeure",
+              "strong": "H2073"
+            },
+            {
+              "text": ", À la ",
+              "strong": null
+            },
+            {
+              "text": "lumière",
+              "strong": "H0216"
+            },
+            {
+              "text": " de tes ",
+              "strong": null
+            },
+            {
+              "text": "flèches",
+              "strong": "H2671"
+            },
+            {
+              "text": " qui ",
+              "strong": null
+            },
+            {
+              "text": "partent",
+              "strong": "H1980"
+            },
+            {
+              "text": ", À la ",
+              "strong": null
+            },
+            {
+              "text": "clarté",
+              "strong": "H5051"
+            },
+            {
+              "text": " de ta ",
+              "strong": null
+            },
+            {
+              "text": "lance",
+              "strong": "H2595"
+            },
+            {
+              "text": " qui ",
+              "strong": null
+            },
+            {
+              "text": "brille",
+              "strong": "H1300"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 12,
+          "tokens": [
+            {
+              "text": "Tu ",
+              "strong": null
+            },
+            {
+              "text": "parcours",
+              "strong": "H6805"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "terre",
+              "strong": "H0776"
+            },
+            {
+              "text": " dans ta ",
+              "strong": null
+            },
+            {
+              "text": "fureur",
+              "strong": "H2195"
+            },
+            {
+              "text": ", Tu ",
+              "strong": null
+            },
+            {
+              "text": "écrases",
+              "strong": "H1758"
+            },
+            {
+              "text": " les ",
+              "strong": null
+            },
+            {
+              "text": "nations",
+              "strong": "H1471"
+            },
+            {
+              "text": " dans ta ",
+              "strong": null
+            },
+            {
+              "text": "colère",
+              "strong": "H0639"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 13,
+          "tokens": [
+            {
+              "text": "Tu ",
+              "strong": null
+            },
+            {
+              "text": "sors",
+              "strong": "H3318"
+            },
+            {
+              "text": " pour ",
+              "strong": null
+            },
+            {
+              "text": "délivrer",
+              "strong": "H3468"
+            },
+            {
+              "text": " ton ",
+              "strong": null
+            },
+            {
+              "text": "peuple",
+              "strong": "H5971"
+            },
+            {
+              "text": ", Pour ",
+              "strong": null
+            },
+            {
+              "text": "délivrer",
+              "strong": "H3468"
+            },
+            {
+              "text": " ton ",
+              "strong": null
+            },
+            {
+              "text": "oint",
+              "strong": "H4899"
+            },
+            {
+              "text": " ; Tu ",
+              "strong": null
+            },
+            {
+              "text": "brises",
+              "strong": "H4272"
+            },
+            {
+              "text": " le ",
+              "strong": null
+            },
+            {
+              "text": "faîte",
+              "strong": "H7218"
+            },
+            {
+              "text": " de la ",
+              "strong": null
+            },
+            {
+              "text": "maison",
+              "strong": "H1004"
+            },
+            {
+              "text": " du ",
+              "strong": null
+            },
+            {
+              "text": "méchant",
+              "strong": "H7563"
+            },
+            {
+              "text": ", Tu la ",
+              "strong": null
+            },
+            {
+              "text": "détruis",
+              "strong": "H6168"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "fond",
+              "strong": "H3247"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "en",
+              "strong": "H5704"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "comble",
+              "strong": "H6677"
+            },
+            {
+              "text": ". ",
+              "strong": null
+            },
+            {
+              "text": "Pause",
+              "strong": "H5542"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 14,
+          "tokens": [
+            {
+              "text": "Tu ",
+              "strong": null
+            },
+            {
+              "text": "perces",
+              "strong": "H5344"
+            },
+            {
+              "text": " de tes ",
+              "strong": null
+            },
+            {
+              "text": "traits",
+              "strong": "H4294"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "tête",
+              "strong": "H7218"
+            },
+            {
+              "text": " de ses ",
+              "strong": null
+            },
+            {
+              "text": "chefs",
+              "strong": "H6518"
+            },
+            {
+              "text": ", Qui se ",
+              "strong": null
+            },
+            {
+              "text": "précipitent",
+              "strong": "H6327"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "comme",
+              "strong": "H3644"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "tempête",
+              "strong": "H5590"
+            },
+            {
+              "text": " pour me disperser, Poussant des cris de ",
+              "strong": null
+            },
+            {
+              "text": "joie",
+              "strong": "H5951"
+            },
+            {
+              "text": ", Comme s’ils ",
+              "strong": null
+            },
+            {
+              "text": "dévoraient",
+              "strong": "H0398"
+            },
+            {
+              "text": " déjà le ",
+              "strong": null
+            },
+            {
+              "text": "malheureux",
+              "strong": "H6041"
+            },
+            {
+              "text": " dans leur ",
+              "strong": null
+            },
+            {
+              "text": "repaire",
+              "strong": "H4565"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 15,
+          "tokens": [
+            {
+              "text": "Avec tes ",
+              "strong": null
+            },
+            {
+              "text": "chevaux",
+              "strong": "H5483"
+            },
+            {
+              "text": " tu ",
+              "strong": null
+            },
+            {
+              "text": "foules",
+              "strong": "H1869"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "mer",
+              "strong": "H3220"
+            },
+            {
+              "text": ", La ",
+              "strong": null
+            },
+            {
+              "text": "boue",
+              "strong": "H2563"
+            },
+            {
+              "text": " des ",
+              "strong": null
+            },
+            {
+              "text": "grandes",
+              "strong": "H7227"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "eaux",
+              "strong": "H4325"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 16,
+          "tokens": [
+            {
+              "text": "J’ai ",
+              "strong": null
+            },
+            {
+              "text": "entendu",
+              "strong": "H8085"
+            },
+            {
+              "text": "… Et mes ",
+              "strong": null
+            },
+            {
+              "text": "entrailles",
+              "strong": "H0990"
+            },
+            {
+              "text": " sont ",
+              "strong": null
+            },
+            {
+              "text": "émues",
+              "strong": "H7264"
+            },
+            {
+              "text": ". À cette ",
+              "strong": null
+            },
+            {
+              "text": "voix",
+              "strong": "H6963"
+            },
+            {
+              "text": ", mes ",
+              "strong": null
+            },
+            {
+              "text": "lèvres",
+              "strong": "H8193"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "frémissent",
+              "strong": "H6750"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "Mes",
+              "strong": "H0935"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "os",
+              "strong": "H6106"
+            },
+            {
+              "text": " se ",
+              "strong": null
+            },
+            {
+              "text": "consument",
+              "strong": "H7538"
+            },
+            {
+              "text": ", Et mes genoux ",
+              "strong": null
+            },
+            {
+              "text": "chancellent",
+              "strong": "H7264"
+            },
+            {
+              "text": " : En ",
+              "strong": null
+            },
+            {
+              "text": "silence",
+              "strong": "H8478"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "je",
+              "strong": "H0834"
+            },
+            {
+              "text": " dois ",
+              "strong": null
+            },
+            {
+              "text": "attendre",
+              "strong": "H5117"
+            },
+            {
+              "text": " le ",
+              "strong": null
+            },
+            {
+              "text": "jour",
+              "strong": "H3117"
+            },
+            {
+              "text": " de la ",
+              "strong": null
+            },
+            {
+              "text": "détresse",
+              "strong": "H6869"
+            },
+            {
+              "text": ", Le jour où l’",
+              "strong": null
+            },
+            {
+              "text": "oppresseur",
+              "strong": "H1464"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "marchera",
+              "strong": "H5927"
+            },
+            {
+              "text": " contre le ",
+              "strong": null
+            },
+            {
+              "text": "peuple",
+              "strong": "H5971"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 17,
+          "tokens": [
+            {
+              "text": "Car",
+              "strong": "H3588"
+            },
+            {
+              "text": " le ",
+              "strong": null
+            },
+            {
+              "text": "figuier",
+              "strong": "H8384"
+            },
+            {
+              "text": " ne ",
+              "strong": null
+            },
+            {
+              "text": "fleurira",
+              "strong": "H6524"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": ", La ",
+              "strong": null
+            },
+            {
+              "text": "vigne",
+              "strong": "H1612"
+            },
+            {
+              "text": " ne ",
+              "strong": null
+            },
+            {
+              "text": "produira",
+              "strong": "H2981"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "rien",
+              "strong": "H0369"
+            },
+            {
+              "text": ", Le ",
+              "strong": null
+            },
+            {
+              "text": "fruit",
+              "strong": "H4639"
+            },
+            {
+              "text": " de l’",
+              "strong": null
+            },
+            {
+              "text": "olivier",
+              "strong": "H2132"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "manquera",
+              "strong": "H3584"
+            },
+            {
+              "text": ", Les ",
+              "strong": null
+            },
+            {
+              "text": "champs",
+              "strong": "H7709"
+            },
+            {
+              "text": " ne ",
+              "strong": null
+            },
+            {
+              "text": "donneront",
+              "strong": "H6213"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "H3808"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "nourriture",
+              "strong": "H0400"
+            },
+            {
+              "text": " ; Les ",
+              "strong": null
+            },
+            {
+              "text": "brebis",
+              "strong": "H6629"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "disparaîtront",
+              "strong": "H1504"
+            },
+            {
+              "text": " du ",
+              "strong": null
+            },
+            {
+              "text": "pâturage",
+              "strong": "H4356"
+            },
+            {
+              "text": ", Et il n’y aura ",
+              "strong": null
+            },
+            {
+              "text": "plus",
+              "strong": "H0369"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "bœufs",
+              "strong": "H1241"
+            },
+            {
+              "text": " dans les ",
+              "strong": null
+            },
+            {
+              "text": "étables",
+              "strong": "H7517"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 18,
+          "tokens": [
+            {
+              "text": "Toutefois, je veux ",
+              "strong": null
+            },
+            {
+              "text": "me",
+              "strong": "H0589"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "réjouir",
+              "strong": "H5937"
+            },
+            {
+              "text": " en l’",
+              "strong": null
+            },
+            {
+              "text": "Éternel",
+              "strong": "H3068"
+            },
+            {
+              "text": ", Je veux me ",
+              "strong": null
+            },
+            {
+              "text": "réjouir",
+              "strong": "H1523"
+            },
+            {
+              "text": " dans le ",
+              "strong": null
+            },
+            {
+              "text": "Dieu",
+              "strong": "H0430"
+            },
+            {
+              "text": " de mon ",
+              "strong": null
+            },
+            {
+              "text": "salut",
+              "strong": "H3468"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 19,
+          "tokens": [
+            {
+              "text": "L’",
+              "strong": null
+            },
+            {
+              "text": "Éternel",
+              "strong": "H3069"
+            },
+            {
+              "text": ", le ",
+              "strong": null
+            },
+            {
+              "text": "Seigneur",
+              "strong": "H0136"
+            },
+            {
+              "text": ", est ma ",
+              "strong": null
+            },
+            {
+              "text": "force",
+              "strong": "H2428"
+            },
+            {
+              "text": " ; Il ",
+              "strong": null
+            },
+            {
+              "text": "rend",
+              "strong": "H7760"
+            },
+            {
+              "text": " mes ",
+              "strong": null
+            },
+            {
+              "text": "pieds",
+              "strong": "H7272"
+            },
+            {
+              "text": " semblables à ceux des ",
+              "strong": null
+            },
+            {
+              "text": "biches",
+              "strong": "H0355"
+            },
+            {
+              "text": ", Et il me fait ",
+              "strong": null
+            },
+            {
+              "text": "marcher",
+              "strong": "H1869"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "sur",
+              "strong": "H5921"
+            },
+            {
+              "text": " mes lieux ",
+              "strong": null
+            },
+            {
+              "text": "élevés",
+              "strong": "H1116"
+            },
+            {
+              "text": ". Au chef des ",
+              "strong": null
+            },
+            {
+              "text": "chantres",
+              "strong": "H5329"
+            },
+            {
+              "text": ". Avec instruments à ",
+              "strong": null
+            },
+            {
+              "text": "cordes",
+              "strong": "H5058"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

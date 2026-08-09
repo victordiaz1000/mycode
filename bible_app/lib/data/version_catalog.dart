@@ -58,8 +58,10 @@ class VersionEntry {
   /// null otherwise.
   final String? getbibleId;
 
-  /// The maquette prints a 🔊 next to versions that also ship an audio reading.
-  final bool hasAudio;
+  /// Whether the embedded text carries Strong codes per word — the LSGS schema
+  /// does, so the reading body can render each code clickable. BYM carries
+  /// notes but no Strong; a getbible version carries neither.
+  final bool hasStrong;
 
   const VersionEntry({
     required this.code,
@@ -68,7 +70,7 @@ class VersionEntry {
     this.availability = VersionAvailability.unavailable,
     this.format = VersionFormat.getbible,
     this.getbibleId,
-    this.hasAudio = false,
+    this.hasStrong = false,
   });
 
   /// True for the version shipped inside the app (readable offline, no download).
@@ -96,14 +98,17 @@ class VersionGroup {
 ///
 /// The full reference list is reproduced for the design, but only three states
 /// are real:
-/// - **embedded** : BYM, the default reading version (décision 3) ;
+/// - **embedded** : BYM, the default reading version (décision 3), and **LSGS**,
+///   the embedded Segond 1910 text with Strong codes (décision 10) ;
 /// - **downloadable** : the public-domain getbible.net translations we can
 ///   actually serve — LSG (ls1910), Darby, Martin, KJV (décision 9) ;
 /// - **unavailable** : copyright / sourceless versions shown greyed for parity
-///   with the maquette (LSGS, NBS, NEG79, NVS78P, S21, INT, KJF).
+///   with the maquette (NBS, NEG79, NVS78P, S21, INT, KJF).
 ///
-/// « Segond 1910 with Strong » (LSGS) stays unavailable on purpose: getbible's
-/// ls1910 JSON does not carry the Strong numbers (cf. AGENTS.md, décision 9).
+/// « Segond 1910 with Strong » (LSGS) is embedded because a Strong-tagged
+/// French text could not be served from getbible.net (its ls1910 JSON does not
+/// carry the Strong numbers, cf. décision 9) — the embedded corpus was built
+/// from a dedicated source (cf. `plan-strong-fr.md`).
 const List<VersionGroup> versionCatalog = [
   VersionGroup('Version intégrée', [
     VersionEntry(
@@ -121,13 +126,14 @@ const List<VersionGroup> versionCatalog = [
       rights: '1910 · Libre de droit',
       availability: VersionAvailability.downloadable,
       getbibleId: 'ls1910',
-      hasAudio: true,
     ),
     VersionEntry(
       code: 'LSGS',
       name: 'Bible Segond 1910 + Strongs',
       rights: '1910 · Libre de droit',
-      hasAudio: true,
+      availability: VersionAvailability.embedded,
+      format: VersionFormat.getbible,
+      hasStrong: true,
     ),
     VersionEntry(
       code: 'NBS',

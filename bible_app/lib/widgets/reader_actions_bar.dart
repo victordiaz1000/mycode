@@ -719,14 +719,6 @@ class _VersionRow extends StatelessWidget {
                     ),
                   ),
                 ),
-                if (version.hasAudio) ...[
-                  const SizedBox(width: 8),
-                  Icon(
-                    Icons.volume_up_outlined,
-                    size: 18,
-                    color: active ? accent : onSurface.withValues(alpha: .55),
-                  ),
-                ],
                 if (active) ...[
                   const SizedBox(width: 8),
                   const Icon(Icons.check, color: _gold, size: 20),

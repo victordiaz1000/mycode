@@ -102,11 +102,13 @@ class _ReaderScreenState extends State<ReaderScreen> {
       return _HomeTab(manager: _manager, onOpenLibrary: widget.onOpenLibrary);
     }
     return ChapterReader(
-      key: ValueKey('reader-${tab.bookIndex}-${tab.chapter}'),
+      key: ValueKey('reader-${tab.id}-${tab.bookIndex}-${tab.chapter}'),
       bookIndex: tab.bookIndex!,
       chapter: tab.chapter!,
+      initialVersionCode: tab.versionCode,
       jumpToVerse: widget.jumpToVerse,
       onOpenLibrary: widget.onOpenLibrary,
+      onVersionChanged: (code) => _manager.updateTabVersion(tab.id, code),
       // Navigating from inside a tab (« Livres » pill, ‹ › arrows) moves *this*
       // tab instead of spawning one — only the strip's ＋ adds a tab. Opening
       // from the Accueil screen or from search still uses openReading.

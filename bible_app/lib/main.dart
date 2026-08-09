@@ -7,16 +7,24 @@ import 'screens/reader_screen.dart';
 import 'screens/search_screen.dart';
 import 'screens/settings_screen.dart';
 import 'widgets/chapter_reader.dart';
+import 'widgets/splash_screen.dart';
 
 void main() {
-  runApp(const BymApp());
+  runApp(BymApp(showSplash: true));
 }
 
 class BymApp extends StatelessWidget {
-  const BymApp({super.key});
+  const BymApp({super.key, this.showSplash = false});
+
+  /// Whether the brand splash screen runs before the shell.
+  ///
+  /// False in widget tests, which pump the shell directly : the splash owns a
+  /// timer that a single `pumpAndSettle` can never complete.
+  final bool showSplash;
 
   @override
   Widget build(BuildContext context) {
+    final shell = const HomeShell();
     return MaterialApp(
       title: 'BYM — Bible de Yehoshoua Ha Mashiah',
       debugShowCheckedModeBanner: false,
@@ -24,7 +32,7 @@ class BymApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: const HomeShell(),
+      home: showSplash ? SplashScreen(child: shell) : shell,
     );
   }
 }

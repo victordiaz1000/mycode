@@ -8,13 +8,14 @@ import '../data/app_database.dart';
 import '../data/app_preferences.dart';
 import '../data/book_catalog.dart';
 import '../data/library_store.dart';
+import '../data/strong_lexicon.dart';
 import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
 import '../models/bible_book.dart';
 import '../models/chapter.dart';
 import '../models/verse.dart';
 import '../screens/chapter_screen.dart';
-import '../screens/lexique_screen.dart';
+import '../screens/strong_lexique_screen.dart';
 import 'reader_actions_bar.dart';
 import 'study_sheet.dart';
 import 'verse_tile.dart';
@@ -40,6 +41,14 @@ class ChapterReader extends StatefulWidget {
   final int bookIndex;
   final int chapter;
 
+  /// Version already selected for this tab. When set, it wins over the global
+  /// preference for the initial render of the tab so a new tab can inherit the
+  /// previously active version instead of jumping back to BYM.
+  final String? initialVersionCode;
+
+  /// When set, persists the selected version on the owning tab.
+  final ValueChanged<String>? onVersionChanged;
+
   /// When set, scrolls to and flashes the verse of a [VerseTarget] addressed
   /// to this chapter. Works both for newly-opened tabs (read in `initState`)
   /// and already-open ones (listened to live).
@@ -63,6 +72,8 @@ class ChapterReader extends StatefulWidget {
     super.key,
     required this.bookIndex,
     required this.chapter,
+    this.initialVersionCode,
+    this.onVersionChanged,
     this.jumpToVerse,
     this.onOpenChapter,
     this.onOpenLibrary,
@@ -284,6 +295,10 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// version that has notes.
   bool get _supportsNotes => versionByCode(_versionCode)?.carriesNotes ?? false;
 
+  /// Whether the version being read embeds Strong codes per word (LSGS): their
+  /// display becomes tappable and tapping one opens its French definition.
+  bool get _hasStrong => versionByCode(_versionCode)?.hasStrong ?? false;
+
   /// Reads the preferences and the library, *then* the book.
   ///
   /// In that order because the preferences carry the active version: loading
@@ -291,11 +306,13 @@ class _ChapterReaderState extends State<ChapterReader> {
   Future<BibleBook> _bootstrap() async {
     final prefs = await AppPreferences.load();
     final installed = await _installedVersions();
-    // A version deleted from the Bibliothèque since the last read would leave
-    // the reader stuck on an error panel — fall back to the embedded BYM.
-    final code = prefs.versionCode == VersionRepository.embeddedCode ||
-            installed[prefs.versionCode]?.isEmpty == false
-        ? prefs.versionCode
+    final preferred = widget.initialVersionCode ?? prefs.versionCode;
+    // An embedded version (BYM or LSGS) is always readable. A downloaded one
+    // deleted from the Bibliothèque since the last read would leave the reader
+    // stuck on an error panel — fall back to the embedded BYM.
+    final code = _versions.isEmbedded(preferred) ||
+            installed[preferred]?.isEmpty == false
+        ? preferred
         : VersionRepository.embeddedCode;
 
     if (mounted) {
@@ -340,6 +357,7 @@ class _ChapterReaderState extends State<ChapterReader> {
       _flashingVerses = {};
     });
     _prefs.versionCode = code;
+    widget.onVersionChanged?.call(code);
     _savePrefs();
   }
 
@@ -467,6 +485,7 @@ class _ChapterReaderState extends State<ChapterReader> {
                 flashingVerses: _flashingVerses,
                 onVerseTap: _onVerseTap,
                 onVerseLongPress: _onVerseLongPress,
+                onStrongTap: _hasStrong ? _onStrongTap : null,
               );
             },
           ),
@@ -488,6 +507,12 @@ class _ChapterReaderState extends State<ChapterReader> {
       return;
     }
     final vn = verse.number;
+    // The Lexique button proposes the same verse in the embedded LSGS Strong
+    // rendering — a property of the canon (BYM / LSGS cover the same verses),
+    // not of the notes the version happens to carry. Downloaded translations
+    // keep the button off rather than offer a Strong verse that may not match
+    // their own versification.
+    final embeddedVersion = _versions.isEmbedded(_versionCode);
     final action = await showStudySheet(
       context,
       reference:
@@ -495,8 +520,10 @@ class _ChapterReaderState extends State<ChapterReader> {
       excerpt: verse.text,
       isFavorite: _favorites.contains(vn),
       currentHighlight: _highlights[vn],
-      hasNotes: verse.notes.isNotEmpty,
-      noteCount: verse.notes.length,
+      lexiqueEnabled: embeddedVersion,
+      lexiqueLabel: embeddedVersion
+          ? 'Lexique Strong — verset mot à mot'
+          : 'Lexique Strong — versions BYM/LSGS',
       onHighlight: (color) => _applyHighlight(vn, color),
       onFavorite: (value) => _applyFavorite(vn, value),
     );
@@ -504,7 +531,7 @@ class _ChapterReaderState extends State<ChapterReader> {
 
     switch (action) {
       case StudyAction.lexicon:
-        _openLexique(vn);
+        await _openLexique(vn);
         break;
       case StudyAction.note:
         await _editNote(verse);
@@ -661,13 +688,21 @@ class _ChapterReaderState extends State<ChapterReader> {
     controller.dispose();
   }
 
-  void _openLexique(int verseNumber) {
+  /// The Lexique button of the study sheet: it always shows the *same verse*
+  /// the reader is on, rendered word-by-word from the embedded LSGS where every
+  /// Strong code is tappable ([StrongLexiqueScreen]) — the BYM text proposes
+  /// its own equivalent verse in the Strong version.
+  Future<void> _openLexique(int verseNumber) async {
+    final tokens = await _versions.lsgsTokens(
+        widget.bookIndex, widget.chapter, verseNumber);
+    if (!mounted) return;
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) => LexiqueScreen(
+        builder: (_) => StrongLexiqueScreen(
           bookIndex: widget.bookIndex,
           chapter: widget.chapter,
           verseNumber: verseNumber,
+          tokens: tokens,
         ),
       ),
     );
@@ -676,6 +711,104 @@ class _ChapterReaderState extends State<ChapterReader> {
   void _snack(String message) {
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(message), duration: const Duration(seconds: 2)));
+  }
+
+  /// Tapping a Strong code in a version that carries them (LSGS) opens its
+  /// French definition — the quick look the reader wants, without leaving the
+  /// chapter.
+  Future<void> _onStrongTap(Verse verse, String strong) async {
+    final definition = await StrongLexicon.instance.lookup(strong);
+    if (!mounted) return;
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      isScrollControlled: true,
+      builder: (context) => _StrongDefinitionSheet(
+        reference: '${catalogEntry(widget.bookIndex).abbreviation} '
+            '${verse.verse}',
+        definition: definition,
+        onOpenLexique: () => _openLexique(verse.number),
+      ),
+    );
+  }
+}
+
+/// The quick definition of a tapped Strong code, as a bottom sheet.
+class _StrongDefinitionSheet extends StatelessWidget {
+  /// "Ge. 1:1" — where the tapped code lives.
+  final String reference;
+
+  final StrongDefinition definition;
+
+  /// Opens the full word-by-word lexique for the same verse. Null when it is
+  /// not available (e.g. outside the reader flow).
+  final VoidCallback? onOpenLexique;
+
+  const _StrongDefinitionSheet({
+    required this.reference,
+    required this.definition,
+    this.onOpenLexique,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return SafeArea(
+      top: false,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.primaryContainer
+                        .withValues(alpha: .5),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    definition.strong,
+                    style: theme.textTheme.labelLarge?.copyWith(
+                      color: theme.colorScheme.onPrimaryContainer,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: .5,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Text(
+                  reference,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                ),
+                const Spacer(),
+                if (onOpenLexique != null)
+                  TextButton.icon(
+                    onPressed: onOpenLexique,
+                    icon: const Icon(Icons.translate, size: 18),
+                    label: const Text('Lexique'),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 14),
+            Flexible(
+              child: SingleChildScrollView(
+                child: Text(
+                  definition.definition,
+                  style: theme.textTheme.bodyLarge?.copyWith(height: 1.35),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 

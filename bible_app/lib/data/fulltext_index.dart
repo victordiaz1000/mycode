@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import '../models/bible_book.dart';
 import 'reference_parser.dart';
 import 'version_repository.dart';
@@ -202,7 +204,12 @@ class FulltextIndex {
     final tokens = q.split(' ');
     final results = <({int score, _IndexedVerse verse})>[];
 
-    for (final v in _verses) {
+    // Scan is synchronous over ~31 000 verses; yielding every so often lets the
+    // search screen's spinner (and the keyboard) render while a common word
+    // matches a lot of them.
+    for (var i = 0; i < _verses.length; i++) {
+      if (i % 2048 == 0) await Future<void>.delayed(Duration.zero);
+      final v = _verses[i];
       if (bookFilter != null && !bookFilter(v.book)) continue;
       int? score;
       if (v.normalized.startsWith(q)) {

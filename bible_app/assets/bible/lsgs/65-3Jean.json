@@ -1,0 +1,1688 @@
+{
+  "book": "3 Jean",
+  "abbreviation": "3Jn.",
+  "bym_index": 65,
+  "osis_id": "3John",
+  "chapters": [
+    {
+      "chapter": 1,
+      "verses": [
+        {
+          "verse": 1,
+          "tokens": [
+            {
+              "text": "L’",
+              "strong": "G3588"
+            },
+            {
+              "text": "ancien",
+              "strong": "G4245"
+            },
+            {
+              "text": ", à ",
+              "strong": null
+            },
+            {
+              "text": "Gaïus",
+              "strong": "G1050"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "le",
+              "strong": "G3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "bien-aimé",
+              "strong": "G0027"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "que",
+              "strong": "G3739"
+            },
+            {
+              "text": " j’",
+              "strong": null
+            },
+            {
+              "text": "aime",
+              "strong": "G0025"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "dans",
+              "strong": "G1722"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "vérité",
+              "strong": "G0225"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 2,
+          "tokens": [
+            {
+              "text": "Bien-aimé",
+              "strong": "G0027"
+            },
+            {
+              "text": ", je ",
+              "strong": null
+            },
+            {
+              "text": "souhaite",
+              "strong": "G2172"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "que",
+              "strong": "G4012"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "tu",
+              "strong": "G4571"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "prospères",
+              "strong": "G2137"
+            },
+            {
+              "text": " à ",
+              "strong": null
+            },
+            {
+              "text": "tous",
+              "strong": "G3956"
+            },
+            {
+              "text": " égards ",
+              "strong": null
+            },
+            {
+              "text": "et",
+              "strong": "G2532"
+            },
+            {
+              "text": " sois en bonne ",
+              "strong": null
+            },
+            {
+              "text": "santé",
+              "strong": "G5198"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "comme",
+              "strong": "G2531"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "prospère",
+              "strong": "G2137"
+            },
+            {
+              "text": " l’état de ",
+              "strong": null
+            },
+            {
+              "text": "ton",
+              "strong": "G4675 G3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "âme",
+              "strong": "G5590"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 3,
+          "tokens": [
+            {
+              "text": "J’ai été ",
+              "strong": null
+            },
+            {
+              "text": "fort",
+              "strong": "G3029"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "réjoui",
+              "strong": "G5463"
+            },
+            {
+              "text": ", lorsque des ",
+              "strong": null
+            },
+            {
+              "text": "frères",
+              "strong": "G0080"
+            },
+            {
+              "text": " sont ",
+              "strong": null
+            },
+            {
+              "text": "arrivés",
+              "strong": "G2064"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "et",
+              "strong": "G2532"
+            },
+            {
+              "text": " ont rendu ",
+              "strong": null
+            },
+            {
+              "text": "témoignage",
+              "strong": "G3140"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "la",
+              "strong": "G3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "vérité",
+              "strong": "G0225"
+            },
+            {
+              "text": " qui est en ",
+              "strong": null
+            },
+            {
+              "text": "toi",
+              "strong": "G4675"
+            },
+            {
+              "text": ", de la ",
+              "strong": null
+            },
+            {
+              "text": "manière",
+              "strong": "G2531"
+            },
+            {
+              "text": " dont ",
+              "strong": null
+            },
+            {
+              "text": "tu",
+              "strong": "G4771"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "marches",
+              "strong": "G4043"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "dans",
+              "strong": "G1722"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "vérité",
+              "strong": "G0225"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 4,
+          "tokens": [
+            {
+              "text": "Je n’",
+              "strong": null
+            },
+            {
+              "text": "ai",
+              "strong": "G2192"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "G3756"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "plus",
+              "strong": "G5130"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "grande",
+              "strong": "G3186"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "joie",
+              "strong": "G5479"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "que",
+              "strong": "G2443"
+            },
+            {
+              "text": " d’",
+              "strong": null
+            },
+            {
+              "text": "apprendre",
+              "strong": "G0191"
+            },
+            {
+              "text": " que ",
+              "strong": null
+            },
+            {
+              "text": "mes",
+              "strong": "G1699"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "enfants",
+              "strong": "G5043"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "marchent",
+              "strong": "G4043"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "dans",
+              "strong": "G1722"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "vérité",
+              "strong": "G0225"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 5,
+          "tokens": [
+            {
+              "text": "Bien-aimé",
+              "strong": "G0027"
+            },
+            {
+              "text": ", tu ",
+              "strong": null
+            },
+            {
+              "text": "agis",
+              "strong": "G4160"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "fidèlement",
+              "strong": "G4103"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "dans",
+              "strong": "G3739"
+            },
+            {
+              "text": " ce ",
+              "strong": null
+            },
+            {
+              "text": "que",
+              "strong": "G1437"
+            },
+            {
+              "text": " tu ",
+              "strong": null
+            },
+            {
+              "text": "fais",
+              "strong": "G2038"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pour",
+              "strong": "G1519"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "les",
+              "strong": "G3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "frères",
+              "strong": "G0080"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "et",
+              "strong": "G2532"
+            },
+            {
+              "text": " même ",
+              "strong": null
+            },
+            {
+              "text": "pour",
+              "strong": "G1519"
+            },
+            {
+              "text": " des frères ",
+              "strong": null
+            },
+            {
+              "text": "étrangers",
+              "strong": "G3581"
+            },
+            {
+              "text": ",",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 6,
+          "tokens": [
+            {
+              "text": "lesquels",
+              "strong": "G3739"
+            },
+            {
+              "text": " ont rendu ",
+              "strong": null
+            },
+            {
+              "text": "témoignage",
+              "strong": "G3140"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "ta",
+              "strong": "G4675 G3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "charité",
+              "strong": "G0026"
+            },
+            {
+              "text": ", en ",
+              "strong": null
+            },
+            {
+              "text": "présence",
+              "strong": "G1799"
+            },
+            {
+              "text": " de l’",
+              "strong": null
+            },
+            {
+              "text": "Église",
+              "strong": "G1577"
+            },
+            {
+              "text": ". Tu ",
+              "strong": null
+            },
+            {
+              "text": "feras",
+              "strong": "G4160"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "bien",
+              "strong": "G2573"
+            },
+            {
+              "text": " de pourvoir à ",
+              "strong": null
+            },
+            {
+              "text": "leur",
+              "strong": "G3739"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "voyage",
+              "strong": "G4311"
+            },
+            {
+              "text": " d’une manière ",
+              "strong": null
+            },
+            {
+              "text": "digne",
+              "strong": "G0516"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "Dieu",
+              "strong": "G2316"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 7,
+          "tokens": [
+            {
+              "text": "Car",
+              "strong": "G1063"
+            },
+            {
+              "text": " c’est ",
+              "strong": null
+            },
+            {
+              "text": "pour",
+              "strong": "G5228"
+            },
+            {
+              "text": " le ",
+              "strong": null
+            },
+            {
+              "text": "nom",
+              "strong": "G3686"
+            },
+            {
+              "text": " de Jésus-Christ qu’ils sont ",
+              "strong": null
+            },
+            {
+              "text": "partis",
+              "strong": "G1831"
+            },
+            {
+              "text": ", sans ",
+              "strong": null
+            },
+            {
+              "text": "rien",
+              "strong": "G3367"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "recevoir",
+              "strong": "G2983"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "des",
+              "strong": "G0575"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "païens",
+              "strong": "G1484"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 8,
+          "tokens": [
+            {
+              "text": "Nous",
+              "strong": "G2249"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "devons",
+              "strong": "G3784"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "donc",
+              "strong": "G3767"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "accueillir",
+              "strong": "G0618"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "tels",
+              "strong": "G5108"
+            },
+            {
+              "text": " hommes, ",
+              "strong": null
+            },
+            {
+              "text": "afin",
+              "strong": "G2443"
+            },
+            {
+              "text": " d’",
+              "strong": null
+            },
+            {
+              "text": "être",
+              "strong": "G1096"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "ouvriers",
+              "strong": "G4904"
+            },
+            {
+              "text": " avec eux pour ",
+              "strong": null
+            },
+            {
+              "text": "la",
+              "strong": "G3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "vérité",
+              "strong": "G0225"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 9,
+          "tokens": [
+            {
+              "text": "J’ai ",
+              "strong": null
+            },
+            {
+              "text": "écrit",
+              "strong": "G1125"
+            },
+            {
+              "text": " quelques mots à ",
+              "strong": null
+            },
+            {
+              "text": "l’",
+              "strong": "G3588"
+            },
+            {
+              "text": "Église",
+              "strong": "G1577"
+            },
+            {
+              "text": " ; ",
+              "strong": null
+            },
+            {
+              "text": "mais",
+              "strong": "G0235"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "Diotrèphe",
+              "strong": "G1361"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "qui",
+              "strong": "G3588"
+            },
+            {
+              "text": " aime à être le ",
+              "strong": null
+            },
+            {
+              "text": "premier",
+              "strong": "G5383"
+            },
+            {
+              "text": " parmi ",
+              "strong": null
+            },
+            {
+              "text": "eux",
+              "strong": "G0846"
+            },
+            {
+              "text": ", ne ",
+              "strong": null
+            },
+            {
+              "text": "nous",
+              "strong": "G2248"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "reçoit",
+              "strong": "G1926"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "point",
+              "strong": "G3756"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 10,
+          "tokens": [
+            {
+              "text": "C’",
+              "strong": null
+            },
+            {
+              "text": "est",
+              "strong": "G1223"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pourquoi",
+              "strong": "G5124"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "si",
+              "strong": "G1437"
+            },
+            {
+              "text": " je ",
+              "strong": null
+            },
+            {
+              "text": "vais",
+              "strong": "G2064"
+            },
+            {
+              "text": " vous voir, je ",
+              "strong": null
+            },
+            {
+              "text": "rappellerai",
+              "strong": "G5279"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "les",
+              "strong": "G0846 G3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "actes",
+              "strong": "G2041"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "qu’",
+              "strong": "G3739"
+            },
+            {
+              "text": "il ",
+              "strong": null
+            },
+            {
+              "text": "commet",
+              "strong": "G4160"
+            },
+            {
+              "text": ", en ",
+              "strong": null
+            },
+            {
+              "text": "tenant",
+              "strong": "G5396"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "contre",
+              "strong": "G2248"
+            },
+            {
+              "text": " nous de ",
+              "strong": null
+            },
+            {
+              "text": "méchants",
+              "strong": "G4190"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "propos",
+              "strong": "G3056"
+            },
+            {
+              "text": " ;",
+              "strong": null
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "non",
+              "strong": "G3361"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "content",
+              "strong": "G0714"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "de",
+              "strong": "G1909"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "cela",
+              "strong": "G5125"
+            },
+            {
+              "text": ",",
+              "strong": null
+            },
+            {
+              "text": " il ne ",
+              "strong": null
+            },
+            {
+              "text": "reçoit",
+              "strong": "G1926"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "G3777"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "les",
+              "strong": "G3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "frères",
+              "strong": "G0080"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "et",
+              "strong": "G2532"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "ceux",
+              "strong": "G3588"
+            },
+            {
+              "text": " qui ",
+              "strong": null
+            },
+            {
+              "text": "voudraient",
+              "strong": "G1014"
+            },
+            {
+              "text": " le faire, il les en ",
+              "strong": null
+            },
+            {
+              "text": "empêche",
+              "strong": "G2967"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "et",
+              "strong": "G2532"
+            },
+            {
+              "text": " les ",
+              "strong": null
+            },
+            {
+              "text": "chasse",
+              "strong": "G1544"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "de",
+              "strong": "G1537"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "l’",
+              "strong": "G3588"
+            },
+            {
+              "text": "Église",
+              "strong": "G1577"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 11,
+          "tokens": [
+            {
+              "text": "Bien-aimé",
+              "strong": "G0027"
+            },
+            {
+              "text": ", n’",
+              "strong": null
+            },
+            {
+              "text": "imite",
+              "strong": "G3401"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "G3361"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "le",
+              "strong": "G3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "mal",
+              "strong": "G2556"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "mais",
+              "strong": "G0235"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "le",
+              "strong": "G3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "bien",
+              "strong": "G0018"
+            },
+            {
+              "text": ". ",
+              "strong": null
+            },
+            {
+              "text": "Celui",
+              "strong": "G3588"
+            },
+            {
+              "text": " qui fait le ",
+              "strong": null
+            },
+            {
+              "text": "bien",
+              "strong": "G0015"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "est",
+              "strong": "G1510"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "de",
+              "strong": "G1537"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "Dieu",
+              "strong": "G2316"
+            },
+            {
+              "text": " ; ",
+              "strong": null
+            },
+            {
+              "text": "celui",
+              "strong": "G3588"
+            },
+            {
+              "text": " qui fait le ",
+              "strong": null
+            },
+            {
+              "text": "mal",
+              "strong": "G2554"
+            },
+            {
+              "text": " n’a ",
+              "strong": null
+            },
+            {
+              "text": "point",
+              "strong": "G3756"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "vu",
+              "strong": "G3708"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "Dieu",
+              "strong": "G2316"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 12,
+          "tokens": [
+            {
+              "text": "Tous",
+              "strong": "G3956"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "et",
+              "strong": "G2532"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "la",
+              "strong": "G3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "vérité",
+              "strong": "G0225"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "elle-même",
+              "strong": "G0846"
+            },
+            {
+              "text": ", rendent un bon ",
+              "strong": null
+            },
+            {
+              "text": "témoignage",
+              "strong": "G3140"
+            },
+            {
+              "text": " à ",
+              "strong": null
+            },
+            {
+              "text": "Démétrius",
+              "strong": "G1216"
+            },
+            {
+              "text": " ;",
+              "strong": null
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "nous",
+              "strong": "G2249"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "aussi",
+              "strong": "G1161"
+            },
+            {
+              "text": ", nous lui rendons ",
+              "strong": null
+            },
+            {
+              "text": "témoignage",
+              "strong": "G3140"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "et",
+              "strong": "G2532"
+            },
+            {
+              "text": " tu ",
+              "strong": null
+            },
+            {
+              "text": "sais",
+              "strong": "G1492"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "que",
+              "strong": "G3754"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "notre",
+              "strong": "G3588 G2257"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "témoignage",
+              "strong": "G3141"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "est",
+              "strong": "G1510"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "vrai",
+              "strong": "G0227"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 13,
+          "tokens": [
+            {
+              "text": "J’",
+              "strong": null
+            },
+            {
+              "text": "aurais",
+              "strong": "G2192"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "beaucoup",
+              "strong": "G4183"
+            },
+            {
+              "text": " de choses à ",
+              "strong": null
+            },
+            {
+              "text": "t’",
+              "strong": "G4671"
+            },
+            {
+              "text": "écrire",
+              "strong": "G1125"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "mais",
+              "strong": "G0235"
+            },
+            {
+              "text": " je ne ",
+              "strong": null
+            },
+            {
+              "text": "veux",
+              "strong": "G2309"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "pas",
+              "strong": "G3756"
+            },
+            {
+              "text": " le ",
+              "strong": null
+            },
+            {
+              "text": "faire",
+              "strong": "G1125"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "avec",
+              "strong": "G1223"
+            },
+            {
+              "text": " l’",
+              "strong": null
+            },
+            {
+              "text": "encre",
+              "strong": "G3188"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "et",
+              "strong": "G2532"
+            },
+            {
+              "text": " la ",
+              "strong": null
+            },
+            {
+              "text": "plume",
+              "strong": "G2563"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 14,
+          "tokens": [
+            {
+              "text": "J’",
+              "strong": null
+            },
+            {
+              "text": "espère",
+              "strong": "G1679"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "te",
+              "strong": "G4571"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "voir",
+              "strong": "G1492"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "bientôt",
+              "strong": "G2112"
+            },
+            {
+              "text": ", ",
+              "strong": null
+            },
+            {
+              "text": "et",
+              "strong": "G2532"
+            },
+            {
+              "text": " nous ",
+              "strong": null
+            },
+            {
+              "text": "parlerons",
+              "strong": "G2980"
+            },
+            {
+              "text": " de ",
+              "strong": null
+            },
+            {
+              "text": "bouche",
+              "strong": "G4750"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "à",
+              "strong": "G4314"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "bouche",
+              "strong": "G4750"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        },
+        {
+          "verse": 15,
+          "tokens": [
+            {
+              "text": "Que la ",
+              "strong": null
+            },
+            {
+              "text": "paix",
+              "strong": "G1515"
+            },
+            {
+              "text": " soit avec ",
+              "strong": null
+            },
+            {
+              "text": "toi",
+              "strong": "G4671"
+            },
+            {
+              "text": " ! ",
+              "strong": null
+            },
+            {
+              "text": "Les",
+              "strong": "G3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "amis",
+              "strong": "G5384"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "te",
+              "strong": "G4571"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "saluent",
+              "strong": "G0782"
+            },
+            {
+              "text": ". ",
+              "strong": null
+            },
+            {
+              "text": "Salue",
+              "strong": "G0782"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "les",
+              "strong": "G3588"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "amis",
+              "strong": "G5384"
+            },
+            {
+              "text": ", chacun ",
+              "strong": null
+            },
+            {
+              "text": "en",
+              "strong": "G2596"
+            },
+            {
+              "text": " ",
+              "strong": null
+            },
+            {
+              "text": "particulier",
+              "strong": "G3686"
+            },
+            {
+              "text": ".",
+              "strong": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

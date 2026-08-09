@@ -7,14 +7,15 @@ import 'lexicon_index.dart';
 import 'local_repository.dart';
 import 'reading_history.dart';
 import 'reference_parser.dart';
+import 'strong_lexicon.dart';
 import 'version_repository.dart';
 
 /// The families a unified search looks into — the chip row of the maquette
 /// (`rech/`).
 ///
-/// Three of them have no data source in the app yet ([liens], [strong] and
-/// [nave]): they are still listed so the screen matches the design, but they
-/// are shown disabled. See [available].
+/// Two of them have no data source in the app yet ([liens] and [nave]): they
+/// are still listed so the screen matches the design, but they are shown
+/// disabled. See [available].
 enum SearchCategory {
   passages,
   notes,
@@ -38,22 +39,15 @@ enum SearchCategory {
   /// never searched and its chip cannot be selected.
   ///
   /// - [liens] : cross-references are not part of the BYM export yet.
-  /// - [strong] : the FR+Strong source is still to be procured
-  ///   (AGENTS.md, décision 10).
   /// - [nave] : the topical index is not bundled.
   bool get available => switch (this) {
-        SearchCategory.liens ||
-        SearchCategory.strong ||
-        SearchCategory.nave =>
-          false,
+        SearchCategory.liens || SearchCategory.nave => false,
         _ => true,
       };
 
   /// One-line reason shown when a disabled chip is tapped.
   String get unavailableReason => switch (this) {
         SearchCategory.liens => 'Références croisées — bientôt disponible.',
-        SearchCategory.strong =>
-          'Lexique Strong — source Française + Strong à venir.',
         SearchCategory.nave => 'Index thématique Nave — bientôt disponible.',
         _ => '',
       };
@@ -253,6 +247,7 @@ class SearchOutcome {
 /// - [SearchCategory.passages] → [FulltextIndex] over the 66 embedded books;
 /// - [SearchCategory.notes] → the `notes` table of [AppDatabase];
 /// - [SearchCategory.etudes] → [ReadingHistory] (the chapters already studied);
+/// - [SearchCategory.strong] → [StrongLexicon] (the French Strong definitions);
 /// - [SearchCategory.dictionnaire] → [LexiconIndex] (BYM note anchors).
 ///
 /// Each source is queried concurrently and failures are swallowed per source,
@@ -262,12 +257,14 @@ class SearchEngine {
   SearchEngine({
     FulltextIndex? fulltext,
     LexiconIndex? lexicon,
+    StrongLexicon? strong,
     AppDatabase? database,
     bool ambientDatabase = true,
     ReadingHistory? history,
     LocalRepository? repository,
     VersionRepository? versions,
   })  : _lexicon = lexicon ?? LexiconIndex.instance,
+        _strongLexicon = strong ?? StrongLexicon.instance,
         // ignore: prefer_initializing_formals (named params cannot be private)
         _fulltext = fulltext,
         // ignore: prefer_initializing_formals (named params cannot be private)
@@ -281,6 +278,7 @@ class SearchEngine {
   /// An index to use in place of the registry, for the version it covers.
   final FulltextIndex? _fulltext;
   final LexiconIndex _lexicon;
+  final StrongLexicon _strongLexicon;
   final AppDatabase? _database;
   final bool _ambientDatabase;
   final ReadingHistory _history;
@@ -356,6 +354,10 @@ class SearchEngine {
       if (wanted.contains(SearchCategory.dictionnaire))
         _dictionnaire(
             trimmed, expanded.contains(SearchCategory.dictionnaire))
+      else
+        Future.value(null),
+      if (wanted.contains(SearchCategory.strong))
+        _strong(trimmed, expanded.contains(SearchCategory.strong))
       else
         Future.value(null),
     ]);
@@ -578,6 +580,34 @@ class SearchEngine {
               bookIndex: e.bookIndex,
               chapter: e.chapter,
               verse: e.verseNumber,
+            ),
+        ],
+      );
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// The French Strong dictionary: a code query ("H0430") answers the
+  /// definition itself; a word query finds every definition that mentions it.
+  ///
+  /// Strong rows carry no book/chapter — the definition is the destination, so
+  /// the search screen shows them as a dictionary rather than a passage.
+  Future<SearchGroup?> _strong(String query, bool expanded) async {
+    try {
+      final entries = await _strongLexicon.search(query, limit: sourceLimit);
+      if (entries.isEmpty) return null;
+      final shown = expanded ? entries : entries.take(pageSize);
+      return SearchGroup(
+        category: SearchCategory.strong,
+        total: entries.length,
+        hits: [
+          for (final e in shown)
+            SearchHit(
+              category: SearchCategory.strong,
+              title: e.strong,
+              subtitle: e.definition,
+              badge: 'Strong',
             ),
         ],
       );

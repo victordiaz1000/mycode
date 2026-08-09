@@ -7,11 +7,13 @@ import 'package:bible_app/data/fulltext_index.dart';
 import 'package:bible_app/data/lexicon_index.dart';
 import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/data/search_engine.dart';
+import 'package:bible_app/data/strong_lexicon.dart';
 import 'package:bible_app/data/version_repository.dart';
 import 'package:bible_app/screens/search_screen.dart';
 
 import 'reader_version_test.dart' show FakeStore;
 import 'support/fake_bible_bundle.dart';
+import 'support/fake_strong_lexicon_bundle.dart';
 import 'version_repository_test.dart' show getbibleBook;
 
 /// Searching a version the reader downloaded — the other half of décision 6.
@@ -39,11 +41,13 @@ void main() {
   setUp(() {
     SharedPreferences.setMockInitialValues({});
     LocalRepository.useBundle(FakeBibleBundle());
+    StrongLexicon.useBundle(FakeStrongLexiconBundle());
     LexiconIndex.instance.clearIndex();
   });
 
   tearDown(() {
     LocalRepository.useRootBundle();
+    StrongLexicon.useRootBundle();
     FulltextIndex.useAmbientVersions();
     VersionRepository.clearCache();
   });
@@ -293,8 +297,8 @@ void main() {
       await tester.pumpAndSettle();
       await openVersionMenu(tester);
 
-      // 12 catalogue entries, BYM being the only searchable one here.
-      expect(find.text('11 autres versions à télécharger'), findsOneWidget);
+      // 12 catalogue entries, BYM and LSGS being the only searchable ones here.
+      expect(find.text('10 autres versions à télécharger'), findsOneWidget);
       await tester.tap(find.text('Bibliothèque'));
       await tester.pumpAndSettle();
       expect(opened, 1);

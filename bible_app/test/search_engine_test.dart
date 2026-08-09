@@ -62,20 +62,20 @@ void main() {
   });
 
   group('SearchCategory', () {
-    test('Liens, Strong and Nave are declared unavailable', () {
+    test('Liens and Nave are declared unavailable', () {
       expect(SearchCategory.liens.available, isFalse);
-      expect(SearchCategory.strong.available, isFalse);
       expect(SearchCategory.nave.available, isFalse);
+      expect(SearchCategory.strong.available, isTrue);
       expect(SearchCategory.liens.unavailableReason, isNotEmpty);
-      expect(SearchCategory.strong.unavailableReason, isNotEmpty);
       expect(SearchCategory.nave.unavailableReason, isNotEmpty);
     });
 
-    test('searchable holds the four wired sources', () {
+    test('searchable holds the five wired sources', () {
       expect(SearchCategory.searchable, {
         SearchCategory.passages,
         SearchCategory.notes,
         SearchCategory.etudes,
+        SearchCategory.strong,
         SearchCategory.dictionnaire,
       });
     });
@@ -180,7 +180,7 @@ void main() {
     test('an unavailable category is never queried', () async {
       final outcome = await engine.search(
         'verset',
-        categories: {SearchCategory.strong},
+        categories: {SearchCategory.nave},
       );
       expect(outcome.groups, isEmpty);
     });

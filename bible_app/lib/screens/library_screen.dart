@@ -309,12 +309,6 @@ class _VersionTile extends StatelessWidget {
                         ],
                       ),
                     ),
-                    if (version.hasAudio)
-                      Padding(
-                        padding: const EdgeInsets.only(right: 4),
-                        child: Icon(Icons.volume_up_outlined,
-                            size: 16, color: theme.colorScheme.outline),
-                      ),
                     _action(context),
                   ],
                 ),

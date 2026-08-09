@@ -32,7 +32,8 @@ void main() {
     WidgetTester tester, {
     String? currentHighlight,
     bool isFavorite = false,
-    bool hasNotes = true,
+    bool lexiqueEnabled = true,
+    String lexiqueLabel = 'Lexique Strong — verset mot à mot',
   }) async {
     final highlights = <String?>[];
     final favorites = <bool>[];
@@ -49,8 +50,8 @@ void main() {
                 excerpt: 'Au commencement…',
                 isFavorite: isFavorite,
                 currentHighlight: currentHighlight,
-                hasNotes: hasNotes,
-                noteCount: 2,
+                lexiqueEnabled: lexiqueEnabled,
+                lexiqueLabel: lexiqueLabel,
                 onHighlight: (color) async => highlights.add(color),
                 onFavorite: (value) async => favorites.add(value),
               ));
@@ -154,11 +155,25 @@ void main() {
     expect(popped, [StudyAction.copy]);
   });
 
-  testWidgets('the Lexique button needs annotated words', (tester) async {
-    await pumpSheet(tester, hasNotes: false);
+  testWidgets('the Lexique button is off when the version cannot offer Strong',
+    (tester) async {
+  await pumpSheet(
+      tester,
+      lexiqueEnabled: false,
+      lexiqueLabel: 'Lexique Strong — versions BYM/LSGS');
 
-    final button = tester.widget<OutlinedButton>(
-        find.widgetWithText(OutlinedButton, 'Lexique (aucun mot annoté)'));
-    expect(button.onPressed, isNull);
-  });
+  final button = tester.widget<OutlinedButton>(find.widgetWithText(
+      OutlinedButton, 'Lexique Strong — versions BYM/LSGS'));
+  expect(button.onPressed, isNull);
+});
+
+testWidgets('the Lexique button carries a precise name when enabled',
+    (tester) async {
+  await pumpSheet(tester);
+
+  final button = tester.widget<OutlinedButton>(
+      find.widgetWithText(OutlinedButton, 'Lexique Strong — verset mot à mot'));
+  expect(button.onPressed, isNotNull,
+      reason: 'the name tells the reader it opens the Strong rendering');
+});
 }

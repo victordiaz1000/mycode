@@ -1,3 +1,5 @@
+import '../data/version_repository.dart';
+
 /// Kind of content hosted in a tab (Chrome-style study tab).
 enum StudyTabKind { reading, home }
 
@@ -14,6 +16,10 @@ class StudyTab {
   final int? bookIndex;
   final int? chapter;
 
+  /// Version active in that tab. Each tab keeps its own reading version so a new
+  /// tab can inherit the previous one instead of silently resetting to BYM.
+  final String versionCode;
+
   /// Pinned tabs stay at the head of the switcher grid (maquette ⋯ menu).
   bool pinned;
 
@@ -23,18 +29,20 @@ class StudyTab {
     required this.title,
     this.bookIndex,
     this.chapter,
+    this.versionCode = VersionRepository.embeddedCode,
     this.pinned = false,
   });
 
   bool get isReading => kind == StudyTabKind.reading;
   bool get isHome => kind == StudyTabKind.home;
 
-  StudyTab copyWith({String? title, bool? pinned}) => StudyTab(
+  StudyTab copyWith({String? title, bool? pinned, String? versionCode}) => StudyTab(
         id: id,
         kind: kind,
         title: title ?? this.title,
         bookIndex: bookIndex,
         chapter: chapter,
+        versionCode: versionCode ?? this.versionCode,
         pinned: pinned ?? this.pinned,
       );
 
@@ -44,6 +52,7 @@ class StudyTab {
         'title': title,
         'book': bookIndex,
         'chapter': chapter,
+        'versionCode': versionCode,
         'pinned': pinned,
       };
 
@@ -54,6 +63,8 @@ class StudyTab {
         title: json['title'] as String? ?? '',
         bookIndex: (json['book'] as num?)?.toInt(),
         chapter: (json['chapter'] as num?)?.toInt(),
+        versionCode: json['versionCode'] as String? ??
+            VersionRepository.embeddedCode,
         pinned: json['pinned'] as bool? ?? false,
       );
 }

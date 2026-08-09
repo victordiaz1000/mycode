@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../data/app_preferences.dart';
@@ -11,6 +12,10 @@ class VerseTile extends StatelessWidget {
   final int verseNumber;
   final VoidCallback? onTap;
   final GestureLongPressCallback? onLongPress;
+
+  /// Called with the Strong number when the reader taps it (LSGS: the codes are
+  /// clickable). Null on versions whose text has no Strong numbers.
+  final void Function(String strong)? onStrongTap;
 
   /// User state: highlight color hex (or null), favorite, has-note.
   final String? highlightColor;
@@ -29,6 +34,7 @@ class VerseTile extends StatelessWidget {
     required this.verseNumber,
     this.onTap,
     this.onLongPress,
+    this.onStrongTap,
     this.highlightColor,
     this.isFavorite = false,
     this.hasNote = false,
@@ -106,7 +112,16 @@ class VerseTile extends StatelessWidget {
                     child: showNotes
                         ? NoteAwareVerseText(
                             verse: verse, disposition: disposition)
-                        : Text(verse.text, style: theme.textTheme.bodyLarge),
+                        : _StrongAwareText(
+                            text: verse.text,
+                            style: theme.textTheme.bodyLarge,
+                            strongStyle: theme.textTheme.bodyLarge?.copyWith(
+                              fontSize: (theme.textTheme.bodyLarge?.fontSize ?? 16) * 0.72,
+                              color: theme.colorScheme.primary,
+                              fontWeight: FontWeight.w700,
+                            ),
+                            onStrongTap: onStrongTap,
+                          ),
                   ),
                   if (isFavorite || hasNote)
                     Column(
@@ -134,6 +149,70 @@ class VerseTile extends StatelessWidget {
   }
 }
 
+class _StrongAwareText extends StatelessWidget {
+  final String text;
+  final TextStyle? style;
+  final TextStyle? strongStyle;
+
+  /// Non-null makes the Strong codes tappable (LSGS): the reader reports the
+  /// number through it. Null keeps them as plain styled spans.
+  final void Function(String strong)? onStrongTap;
+
+  const _StrongAwareText({
+    required this.text,
+    this.style,
+    this.strongStyle,
+    this.onStrongTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final baseStyle = style ?? DefaultTextStyle.of(context).style;
+    final strongPattern = RegExp(r'(?<!\w)([A-Z][0-9]{4})(?!\w)');
+    final matches = strongPattern.allMatches(text);
+    if (matches.isEmpty) {
+      return Text(text, style: baseStyle);
+    }
+
+    final spans = <InlineSpan>[];
+    var cursor = 0;
+    for (final match in matches) {
+      if (match.start > cursor) {
+        spans.add(TextSpan(text: text.substring(cursor, match.start), style: baseStyle));
+      }
+      final strong = match.group(0)!;
+      final recognizer = onStrongTap == null ? null : _strongRecognizer(strong);
+      spans.add(TextSpan(
+        text: strong,
+        style: (strongStyle ?? baseStyle).copyWith(
+          color: Theme.of(context).colorScheme.primary,
+          fontWeight: FontWeight.w700,
+          decoration: onStrongTap == null ? null : TextDecoration.underline,
+          decorationStyle: onStrongTap == null
+              ? null
+              : TextDecorationStyle.dotted,
+        ),
+        recognizer: recognizer,
+      ));
+      cursor = match.end;
+    }
+    if (cursor < text.length) {
+      spans.add(TextSpan(text: text.substring(cursor), style: baseStyle));
+    }
+
+    return RichText(text: TextSpan(style: baseStyle, children: spans));
+  }
+
+  TapGestureRecognizer _strongRecognizer(String strong) {
+    final recognizer = TapGestureRecognizer();
+    recognizer.onTap = () {
+      final callback = onStrongTap;
+      if (callback != null) callback(strong);
+    };
+    return recognizer;
+  }
+}
+
 class ChapterVerseList extends StatelessWidget {
   final Chapter chapter;
   final bool showNotes;
@@ -141,6 +220,10 @@ class ChapterVerseList extends StatelessWidget {
   final Widget? header;
   final void Function(Verse verse)? onVerseTap;
   final void Function(Verse verse)? onVerseLongPress;
+
+  /// Called with the Strong number when the reader taps it (LSGS). Null on
+  /// versions without Strong numbers.
+  final void Function(Verse verse, String strong)? onStrongTap;
 
   /// Per-verse user state (highlight color, favorite, has-note).
   final String? Function(int verseNumber)? highlightOf;
@@ -175,6 +258,7 @@ class ChapterVerseList extends StatelessWidget {
     this.header,
     this.onVerseTap,
     this.onVerseLongPress,
+    this.onStrongTap,
     this.highlightOf,
     this.isFavoriteOf,
     this.hasNoteOf,
@@ -215,6 +299,9 @@ class ChapterVerseList extends StatelessWidget {
             onLongPress: onVerseLongPress == null
                 ? null
                 : () => onVerseLongPress!(verse),
+            onStrongTap: onStrongTap == null
+                ? null
+                : (strong) => onStrongTap!(verse, strong),
             highlightColor: highlightOf?.call(vn),
             isFavorite: isFavoriteOf?.call(vn) ?? false,
             hasNote: hasNoteOf?.call(vn) ?? false,

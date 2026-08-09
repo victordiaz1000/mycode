@@ -117,6 +117,16 @@ void main() {
       expect(repository.isEmbedded('BYM'), isTrue);
     });
 
+    test('LSGS is treated as an embedded Strong version', () async {
+      final book = await repository.loadBook('LSGS', 1);
+      expect(book.book, 'Genèse');
+      expect(book.chapters, isNotEmpty);
+      expect(repository.isEmbedded('LSGS'), isTrue);
+      expect(book.chapters.first.verses.first.text, contains('H0430'));
+      expect(book.chapters.first.verses.first.text, contains('Dieu H0430'));
+      expect(book.chapters.first.verses.first.text, contains('H0430 créa'));
+    });
+
     test('a downloaded version comes from the device', () async {
       await store.saveBook('DBY', 1, getbibleBook(1));
 
@@ -174,6 +184,8 @@ void main() {
       // serves text alone, so claiming notes here would show an empty toggle.
       expect(versionByCode('DBY')!.carriesNotes, isFalse);
       expect(versionByCode('LSG')!.carriesNotes, isFalse);
+      expect(versionByCode('LSGS')!.carriesNotes, isFalse,
+          reason: 'LSGS gives Strong tokens but no BYM metadata or introduction');
     });
 
     test('everything downloadable today is getbible', () {

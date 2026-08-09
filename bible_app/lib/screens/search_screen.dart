@@ -891,8 +891,6 @@ class _EmptyState extends StatelessWidget {
 
   const _EmptyState({required this.onPick});
 
-  /// The maquette's « Chercher un mot Strong » group is left out on purpose:
-  /// the Strong corpus is not embedded, so those chips would search nothing.
   static const List<({String title, List<String> queries})> _suggestions = [
     (
       title: 'Chercher une référence',
@@ -903,6 +901,10 @@ class _EmptyState extends StatelessWidget {
       queries: ['Jésus pleura', 'Au commencement']
     ),
     (title: 'Chercher un mot', queries: ['amour', 'grâce', 'alliance']),
+    (
+      title: 'Chercher un mot Strong',
+      queries: ['H0430', 'G2316', 'agapao']
+    ),
     (title: 'Chercher un livre', queries: ['Apocalypse', 'Bereshit']),
   ];
 

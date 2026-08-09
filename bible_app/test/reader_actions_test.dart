@@ -140,13 +140,13 @@ void main() {
     expect(find.text('Version intégrée'), findsOneWidget);
     expect(find.text('Bible de Yehoshoua Ha Mashiah'), findsOneWidget);
 
-    // Nothing downloaded here, so the rest of the catalogue is not offered: it
-    // used to sit below, greyed, a dozen rows answering « à télécharger ».
-    expect(find.text('Versions Louis Segond'), findsNothing);
+    // Nothing is downloaded here, so the downloadable half of the catalogue is
+    // not offered: it used to sit below, greyed, a dozen rows answering « à
+    // télécharger ». LSGS, like BYM, is embedded — it is offered.
     expect(find.text('Bible Segond 1910'), findsNothing);
-    expect(find.text('Bible Segond 1910 + Strongs'), findsNothing);
-    expect(find.text('Autres versions'), findsNothing);
+    expect(find.text('Bible Segond 1910 + Strongs'), findsOneWidget);
     expect(find.text('Bible Darby'), findsNothing);
+    expect(find.text('Autres versions'), findsNothing);
   });
 
   testWidgets('the sheet ends on the way to the Bibliothèque', (tester) async {
@@ -158,13 +158,14 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Bibliothèque'), findsOneWidget);
-    // 12 catalogue entries, BYM being the only readable one here.
-    expect(find.text('11 autres versions à télécharger'), findsOneWidget);
+    // 12 catalogue entries, BYM and LSGS being the only readable ones here.
+    expect(find.text('10 autres versions à télécharger'), findsOneWidget);
   });
 
-  testWidgets('a listed version keeps its audio glyph', (tester) async {
-    // BYM ships no audio, so the glyph has to be checked on a downloaded row —
-    // LSG, which the maquette marks with a 🔊.
+  testWidgets('a listed version no longer carries an audio glyph', (tester) async {
+    // Audio was removed from the app (décision 2026-08) : the maquette prints a
+    // 🔊 next to versions with an audio reading, but nothing plays audio today,
+    // so the sheet must not advertise what it cannot deliver.
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(
         body: ReaderActionsBar(
@@ -181,12 +182,12 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Bible Segond 1910'), findsOneWidget);
-    expect(find.byIcon(Icons.volume_up_outlined), findsWidgets);
+    expect(find.byIcon(Icons.volume_up_outlined), findsNothing);
   });
 
   testWidgets('a version without files is absent, whatever its licence',
       (tester) async {
-    // LSGS has no free source (décision 9) and DBY is only downloadable: both
+    // LSG has no free source (décision 9) and DBY is only downloadable: both
     // used to be listed and answer a snackbar. Neither can be read, so the
     // sheet does not carry them — the Bibliothèque does.
     await pumpReader(tester);
@@ -194,10 +195,10 @@ void main() {
     await tester.tap(inBar('BYM'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Bible Segond 1910 + Strongs'), findsNothing);
+    expect(find.text('Bible Segond 1910'), findsNothing);
     expect(find.text('Bible Darby'), findsNothing);
     // Only BYM and the footer are tappable, so nothing can raise these.
-    expect(find.text('LSGS — bientôt disponible.'), findsNothing);
+    expect(find.text('LSG — bientôt disponible.'), findsNothing);
     expect(find.text('DBY — à télécharger depuis la Bibliothèque.'),
         findsNothing);
   });

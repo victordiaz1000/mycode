@@ -6,19 +6,25 @@ import 'package:bible_app/data/fulltext_index.dart';
 import 'package:bible_app/data/lexicon_index.dart';
 import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/data/search_engine.dart';
+import 'package:bible_app/data/strong_lexicon.dart';
 import 'package:bible_app/screens/search_screen.dart';
 
 import 'support/fake_bible_bundle.dart';
+import 'support/fake_strong_lexicon_bundle.dart';
 
 void main() {
   setUp(() {
     SharedPreferences.setMockInitialValues({});
     LocalRepository.useBundle(FakeBibleBundle());
+    StrongLexicon.useBundle(FakeStrongLexiconBundle());
     FulltextIndex.instance.clearIndex();
     LexiconIndex.instance.clearIndex();
   });
 
-  tearDown(LocalRepository.useRootBundle);
+  tearDown(() {
+    LocalRepository.useRootBundle();
+    StrongLexicon.useRootBundle();
+  });
 
   /// The screen under test, wired to an engine that never reaches sqflite:
   /// path_provider's channel never answers inside the fake-async zone, so an
@@ -153,11 +159,37 @@ void main() {
     await tester.pumpWidget(app());
     await type(tester, 'verset');
 
-    await tapChip(tester, 'Strong');
+    await tapChip(tester, 'Nave');
     await tester.pump();
 
-    expect(find.textContaining('source Française + Strong'), findsOneWidget);
+    expect(find.textContaining('Index thématique Nave'), findsOneWidget);
     // Passages are still listed: the disabled chip did not filter anything.
+    expect(find.text('Genèse 1:1'), findsOneWidget);
+  });
+
+  testWidgets('the Strong category lists the French definitions',
+      (tester) async {
+    await tester.pumpWidget(app());
+    await type(tester, 'H0430');
+
+    await tapChip(tester, 'Strong');
+    await tester.pumpAndSettle();
+
+    expect(find.text('Strong'), findsWidgets);
+    expect(find.text('H0430'), findsWidgets);
+    expect(find.textContaining('Définition test de H0430'), findsWidgets);
+  });
+
+  testWidgets('unavailable categories cannot narrow the results',
+      (tester) async {
+    await tester.pumpWidget(app());
+    await type(tester, 'verset');
+    expect(find.text('Genèse 1:1'), findsOneWidget);
+
+    await tapChip(tester, 'Nave');
+    await tester.pumpAndSettle();
+
+    // The chip was ignored: the query was not rerun with a Nave-only filter.
     expect(find.text('Genèse 1:1'), findsOneWidget);
   });
 

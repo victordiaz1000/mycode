@@ -44,6 +44,14 @@ class LexiconIndex {
   static const int _minQueryLength = 2;
 
   List<DictionaryEntry> _entries = const [];
+
+  /// Accent-free, lowercased word per entry, aligned with [_entries].
+  /// Computed once at build so [search] never re-normalizes in its hot loop.
+  List<String> _normalizedWords = const [];
+
+  /// Same for the definitions, used only on score 3 fallback.
+  List<String> _normalizedDefinitions = const [];
+
   bool _built = false;
   Future<void>? _building;
 
@@ -56,6 +64,8 @@ class LexiconIndex {
   /// Widget tests swap the asset bundle and must call this in `setUp`.
   void clearIndex() {
     _entries = const [];
+    _normalizedWords = const [];
+    _normalizedDefinitions = const [];
     _built = false;
     _building = null;
   }
@@ -110,8 +120,20 @@ class LexiconIndex {
           verseNumber: a.verseNumber,
           occurrences: a.occurrences,
         ),
-    ]..sort((a, b) =>
-        normalizeForSearch(a.word).compareTo(normalizeForSearch(b.word)));
+    ];
+    // Alphabetical order, once — the sort below used to re-normalize every
+    // compared word for each comparison (O(n log n) cheap regexes).
+    var order = List<int>.generate(_entries.length, (i) => i);
+    order.sort((a, b) =>
+        normalizeForSearch(_entries[a].word).compareTo(
+            normalizeForSearch(_entries[b].word)));
+    _entries = [for (final i in order) _entries[i]];
+    _normalizedWords = [
+      for (final e in _entries) normalizeForSearch(e.word),
+    ];
+    _normalizedDefinitions = [
+      for (final e in _entries) normalizeForSearch(e.definition),
+    ];
     _built = true;
   }
 
@@ -127,7 +149,7 @@ class LexiconIndex {
     final results = <({int score, int rank, DictionaryEntry entry})>[];
     for (var i = 0; i < _entries.length; i++) {
       final entry = _entries[i];
-      final word = normalizeForSearch(entry.word);
+      final word = _normalizedWords[i];
       int? score;
       if (word == q) {
         score = 0;
@@ -135,7 +157,7 @@ class LexiconIndex {
         score = 1;
       } else if (word.contains(q)) {
         score = 2;
-      } else if (normalizeForSearch(entry.definition).contains(q)) {
+      } else if (_normalizedDefinitions[i].contains(q)) {
         score = 3;
       }
       if (score == null) continue;

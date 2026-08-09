@@ -30,8 +30,8 @@ Future<StudyAction?> showStudySheet(
   required String excerpt,
   required bool isFavorite,
   required String? currentHighlight,
-  required bool hasNotes, // enables the Lexique button
-  required int noteCount,
+  required bool lexiqueEnabled, // enables the Lexique button
+  required String lexiqueLabel, // what the button names, even when disabled
   required Future<void> Function(String? color) onHighlight,
   required Future<void> Function(bool value) onFavorite,
 }) {
@@ -43,8 +43,8 @@ Future<StudyAction?> showStudySheet(
       verse: excerpt,
       isFavorite: isFavorite,
       currentHighlight: currentHighlight,
-      hasNotes: hasNotes,
-      noteCount: noteCount,
+      lexiqueEnabled: lexiqueEnabled,
+      lexiqueLabel: lexiqueLabel,
       onHighlight: onHighlight,
       onFavorite: onFavorite,
     ),
@@ -56,8 +56,8 @@ class _StudySheet extends StatefulWidget {
   final String verse;
   final bool isFavorite;
   final String? currentHighlight;
-  final bool hasNotes;
-  final int noteCount;
+  final bool lexiqueEnabled;
+  final String lexiqueLabel;
   final Future<void> Function(String? color) onHighlight;
   final Future<void> Function(bool value) onFavorite;
 
@@ -66,8 +66,8 @@ class _StudySheet extends StatefulWidget {
     required this.verse,
     required this.isFavorite,
     required this.currentHighlight,
-    required this.hasNotes,
-    required this.noteCount,
+    required this.lexiqueEnabled,
+    required this.lexiqueLabel,
     required this.onHighlight,
     required this.onFavorite,
   });
@@ -161,8 +161,8 @@ class _StudySheetState extends State<_StudySheet> {
           Text('Actions', style: theme.textTheme.labelLarge),
           const SizedBox(height: 8),
           _ActionGrid(
-            hasNotes: widget.hasNotes,
-            noteCount: widget.noteCount,
+            lexiqueEnabled: widget.lexiqueEnabled,
+            lexiqueLabel: widget.lexiqueLabel,
             favorite: _favorite,
             onFavorite: _toggleFavorite,
             onAction: (action) => Navigator.of(context).pop(action),
@@ -205,15 +205,15 @@ class _ColorDot extends StatelessWidget {
 }
 
 class _ActionGrid extends StatelessWidget {
-  final bool hasNotes;
-  final int noteCount;
+  final bool lexiqueEnabled;
+  final String lexiqueLabel;
   final bool favorite;
   final VoidCallback onFavorite;
   final void Function(StudyAction) onAction;
 
   const _ActionGrid({
-    required this.hasNotes,
-    required this.noteCount,
+    required this.lexiqueEnabled,
+    required this.lexiqueLabel,
     required this.favorite,
     required this.onFavorite,
     required this.onAction,
@@ -230,7 +230,7 @@ class _ActionGrid extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: OutlinedButton.icon(
-            onPressed: hasNotes
+            onPressed: lexiqueEnabled
                 ? () => onAction(StudyAction.lexicon)
                 : null,
             style: OutlinedButton.styleFrom(
@@ -239,9 +239,7 @@ class _ActionGrid extends StatelessWidget {
               foregroundColor: theme.colorScheme.primary,
             ),
             icon: const Icon(Icons.menu_book),
-            label: Text(hasNotes
-                ? 'Lexique — $noteCount mot${noteCount > 1 ? 's' : ''} annoté${noteCount > 1 ? 's' : ''}'
-                : 'Lexique (aucun mot annoté)'),
+            label: Text(lexiqueLabel),
           ),
         ),
         _ActionChip(

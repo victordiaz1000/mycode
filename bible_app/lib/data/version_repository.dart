@@ -1,9 +1,11 @@
 import '../models/bible_book.dart';
 import '../models/chapter.dart';
+import '../models/lsgs.dart';
 import '../models/verse.dart';
 import 'book_catalog.dart';
 import 'library_store.dart';
 import 'local_repository.dart';
+import 'lsgs_repository.dart';
 import 'version_catalog.dart';
 
 /// Le livre demandé n'est pas sur l'appareil dans cette version.
@@ -32,13 +34,16 @@ class BookNotDownloaded implements Exception {
 class VersionRepository {
   VersionRepository({LocalRepository? local, LibraryStore? store})
       : _local = local ?? LocalRepository(),
-        _store = store ?? LibraryStore();
+        _store = store ?? LibraryStore(),
+        _lsgs = LsgsRepository();
 
   final LocalRepository _local;
   final LibraryStore _store;
+  final LsgsRepository _lsgs;
 
-  /// La seule version embarquée (décision 3).
+  /// The embedded default version (decision 3).
   static const String embeddedCode = 'BYM';
+  static const String lsgsCode = 'LSGS';
 
   /// Livres téléchargés déjà convertis, par `code|index`. [LocalRepository]
   /// garde le même genre de cache pour la BYM : un chapitre est relu plusieurs
@@ -53,14 +58,20 @@ class VersionRepository {
   static void forget(String code) =>
       _cache.removeWhere((key, _) => key.startsWith('$code|'));
 
-  bool isEmbedded(String code) => code == embeddedCode;
+  bool isEmbedded(String code) => code == embeddedCode || code == lsgsCode;
 
   /// Le livre [bymIndex] (1..66) dans la version [code].
   ///
   /// Lève [BookNotDownloaded] si la version n'a pas ce livre sur l'appareil —
   /// le cas normal d'un téléchargement encore partiel.
   Future<BibleBook> loadBook(String code, int bymIndex) async {
-    if (isEmbedded(code)) return _local.loadBook(bymIndex);
+    if (code == embeddedCode) return _local.loadBook(bymIndex);
+    if (code == lsgsCode) {
+      final lsgsBook = await _lsgs.loadBook(bymIndex);
+      final book = LsgsRepository.toBibleBook(lsgsBook);
+      _cache['$code|$bymIndex'] = book;
+      return book;
+    }
 
     final key = '$code|$bymIndex';
     final cached = _cache[key];
@@ -86,6 +97,22 @@ class VersionRepository {
       (c) => c.chapter == chapter,
       orElse: () => Chapter(chapter: chapter, verses: const []),
     );
+  }
+
+  /// Les tokens Strong du verset LSGS, pour le rendu cliquable dans la lecture.
+  ///
+  /// La BYM et les versions téléchargées n'en ont pas : `toBibleBook` aplatit
+  /// les tokens en texte nu, et seule la LSGS embarquée porte les numéros.
+  Future<List<LsgsToken>> lsgsTokens(
+      int bymIndex, int chapter, int verseNumber) async {
+    final book = await _lsgs.loadBook(bymIndex);
+    for (final ch in book.chapters) {
+      if (ch.chapter != chapter) continue;
+      for (final verse in ch.verses) {
+        if (verse.verse == verseNumber) return verse.tokens;
+      }
+    }
+    return const [];
   }
 
   Future<int> chapterCount(String code, int bymIndex) async =>

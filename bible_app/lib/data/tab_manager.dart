@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/study_tab.dart';
 import 'book_catalog.dart';
 import 'reading_history.dart';
+import 'version_repository.dart';
 
 /// Chrome-style tab manager (maquette v1.1).
 ///
@@ -43,9 +44,14 @@ class TabManager extends ChangeNotifier {
       _tabs.any((t) =>
           t.isReading && t.bookIndex == bookIndex && t.chapter == chapter);
 
+  String _preferredVersionCode(String? explicitCode) {
+    if (explicitCode != null && explicitCode.isNotEmpty) return explicitCode;
+    return active?.versionCode ?? VersionRepository.embeddedCode;
+  }
+
   /// Opens (or focuses) a reading tab for [bookIndex]/[chapter].
   /// Returns the index of the tab to show.
-  int openReading(int bookIndex, int chapter) {
+  int openReading(int bookIndex, int chapter, {String? versionCode}) {
     history.record(bookIndex, chapter);
     final existing = _tabs.indexWhere((t) =>
         t.isReading && t.bookIndex == bookIndex && t.chapter == chapter);
@@ -55,12 +61,14 @@ class TabManager extends ChangeNotifier {
       return existing;
     }
     final entry = catalogEntry(bookIndex);
+    final resolvedCode = _preferredVersionCode(versionCode);
     final tab = StudyTab(
       id: _nextId(),
       kind: StudyTabKind.reading,
       title: '${entry.abbreviation} $chapter',
       bookIndex: bookIndex,
       chapter: chapter,
+      versionCode: resolvedCode,
     );
     _tabs.add(tab);
     _activeIndex = _tabs.length - 1;
@@ -75,10 +83,10 @@ class TabManager extends ChangeNotifier {
   /// one. Falls back to [openReading] when no tab is active.
   ///
   /// The tab keeps its id and its pinned flag — it is the same tab, moved.
-  int replaceActiveReading(int bookIndex, int chapter) {
+  int replaceActiveReading(int bookIndex, int chapter, {String? versionCode}) {
     final index = _activeIndex;
     if (index < 0 || index >= _tabs.length) {
-      return openReading(bookIndex, chapter);
+      return openReading(bookIndex, chapter, versionCode: versionCode);
     }
     history.record(bookIndex, chapter);
     final current = _tabs[index];
@@ -88,6 +96,7 @@ class TabManager extends ChangeNotifier {
       title: '${catalogEntry(bookIndex).abbreviation} $chapter',
       bookIndex: bookIndex,
       chapter: chapter,
+      versionCode: versionCode ?? current.versionCode,
       pinned: current.pinned,
     );
     _persist();
@@ -96,17 +105,26 @@ class TabManager extends ChangeNotifier {
   }
 
   /// Adds a home ("new tab") tab and makes it active.
-  int openHome() {
+  int openHome({String? versionCode}) {
     final tab = StudyTab(
       id: _nextId(),
       kind: StudyTabKind.home,
       title: 'Nouvel onglet',
+      versionCode: _preferredVersionCode(versionCode),
     );
     _tabs.add(tab);
     _activeIndex = _tabs.length - 1;
     _persist();
     notifyListeners();
     return _activeIndex;
+  }
+
+  void updateTabVersion(String tabId, String versionCode) {
+    final index = _tabs.indexWhere((tab) => tab.id == tabId);
+    if (index < 0) return;
+    _tabs[index] = _tabs[index].copyWith(versionCode: versionCode);
+    _persist();
+    notifyListeners();
   }
 
   void activate(int index) {

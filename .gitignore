@@ -2,11 +2,16 @@
 .claude/
 .deep-copilot/
 
-# Sortie régénérable du convertisseur : `python md_to_json.py` la reconstruit
-# depuis `appCodebar/bym_md/`. Les mêmes 9,3 Mo existent déjà deux fois dans le
-# dépôt (`bym_json/` et `bible_app/assets/bible/bym/`) ; une troisième copie ne
-# porte aucune information, seulement le risque qu'elle diverge des deux autres.
+# Sorties régénérables des convertisseurs. `python md_to_json.py` reconstruit
+# `appCodebar/bym_json/` depuis `appCodebar/bym_md/`, et `python sg1910_to_json.py`
+# reconstruit `appCodebar/sg1910_json/` depuis `Sg1910-csv/`. Dans chaque cas les
+# mêmes données existent déjà dans `bible_app/assets/` (bym/ et lsgs/) ; les copies
+# intermédiaires ne portent aucune information, seulement le risque de diverger.
 appCodebar/bym_json/
+appCodebar/sg1910_json/
+
+# Doublon compressé du corpus CSV source : le dossier `Sg1910-csv/` fait foi.
+Sg1910-csv.zip
 
 # Systèmes de fichiers
 Thumbs.db

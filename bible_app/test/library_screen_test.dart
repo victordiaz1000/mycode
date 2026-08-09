@@ -119,17 +119,18 @@ void main() {
       expect(find.text('Aucun dictionnaire à télécharger'), findsOneWidget);
     });
 
-    testWidgets('a fresh device: BYM is integrated, DBY downloadable, LSGS not',
+    testWidgets('a fresh device: BYM and LSGS are integrated, DBY downloadable',
         (tester) async {
       final store = FakeStore();
       await pumpLibrary(tester, store: store, service: FakeService(store));
 
       expect(find.byKey(const Key('download-BYM')), findsNothing);
+      expect(find.byKey(const Key('download-LSGS')), findsNothing);
       expect(find.text('Intégrée à l\'application · hors ligne'),
-          findsOneWidget);
+          findsNWidgets(2),
+          reason: 'BYM and the embedded LSGS both ship inside the app');
       expect(find.byKey(const Key('download-DBY')), findsOneWidget);
       expect(find.byKey(const Key('delete-DBY')), findsNothing);
-      expect(find.byKey(const Key('download-LSGS')), findsNothing);
       expect(find.text('Bientôt disponible'), findsWidgets);
     });
 

@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:bible_app/data/local_repository.dart';
+import 'package:bible_app/data/lsgs_repository.dart';
 import 'package:bible_app/data/tab_manager.dart';
 import 'package:bible_app/screens/reader_screen.dart';
 import 'package:bible_app/widgets/chapter_reader.dart';
@@ -10,6 +11,7 @@ import 'package:bible_app/widgets/reader_actions_bar.dart';
 import 'package:bible_app/widgets/tab_strip.dart';
 
 import 'support/fake_bible_bundle.dart';
+import 'support/fake_lsgs_bundle.dart';
 
 /// The gold counter inside the strip (an exact "N", never a tab title).
 Finder tabCounter(String n) =>
@@ -43,9 +45,15 @@ void main() {
     // Real assets would stall every pumpAndSettle (rootBundle I/O cannot
     // complete inside the fake-async zone of testWidgets).
     LocalRepository.useBundle(FakeBibleBundle());
+    // LSGS is embedded too: a tab can inherit the LSGS version, and its book
+    // files also come from rootBundle.
+    LsgsRepository.useBundle(FakeLsgsBundle());
   });
 
-  tearDown(LocalRepository.useRootBundle);
+  tearDown(() {
+    LocalRepository.useRootBundle();
+    LsgsRepository.useRootBundle();
+  });
 
   testWidgets('ReaderScreen shows the new-tab home when empty',
       (tester) async {
@@ -157,5 +165,23 @@ void main() {
     expect(m.count, 1);
     expect(m.active!.title, 'Ge. 2');
     expect(find.text('Verset de test Ge. 2:1.'), findsOneWidget);
+  });
+
+  testWidgets('a newly created tab inherits the previous tab version',
+      (tester) async {
+    final m = TabManager();
+    final first = m.openReading(1, 1);
+    m.updateTabVersion(m.tabs[first].id, 'LSGS');
+
+    await tester.pumpWidget(MaterialApp(home: ReaderScreen(initialManager: m)));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pumpAndSettle();
+    await openChapterViaLivres(tester, 'Genèse', '2', pill: 'Livres');
+
+    expect(m.count, 2);
+    expect(m.tabs[1].versionCode, 'LSGS');
+    expect(m.tabs[1].title, 'Ge. 2');
   });
 }

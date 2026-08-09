@@ -48,11 +48,19 @@ String normalizeForSearch(String input) {
   for (final rune in input.toLowerCase().runes) {
     final ch = String.fromCharCode(rune);
     final plain = _accents[ch] ?? ch;
-    if (RegExp(r'[a-z0-9 ]').hasMatch(plain)) {
-      buffer.write(plain);
-    } else {
-      buffer.write(' ');
+    // Single ASCII letter/digit/space — a code check is far cheaper than a
+    // RegExp per character (this runs over every verse and every 14k Strong
+    // definition on each search).
+    if (plain.length == 1) {
+      final code = plain.codeUnitAt(0);
+      if ((code >= 97 && code <= 122) ||
+          (code >= 48 && code <= 57) ||
+          code == 32) {
+        buffer.write(plain);
+        continue;
+      }
     }
+    buffer.write(' ');
   }
   return buffer.toString().trim().replaceAll(RegExp(r'\s+'), ' ');
 }

@@ -165,13 +165,13 @@ class _TopBar extends StatelessWidget {
     final theme = Theme.of(context);
     return Row(
       children: [
-        Icon(Icons.auto_stories, color: theme.colorScheme.primary),
-        const SizedBox(width: 8),
-        Text(
-          'BYM',
-          style: theme.textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.w800,
-            letterSpacing: 1.5,
+        Image.asset(
+          'assets/brand/logo.png',
+          height: 32,
+          fit: BoxFit.contain,
+          errorBuilder: (_, _, _) => Icon(
+            Icons.auto_stories,
+            color: theme.colorScheme.primary,
           ),
         ),
         const Spacer(),
