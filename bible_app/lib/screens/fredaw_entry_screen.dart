@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../data/fredaw_lexicon.dart';
 import '../data/reference_parser.dart';
 import '../widgets/fredaw_article_view.dart';
+import '../widgets/premium_style.dart';
 
 /// A single Westphal 1932 article: the term in a header card, then the
 /// definition (multi-paragraph) with a « Lire la suite / Réduire » toggle.
@@ -53,8 +54,14 @@ class FredawEntryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final p = premiumPalette(context);
     return Scaffold(
+      backgroundColor: kPremiumBackground,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        foregroundColor: p.textDark,
+        centerTitle: true,
         actions: [
           if (onOpenDictionary != null)
             Tooltip(
@@ -69,8 +76,11 @@ class FredawEntryScreen extends StatelessWidget {
                   Navigator.of(context).popUntil((route) => route.isFirst);
                   onOpenDictionary!(entry.term, entry.definition);
                 },
-                icon: const Icon(Icons.tab_outlined, size: 18),
-                label: const Text('Ouvrir onglet'),
+                icon: Icon(Icons.tab_outlined, size: 18, color: p.primary),
+                label: Text(
+                  'Ouvrir onglet',
+                  style: premiumText(context, 13, FontWeight.w700, p.primary),
+                ),
               ),
             ),
         ],

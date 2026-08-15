@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/fredaw_lexicon.dart';
 import '../data/reference_parser.dart';
-import '../data/theme_catalog.dart';
-import '../widgets/bible_theme_scope.dart';
+import '../widgets/premium_style.dart';
 import 'fredaw_entry_screen.dart';
 
 /// Browse the whole Westphal 1932 dictionary: a search field, an alphabetical
@@ -84,10 +83,19 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final bibleTheme = BibleThemeScope.of(context);
+    final p = premiumPalette(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Westphal 1932')),
+      backgroundColor: kPremiumBackground,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        foregroundColor: p.textDark,
+        centerTitle: true,
+        title: Text(
+          'Westphal 1932',
+          style: premiumText(context, 18, FontWeight.w800, p.textDark),
+        ),
+      ),
       body: SafeArea(
         top: false,
         child: Padding(
@@ -95,7 +103,7 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildSearchField(theme),
+              _buildSearchField(context),
               const SizedBox(height: 12),
               SizedBox(
                 height: 40,
@@ -105,7 +113,7 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
                     _LetterChip(
                       label: 'Toutes',
                       active: _letter == null,
-                      accent: bibleTheme.accentColor,
+                      accent: p.primary,
                       onTap: () => setState(() => _letter = null),
                     ),
                     for (final letter in _letters) ...[
@@ -114,7 +122,7 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
                         key: Key('letter-chip-$letter'),
                         label: letter,
                         active: _letter == letter,
-                        accent: bibleTheme.accentColor,
+                        accent: p.primary,
                         onTap: () => setState(() => _letter = letter),
                       ),
                     ],
@@ -124,7 +132,7 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
               const SizedBox(height: 10),
               const _SourceMention(),
               const SizedBox(height: 12),
-              Expanded(child: _buildList(theme, bibleTheme)),
+              Expanded(child: _buildList(context)),
             ],
           ),
         ),
@@ -132,23 +140,31 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
     );
   }
 
-  Widget _buildSearchField(ThemeData theme) {
+  Widget _buildSearchField(BuildContext context) {
+    final p = premiumPalette(context);
     return Container(
       decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerHighest,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
+        boxShadow: premiumShadow(
+          p.primaryDark,
+          opacity: 0.06,
+          blur: 14,
+          offset: const Offset(0, 4),
+        ),
       ),
       child: Row(
         children: [
           const SizedBox(width: 14),
-          Icon(Icons.search_rounded, color: theme.colorScheme.primary),
+          Icon(Icons.search_rounded, color: p.primary),
           const SizedBox(width: 10),
           Expanded(
             child: TextField(
               controller: _controller,
               onChanged: (v) => setState(() => _query = v),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'Rechercher dans ce dictionnaire…',
+                hintStyle: premiumText(context, 14, FontWeight.w500, p.textGrey),
                 border: InputBorder.none,
                 isCollapsed: true,
               ),
@@ -168,7 +184,8 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
     );
   }
 
-  Widget _buildList(ThemeData theme, BibleTheme bibleTheme) {
+  Widget _buildList(BuildContext context) {
+    final p = premiumPalette(context);
     final filtered = _filtered;
     if (_entries == null) {
       return const Center(child: CircularProgressIndicator());
@@ -178,11 +195,12 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.search_off_rounded,
-                size: 48, color: theme.colorScheme.outline),
+            Icon(Icons.search_off_rounded, size: 48, color: p.textGrey),
             const SizedBox(height: 8),
-            Text('Aucune entrée trouvée',
-                style: TextStyle(color: theme.colorScheme.onSurfaceVariant)),
+            Text(
+              'Aucune entrée trouvée',
+              style: premiumText(context, 14, FontWeight.w600, p.textGrey),
+            ),
           ],
         ),
       );
@@ -200,9 +218,7 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
           padding: const EdgeInsets.only(left: 4, top: 8),
           child: Text(
             '${filtered.length} entrée${filtered.length > 1 ? 's' : ''}',
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-            ),
+            style: premiumText(context, 12, FontWeight.w600, p.textGrey),
           ),
         ),
         const SizedBox(height: 8),
@@ -213,13 +229,10 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
               children: [
                 Text(
                   letter,
-                  style: theme.textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.w800,
-                    color: bibleTheme.accentColor,
-                  ),
+                  style: premiumText(context, 20, FontWeight.w800, p.primary),
                 ),
                 const SizedBox(width: 10),
-                Expanded(child: Divider(color: theme.dividerColor)),
+                Expanded(child: Divider(color: p.textGrey.withValues(alpha: .25))),
               ],
             ),
           ),
@@ -254,27 +267,31 @@ class _LetterChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return GestureDetector(
       onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
-          color: active ? accent : theme.colorScheme.surface,
+          gradient: active ? p.heroGradient : null,
+          color: active ? null : Colors.white,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: active ? accent : theme.dividerColor,
+            color: active ? Colors.transparent : p.textGrey.withValues(alpha: .3),
           ),
+          boxShadow: active
+              ? premiumShadow(accent, opacity: .2, blur: 12, offset: const Offset(0, 4))
+              : null,
         ),
         alignment: Alignment.center,
         child: Text(
           label,
-          style: theme.textTheme.labelLarge?.copyWith(
-            color: active
-                ? theme.colorScheme.onPrimary
-                : theme.colorScheme.onSurface,
-            fontWeight: FontWeight.w600,
+          style: premiumText(
+            context,
+            13,
+            FontWeight.w700,
+            active ? Colors.white : p.textDark,
           ),
         ),
       ),
@@ -287,18 +304,15 @@ class _SourceMention extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return Row(
       children: [
-        Icon(Icons.info_outline,
-            size: 16, color: theme.colorScheme.onSurfaceVariant),
+        Icon(Icons.info_outline, size: 16, color: p.textGrey),
         const SizedBox(width: 6),
         Expanded(
           child: Text(
             'Dictionnaire encyclopédique de la Bible · Auguste Westphal, 1932',
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-            ),
+            style: premiumText(context, 12, FontWeight.w500, p.textGrey),
           ),
         ),
       ],
@@ -319,12 +333,12 @@ class _EntryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return Material(
-      color: theme.colorScheme.surfaceContainerHighest,
-      borderRadius: BorderRadius.circular(14),
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(16),
       child: InkWell(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(16),
         onTap: () => Navigator.of(context).push(
           MaterialPageRoute(
             builder: (_) => FredawEntryScreen(
@@ -334,7 +348,16 @@ class _EntryCard extends StatelessWidget {
             ),
           ),
         ),
-        child: Padding(
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: premiumShadow(
+              p.primaryDark,
+              opacity: 0.05,
+              blur: 12,
+              offset: const Offset(0, 4),
+            ),
+          ),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           child: Row(
             children: [
@@ -344,26 +367,20 @@ class _EntryCard extends StatelessWidget {
                   children: [
                     Text(
                       entry.term,
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w800,
-                      ),
+                      style: premiumText(context, 15, FontWeight.w800, p.textDark),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       entry.definition,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                        height: 1.4,
-                      ),
+                      style: premiumText(context, 12, FontWeight.w500, p.textGrey, height: 1.4),
                     ),
                   ],
                 ),
               ),
               const SizedBox(width: 8),
-              Icon(Icons.chevron_right_rounded,
-                  color: theme.colorScheme.onSurfaceVariant, size: 22),
+              Icon(Icons.chevron_right_rounded, color: p.textGrey, size: 22),
             ],
           ),
         ),

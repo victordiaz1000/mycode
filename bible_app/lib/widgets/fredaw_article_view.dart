@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../data/fredaw_lexicon.dart';
 import '../data/reference_parser.dart';
-import 'bible_theme_scope.dart';
+import 'premium_style.dart';
 
 /// The rich Westphal 1932 article: the term in a header card, then the
 /// definition (multi-paragraph, cross-linked) with a « Lire la suite /
@@ -76,13 +76,12 @@ class _FredawArticleViewState extends State<FredawArticleView> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final bibleTheme = BibleThemeScope.of(context);
-    final accent = bibleTheme.accentColor;
+    final p = premiumPalette(context);
+    final accent = p.primary;
     final paras = _paragraphes;
     final paragraphStyle =
         widget.paragraphStyle ??
-        theme.textTheme.bodyLarge?.copyWith(height: 1.7);
+        Theme.of(context).textTheme.bodyLarge?.copyWith(height: 1.7);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -90,8 +89,14 @@ class _FredawArticleViewState extends State<FredawArticleView> {
           width: double.infinity,
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: theme.colorScheme.surfaceContainerHighest,
+            color: Colors.white,
             borderRadius: BorderRadius.circular(20),
+            boxShadow: premiumShadow(
+              accent,
+              opacity: 0.06,
+              blur: 16,
+              offset: const Offset(0, 8),
+            ),
           ),
           child: Column(
             children: [
@@ -100,19 +105,13 @@ class _FredawArticleViewState extends State<FredawArticleView> {
               Text(
                 widget.entry.term,
                 textAlign: TextAlign.center,
-                style: theme.textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 1.5,
-                ),
+                style: premiumText(context, 24, FontWeight.w800, p.textDark, spacing: 1.5),
               ),
               const SizedBox(height: 6),
               Text(
                 'Dictionnaire encyclopédique de la Bible',
                 textAlign: TextAlign.center,
-                style: theme.textTheme.bodySmall?.copyWith(
-                  fontStyle: FontStyle.italic,
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
+                style: premiumText(context, 13, FontWeight.w500, p.textGrey, italic: FontStyle.italic),
               ),
             ],
           ),
@@ -124,8 +123,14 @@ class _FredawArticleViewState extends State<FredawArticleView> {
           width: double.infinity,
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: theme.colorScheme.surfaceContainerHighest,
+            color: Colors.white,
             borderRadius: BorderRadius.circular(16),
+            boxShadow: premiumShadow(
+              accent,
+              opacity: 0.05,
+              blur: 12,
+              offset: const Offset(0, 4),
+            ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -200,14 +205,23 @@ class _SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return Row(
       children: [
-        Icon(icon, size: 20, color: color),
-        const SizedBox(width: 8),
+        Container(
+          width: 36,
+          height: 36,
+          decoration: BoxDecoration(
+            color: p.primarySoft,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          alignment: Alignment.center,
+          child: Icon(icon, size: 18, color: color),
+        ),
+        const SizedBox(width: 10),
         Text(
           title,
-          style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+          style: premiumText(context, 16, FontWeight.w800, p.textDark),
         ),
       ],
     );
@@ -229,13 +243,15 @@ class _LirePlusButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final p = premiumPalette(context);
     return SizedBox(
       width: double.infinity,
       child: OutlinedButton.icon(
         style: OutlinedButton.styleFrom(
-          side: BorderSide(color: accent.withValues(alpha: .4)),
+          side: BorderSide(color: accent.withValues(alpha: .45)),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
           padding: const EdgeInsets.symmetric(vertical: 14),
+          backgroundColor: p.primarySoft.withValues(alpha: .35),
         ),
         icon: Icon(
           toutLire ? Icons.keyboard_arrow_up_rounded : Icons.keyboard_arrow_down_rounded,
@@ -245,7 +261,7 @@ class _LirePlusButton extends StatelessWidget {
           toutLire
               ? 'Réduire'
               : 'Lire la suite ($restants paragraphes)',
-          style: TextStyle(color: accent, fontSize: 15, fontWeight: FontWeight.w600),
+          style: premiumText(context, 15, FontWeight.w700, accent),
         ),
         onPressed: onPressed,
       ),
@@ -258,14 +274,11 @@ class _SourceMention extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return Text(
       'Extrait du Dictionnaire encyclopédique de la Bible\nAuguste Westphal, 1932',
       textAlign: TextAlign.center,
-      style: theme.textTheme.bodySmall?.copyWith(
-        fontStyle: FontStyle.italic,
-        color: theme.colorScheme.onSurfaceVariant,
-      ),
+      style: premiumText(context, 12, FontWeight.w500, p.textGrey, italic: FontStyle.italic),
     );
   }
 }
