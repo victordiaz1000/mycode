@@ -1300,15 +1300,17 @@ class _HitTile extends StatelessWidget {
                           if (hit.transliteration != null &&
                               hit.transliteration!.isNotEmpty) ...[
                             const SizedBox(width: 8),
-                            Flex(
-                              direction: Axis.horizontal,
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                _Badge('translitéré'),
-                                const SizedBox(width: 2),
-                                _Badge(hit.transliteration!, strong: true),
-                              ],
+                            Flexible(
+                              child: Flex(
+                                direction: Axis.horizontal,
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  _Badge('translitéré'),
+                                  const SizedBox(width: 2),
+                                  _Badge(hit.transliteration!, strong: true),
+                                ],
+                              ),
                             ),
                           ],
                         ],
@@ -1359,6 +1361,8 @@ class _Badge extends StatelessWidget {
       ),
       child: Text(
         text,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
         style: strong
             ? premiumText(context, 10, FontWeight.w700, bibleTheme.accentColor, italic: FontStyle.italic)
             : premiumText(context, 10, FontWeight.w700, bibleTheme.textColor.withValues(alpha: .9)),

@@ -190,53 +190,89 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
             ],
           ),
           const SizedBox(height: 16),
-          Text(
-            strong.lemma != null && strong.lemma!.isNotEmpty
-                ? strong.lemma!
-                : strong.strong,
-            textAlign: TextAlign.center,
-            style: premiumText(context, 36, FontWeight.w800, p.textDark, spacing: 1.2),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final maxWidth = constraints.maxWidth;
+              final lemma = strong.lemma != null && strong.lemma!.isNotEmpty
+                  ? strong.lemma!
+                  : strong.strong;
+              final baseStyle = premiumText(
+                context,
+                36,
+                FontWeight.w800,
+                p.textDark,
+                spacing: 1.2,
+              );
+              // Un lemme grec/hébreu est souvent un mot unique sans espace :
+              // à 36 pt il déborderait la carte. On réduit la taille au plus
+              // grand mot, sans toucher aux lemmes qui tiennent.
+              var widest = 0.0;
+              for (final token in lemma.split(RegExp(r'\s+'))) {
+                final tp = TextPainter(
+                  text: TextSpan(text: token, style: baseStyle),
+                  textDirection: TextDirection.ltr,
+                )..layout();
+                if (tp.width > widest) widest = tp.width;
+              }
+              final size = widest > maxWidth
+                  ? (36 * maxWidth / widest).clamp(18.0, 36.0).toDouble()
+                  : 36.0;
+              return Text(
+                lemma,
+                textAlign: TextAlign.center,
+                style: baseStyle.copyWith(fontSize: size),
+              );
+            },
           ),
           const SizedBox(height: 8),
           Text(
-            strong.transliteration ?? '',
+            strong.transliteration == null
+                ? ''
+                : _wrapAfterOu(strong.transliteration!),
+            textAlign: TextAlign.center,
             style: premiumText(context, 18, FontWeight.w500, p.textGrey, italic: FontStyle.italic),
           ),
           const SizedBox(height: 20),
           Divider(color: Colors.grey.shade200, height: 1),
           const SizedBox(height: 16),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Numéro Strong',
-                    style: premiumText(context, 12, FontWeight.w500, p.textGrey),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    strong.strong,
-                    style: premiumText(context, 16, FontWeight.w800, accent),
-                  ),
-                ],
-              ),
-              if (strong.pronunciation != null &&
-                  strong.pronunciation!.isNotEmpty)
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+              Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Prononciation',
+                      'Numéro Strong',
                       style: premiumText(context, 12, FontWeight.w500, p.textGrey),
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      strong.pronunciation!,
-                      style: premiumText(context, 14, FontWeight.w500, p.textDark),
+                      strong.strong,
+                      style: premiumText(context, 16, FontWeight.w800, accent),
                     ),
                   ],
+                ),
+              ),
+              if (strong.pronunciation != null &&
+                  strong.pronunciation!.isNotEmpty)
+                Flexible(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        'Prononciation',
+                        style: premiumText(context, 12, FontWeight.w500, p.textGrey),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        strong.pronunciation!,
+                        textAlign: TextAlign.end,
+                        style: premiumText(context, 14, FontWeight.w500, p.textDark),
+                      ),
+                    ],
+                  ),
                 ),
             ],
           ),
@@ -244,6 +280,15 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
       ),
     );
   }
+
+  /// Les translitérations listeront plusieurs formes séparées par « ou »
+  /// (ex. « ’Abiygayil ou raccourci ’Abiygal ») : un espace de césure (U+200B)
+  /// après le « ou » permet au texte de passer à la ligne juste après lui au
+  /// lieu de déborder de la carte.
+  String _wrapAfterOu(String text) => text.replaceAllMapped(
+        RegExp(r' ou(?= |\()'),
+        (m) => ' ou\u200B',
+      );
 
   Widget _buildBreveCard(BuildContext context, Color accent) {
     final p = premiumPalette(context);
@@ -423,9 +468,12 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
       children: [
         Icon(icon, size: 20, color: color),
         const SizedBox(width: 8),
-        Text(
-          title,
-          style: premiumText(context, 18, FontWeight.w800, p.textDark),
+        Flexible(
+          child: Text(
+            title,
+            overflow: TextOverflow.ellipsis,
+            style: premiumText(context, 18, FontWeight.w800, p.textDark),
+          ),
         ),
       ],
     );

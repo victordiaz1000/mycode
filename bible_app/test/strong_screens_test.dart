@@ -473,6 +473,42 @@ void main() {
 
       expect(opened, [(1, 1, 1)]);
     });
+
+    testWidgets('a long lemma, transliteration and pronunciation never overflow',
+        (tester) async {
+      LsgsRepositoryDummy.install();
+      addTearDown(LsgsRepositoryDummy.restore);
+      StrongLexicon.useBundle(FakeStrongLexiconBundle({
+        'H0859': {
+          'strong': 'H0859',
+          'language': 'hebrew',
+          'lemma': 'Nebuwkadnetstsar',
+          'transliteration':
+              '’attah ou (raccourci) ’atta ou ’ath féminin (irrégulier) '
+              'quelquefois ’attiy masculin pluriel ’attem féminin ’atten ou ’a',
+          'pronunciation':
+              "oat-taw') ou (oat-taw') ou (oat-taw') ou (oat-taw') ou (oat-taw'",
+          'definition': 'Définition test de H0859.',
+        },
+      }));
+
+      tester.view.physicalSize = const Size(360, 720);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      final definition = await StrongLexicon.instance.lookup('H0859');
+      await tester.pumpWidget(MaterialApp(
+        home: StrongDetailScreen(strong: definition),
+      ));
+      await tester.pumpAndSettle();
+
+      expect(tester.takeException(), isNull,
+          reason: 'a long lemma, transliteration and pronunciation must not '
+              'overflow the header card');
+      expect(find.textContaining('féminin'), findsOneWidget,
+          reason: 'the transliteration is still rendered in full');
+    });
   });
 }
 

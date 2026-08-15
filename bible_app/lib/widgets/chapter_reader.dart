@@ -928,6 +928,7 @@ class _QuickDetailChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
     return Container(
+      constraints: const BoxConstraints(maxWidth: 280),
       padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
       decoration: BoxDecoration(
         color: p.primarySoft,
@@ -935,6 +936,8 @@ class _QuickDetailChip extends StatelessWidget {
       ),
       child: Text(
         text,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
         style: premiumText(context, 11, FontWeight.w700, p.primary),
       ),
     );
