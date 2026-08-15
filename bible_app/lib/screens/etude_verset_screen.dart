@@ -5,6 +5,7 @@ import '../data/fredaw_lexicon.dart';
 import '../data/lsgs_repository.dart';
 import '../data/strong_lexicon.dart';
 import '../models/lsgs.dart';
+import '../widgets/premium_style.dart';
 import 'fredaw_entry_screen.dart';
 import 'strong_detail_screen.dart';
 
@@ -73,6 +74,9 @@ class SegmentVerset {
 /// - **Dictionnaire** : les mots qui sont des articles du dictionnaire
 ///   (Westphal 1932, `FredawLexicon.linkPattern`) ouvrent un aperçu de
 ///   l'article, avec accès à la fiche complète.
+///
+/// Au goût premium : fond crème, cartes blanches à ombre douce, accents du
+/// thème actif.
 class EtudeVersetScreen extends StatefulWidget {
   final int bookIndex;
   final int chapter;
@@ -306,41 +310,33 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final accent = theme.colorScheme.primary;
+    final p = premiumPalette(context);
+    final accent = p.primary;
     final entry = catalogEntry(widget.bookIndex);
     final reference =
         '${entry.shortName} ${widget.chapter}:$_verseNumber';
 
     return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
+      backgroundColor: kPremiumBackground,
       appBar: AppBar(
-        backgroundColor: theme.colorScheme.surface,
+        backgroundColor: Colors.transparent,
         elevation: 0,
+        centerTitle: true,
         title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               reference,
-              style: TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Georgia',
-                color: theme.colorScheme.onSurface,
-              ),
+              style: premiumText(context, 17, FontWeight.w800, p.textDark),
             ),
             Text(
               _mode == ModeEtude.lexique ? 'Lexique hébreu & grec' : 'Dictionnaire',
-              style: TextStyle(
-                fontSize: 12,
-                color: theme.colorScheme.onSurfaceVariant,
-                fontWeight: FontWeight.normal,
-              ),
+              style: premiumText(context, 12, FontWeight.w500, p.textGrey),
             ),
           ],
         ),
       ),
-      bottomNavigationBar: SafeArea(top: false, child: _buildBottomBar(theme, accent)),
+      bottomNavigationBar: SafeArea(top: false, child: _buildBottomBar(context, accent)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -350,15 +346,9 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
               width: double.infinity,
               padding: const EdgeInsets.all(20.0),
               decoration: BoxDecoration(
-                color: theme.colorScheme.surface,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.04),
-                    blurRadius: 12,
-                    offset: const Offset(0, 6),
-                  ),
-                ],
+                boxShadow: premiumShadow(p.primaryDark, opacity: 0.04, blur: 12, offset: const Offset(0, 6)),
               ),
               child: Column(
                 children: [
@@ -369,14 +359,11 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                         padding: const EdgeInsets.only(top: 2),
                         child: Text(
                           '$_verseNumber',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: theme.colorScheme.onSurfaceVariant,
-                          ),
+                          style: premiumText(context, 12, FontWeight.w500, p.textGrey),
                         ),
                       ),
                       const SizedBox(width: 10),
-                      Expanded(child: _buildVersetRich(accent)),
+                      Expanded(child: _buildVersetRich(context, accent)),
                     ],
                   ),
                   if (_hasNav) ...[
@@ -385,6 +372,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                       children: [
                         if (_verseIndex > 0)
                           _buildNavVerset(
+                            context,
                             'Verset précédent',
                             Icons.arrow_circle_left_outlined,
                             false,
@@ -393,6 +381,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                         const Spacer(),
                         if (_verseIndex < (widget.verseNumbers!.length - 1))
                           _buildNavVerset(
+                            context,
                             'Verset suivant',
                             Icons.arrow_circle_right_outlined,
                             true,
@@ -408,7 +397,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
             const SizedBox(height: 20),
 
             // ============ 2. CARTES SWIPABLES (selon le mode) ============
-            _buildCardsArea(theme, accent),
+            _buildCardsArea(context, accent),
           ],
         ),
       ),
@@ -416,8 +405,8 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
   }
 
   // --- Verset fluide avec mots cliquables (selon le mode) ---
-  Widget _buildVersetRich(Color accent) {
-    final theme = Theme.of(context);
+  Widget _buildVersetRich(BuildContext context, Color accent) {
+    final p = premiumPalette(context);
     return Text.rich(
       TextSpan(
         children: [
@@ -425,11 +414,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
             if (s.entreeIndex == null)
               TextSpan(
                 text: s.texte,
-                style: TextStyle(
-                  fontSize: 17,
-                  height: 2.0,
-                  color: theme.colorScheme.onSurface,
-                ),
+                style: premiumText(context, 17, FontWeight.w500, p.textDark, height: 2.0),
               )
             else
               WidgetSpan(
@@ -447,11 +432,13 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                     ),
                     child: Text(
                       s.texte,
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: _entreeCourante == s.entreeIndex
-                            ? theme.colorScheme.onPrimary
-                            : theme.colorScheme.onSurface,
+                      style: premiumText(
+                        context,
+                        17,
+                        FontWeight.w700,
+                        _entreeCourante == s.entreeIndex
+                            ? Colors.white
+                            : p.textDark,
                       ),
                     ),
                   ),
@@ -463,7 +450,8 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
   }
 
   Widget _buildNavVerset(
-      String label, IconData icon, bool droite, Color accent) {
+      BuildContext context, String label, IconData icon, bool droite, Color accent) {
+    final p = premiumPalette(context);
     return GestureDetector(
       onTap: () => _navigateTo(widget.verseNumbers![_verseIndex + (droite ? 1 : -1)]),
       child: Row(
@@ -471,10 +459,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
           if (!droite) ...[Icon(icon, color: accent), const SizedBox(width: 6)],
           Text(
             label,
-            style: TextStyle(
-              fontSize: 14,
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
-            ),
+            style: premiumText(context, 14, FontWeight.w600, p.textGrey),
           ),
           if (droite) ...[const SizedBox(width: 6), Icon(icon, color: accent)],
         ],
@@ -483,20 +468,16 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
   }
 
   // --- Carte du mode LEXIQUE ---
-  Widget _buildCarteLexique(ThemeData theme, EntreeLexique e) {
+  Widget _buildCarteLexique(BuildContext context, EntreeLexique e) {
+    final p = premiumPalette(context);
+    final accent = p.primary;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
       padding: const EdgeInsets.all(18.0),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        boxShadow: premiumShadow(p.primaryDark, opacity: 0.05, blur: 10, offset: const Offset(0, 4)),
       ),
       child: SingleChildScrollView(
         child: Column(
@@ -510,18 +491,11 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                       children: [
                         TextSpan(
                           text: e.translit,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF8C6B4F),
-                          ),
+                          style: premiumText(context, 18, FontWeight.w800, accent),
                         ),
                         TextSpan(
                           text: ' ${e.prononciation}',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: theme.colorScheme.onSurfaceVariant,
-                          ),
+                          style: premiumText(context, 14, FontWeight.w500, p.textGrey),
                         ),
                       ],
                     ),
@@ -529,8 +503,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                 ),
                 IconButton(
                   tooltip: 'Fiche Strong complète',
-                  icon: const Icon(Icons.open_in_full_rounded,
-                      color: Color(0xFF8C6B4F), size: 20),
+                  icon: Icon(Icons.open_in_full_rounded, color: accent, size: 20),
                   onPressed: () => Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (_) => StrongDetailScreen(strong: e.fiche),
@@ -549,20 +522,18 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 26,
-                  color: theme.colorScheme.onSurface,
+                  fontWeight: FontWeight.w700,
+                  color: p.textDark,
                   fontFamily: 'serif',
                 ),
               ),
             ),
             const SizedBox(height: 10),
-            Container(width: 40, height: 3, color: const Color(0xFF8C6B4F)),
+            Container(width: 40, height: 3, color: accent),
             const SizedBox(height: 14),
             Text(
               'Définition - ${e.strongId}',
-              style: TextStyle(
-                fontSize: 14,
-                color: theme.colorScheme.onSurfaceVariant,
-              ),
+              style: premiumText(context, 14, FontWeight.w500, p.textGrey),
             ),
             const SizedBox(height: 8),
             for (int i = 0; i < e.definitions.length; i++)
@@ -570,29 +541,18 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                 padding: const EdgeInsets.only(bottom: 6),
                 child: Text(
                   '${i + 1}) ${e.definitions[i]}',
-                  style: TextStyle(
-                    fontSize: 15,
-                    height: 1.5,
-                    color: theme.colorScheme.onSurface,
-                  ),
+                  style: premiumText(context, 15, FontWeight.w500, p.textDark, height: 1.5),
                 ),
               ),
             const SizedBox(height: 14),
             Text(
               'Généralement traduit par',
-              style: TextStyle(
-                fontSize: 14,
-                color: theme.colorScheme.onSurfaceVariant,
-              ),
+              style: premiumText(context, 14, FontWeight.w500, p.textGrey),
             ),
             const SizedBox(height: 8),
             Text(
               e.traductions,
-              style: TextStyle(
-                fontSize: 15,
-                height: 1.6,
-                color: theme.colorScheme.onSurface,
-              ),
+              style: premiumText(context, 15, FontWeight.w500, p.textDark, height: 1.6),
             ),
             const SizedBox(height: 12),
             Align(
@@ -605,11 +565,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                 ),
                 child: Text(
                   'Ouvrir la fiche Strong complète →',
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF8C6B4F),
-                  ),
+                  style: premiumText(context, 14, FontWeight.w700, accent),
                 ),
               ),
             ),
@@ -620,20 +576,16 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
   }
 
   // --- Carte du mode DICTIONNAIRE ---
-  Widget _buildCarteDico(ThemeData theme, EntreeDico e) {
+  Widget _buildCarteDico(BuildContext context, EntreeDico e) {
+    final p = premiumPalette(context);
+    final accent = p.primary;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
       padding: const EdgeInsets.all(18.0),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        boxShadow: premiumShadow(p.primaryDark, opacity: 0.05, blur: 10, offset: const Offset(0, 4)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -643,24 +595,18 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
               Expanded(
                 child: Text(
                   e.titre,
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: theme.colorScheme.onSurface,
-                    fontFamily: 'Georgia',
-                  ),
+                  style: premiumText(context, 22, FontWeight.w800, p.textDark),
                 ),
               ),
               IconButton(
                 tooltip: 'Fiche complète du dictionnaire',
-                icon: const Icon(Icons.open_in_full_rounded,
-                    color: Color(0xFF8C6B4F), size: 18),
+                icon: Icon(Icons.open_in_full_rounded, color: accent, size: 18),
                 onPressed: () => _openFicheComplett(e),
               ),
             ],
           ),
           const SizedBox(height: 10),
-          Container(width: 40, height: 3, color: const Color(0xFF8C6B4F)),
+          Container(width: 40, height: 3, color: accent),
           const SizedBox(height: 12),
           Expanded(
             child: SingleChildScrollView(
@@ -670,21 +616,13 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                   if (e.section.isNotEmpty) ...[
                     Text(
                       e.section,
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.onSurface,
-                      ),
+                      style: premiumText(context, 15, FontWeight.w700, p.textDark),
                     ),
                     const SizedBox(height: 6),
                   ],
                   Text(
                     e.extrait,
-                    style: TextStyle(
-                      fontSize: 15,
-                      height: 1.7,
-                      color: theme.colorScheme.onSurface,
-                    ),
+                    style: premiumText(context, 15, FontWeight.w500, p.textDark, height: 1.7),
                   ),
                 ],
               ),
@@ -693,13 +631,9 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
           const SizedBox(height: 12),
           GestureDetector(
             onTap: () => _openFicheComplett(e),
-            child: const Text(
+            child: Text(
               'Ouvrir la fiche complète →',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-                color: Color(0xFF8C6B4F),
-              ),
+              style: premiumText(context, 14, FontWeight.w700, accent),
             ),
           ),
         ],
@@ -716,7 +650,8 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
   }
 
   // --- Zone des cartes swipables ---
-  Widget _buildCardsArea(ThemeData theme, Color accent) {
+  Widget _buildCardsArea(BuildContext context, Color accent) {
+    final p = premiumPalette(context);
     final ready = _mode == ModeEtude.lexique ? _lexiqueReady : _dicoReady;
     if (!ready) {
       return const SizedBox(
@@ -733,17 +668,18 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
         child: Center(
           child: Card(
             elevation: 0,
-            color: theme.colorScheme.surfaceContainerHighest,
+            color: Colors.white,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            child: Padding(
+            child: Container(
               padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: premiumShadow(p.primaryDark, opacity: 0.05, blur: 10, offset: const Offset(0, 4)),
+              ),
               child: Text(
                 message,
                 textAlign: TextAlign.center,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                  fontStyle: FontStyle.italic,
-                ),
+                style: premiumText(context, 14, FontWeight.w500, p.textGrey, italic: FontStyle.italic, height: 1.5),
               ),
             ),
           ),
@@ -757,27 +693,22 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
         onPageChanged: (i) => _selectEntree(i, scroll: false),
         itemCount: _nbEntrees,
         itemBuilder: (context, i) => _mode == ModeEtude.lexique
-            ? _buildCarteLexique(theme, _entreesLexique[i])
-            : _buildCarteDico(theme, _entreesDico[i]),
+            ? _buildCarteLexique(context, _entreesLexique[i])
+            : _buildCarteDico(context, _entreesDico[i]),
       ),
     );
   }
 
   // --- Barre du bas : bascule Lexique / Dictionnaire ---
-  Widget _buildBottomBar(ThemeData theme, Color accent) {
+  Widget _buildBottomBar(BuildContext context, Color accent) {
+    final p = premiumPalette(context);
     return Container(
       margin: const EdgeInsets.all(12),
       padding: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(24),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.08),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        boxShadow: premiumShadow(p.primaryDark, opacity: 0.08, blur: 12, offset: const Offset(0, 4)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -834,10 +765,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
           const SizedBox(height: 4),
           Text(
             label,
-            style: TextStyle(
-              fontSize: 11,
-              color: actif ? accent : Colors.grey.shade400,
-            ),
+            style: premiumText(context, 11, FontWeight.w600, actif ? accent : Colors.grey.shade400),
           ),
         ],
       ),

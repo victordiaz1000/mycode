@@ -4,11 +4,11 @@ import '../data/lsgs_repository.dart';
 import '../data/strong_lexicon.dart';
 import '../data/strong_occurrences.dart';
 import '../models/lsgs.dart';
-import '../widgets/bible_theme_scope.dart';
+import '../widgets/premium_style.dart';
 import '../widgets/strong_code_text.dart';
 import 'strong_occurrences_screen.dart';
 
-/// The Strong fiche (maquette `ecran_detail_fiche_strong_2.dart`): the word in
+/// The Strong fiche (maquette `ecran_detail_fiche_strong.dart`): the word in
 /// a header card with its language and part-of-speech, the short and complete
 /// definitions, then the verses where the code actually appears in the
 /// embedded LSGS corpus — the first 5 as a preview, « Voir plus » opening the
@@ -97,50 +97,59 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final bibleTheme = BibleThemeScope.of(context);
-    final accent = bibleTheme.accentColor;
+    final p = premiumPalette(context);
+    final accent = p.primary;
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: kPremiumBackground,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        foregroundColor: p.textDark,
+        centerTitle: true,
+        title: Text(
+          'Détail du mot',
+          style: premiumText(context, 16, FontWeight.w600, Colors.black54),
+        ),
+      ),
       body: SafeArea(
         top: false,
         child: _loaded
             ? SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 28),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildHeader(theme, accent),
+                    _buildHeader(context, accent),
                     const SizedBox(height: 24),
-                    _buildSectionTitle(theme, 'Définition brève',
+                    _buildSectionTitle(context, 'Définition brève',
                         Icons.menu_book_rounded, accent),
                     const SizedBox(height: 12),
-                    _buildBreveCard(theme, accent),
+                    _buildBreveCard(context, accent),
                     const SizedBox(height: 24),
-                    _buildSectionTitle(theme, 'Définition complète',
+                    _buildSectionTitle(context, 'Définition complète',
                         Icons.format_list_bulleted_rounded, accent),
                     const SizedBox(height: 12),
-                    _buildCompleteCard(theme, accent),
+                    _buildCompleteCard(context, accent),
                     if (widget.strong.etymology != null &&
                         widget.strong.etymology!.isNotEmpty) ...[
                       const SizedBox(height: 24),
-                      _buildSectionTitle(theme, 'Origine',
+                      _buildSectionTitle(context, 'Origine',
                           Icons.hub_outlined, accent),
                       const SizedBox(height: 12),
-                      _buildEtymologyCard(theme, accent),
+                      _buildEtymologyCard(context, accent),
                     ],
                     const SizedBox(height: 24),
                     _buildSectionTitle(
-                        theme,
+                        context,
                         'Occurrences du mot (${_occurrences.length})',
                         Icons.format_quote_rounded,
                         accent),
                     const SizedBox(height: 12),
                     if (_occurrences.isEmpty)
-                      _buildEmptyOccurrences(theme)
+                      _buildEmptyOccurrences(context)
                     else ...[
                       for (final occ in _visibles) ...[
-                        _buildOccurrenceCard(theme, occ),
+                        _buildOccurrenceCard(context, occ),
                         const SizedBox(height: 12),
                       ],
                       if (_occurrences.length > _limite) ...[
@@ -157,14 +166,16 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
     );
   }
 
-  Widget _buildHeader(ThemeData theme, Color accent) {
+  Widget _buildHeader(BuildContext context, Color accent) {
+    final p = premiumPalette(context);
     final strong = widget.strong;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerHighest,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
+        boxShadow: premiumShadow(p.primaryDark, opacity: 0.04, blur: 12, offset: const Offset(0, 6)),
       ),
       child: Column(
         children: [
@@ -175,7 +186,7 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
               const SizedBox(width: 8),
               if (strong.partOfSpeech != null &&
                   strong.partOfSpeech!.isNotEmpty)
-                _Badge(strong.partOfSpeech!, theme.colorScheme.onSurfaceVariant),
+                _Badge(strong.partOfSpeech!, Colors.grey.shade700),
             ],
           ),
           const SizedBox(height: 16),
@@ -184,21 +195,15 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
                 ? strong.lemma!
                 : strong.strong,
             textAlign: TextAlign.center,
-            style: theme.textTheme.headlineMedium?.copyWith(
-              fontWeight: FontWeight.w800,
-              letterSpacing: 1.2,
-            ),
+            style: premiumText(context, 36, FontWeight.w800, p.textDark, spacing: 1.2),
           ),
           const SizedBox(height: 8),
           Text(
             strong.transliteration ?? '',
-            style: theme.textTheme.bodyMedium?.copyWith(
-              fontStyle: FontStyle.italic,
-              color: theme.colorScheme.onSurfaceVariant,
-            ),
+            style: premiumText(context, 18, FontWeight.w500, p.textGrey, italic: FontStyle.italic),
           ),
           const SizedBox(height: 20),
-          Divider(color: theme.dividerColor, height: 1),
+          Divider(color: Colors.grey.shade200, height: 1),
           const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -206,13 +211,14 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Numéro Strong',
-                      style: TextStyle(fontSize: 12, color: Colors.grey)),
+                  Text(
+                    'Numéro Strong',
+                    style: premiumText(context, 12, FontWeight.w500, p.textGrey),
+                  ),
                   const SizedBox(height: 4),
                   Text(
                     strong.strong,
-                    style: TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold, color: accent),
+                    style: premiumText(context, 16, FontWeight.w800, accent),
                   ),
                 ],
               ),
@@ -221,13 +227,14 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    const Text('Prononciation',
-                        style: TextStyle(fontSize: 12, color: Colors.grey)),
+                    Text(
+                      'Prononciation',
+                      style: premiumText(context, 12, FontWeight.w500, p.textGrey),
+                    ),
                     const SizedBox(height: 4),
                     Text(
                       strong.pronunciation!,
-                      style: TextStyle(
-                          fontSize: 14, color: theme.colorScheme.onSurface),
+                      style: premiumText(context, 14, FontWeight.w500, p.textDark),
                     ),
                   ],
                 ),
@@ -238,7 +245,8 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
     );
   }
 
-  Widget _buildBreveCard(ThemeData theme, Color accent) {
+  Widget _buildBreveCard(BuildContext context, Color accent) {
+    final p = premiumPalette(context);
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
@@ -249,22 +257,21 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
       ),
       child: Text(
         _breve,
-        style: theme.textTheme.bodyLarge?.copyWith(
-          height: 1.5,
-          fontStyle: FontStyle.italic,
-        ),
+        style: premiumText(context, 16, FontWeight.w500, p.textDark, height: 1.5, italic: FontStyle.italic),
       ),
     );
   }
 
-  Widget _buildCompleteCard(ThemeData theme, Color accent) {
+  Widget _buildCompleteCard(BuildContext context, Color accent) {
+    final p = premiumPalette(context);
     final senses = _senses;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerHighest,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
+        boxShadow: premiumShadow(p.primaryDark, opacity: 0.03, blur: 8, offset: const Offset(0, 4)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -283,7 +290,7 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
                 Expanded(
                   child: Text(
                     senses[i],
-                    style: theme.textTheme.bodyMedium?.copyWith(height: 1.6),
+                    style: premiumText(context, 15, FontWeight.w500, p.textDark, height: 1.6),
                   ),
                 ),
               ],
@@ -295,7 +302,8 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
     );
   }
 
-  Widget _buildEtymologyCard(ThemeData theme, Color accent) {
+  Widget _buildEtymologyCard(BuildContext context, Color accent) {
+    final p = premiumPalette(context);
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
@@ -306,10 +314,7 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
       ),
       child: StrongCodeText(
         text: widget.strong.etymology!,
-        style: theme.textTheme.bodyMedium?.copyWith(
-          height: 1.6,
-          fontStyle: FontStyle.italic,
-        ),
+        style: premiumText(context, 15, FontWeight.w500, p.textDark, height: 1.6, italic: FontStyle.italic),
         linkBareNumbers: true,
         onStrongTap: _openStrongFiche,
       ),
@@ -352,32 +357,31 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
     );
   }
 
-  Widget _buildEmptyOccurrences(ThemeData theme) {
+  Widget _buildEmptyOccurrences(BuildContext context) {
+    final p = premiumPalette(context);
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerHighest,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(14),
+        boxShadow: premiumShadow(p.primaryDark, opacity: 0.05, blur: 10, offset: const Offset(0, 4)),
       ),
       child: Text(
         'Aucune occurrence dans la LSGS embarquée.',
-        style: theme.textTheme.bodySmall?.copyWith(
-          color: theme.colorScheme.onSurfaceVariant,
-          fontStyle: FontStyle.italic,
-        ),
+        style: premiumText(context, 13, FontWeight.w500, p.textGrey, italic: FontStyle.italic),
       ),
     );
   }
 
-  Widget _buildOccurrenceCard(ThemeData theme, StrongOccurrence occ) {
-    final accent = BibleThemeScope.of(context).accentColor;
+  Widget _buildOccurrenceCard(BuildContext context, StrongOccurrence occ) {
+    final p = premiumPalette(context);
     return StrongOccurrenceCard(
       occ: occ,
       reference: occ.reference,
       tokens: _tokens[_occurrences.indexOf(occ)] ?? const [],
       highlight: widget.strong.strong,
-      accent: accent,
+      accent: p.primary,
       onTap: widget.onOpenVerse == null
           ? null
           : () => widget.onOpenVerse!(occ.bookIndex, occ.chapter, occ.verse),
@@ -398,7 +402,7 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
         icon: Icon(Icons.menu_book_rounded, color: accent),
         label: Text(
           'Voir plus ($restants autres versets)',
-          style: TextStyle(color: accent, fontSize: 15, fontWeight: FontWeight.w600),
+          style: premiumText(context, 15, FontWeight.w600, accent),
         ),
         onPressed: () => Navigator.of(context).push(
           MaterialPageRoute(
@@ -413,14 +417,15 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
     );
   }
 
-  Widget _buildSectionTitle(ThemeData theme, String title, IconData icon, Color color) {
+  Widget _buildSectionTitle(BuildContext context, String title, IconData icon, Color color) {
+    final p = premiumPalette(context);
     return Row(
       children: [
         Icon(icon, size: 20, color: color),
         const SizedBox(width: 8),
         Text(
           title,
-          style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+          style: premiumText(context, 18, FontWeight.w800, p.textDark),
         ),
       ],
     );
@@ -443,7 +448,7 @@ class _Badge extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.w700),
+        style: premiumText(context, 12, FontWeight.w700, color),
       ),
     );
   }

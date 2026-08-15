@@ -12,6 +12,7 @@ import '../data/strong_lexicon.dart';
 import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
 import '../widgets/bible_theme_scope.dart';
+import '../widgets/premium_style.dart';
 import 'fredaw_entry_screen.dart';
 import 'strong_detail_screen.dart';
 
@@ -48,7 +49,8 @@ _CategoryStyle _styleOf(SearchCategory category) =>
 const Key categoryRowKey = ValueKey('search-category-row');
 const Key resultListKey = ValueKey('search-result-list');
 
-/// Unified search (maquette `rech/`).
+/// Unified search (maquette `rech/`), au goût premium : fond crème, champ
+/// blanc à ombre douce, tuiles de résultats en cartes.
 ///
 /// One field searches every source at once — scripture references, the
 /// full text of the 66 embedded books, the user's notes, the chapters already
@@ -284,6 +286,7 @@ class _SearchScreenState extends State<SearchScreen> {
     final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
     return Scaffold(
+      backgroundColor: kPremiumBackground,
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -296,12 +299,9 @@ class _SearchScreenState extends State<SearchScreen> {
                 children: [
                   Text(
                     'Rechercher',
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w800,
-                      color: bibleTheme.titleColor,
-                    ),
+                    style: premiumText(context, 20, FontWeight.w800, bibleTheme.titleColor),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 12),
                   _SearchField(
                     controller: _controller,
                     onChanged: _onChanged,
@@ -311,7 +311,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ],
               ),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 14),
             _CategoryChipRow(
               selected: _selected,
               counts: {
@@ -320,7 +320,7 @@ class _SearchScreenState extends State<SearchScreen> {
               },
               onToggle: _toggleCategory,
             ),
-            const SizedBox(height: 6),
+            const SizedBox(height: 8),
             _FilterBar(
               filters: _filters,
               onChanged: _applyFilters,
@@ -377,7 +377,8 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 }
 
-/// The rounded, filled query field of the maquette.
+/// The rounded, filled query field of the maquette, carte blanche à ombre
+/// douce.
 class _SearchField extends StatelessWidget {
   final TextEditingController controller;
   final ValueChanged<String> onChanged;
@@ -393,35 +394,35 @@ class _SearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
-    return TextField(
-      controller: controller,
-      onChanged: onChanged,
-      textInputAction: TextInputAction.search,
-      style: theme.textTheme.bodyLarge,
-      decoration: InputDecoration(
-        hintText: 'Mot, verset ou référence',
-        hintStyle: theme.textTheme.bodyMedium?.copyWith(
-          color: bibleTheme.textColor.withValues(alpha: .62),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        boxShadow: premiumShadow(bibleTheme.accentColor, opacity: 0.06, blur: 10, offset: const Offset(0, 4)),
+      ),
+      child: TextField(
+        controller: controller,
+        onChanged: onChanged,
+        textInputAction: TextInputAction.search,
+        style: premiumText(context, 16, FontWeight.w500, bibleTheme.textColor),
+        decoration: InputDecoration(
+          hintText: 'Mot, verset ou référence',
+          hintStyle: premiumText(context, 14, FontWeight.w500, bibleTheme.textColor.withValues(alpha: .62)),
+          prefixIcon: Icon(Icons.search, color: bibleTheme.accentColor, size: 24),
+          suffixIcon: hasText
+              ? IconButton(
+                  tooltip: 'Effacer',
+                  icon: Icon(Icons.close, color: bibleTheme.textColor),
+                  onPressed: onClear,
+                )
+              : null,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(18),
+            borderSide: BorderSide.none,
+          ),
+          contentPadding: const EdgeInsets.symmetric(vertical: 16),
         ),
-        prefixIcon: Icon(Icons.search,
-            color: bibleTheme.accentColor, size: 24),
-        suffixIcon: hasText
-            ? IconButton(
-                tooltip: 'Effacer',
-                icon: Icon(Icons.close, color: bibleTheme.textColor),
-                onPressed: onClear,
-              )
-            : null,
-        filled: true,
-        fillColor:
-            theme.colorScheme.surfaceContainerHighest.withValues(alpha: .7),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(18),
-          borderSide: BorderSide.none,
-        ),
-        contentPadding: const EdgeInsets.symmetric(vertical: 16),
       ),
     );
   }
@@ -484,57 +485,61 @@ class _CategoryChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final style = _styleOf(category);
     final enabled = category.available;
 
-    final background = !enabled
-        ? theme.colorScheme.surfaceContainerHighest.withValues(alpha: .35)
-        : active
-            ? style.color.withValues(alpha: .26)
-            : style.color.withValues(alpha: .10);
-    final foreground = enabled
-        ? theme.colorScheme.onSurface
-        : theme.colorScheme.onSurface.withValues(alpha: .38);
-    final iconColor =
-        enabled ? style.color : style.color.withValues(alpha: .35);
+    final foreground =
+        enabled ? Colors.black87 : Colors.black.withValues(alpha: .38);
+    final iconColor = enabled ? style.color : style.color.withValues(alpha: .35);
 
     return Semantics(
       button: true,
       selected: active,
       enabled: enabled,
       child: Material(
-        color: background,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(14),
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(14),
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 14),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(14),
-              border: Border.all(
-                color: active ? style.color : Colors.transparent,
-                width: 1.5,
-              ),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(style.icon, size: 19, color: iconColor),
-                const SizedBox(width: 7),
-                Text(
-                  category.label,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: foreground,
-                    fontWeight: active ? FontWeight.w700 : FontWeight.w500,
-                  ),
+        elevation: 0,
+        shadowColor: Colors.transparent,
+        child: Ink(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(14),
+            boxShadow: premiumShadow(style.color, opacity: 0.08, blur: 8, offset: const Offset(0, 4)),
+          ),
+          child: InkWell(
+            onTap: onTap,
+            borderRadius: BorderRadius.circular(14),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 14),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(14),
+                color: active ? style.color.withValues(alpha: .14) : null,
+                border: Border.all(
+                  color: active ? style.color : Colors.grey.shade300,
+                  width: 1.2,
                 ),
-                if (count != null && count! > 0) ...[
-                  const SizedBox(width: 6),
-                  _CountBadge(count!, color: style.color),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(style.icon, size: 19, color: iconColor),
+                  const SizedBox(width: 7),
+                  Text(
+                    category.label,
+                    style: premiumText(
+                      context,
+                      13,
+                      active ? FontWeight.w700 : FontWeight.w600,
+                      foreground,
+                    ),
+                  ),
+                  if (count != null && count! > 0) ...[
+                    const SizedBox(width: 6),
+                    _CountBadge(count!, color: style.color),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ),
@@ -560,13 +565,7 @@ class _CountBadge extends StatelessWidget {
       ),
       child: Text(
         '$count',
-        style: Theme.of(context).textTheme.labelSmall?.copyWith(
-              fontWeight: FontWeight.w700,
-              color: Color.alphaBlend(
-                color.withValues(alpha: .85),
-                Theme.of(context).colorScheme.onSurface,
-              ),
-            ),
+        style: premiumText(context, 11, FontWeight.w700, Color.alphaBlend(color.withValues(alpha: .85), Colors.black87)),
       ),
     );
   }
@@ -740,7 +739,6 @@ class _FilterMenu<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
     final current = options.where((o) => o.value == value).firstOrNull;
     return PopupMenuButton<T>(
@@ -770,9 +768,7 @@ class _FilterMenu<T> extends StatelessWidget {
                       if (option.detail != null)
                         Text(
                           option.detail!,
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: bibleTheme.textColor.withValues(alpha: .72),
-                          ),
+                          style: premiumText(context, 12, FontWeight.w500, bibleTheme.textColor.withValues(alpha: .72)),
                         ),
                     ],
                   ),
@@ -798,9 +794,7 @@ class _FilterMenu<T> extends StatelessWidget {
                       Text(footer!.label),
                       Text(
                         footer!.detail,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: bibleTheme.textColor.withValues(alpha: .72),
-                        ),
+                        style: premiumText(context, 12, FontWeight.w500, bibleTheme.textColor.withValues(alpha: .72)),
                       ),
                     ],
                   ),
@@ -826,7 +820,6 @@ class _FilterLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -834,8 +827,7 @@ class _FilterLabel extends StatelessWidget {
       children: [
         Text(
           label,
-          style: theme.textTheme.bodySmall
-              ?.copyWith(color: bibleTheme.textColor.withValues(alpha: .72)),
+          style: premiumText(context, 11, FontWeight.w600, bibleTheme.textColor.withValues(alpha: .72)),
         ),
         const SizedBox(height: 2),
         Row(
@@ -845,14 +837,10 @@ class _FilterLabel extends StatelessWidget {
               child: Text(
                 value,
                 overflow: TextOverflow.ellipsis,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.w700,
-                  color: bibleTheme.accentColor,
-                ),
+                style: premiumText(context, 14, FontWeight.w800, bibleTheme.accentColor),
               ),
             ),
-            Icon(Icons.keyboard_arrow_down,
-                size: 18, color: bibleTheme.accentColor),
+            Icon(Icons.keyboard_arrow_down, size: 18, color: bibleTheme.accentColor),
           ],
         ),
       ],
@@ -892,10 +880,7 @@ class _BookFilterMenu extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(16, 14, 16, 4),
                 child: Text(
                   section.name,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: BibleThemeScope.of(context).accentColor,
-                      ),
+                  style: premiumText(context, 13, FontWeight.w700, BibleThemeScope.of(context).accentColor),
                 ),
               ),
               for (var book = section.from; book <= section.to; book++)
@@ -904,7 +889,7 @@ class _BookFilterMenu extends StatelessWidget {
                   title: Text(catalogEntry(book).shortName),
                   trailing: Text(
                     catalogEntry(book).abbreviation,
-                    style: Theme.of(context).textTheme.labelSmall,
+                    style: premiumText(context, 11, FontWeight.w500, Colors.black54),
                   ),
                   selected: filters.bookIndex == book,
                   onTap: () => Navigator.of(context).pop(book),
@@ -956,7 +941,6 @@ class _EmptyState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 24, 16, 32),
@@ -970,19 +954,14 @@ class _EmptyState extends StatelessWidget {
         Center(
           child: Text(
             'Que cherchez-vous ?',
-            style: theme.textTheme.titleMedium?.copyWith(
-              color: bibleTheme.titleColor,
-            ),
+            style: premiumText(context, 20, FontWeight.w800, bibleTheme.titleColor),
           ),
         ),
         const SizedBox(height: 28),
         for (final group in _suggestions) ...[
           Text(
             group.title,
-            style: theme.textTheme.titleSmall?.copyWith(
-              fontWeight: FontWeight.w700,
-              color: BibleThemeScope.of(context).titleColor,
-            ),
+            style: premiumText(context, 15, FontWeight.w800, bibleTheme.titleColor),
           ),
           const SizedBox(height: 8),
           Wrap(
@@ -991,7 +970,10 @@ class _EmptyState extends StatelessWidget {
             children: [
               for (final query in group.queries)
                 ActionChip(
-                  label: Text(query),
+                  label: Text(
+                    query,
+                    style: premiumText(context, 13, FontWeight.w600, bibleTheme.titleColor),
+                  ),
                   onPressed: () => onPick(query),
                   backgroundColor: bibleTheme.accentColor.withValues(alpha: .35),
                   side: BorderSide.none,
@@ -1016,7 +998,6 @@ class _NoResults extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
     return ListView(
       padding: const EdgeInsets.fromLTRB(28, 60, 28, 24),
@@ -1028,15 +1009,13 @@ class _NoResults extends StatelessWidget {
         Text(
           '« $query »',
           textAlign: TextAlign.center,
-          style: theme.textTheme.titleMedium
-              ?.copyWith(fontWeight: FontWeight.w700),
+          style: premiumText(context, 18, FontWeight.w800, bibleTheme.titleColor),
         ),
         const SizedBox(height: 8),
         Text(
           message,
           textAlign: TextAlign.center,
-          style: theme.textTheme.bodyMedium
-              ?.copyWith(color: bibleTheme.textColor.withValues(alpha: .88)),
+          style: premiumText(context, 14, FontWeight.w500, bibleTheme.textColor.withValues(alpha: .88), height: 1.5),
         ),
       ],
     );
@@ -1078,9 +1057,12 @@ class _Results extends StatelessWidget {
                 count: 1,
                 color: _styleOf(SearchCategory.passages).color,
               ),
-              _ReferenceCard(
-                reference: reference,
-                onTap: () => onOpenReference(reference),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                child: _ReferenceCard(
+                  reference: reference,
+                  onTap: () => onOpenReference(reference),
+                ),
               ),
             ],
             for (final group in outcome.groups) ...[
@@ -1090,10 +1072,13 @@ class _Results extends StatelessWidget {
                 color: _styleOf(group.category).color,
               ),
               for (final hit in group.hits)
-                _HitTile(
-                  hit: hit,
-                  query: outcome.query,
-                  onTap: () => onOpenHit(hit),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+                  child: _HitTile(
+                    hit: hit,
+                    query: outcome.query,
+                    onTap: () => onOpenHit(hit),
+                  ),
                 ),
               if (group.truncated && !expanded.contains(group.category))
                 Padding(
@@ -1103,10 +1088,7 @@ class _Results extends StatelessWidget {
                     child: ActionChip(
                       label: Text(
                         'Voir plus',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          color: _styleOf(group.category).color,
-                        ),
+                        style: premiumText(context, 13, FontWeight.w700, _styleOf(group.category).color),
                       ),
                       onPressed: () => onExpand(group.category),
                       backgroundColor: _styleOf(group.category)
@@ -1143,7 +1125,6 @@ class _CoverageNote extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 12, 16, 4),
@@ -1160,8 +1141,7 @@ class _CoverageNote extends StatelessWidget {
           Expanded(
             child: Text(
               text,
-              style: theme.textTheme.bodySmall
-                  ?.copyWith(color: bibleTheme.textColor.withValues(alpha: .85)),
+              style: premiumText(context, 13, FontWeight.w500, bibleTheme.textColor.withValues(alpha: .85)),
             ),
           ),
         ],
@@ -1184,7 +1164,6 @@ class _GroupHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 20, 16, 10),
@@ -1192,10 +1171,7 @@ class _GroupHeader extends StatelessWidget {
         children: [
           Text(
             title,
-            style: theme.textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.w700,
-              color: bibleTheme.textColor.withValues(alpha: .82),
-            ),
+            style: premiumText(context, 16, FontWeight.w800, bibleTheme.textColor.withValues(alpha: .82)),
           ),
           const SizedBox(width: 8),
           _CountBadge(count, color: color),
@@ -1214,31 +1190,44 @@ class _ReferenceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
-    return InkWell(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
+    return Material(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(20),
+      elevation: 0,
+      shadowColor: Colors.transparent,
+      child: Ink(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: premiumShadow(bibleTheme.accentColor, opacity: 0.07, blur: 16, offset: const Offset(0, 6)),
+        ),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  reference.label,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w800,
-                    color: bibleTheme.titleColor,
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      reference.label,
+                      style: premiumText(context, 17, FontWeight.w800, bibleTheme.titleColor),
+                    ),
+                    const SizedBox(width: 8),
+                    _Badge(reference.versionCode),
+                  ],
                 ),
-                const SizedBox(width: 8),
-                _Badge(reference.versionCode),
+                const SizedBox(height: 8),
+                Text(
+                  reference.text,
+                  style: premiumText(context, 15, FontWeight.w500, bibleTheme.textColor, height: 1.5),
+                ),
               ],
             ),
-            const SizedBox(height: 8),
-            Text(reference.text, style: theme.textTheme.bodyLarge),
-          ],
+          ),
         ),
       ),
     );
@@ -1260,90 +1249,90 @@ class _HitTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
     final style = _styleOf(hit.category);
-    return InkWell(
-      onTap: (hit.category == SearchCategory.strong || hit.canOpen) ? onTap : null,
-      child: Container(
+    return Material(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(20),
+      elevation: 0,
+      shadowColor: Colors.transparent,
+      child: Ink(
         decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              color: theme.dividerColor.withValues(alpha: .5),
-            ),
-          ),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: premiumShadow(style.color, opacity: 0.06, blur: 12, offset: const Offset(0, 5)),
         ),
-        padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: 42,
-              height: 42,
-              decoration: BoxDecoration(
-                color: style.color.withValues(alpha: .14),
-                borderRadius: BorderRadius.circular(11),
-              ),
-              child: Icon(style.icon, size: 21, color: style.color),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
+        child: InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: (hit.category == SearchCategory.strong || hit.canOpen) ? onTap : null,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 42,
+                  height: 42,
+                  decoration: BoxDecoration(
+                    color: style.color.withValues(alpha: .14),
+                    borderRadius: BorderRadius.circular(11),
+                  ),
+                  child: Icon(style.icon, size: 21, color: style.color),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Flexible(
-                        child: Text(
-                          hit.title,
-                          overflow: TextOverflow.ellipsis,
-                          style: theme.textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: bibleTheme.titleColor,
+                      Row(
+                        children: [
+                          Flexible(
+                            child: Text(
+                              hit.title,
+                              overflow: TextOverflow.ellipsis,
+                              style: premiumText(context, 15, FontWeight.w800, bibleTheme.titleColor),
+                            ),
                           ),
-                        ),
-                      ),
-                      if (hit.badge != null) ...[
-                        const SizedBox(width: 8),
-                        _Badge(hit.badge!),
-                      ],
-                      if (hit.transliteration != null &&
-                          hit.transliteration!.isNotEmpty) ...[
-                        const SizedBox(width: 8),
-                        Flex(
-                          direction: Axis.horizontal,
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            _Badge('translitéré'),
-                            const SizedBox(width: 2),
-                            _Badge(hit.transliteration!, strong: true),
+                          if (hit.badge != null) ...[
+                            const SizedBox(width: 8),
+                            _Badge(hit.badge!),
                           ],
+                          if (hit.transliteration != null &&
+                              hit.transliteration!.isNotEmpty) ...[
+                            const SizedBox(width: 8),
+                            Flex(
+                              direction: Axis.horizontal,
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                _Badge('translitéré'),
+                                const SizedBox(width: 2),
+                                _Badge(hit.transliteration!, strong: true),
+                              ],
+                            ),
+                          ],
+                        ],
+                      ),
+                      if (hit.lemma != null && hit.lemma!.isNotEmpty) ...[
+                        const SizedBox(height: 2),
+                        Text(
+                          hit.lemma!,
+                          overflow: TextOverflow.ellipsis,
+                          style: premiumText(context, 13, FontWeight.w700, bibleTheme.textColor.withValues(alpha: .72)),
                         ),
                       ],
+                      const SizedBox(height: 2),
+                      _HighlightedText(
+                        text: hit.subtitle,
+                        query: query,
+                        maxLines: 2,
+                      ),
                     ],
                   ),
-                  if (hit.lemma != null && hit.lemma!.isNotEmpty) ...[
-                    const SizedBox(height: 2),
-                    Text(
-                      hit.lemma!,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        color: bibleTheme.textColor.withValues(alpha: .72),
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ],
-                  const SizedBox(height: 2),
-                  _HighlightedText(
-                    text: hit.subtitle,
-                    query: query,
-                    maxLines: 2,
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -1359,7 +1348,6 @@ class _Badge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
@@ -1372,15 +1360,8 @@ class _Badge extends StatelessWidget {
       child: Text(
         text,
         style: strong
-            ? theme.textTheme.labelSmall?.copyWith(
-                fontWeight: FontWeight.w700,
-                fontStyle: FontStyle.italic,
-                color: bibleTheme.accentColor,
-              )
-            : theme.textTheme.labelSmall?.copyWith(
-                fontWeight: FontWeight.w600,
-                color: bibleTheme.textColor.withValues(alpha: .9),
-              ),
+            ? premiumText(context, 10, FontWeight.w700, bibleTheme.accentColor, italic: FontStyle.italic)
+            : premiumText(context, 10, FontWeight.w700, bibleTheme.textColor.withValues(alpha: .9)),
       ),
     );
   }
@@ -1401,11 +1382,8 @@ class _HighlightedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
-    final baseStyle = theme.textTheme.bodyMedium?.copyWith(
-      color: bibleTheme.textColor.withValues(alpha: .78),
-    );
+    final baseStyle = premiumText(context, 13, FontWeight.w500, bibleTheme.textColor.withValues(alpha: .78));
     final range = findIgnoringAccents(text, query.trim());
     if (range == null) {
       return Text(
@@ -1437,8 +1415,3 @@ class _HighlightedText extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

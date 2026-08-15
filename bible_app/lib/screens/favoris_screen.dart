@@ -4,6 +4,7 @@ import '../data/app_database.dart';
 import '../data/book_catalog.dart';
 import '../data/local_repository.dart';
 import '../models/user_data.dart';
+import '../widgets/premium_style.dart';
 
 /// Type de favori (maquette `interfaces/ecran_favoris.dart`).
 enum TypeFavori { verset, strong, dictionnaire }
@@ -34,10 +35,10 @@ class Favori {
   });
 }
 
-/// Écran « Favoris » (maquette `interfaces/ecran_favoris.dart`) : chaque verset
-/// marqué d'une étoile dans la lecture est listé ici, avec des filtres par
-/// type, un cœur pour le retirer et un tap qui rouvre le verset dans la
-/// lecture.
+/// Écran « Favoris » (maquette `interfaces/ecran_favoris.dart`) dans le langage
+/// visuel premium de l'Accueil : chaque verset marqué d'une étoile dans la
+/// lecture est listé ici, avec des filtres par type, un cœur pour le retirer
+/// et un tap qui rouvre le verset dans la lecture.
 ///
 /// [db] et [repository] sont injectables pour les tests (même couture que
 /// `store` sur les autres écrans) : `AppDatabase.instance` et le bundle réel
@@ -165,23 +166,19 @@ class _FavorisScreenState extends State<FavorisScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     final filtres = _favorisFiltres;
 
     return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
+      backgroundColor: kPremiumBackground,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        foregroundColor: theme.colorScheme.onSurface,
+        foregroundColor: p.textDark,
         centerTitle: true,
         title: Text(
           'Favoris',
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Georgia',
-          ),
+          style: premiumText(context, 18, FontWeight.w800, p.textDark),
         ),
       ),
       body: SafeArea(
@@ -190,7 +187,7 @@ class _FavorisScreenState extends State<FavorisScreen> {
           child: _loading
               ? const Center(child: CircularProgressIndicator())
               : _error != null
-                  ? _buildError(theme)
+                  ? _buildError(context)
                   : Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -200,29 +197,24 @@ class _FavorisScreenState extends State<FavorisScreen> {
                           runSpacing: 8,
                           children: [
                             for (final f in ['Tous', 'Versets', 'Strong', 'Dictionnaire'])
-                              _buildFiltreChip(theme, f),
+                              _buildFiltreChip(context, f),
                           ],
                         ),
                         const SizedBox(height: 12),
                         Text(
                           '${filtres.length} favori${filtres.length > 1 ? 's' : ''}',
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: theme.colorScheme.onSurfaceVariant,
-                          ),
+                          style: premiumText(context, 13, FontWeight.w500, p.textGrey),
                         ),
                         const SizedBox(height: 12),
 
                         // ============ LISTE OU ÉTAT VIDE ============
                         Expanded(
                           child: filtres.isEmpty
-                              ? _buildEtatVide(theme)
+                              ? _buildEtatVide(context)
                               : ListView.separated(
                                   itemCount: filtres.length,
-                                  separatorBuilder: (_, _) =>
-                                      const SizedBox(height: 12),
-                                  itemBuilder: (context, i) =>
-                                      _buildCarteFavori(theme, filtres[i]),
+                                  separatorBuilder: (_, _) => const SizedBox(height: 12),
+                                  itemBuilder: (context, i) => _buildCarteFavori(context, filtres[i]),
                                 ),
                         ),
                       ],
@@ -232,21 +224,17 @@ class _FavorisScreenState extends State<FavorisScreen> {
     );
   }
 
-  Widget _buildError(ThemeData theme) {
+  Widget _buildError(BuildContext context) {
+    final p = premiumPalette(context);
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.error_outline,
-              size: 48, color: theme.colorScheme.error),
+          Icon(Icons.error_outline, size: 48, color: Theme.of(context).colorScheme.error),
           const SizedBox(height: 12),
           Text(
             'Impossible de charger vos favoris.',
-            style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-              color: theme.colorScheme.onSurface,
-            ),
+            style: premiumText(context, 15, FontWeight.w800, p.textDark),
           ),
           const SizedBox(height: 6),
           TextButton(
@@ -265,8 +253,8 @@ class _FavorisScreenState extends State<FavorisScreen> {
   }
 
   // --- Chip de filtre ---
-  Widget _buildFiltreChip(ThemeData theme, String label) {
-    final accent = theme.colorScheme.primary;
+  Widget _buildFiltreChip(BuildContext context, String label) {
+    final p = premiumPalette(context);
     final actif = _filtre == label;
     return GestureDetector(
       onTap: () => setState(() => _filtre = label),
@@ -274,16 +262,23 @@ class _FavorisScreenState extends State<FavorisScreen> {
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
-          color: actif ? accent : theme.colorScheme.surface,
+          color: actif ? null : Colors.white,
+          gradient: actif ? p.heroGradient : null,
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: actif ? accent : Colors.grey.shade300),
+          border: Border.all(
+            color: actif ? Colors.transparent : Colors.grey.shade300,
+          ),
+          boxShadow: actif
+              ? premiumShadow(p.primary, opacity: 0.3, blur: 12, offset: const Offset(0, 5))
+              : null,
         ),
         child: Text(
           label,
-          style: TextStyle(
-            color: actif ? theme.colorScheme.onPrimary : Colors.black87,
-            fontSize: 13,
-            fontWeight: FontWeight.w600,
+          style: premiumText(
+            context,
+            13,
+            FontWeight.w700,
+            actif ? Colors.white : Colors.black87,
           ),
         ),
       ),
@@ -291,31 +286,24 @@ class _FavorisScreenState extends State<FavorisScreen> {
   }
 
   // --- État vide ---
-  Widget _buildEtatVide(ThemeData theme) {
+  Widget _buildEtatVide(BuildContext context) {
+    final p = premiumPalette(context);
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.favorite_border_rounded,
-              size: 56, color: Colors.grey.shade300),
+          Icon(Icons.favorite_border_rounded, size: 56, color: Colors.grey.shade300),
           const SizedBox(height: 12),
           Text(
             'Aucun favori ici',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: theme.colorScheme.onSurface,
-            ),
+            style: premiumText(context, 16, FontWeight.w800, p.textDark),
           ),
           const SizedBox(height: 6),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: Text(
               'Touche le cœur d\'un verset, d\'un mot Strong ou d\'une entrée de dictionnaire pour le retrouver ici.',
-              style: TextStyle(
-                fontSize: 13,
-                color: theme.colorScheme.onSurfaceVariant,
-              ),
+              style: premiumText(context, 13, FontWeight.w500, p.textGrey, height: 1.5),
               textAlign: TextAlign.center,
             ),
           ),
@@ -325,62 +313,57 @@ class _FavorisScreenState extends State<FavorisScreen> {
   }
 
   // --- Carte de favori cliquable ---
-  Widget _buildCarteFavori(ThemeData theme, Favori f) {
+  Widget _buildCarteFavori(BuildContext context, Favori f) {
+    final p = premiumPalette(context);
     return Material(
-      color: theme.colorScheme.surface,
-      borderRadius: BorderRadius.circular(14),
-      elevation: 2,
-      shadowColor: Colors.black.withValues(alpha: 0.15),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(14),
-        onTap: f.book == null ? null : () => _open(f),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-          child: Row(
-            children: [
-              _buildLeading(theme, f),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      f.titre,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.onSurface,
-                        fontFamily: 'Georgia',
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(20),
+      elevation: 0,
+      shadowColor: Colors.transparent,
+      child: Ink(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: premiumShadow(p.primaryDark, opacity: 0.07, blur: 16, offset: const Offset(0, 6)),
+        ),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: f.book == null ? null : () => _open(f),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            child: Row(
+              children: [
+                _buildLeading(context, f),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        f.titre,
+                        style: premiumText(context, 16, FontWeight.w800, p.textDark),
                       ),
-                    ),
-                    const SizedBox(height: 3),
-                    Text(
-                      f.sousTitre,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 13,
-                        height: 1.4,
-                        color: theme.colorScheme.onSurfaceVariant,
+                      const SizedBox(height: 3),
+                      Text(
+                        f.sousTitre,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: premiumText(context, 13, FontWeight.w500, p.textGrey, height: 1.4),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(width: 8),
-              // Cœur pour retirer le favori
-              GestureDetector(
-                onTap: () => _retirer(f),
-                child: Padding(
-                  padding: const EdgeInsets.all(6),
-                  child: const Icon(
-                    Icons.favorite_rounded,
-                    size: 20,
-                    color: Color(0xFFC0564C),
+                    ],
                   ),
                 ),
-              ),
-            ],
+                const SizedBox(width: 8),
+                // Cœur pour retirer le favori
+                GestureDetector(
+                  onTap: () => _retirer(f),
+                  child: Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: const Icon(Icons.favorite_rounded, size: 20, color: kPremiumCoeur),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -388,7 +371,7 @@ class _FavorisScreenState extends State<FavorisScreen> {
   }
 
   // --- Icône de gauche selon le type ---
-  Widget _buildLeading(ThemeData theme, Favori f) {
+  Widget _buildLeading(BuildContext context, Favori f) {
     const kGrec = Color(0xFF1A73E8);
     const kHebreu = Color(0xFFD95300);
     const kAccent = Color(0xFF8C6B4F);
@@ -404,18 +387,13 @@ class _FavorisScreenState extends State<FavorisScreen> {
         ),
         child: Text(
           f.badge ?? '',
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.bold,
-            color: couleur,
-          ),
+          style: premiumText(context, 12, FontWeight.w700, couleur),
         ),
       );
     }
 
     final couleur = f.type == TypeFavori.verset ? kAccent : kViolet;
-    final icone =
-        f.type == TypeFavori.verset ? Icons.bookmark_rounded : Icons.menu_book_rounded;
+    final icone = f.type == TypeFavori.verset ? Icons.bookmark_rounded : Icons.menu_book_rounded;
 
     return Container(
       padding: const EdgeInsets.all(9),

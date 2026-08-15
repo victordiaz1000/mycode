@@ -6,6 +6,7 @@ import '../data/fulltext_index.dart';
 import '../data/library_store.dart';
 import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
+import '../widgets/premium_style.dart';
 import 'fredaw_index_screen.dart';
 import 'strong_index_screen.dart';
 
@@ -15,7 +16,8 @@ import 'strong_index_screen.dart';
 /// C'est la destination promise par la feuille « Version » de la lecture, et le
 /// seul endroit qui écrit dans [LibraryStore]. Un téléchargement interrompu
 /// n'est pas du travail perdu : la ligne repasse en « Reprendre » et
-/// [DownloadService] repart du premier livre manquant.
+/// [DownloadService] repart du premier livre manquant. Au goût premium :
+/// fond crème, cartes blanches à ombre douce, accents du thème.
 class LibraryScreen extends StatefulWidget {
   /// Injectés par les tests ; l'application prend les vrais.
   final LibraryStore? store;
@@ -160,14 +162,29 @@ class _LibraryScreenState extends State<LibraryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final p = premiumPalette(context);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: kPremiumBackground,
         appBar: AppBar(
-          title: const Text('Bibliothèque'),
-          bottom: const TabBar(
-            key: Key('libraryTabs'),
-            tabs: [
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          foregroundColor: p.textDark,
+          centerTitle: true,
+          title: Text(
+            'Bibliothèque',
+            style: premiumText(context, 18, FontWeight.w800, p.textDark),
+          ),
+          bottom: TabBar(
+            key: const Key('libraryTabs'),
+            labelColor: p.primary,
+            unselectedLabelColor: p.textGrey,
+            indicatorColor: p.primary,
+            indicatorWeight: 2,
+            labelStyle: premiumText(context, 13, FontWeight.w700, p.primary),
+            unselectedLabelStyle: premiumText(context, 13, FontWeight.w600, p.textGrey),
+            tabs: const [
               Tab(text: 'Bibles'),
               Tab(text: 'Dictionnaires'),
             ],
@@ -222,16 +239,12 @@ class _GroupHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 18, 16, 6),
       child: Text(
         title.toUpperCase(),
-        style: theme.textTheme.labelSmall?.copyWith(
-          color: theme.colorScheme.onSurfaceVariant,
-          fontWeight: FontWeight.w800,
-          letterSpacing: 1.1,
-        ),
+        style: premiumText(context, 11, FontWeight.w800, p.textGrey, spacing: 1.1),
       ),
     );
   }
@@ -240,29 +253,37 @@ class _GroupHeader extends StatelessWidget {
 /// Une version et son état sur l'appareil : rien / partielle / complète, ou la
 /// barre pendant que les livres arrivent.
 /// La coquille de carte partagée par les deux onglets de la Bibliothèque :
-/// le fond `surfaceContainerHighest`, l'arrondi et l'onde de tap. Chaque tuile
-/// (version comme dictionnaire) hérite de ce composant et n'apporte que son
-/// contenu.
+/// la carte blanche à ombre douce et l'onde de tap. Chaque tuile (version comme
+/// dictionnaire) hérite de ce composant et n'apporte que son contenu.
 class _LibraryCard extends StatelessWidget {
   final Widget child;
   final VoidCallback? onTap;
 
-  /// Opacité du fond ; la version indisponible est plus transparente.
-  final double alpha;
+  /// La ressource est indisponible : la carte s'efface et n'ouvre rien.
+  final bool dimmed;
 
-  const _LibraryCard({required this.child, this.onTap, this.alpha = .4});
+  const _LibraryCard({required this.child, this.onTap, this.dimmed = false});
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Material(
-      color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: alpha),
-      borderRadius: BorderRadius.circular(12),
+    final p = premiumPalette(context);
+    final card = Ink(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: dimmed
+            ? null
+            : premiumShadow(p.primaryDark, opacity: 0.06, blur: 14, offset: const Offset(0, 6)),
+      ),
       child: InkWell(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
         onTap: onTap,
         child: child,
       ),
+    );
+    return Material(
+      color: Colors.transparent,
+      child: dimmed ? Opacity(opacity: .55, child: card) : card,
     );
   }
 }
@@ -315,12 +336,12 @@ class _VersionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     final status = _status;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       child: _LibraryCard(
-        alpha: _dimmed ? .2 : .4,
+        dimmed: _dimmed,
         onTap: _dimmed ? onUnavailable : null,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(12, 10, 8, 10),
@@ -337,18 +358,16 @@ class _VersionTile extends StatelessWidget {
                       children: [
                         Text(
                           version.name,
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: _dimmed
-                                ? theme.colorScheme.onSurfaceVariant
-                                : theme.colorScheme.onSurface,
+                          style: premiumText(
+                            context,
+                            15,
+                            FontWeight.w700,
+                            _dimmed ? p.textGrey : p.textDark,
                           ),
                         ),
                         Text(
                           version.rights,
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant,
-                          ),
+                          style: premiumText(context, 12, FontWeight.w500, p.textGrey),
                         ),
                       ],
                     ),
@@ -363,10 +382,11 @@ class _VersionTile extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 6),
                   child: Text(
                     status,
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: state.isComplete
-                          ? theme.colorScheme.primary
-                          : theme.colorScheme.onSurfaceVariant,
+                    style: premiumText(
+                      context,
+                    12,
+                    FontWeight.w600,
+                    state.isComplete ? p.primary : p.textGrey,
                     ),
                   ),
                 ),
@@ -378,9 +398,9 @@ class _VersionTile extends StatelessWidget {
   }
 
   Widget _bar(BuildContext context) {
-    final theme = Theme.of(context);
-    final p = progress!;
-    final book = p.currentBookName;
+    final p = premiumPalette(context);
+    final progress = this.progress!;
+    final book = progress.currentBookName;
     return Padding(
       padding: const EdgeInsets.only(top: 10, right: 4),
       child: Column(
@@ -390,16 +410,16 @@ class _VersionTile extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
             child: LinearProgressIndicator(
               key: Key('progress-${version.code}'),
-              value: p.fraction,
+              value: progress.fraction,
               minHeight: 6,
+              color: p.primary,
+              backgroundColor: p.primarySoft,
             ),
           ),
           const SizedBox(height: 6),
           Text(
-            '${p.done}/${p.total} livres${book == null ? '' : ' · $book'}',
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-            ),
+            '${progress.done}/${progress.total} livres${book == null ? '' : ' · $book'}',
+            style: premiumText(context, 12, FontWeight.w500, p.textGrey),
           ),
         ],
       ),
@@ -407,28 +427,23 @@ class _VersionTile extends StatelessWidget {
   }
 
   Widget _action(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
 
     if (_downloading) {
       return TextButton(
         key: Key('cancel-${version.code}'),
         onPressed: onCancel,
-        child: const Text('Annuler'),
+        child: Text(
+          'Annuler',
+          style: premiumText(context, 13, FontWeight.w700, p.primary),
+        ),
       );
     }
     if (version.embedded) {
-      return Icon(
-        Icons.verified_outlined,
-        size: 20,
-        color: theme.colorScheme.primary,
-      );
+      return Icon(Icons.verified_outlined, size: 20, color: p.primary);
     }
     if (_dimmed) {
-      return Icon(
-        Icons.lock_outline,
-        size: 18,
-        color: theme.colorScheme.outline,
-      );
+      return Icon(Icons.lock_outline, size: 18, color: p.textGrey);
     }
     if (state.isComplete) {
       return IconButton(
@@ -472,25 +487,23 @@ class _CodeBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return Container(
       width: 46,
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 4),
       decoration: BoxDecoration(
-        color: dimmed
-            ? theme.colorScheme.surfaceContainerHighest
-            : theme.colorScheme.primaryContainer,
+        color: dimmed ? Colors.grey.shade200 : p.primarySoft,
         borderRadius: BorderRadius.circular(7),
       ),
       child: Text(
         code,
         overflow: TextOverflow.ellipsis,
-        style: theme.textTheme.labelSmall?.copyWith(
-          fontWeight: FontWeight.w800,
-          color: dimmed
-              ? theme.colorScheme.onSurfaceVariant
-              : theme.colorScheme.onPrimaryContainer,
+        style: premiumText(
+          context,
+          11,
+          FontWeight.w800,
+          dimmed ? p.textGrey : p.primary,
         ),
       ),
     );
@@ -507,10 +520,10 @@ class _DictionariesTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return ListView(
       key: const Key('libraryDictionaries'),
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
       children: [
         for (final resource in _dictionaryResources) ...[
           _DictionaryTile(
@@ -547,13 +560,14 @@ class _DictionariesTab extends StatelessWidget {
           const SizedBox(height: 10),
         ],
         const SizedBox(height: 16),
-        Text(
-          'Le lexique BYM, le Strong FR et le dictionnaire FreDAW sont déjà '
-          'embarqué·e·s. Les autres dictionnaires externes (hébreu, grec, '
-          'autres versions Strong) arriveront ici lorsqu\'ils seront prêts.',
-          textAlign: TextAlign.center,
-          style: theme.textTheme.bodySmall?.copyWith(
-            color: theme.colorScheme.onSurfaceVariant,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Text(
+            'Le lexique BYM, le Strong FR et le dictionnaire FreDAW sont déjà '
+            'embarqué·e·s. Les autres dictionnaires externes (hébreu, grec, '
+            'autres versions Strong) arriveront ici lorsqu\'ils seront prêts.',
+            textAlign: TextAlign.center,
+            style: premiumText(context, 12, FontWeight.w500, p.textGrey, height: 1.5),
           ),
         ),
       ],
@@ -624,9 +638,19 @@ class _DictionaryDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return Scaffold(
-      appBar: AppBar(title: Text(resource.name)),
+      backgroundColor: kPremiumBackground,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        foregroundColor: p.textDark,
+        centerTitle: true,
+        title: Text(
+          resource.name,
+          style: premiumText(context, 17, FontWeight.w800, p.textDark),
+        ),
+      ),
       body: SafeArea(
         top: false,
         child: SingleChildScrollView(
@@ -636,9 +660,7 @@ class _DictionaryDetailScreen extends StatelessWidget {
             children: [
               Text(
                 resource.description,
-                style: theme.textTheme.bodyLarge?.copyWith(
-                  fontWeight: FontWeight.w700,
-                ),
+                style: premiumText(context, 16, FontWeight.w700, p.textDark),
               ),
               const SizedBox(height: 18),
               _DetailRow(label: 'Statut', value: resource.note),
@@ -658,9 +680,7 @@ class _DictionaryDetailScreen extends StatelessWidget {
                 Text(
                   'Cette ressource est prévue mais pas encore disponible directement '
                   'dans l\'application. Elle apparaîtra ici lorsqu\'elle sera intégrée.',
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                  ),
+                  style: premiumText(context, 12, FontWeight.w500, p.textGrey, height: 1.5),
                 ),
             ],
           ),
@@ -678,20 +698,19 @@ class _DetailRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           label.toUpperCase(),
-          style: theme.textTheme.labelSmall?.copyWith(
-            fontWeight: FontWeight.w800,
-            color: theme.colorScheme.primary,
-            letterSpacing: 1.05,
-          ),
+          style: premiumText(context, 11, FontWeight.w800, p.primary, spacing: 1.05),
         ),
         const SizedBox(height: 4),
-        Text(value, style: theme.textTheme.bodyMedium),
+        Text(
+          value,
+          style: premiumText(context, 14, FontWeight.w500, p.textDark),
+        ),
       ],
     );
   }
@@ -705,12 +724,10 @@ class _DictionaryTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final color = resource.available
-        ? theme.colorScheme.primary
-        : theme.colorScheme.onSurfaceVariant;
+    final p = premiumPalette(context);
+    final color = resource.available ? p.primary : p.textGrey;
     return _LibraryCard(
-      alpha: resource.available ? .4 : .2,
+      dimmed: !resource.available,
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(12, 10, 8, 10),
@@ -737,17 +754,12 @@ class _DictionaryTile extends StatelessWidget {
                 children: [
                   Text(
                     resource.name,
-                    style: theme.textTheme.bodyLarge?.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: theme.colorScheme.onSurface,
-                    ),
+                    style: premiumText(context, 15, FontWeight.w700, p.textDark),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     resource.description,
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurfaceVariant,
-                    ),
+                    style: premiumText(context, 12, FontWeight.w500, p.textGrey, height: 1.4),
                   ),
                 ],
               ),
@@ -756,18 +768,16 @@ class _DictionaryTile extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
               decoration: BoxDecoration(
-                color: resource.available
-                    ? theme.colorScheme.primaryContainer
-                    : theme.colorScheme.surfaceContainerHighest,
+                color: resource.available ? p.primarySoft : Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Text(
                 resource.note,
-                style: theme.textTheme.labelSmall?.copyWith(
-                  color: resource.available
-                      ? theme.colorScheme.onPrimaryContainer
-                      : theme.colorScheme.onSurfaceVariant,
-                  fontWeight: FontWeight.w700,
+                style: premiumText(
+                  context,
+                  11,
+                  FontWeight.w700,
+                  resource.available ? p.primary : p.textGrey,
                 ),
               ),
             ),

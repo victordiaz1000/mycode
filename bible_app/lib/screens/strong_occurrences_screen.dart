@@ -4,10 +4,11 @@ import '../data/book_catalog.dart';
 import '../data/lsgs_repository.dart';
 import '../data/strong_occurrences.dart';
 import '../models/lsgs.dart';
+import '../widgets/premium_style.dart';
 
 /// One occurrence row: the reference and the full verse text with the Strong
 /// word in occurrence highlighted (a tinted background — never bold, never a
-/// link). Shared by the fiche preview and the per-book list.
+/// link). Shared by the fiche preview and the per-book list. Au goût premium.
 class StrongOccurrenceCard extends StatelessWidget {
   final StrongOccurrence occ;
   final String reference;
@@ -33,57 +34,60 @@ class StrongOccurrenceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return Material(
-      color: theme.colorScheme.surfaceContainerHighest,
-      borderRadius: BorderRadius.circular(14),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(14),
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-          child: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(9),
-                decoration: BoxDecoration(
-                    color: accent.withValues(alpha: .12), shape: BoxShape.circle),
-                child: Icon(Icons.menu_book_rounded, size: 18, color: accent),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      reference,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    if (tokens.isNotEmpty) ...[
-                      const SizedBox(height: 3),
-                      _OccurrenceVerseText(
-                        tokens: tokens,
-                        highlight: highlight,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                          height: 1.4,
-                        ),
-                        highlightStyle: TextStyle(
-                          backgroundColor: accent.withValues(alpha: .25),
-                        ),
-                      ),
-                    ],
-                  ],
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(20),
+      elevation: 0,
+      shadowColor: Colors.transparent,
+      child: Ink(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: premiumShadow(p.primaryDark, opacity: 0.07, blur: 16, offset: const Offset(0, 6)),
+        ),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(9),
+                  decoration: BoxDecoration(
+                      color: accent.withValues(alpha: .12), shape: BoxShape.circle),
+                  child: Icon(Icons.menu_book_rounded, size: 18, color: accent),
                 ),
-              ),
-              if (onTap != null) ...[
-                const SizedBox(width: 8),
-                Icon(Icons.chevron_right_rounded,
-                    color: theme.colorScheme.onSurfaceVariant, size: 22),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        reference,
+                        style: premiumText(context, 15, FontWeight.w700, p.textDark),
+                      ),
+                      if (tokens.isNotEmpty) ...[
+                        const SizedBox(height: 3),
+                        _OccurrenceVerseText(
+                          tokens: tokens,
+                          highlight: highlight,
+                          style: premiumText(context, 13, FontWeight.w500, p.textGrey, height: 1.4),
+                          highlightStyle: TextStyle(
+                            backgroundColor: accent.withValues(alpha: .25),
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+                if (onTap != null) ...[
+                  const SizedBox(width: 8),
+                  Icon(Icons.chevron_right_rounded, color: p.textGrey, size: 22),
+                ],
               ],
-            ],
+            ),
           ),
         ),
       ),
@@ -147,7 +151,7 @@ class StrongOccurrencesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     final grouped = <int, List<StrongOccurrence>>{};
     for (final occ in occurrences) {
       grouped.putIfAbsent(occ.bookIndex, () => []).add(occ);
@@ -155,19 +159,27 @@ class StrongOccurrencesScreen extends StatelessWidget {
     final books = grouped.keys.toList()..sort();
 
     return Scaffold(
-      appBar: AppBar(title: Text('Occurrences — $code')),
+      backgroundColor: kPremiumBackground,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        foregroundColor: p.textDark,
+        centerTitle: true,
+        title: Text(
+          'Occurrences — $code',
+          style: premiumText(context, 18, FontWeight.w800, p.textDark),
+        ),
+      ),
       body: SafeArea(
         top: false,
         child: ListView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(20),
           children: [
             Text(
               '${occurrences.length} verset${occurrences.length > 1 ? 's' : ''} '
               'réparti${occurrences.length > 1 ? 's' : ''} dans '
               '${books.length} livre${books.length > 1 ? 's' : ''}',
-              style: theme.textTheme.bodySmall?.copyWith(
-                color: theme.colorScheme.onSurfaceVariant,
-              ),
+              style: premiumText(context, 13, FontWeight.w500, p.textGrey),
             ),
             const SizedBox(height: 12),
             for (final book in books)
@@ -247,16 +259,26 @@ class _StrongBookOccurrencesScreenState
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final accent = theme.colorScheme.primary;
+    final p = premiumPalette(context);
+    final accent = p.primary;
     return Scaffold(
-      appBar: AppBar(title: Text(widget.bookName)),
+      backgroundColor: kPremiumBackground,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        foregroundColor: p.textDark,
+        centerTitle: true,
+        title: Text(
+          widget.bookName,
+          style: premiumText(context, 18, FontWeight.w800, p.textDark),
+        ),
+      ),
       body: SafeArea(
         top: false,
         child: !_ready
             ? const Center(child: CircularProgressIndicator())
             : ListView.builder(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(20),
                 itemCount: widget.occurrences.length,
                 itemBuilder: (context, index) {
                   final occ = widget.occurrences[index];
@@ -294,51 +316,54 @@ class _BookCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final accent = theme.colorScheme.primary;
+    final p = premiumPalette(context);
+    final accent = p.primary;
     return Material(
-      color: theme.colorScheme.surfaceContainerHighest,
-      borderRadius: BorderRadius.circular(14),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(14),
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-          child: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(9),
-                decoration: BoxDecoration(
-                    color: accent.withValues(alpha: .12), shape: BoxShape.circle),
-                child: Icon(Icons.menu_book_rounded, size: 18, color: accent),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Text(
-                  name,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.w700,
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(20),
+      elevation: 0,
+      shadowColor: Colors.transparent,
+      child: Ink(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: premiumShadow(p.primaryDark, opacity: 0.07, blur: 16, offset: const Offset(0, 6)),
+        ),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(9),
+                  decoration: BoxDecoration(
+                      color: accent.withValues(alpha: .12), shape: BoxShape.circle),
+                  child: Icon(Icons.menu_book_rounded, size: 18, color: accent),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    name,
+                    style: premiumText(context, 15, FontWeight.w700, p.textDark),
                   ),
                 ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                decoration: BoxDecoration(
-                  color: accent.withValues(alpha: .12),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Text(
-                  '$count',
-                  style: theme.textTheme.labelMedium?.copyWith(
-                    color: accent,
-                    fontWeight: FontWeight.w800,
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: accent.withValues(alpha: .12),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    '$count',
+                    style: premiumText(context, 12, FontWeight.w800, accent),
                   ),
                 ),
-              ),
-              const SizedBox(width: 8),
-              Icon(Icons.chevron_right_rounded,
-                  color: theme.colorScheme.onSurfaceVariant, size: 22),
-            ],
+                const SizedBox(width: 8),
+                Icon(Icons.chevron_right_rounded, color: p.textGrey, size: 22),
+              ],
+            ),
           ),
         ),
       ),
