@@ -1367,12 +1367,12 @@ class _BookHeaderState extends State<_BookHeader> {
         children: [
           Text(
             label,
-            style: premiumText(context, 11, FontWeight.w800, accent, spacing: .5),
+            style: premiumText(context, 10, FontWeight.w800, accent, spacing: .5),
           ),
           Expanded(
             child: Text(
               value,
-              style: premiumText(context, 13, FontWeight.w600, dark),
+              style: premiumText(context, 12, FontWeight.w600, dark),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),

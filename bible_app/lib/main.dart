@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'data/tab_manager.dart';
 import 'screens/home_screen.dart';
@@ -10,6 +11,10 @@ import 'widgets/chapter_reader.dart';
 import 'data/app_preferences.dart';
 import 'data/theme_catalog.dart';
 import 'widgets/bible_theme_scope.dart';
+import 'widgets/premium_style.dart';
+
+/// Couleur neutre des destinations inactives de la barre de navigation.
+const Color _navInactive = Color(0xFF9C9387);
 
 void main() {
   runApp(BymApp());
@@ -145,31 +150,71 @@ class _HomeShellState extends State<HomeShell> {
           const SettingsScreen(),
         ],
       ),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _index,
-        onDestinationSelected: (i) => setState(() => _index = i),
-        destinations: const [
-          NavigationDestination(
-              icon: Icon(Icons.home_outlined),
-              selectedIcon: Icon(Icons.home),
-              label: 'Accueil'),
-          NavigationDestination(
-              icon: Icon(Icons.menu_book_outlined),
-              selectedIcon: Icon(Icons.menu_book),
-              label: 'Lecture'),
-          NavigationDestination(
-              icon: Icon(Icons.search_outlined),
-              selectedIcon: Icon(Icons.search),
-              label: 'Recherche'),
-          NavigationDestination(
-              icon: Icon(Icons.download_outlined),
-              selectedIcon: Icon(Icons.download),
-              label: 'Bibliothèque'),
-          NavigationDestination(
-              icon: Icon(Icons.settings_outlined),
-              selectedIcon: Icon(Icons.settings),
-              label: 'Réglages'),
-        ],
+      bottomNavigationBar: _buildNavigationBar(context),
+    );
+  }
+
+  Widget _buildNavigationBar(BuildContext context) {
+    final p = premiumPalette(context);
+    final family = GoogleFonts.plusJakartaSans().fontFamily;
+    TextStyle labelStyle(bool selected) => TextStyle(
+          fontFamily: family,
+          fontSize: 11.5,
+          fontWeight: selected ? FontWeight.w800 : FontWeight.w600,
+          letterSpacing: selected ? .2 : 0,
+          color: selected ? p.primary : _navInactive,
+        );
+    return Container(
+      decoration: BoxDecoration(
+        color: kPremiumBackground,
+        border: Border(
+          top: BorderSide(color: Colors.black.withValues(alpha: .06)),
+        ),
+      ),
+      child: NavigationBarTheme(
+        data: NavigationBarThemeData(
+          height: 68,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          surfaceTintColor: Colors.transparent,
+          indicatorColor: p.primarySoft,
+          iconTheme: WidgetStateProperty.resolveWith(
+            (states) => IconThemeData(
+              color: states.contains(WidgetState.selected)
+                  ? p.primary
+                  : _navInactive,
+            ),
+          ),
+          labelTextStyle: WidgetStateProperty.resolveWith(
+            (states) => labelStyle(states.contains(WidgetState.selected)),
+          ),
+        ),
+        child: NavigationBar(
+          selectedIndex: _index,
+          onDestinationSelected: (i) => setState(() => _index = i),
+          destinations: const [
+            NavigationDestination(
+                icon: Icon(Icons.home_outlined),
+                selectedIcon: Icon(Icons.home),
+                label: 'Accueil'),
+            NavigationDestination(
+                icon: Icon(Icons.menu_book_outlined),
+                selectedIcon: Icon(Icons.menu_book),
+                label: 'Lecture'),
+            NavigationDestination(
+                icon: Icon(Icons.search_outlined),
+                selectedIcon: Icon(Icons.search),
+                label: 'Recherche'),
+            NavigationDestination(
+                icon: Icon(Icons.download_outlined),
+                selectedIcon: Icon(Icons.download),
+                label: 'Bibliothèque'),
+            NavigationDestination(
+                icon: Icon(Icons.settings_outlined),
+                selectedIcon: Icon(Icons.settings),
+                label: 'Réglages'),
+          ],
+        ),
       ),
     );
   }
