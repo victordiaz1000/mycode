@@ -6,6 +6,7 @@ import '../data/library_store.dart';
 import '../data/local_repository.dart';
 import '../data/version_catalog.dart';
 import '../models/chapter.dart';
+import '../widgets/premium_style.dart';
 
 const Color _gold = Color(0xFFD3A94F);
 
@@ -92,9 +93,9 @@ class ReaderActionsBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Material(
-      color: theme.colorScheme.surface,
+    final p = premiumPalette(context);
+    return Container(
+      color: kPremiumBackground,
       child: Column(
         children: [
           Padding(
@@ -115,6 +116,7 @@ class ReaderActionsBar extends StatelessWidget {
                 _Pill(
                   label: versionCode,
                   side: _PillSide.right,
+                  filled: true,
                   onTap: () => showVersionSheet(
                     context,
                     activeCode: versionCode,
@@ -127,7 +129,8 @@ class ReaderActionsBar extends StatelessWidget {
                   tooltip: 'Aller au verset',
                   onPressed: onVerses,
                   visualDensity: VisualDensity.compact,
-                  color: theme.colorScheme.outline,
+                  color: p.primary,
+                  disabledColor: p.textGrey,
                   icon: const Icon(Icons.keyboard_double_arrow_down),
                 ),
                 const Spacer(),
@@ -135,21 +138,23 @@ class ReaderActionsBar extends StatelessWidget {
                   tooltip: 'Chapitre précédent',
                   onPressed: onPreviousChapter,
                   visualDensity: VisualDensity.compact,
-                  color: theme.colorScheme.outline,
+                  color: p.primary,
+                  disabledColor: p.textGrey,
                   icon: const Icon(Icons.chevron_left),
                 ),
                 IconButton(
                   tooltip: 'Chapitre suivant',
                   onPressed: onNextChapter,
                   visualDensity: VisualDensity.compact,
-                  color: theme.colorScheme.outline,
+                  color: p.primary,
+                  disabledColor: p.textGrey,
                   icon: const Icon(Icons.chevron_right),
                 ),
                 ?trailing,
               ],
             ),
           ),
-          Divider(height: 1, thickness: 1, color: theme.dividerColor),
+          Container(height: 1, color: p.primary.withValues(alpha: .10)),
         ],
       ),
     );
@@ -160,34 +165,54 @@ enum _PillSide { left, right }
 
 /// One half of the joined pill group: fully rounded on its outer edge, barely
 /// rounded on the edge facing the other half.
+///
+/// The reference half is a white card with an accent border; the version half
+/// is filled with the theme gradient so the two read as one segmented control.
 class _Pill extends StatelessWidget {
   final String label;
   final _PillSide side;
+  final bool filled;
   final VoidCallback onTap;
 
-  const _Pill({required this.label, required this.side, required this.onTap});
+  const _Pill({
+    required this.label,
+    required this.side,
+    this.filled = false,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    const outer = Radius.circular(18);
+    final p = premiumPalette(context);
+    const outer = Radius.circular(16);
     const inner = Radius.circular(5);
     final radius = side == _PillSide.left
         ? const BorderRadius.horizontal(left: outer, right: inner)
         : const BorderRadius.horizontal(left: inner, right: outer);
     return Material(
-      color: theme.colorScheme.secondaryContainer.withValues(alpha: .8),
+      color: filled ? null : Colors.white,
       borderRadius: radius,
       clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-          child: Text(
-            label,
-            style: theme.textTheme.titleSmall?.copyWith(
-              color: theme.colorScheme.onSecondaryContainer,
-              fontWeight: FontWeight.w700,
+      child: Ink(
+        decoration: BoxDecoration(
+          gradient: filled ? p.heroGradient : null,
+          borderRadius: radius,
+          border: filled
+              ? null
+              : Border.all(color: p.primary.withValues(alpha: .28)),
+        ),
+        child: InkWell(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+            child: Text(
+              label,
+              style: premiumText(
+                context,
+                13,
+                FontWeight.w700,
+                filled ? Colors.white : p.primary,
+              ),
             ),
           ),
         ),
@@ -206,7 +231,7 @@ class _SheetHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return Column(
       children: [
         Row(
@@ -216,17 +241,14 @@ class _SheetHeader extends StatelessWidget {
               child: Text(
                 title,
                 textAlign: TextAlign.center,
-                style: theme.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: theme.colorScheme.primary,
-                ),
+                style: premiumText(context, 16, FontWeight.w800, p.primary),
               ),
             ),
             SizedBox(width: 48, child: menu),
           ],
         ),
-        const SizedBox(height: 4),
-        const Divider(height: 1),
+        const SizedBox(height: 8),
+        Container(height: 1, color: p.primary.withValues(alpha: .12)),
       ],
     );
   }
@@ -250,6 +272,7 @@ Future<void> showBooksSheet(
     context: context,
     isScrollControlled: true,
     showDragHandle: true,
+    backgroundColor: kPremiumBackground,
     builder: (sheetContext) => SizedBox(
       height: MediaQuery.sizeOf(sheetContext).height * .85,
       child: _BooksSheet(
@@ -288,7 +311,6 @@ class _BooksSheetState extends State<_BooksSheet> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Column(
       children: [
         _SheetHeader(
@@ -312,9 +334,12 @@ class _BooksSheetState extends State<_BooksSheet> {
                   padding: const EdgeInsets.fromLTRB(20, 18, 20, 6),
                   child: Text(
                     section.name,
-                    style: theme.textTheme.labelLarge?.copyWith(
-                      color: theme.colorScheme.primary,
-                      letterSpacing: .4,
+                    style: premiumText(
+                      context,
+                      11,
+                      FontWeight.w800,
+                      premiumPalette(context).primary,
+                      spacing: .9,
                     ),
                   ),
                 ),
@@ -328,15 +353,13 @@ class _BooksSheetState extends State<_BooksSheet> {
   }
 
   Widget _bookRow(int bymIndex) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     final active = bymIndex == widget.currentBook;
     final expanded = bymIndex == _expanded;
     return Column(
       children: [
         Material(
-          color: active
-              ? theme.colorScheme.primaryContainer.withValues(alpha: .35)
-              : Colors.transparent,
+          color: active ? p.primarySoft : Colors.transparent,
           child: InkWell(
             onTap: () =>
                 setState(() => _expanded = expanded ? null : bymIndex),
@@ -347,16 +370,17 @@ class _BooksSheetState extends State<_BooksSheet> {
                   Expanded(
                     child: Text(
                       catalogEntry(bymIndex).shortName,
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        color: active ? theme.colorScheme.primary : null,
-                        fontWeight:
-                            active ? FontWeight.w700 : FontWeight.w400,
+                      style: premiumText(
+                        context,
+                        15,
+                        active ? FontWeight.w800 : FontWeight.w600,
+                        active ? p.primary : p.textDark,
                       ),
                     ),
                   ),
                   Icon(
                     expanded ? Icons.expand_less : Icons.expand_more,
-                    color: theme.colorScheme.outline,
+                    color: active ? p.primary : p.textGrey,
                   ),
                 ],
               ),
@@ -372,7 +396,12 @@ class _BooksSheetState extends State<_BooksSheet> {
               widget.onSelect(bymIndex, chapter);
             },
           ),
-        const Divider(height: 1),
+        Divider(
+          height: 1,
+          indent: 20,
+          endIndent: 20,
+          color: p.textGrey.withValues(alpha: .18),
+        ),
       ],
     );
   }
@@ -455,27 +484,29 @@ class _NumberTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return SizedBox(
       width: 52,
       height: 46,
       child: Material(
-        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: .7),
+        color: Colors.white,
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
           side: current
               ? const BorderSide(color: _gold, width: 2)
-              : BorderSide.none,
+              : BorderSide(color: p.textGrey.withValues(alpha: .22)),
         ),
         child: InkWell(
           onTap: onTap,
           child: Center(
             child: Text(
               '$number',
-              style: theme.textTheme.bodyLarge?.copyWith(
-                color: theme.colorScheme.onSurface,
-                fontWeight: current ? FontWeight.w700 : FontWeight.w400,
+              style: premiumText(
+                context,
+                15,
+                current ? FontWeight.w800 : FontWeight.w600,
+                current ? _gold : p.textDark,
               ),
             ),
           ),
@@ -490,10 +521,9 @@ class _NumberTile extends StatelessWidget {
 // ---------------------------------------------------------------------------
 
 /// Translations grouped as in the maquette
-/// (`modif/resultat_vers_les_versions.jpg`): a code line, the name (with a 🔊
-/// when an audio reading exists), then the date + licence — but only the ones
-/// this device can read: the embedded BYM, and what the Bibliothèque has
-/// downloaded.
+/// (`modif/resultat_vers_les_versions.jpg`): a code line, the name, then the
+/// date + licence — but only the ones this device can read: the embedded BYM,
+/// and what the Bibliothèque has downloaded.
 ///
 /// The rest of the catalogue used to sit here too, greyed, answering « à
 /// télécharger depuis la Bibliothèque » when tapped — a dozen rows the reader
@@ -536,6 +566,7 @@ Future<void> showVersionSheet(
     context: context,
     isScrollControlled: true,
     showDragHandle: true,
+    backgroundColor: kPremiumBackground,
     builder: (sheetContext) => SizedBox(
       height: MediaQuery.sizeOf(sheetContext).height * .8,
       child: Column(
@@ -554,10 +585,21 @@ Future<void> showVersionSheet(
                       children: [
                         Text(
                           group.title,
-                          style: Theme.of(sheetContext).textTheme.titleMedium,
+                          style: premiumText(
+                            sheetContext,
+                            13,
+                            FontWeight.w800,
+                            premiumPalette(sheetContext).textGrey,
+                            spacing: .4,
+                          ),
                         ),
                         const SizedBox(height: 8),
-                        const Divider(height: 1),
+                        Container(
+                          height: 1,
+                          color: premiumPalette(sheetContext)
+                              .primary
+                              .withValues(alpha: .12),
+                        ),
                       ],
                     ),
                   ),
@@ -597,7 +639,7 @@ class _LibraryFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     final open = onOpen;
     final label = '$count autre${count > 1 ? 's' : ''} '
         'version${count > 1 ? 's' : ''} à télécharger';
@@ -605,9 +647,9 @@ class _LibraryFooter extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const Padding(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
-          child: Divider(height: 1),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+          child: Container(height: 1, color: p.textGrey.withValues(alpha: .18)),
         ),
         InkWell(
           onTap: open == null
@@ -620,8 +662,17 @@ class _LibraryFooter extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
             child: Row(
               children: [
-                Icon(Icons.library_books_outlined,
-                    size: 20, color: theme.colorScheme.primary),
+                Container(
+                  width: 38,
+                  height: 38,
+                  decoration: BoxDecoration(
+                    color: p.primarySoft,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  alignment: Alignment.center,
+                  child: Icon(Icons.library_books_outlined,
+                      size: 20, color: p.primary),
+                ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Column(
@@ -629,23 +680,28 @@ class _LibraryFooter extends StatelessWidget {
                     children: [
                       Text(
                         'Bibliothèque',
-                        style: theme.textTheme.titleMedium
-                            ?.copyWith(color: theme.colorScheme.primary),
+                        style: premiumText(
+                          context,
+                          15,
+                          FontWeight.w800,
+                          p.primary,
+                        ),
                       ),
                       const SizedBox(height: 2),
                       Text(
                         label,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface
-                              .withValues(alpha: .6),
+                        style: premiumText(
+                          context,
+                          12,
+                          FontWeight.w500,
+                          p.textGrey,
                         ),
                       ),
                     ],
                   ),
                 ),
                 if (open != null)
-                  Icon(Icons.chevron_right,
-                      color: theme.colorScheme.onSurface.withValues(alpha: .4)),
+                  Icon(Icons.chevron_right, color: p.textGrey),
               ],
             ),
           ),
@@ -681,61 +737,71 @@ class _VersionRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final onSurface = theme.colorScheme.onSurface;
-    final accent = theme.colorScheme.primary;
-
-    // Every listed row is readable now, so none is dimmed — the greyed states
-    // of the maquette moved to the Bibliothèque, where they can be acted on.
-    // The active version stays tinted with the primary colour.
-    final codeColor =
-        active ? accent.withValues(alpha: .7) : onSurface.withValues(alpha: .5);
-    final nameColor = active ? accent : onSurface;
-    final rightsColor = onSurface.withValues(alpha: .5);
+    final p = premiumPalette(context);
     final installedLine = _installedLine;
 
-    return InkWell(
-      onTap: () => _select(context),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              version.code,
-              style: theme.textTheme.labelMedium?.copyWith(
-                color: codeColor,
-                fontWeight: FontWeight.w600,
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+      child: Material(
+        color: active ? p.primarySoft : Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: () => _select(context),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(
+                color: active
+                    ? p.primary.withValues(alpha: .35)
+                    : p.textGrey.withValues(alpha: .15),
               ),
             ),
-            const SizedBox(height: 2),
-            Row(
+            padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Flexible(
-                  child: Text(
-                    version.name,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      color: nameColor,
+                Row(
+                  children: [
+                    Text(
+                      version.code,
+                      style: premiumText(
+                        context,
+                        11,
+                        FontWeight.w800,
+                        active ? p.primary : p.textGrey,
+                        spacing: .6,
+                      ),
                     ),
+                    if (active) ...[
+                      const SizedBox(width: 8),
+                      const Icon(Icons.check, color: _gold, size: 18),
+                    ],
+                  ],
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  version.name,
+                  style: premiumText(
+                    context,
+                    15,
+                    FontWeight.w800,
+                    active ? p.primary : p.textDark,
                   ),
                 ),
-                if (active) ...[
-                  const SizedBox(width: 8),
-                  const Icon(Icons.check, color: _gold, size: 20),
-                ],
+                const SizedBox(height: 2),
+                Text(
+                  version.rights,
+                  style: premiumText(context, 12, FontWeight.w500, p.textGrey),
+                ),
+                if (installedLine != null)
+                  Text(
+                    installedLine,
+                    style: premiumText(context, 12, FontWeight.w700, p.primary),
+                  ),
               ],
             ),
-            const SizedBox(height: 2),
-            Text(
-              version.rights,
-              style: theme.textTheme.bodySmall?.copyWith(color: rightsColor),
-            ),
-            if (installedLine != null)
-              Text(
-                installedLine,
-                style: theme.textTheme.bodySmall?.copyWith(color: accent),
-              ),
-          ],
+          ),
         ),
       ),
     );
@@ -779,6 +845,7 @@ Future<void> showVersePickerSheet(
     context: context,
     isScrollControlled: true,
     showDragHandle: true,
+    backgroundColor: kPremiumBackground,
     builder: (sheetContext) => SafeArea(
       child: Column(
         mainAxisSize: MainAxisSize.min,

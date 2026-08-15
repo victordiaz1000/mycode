@@ -22,6 +22,7 @@ import 'note_dialog.dart';
 import 'study_sheet.dart';
 import 'verse_tile.dart';
 import 'bible_theme_scope.dart';
+import 'premium_style.dart';
 
 /// A reading position to jump to (book, chapter, verse number).
 class VerseTarget {
@@ -751,6 +752,7 @@ class _ChapterReaderState extends State<ChapterReader> {
       context: context,
       showDragHandle: true,
       isScrollControlled: true,
+      backgroundColor: kPremiumBackground,
       builder: (context) => _StrongDefinitionSheet(
         reference:
             '${catalogEntry(widget.bookIndex).abbreviation} '
@@ -779,13 +781,8 @@ class _StrongDefinitionSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final scheme = theme.colorScheme;
-    final labelStyle = theme.textTheme.labelSmall?.copyWith(
-      color: scheme.primary,
-      fontWeight: FontWeight.w800,
-      letterSpacing: 1,
-    );
+    final p = premiumPalette(context);
+    final labelStyle = premiumText(context, 11, FontWeight.w800, p.primary, spacing: 1);
     final details = <String>[
       if (definition.transliteration != null) definition.transliteration!,
       if (definition.pronunciation != null) definition.pronunciation!,
@@ -807,13 +804,10 @@ class _StrongDefinitionSheet extends StatelessWidget {
                     width: 40,
                     height: 40,
                     decoration: BoxDecoration(
-                      color: scheme.primaryContainer,
+                      color: p.primarySoft,
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Icon(
-                      Icons.menu_book_outlined,
-                      color: scheme.onPrimaryContainer,
-                    ),
+                    child: Icon(Icons.menu_book_outlined, color: p.primary),
                   ),
                   const SizedBox(width: 10),
                   Expanded(
@@ -824,9 +818,7 @@ class _StrongDefinitionSheet extends StatelessWidget {
                         const SizedBox(height: 2),
                         Text(
                           reference,
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: scheme.onSurfaceVariant,
-                          ),
+                          style: premiumText(context, 13, FontWeight.w600, p.textGrey),
                         ),
                       ],
                     ),
@@ -834,9 +826,9 @@ class _StrongDefinitionSheet extends StatelessWidget {
                   _QuickStrongCode(code: definition.strong),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 16),
-                child: Divider(height: 1),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                child: Container(height: 1, color: p.textGrey.withValues(alpha: .18)),
               ),
               if (definition.lemma != null) ...[
                 Text('MOT ORIGINAL', style: labelStyle),
@@ -848,11 +840,7 @@ class _StrongDefinitionSheet extends StatelessWidget {
                   child: Text(
                     definition.lemma!,
                     textAlign: TextAlign.start,
-                    style: theme.textTheme.headlineMedium?.copyWith(
-                      color: scheme.primary,
-                      fontFamily: 'serif',
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: premiumText(context, 26, FontWeight.w700, p.primary, spacing: 1),
                   ),
                 ),
               ],
@@ -877,9 +865,7 @@ class _StrongDefinitionSheet extends StatelessWidget {
                     children: [
                       Text(
                         definition.definition,
-                        style: theme.textTheme.bodyLarge?.copyWith(
-                          height: 1.55,
-                        ),
+                        style: premiumText(context, 15, FontWeight.w500, p.textDark, height: 1.55),
                       ),
                       if (definition.etymology != null) ...[
                         const SizedBox(height: 18),
@@ -887,10 +873,7 @@ class _StrongDefinitionSheet extends StatelessWidget {
                         const SizedBox(height: 5),
                         Text(
                           definition.etymology!,
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: scheme.onSurfaceVariant,
-                            height: 1.45,
-                          ),
+                          style: premiumText(context, 13, FontWeight.w500, p.textGrey, height: 1.45),
                         ),
                       ],
                     ],
@@ -922,20 +905,16 @@ class _QuickStrongCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
+    final p = premiumPalette(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 7),
       decoration: BoxDecoration(
-        color: scheme.primaryContainer,
+        color: p.primarySoft,
         borderRadius: BorderRadius.circular(99),
       ),
       child: Text(
         code,
-        style: Theme.of(context).textTheme.labelLarge?.copyWith(
-          color: scheme.onPrimaryContainer,
-          fontWeight: FontWeight.w800,
-          letterSpacing: .35,
-        ),
+        style: premiumText(context, 12, FontWeight.w800, p.primary, spacing: .35),
       ),
     );
   }
@@ -946,19 +925,20 @@ class _QuickDetailChip extends StatelessWidget {
   const _QuickDetailChip({required this.text});
 
   @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
-    decoration: BoxDecoration(
-      color: Theme.of(context).colorScheme.surfaceContainerHighest,
-      borderRadius: BorderRadius.circular(99),
-    ),
-    child: Text(
-      text,
-      style: Theme.of(
-        context,
-      ).textTheme.labelSmall?.copyWith(fontWeight: FontWeight.w700),
-    ),
-  );
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
+      decoration: BoxDecoration(
+        color: p.primarySoft,
+        borderRadius: BorderRadius.circular(99),
+      ),
+      child: Text(
+        text,
+        style: premiumText(context, 11, FontWeight.w700, p.primary),
+      ),
+    );
+  }
 }
 
 /// Shown instead of the verses when the active version has not downloaded this
@@ -982,52 +962,72 @@ class _MissingBookPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              Icons.cloud_download_outlined,
-              size: 40,
-              color: theme.colorScheme.outline,
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 24),
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(24, 28, 24, 24),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: premiumShadow(
+              p.primaryDark,
+              opacity: 0.08,
+              blur: 20,
+              offset: const Offset(0, 10),
             ),
-            const SizedBox(height: 12),
-            Text(
-              error.message,
-              textAlign: TextAlign.center,
-              style: theme.textTheme.titleMedium,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Terminez le téléchargement depuis la Bibliothèque pour lire ce '
-              'livre en ${error.code}.',
-              textAlign: TextAlign.center,
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.colorScheme.onSurface.withValues(alpha: .7),
-              ),
-            ),
-            const SizedBox(height: 20),
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              alignment: WrapAlignment.center,
-              children: [
-                FilledButton.tonal(
-                  onPressed: onReadEmbedded,
-                  child: const Text('Lire en BYM'),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 64,
+                height: 64,
+                decoration: BoxDecoration(
+                  color: p.primarySoft,
+                  shape: BoxShape.circle,
                 ),
-                if (onOpenLibrary != null)
-                  TextButton.icon(
-                    onPressed: onOpenLibrary,
-                    icon: const Icon(Icons.download_outlined, size: 18),
-                    label: const Text('Bibliothèque'),
+                alignment: Alignment.center,
+                child: Icon(
+                  Icons.cloud_download_outlined,
+                  size: 32,
+                  color: p.primary,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                error.message,
+                textAlign: TextAlign.center,
+                style: premiumText(context, 17, FontWeight.w800, p.textDark),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Terminez le téléchargement depuis la Bibliothèque pour lire ce '
+                'livre en ${error.code}.',
+                textAlign: TextAlign.center,
+                style: premiumText(context, 13, FontWeight.w500, p.textGrey, height: 1.5),
+              ),
+              const SizedBox(height: 20),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                alignment: WrapAlignment.center,
+                children: [
+                  FilledButton.tonal(
+                    onPressed: onReadEmbedded,
+                    child: const Text('Lire en BYM'),
                   ),
-              ],
-            ),
-          ],
+                  if (onOpenLibrary != null)
+                    TextButton.icon(
+                      onPressed: onOpenLibrary,
+                      icon: const Icon(Icons.download_outlined, size: 18),
+                      label: const Text('Bibliothèque'),
+                    ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -1237,20 +1237,22 @@ class _EndSelectionBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final p = premiumPalette(context);
     return Material(
-      elevation: 4,
+      elevation: 8,
+      color: Colors.white,
       child: SafeArea(
         top: false,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           child: Row(
             children: [
-              Icon(
-                Icons.check_circle,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+              Icon(Icons.check_circle, color: p.primary),
               const SizedBox(width: 8),
-              Text('$count sélectionné${count > 1 ? 's' : ''}'),
+              Text(
+                '$count sélectionné${count > 1 ? 's' : ''}',
+                style: premiumText(context, 14, FontWeight.w700, p.textDark),
+              ),
               const Spacer(),
               FilledButton.tonalIcon(
                 onPressed: onDone,
@@ -1279,13 +1281,18 @@ class _BookHeaderState extends State<_BookHeader> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final book = widget.book;
     final m = book.metadata;
+    final accent = BibleThemeScope.of(context).accentColor;
+    final dark = Theme.of(context).colorScheme.onSurface;
     return Card(
       elevation: 0,
-      color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: .4),
+      color: Colors.white.withValues(alpha: .92),
       margin: const EdgeInsets.only(bottom: 16),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: accent.withValues(alpha: .22), width: 1),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -1296,9 +1303,7 @@ class _BookHeaderState extends State<_BookHeader> {
                 Expanded(
                   child: Text(
                     book.book,
-                    style: theme.textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: premiumText(context, 20, FontWeight.w800, dark),
                   ),
                 ),
                 IconButton(
@@ -1306,19 +1311,21 @@ class _BookHeaderState extends State<_BookHeader> {
                   onPressed: () => setState(() => _collapsed = !_collapsed),
                   icon: Icon(
                     _collapsed ? Icons.expand_more : Icons.expand_less,
+                    color: accent,
                   ),
                 ),
               ],
             ),
             if (!_collapsed) ...[
-              const SizedBox(height: 8),
+              const SizedBox(height: 6),
               Text(
                 '${book.abbreviation} · Traduction BYM',
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.primary,
-                ),
+                style: premiumText(context, 12, FontWeight.w700, accent, spacing: .2),
               ),
-              const Divider(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                child: Container(height: 1, color: accent.withValues(alpha: .18)),
+              ),
               GridView.count(
                 crossAxisCount: 2,
                 shrinkWrap: true,
@@ -1332,10 +1339,13 @@ class _BookHeaderState extends State<_BookHeader> {
                 ],
               ),
               if (book.introduction.isNotEmpty) ...[
-                const Divider(height: 24),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  child: Container(height: 1, color: accent.withValues(alpha: .18)),
+                ),
                 Text(
                   book.introduction,
-                  style: theme.textTheme.bodyMedium?.copyWith(height: 1.4),
+                  style: premiumText(context, 14, FontWeight.w500, dark, height: 1.55),
                 ),
               ],
             ],
@@ -1348,7 +1358,8 @@ class _BookHeaderState extends State<_BookHeader> {
   Widget _metaCell(String label, String value) => _metaBlock(label, value);
 
   Widget _metaBlock(String label, String value) {
-    final theme = Theme.of(context);
+    final accent = BibleThemeScope.of(context).accentColor;
+    final dark = Theme.of(context).colorScheme.onSurface;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
       child: Column(
@@ -1356,14 +1367,12 @@ class _BookHeaderState extends State<_BookHeader> {
         children: [
           Text(
             label,
-            style: theme.textTheme.labelSmall?.copyWith(
-              color: theme.colorScheme.primary,
-            ),
+            style: premiumText(context, 11, FontWeight.w800, accent, spacing: .5),
           ),
           Expanded(
             child: Text(
               value,
-              style: theme.textTheme.bodySmall,
+              style: premiumText(context, 13, FontWeight.w600, dark),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),

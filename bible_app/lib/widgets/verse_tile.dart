@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../data/app_preferences.dart';
 import '../data/theme_catalog.dart';
@@ -285,19 +286,22 @@ class ChapterVerseList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final materialTheme = Theme.of(context);
+    // La police commune des écrans premium : la lecture la partage pour ne pas
+    // basculer de typographie entre le lecteur et le reste de l'application.
+    final family = GoogleFonts.plusJakartaSans().fontFamily;
     return Theme(
       data: materialTheme.copyWith(
         textTheme: materialTheme.textTheme.copyWith(
           bodyLarge: (materialTheme.textTheme.bodyLarge ?? const TextStyle())
-              .copyWith(fontSize: fontSize, color: theme.textColor),
+              .copyWith(fontSize: fontSize, color: theme.textColor, fontFamily: family),
           bodyMedium: (materialTheme.textTheme.bodyMedium ?? const TextStyle())
-              .copyWith(color: theme.textColor),
+              .copyWith(color: theme.textColor, fontFamily: family),
           bodySmall: (materialTheme.textTheme.bodySmall ?? const TextStyle())
-              .copyWith(color: theme.textColor),
+              .copyWith(color: theme.textColor, fontFamily: family),
           titleMedium: (materialTheme.textTheme.titleMedium ?? const TextStyle())
-              .copyWith(color: theme.titleColor),
+              .copyWith(color: theme.titleColor, fontFamily: family),
           labelSmall: (materialTheme.textTheme.labelSmall ?? const TextStyle())
-              .copyWith(color: theme.textColor),
+              .copyWith(color: theme.textColor, fontFamily: family),
         ),
         colorScheme: materialTheme.colorScheme.copyWith(
           primary: theme.accentColor,

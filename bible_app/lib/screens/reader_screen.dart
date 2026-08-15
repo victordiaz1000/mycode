@@ -10,6 +10,7 @@ import '../models/study_tab.dart';
 import '../widgets/bible_theme_scope.dart';
 import '../widgets/chapter_reader.dart';
 import '../widgets/fredaw_article_view.dart';
+import '../widgets/premium_style.dart';
 import '../widgets/reader_actions_bar.dart';
 import '../widgets/tab_strip.dart';
 import '../widgets/tab_switcher.dart';
@@ -355,7 +356,7 @@ class _HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(title: const Text('BYM')),
+      backgroundColor: kPremiumBackground,
       body: Column(
         children: [
           _HomeActionsBar(
@@ -385,6 +386,7 @@ class _NewTabHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kPremiumBackground,
       body: SafeArea(
         child: Column(
           children: [
@@ -507,26 +509,29 @@ class _EmptyReadingHint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 32),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              Icons.menu_book_outlined,
-              size: 48,
-              color: theme.colorScheme.outline,
+            Container(
+              width: 84,
+              height: 84,
+              decoration: BoxDecoration(
+                color: p.primarySoft,
+                shape: BoxShape.circle,
+              ),
+              alignment: Alignment.center,
+              child: Icon(Icons.menu_book_outlined, size: 40, color: p.primary),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
             Text(
               'Ouvrez le sélecteur « Livres » ci-dessus pour commencer '
               'la lecture.',
               textAlign: TextAlign.center,
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.colorScheme.onSurfaceVariant,
-              ),
+              style: premiumText(context, 15, FontWeight.w600, p.textGrey, height: 1.45),
             ),
           ],
         ),
