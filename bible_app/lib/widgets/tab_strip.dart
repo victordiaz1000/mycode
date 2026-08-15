@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/tab_manager.dart';
+import 'bible_theme_scope.dart';
 
 /// Compact Chrome-style tab strip (maquette v1.1):
 /// scrollable open tabs + a "＋" (new home tab) + a gold counter that opens
@@ -17,12 +18,12 @@ class TabStrip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bibleTheme = BibleThemeScope.of(context);
     final theme = Theme.of(context);
-    final gold = const Color(0xFFD3A94F);
     return SizedBox(
       height: 56,
       child: Container(
-        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: .4),
+        color: theme.colorScheme.surfaceContainerHighest.withAlpha(102),
         child: Row(
           children: [
             // Plus → new home tab
@@ -47,7 +48,7 @@ class TabStrip extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 4, right: 8),
               child: Material(
-                color: gold,
+                color: bibleTheme.accentColor,
                 borderRadius: BorderRadius.circular(9),
                 child: InkWell(
                   onTap: onOpenSwitcher,
@@ -57,8 +58,8 @@ class TabStrip extends StatelessWidget {
                         const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     child: Text(
                       '${manager.count}',
-                      style: const TextStyle(
-                        color: Color(0xFF241A04),
+                      style: TextStyle(
+                        color: bibleTheme.textColor,
                         fontWeight: FontWeight.w800,
                         fontSize: 14,
                       ),
@@ -85,10 +86,13 @@ class _TabChip extends StatelessWidget {
     final tab = manager.tabs[index];
     final active = manager.activeIndex == index;
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 8),
       child: Material(
-        color: active ? theme.colorScheme.surface : Colors.transparent,
+        color: active
+            ? bibleTheme.accentColor.withValues(alpha: .12)
+            : Colors.transparent,
         borderRadius:
             const BorderRadius.vertical(top: Radius.circular(11)),
         clipBehavior: Clip.antiAlias,
@@ -97,9 +101,12 @@ class _TabChip extends StatelessWidget {
           child: Container(
             constraints: const BoxConstraints(maxWidth: 116),
             decoration: active
-                ? const BoxDecoration(
+                ? BoxDecoration(
                     border: Border(
-                      top: BorderSide(color: Color(0xFFD3A94F), width: 2),
+                      top: BorderSide(
+                        color: bibleTheme.accentColor,
+                        width: 2,
+                      ),
                     ),
                   )
                 : null,
@@ -108,8 +115,8 @@ class _TabChip extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 if (tab.pinned)
-                  const Icon(Icons.push_pin,
-                      size: 11, color: Color(0xFFD3A94A)),
+                  Icon(Icons.push_pin,
+                      size: 11, color: bibleTheme.accentColor),
                 Flexible(
                   child: Text(
                     tab.title,
@@ -118,7 +125,7 @@ class _TabChip extends StatelessWidget {
                       fontSize: 11.5,
                       fontWeight: FontWeight.w700,
                       color: active
-                          ? theme.colorScheme.onSurface
+                          ? bibleTheme.titleColor
                           : theme.colorScheme.onSurfaceVariant,
                     ),
                   ),
@@ -126,9 +133,10 @@ class _TabChip extends StatelessWidget {
                 InkWell(
                   onTap: () => manager.close(index),
                   borderRadius: BorderRadius.circular(4),
-                  child: const Padding(
-                    padding: EdgeInsets.all(4),
-                    child: Icon(Icons.close, size: 13),
+                  child: Padding(
+                    padding: const EdgeInsets.all(4),
+                    child: Icon(Icons.close,
+                        size: 13, color: theme.colorScheme.onSurfaceVariant),
                   ),
                 ),
               ],

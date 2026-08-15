@@ -15,10 +15,13 @@ import '../models/bible_book.dart';
 import '../models/chapter.dart';
 import '../models/verse.dart';
 import '../screens/chapter_screen.dart';
-import '../screens/strong_lexique_screen.dart';
+import '../screens/ecran_comparer.dart';
+import '../screens/etude_verset_screen.dart';
 import 'reader_actions_bar.dart';
+import 'note_dialog.dart';
 import 'study_sheet.dart';
 import 'verse_tile.dart';
+import 'bible_theme_scope.dart';
 
 /// A reading position to jump to (book, chapter, verse number).
 class VerseTarget {
@@ -193,8 +196,9 @@ class _ChapterReaderState extends State<ChapterReader> {
     // [_scrollToTarget]): clearing it on a timer started here would detach
     // [_jumpKey] mid-scroll on a long chapter.
     _flashTimer?.cancel();
-    WidgetsBinding.instance
-        .addPostFrameCallback((_) => _scrollToTarget(verseNumber));
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _scrollToTarget(verseNumber),
+    );
   }
 
   /// Brings the target verse into view, building it first if needed.
@@ -238,10 +242,9 @@ class _ChapterReaderState extends State<ChapterReader> {
           final position = _verseScroll.position;
           final fraction = itemCount <= 1 ? 0.0 : itemIndex / (itemCount - 1);
           final estimate = position.maxScrollExtent * fraction;
-          _verseScroll.jumpTo(estimate.clamp(
-            position.minScrollExtent,
-            position.maxScrollExtent,
-          ));
+          _verseScroll.jumpTo(
+            estimate.clamp(position.minScrollExtent, position.maxScrollExtent),
+          );
           await WidgetsBinding.instance.endOfFrame;
           if (!mounted) return;
           if (_jumpKey.currentContext != null) break;
@@ -310,7 +313,8 @@ class _ChapterReaderState extends State<ChapterReader> {
     // An embedded version (BYM or LSGS) is always readable. A downloaded one
     // deleted from the Bibliothèque since the last read would leave the reader
     // stuck on an error panel — fall back to the embedded BYM.
-    final code = _versions.isEmbedded(preferred) ||
+    final code =
+        _versions.isEmbedded(preferred) ||
             installed[preferred]?.isEmpty == false
         ? preferred
         : VersionRepository.embeddedCode;
@@ -332,7 +336,10 @@ class _ChapterReaderState extends State<ChapterReader> {
   Future<Chapter> _activeChapter() async {
     try {
       return await _versions.loadChapter(
-          _versionCode, widget.bookIndex, widget.chapter);
+        _versionCode,
+        widget.bookIndex,
+        widget.chapter,
+      );
     } on BookNotDownloaded {
       return Chapter(chapter: widget.chapter, verses: const []);
     }
@@ -365,10 +372,11 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// enabled or greyed. Crossing a book boundary parses the neighbour book,
   /// which the cache then keeps for the actual navigation.
   Future<void> _loadNeighbours() async {
-    final previous =
-        await _versions.previousChapter(widget.bookIndex, widget.chapter);
-    final next =
-        await _versions.nextChapter(widget.bookIndex, widget.chapter);
+    final previous = await _versions.previousChapter(
+      widget.bookIndex,
+      widget.chapter,
+    );
+    final next = await _versions.nextChapter(widget.bookIndex, widget.chapter);
     if (!mounted) return;
     setState(() {
       _previous = previous;
@@ -379,9 +387,13 @@ class _ChapterReaderState extends State<ChapterReader> {
   Future<void> _loadUserData() async {
     try {
       final highlights = await _db.highlightsInChapter(
-          widget.bookIndex, widget.chapter);
+        widget.bookIndex,
+        widget.chapter,
+      );
       final favorites = await _db.favoritesInChapter(
-          widget.bookIndex, widget.chapter);
+        widget.bookIndex,
+        widget.chapter,
+      );
       final notes = await _db.notesInChapter(widget.bookIndex, widget.chapter);
       if (!mounted) return;
       setState(() {
@@ -469,7 +481,9 @@ class _ChapterReaderState extends State<ChapterReader> {
               if (chapter.verses.isEmpty && widget.chapter != 1) {
                 return const Center(child: Text('Chapitre vide.'));
               }
+              final readingTheme = BibleThemeScope.of(context);
               return ChapterVerseList(
+                theme: readingTheme,
                 chapter: chapter,
                 showNotes: _prefs.notesMode && _supportsNotes,
                 disposition: _prefs.disposition,
@@ -522,8 +536,8 @@ class _ChapterReaderState extends State<ChapterReader> {
       currentHighlight: _highlights[vn],
       lexiqueEnabled: embeddedVersion,
       lexiqueLabel: embeddedVersion
-          ? 'Lexique Strong — verset mot à mot'
-          : 'Lexique Strong — versions BYM/LSGS',
+          ? 'Lexique & Dictionnaire — verset mot à mot'
+          : 'Lexique & Dictionnaire — versions BYM/LSGS',
       onHighlight: (color) => _applyHighlight(vn, color),
       onFavorite: (value) => _applyFavorite(vn, value),
     );
@@ -538,11 +552,12 @@ class _ChapterReaderState extends State<ChapterReader> {
         break;
       case StudyAction.copy:
         await Clipboard.setData(
-            ClipboardData(text: '${verse.verse} ${verse.text}'));
+          ClipboardData(text: '${verse.verse} ${verse.text}'),
+        );
         _snack('Versets copiés.');
         break;
       case StudyAction.compare:
-        _snack('Comparaison — bientôt disponible.');
+        await _openComparer(vn);
         break;
       case StudyAction.references:
         _snack('Références — bientôt disponible.');
@@ -564,7 +579,11 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// repainted itself until the chapter was reloaded from SQLite.
   Future<void> _applyHighlight(int verseNumber, String? color) async {
     await _db.setHighlight(
-        widget.bookIndex, widget.chapter, verseNumber, color);
+      widget.bookIndex,
+      widget.chapter,
+      verseNumber,
+      color,
+    );
     if (!mounted) return;
     setState(() {
       if (color == null || color.isEmpty) {
@@ -576,8 +595,7 @@ class _ChapterReaderState extends State<ChapterReader> {
   }
 
   Future<void> _applyFavorite(int verseNumber, bool value) async {
-    await _db.setFavorite(
-        widget.bookIndex, widget.chapter, verseNumber, value);
+    await _db.setFavorite(widget.bookIndex, widget.chapter, verseNumber, value);
     if (!mounted) return;
     setState(() {
       if (value) {
@@ -634,83 +652,93 @@ class _ChapterReaderState extends State<ChapterReader> {
     final vn = verse.number;
     final existing = await _db.getNote(widget.bookIndex, widget.chapter, vn);
     if (!mounted) return;
-    final controller = TextEditingController(text: existing?.text ?? '');
-    final save = await showDialog<bool>(
+    // The controller lives inside [NoteDialog] and is disposed with it — the
+    // route is still animating out when `showDialog` returns, and disposing the
+    // controller from here used to crash on the fade's listener re-subscribe.
+    final result = await showDialog<NoteDialogResult>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text('Note — ${verse.verse}'),
-        content: TextField(
-          controller: controller,
-          maxLines: 6,
-          autofocus: true,
-          decoration: const InputDecoration(hintText: 'Écrire une note…'),
-        ),
-        actions: [
-          if (existing != null)
-            TextButton(
-              onPressed: () async {
-                final nav = Navigator.of(context);
-                await _db.deleteNote(widget.bookIndex, widget.chapter, vn);
-                if (!mounted) return;
-                _userNotes.remove(vn);
-                setState(() {});
-                nav.pop(true);
-              },
-              child: const Text('Supprimer'),
-            ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Annuler'),
-          ),
-          FilledButton(
-            onPressed: () {
-              if (controller.text.trim().isEmpty) {
-                Navigator.of(context).pop();
-              } else {
-                Navigator.of(context).pop(true);
-              }
-            },
-            child: const Text('Enregistrer'),
-          ),
-        ],
+      builder: (context) => NoteDialog(
+        title: 'Note — ${verse.verse}',
+        initialText: existing?.text ?? '',
+        showDelete: existing != null,
       ),
     );
-    if (save == true && controller.text.trim().isNotEmpty) {
-      await _db.saveNote(
-          widget.bookIndex, widget.chapter, vn, controller.text.trim());
-      _userNotes.add(vn);
-      setState(() {});
-      _snack('Note enregistrée.');
-    } else if (save == true) {
-      _userNotes.remove(vn);
-      setState(() {});
+    if (!mounted || result == null) return;
+    switch (result.kind) {
+      case NoteDialogResultKind.saved:
+        await _db.saveNote(widget.bookIndex, widget.chapter, vn, result.text);
+        if (!mounted) return;
+        _userNotes.add(vn);
+        setState(() {});
+        _snack('Note enregistrée.');
+        break;
+      case NoteDialogResultKind.deleted:
+        await _db.deleteNote(widget.bookIndex, widget.chapter, vn);
+        if (!mounted) return;
+        _userNotes.remove(vn);
+        setState(() {});
+        break;
+      case NoteDialogResultKind.cancelled:
+        break;
     }
-    controller.dispose();
   }
 
   /// The Lexique button of the study sheet: it always shows the *same verse*
   /// the reader is on, rendered word-by-word from the embedded LSGS where every
-  /// Strong code is tappable ([StrongLexiqueScreen]) — the BYM text proposes
-  /// its own equivalent verse in the Strong version.
+  /// Strong code is tappable ([EtudeVersetScreen]) — the BYM text proposes
+  /// its own equivalent verse in the Strong version. The study screen combines
+  /// the Strong lexicon (hébreu/grec) and the Westphal dictionary, with
+  /// prev/next verse navigation within the current chapter.
   Future<void> _openLexique(int verseNumber) async {
     final tokens = await _versions.lsgsTokens(
-        widget.bookIndex, widget.chapter, verseNumber);
+      widget.bookIndex,
+      widget.chapter,
+      verseNumber,
+    );
     if (!mounted) return;
-    Navigator.of(context).push(
+    final chapter = await _activeChapter();
+    if (!mounted) return;
+    final verseNumbers = [for (final v in chapter.verses) v.number];
+    final returnToVerse = await Navigator.of(context).push<bool>(
       MaterialPageRoute(
-        builder: (_) => StrongLexiqueScreen(
+        builder: (_) => EtudeVersetScreen(
           bookIndex: widget.bookIndex,
           chapter: widget.chapter,
           verseNumber: verseNumber,
           tokens: tokens,
+          verseNumbers: verseNumbers,
+          loadVerseTokens: (v) => _versions.lsgsTokens(
+            widget.bookIndex,
+            widget.chapter,
+            v,
+          ),
+        ),
+      ),
+    );
+    if (returnToVerse == true && mounted) _beginJump(verseNumber);
+  }
+
+  /// The Comparer button of the study sheet: it opens [ComparerScreen] on the
+  /// verse the reader is on, showing it across every version present on the
+  /// device (embedded BYM/LSGS + downloaded ones holding the book).
+  Future<void> _openComparer(int verseNumber) async {
+    if (!mounted) return;
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => ComparerScreen(
+          bookIndex: widget.bookIndex,
+          chapter: widget.chapter,
+          verseNumber: verseNumber,
+          store: _library,
         ),
       ),
     );
   }
 
   void _snack(String message) {
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(message), duration: const Duration(seconds: 2)));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message), duration: const Duration(seconds: 2)),
+    );
   }
 
   /// Tapping a Strong code in a version that carries them (LSGS) opens its
@@ -724,7 +752,8 @@ class _ChapterReaderState extends State<ChapterReader> {
       showDragHandle: true,
       isScrollControlled: true,
       builder: (context) => _StrongDefinitionSheet(
-        reference: '${catalogEntry(widget.bookIndex).abbreviation} '
+        reference:
+            '${catalogEntry(widget.bookIndex).abbreviation} '
             '${verse.verse}',
         definition: definition,
         onOpenLexique: () => _openLexique(verse.number),
@@ -737,11 +766,9 @@ class _ChapterReaderState extends State<ChapterReader> {
 class _StrongDefinitionSheet extends StatelessWidget {
   /// "Ge. 1:1" — where the tapped code lives.
   final String reference;
-
   final StrongDefinition definition;
 
-  /// Opens the full word-by-word lexique for the same verse. Null when it is
-  /// not available (e.g. outside the reader flow).
+  /// Opens the full word-by-word lexique for the same verse.
   final VoidCallback? onOpenLexique;
 
   const _StrongDefinitionSheet({
@@ -753,63 +780,185 @@ class _StrongDefinitionSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    final labelStyle = theme.textTheme.labelSmall?.copyWith(
+      color: scheme.primary,
+      fontWeight: FontWeight.w800,
+      letterSpacing: 1,
+    );
+    final details = <String>[
+      if (definition.transliteration != null) definition.transliteration!,
+      if (definition.pronunciation != null) definition.pronunciation!,
+      if (definition.partOfSpeech != null) definition.partOfSpeech!,
+    ];
+
     return SafeArea(
       top: false,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.primaryContainer
-                        .withValues(alpha: .5),
-                    borderRadius: BorderRadius.circular(8),
+      child: SizedBox(
+        height: MediaQuery.sizeOf(context).height * .72,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: scheme.primaryContainer,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Icon(
+                      Icons.menu_book_outlined,
+                      color: scheme.onPrimaryContainer,
+                    ),
                   ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('FICHE STRONG', style: labelStyle),
+                        const SizedBox(height: 2),
+                        Text(
+                          reference,
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: scheme.onSurfaceVariant,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  _QuickStrongCode(code: definition.strong),
+                ],
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 16),
+                child: Divider(height: 1),
+              ),
+              if (definition.lemma != null) ...[
+                Text('MOT ORIGINAL', style: labelStyle),
+                const SizedBox(height: 4),
+                Directionality(
+                  textDirection: definition.language == 'hebrew'
+                      ? TextDirection.rtl
+                      : TextDirection.ltr,
                   child: Text(
-                    definition.strong,
-                    style: theme.textTheme.labelLarge?.copyWith(
-                      color: theme.colorScheme.onPrimaryContainer,
+                    definition.lemma!,
+                    textAlign: TextAlign.start,
+                    style: theme.textTheme.headlineMedium?.copyWith(
+                      color: scheme.primary,
+                      fontFamily: 'serif',
                       fontWeight: FontWeight.w700,
-                      letterSpacing: .5,
                     ),
                   ),
                 ),
-                const SizedBox(width: 10),
-                Text(
-                  reference,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                  ),
-                ),
-                const Spacer(),
-                if (onOpenLexique != null)
-                  TextButton.icon(
-                    onPressed: onOpenLexique,
-                    icon: const Icon(Icons.translate, size: 18),
-                    label: const Text('Lexique'),
-                  ),
               ],
-            ),
-            const SizedBox(height: 14),
-            Flexible(
-              child: SingleChildScrollView(
-                child: Text(
-                  definition.definition,
-                  style: theme.textTheme.bodyLarge?.copyWith(height: 1.35),
+              if (details.isNotEmpty) ...[
+                const SizedBox(height: 10),
+                Wrap(
+                  spacing: 6,
+                  runSpacing: 6,
+                  children: [
+                    for (final detail in details)
+                      _QuickDetailChip(text: detail),
+                  ],
+                ),
+              ],
+              const SizedBox(height: 18),
+              Text('DÉFINITION FRANÇAISE', style: labelStyle),
+              const SizedBox(height: 6),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        definition.definition,
+                        style: theme.textTheme.bodyLarge?.copyWith(
+                          height: 1.55,
+                        ),
+                      ),
+                      if (definition.etymology != null) ...[
+                        const SizedBox(height: 18),
+                        Text('ORIGINE', style: labelStyle),
+                        const SizedBox(height: 5),
+                        Text(
+                          definition.etymology!,
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: scheme.onSurfaceVariant,
+                            height: 1.45,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+              if (onOpenLexique != null) ...[
+                const SizedBox(height: 14),
+                FilledButton.icon(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    onOpenLexique!();
+                  },
+                  icon: const Icon(Icons.translate, size: 18),
+                  label: const Text('Ouvrir le lexique du verset'),
+                ),
+              ],
+            ],
+          ),
         ),
       ),
     );
   }
+}
+
+class _QuickStrongCode extends StatelessWidget {
+  final String code;
+  const _QuickStrongCode({required this.code});
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 7),
+      decoration: BoxDecoration(
+        color: scheme.primaryContainer,
+        borderRadius: BorderRadius.circular(99),
+      ),
+      child: Text(
+        code,
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+          color: scheme.onPrimaryContainer,
+          fontWeight: FontWeight.w800,
+          letterSpacing: .35,
+        ),
+      ),
+    );
+  }
+}
+
+class _QuickDetailChip extends StatelessWidget {
+  final String text;
+  const _QuickDetailChip({required this.text});
+
+  @override
+  Widget build(BuildContext context) => Container(
+    padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
+    decoration: BoxDecoration(
+      color: Theme.of(context).colorScheme.surfaceContainerHighest,
+      borderRadius: BorderRadius.circular(99),
+    ),
+    child: Text(
+      text,
+      style: Theme.of(
+        context,
+      ).textTheme.labelSmall?.copyWith(fontWeight: FontWeight.w700),
+    ),
+  );
 }
 
 /// Shown instead of the verses when the active version has not downloaded this
@@ -840,8 +989,11 @@ class _MissingBookPanel extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.cloud_download_outlined,
-                size: 40, color: theme.colorScheme.outline),
+            Icon(
+              Icons.cloud_download_outlined,
+              size: 40,
+              color: theme.colorScheme.outline,
+            ),
             const SizedBox(height: 12),
             Text(
               error.message,
@@ -1002,15 +1154,16 @@ class _TextSizeRow extends StatelessWidget {
       children: [
         Text(
           'Taille du texte',
-          style: theme.textTheme.labelMedium
-              ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+          style: theme.textTheme.labelMedium?.copyWith(
+            color: theme.colorScheme.onSurfaceVariant,
+          ),
         ),
         const SizedBox(height: 6),
         Wrap(
           spacing: 6,
           runSpacing: 6,
           children: [
-            for (final size in ReadingTextSize.values)
+            for (final size in ReadingTextSize.values.skip(3))
               _SizeChip(
                 size: size,
                 selected: size == current,
@@ -1092,7 +1245,10 @@ class _EndSelectionBar extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           child: Row(
             children: [
-              Icon(Icons.check_circle, color: Theme.of(context).colorScheme.primary),
+              Icon(
+                Icons.check_circle,
+                color: Theme.of(context).colorScheme.primary,
+              ),
               const SizedBox(width: 8),
               Text('$count sélectionné${count > 1 ? 's' : ''}'),
               const Spacer(),
@@ -1140,17 +1296,17 @@ class _BookHeaderState extends State<_BookHeader> {
                 Expanded(
                   child: Text(
                     book.book,
-                    style: theme.textTheme.headlineSmall
-                        ?.copyWith(fontWeight: FontWeight.bold),
+                    style: theme.textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 IconButton(
                   tooltip: _collapsed ? 'Déplier' : 'Replier',
-                  onPressed: () =>
-                      setState(() => _collapsed = !_collapsed),
-                  icon: Icon(_collapsed
-                      ? Icons.expand_more
-                      : Icons.expand_less),
+                  onPressed: () => setState(() => _collapsed = !_collapsed),
+                  icon: Icon(
+                    _collapsed ? Icons.expand_more : Icons.expand_less,
+                  ),
                 ),
               ],
             ),
@@ -1158,8 +1314,9 @@ class _BookHeaderState extends State<_BookHeader> {
               const SizedBox(height: 8),
               Text(
                 '${book.abbreviation} · Traduction BYM',
-                style: theme.textTheme.bodySmall
-                    ?.copyWith(color: theme.colorScheme.primary),
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.primary,
+                ),
               ),
               const Divider(height: 20),
               GridView.count(
@@ -1197,14 +1354,19 @@ class _BookHeaderState extends State<_BookHeader> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label,
-              style: theme.textTheme.labelSmall
-                  ?.copyWith(color: theme.colorScheme.primary)),
+          Text(
+            label,
+            style: theme.textTheme.labelSmall?.copyWith(
+              color: theme.colorScheme.primary,
+            ),
+          ),
           Expanded(
-            child: Text(value,
-                style: theme.textTheme.bodySmall,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2),
+            child: Text(
+              value,
+              style: theme.textTheme.bodySmall,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+            ),
           ),
         ],
       ),

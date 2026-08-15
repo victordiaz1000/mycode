@@ -350,20 +350,20 @@ void main() {
       (tester) async {
     await pumpReader(tester);
 
-    // Default is « moyen » — the Material bodyLarge size the reader used
-    // before the control existed.
-    expect(verseFontSize(tester), 16);
+    // Default is « très grand » (22) — ReadingTextSize.extraLarge.
+    expect(verseFontSize(tester), 22);
 
     await tester.tap(find.byIcon(Icons.more_vert));
     await tester.pumpAndSettle();
     // The ladder is a row of « A » chips, labelled for screen readers.
     expect(find.text('Taille du texte'), findsOneWidget);
-    expect(find.byTooltip('Texte petit'), findsOneWidget);
-    expect(find.byTooltip('Texte moyen'), findsOneWidget);
+    // Only the three large-print steps are offered now, the default leading
+    // them: très grand (22), énorme (26), géant (30).
     expect(find.byTooltip('Texte très grand'), findsOneWidget);
-    // The two large-print steps for failing eyesight.
     expect(find.byTooltip('Texte énorme'), findsOneWidget);
     expect(find.byTooltip('Texte géant'), findsOneWidget);
+    expect(find.byTooltip('Texte petit'), findsNothing);
+    expect(find.byTooltip('Texte moyen'), findsNothing);
     // The whole ladder must fit without scrolling: the readers who need
     // « géant » are the least likely to go hunting for it.
     final screen =
@@ -373,12 +373,12 @@ void main() {
       lessThan(screen),
     );
 
-    await tester.tap(find.byTooltip('Texte grand'));
+    await tester.tap(find.byTooltip('Texte géant'));
     await tester.pumpAndSettle();
-    expect(verseFontSize(tester), 19);
+    expect(verseFontSize(tester), 30);
 
     // Remounting reads the size back from shared_preferences.
     await pumpReader(tester);
-    expect(verseFontSize(tester), 19);
+    expect(verseFontSize(tester), 30);
   });
 }

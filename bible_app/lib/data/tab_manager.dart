@@ -119,6 +119,38 @@ class TabManager extends ChangeNotifier {
     return _activeIndex;
   }
 
+  /// Opens a dictionary tab for the given FreDAW entry and makes it active.
+  ///
+  /// When a dictionary tab for the same term is already open, it is **overwritten
+  /// in place** (same id, refreshed definition — the latest version of the
+  /// article) and focused, instead of stacking a duplicate.
+  int openDictionary(String term, String definition) {
+    final existing = _tabs.indexWhere((t) =>
+        t.isDictionary && t.dictionaryTerm == term);
+    if (existing >= 0) {
+      _tabs[existing] = _tabs[existing].copyWith(
+        title: term,
+        dictionaryDefinition: definition,
+      );
+      _activeIndex = existing;
+      _persist();
+      notifyListeners();
+      return existing;
+    }
+    final tab = StudyTab(
+      id: _nextId(),
+      kind: StudyTabKind.dictionary,
+      title: term,
+      dictionaryTerm: term,
+      dictionaryDefinition: definition,
+    );
+    _tabs.add(tab);
+    _activeIndex = _tabs.length - 1;
+    _persist();
+    notifyListeners();
+    return _activeIndex;
+  }
+
   void updateTabVersion(String tabId, String versionCode) {
     final index = _tabs.indexWhere((tab) => tab.id == tabId);
     if (index < 0) return;

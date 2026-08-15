@@ -6,8 +6,10 @@ import 'package:bible_app/data/lexicon_index.dart';
 import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/data/reading_history.dart';
 import 'package:bible_app/data/search_engine.dart';
+import 'package:bible_app/data/strong_lexicon.dart';
 
 import 'support/fake_bible_bundle.dart';
+import 'support/fake_strong_lexicon_bundle.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +19,7 @@ void main() {
   setUp(() {
     SharedPreferences.setMockInitialValues({});
     LocalRepository.useBundle(FakeBibleBundle());
+    StrongLexicon.useBundle(FakeStrongLexiconBundle());
     FulltextIndex.instance.clearIndex();
     LexiconIndex.instance.clearIndex();
     // No AppDatabase: it needs path_provider. The engine must degrade to the
@@ -24,7 +27,10 @@ void main() {
     engine = SearchEngine(history: ReadingHistory());
   });
 
-  tearDown(LocalRepository.useRootBundle);
+  tearDown(() {
+    LocalRepository.useRootBundle();
+    StrongLexicon.useRootBundle();
+  });
 
   group('SearchFilters', () {
     test('allows every book by default', () {
@@ -175,6 +181,30 @@ void main() {
         outcome.groups.every((g) => g.category == SearchCategory.dictionnaire),
         isTrue,
       );
+    });
+
+    test('Strong category can match a definition word', () async {
+      final outcome = await engine.search(
+        'père',
+        categories: {SearchCategory.strong},
+      );
+      final strong = outcome.groups
+          .firstWhere((g) => g.category == SearchCategory.strong);
+      expect(strong.hits, isNotEmpty);
+      expect(strong.hits.any((hit) => hit.title == 'H0001'), isTrue);
+      expect(strong.hits.first.subtitle.toLowerCase(), contains('père'));
+    });
+
+    test('Strong hits carry the transliteration when the lexicon has one',
+        () async {
+      final outcome = await engine.search(
+        'père',
+        categories: {SearchCategory.strong},
+      );
+      final strong = outcome.groups
+          .firstWhere((g) => g.category == SearchCategory.strong);
+      final h0001 = strong.hits.firstWhere((hit) => hit.title == 'H0001');
+      expect(h0001.transliteration, "'ab");
     });
 
     test('an unavailable category is never queried', () async {

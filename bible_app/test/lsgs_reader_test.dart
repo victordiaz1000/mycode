@@ -3,14 +3,16 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:bible_app/data/fredaw_lexicon.dart';
 import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/data/lsgs_repository.dart';
 import 'package:bible_app/data/strong_lexicon.dart';
 import 'package:bible_app/data/version_repository.dart';
-import 'package:bible_app/screens/strong_lexique_screen.dart';
+import 'package:bible_app/screens/etude_verset_screen.dart';
 import 'package:bible_app/widgets/chapter_reader.dart';
 
 import 'support/fake_bible_bundle.dart';
+import 'support/fake_fredaw_bundle.dart';
 import 'support/fake_lsgs_bundle.dart';
 import 'support/fake_strong_lexicon_bundle.dart';
 
@@ -24,6 +26,7 @@ void main() {
     LocalRepository.useBundle(FakeBibleBundle());
     LsgsRepository.useBundle(FakeLsgsBundle());
     StrongLexicon.useBundle(FakeStrongLexiconBundle());
+    FreDawLexicon.useBundle(FakeFreDawBundle());
     VersionRepository.clearCache();
   });
 
@@ -31,6 +34,7 @@ void main() {
     LocalRepository.useRootBundle();
     LsgsRepository.useRootBundle();
     StrongLexicon.useRootBundle();
+    FreDawLexicon.useRootBundle();
     VersionRepository.clearCache();
   });
 
@@ -77,7 +81,7 @@ void main() {
     // definition sheet, not the study sheet.
     await tapStrongCode(tester);
 
-    expect(find.byType(StrongLexiqueScreen), findsNothing);
+    expect(find.byType(EtudeVersetScreen), findsNothing);
     // The fake lexicon serves a definition for H7225.
     expect(find.text('H7225'), findsWidgets);
     expect(find.text('Définition test de H7225.'), findsOneWidget,
@@ -93,13 +97,13 @@ void main() {
     await tester.pumpAndSettle();
 
     final lexiqueButton = find.widgetWithText(
-        OutlinedButton, 'Lexique Strong — verset mot à mot');
+        OutlinedButton, 'Lexique & Dictionnaire — verset mot à mot');
     await tester.ensureVisible(lexiqueButton);
     await tester.pumpAndSettle();
     await tester.tap(lexiqueButton);
     await tester.pumpAndSettle();
 
-    expect(find.byType(StrongLexiqueScreen), findsOneWidget);
+    expect(find.byType(EtudeVersetScreen), findsOneWidget);
   });
 
   testWidgets('the Lexique button is enabled by the LSGS verse',
@@ -110,7 +114,7 @@ void main() {
     await tester.pumpAndSettle();
 
     final button = tester.widget<OutlinedButton>(find.widgetWithText(
-        OutlinedButton, 'Lexique Strong — verset mot à mot'));
+        OutlinedButton, 'Lexique & Dictionnaire — verset mot à mot'));
     expect(button.onPressed, isNotNull);
   });
 }

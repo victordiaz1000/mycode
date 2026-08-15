@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../data/app_preferences.dart';
+import '../data/theme_catalog.dart';
 import '../models/chapter.dart';
 import '../models/verse.dart';
 import 'note_aware_text.dart';
@@ -27,6 +28,9 @@ class VerseTile extends StatelessWidget {
   final bool isFlashing;
   final NoteDisposition disposition;
 
+  /// The selected reading theme for the verse area.
+  final BibleTheme theme;
+
   const VerseTile({
     super.key,
     required this.verse,
@@ -41,23 +45,21 @@ class VerseTile extends StatelessWidget {
     this.isSelected = false,
     this.isFlashing = false,
     this.disposition = NoteDisposition.below,
+    required this.theme,
   });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final materialTheme = Theme.of(context);
     final hasNotes = verse.notes.isNotEmpty;
 
     Color? bg;
     if (isSelected) {
-      bg = theme.colorScheme.primary.withValues(alpha: .15);
+      bg = theme.accentColor.withAlpha(0x26);
     } else if (isFlashing) {
       bg = const Color(0x66D3A94F);
     } else if (highlightColor != null && highlightColor!.isNotEmpty) {
-      // Empty means « no highlight », not « the fallback colour »: without the
-      // guard `_parseColor` cannot parse it and returns amber, so a cleared
-      // verse would look highlighted.
-      bg = _parseColor(highlightColor!).withValues(alpha: .55);
+      bg = _parseColor(highlightColor!).withAlpha(0x8C);
     }
 
     return InkWell(
@@ -74,8 +76,8 @@ class VerseTile extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 14, bottom: 4),
                 child: Text(
                   verse.section!,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    color: theme.colorScheme.primary,
+                  style: materialTheme.textTheme.titleMedium?.copyWith(
+                    color: theme.titleColor,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -92,8 +94,8 @@ class VerseTile extends StatelessWidget {
                       children: [
                         Text(
                           '$verseNumber',
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.primary,
+                          style: materialTheme.textTheme.bodySmall?.copyWith(
+                            color: theme.verseNumColor,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -102,7 +104,7 @@ class VerseTile extends StatelessWidget {
                             '✦',
                             style: TextStyle(
                               fontSize: 11,
-                              color: theme.colorScheme.primary,
+                              color: theme.verseNumColor,
                             ),
                           ),
                       ],
@@ -111,13 +113,19 @@ class VerseTile extends StatelessWidget {
                   Expanded(
                     child: showNotes
                         ? NoteAwareVerseText(
-                            verse: verse, disposition: disposition)
+                            verse: verse,
+                            disposition: disposition,
+                          )
                         : _StrongAwareText(
                             text: verse.text,
-                            style: theme.textTheme.bodyLarge,
-                            strongStyle: theme.textTheme.bodyLarge?.copyWith(
-                              fontSize: (theme.textTheme.bodyLarge?.fontSize ?? 16) * 0.72,
-                              color: theme.colorScheme.primary,
+                            style: materialTheme.textTheme.bodyLarge,
+                            strongStyle:
+                                materialTheme.textTheme.bodyLarge?.copyWith(
+                              fontSize: (materialTheme.textTheme.bodyLarge
+                                          ?.fontSize ??
+                                      16) *
+                                  0.72,
+                              color: theme.accentColor,
                               fontWeight: FontWeight.w700,
                             ),
                             onStrongTap: onStrongTap,
@@ -128,10 +136,10 @@ class VerseTile extends StatelessWidget {
                       children: [
                         if (isFavorite)
                           Icon(Icons.star,
-                              size: 14, color: theme.colorScheme.primary),
+                              size: 14, color: theme.accentColor),
                         if (hasNote)
                           Icon(Icons.edit_note,
-                              size: 14, color: theme.colorScheme.primary),
+                              size: 14, color: theme.accentColor),
                       ],
                     ),
                 ],
@@ -250,6 +258,9 @@ class ChapterVerseList extends StatelessWidget {
   /// icons, the ✦ glyph) stays at the theme default.
   final double fontSize;
 
+  /// The selected reading theme for the chapter body.
+  final BibleTheme theme;
+
   const ChapterVerseList({
     super.key,
     required this.chapter,
@@ -268,47 +279,76 @@ class ChapterVerseList extends StatelessWidget {
     this.flashingVerses,
     this.fontSize = 16,
     this.controller,
+    required this.theme,
   });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final materialTheme = Theme.of(context);
     return Theme(
-      data: theme.copyWith(
-        textTheme: theme.textTheme.copyWith(
-          bodyLarge: (theme.textTheme.bodyLarge ?? const TextStyle())
-              .copyWith(fontSize: fontSize),
+      data: materialTheme.copyWith(
+        textTheme: materialTheme.textTheme.copyWith(
+          bodyLarge: (materialTheme.textTheme.bodyLarge ?? const TextStyle())
+              .copyWith(fontSize: fontSize, color: theme.textColor),
+          bodyMedium: (materialTheme.textTheme.bodyMedium ?? const TextStyle())
+              .copyWith(color: theme.textColor),
+          bodySmall: (materialTheme.textTheme.bodySmall ?? const TextStyle())
+              .copyWith(color: theme.textColor),
+          titleMedium: (materialTheme.textTheme.titleMedium ?? const TextStyle())
+              .copyWith(color: theme.titleColor),
+          labelSmall: (materialTheme.textTheme.labelSmall ?? const TextStyle())
+              .copyWith(color: theme.textColor),
+        ),
+        colorScheme: materialTheme.colorScheme.copyWith(
+          primary: theme.accentColor,
+          secondary: theme.verseNumColor,
+          onSurface: theme.textColor,
         ),
       ),
-      child: ListView.builder(
-        controller: controller,
-        padding: const EdgeInsets.all(16),
-        itemCount: chapter.verses.length + (header != null ? 1 : 0),
-        itemBuilder: (context, i) {
-          if (header != null && i == 0) return header!;
-          final idx = header != null ? i - 1 : i;
-          final verse = chapter.verses[idx];
-          final vn = verse.number == 0 ? idx + 1 : verse.number;
-          return VerseTile(
-            key: jumpVerse == vn ? jumpKey : null,
-            verse: verse,
-            showNotes: showNotes,
-            disposition: disposition,
-            verseNumber: vn,
-            onTap: onVerseTap == null ? null : () => onVerseTap!(verse),
-            onLongPress: onVerseLongPress == null
-                ? null
-                : () => onVerseLongPress!(verse),
-            onStrongTap: onStrongTap == null
-                ? null
-                : (strong) => onStrongTap!(verse, strong),
-            highlightColor: highlightOf?.call(vn),
-            isFavorite: isFavoriteOf?.call(vn) ?? false,
-            hasNote: hasNoteOf?.call(vn) ?? false,
-            isSelected: selectedVerses?.contains(vn) ?? false,
-            isFlashing: flashingVerses?.contains(vn) ?? false,
-          );
-        },
+      child: Container(
+        decoration: theme.hasBackground
+            ? BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(theme.backgroundAsset),
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                    const Color.fromRGBO(0, 0, 0, 0.16),
+                    BlendMode.dstATop,
+                  ),
+                ),
+              )
+            : null,
+        child: ListView.builder(
+          controller: controller,
+          padding: const EdgeInsets.all(16),
+          itemCount: chapter.verses.length + (header != null ? 1 : 0),
+          itemBuilder: (context, i) {
+            if (header != null && i == 0) return header!;
+            final idx = header != null ? i - 1 : i;
+            final verse = chapter.verses[idx];
+            final vn = verse.number == 0 ? idx + 1 : verse.number;
+            return VerseTile(
+              key: jumpVerse == vn ? jumpKey : null,
+              verse: verse,
+              showNotes: showNotes,
+              disposition: disposition,
+              verseNumber: vn,
+              onTap: onVerseTap == null ? null : () => onVerseTap!(verse),
+              onLongPress: onVerseLongPress == null
+                  ? null
+                  : () => onVerseLongPress!(verse),
+              onStrongTap: onStrongTap == null
+                  ? null
+                  : (strong) => onStrongTap!(verse, strong),
+              highlightColor: highlightOf?.call(vn),
+              isFavorite: isFavoriteOf?.call(vn) ?? false,
+              hasNote: hasNoteOf?.call(vn) ?? false,
+              isSelected: selectedVerses?.contains(vn) ?? false,
+              isFlashing: flashingVerses?.contains(vn) ?? false,
+              theme: theme,
+            );
+          },
+        ),
       ),
     );
   }

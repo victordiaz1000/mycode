@@ -8,20 +8,33 @@ import 'package:flutter/services.dart';
 /// inside the fake-async zone of `testWidgets`.
 class FakeLsgsBundle extends AssetBundle {
   @override
-  Future<String> loadString(String key, {bool cache = true}) async =>
-      jsonEncode({
-        'book': 'Genèse',
-        'bym_index': 1,
-        'chapters': [
-          {
-            'chapter': 1,
-            'verses': [
-              _verse(1),
-              _verse(2),
-            ],
-          },
-        ],
+  Future<String> loadString(String key, {bool cache = true}) async {
+    // The corpus scan reads all 66 books: every key beyond Genèse must serve an
+    // empty book, or the index would register H7225 once per book number.
+    final number = RegExp(r'_?(\d+)-').firstMatch(key)?.group(1);
+    if (number != null && number != '01') {
+      return jsonEncode({
+        'book': 'Vide',
+        'bym_index': int.parse(number),
+        'abbreviation': '',
+        'osis_id': '',
+        'chapters': <Object>[],
       });
+    }
+    return jsonEncode({
+      'book': 'Genèse',
+      'bym_index': 1,
+      'chapters': [
+        {
+          'chapter': 1,
+          'verses': [
+            _verse(1),
+            _verse(2),
+          ],
+        },
+      ],
+    });
+  }
 
   Map<String, dynamic> _verse(int number) => number == 1
       ? {

@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:bible_app/data/fredaw_lexicon.dart';
 import 'package:bible_app/data/fulltext_index.dart';
 import 'package:bible_app/data/lexicon_index.dart';
 import 'package:bible_app/data/local_repository.dart';
+import 'package:bible_app/data/lsgs_repository.dart';
 import 'package:bible_app/data/search_engine.dart';
 import 'package:bible_app/data/strong_lexicon.dart';
+import 'package:bible_app/data/strong_occurrences.dart';
 import 'package:bible_app/screens/search_screen.dart';
+import 'package:bible_app/screens/strong_detail_screen.dart';
 
 import 'support/fake_bible_bundle.dart';
+import 'support/fake_fredaw_bundle.dart';
+import 'support/fake_lsgs_bundle.dart';
 import 'support/fake_strong_lexicon_bundle.dart';
 
 void main() {
@@ -17,6 +24,7 @@ void main() {
     SharedPreferences.setMockInitialValues({});
     LocalRepository.useBundle(FakeBibleBundle());
     StrongLexicon.useBundle(FakeStrongLexiconBundle());
+    FreDawLexicon.useBundle(FakeFreDawBundle());
     FulltextIndex.instance.clearIndex();
     LexiconIndex.instance.clearIndex();
   });
@@ -24,14 +32,20 @@ void main() {
   tearDown(() {
     LocalRepository.useRootBundle();
     StrongLexicon.useRootBundle();
+    FreDawLexicon.useRootBundle();
   });
 
   /// The screen under test, wired to an engine that never reaches sqflite:
   /// path_provider's channel never answers inside the fake-async zone, so an
   /// ambient [AppDatabase] would hang the search instead of failing fast.
-  Widget app({void Function(int, int, {int? verse})? onOpen}) => MaterialApp(
+  Widget app({
+    void Function(int, int, {int? verse})? onOpen,
+    void Function(String, String)? onOpenDictionary,
+  }) =>
+      MaterialApp(
         home: SearchScreen(
           onOpenReading: onOpen ?? (_, _, {verse}) {},
+          onOpenDictionary: onOpenDictionary,
           engine: SearchEngine(ambientDatabase: false),
         ),
       );
@@ -180,6 +194,86 @@ void main() {
     expect(find.textContaining('Définition test de H0430'), findsWidgets);
   });
 
+  testWidgets('Strong hits show a transliteration label when available',
+      (tester) async {
+    await tester.pumpWidget(app());
+    await type(tester, 'H0001');
+
+    await tapChip(tester, 'Strong');
+    await tester.pumpAndSettle();
+
+    expect(find.text('translitéré'), findsOneWidget);
+    expect(find.text("'ab"), findsOneWidget);
+  });
+
+  testWidgets('tapping a Strong hit opens the fiche with its occurrences',
+      (tester) async {
+    // The fiche reads the LSGS corpus for its occurrences section.
+    LsgsRepository.useBundle(FakeLsgsBundle());
+    StrongOccurrenceIndex.useAmbientRepository();
+    addTearDown(LsgsRepository.useRootBundle);
+    addTearDown(StrongOccurrenceIndex.useAmbientRepository);
+
+    await tester.pumpWidget(app());
+    await type(tester, 'H7225');
+
+    await tapChip(tester, 'Strong');
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('H7225').last);
+    await tester.pumpAndSettle();
+
+    // The fiche: header number, definition and the occurrence in Genèse.
+    expect(find.text('Occurrences du mot (1)'), findsOneWidget);
+    expect(find.text('Genèse 1:1'), findsOneWidget);
+  });
+
+  testWidgets('an occurrence verse clears the whole chain of fiches',
+      (tester) async {
+    LsgsRepository.useBundle(FakeLsgsBundle());
+    StrongOccurrenceIndex.useAmbientRepository();
+    addTearDown(LsgsRepository.useRootBundle);
+    addTearDown(StrongOccurrenceIndex.useAmbientRepository);
+
+    final opened = <(int, int, int)>[];
+    await tester.pumpWidget(
+        app(onOpen: (b, c, {verse}) => opened.add((b, c, verse!))));
+    await type(tester, 'H0001');
+    await tapChip(tester, 'Strong');
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('H0001').last);
+    await tester.pumpAndSettle();
+
+    // The etymology of the fake H0001 links a code: pushing its fiche leaves
+    // two StrongDetailScreen routes on the stack.
+    const full = 'Une racine primitive, le même que H7225.';
+    const code = 'H7225';
+    await tester.scrollUntilVisible(find.text(full, findRichText: true), 120);
+    await tester.pumpAndSettle();
+    final paragraph = tester.renderObject<RenderParagraph>(
+        find.text(full, findRichText: true));
+    final boxes = paragraph.getBoxesForSelection(TextSelection(
+      baseOffset: full.indexOf(code),
+      extentOffset: full.indexOf(code) + code.length,
+    ));
+    expect(boxes, isNotEmpty);
+    await tester.tapAt(paragraph.localToGlobal(boxes.first.toRect().center));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Occurrences du mot (1)'), findsOneWidget,
+        reason: 'the pushed H7225 fiche shows its occurrence');
+
+    await tester.scrollUntilVisible(find.text('Genèse 1:1'), 120);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Genèse 1:1'));
+    await tester.pumpAndSettle();
+
+    expect(opened, [(1, 1, 1)],
+        reason: 'the verse is handed to the reading callback');
+    expect(find.byType(StrongDetailScreen), findsNothing,
+        reason: 'the whole chain of pushed fiches is dismissed before reading');
+  });
+
   testWidgets('unavailable categories cannot narrow the results',
       (tester) async {
     await tester.pumpWidget(app());
@@ -207,20 +301,65 @@ void main() {
     expect(find.text('Verset'), findsWidgets);
   });
 
+  testWidgets('tapping a dictionary result opens its detail page',
+      (tester) async {
+    await tester.pumpWidget(app());
+    await type(tester, 'verset');
+    await tapChip(tester, 'Dictionnaire');
+    await tester.pumpAndSettle();
+
+    // The fake dictionary entries in the notes service contain 'Verset'.
+    await tester.tap(find.text('Verset').first);
+    await tester.pumpAndSettle();
+
+    // The FreDAW fiche: term in the article header, Westphal stamp, and the
+    // article section of the dictionary entry screen.
+    expect(find.text('Verset'), findsWidgets);
+    expect(find.text('Westphal 1932'), findsWidgets);
+    expect(find.text('Dictionnaire encyclopédique de la Bible'),
+        findsOneWidget);
+    expect(find.byType(Scaffold), findsWidgets);
+  });
+
+  testWidgets('the dictionary fiche can open the entry in a reading tab',
+      (tester) async {
+    final opened = <String>[];
+    await tester.pumpWidget(
+      app(onOpenDictionary: (term, definition) {
+        opened.add(term);
+      }),
+    );
+    await type(tester, 'verset');
+    await tapChip(tester, 'Dictionnaire');
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Verset').first);
+    await tester.pumpAndSettle();
+
+    // The fiche keeps the reader-tab escape hatch that the old detail page
+    // had: the article still opens as a reading page from the search results.
+    await tester.tap(find.text('Ouvrir onglet'));
+    await tester.pumpAndSettle();
+
+    expect(opened, ['Verset']);
+    expect(find.text('Ouvrir onglet'), findsNothing,
+        reason: 'the fiche is popped after handing the entry to the reader');
+  });
+
   testWidgets('« Voir plus » unfolds a truncated group', (tester) async {
     await tester.pumpWidget(app());
     // The fake bundle yields 2 chapters × 3 verses × 66 books, far beyond the
     // 5 rows a group shows by default.
     await type(tester, 'verset');
 
-    expect(find.text('Voir plus'), findsWidgets);
     expect(find.text('Genèse 1:1'), findsOneWidget);
     expect(find.text('Exode 1:1'), findsNothing);
 
     // The chip sits at the end of the passages group, below the fold.
-    await tester.scrollUntilVisible(find.text('Voir plus').first, 120,
+    await tester.scrollUntilVisible(find.text('Voir plus'), 120,
         scrollable: resultList());
     await tester.pumpAndSettle();
+    expect(find.text('Voir plus'), findsWidgets);
     await tester.tap(find.text('Voir plus').first);
     await tester.pumpAndSettle();
 

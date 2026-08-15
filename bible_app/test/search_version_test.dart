@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:bible_app/data/book_catalog.dart';
+import 'package:bible_app/data/fredaw_lexicon.dart';
 import 'package:bible_app/data/fulltext_index.dart';
 import 'package:bible_app/data/lexicon_index.dart';
 import 'package:bible_app/data/local_repository.dart';
@@ -13,6 +14,7 @@ import 'package:bible_app/screens/search_screen.dart';
 
 import 'reader_version_test.dart' show FakeStore;
 import 'support/fake_bible_bundle.dart';
+import 'support/fake_fredaw_bundle.dart';
 import 'support/fake_strong_lexicon_bundle.dart';
 import 'version_repository_test.dart' show getbibleBook;
 
@@ -42,12 +44,14 @@ void main() {
     SharedPreferences.setMockInitialValues({});
     LocalRepository.useBundle(FakeBibleBundle());
     StrongLexicon.useBundle(FakeStrongLexiconBundle());
+    FreDawLexicon.useBundle(FakeFreDawBundle());
     LexiconIndex.instance.clearIndex();
   });
 
   tearDown(() {
     LocalRepository.useRootBundle();
     StrongLexicon.useRootBundle();
+    FreDawLexicon.useRootBundle();
     FulltextIndex.useAmbientVersions();
     VersionRepository.clearCache();
   });

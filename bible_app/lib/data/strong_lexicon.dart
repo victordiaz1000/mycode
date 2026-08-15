@@ -4,42 +4,81 @@ import 'package:flutter/services.dart' show AssetBundle, rootBundle;
 
 import 'reference_parser.dart';
 
-/// One French Strong definition: the code and its readable text.
+/// A French Strong entry. Older flat assets remain accepted, while the v2
+/// asset carries the source data needed by the detailed Strong fiche.
 class StrongDefinition {
   final String strong;
   final String definition;
+  final String? language;
+  final String? lemma;
+  final String? transliteration;
+  final String? pronunciation;
+  final String? partOfSpeech;
+  final String? etymology;
+  final List<String> senses;
 
-  const StrongDefinition({required this.strong, required this.definition});
+  const StrongDefinition({
+    required this.strong,
+    required this.definition,
+    this.language,
+    this.lemma,
+    this.transliteration,
+    this.pronunciation,
+    this.partOfSpeech,
+    this.etymology,
+    this.senses = const [],
+  });
+
+  factory StrongDefinition.fromJson(String key, dynamic value) {
+    if (value is! Map) {
+      return StrongDefinition(strong: key, definition: value.toString().trim());
+    }
+    final rawMap = value;
+    String? field(String name) {
+      final fieldValue = valueOrNull(rawMap[name]);
+      return fieldValue == null || fieldValue.isEmpty ? null : fieldValue;
+    }
+    final senses = (rawMap['senses'] as List<dynamic>? ?? const [])
+        .map((item) => item.toString().trim())
+        .where((item) => item.isNotEmpty)
+        .toList(growable: false);
+    return StrongDefinition(
+      strong: field('strong')?.toUpperCase() ?? key,
+      definition: field('definition') ?? 'Définition non disponible.',
+      language: field('language'),
+      lemma: field('lemma'),
+      transliteration: field('transliteration'),
+      pronunciation: field('pronunciation'),
+      partOfSpeech: field('partOfSpeech'),
+      etymology: field('etymology'),
+      senses: senses,
+    );
+  }
+
+  static String? valueOrNull(dynamic value) => value?.toString().trim();
+
+  String get searchText => [
+        strong,
+        definition,
+        lemma,
+        transliteration,
+        pronunciation,
+        partOfSpeech,
+        etymology,
+        ...senses,
+      ].whereType<String>().join(' ');
 }
 
 /// In-memory French Strong lexicon, loaded lazily from `assets/lexicon/`.
-///
-/// The file holds one readable French definition per Strong code —
-/// `{'H0430': "’elohiym …", 'G2316': "theos …"}`. It is built from
-/// CrossWire/SWORD `FreStrongsHebrew` and `FreStrongsGreek` (see
-/// `plan-strong-fr.md`), converted once by `sword_zld_to_json.py`.
 class StrongLexicon {
   StrongLexicon._();
 
   static final StrongLexicon instance = StrongLexicon._();
   static const String _assetPath = 'assets/lexicon/strong_fr.json';
-
-  /// Strong code → definition, populated on first access.
-  static final Map<String, String> _definitions = <String, String>{};
-
-  /// Strong code → accent-free, lowercased version of the definition.
-  ///
-  /// Built once at load so [search] only does `contains` on each candidate
-  /// instead of re-normalizing all 14 195 definitions for every keystroke
-  /// (the old code blocked the UI thread on a common word).
-  static final Map<String, String> _normalized = <String, String>{};
+  static final Map<String, StrongDefinition> _definitions = {};
+  static final Map<String, String> _normalized = {};
   static bool _loaded = false;
-
-  /// Sorted codes, for [search].
   static List<String> _keys = const [];
-
-  /// Asset bundle the lexicon is read through — injectable so widget tests can
-  /// serve a small synthetic lexicon (same seam as [LocalRepository.useBundle]).
   static AssetBundle _bundle = rootBundle;
 
   static AssetBundle get bundle => _bundle;
@@ -53,27 +92,24 @@ class StrongLexicon {
   }
 
   static void useRootBundle() => useBundle(rootBundle);
-
   bool get isLoaded => _loaded;
-
-  /// Number of definitions after loading.
   int get size => _definitions.length;
 
   Future<void> _ensureLoaded() async {
     if (_loaded) return;
     try {
-      final raw = await _bundle.loadString(_assetPath);
-      final decoded = jsonDecode(raw);
-      if (decoded is Map) {
-        _definitions.clear();
-        _normalized.clear();
-        for (final entry in decoded.entries) {
-          final key = entry.key.toString().trim();
-          final value = entry.value.toString().trim();
-          if (key.isNotEmpty && value.isNotEmpty) {
-            _definitions[key.toUpperCase()] = value;
-            _normalized[key.toUpperCase()] = normalizeForSearch(value);
-          }
+      final decoded = jsonDecode(await _bundle.loadString(_assetPath));
+      final entries = decoded is Map && decoded['entries'] is Map
+          ? decoded['entries'] as Map
+          : decoded;
+      if (entries is Map) {
+        for (final entry in entries.entries) {
+          final key = entry.key.toString().trim().toUpperCase();
+          if (key.isEmpty) continue;
+          final value = StrongDefinition.fromJson(key, entry.value);
+          if (value.definition.isEmpty) continue;
+          _definitions[key] = value;
+          _normalized[key] = normalizeForSearch(value.searchText);
         }
         _keys = _definitions.keys.toList()..sort();
       }
@@ -86,76 +122,60 @@ class StrongLexicon {
     }
   }
 
-  /// The French definition of [strong], or a placeholder when missing.
   Future<StrongDefinition> lookup(String strong) async {
     final key = strong.trim().toUpperCase();
     await _ensureLoaded();
-
-    final definition = _definitions[key];
-    if (definition != null && definition.isNotEmpty) {
-      return StrongDefinition(strong: key, definition: definition);
-    }
-
-    return StrongDefinition(
+    return _definitions[key] ?? StrongDefinition(
       strong: key,
-      definition:
-          'Définition Strong non disponible pour $key dans le lexique embarqué.',
+      definition: 'Définition Strong non disponible pour $key dans le lexique embarqué.',
     );
   }
 
-  /// Whether [strong] has a definition.
   Future<bool> contains(String strong) async {
     await _ensureLoaded();
-    return _definitions[strong.trim().toUpperCase()] != null;
+    return _definitions.containsKey(strong.trim().toUpperCase());
   }
 
-  /// Entries matching [query], best first, capped at [limit].
-  ///
-  /// Ranking: exact code (0) > code prefix (1) > code substring (2) >
-  /// definition mentions the query (3). Ties keep the lexicographic order.
-  Future<List<StrongDefinition>> search(
-    String query, {
-    int limit = 50,
-  }) async {
+  Future<List<StrongDefinition>> all() async {
+    await _ensureLoaded();
+    return [for (final key in _keys) _definitions[key]!];
+  }
+
+  Future<List<StrongDefinition>> search(String query, {int limit = 50}) async {
     await _ensureLoaded();
     final q = query.trim().toUpperCase();
     if (q.isEmpty) return const [];
-
     final exact = _definitions[q];
-    if (exact != null) {
-      return [StrongDefinition(strong: q, definition: exact)];
-    }
+    if (exact != null) return [exact];
 
     final ranked = <({int score, int rank, String key})>[];
-    final definitions = _definitions;
-    final normalized = _normalized;
     if (q.length >= 2) {
       final needle = normalizeForSearch(q);
       for (var i = 0; i < _keys.length; i++) {
-        // 14 195 entries: yield so the spinner and the keyboard keep animating
-        // while a common word walks the whole lexicon.
         if (i % 1024 == 0) await Future<void>.delayed(Duration.zero);
         final key = _keys[i];
-        int? score;
-        if (key.startsWith(q)) {
-          score = 1;
-        } else if (key.contains(q)) {
-          score = 2;
-        } else if (normalized[key]!.contains(needle)) {
-          score = 3;
-        }
-        if (score == null) continue;
-        ranked.add((score: score, rank: i, key: key));
+        final normalizedKey = _normalized[key]!;
+      final score = key.startsWith(q)
+          ? 1
+          : key.contains(q)
+              ? 2
+              : normalizedKey == needle
+                  ? 3
+                  : normalizedKey.contains(needle)
+                      ? 4
+                      : null;
+      if (score != null) {
+        final rank = score < 4 ? i : normalizedKey.indexOf(needle);
+        ranked.add((score: score, rank: rank, key: key));
       }
-      ranked.sort(
-          (a, b) => a.score != b.score ? a.score - b.score : a.rank - b.rank);
+      }
+      ranked.sort((a, b) {
+        if (a.score != b.score) return a.score - b.score;
+        return a.rank - b.rank;
+      });
     }
-    return [
-      for (final r in ranked.take(limit))
-        StrongDefinition(strong: r.key, definition: definitions[r.key]!),
-    ];
+    return [for (final result in ranked.take(limit)) _definitions[result.key]!];
   }
 
-  /// Human-friendly label for a Strong reference.
   String label(String strong) => 'Strong $strong';
 }

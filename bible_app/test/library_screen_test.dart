@@ -7,9 +7,14 @@ import 'package:http/testing.dart';
 
 import 'package:bible_app/data/book_catalog.dart';
 import 'package:bible_app/data/download_service.dart';
+import 'package:bible_app/data/fredaw_lexicon.dart';
 import 'package:bible_app/data/library_store.dart';
+import 'package:bible_app/data/strong_lexicon.dart';
 import 'package:bible_app/data/version_catalog.dart';
 import 'package:bible_app/screens/library_screen.dart';
+
+import 'support/fake_fredaw_bundle.dart';
+import 'support/fake_strong_lexicon_bundle.dart';
 
 /// The registry, in memory: the screen only reads [installed] / [sizeOnDisk]
 /// and calls [remove], so the disk never has to be involved here.
@@ -115,8 +120,83 @@ void main() {
       await tester.tap(find.text('Dictionnaires'));
       await tester.pumpAndSettle();
 
-      // No dictionary catalogue exists yet — say so rather than list nothing.
-      expect(find.text('Aucun dictionnaire à télécharger'), findsOneWidget);
+      expect(find.byKey(const Key('libraryDictionaries')), findsOneWidget);
+      expect(find.text('Lexique BYM'), findsOneWidget);
+      expect(find.text('Strong FR'), findsOneWidget);
+      expect(find.text('Westphal 1932'), findsOneWidget);
+      // Après l'arrivée de FreDAW, seule Nave reste « À venir ».
+      expect(find.text('À venir'), findsOneWidget);
+    });
+
+    testWidgets('tapping Westphal opens the FreDAW index, not a stub',
+        (tester) async {
+      final store = FakeStore();
+      await pumpLibrary(tester, store: store, service: FakeService(store));
+
+      FreDawLexicon.useBundle(FakeFreDawBundle());
+      addTearDown(FreDawLexicon.useRootBundle);
+
+      await tester.tap(find.text('Dictionnaires'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Westphal 1932'));
+      await tester.pumpAndSettle();
+
+      // The index screen took over: it loads entries from the fake bundle
+      // (2 entrées) instead of the static detail stub.
+      expect(find.text('2 entrées'), findsOneWidget);
+      expect(find.text('ABBA'), findsOneWidget);
+      expect(find.text('Verset'), findsOneWidget);
+    });
+
+    testWidgets('tapping Strong FR opens the Strong index, not a stub',
+        (tester) async {
+      final store = FakeStore();
+      await pumpLibrary(tester, store: store, service: FakeService(store));
+
+      StrongLexicon.useBundle(FakeStrongLexiconBundle());
+      addTearDown(StrongLexicon.useRootBundle);
+
+      await tester.tap(find.text('Dictionnaires'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Strong FR'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Dictionnaire Strong'), findsOneWidget);
+      // The fake lexicon serves 5 entries, visible through the index screen.
+      expect(find.text('5 entrées'), findsOneWidget);
+      expect(find.text('H0001'), findsOneWidget);
+    });
+
+    testWidgets('a FreDAW entry opened from the Library can open in a reading tab',
+        (tester) async {
+      final store = FakeStore();
+      final opened = <String>[];
+      await tester.pumpWidget(MaterialApp(
+        home: LibraryScreen(
+          store: store,
+          service: FakeService(store),
+          onOpenDictionary: (term, definition) => opened.add(term),
+        ),
+      ));
+      await tester.pumpAndSettle();
+
+      FreDawLexicon.useBundle(FakeFreDawBundle());
+      addTearDown(FreDawLexicon.useRootBundle);
+
+      await tester.tap(find.text('Dictionnaires'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Westphal 1932'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('ABBA'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Ouvrir onglet'));
+      await tester.pumpAndSettle();
+
+      expect(opened, ['ABBA'],
+          reason: 'the fiche hands the entry to the reading tab');
+      expect(find.text('Ouvrir onglet'), findsNothing,
+          reason: 'the index and fiche routes are cleared after the handoff');
     });
 
     testWidgets('a fresh device: BYM and LSGS are integrated, DBY downloadable',

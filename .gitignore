@@ -19,3 +19,19 @@ Thumbs.db
 
 # Note : `bible_app/` porte le .gitignore Flutter (build/, .dart_tool/, …)
 # et chaque dossier de plateforme le sien (android/.gradle, ios/…).
+
+# Modules SWORD téléchargés localement (sources régénérables, licence de distribution spécifique).
+appCodebar/sword_modules/
+appCodebar/__pycache__/
+
+# Fichiers de travail / outils hors projet (voir commit 2026-08-15).
+opencode.json
+mcp-vision-bridge/
+interfaces/
+html1.html
+inspect_fredaw.py
+renduLexique/
+rendu_ecran_cliquable_lsgstrong/
+
+# Bases SQLite jetables d'une session de bureau.
+bible_app/.freebuff/

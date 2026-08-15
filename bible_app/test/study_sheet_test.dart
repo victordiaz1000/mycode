@@ -33,7 +33,7 @@ void main() {
     String? currentHighlight,
     bool isFavorite = false,
     bool lexiqueEnabled = true,
-    String lexiqueLabel = 'Lexique Strong — verset mot à mot',
+    String lexiqueLabel = 'Lexique & Dictionnaire — verset mot à mot',
   }) async {
     final highlights = <String?>[];
     final favorites = <bool>[];
@@ -160,10 +160,10 @@ void main() {
   await pumpSheet(
       tester,
       lexiqueEnabled: false,
-      lexiqueLabel: 'Lexique Strong — versions BYM/LSGS');
+      lexiqueLabel: 'Lexique & Dictionnaire — versions BYM/LSGS');
 
   final button = tester.widget<OutlinedButton>(find.widgetWithText(
-      OutlinedButton, 'Lexique Strong — versions BYM/LSGS'));
+      OutlinedButton, 'Lexique & Dictionnaire — versions BYM/LSGS'));
   expect(button.onPressed, isNull);
 });
 
@@ -172,7 +172,7 @@ testWidgets('the Lexique button carries a precise name when enabled',
   await pumpSheet(tester);
 
   final button = tester.widget<OutlinedButton>(
-      find.widgetWithText(OutlinedButton, 'Lexique Strong — verset mot à mot'));
+      find.widgetWithText(OutlinedButton, 'Lexique & Dictionnaire — verset mot à mot'));
   expect(button.onPressed, isNotNull,
       reason: 'the name tells the reader it opens the Strong rendering');
 });

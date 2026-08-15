@@ -3,10 +3,10 @@ import '../models/chapter.dart';
 import 'bible_sections.dart';
 import 'book_catalog.dart';
 import 'fulltext_index.dart';
-import 'lexicon_index.dart';
 import 'local_repository.dart';
 import 'reading_history.dart';
 import 'reference_parser.dart';
+import 'fredaw_lexicon.dart';
 import 'strong_lexicon.dart';
 import 'version_repository.dart';
 
@@ -135,6 +135,12 @@ class SearchHit {
   /// Second line — the verse text, the note body, the definition.
   final String subtitle;
 
+  /// The original word/lemma for Strong hits.
+  final String? lemma;
+
+  /// The transliterated form for Strong hits ("'ab" for H0001).
+  final String? transliteration;
+
   /// Small pill next to the title (the version code, "Dictionnaire"…).
   final String? badge;
 
@@ -150,6 +156,8 @@ class SearchHit {
     required this.category,
     required this.title,
     required this.subtitle,
+    this.lemma,
+    this.transliteration,
     this.badge,
     this.bookIndex,
     this.chapter,
@@ -157,7 +165,8 @@ class SearchHit {
     this.at,
   });
 
-  bool get canOpen => bookIndex != null && chapter != null;
+  bool get canOpen => category == SearchCategory.dictionnaire ||
+      (bookIndex != null && chapter != null);
 }
 /// The rows found for one category, plus the total before capping.
 class SearchGroup {
@@ -248,7 +257,7 @@ class SearchOutcome {
 /// - [SearchCategory.notes] → the `notes` table of [AppDatabase];
 /// - [SearchCategory.etudes] → [ReadingHistory] (the chapters already studied);
 /// - [SearchCategory.strong] → [StrongLexicon] (the French Strong definitions);
-/// - [SearchCategory.dictionnaire] → [LexiconIndex] (BYM note anchors).
+/// - [SearchCategory.dictionnaire] → [FreDawLexicon] (FreDAW dictionary entries).
 ///
 /// Each source is queried concurrently and failures are swallowed per source,
 /// so a missing database (widget tests, first launch) still lets the passages
@@ -256,14 +265,14 @@ class SearchOutcome {
 class SearchEngine {
   SearchEngine({
     FulltextIndex? fulltext,
-    LexiconIndex? lexicon,
+    FreDawLexicon? freDaw,
     StrongLexicon? strong,
     AppDatabase? database,
     bool ambientDatabase = true,
     ReadingHistory? history,
     LocalRepository? repository,
     VersionRepository? versions,
-  })  : _lexicon = lexicon ?? LexiconIndex.instance,
+  })  : _freDawLexicon = freDaw ?? FreDawLexicon.instance,
         _strongLexicon = strong ?? StrongLexicon.instance,
         // ignore: prefer_initializing_formals (named params cannot be private)
         _fulltext = fulltext,
@@ -277,13 +286,14 @@ class SearchEngine {
 
   /// An index to use in place of the registry, for the version it covers.
   final FulltextIndex? _fulltext;
-  final LexiconIndex _lexicon;
   final StrongLexicon _strongLexicon;
   final AppDatabase? _database;
   final bool _ambientDatabase;
   final ReadingHistory _history;
   final LocalRepository _repository;
   final VersionRepository _versions;
+
+  final FreDawLexicon _freDawLexicon;
 
   /// The index covering [code] — the injected one when it matches, else the
   /// shared per-version registry.
@@ -564,22 +574,20 @@ class SearchEngine {
 
   Future<SearchGroup?> _dictionnaire(String query, bool expanded) async {
     try {
-      final entries = await _lexicon.search(query, limit: sourceLimit);
-      if (entries.isEmpty) return null;
-      final shown = expanded ? entries : entries.take(pageSize);
+      final freDawEntries = await _freDawLexicon.search(query, limit: sourceLimit);
+      if (freDawEntries.isEmpty) return null;
+
+      final shown = expanded ? freDawEntries : freDawEntries.take(pageSize);
       return SearchGroup(
         category: SearchCategory.dictionnaire,
-        total: entries.length,
+        total: freDawEntries.length,
         hits: [
           for (final e in shown)
             SearchHit(
               category: SearchCategory.dictionnaire,
-              title: e.word,
+              title: e.term,
               subtitle: e.definition,
-              badge: 'Dictionnaire',
-              bookIndex: e.bookIndex,
-              chapter: e.chapter,
-              verse: e.verseNumber,
+              badge: 'Westphal 1932',
             ),
         ],
       );
@@ -607,6 +615,8 @@ class SearchEngine {
               category: SearchCategory.strong,
               title: e.strong,
               subtitle: e.definition,
+              lemma: e.lemma,
+              transliteration: e.transliteration,
               badge: 'Strong',
             ),
         ],

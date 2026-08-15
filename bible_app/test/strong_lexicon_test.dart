@@ -21,6 +21,9 @@ void main() {
     final h0001 = await lexicon.lookup('H0001');
     expect(h0001.strong, 'H0001');
     expect(h0001.definition, contains('père'));
+    expect(h0001.language, 'hebrew');
+    expect(h0001.lemma, isNotEmpty);
+    expect(h0001.senses, isNotEmpty);
 
     final g2316 = await lexicon.lookup('G2316');
     expect(g2316.strong, 'G2316');
@@ -52,9 +55,17 @@ void main() {
 
   test('search finds a code by its definition', () async {
     final lexicon = StrongLexicon.instance;
-    // « gouvernant souverain » only appears in H0001's bullets.
-    final results = await lexicon.search('gouvernant souverain');
+    // This phrase should uniquely identify H0001 in the embedded Strong lexicon.
+    final results = await lexicon.search('Dieu père de son peuple');
     expect(results, isNotEmpty);
     expect(results.first.strong, 'H0001');
+  });
+
+  test('search also finds a Strong entry by a common definition word', () async {
+    final lexicon = StrongLexicon.instance;
+    final results = await lexicon.search('père');
+    expect(results, isNotEmpty);
+    expect(results.any((r) => r.strong == 'H0001'), isTrue);
+    expect(results.first.definition.toLowerCase(), contains('père'));
   });
 }

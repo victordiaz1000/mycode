@@ -5,6 +5,9 @@ import '../data/local_repository.dart';
 import '../data/reading_history.dart';
 import '../data/tab_manager.dart';
 import '../models/chapter.dart';
+import '../widgets/bible_theme_scope.dart';
+import 'ecran_comparer.dart';
+import 'favoris_screen.dart';
 import 'themes_screen.dart';
 
 /// Destinations of the bottom navigation bar (maquette § 01).
@@ -22,7 +25,8 @@ String formatRelativeDate(DateTime when, {DateTime? now}) {
   final day = DateTime(when.year, when.month, when.day);
   final today = DateTime(ref.year, ref.month, ref.day);
   final days = today.difference(day).inDays;
-  final hhmm = '${when.hour.toString().padLeft(2, '0')}:'
+  final hhmm =
+      '${when.hour.toString().padLeft(2, '0')}:'
       '${when.minute.toString().padLeft(2, '0')}';
   if (days <= 0) return 'aujourd’hui, $hhmm';
   if (days == 1) return 'hier, $hhmm';
@@ -32,7 +36,13 @@ String formatRelativeDate(DateTime when, {DateTime? now}) {
 }
 
 const List<String> _weekdays = [
-  'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche',
+  'lundi',
+  'mardi',
+  'mercredi',
+  'jeudi',
+  'vendredi',
+  'samedi',
+  'dimanche',
 ];
 
 /// The Chrome-like home page (maquette § 01) : universal search bar, tool
@@ -46,10 +56,16 @@ class HomeScreen extends StatefulWidget {
   /// Switches the bottom navigation to another destination.
   final void Function(BymDestination destination) onSelectDestination;
 
+  /// Opens a chapter (and optional verse) in the Lecture destination, with the
+  /// verse-jump that the shell owns. Null outside the shell: falls back to
+  /// [manager.openReading] without a verse target.
+  final void Function(int bookIndex, int chapter, {int? verse})? onOpenReading;
+
   const HomeScreen({
     super.key,
     required this.manager,
     required this.onSelectDestination,
+    this.onOpenReading,
   });
 
   @override
@@ -79,7 +95,12 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() => _recent = recent);
   }
 
-  void _openReading(int bookIndex, int chapter) {
+  void _openReading(int bookIndex, int chapter, {int? verse}) {
+    final open = widget.onOpenReading;
+    if (open != null) {
+      open(bookIndex, chapter, verse: verse);
+      return;
+    }
     widget.manager.openReading(bookIndex, chapter);
     widget.onSelectDestination(BymDestination.lecture);
   }
@@ -103,9 +124,9 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             _TopBar(
               tabCount: widget.manager.count,
-              onOpenThemes: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => const ThemesScreen()),
-              ),
+              onOpenThemes: () => Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (_) => const ThemesScreen())),
               onOpenTabs: () {
                 if (!widget.manager.hasTabs) widget.manager.openHome();
                 widget.onSelectDestination(BymDestination.lecture);
@@ -113,8 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 14),
             _SearchBar(
-              onTap: () =>
-                  widget.onSelectDestination(BymDestination.recherche),
+              onTap: () => widget.onSelectDestination(BymDestination.recherche),
             ),
             const SizedBox(height: 16),
             _Shortcuts(
@@ -122,9 +142,30 @@ class _HomeScreenState extends State<HomeScreen> {
               onResume: resume == null
                   ? null
                   : () => _openReading(resume.bookIndex, resume.chapter),
-              onFavorites: () => _soon('Favoris'),
+              onFavorites: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => FavorisScreen(
+                        onOpenVerse: (book, chapter, verse) {
+                          Navigator.of(context).pop();
+                          _openReading(book, chapter, verse: verse);
+                        },
+                      ),
+                    ),
+                  ),
               onAudio: () => _soon('Audio'),
-              onCompare: () => _soon('Comparaison'),
+              onCompare: resume == null
+                  ? () => _soon('Comparaison')
+                  : () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => ComparerScreen(
+                            bookIndex: resume.bookIndex,
+                            chapter: resume.chapter,
+                            // L'historique de lecture ne garde que le chapitre,
+                            // pas le verset : on compare depuis le début.
+                            verseNumber: 1,
+                          ),
+                        ),
+                      ),
               onDictionary: () =>
                   widget.onSelectDestination(BymDestination.bibliotheque),
             ),
@@ -163,15 +204,32 @@ class _TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return Row(
       children: [
-        Image.asset(
-          'assets/brand/logo.png',
-          height: 32,
-          fit: BoxFit.contain,
-          errorBuilder: (_, _, _) => Icon(
-            Icons.auto_stories,
-            color: theme.colorScheme.primary,
+        Padding(
+          padding: const EdgeInsets.only(left: 2, top: 4, bottom: 4),
+          child: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Bym',
+                  style: theme.textTheme.headlineSmall?.copyWith(
+                    color: bibleTheme.titleColor,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 1.2,
+                  ),
+                ),
+                TextSpan(
+                  text: ' classic',
+                  style: theme.textTheme.headlineSmall?.copyWith(
+                    color: bibleTheme.titleColor.withValues(alpha: .88),
+                    fontWeight: FontWeight.w300,
+                    letterSpacing: 1.4,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         const Spacer(),
@@ -181,18 +239,17 @@ class _TopBar extends StatelessWidget {
           icon: const Icon(Icons.palette_outlined),
         ),
         Material(
-          color: bymGold,
+          color: bibleTheme.accentColor,
           borderRadius: BorderRadius.circular(9),
           child: InkWell(
             onTap: onOpenTabs,
             borderRadius: BorderRadius.circular(9),
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               child: Text(
                 '$tabCount',
-                style: const TextStyle(
-                  color: Color(0xFF241A04),
+                style: TextStyle(
+                  color: bibleTheme.textColor,
                   fontWeight: FontWeight.w800,
                   fontSize: 14,
                 ),
@@ -212,8 +269,9 @@ class _SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return Material(
-      color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: .5),
+      color: theme.colorScheme.surfaceContainerHighest.withAlpha(128),
       borderRadius: BorderRadius.circular(14),
       child: InkWell(
         onTap: onTap,
@@ -228,21 +286,22 @@ class _SearchBar extends StatelessWidget {
                 child: Text(
                   'Rechercher un verset, un livre, un thème…',
                   overflow: TextOverflow.ellipsis,
-                  style: theme.textTheme.bodyMedium
-                      ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
-                  color: bymGold.withValues(alpha: .22),
+                  color: bibleTheme.accentColor.withAlpha(56),
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Text(
                   'Jean 3.16',
-                  style: theme.textTheme.labelSmall
-                      ?.copyWith(fontWeight: FontWeight.w700),
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
             ],
@@ -284,15 +343,25 @@ class _Shortcuts extends StatelessWidget {
             onTap: onResume,
           ),
           _ShortcutChip(
-              icon: Icons.star_outline, label: 'Favoris', onTap: onFavorites),
+            icon: Icons.star_outline,
+            label: 'Favoris',
+            onTap: onFavorites,
+          ),
           _ShortcutChip(
-              icon: Icons.headphones_outlined, label: 'Audio', onTap: onAudio),
+            icon: Icons.headphones_outlined,
+            label: 'Audio',
+            onTap: onAudio,
+          ),
           _ShortcutChip(
-              icon: Icons.compare_arrows, label: 'Comparer', onTap: onCompare),
+            icon: Icons.compare_arrows,
+            label: 'Comparer',
+            onTap: onCompare,
+          ),
           _ShortcutChip(
-              icon: Icons.library_books_outlined,
-              label: 'Dico',
-              onTap: onDictionary),
+            icon: Icons.library_books_outlined,
+            label: 'Dico',
+            onTap: onDictionary,
+          ),
         ],
       ),
     );
@@ -327,8 +396,7 @@ class _ShortcutChip extends StatelessWidget {
           width: 78,
           padding: const EdgeInsets.symmetric(vertical: 8),
           decoration: BoxDecoration(
-            color:
-                theme.colorScheme.surfaceContainerHighest.withValues(alpha: .4),
+            color: theme.colorScheme.surfaceContainerHighest.withAlpha(102),
             borderRadius: BorderRadius.circular(14),
           ),
           child: Column(
@@ -384,9 +452,10 @@ class _ResumeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return Card(
       elevation: 0,
-      color: bymGold.withValues(alpha: .14),
+      color: bibleTheme.accentColor.withAlpha(36),
       child: InkWell(
         onTap: onResume,
         borderRadius: BorderRadius.circular(12),
@@ -395,7 +464,8 @@ class _ResumeCard extends StatelessWidget {
           child: FutureBuilder<Chapter>(
             future: repository.loadChapter(entry.bookIndex, entry.chapter),
             builder: (context, snapshot) {
-              final excerpt = snapshot.hasData && snapshot.data!.verses.isNotEmpty
+              final excerpt =
+                  snapshot.hasData && snapshot.data!.verses.isNotEmpty
                   ? snapshot.data!.verses.first.text
                   : '';
               return Column(
@@ -404,8 +474,10 @@ class _ResumeCard extends StatelessWidget {
                   Text(
                     '${catalogEntry(entry.bookIndex).name} — '
                     'chapitre ${entry.chapter}',
-                    style: theme.textTheme.titleMedium
-                        ?.copyWith(fontWeight: FontWeight.bold),
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: bibleTheme.titleColor,
+                    ),
                   ),
                   if (excerpt.isNotEmpty) ...[
                     const SizedBox(height: 6),
@@ -413,17 +485,17 @@ class _ResumeCard extends StatelessWidget {
                       '« $excerpt »',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.bodyMedium
-                          ?.copyWith(fontStyle: FontStyle.italic),
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontStyle: FontStyle.italic,
+                        color: bibleTheme.textColor,
+                      ),
                     ),
                   ],
                   const SizedBox(height: 12),
                   FutureBuilder<int>(
                     future: repository.chapterCount(entry.bookIndex),
-                    builder: (context, count) => _progress(
-                      context,
-                      total: count.data ?? 0,
-                    ),
+                    builder: (context, count) =>
+                        _progress(context, total: count.data ?? 0),
                   ),
                 ],
               );
@@ -436,6 +508,7 @@ class _ResumeCard extends StatelessWidget {
 
   Widget _progress(BuildContext context, {required int total}) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     final ratio = total <= 0 ? 0.0 : (entry.chapter / total).clamp(0.0, 1.0);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -445,8 +518,8 @@ class _ResumeCard extends StatelessWidget {
           child: LinearProgressIndicator(
             value: ratio,
             minHeight: 6,
-            backgroundColor: bymGold.withValues(alpha: .25),
-            valueColor: const AlwaysStoppedAnimation<Color>(bymGold),
+            backgroundColor: bibleTheme.accentColor.withAlpha(64),
+            valueColor: AlwaysStoppedAnimation<Color>(bibleTheme.accentColor),
           ),
         ),
         const SizedBox(height: 6),
@@ -455,8 +528,10 @@ class _ResumeCard extends StatelessWidget {
           children: [
             Text('Reprendre la lecture', style: theme.textTheme.labelMedium),
             if (total > 0)
-              Text('ch. ${entry.chapter} / $total',
-                  style: theme.textTheme.labelMedium),
+              Text(
+                'ch. ${entry.chapter} / $total',
+                style: theme.textTheme.labelMedium,
+              ),
           ],
         ),
       ],
@@ -473,6 +548,7 @@ class _RecentStudies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -499,12 +575,11 @@ class _RecentStudies extends StatelessWidget {
               contentPadding: EdgeInsets.zero,
               leading: CircleAvatar(
                 radius: 16,
-                backgroundColor: bymGold.withValues(alpha: .2),
-                child: const Text('✦', style: TextStyle(fontSize: 13)),
+                backgroundColor: bibleTheme.accentColor.withValues(alpha: 0.2),
+                child: Text('✦', style: TextStyle(fontSize: 13, color: bibleTheme.accentColor)),
               ),
               title: Text('${entry.bookName} ${entry.chapter}'),
-              subtitle: Text(
-                  'Lecture · ${formatRelativeDate(entry.dateTime)}'),
+              subtitle: Text('Lecture · ${formatRelativeDate(entry.dateTime)}'),
               onTap: () => onOpen(entry.bookIndex, entry.chapter),
             ),
       ],

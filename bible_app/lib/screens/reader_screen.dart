@@ -2,11 +2,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../data/app_preferences.dart';
+import '../data/fredaw_lexicon.dart';
 import '../data/library_store.dart';
 import '../data/tab_manager.dart';
 import '../data/version_repository.dart';
 import '../models/study_tab.dart';
+import '../widgets/bible_theme_scope.dart';
 import '../widgets/chapter_reader.dart';
+import '../widgets/fredaw_article_view.dart';
 import '../widgets/reader_actions_bar.dart';
 import '../widgets/tab_strip.dart';
 import '../widgets/tab_switcher.dart';
@@ -101,6 +104,18 @@ class _ReaderScreenState extends State<ReaderScreen> {
     if (tab.isHome) {
       return _HomeTab(manager: _manager, onOpenLibrary: widget.onOpenLibrary);
     }
+    if (tab.isDictionary) {
+      return _DictionaryTab(
+        entry: tab,
+        // A cross-linked word opens (or refocuses) its own dictionary tab —
+        // and overwrites it if the same term is already open.
+        onOpenDictionary: (term, definition) =>
+            _manager.openDictionary(term, definition),
+        // A Bible reference of the article opens a reading tab for the chapter.
+        onOpenVerse: (bookIndex, chapter) =>
+            _manager.openReading(bookIndex, chapter),
+      );
+    }
     return ChapterReader(
       key: ValueKey('reader-${tab.id}-${tab.bookIndex}-${tab.chapter}'),
       bookIndex: tab.bookIndex!,
@@ -115,6 +130,215 @@ class _ReaderScreenState extends State<ReaderScreen> {
       onOpenChapter: (bookIndex, chapter) =>
           _manager.replaceActiveReading(bookIndex, chapter),
     );
+  }
+}
+
+class _DictionaryTab extends StatefulWidget {
+  final StudyTab entry;
+
+  /// Opens a cross-linked word of the article as a dictionary tab (overwrites
+  /// the same term if already open).
+  final void Function(String term, String definition)? onOpenDictionary;
+
+  /// Opens a Bible reference of the article as a reading tab.
+  final void Function(int bookIndex, int chapter)? onOpenVerse;
+
+  const _DictionaryTab({
+    required this.entry,
+    this.onOpenDictionary,
+    this.onOpenVerse,
+  });
+
+  @override
+  State<_DictionaryTab> createState() => _DictionaryTabState();
+}
+
+/// Menu entries of the dictionary tab's ⋯ button (text size + alignment).
+enum _DisplayChoice {
+  sizeSmall,
+  sizeMedium,
+  sizeLarge,
+  sizeExtraLarge,
+  sizeHuge,
+  sizeGiant,
+  alignLeft,
+  alignCenter,
+  alignRight,
+  alignJustify;
+
+  static _DisplayChoice forSize(ReadingTextSize size) => switch (size) {
+        ReadingTextSize.small => sizeSmall,
+        ReadingTextSize.medium => sizeMedium,
+        ReadingTextSize.large => sizeLarge,
+        ReadingTextSize.extraLarge => sizeExtraLarge,
+        ReadingTextSize.huge => sizeHuge,
+        ReadingTextSize.giant => sizeGiant,
+      };
+
+  static _DisplayChoice forAlign(ReadingTextAlign align) => switch (align) {
+        ReadingTextAlign.left => alignLeft,
+        ReadingTextAlign.center => alignCenter,
+        ReadingTextAlign.right => alignRight,
+        ReadingTextAlign.justify => alignJustify,
+      };
+}
+
+class _DictionaryTabState extends State<_DictionaryTab> {
+  AppPreferences? _prefs;
+  double _fontSize = ReadingTextSize.medium.fontSize;
+  ReadingTextAlign _align = ReadingTextAlign.justify;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPreferences();
+  }
+
+  Future<void> _loadPreferences() async {
+    final prefs = await AppPreferences.load();
+    if (!mounted) return;
+    setState(() {
+      _prefs = prefs;
+      _fontSize = prefs.fontSize;
+      _align = prefs.textAlign;
+    });
+  }
+
+  void _setFontSize(ReadingTextSize size) {
+    setState(() => _fontSize = size.fontSize);
+    final prefs = _prefs;
+    if (prefs != null) {
+      prefs.fontSize = size.fontSize;
+      prefs.save();
+    }
+  }
+
+  void _setAlign(ReadingTextAlign align) {
+    setState(() => _align = align);
+    final prefs = _prefs;
+    if (prefs != null) {
+      prefs.textAlign = align;
+      prefs.save();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final materialTheme = Theme.of(context);
+    final readingTheme = BibleThemeScope.of(context);
+    final entry = widget.entry;
+    final currentSize = ReadingTextSize.nearest(_fontSize);
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: readingTheme.accentColor.withValues(alpha: .14),
+        foregroundColor: readingTheme.titleColor,
+        title: Text(
+          '',
+          style: TextStyle(
+            color: readingTheme.titleColor,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+        actions: [
+          PopupMenuButton<_DisplayChoice>(
+            tooltip: 'Affichage du texte',
+            icon: const Icon(Icons.more_vert),
+            onSelected: (choice) {
+              switch (choice) {
+                case _DisplayChoice.sizeSmall:
+                  _setFontSize(ReadingTextSize.small);
+                  break;
+                case _DisplayChoice.sizeMedium:
+                  _setFontSize(ReadingTextSize.medium);
+                  break;
+                case _DisplayChoice.sizeLarge:
+                  _setFontSize(ReadingTextSize.large);
+                  break;
+                case _DisplayChoice.sizeExtraLarge:
+                  _setFontSize(ReadingTextSize.extraLarge);
+                  break;
+                case _DisplayChoice.sizeHuge:
+                  _setFontSize(ReadingTextSize.huge);
+                  break;
+                case _DisplayChoice.sizeGiant:
+                  _setFontSize(ReadingTextSize.giant);
+                  break;
+                case _DisplayChoice.alignLeft:
+                  _setAlign(ReadingTextAlign.left);
+                  break;
+                case _DisplayChoice.alignCenter:
+                  _setAlign(ReadingTextAlign.center);
+                  break;
+                case _DisplayChoice.alignRight:
+                  _setAlign(ReadingTextAlign.right);
+                  break;
+                case _DisplayChoice.alignJustify:
+                  _setAlign(ReadingTextAlign.justify);
+                  break;
+              }
+            },
+            itemBuilder: (context) => [
+              for (final size in ReadingTextSize.values)
+                CheckedPopupMenuItem<_DisplayChoice>(
+                  value: _DisplayChoice.forSize(size),
+                  checked: size == currentSize,
+                  child: Text('Texte ${size.label}'),
+                ),
+              const PopupMenuDivider(),
+              for (final align in ReadingTextAlign.values)
+                CheckedPopupMenuItem<_DisplayChoice>(
+                  value: _DisplayChoice.forAlign(align),
+                  checked: align == _align,
+                  child: Text('Aligner ${align.label}'),
+                ),
+            ],
+          ),
+        ],
+      ),
+      body: SafeArea(
+        top: false,
+        child: Container(
+          decoration: readingTheme.hasBackground
+              ? BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(readingTheme.backgroundAsset),
+                    fit: BoxFit.cover,
+                    colorFilter: const ColorFilter.mode(
+                      Color.fromRGBO(0, 0, 0, 0.16),
+                      BlendMode.dstATop,
+                    ),
+                  ),
+                )
+              : null,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+            child: FredawArticleView(
+              entry: FreDawEntry(
+                term: entry.dictionaryTerm ?? '',
+                definition: entry.dictionaryDefinition ?? '',
+              ),
+              paragraphStyle: materialTheme.textTheme.bodyLarge?.copyWith(
+                fontSize: _fontSize,
+                color: readingTheme.textColor,
+              ),
+              paragraphAlign: _align.align,
+              onTermTap: _openTerm,
+              onReferenceTap: (reference) => widget.onOpenVerse?.call(
+                reference.bookIndex,
+                reference.chapter ?? 1,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _openTerm(String term) async {
+    final entry = await FreDawLexicon.instance.lookup(term);
+    if (!mounted) return;
+    widget.onOpenDictionary?.call(entry.term, entry.definition);
   }
 }
 

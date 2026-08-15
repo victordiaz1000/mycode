@@ -11,11 +11,13 @@ typedef StrongTapCallback = void Function(int tokenIndex, String strong);
 class ClickableVerse extends StatelessWidget {
   final List<LsgsToken> tokens;
   final StrongTapCallback onStrongTap;
+  final int? selectedTokenIndex;
 
   const ClickableVerse({
     super.key,
     required this.tokens,
     required this.onStrongTap,
+    this.selectedTokenIndex,
   });
 
   @override
@@ -32,6 +34,7 @@ class ClickableVerse extends StatelessWidget {
         continue;
       }
 
+      final selected = i == selectedTokenIndex;
       final index = i;
       final recognizer = TapGestureRecognizer()
         ..onTap = () => onStrongTap(index, token.strong!);
@@ -39,11 +42,15 @@ class ClickableVerse extends StatelessWidget {
       spans.add(TextSpan(
         text: token.text,
         style: defaultStyle?.copyWith(
-          color: accent,
+          color: selected ? theme.colorScheme.onPrimaryContainer : accent,
           decoration: TextDecoration.underline,
           decorationStyle: TextDecorationStyle.dotted,
-          fontWeight: FontWeight.w600,
+          decorationColor: accent,
+          decorationThickness: selected ? 2 : 1.4,
+          backgroundColor: selected ? theme.colorScheme.primaryContainer : Colors.transparent,
+          fontWeight: selected ? FontWeight.w800 : FontWeight.w600,
         ),
+        semanticsLabel: '${token.text.trim()}, Strong ${token.strong}',
         recognizer: recognizer,
       ));
     }

@@ -51,7 +51,7 @@ void main() {
         .first);
     final border =
         ((container.decoration as BoxDecoration).border! as Border);
-    expect(border.top.color, const Color(0xFFD3A94F));
+    expect(border.top.color, const Color(0xFFB8860B));
   });
 
   testWidgets('Rouvrir restores a closed tab', (tester) async {

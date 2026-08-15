@@ -173,3 +173,105 @@ BibleReference? parseReference(String query) {
     verse: parts.verse,
   );
 }
+
+/// A Bible reference found inside running text: the bounds of the span (into
+/// the original text) and the parsed target.
+class TextReference {
+  final int start;
+  final int end;
+  final BibleReference reference;
+
+  const TextReference({required this.start, required this.end, required this.reference});
+}
+
+/// French Bible abbreviations as found in Westphal 1932 (« Lu », « 1Co »,
+/// « Ps »), folded by [normalizeForSearch] (lowercase, no punctuation, no
+/// accents). The article writes them without the catalogue's periods and
+/// sometimes without a space (« 1Ch »), so the catalogue abbreviations do not
+/// resolve them. Keys are distinct enough that « Es » (Ésaïe) never meets
+/// « Est » (Esther) nor « Esd » (Esdras).
+const Map<String, int> _bibleAbbreviations = {
+  'ge': 1, 'ex': 2, 'le': 3, 'no': 4, 'de': 5, 'jos': 6, 'jg': 7,
+  'ru': 31,
+  '1s': 8, '2s': 9, '1r': 10, '2r': 11,
+  '1ch': 38, '2ch': 39, 'esd': 36, 'ne': 37,
+  'es': 12, 'est': 34, 'je': 13, 'la': 32, 'ez': 14, 'da': 35,
+  'os': 15, 'jo': 16, 'jl': 16, 'am': 17, 'ab': 18, 'jon': 19,
+  'mi': 20, 'na': 21, 'ha': 22, 'so': 23, 'ag': 24, 'za': 25,
+  'mal': 26, 'ps': 27, 'pr': 28, 'jb': 29, 'ct': 30, 'ec': 33,
+  'mt': 40, 'mc': 41, 'lu': 42, 'lc': 42, 'jn': 43, 'ac': 44,
+  'ro': 51, '1co': 49, '2co': 50, 'ga': 46, 'ep': 52, 'ph': 53,
+  'col': 54, '1th': 47, '2th': 48, '1ti': 56, '2ti': 60,
+  'tit': 57, 'phm': 55, 'he': 62, 'ja': 45, '1p': 58, '2p': 59,
+  'jd': 61, '1jn': 63, '2jn': 64, '3jn': 65, 'ap': 66,
+};
+
+/// A letter or digit continuing a word — blocks a reference whose number
+/// flows into a bigger number (« 1948 ») or into an affix.
+final RegExp _refWordChar = RegExp(r'[A-Za-zÀ-ÖØ-öø-ÿ0-9_]');
+
+/// Same as [_refWordChar] plus the hyphen and the apostrophe — a reference
+/// book must not start inside a compound (« saint-Jean », « parJean »).
+final RegExp _refBookPrefixChar = RegExp(r"[A-Za-zÀ-ÖØ-öø-ÿ0-9_'-]");
+
+final RegExp _chapterVerse = RegExp(r'(\d{1,3})(?:\s*[:.,]\s*(\d{1,3}))?');
+
+/// The whitespace-separated tokens ending at [end], their start indices, at
+/// most [_maxReferenceTokens] of them.
+List<({String word, int start})> _precedingTokens(String text, int end) {
+  final out = <({String word, int start})>[];
+  var i = end;
+  while (i > 0 && out.length < 3) {
+    while (i > 0 && text.codeUnitAt(i - 1) == 32) {
+      i--;
+    }
+    final wordEnd = i;
+    while (i > 0 && text.codeUnitAt(i - 1) != 32) {
+      i--;
+    }
+    final word = text.substring(i, wordEnd);
+    if (word.isEmpty) break;
+    out.insert(0, (word: word, start: i));
+  }
+  return out;
+}
+
+/// Finds the Bible references embedded in [text]: a book (French Bible
+/// abbreviation or full name) followed by at least a chapter number. Returns
+/// the spans in reading order, never overlapping.
+List<TextReference> findReferences(String text) {
+  final results = <TextReference>[];
+  final matches = _chapterVerse.allMatches(text).toList();
+  for (final match in matches) {
+    final after = match.end;
+    if (after < text.length && _refWordChar.hasMatch(text[after])) {
+      continue; // part of a bigger number (« 1948 ») or an affix
+    }
+    final chapter = int.tryParse(match.group(1)!);
+    final verse =
+        match.group(2) == null ? null : int.tryParse(match.group(2)!);
+    final tokens = _precedingTokens(text, match.start);
+    if (tokens.isEmpty) continue;
+    for (var k = tokens.length; k >= 1; k--) {
+      final start = tokens[tokens.length - k].start;
+      final joined = tokens.sublist(tokens.length - k).map((t) => t.word).join(' ');
+      final BibleReference? ref;
+      final book = _bibleAbbreviations[normalizeForSearch(joined)];
+      if (book != null) {
+        ref = BibleReference(bookIndex: book, chapter: chapter, verse: verse);
+      } else {
+        ref = parseReference('$joined $chapter${verse == null ? '' : ':$verse'}');
+      }
+      if (ref == null) continue;
+      if (start > 0 && _refBookPrefixChar.hasMatch(text[start - 1])) {
+        break; // a bound word before the book disqualifies the whole window
+      }
+      if (results.isNotEmpty && start < results.last.end) {
+        break; // overlapping a previous reference (a continuation verse)
+      }
+      results.add(TextReference(start: start, end: after, reference: ref));
+      break;
+    }
+  }
+  return results;
+}

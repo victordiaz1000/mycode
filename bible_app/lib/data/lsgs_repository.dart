@@ -161,7 +161,15 @@ class LsgsRepository {
     );
   }
 
-  static String _renderVerseText(List<LsgsToken> tokens) {
+  static String _renderVerseText(List<LsgsToken> tokens) =>
+      joinTokens(tokens, includeStrong: true);
+
+  /// Joins LSGS tokens into displayable text, keeping the token boundary rules
+  /// (no space before punctuation, a space between words). With
+  /// [includeStrong] the Strong code follows its word (« AA H7225 »), as the
+  /// reading rendering shows it; without it the plain text is recovered, which
+  /// is what the Strong fiche shows in its occurrence excerpts.
+  static String joinTokens(List<LsgsToken> tokens, {bool includeStrong = false}) {
     final buffer = StringBuffer();
     for (final token in tokens) {
       final rawText = token.text;
@@ -191,12 +199,84 @@ class LsgsRepository {
         buffer.write(' ');
       }
 
-      if (token.strong != null && token.strong!.isNotEmpty) {
+      if (includeStrong && token.strong != null && token.strong!.isNotEmpty) {
         buffer.write('$text ${token.strong!}');
       } else {
         buffer.write(text);
       }
     }
     return buffer.toString().trim();
+  }
+
+  /// The plain text of [verse] in [bookNumber]/[chapter], or an empty string
+  /// when the verse does not exist.
+  Future<String> verseText(int bookNumber, int chapter, int verse) async {
+    final book = await loadBook(bookNumber);
+    for (final c in book.chapters) {
+      if (c.chapter != chapter) continue;
+      for (final v in c.verses) {
+        if (v.verse == verse) return joinTokens(v.tokens);
+      }
+    }
+    return '';
+  }
+
+  /// The tokens of [verse] in [bookNumber]/[chapter], or an empty list when
+  /// the verse does not exist — for callers that need the Strong codes (the
+  /// occurrence lists highlight the token bearing the searched word).
+  Future<List<LsgsToken>> verseTokens(
+      int bookNumber, int chapter, int verse) async {
+    final book = await loadBook(bookNumber);
+    for (final c in book.chapters) {
+      if (c.chapter != chapter) continue;
+      for (final v in c.verses) {
+        if (v.verse == verse) return v.tokens;
+      }
+    }
+    return const [];
+  }
+
+  /// Splits [tokens] into displayable `(text, isTarget)` segments, applying the
+  /// same boundary rules as [joinTokens]. The segment whose [LsgsToken.strong]
+  /// equals [target] is flagged, so a caller can highlight the word in
+  /// occurrence without making it a link.
+  static List<({String text, bool isTarget})> segments(
+    List<LsgsToken> tokens, {
+    String? target,
+  }) {
+    final segments = <({String text, bool isTarget})>[];
+    final buffer = StringBuffer();
+    for (final token in tokens) {
+      final rawText = token.text;
+      if (rawText.isEmpty) continue;
+
+      final text = rawText.trimRight();
+      if (text.isEmpty) continue;
+
+      final previous = buffer.toString();
+      final needsLeadingSpace = buffer.isNotEmpty &&
+          (!previous.endsWith(' ') &&
+              !previous.endsWith('\n') &&
+              !previous.endsWith('\t') &&
+              !text.startsWith(' ') &&
+              !text.startsWith('.') &&
+              !text.startsWith(',') &&
+              !text.startsWith(';') &&
+              !text.startsWith(':') &&
+              !text.startsWith('!') &&
+              !text.startsWith('?') &&
+              !text.startsWith(')') &&
+              !text.startsWith('"') &&
+              !text.startsWith('«') &&
+              !text.startsWith('('));
+
+      if (needsLeadingSpace) buffer.write(' ');
+      buffer.write(text);
+      segments.add((
+        text: needsLeadingSpace ? ' $text' : text,
+        isTarget: target != null && token.strong == target,
+      ));
+    }
+    return segments;
   }
 }

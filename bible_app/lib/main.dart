@@ -7,32 +7,57 @@ import 'screens/reader_screen.dart';
 import 'screens/search_screen.dart';
 import 'screens/settings_screen.dart';
 import 'widgets/chapter_reader.dart';
-import 'widgets/splash_screen.dart';
+import 'data/app_preferences.dart';
+import 'data/theme_catalog.dart';
+import 'widgets/bible_theme_scope.dart';
 
 void main() {
-  runApp(BymApp(showSplash: true));
+  runApp(BymApp());
 }
 
-class BymApp extends StatelessWidget {
-  const BymApp({super.key, this.showSplash = false});
+class BymApp extends StatefulWidget {
+  const BymApp({super.key});
 
-  /// Whether the brand splash screen runs before the shell.
-  ///
-  /// False in widget tests, which pump the shell directly : the splash owns a
-  /// timer that a single `pumpAndSettle` can never complete.
-  final bool showSplash;
+  @override
+  State<BymApp> createState() => _BymAppState();
+}
+
+class _BymAppState extends State<BymApp> {
+  @override
+  void initState() {
+    super.initState();
+    // Ensure AppPreferences notifier reflects stored value when app starts.
+    AppPreferences.load();
+  }
 
   @override
   Widget build(BuildContext context) {
     final shell = const HomeShell();
-    return MaterialApp(
-      title: 'BYM — Bible de Yehoshoua Ha Mashiah',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
-        useMaterial3: true,
-      ),
-      home: showSplash ? SplashScreen(child: shell) : shell,
+    return ValueListenableBuilder<String>(
+      valueListenable: AppPreferences.themeNotifier,
+      builder: (context, themeId, _) {
+        final bt = themeById(themeId);
+        final colorScheme = ColorScheme.fromSeed(seedColor: bt.accentColor);
+        final base = ThemeData.light(useMaterial3: true);
+        final theme = base.copyWith(
+          colorScheme: colorScheme,
+          textTheme: base.textTheme.apply(
+            bodyColor: bt.textColor,
+            displayColor: bt.titleColor,
+          ),
+          appBarTheme: base.appBarTheme.copyWith(
+            backgroundColor: bt.highlightRef.withAlpha((0.06 * 255).round()),
+            foregroundColor: bt.titleColor,
+          ),
+        );
+
+        return MaterialApp(
+          title: 'BYM — Bible de Yehoshoua Ha Mashiah',
+          debugShowCheckedModeBanner: false,
+          theme: theme,
+          home: BibleThemeScope(child: shell),
+        );
+      },
     );
   }
 }
@@ -93,6 +118,7 @@ class _HomeShellState extends State<HomeShell> {
           HomeScreen(
             manager: _manager,
             onSelectDestination: _selectDestination,
+            onOpenReading: _openReading,
           ),
           ReaderScreen(
             initialManager: _manager,
@@ -102,10 +128,20 @@ class _HomeShellState extends State<HomeShell> {
           ),
           SearchScreen(
             onOpenReading: _openReading,
+            onOpenDictionary: (term, definition) {
+              _manager.openDictionary(term, definition);
+              _selectDestination(BymDestination.lecture);
+            },
             onOpenLibrary: () =>
                 _selectDestination(BymDestination.bibliotheque),
           ),
-          const LibraryScreen(),
+          LibraryScreen(
+            onOpenVerse: (b, c, v) => _openReading(b, c, verse: v),
+            onOpenDictionary: (term, definition) {
+              _manager.openDictionary(term, definition);
+              _selectDestination(BymDestination.lecture);
+            },
+          ),
           const SettingsScreen(),
         ],
       ),

@@ -4,11 +4,16 @@ import 'package:flutter/material.dart';
 
 import '../data/bible_sections.dart';
 import '../data/book_catalog.dart';
+import '../data/fredaw_lexicon.dart';
 import '../data/library_store.dart';
 import '../data/reference_parser.dart';
 import '../data/search_engine.dart';
+import '../data/strong_lexicon.dart';
 import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
+import '../widgets/bible_theme_scope.dart';
+import 'fredaw_entry_screen.dart';
+import 'strong_detail_screen.dart';
 
 /// Icon and accent colour of a search category — the coloured glyphs of the
 /// maquette (`rech/`). Backgrounds are derived from [color] so the chip row,
@@ -58,6 +63,9 @@ class SearchScreen extends StatefulWidget {
   /// then switches to the Lecture destination.
   final void Function(int bookIndex, int chapter, {int? verse}) onOpenReading;
 
+  /// Opens a dictionary entry in a new reader tab.
+  final void Function(String term, String definition)? onOpenDictionary;
+
   /// Engine to search with. Injectable for tests: the default one reaches
   /// [AppDatabase], whose path_provider call never completes inside the
   /// fake-async zone of `testWidgets` (same reason as
@@ -76,6 +84,7 @@ class SearchScreen extends StatefulWidget {
   const SearchScreen({
     super.key,
     required this.onOpenReading,
+    this.onOpenDictionary,
     this.engine,
     this.store,
     this.onOpenLibrary,
@@ -235,7 +244,37 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  void _openHit(SearchHit hit) {
+  Future<void> _openHit(SearchHit hit) async {
+    if (hit.category == SearchCategory.dictionnaire) {
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (_) => FredawEntryScreen(
+          entry: FreDawEntry(term: hit.title, definition: hit.subtitle),
+          onOpenDictionary: widget.onOpenDictionary,
+          onOpenVerse: (bookIndex, chapter, verse) =>
+              widget.onOpenReading(bookIndex, chapter, verse: verse),
+        ),
+      ));
+      return;
+    }
+    if (hit.category == SearchCategory.strong) {
+      final strong = await StrongLexicon.instance.lookup(hit.title);
+      if (!mounted) return;
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (_) => StrongDetailScreen(
+          strong: strong,
+          onOpenVerse: (bookIndex, chapter, verse) {
+            // Clear the whole stacked chain of fiches (a code may have been
+            // reached through « Voir plus » or an etymology link, several
+            // routes deep) before switching to the reading tab: a single pop
+            // would leave an intermediate route covering the reader, landing
+            // the user one screen back instead of on the opened verse.
+            Navigator.of(context).popUntil((route) => route.isFirst);
+            widget.onOpenReading(bookIndex, chapter, verse: verse);
+          },
+        ),
+      ));
+      return;
+    }
     if (!hit.canOpen) return;
     widget.onOpenReading(hit.bookIndex!, hit.chapter!, verse: hit.verse);
   }
@@ -243,6 +282,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return Scaffold(
       body: SafeArea(
         bottom: false,
@@ -258,7 +298,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     'Rechercher',
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w800,
-                      color: theme.colorScheme.primary,
+                      color: bibleTheme.titleColor,
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -354,6 +394,7 @@ class _SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return TextField(
       controller: controller,
       onChanged: onChanged,
@@ -361,12 +402,15 @@ class _SearchField extends StatelessWidget {
       style: theme.textTheme.bodyLarge,
       decoration: InputDecoration(
         hintText: 'Mot, verset ou référence',
+        hintStyle: theme.textTheme.bodyMedium?.copyWith(
+          color: bibleTheme.textColor.withValues(alpha: .62),
+        ),
         prefixIcon: Icon(Icons.search,
-            color: theme.colorScheme.onSurfaceVariant, size: 24),
+            color: bibleTheme.accentColor, size: 24),
         suffixIcon: hasText
             ? IconButton(
                 tooltip: 'Effacer',
-                icon: const Icon(Icons.close),
+                icon: Icon(Icons.close, color: bibleTheme.textColor),
                 onPressed: onClear,
               )
             : null,
@@ -697,6 +741,7 @@ class _FilterMenu<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     final current = options.where((o) => o.value == value).firstOrNull;
     return PopupMenuButton<T>(
       tooltip: label,
@@ -713,7 +758,7 @@ class _FilterMenu<T> extends StatelessWidget {
                       ? Icons.radio_button_checked
                       : Icons.radio_button_unchecked,
                   size: 17,
-                  color: theme.colorScheme.primary,
+                  color: bibleTheme.accentColor,
                 ),
                 const SizedBox(width: 10),
                 Flexible(
@@ -726,7 +771,7 @@ class _FilterMenu<T> extends StatelessWidget {
                         Text(
                           option.detail!,
                           style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant,
+                            color: bibleTheme.textColor.withValues(alpha: .72),
                           ),
                         ),
                     ],
@@ -743,7 +788,7 @@ class _FilterMenu<T> extends StatelessWidget {
             child: Row(
               children: [
                 Icon(Icons.library_books_outlined,
-                    size: 17, color: theme.colorScheme.onSurfaceVariant),
+                    size: 17, color: bibleTheme.textColor.withValues(alpha: .72)),
                 const SizedBox(width: 10),
                 Flexible(
                   child: Column(
@@ -754,7 +799,7 @@ class _FilterMenu<T> extends StatelessWidget {
                       Text(
                         footer!.detail,
                         style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
+                          color: bibleTheme.textColor.withValues(alpha: .72),
                         ),
                       ),
                     ],
@@ -782,6 +827,7 @@ class _FilterLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -789,7 +835,7 @@ class _FilterLabel extends StatelessWidget {
         Text(
           label,
           style: theme.textTheme.bodySmall
-              ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+              ?.copyWith(color: bibleTheme.textColor.withValues(alpha: .72)),
         ),
         const SizedBox(height: 2),
         Row(
@@ -801,12 +847,12 @@ class _FilterLabel extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.w700,
-                  color: theme.colorScheme.primary,
+                  color: bibleTheme.accentColor,
                 ),
               ),
             ),
             Icon(Icons.keyboard_arrow_down,
-                size: 18, color: theme.colorScheme.primary),
+                size: 18, color: bibleTheme.accentColor),
           ],
         ),
       ],
@@ -848,7 +894,7 @@ class _BookFilterMenu extends StatelessWidget {
                   section.name,
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.w700,
-                        color: Theme.of(context).colorScheme.primary,
+                        color: BibleThemeScope.of(context).accentColor,
                       ),
                 ),
               ),
@@ -911,20 +957,21 @@ class _EmptyState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 24, 16, 32),
       children: [
         Icon(
           Icons.search,
           size: 110,
-          color: theme.colorScheme.onSurfaceVariant.withValues(alpha: .35),
+          color: bibleTheme.titleColor.withValues(alpha: .35),
         ),
         const SizedBox(height: 12),
         Center(
           child: Text(
             'Que cherchez-vous ?',
             style: theme.textTheme.titleMedium?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
+              color: bibleTheme.titleColor,
             ),
           ),
         ),
@@ -934,7 +981,7 @@ class _EmptyState extends StatelessWidget {
             group.title,
             style: theme.textTheme.titleSmall?.copyWith(
               fontWeight: FontWeight.w700,
-              color: theme.colorScheme.onSurfaceVariant,
+              color: BibleThemeScope.of(context).titleColor,
             ),
           ),
           const SizedBox(height: 8),
@@ -946,8 +993,7 @@ class _EmptyState extends StatelessWidget {
                 ActionChip(
                   label: Text(query),
                   onPressed: () => onPick(query),
-                  backgroundColor: theme.colorScheme.primaryContainer
-                      .withValues(alpha: .45),
+                  backgroundColor: bibleTheme.accentColor.withValues(alpha: .35),
                   side: BorderSide.none,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -971,12 +1017,13 @@ class _NoResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return ListView(
       padding: const EdgeInsets.fromLTRB(28, 60, 28, 24),
       children: [
         Icon(Icons.search_off,
             size: 76,
-            color: theme.colorScheme.onSurfaceVariant.withValues(alpha: .35)),
+            color: bibleTheme.titleColor.withValues(alpha: .35)),
         const SizedBox(height: 16),
         Text(
           '« $query »',
@@ -989,7 +1036,7 @@ class _NoResults extends StatelessWidget {
           message,
           textAlign: TextAlign.center,
           style: theme.textTheme.bodyMedium
-              ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+              ?.copyWith(color: bibleTheme.textColor.withValues(alpha: .88)),
         ),
       ],
     );
@@ -1097,23 +1144,24 @@ class _CoverageNote extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 12, 16, 4),
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
       decoration: BoxDecoration(
-        color: theme.colorScheme.secondaryContainer.withValues(alpha: .5),
+        color: bibleTheme.accentColor.withValues(alpha: .18),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
         children: [
           Icon(Icons.cloud_download_outlined,
-              size: 18, color: theme.colorScheme.onSecondaryContainer),
+              size: 18, color: bibleTheme.titleColor.withValues(alpha: .85)),
           const SizedBox(width: 10),
           Expanded(
             child: Text(
               text,
               style: theme.textTheme.bodySmall
-                  ?.copyWith(color: theme.colorScheme.onSecondaryContainer),
+                  ?.copyWith(color: bibleTheme.textColor.withValues(alpha: .85)),
             ),
           ),
         ],
@@ -1137,6 +1185,7 @@ class _GroupHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 20, 16, 10),
       child: Row(
@@ -1145,7 +1194,7 @@ class _GroupHeader extends StatelessWidget {
             title,
             style: theme.textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.w700,
-              color: theme.colorScheme.onSurfaceVariant,
+              color: bibleTheme.textColor.withValues(alpha: .82),
             ),
           ),
           const SizedBox(width: 8),
@@ -1166,6 +1215,7 @@ class _ReferenceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return InkWell(
       onTap: onTap,
       child: Padding(
@@ -1179,7 +1229,7 @@ class _ReferenceCard extends StatelessWidget {
                   reference.label,
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w800,
-                    color: theme.colorScheme.primary,
+                    color: bibleTheme.titleColor,
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -1211,9 +1261,10 @@ class _HitTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     final style = _styleOf(hit.category);
     return InkWell(
-      onTap: hit.canOpen ? onTap : null,
+      onTap: (hit.category == SearchCategory.strong || hit.canOpen) ? onTap : null,
       child: Container(
         decoration: BoxDecoration(
           border: Border(
@@ -1246,9 +1297,9 @@ class _HitTile extends StatelessWidget {
                         child: Text(
                           hit.title,
                           overflow: TextOverflow.ellipsis,
-                          style: theme.textTheme.titleSmall?.copyWith(
+                          style: theme.textTheme.titleMedium?.copyWith(
                             fontWeight: FontWeight.w700,
-                            color: theme.colorScheme.primary,
+                            color: bibleTheme.titleColor,
                           ),
                         ),
                       ),
@@ -1256,8 +1307,33 @@ class _HitTile extends StatelessWidget {
                         const SizedBox(width: 8),
                         _Badge(hit.badge!),
                       ],
+                      if (hit.transliteration != null &&
+                          hit.transliteration!.isNotEmpty) ...[
+                        const SizedBox(width: 8),
+                        Flex(
+                          direction: Axis.horizontal,
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            _Badge('translitéré'),
+                            const SizedBox(width: 2),
+                            _Badge(hit.transliteration!, strong: true),
+                          ],
+                        ),
+                      ],
                     ],
                   ),
+                  if (hit.lemma != null && hit.lemma!.isNotEmpty) ...[
+                    const SizedBox(height: 2),
+                    Text(
+                      hit.lemma!,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: bibleTheme.textColor.withValues(alpha: .72),
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
                   const SizedBox(height: 2),
                   _HighlightedText(
                     text: hit.subtitle,
@@ -1276,23 +1352,35 @@ class _HitTile extends StatelessWidget {
 
 class _Badge extends StatelessWidget {
   final String text;
-  const _Badge(this.text);
+
+  /// When true, renders as the highlighted "translitéré" value in italics.
+  final bool strong;
+  const _Badge(this.text, {this.strong = false});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
       decoration: BoxDecoration(
-        color: theme.colorScheme.primaryContainer.withValues(alpha: .5),
+        color: strong
+            ? bibleTheme.accentColor.withValues(alpha: .28)
+            : bibleTheme.accentColor.withValues(alpha: .18),
         borderRadius: BorderRadius.circular(6),
       ),
       child: Text(
         text,
-        style: theme.textTheme.labelSmall?.copyWith(
-          fontWeight: FontWeight.w600,
-          color: theme.colorScheme.onSurfaceVariant,
-        ),
+        style: strong
+            ? theme.textTheme.labelSmall?.copyWith(
+                fontWeight: FontWeight.w700,
+                fontStyle: FontStyle.italic,
+                color: bibleTheme.accentColor,
+              )
+            : theme.textTheme.labelSmall?.copyWith(
+                fontWeight: FontWeight.w600,
+                color: bibleTheme.textColor.withValues(alpha: .9),
+              ),
       ),
     );
   }
@@ -1314,8 +1402,9 @@ class _HighlightedText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bibleTheme = BibleThemeScope.of(context);
     final baseStyle = theme.textTheme.bodyMedium?.copyWith(
-      color: theme.colorScheme.onSurfaceVariant,
+      color: bibleTheme.textColor.withValues(alpha: .78),
     );
     final range = findIgnoringAccents(text, query.trim());
     if (range == null) {
@@ -1334,9 +1423,9 @@ class _HighlightedText extends StatelessWidget {
           TextSpan(
             text: text.substring(range.start, range.end),
             style: TextStyle(
-              color: theme.colorScheme.onSurface,
+              color: bibleTheme.textColor,
               backgroundColor:
-                  theme.colorScheme.tertiary.withValues(alpha: .28),
+                  bibleTheme.accentColor.withValues(alpha: .24),
               fontWeight: FontWeight.w700,
             ),
           ),

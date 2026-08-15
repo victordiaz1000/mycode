@@ -9,12 +9,22 @@ import 'package:flutter/services.dart';
 class FakeStrongLexiconBundle extends AssetBundle {
   static const String _path = 'assets/lexicon/strong_fr.json';
 
-  final Map<String, String> _entries;
+  final Map<String, dynamic> _entries;
 
   FakeStrongLexiconBundle([
-    Map<String, String>? entries,
+    Map<String, dynamic>? entries,
   ]) : _entries = entries ??
             {
+              'H0001': {
+                'strong': 'H0001',
+                'language': 'hebrew',
+                'lemma': '??',
+                'transliteration': "'ab",
+                'partOfSpeech': 'Nom masculin',
+                'pronunciation': '(awb)',
+                'etymology': 'Une racine primitive, le même que H7225.',
+                'definition': 'Définition test de H0001 — père, chef de famille.',
+              },
               'H7225': 'Définition test de H7225.',
               'H0430': 'Définition test de H0430.',
               'G2316': 'Définition test de G2316.',

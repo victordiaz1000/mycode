@@ -39,6 +39,48 @@ void main() {
     expect(m.active!.title, 'Nouvel onglet');
   });
 
+  test('openDictionary overwrites an open tab for the same term, never duplicates',
+      () {
+    final m = TabManager();
+    m.openReading(1, 1);
+
+    final idx = m.openDictionary('ABBA', 'Définition test.');
+    expect(idx, 1);
+    expect(m.count, 2, reason: 'the reading tab is still there');
+    expect(m.active!.isDictionary, isTrue);
+    expect(m.active!.title, 'ABBA');
+    expect(m.active!.dictionaryTerm, 'ABBA');
+    expect(m.active!.dictionaryDefinition, 'Définition test.');
+    expect(m.tabs[0].title, 'Ge. 1', reason: 'the reading tab is untouched');
+
+    // Reopening the same term overwrites the tab in place (latest definition),
+    // keeps its id and focuses it — it does not stack a duplicate.
+    final idBefore = m.tabs[1].id;
+    final idx2 = m.openDictionary('ABBA', 'Définition à jour.');
+    expect(idx2, 1);
+    expect(m.count, 2, reason: 'no new tab for a term already open');
+    expect(m.tabs[1].id, idBefore, reason: 'same tab, refreshed');
+    expect(m.tabs[1].dictionaryDefinition, 'Définition à jour.');
+    expect(m.activeIndex, 1);
+
+    // A different term still adds its own tab.
+    m.openDictionary('ACACIA', 'Autre article.');
+    expect(m.count, 3);
+    expect(m.tabs[2].isDictionary, isTrue);
+  });
+
+  test('a dictionary tab survives close → reopen with its content', () {
+    final m = TabManager();
+    m.openDictionary('ABBA', 'Définition test.');
+    m.close(0);
+    expect(m.count, 0);
+
+    m.reopen();
+    expect(m.active!.isDictionary, isTrue);
+    expect(m.active!.dictionaryTerm, 'ABBA');
+    expect(m.active!.dictionaryDefinition, 'Définition test.');
+  });
+
   test('close moves tab into recently-closed queue (max 8)', () {
     final m = TabManager();
     for (var b = 1; b <= 10; b++) {
