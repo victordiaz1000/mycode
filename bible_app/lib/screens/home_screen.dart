@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -6,45 +8,17 @@ import '../data/local_repository.dart';
 import '../data/reading_history.dart';
 import '../data/tab_manager.dart';
 import '../models/chapter.dart';
+import '../utils/date_format.dart';
 import '../widgets/bible_theme_scope.dart';
 import 'ecran_comparer.dart';
 import 'favoris_screen.dart';
+import 'historique_screen.dart';
 import 'themes_screen.dart';
 
 /// Destinations of the bottom navigation bar (maquette § 01).
 enum BymDestination { accueil, lecture, recherche, bibliotheque, reglages }
 
 const Color bymGold = Color(0xFFD3A94F);
-
-/// "il y a 5 min", "hier, 21:14", "lundi", "12/03".
-String formatRelativeDate(DateTime when, {DateTime? now}) {
-  final ref = now ?? DateTime.now();
-  final delta = ref.difference(when);
-  if (delta.inMinutes < 1) return 'à l’instant';
-  if (delta.inMinutes < 60) return 'il y a ${delta.inMinutes} min';
-
-  final day = DateTime(when.year, when.month, when.day);
-  final today = DateTime(ref.year, ref.month, ref.day);
-  final days = today.difference(day).inDays;
-  final hhmm =
-      '${when.hour.toString().padLeft(2, '0')}:'
-      '${when.minute.toString().padLeft(2, '0')}';
-  if (days <= 0) return 'aujourd’hui, $hhmm';
-  if (days == 1) return 'hier, $hhmm';
-  if (days < 7) return _weekdays[when.weekday - 1];
-  return '${when.day.toString().padLeft(2, '0')}/'
-      '${when.month.toString().padLeft(2, '0')}';
-}
-
-const List<String> _weekdays = [
-  'lundi',
-  'mardi',
-  'mercredi',
-  'jeudi',
-  'vendredi',
-  'samedi',
-  'dimanche',
-];
 
 // ---- Palette (suit le thème actif) ----
 class _Pal {
@@ -310,6 +284,20 @@ class _HomeScreenState extends State<HomeScreen> {
   void _openTabs() {
     if (!widget.manager.hasTabs) widget.manager.openHome();
     widget.onSelectDestination(BymDestination.lecture);
+  }
+
+  /// « Tout voir » des études récentes : l'historique complet, filtrable.
+  void _openHistorique() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => HistoriqueScreen(
+          onOpenReading: (book, chapter) {
+            Navigator.of(context).pop();
+            _openReading(book, chapter);
+          },
+        ),
+      ),
+    );
   }
 
   @override
@@ -757,7 +745,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Text('Études récentes', style: _t(context, 18, FontWeight.w800, p.textDark)),
         const Spacer(),
         GestureDetector(
-          onTap: () => _soon('Toutes les études'),
+          onTap: _openHistorique,
           child: Text('Tout voir', style: _t(context, 13, FontWeight.w700, p.primary)),
         ),
       ],
@@ -765,7 +753,11 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> _recentStudies(BuildContext context) {
-    final entries = _recent.length > 1 ? _recent.sublist(1) : const <ReadingEntry>[];
+    // 5 positions au plus — « Tout voir » ouvre l'historique complet. La
+    // première entrée est la carte « Reprendre la lecture », pas une carte ici.
+    final entries = _recent.length > 1
+        ? _recent.sublist(1, math.min(6, _recent.length))
+        : const <ReadingEntry>[];
     if (entries.isEmpty) {
       return [
         Padding(
