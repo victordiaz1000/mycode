@@ -130,6 +130,9 @@ class _HomeShellState extends State<HomeShell> {
             jumpToVerse: _jumpToVerse,
             onOpenLibrary: () =>
                 _selectDestination(BymDestination.bibliotheque),
+            // A reference tapped inside a reading note jumps to the referenced
+            // passage, verse kept, exactly like a search result.
+            onOpenVerse: (b, c, v) => _openReading(b, c, verse: v),
           ),
           SearchScreen(
             onOpenReading: _openReading,

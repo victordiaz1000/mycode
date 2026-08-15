@@ -75,8 +75,14 @@ class FakeBibleBundle extends AssetBundle {
       'text': text,
       'textWithNotes': v == 1 ? 'Verset [annoté] de test $c:$v.' : text,
       'notes': [
+        // The note of the first verse carries a Bible reference so note-link
+        // tests have a target to tap.
         if (v == 1)
-          {'word': 'Verset', 'position': 0, 'note': 'Note de test $c:$v.'},
+          {
+            'word': 'Verset',
+            'position': 0,
+            'note': 'Note de test $c:$v. Voir Es. 45:18.',
+          },
       ],
     };
   }

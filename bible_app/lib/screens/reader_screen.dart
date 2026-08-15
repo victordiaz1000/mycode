@@ -30,11 +30,17 @@ class ReaderScreen extends StatefulWidget {
   /// is used on its own (tests): the reader then only names the Bibliothèque.
   final VoidCallback? onOpenLibrary;
 
+  /// Opens a Bible reference tapped inside a reading note (book, chapter,
+  /// verse) — the shell jumps the reading to it. Null keeps the reader's own
+  /// fallback (open the chapter, verse lost) for standalone use.
+  final void Function(int bookIndex, int chapter, int verse)? onOpenVerse;
+
   const ReaderScreen({
     super.key,
     this.initialManager,
     this.jumpToVerse,
     this.onOpenLibrary,
+    this.onOpenVerse,
   });
 
   @override
@@ -130,6 +136,15 @@ class _ReaderScreenState extends State<ReaderScreen> {
       // from the Accueil screen or from search still uses openReading.
       onOpenChapter: (bookIndex, chapter) =>
           _manager.replaceActiveReading(bookIndex, chapter),
+      // A Bible reference inside a note opens the referenced passage, keeping
+      // the verse, through the shell's jump machinery.
+      onReferenceTap: widget.onOpenVerse == null
+          ? null
+          : (ref) => widget.onOpenVerse!(
+                ref.bookIndex,
+                ref.chapter ?? 1,
+                ref.verse ?? 1,
+              ),
     );
   }
 }

@@ -1,6 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../data/app_preferences.dart';
+import '../data/reference_parser.dart';
 import '../models/verse.dart';
 
 /// Renders a verse text with its notes.
@@ -16,19 +18,44 @@ import '../models/verse.dart';
 ///
 /// Note glyphs (superscript, inline note, note card) keep their v4 proportions
 /// relative to the reading text size — see [_noteScaled].
-class NoteAwareVerseText extends StatelessWidget {
+class NoteAwareVerseText extends StatefulWidget {
   final Verse verse;
   final NoteDisposition disposition;
+
+  /// Called with a [BibleReference] when the reader taps a reference embedded
+  /// in a note (« Voir Es. 45:18. »). Null renders the references as plain
+  /// text.
+  final ValueChanged<BibleReference>? onReferenceTap;
 
   const NoteAwareVerseText({
     super.key,
     required this.verse,
     required this.disposition,
+    this.onReferenceTap,
   });
 
   @override
+  State<NoteAwareVerseText> createState() => _NoteAwareVerseTextState();
+}
+
+class _NoteAwareVerseTextState extends State<NoteAwareVerseText> {
+  /// Recognizers owned by the inline-note spans. Cleared on each build (the
+  /// previous spans are replaced wholesale), disposed with the widget.
+  final List<TapGestureRecognizer> _recognizers = [];
+
+  @override
+  void dispose() {
+    for (final r in _recognizers) {
+      r.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    _recognizers.clear();
     final theme = Theme.of(context);
+    final verse = widget.verse;
     final text = verse.text;
     final notes = verse.notes;
     final body = theme.textTheme.bodyLarge;
@@ -60,7 +87,7 @@ class NoteAwareVerseText extends StatelessWidget {
           backgroundColor: accent.withValues(alpha: .12),
         ),
       ));
-      if (disposition == NoteDisposition.below) {
+      if (widget.disposition == NoteDisposition.below) {
         spans.add(TextSpan(
           text: '${i + 1}',
           style: TextStyle(
@@ -71,12 +98,23 @@ class NoteAwareVerseText extends StatelessWidget {
         ));
       } else {
         // « À la suite » : la note suit le mot, comme textWithNotes.
+        final noteStyle = TextStyle(
+          color: theme.colorScheme.onSurface.withValues(alpha: .75),
+          fontSize: _noteScaled(body, .81),
+        );
         spans.add(TextSpan(
-          text: ' (${r.note.note})',
-          style: TextStyle(
-            color: theme.colorScheme.onSurface.withValues(alpha: .75),
-            fontSize: _noteScaled(body, .81),
-          ),
+          children: [
+            const TextSpan(text: ' ('),
+            ..._linkifiedSpans(
+              text: r.note.note,
+              style: noteStyle,
+              accent: accent,
+              onTap: widget.onReferenceTap,
+              sink: _recognizers,
+            ),
+            const TextSpan(text: ')'),
+          ],
+          style: noteStyle,
         ));
       }
       cursor = r.end;
@@ -90,12 +128,61 @@ class NoteAwareVerseText extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text.rich(TextSpan(children: spans), style: body),
-        if (disposition == NoteDisposition.below)
+        if (widget.disposition == NoteDisposition.below)
           for (var k = 0; k < ranges.sorted.length; k++)
-            _NoteCard(index: k + 1, note: ranges.sorted[k].note),
+            _NoteCard(
+              index: k + 1,
+              note: ranges.sorted[k].note,
+              onReferenceTap: widget.onReferenceTap,
+            ),
       ],
     );
   }
+}
+
+/// The note text with its Bible references turned into tappable spans.
+///
+/// References are only linked when [onTap] is set — otherwise the note stays
+/// plain text (a recognizer that answers to nothing is a button-shaped lie).
+/// Newly created recognizers are appended to [sink] so the owning widget can
+/// dispose them.
+List<InlineSpan> _linkifiedSpans({
+  required String text,
+  required TextStyle style,
+  required Color accent,
+  required ValueChanged<BibleReference>? onTap,
+  required List<TapGestureRecognizer> sink,
+}) {
+  if (onTap == null) return [TextSpan(text: text, style: style)];
+  final refs = findReferences(text);
+  if (refs.isEmpty) return [TextSpan(text: text, style: style)];
+
+  final linkStyle = style.copyWith(
+    color: accent,
+    fontWeight: FontWeight.w700,
+    decoration: TextDecoration.underline,
+    decorationStyle: TextDecorationStyle.dotted,
+  );
+  final spans = <InlineSpan>[];
+  var cursor = 0;
+  for (final ref in refs) {
+    if (ref.start > cursor) {
+      spans.add(TextSpan(text: text.substring(cursor, ref.start), style: style));
+    }
+    final recognizer = TapGestureRecognizer()
+      ..onTap = () => onTap(ref.reference);
+    sink.add(recognizer);
+    spans.add(TextSpan(
+      text: text.substring(ref.start, ref.end),
+      style: linkStyle,
+      recognizer: recognizer,
+    ));
+    cursor = ref.end;
+  }
+  if (cursor < text.length) {
+    spans.add(TextSpan(text: text.substring(cursor), style: style));
+  }
+  return spans;
 }
 
 /// Size of a note glyph, as a [factor] of the reading text size. The reference
@@ -104,14 +191,35 @@ class NoteAwareVerseText extends StatelessWidget {
 double _noteScaled(TextStyle? body, double factor) =>
     (body?.fontSize ?? 16) * factor;
 
-class _NoteCard extends StatelessWidget {
+class _NoteCard extends StatefulWidget {
   final int index;
   final VerseNote note;
+  final ValueChanged<BibleReference>? onReferenceTap;
 
-  const _NoteCard({required this.index, required this.note});
+  const _NoteCard({
+    required this.index,
+    required this.note,
+    this.onReferenceTap,
+  });
+
+  @override
+  State<_NoteCard> createState() => _NoteCardState();
+}
+
+class _NoteCardState extends State<_NoteCard> {
+  final List<TapGestureRecognizer> _recognizers = [];
+
+  @override
+  void dispose() {
+    for (final r in _recognizers) {
+      r.dispose();
+    }
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    _recognizers.clear();
     final theme = Theme.of(context);
     final accent = theme.colorScheme.primary;
     final size = _noteScaled(theme.textTheme.bodyLarge, .78);
@@ -126,16 +234,19 @@ class _NoteCard extends StatelessWidget {
         TextSpan(
           children: [
             TextSpan(
-              text: '$index · ${note.word} : ',
+              text: '${widget.index} · ${widget.note.word} : ',
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: size,
                 color: accent,
               ),
             ),
-            TextSpan(
-              text: note.note,
+            ..._linkifiedSpans(
+              text: widget.note.note,
               style: TextStyle(fontSize: size),
+              accent: accent,
+              onTap: widget.onReferenceTap,
+              sink: _recognizers,
             ),
           ],
         ),

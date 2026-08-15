@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../data/app_preferences.dart';
+import '../data/reference_parser.dart';
 import '../data/theme_catalog.dart';
 import '../models/chapter.dart';
 import '../models/verse.dart';
@@ -18,6 +19,10 @@ class VerseTile extends StatelessWidget {
   /// Called with the Strong number when the reader taps it (LSGS: the codes are
   /// clickable). Null on versions whose text has no Strong numbers.
   final void Function(String strong)? onStrongTap;
+
+  /// Called with a [BibleReference] when the reader taps a reference embedded
+  /// in a note (« Voir Es. 45:18. »). Null renders the references as plain text.
+  final ValueChanged<BibleReference>? onReferenceTap;
 
   /// User state: highlight color hex (or null), favorite, has-note.
   final String? highlightColor;
@@ -40,6 +45,7 @@ class VerseTile extends StatelessWidget {
     this.onTap,
     this.onLongPress,
     this.onStrongTap,
+    this.onReferenceTap,
     this.highlightColor,
     this.isFavorite = false,
     this.hasNote = false,
@@ -116,6 +122,7 @@ class VerseTile extends StatelessWidget {
                         ? NoteAwareVerseText(
                             verse: verse,
                             disposition: disposition,
+                            onReferenceTap: onReferenceTap,
                           )
                         : _StrongAwareText(
                             text: verse.text,
@@ -234,6 +241,10 @@ class ChapterVerseList extends StatelessWidget {
   /// versions without Strong numbers.
   final void Function(Verse verse, String strong)? onStrongTap;
 
+  /// Called with a [BibleReference] when the reader taps a reference embedded
+  /// in a note. Null renders the references as plain text.
+  final ValueChanged<BibleReference>? onReferenceTap;
+
   /// Per-verse user state (highlight color, favorite, has-note).
   final String? Function(int verseNumber)? highlightOf;
   final bool Function(int verseNumber)? isFavoriteOf;
@@ -271,6 +282,7 @@ class ChapterVerseList extends StatelessWidget {
     this.onVerseTap,
     this.onVerseLongPress,
     this.onStrongTap,
+    this.onReferenceTap,
     this.highlightOf,
     this.isFavoriteOf,
     this.hasNoteOf,
@@ -344,6 +356,7 @@ class ChapterVerseList extends StatelessWidget {
               onStrongTap: onStrongTap == null
                   ? null
                   : (strong) => onStrongTap!(verse, strong),
+              onReferenceTap: onReferenceTap,
               highlightColor: highlightOf?.call(vn),
               isFavorite: isFavoriteOf?.call(vn) ?? false,
               hasNote: hasNoteOf?.call(vn) ?? false,

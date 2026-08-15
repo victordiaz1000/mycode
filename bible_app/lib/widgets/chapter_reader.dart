@@ -8,6 +8,7 @@ import '../data/app_database.dart';
 import '../data/app_preferences.dart';
 import '../data/book_catalog.dart';
 import '../data/library_store.dart';
+import '../data/reference_parser.dart';
 import '../data/strong_lexicon.dart';
 import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
@@ -62,6 +63,11 @@ class ChapterReader extends StatefulWidget {
   /// the standalone [ChapterScreen] flow is used (push a new screen).
   final void Function(int bookIndex, int chapter)? onOpenChapter;
 
+  /// Called with a [BibleReference] when the reader taps a reference embedded
+  /// in a note. Null falls back to opening the referenced chapter via
+  /// [onOpenChapter] / a pushed [ChapterScreen].
+  final ValueChanged<BibleReference>? onReferenceTap;
+
   /// Opens the Bibliothèque destination. Null when the reader is shown outside
   /// the bottom-nav shell (tests, standalone [ChapterScreen]): the sheet then
   /// falls back to naming the Bibliothèque without offering to go there.
@@ -80,6 +86,7 @@ class ChapterReader extends StatefulWidget {
     this.onVersionChanged,
     this.jumpToVerse,
     this.onOpenChapter,
+    this.onReferenceTap,
     this.onOpenLibrary,
     this.store,
   });
@@ -501,6 +508,7 @@ class _ChapterReaderState extends State<ChapterReader> {
                 onVerseTap: _onVerseTap,
                 onVerseLongPress: _onVerseLongPress,
                 onStrongTap: _hasStrong ? _onStrongTap : null,
+                onReferenceTap: _onReferenceTap,
               );
             },
           ),
@@ -628,6 +636,18 @@ class _ChapterReaderState extends State<ChapterReader> {
         builder: (_) => ChapterScreen(bookIndex: bookIndex, chapter: chapter),
       ),
     );
+  }
+
+  /// A reference tapped inside a note (« Voir Es. 45:18. »): handed to the
+  /// shell so it can open (or jump to) the referenced passage, or opened as a
+  /// pushed [ChapterScreen] when reading standalone.
+  void _onReferenceTap(BibleReference ref) {
+    final cb = widget.onReferenceTap;
+    if (cb != null) {
+      cb(ref);
+      return;
+    }
+    _openChapter(ref.bookIndex, ref.chapter ?? 1);
   }
 
   /// Callback for one of the bar's arrows, or null when [position] is null —
