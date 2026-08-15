@@ -15,6 +15,21 @@ class BookEntry {
     if (close < 0) return name;
     return name.substring(open + 1, close).trim();
   }
+
+  /// Compact French name used by the reading bar and the books sheet: the
+  /// [shortName], except the books whose name would overflow the reference
+  /// pill (« 1 Thessaloniciens » → « 1 Thess. »).
+  String get barLabel {
+    const long = <String, String>{
+      '1 Thessaloniciens': '1 Thess.',
+      '2 Thessaloniciens': '2 Thess.',
+      '1 Corinthiens': '1 Cor.',
+      '2 Corinthiens': '2 Cor.',
+      '1 Chroniques': '1 Chr.',
+      '2 Chroniques': '2 Chr.',
+    };
+    return long[shortName] ?? shortName;
+  }
 }
 
 /// Static catalog of the 66 BYM books in file order (index = BYM number, 1-based).

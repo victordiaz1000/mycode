@@ -82,6 +82,31 @@ void main() {
     expect(find.byIcon(Icons.keyboard_double_arrow_down), findsOneWidget);
   });
 
+  testWidgets('a long book name is shortened in the pill and never overflows',
+      (tester) async {
+    tester.view.physicalSize = const Size(360, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    final opened = <String>[];
+    await tester.pumpWidget(MaterialApp(
+      home: Scaffold(
+        body: ChapterReader(
+          bookIndex: 49,
+          chapter: 1,
+          onOpenChapter: (b, c) => opened.add('$b:$c'),
+        ),
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    expect(tester.takeException(), isNull,
+        reason: '1 Corinthiens must not overflow the action bar');
+    expect(inBar('1 Cor. 1'), findsOneWidget,
+        reason: 'the bar uses the compact name for long books');
+  });
+
   testWidgets('the reference pill opens the Livres sheet and unfolds chapters',
       (tester) async {
     await pumpReader(tester);

@@ -83,12 +83,14 @@ class ReaderActionsBar extends StatelessWidget {
     this.trailing,
   });
 
-  /// Pill label: `Genèse 1`, or « Livres » with no open chapter.
+  /// Pill label: `Genèse 1`, or « Livres » with no open chapter. Uses the
+  /// compact [BookEntry.barLabel] so a long name (« 1 Thessaloniciens ») never
+  /// overflows the bar.
   String get reference {
     final book = bookIndex;
     final number = chapter;
     if (book == null || number == null) return 'Livres';
-    return '${catalogEntry(book).shortName} $number';
+    return '${catalogEntry(book).barLabel} $number';
   }
 
   @override
@@ -102,14 +104,17 @@ class ReaderActionsBar extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(10, 4, 4, 4),
             child: Row(
               children: [
-                _Pill(
-                  label: reference,
-                  side: _PillSide.left,
-                  onTap: () => showBooksSheet(
-                    context,
-                    currentBook: bookIndex,
-                    currentChapter: chapter,
-                    onSelect: onOpenChapter,
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: _Pill(
+                    label: reference,
+                    side: _PillSide.left,
+                    onTap: () => showBooksSheet(
+                      context,
+                      currentBook: bookIndex,
+                      currentChapter: chapter,
+                      onSelect: onOpenChapter,
+                    ),
                   ),
                 ),
                 const SizedBox(width: 2),
@@ -207,6 +212,8 @@ class _Pill extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
             child: Text(
               label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: premiumText(
                 context,
                 13,
@@ -369,7 +376,7 @@ class _BooksSheetState extends State<_BooksSheet> {
                 children: [
                   Expanded(
                     child: Text(
-                      catalogEntry(bymIndex).shortName,
+                      catalogEntry(bymIndex).barLabel,
                       style: premiumText(
                         context,
                         15,
