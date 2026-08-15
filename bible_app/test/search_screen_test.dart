@@ -206,6 +206,33 @@ void main() {
     expect(find.text("'ab"), findsOneWidget);
   });
 
+  testWidgets('a long transliteration never overflows the result card',
+      (tester) async {
+    StrongLexicon.useBundle(FakeStrongLexiconBundle({
+      'H0001': {
+        'strong': 'H0001',
+        'language': 'hebrew',
+        'lemma': 'ab',
+        'transliteration':
+            '’attah ou (raccourci) ’atta ou ’ath féminin (irrégulier) '
+            'quelquefois ’attiy masculin pluriel ’attem féminin ’atten ou ’a',
+        'definition': 'Définition test de H0001.',
+      },
+    }));
+
+    await tester.pumpWidget(app());
+    await type(tester, 'H0001');
+
+    await tapChip(tester, 'Strong');
+    await tester.pumpAndSettle();
+
+    expect(tester.takeException(), isNull,
+        reason: 'a long transliteration must not overflow the result card');
+    expect(find.text('translitéré'), findsOneWidget);
+    expect(find.textContaining('quelquefois'), findsOneWidget,
+        reason: 'the transliteration is still rendered, ellipsized if needed');
+  });
+
   testWidgets('tapping a Strong hit opens the fiche with its occurrences',
       (tester) async {
     // The fiche reads the LSGS corpus for its occurrences section.

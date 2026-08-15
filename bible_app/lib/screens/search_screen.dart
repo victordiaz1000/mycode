@@ -1297,24 +1297,27 @@ class _HitTile extends StatelessWidget {
                             const SizedBox(width: 8),
                             _Badge(hit.badge!),
                           ],
-                          if (hit.transliteration != null &&
-                              hit.transliteration!.isNotEmpty) ...[
-                            const SizedBox(width: 8),
-                            Flexible(
-                              child: Flex(
-                                direction: Axis.horizontal,
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  _Badge('translitéré'),
-                                  const SizedBox(width: 2),
-                                  _Badge(hit.transliteration!, strong: true),
-                                ],
+                        ],
+                      ),
+                      if (hit.transliteration != null &&
+                          hit.transliteration!.isNotEmpty) ...[
+                        const SizedBox(height: 6),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            _Badge('translitéré'),
+                            const SizedBox(width: 6),
+                            Expanded(
+                              child: Text(
+                                hit.transliteration!,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: premiumText(context, 13, FontWeight.w600, bibleTheme.accentColor, italic: FontStyle.italic),
                               ),
                             ),
                           ],
-                        ],
-                      ),
+                        ),
+                      ],
                       if (hit.lemma != null && hit.lemma!.isNotEmpty) ...[
                         const SizedBox(height: 2),
                         Text(
@@ -1343,10 +1346,7 @@ class _HitTile extends StatelessWidget {
 
 class _Badge extends StatelessWidget {
   final String text;
-
-  /// When true, renders as the highlighted "translitéré" value in italics.
-  final bool strong;
-  const _Badge(this.text, {this.strong = false});
+  const _Badge(this.text);
 
   @override
   Widget build(BuildContext context) {
@@ -1354,18 +1354,14 @@ class _Badge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
       decoration: BoxDecoration(
-        color: strong
-            ? bibleTheme.accentColor.withValues(alpha: .28)
-            : bibleTheme.accentColor.withValues(alpha: .18),
+        color: bibleTheme.accentColor.withValues(alpha: .18),
         borderRadius: BorderRadius.circular(6),
       ),
       child: Text(
         text,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: strong
-            ? premiumText(context, 10, FontWeight.w700, bibleTheme.accentColor, italic: FontStyle.italic)
-            : premiumText(context, 10, FontWeight.w700, bibleTheme.textColor.withValues(alpha: .9)),
+        style: premiumText(context, 10, FontWeight.w700, bibleTheme.textColor.withValues(alpha: .9)),
       ),
     );
   }
