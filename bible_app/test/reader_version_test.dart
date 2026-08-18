@@ -200,7 +200,7 @@ void main() {
     expect(find.text('Bible Darby'), findsNothing);
     expect(find.text('Bible de Yehoshoua Ha Mashiah'), findsOneWidget,
         reason: 'the embedded version is always there');
-    expect(find.text('10 autres versions à télécharger'), findsOneWidget);
+    expect(find.text('12 autres versions à télécharger'), findsOneWidget);
   });
 
   testWidgets('the footer leads to the Bibliothèque', (tester) async {

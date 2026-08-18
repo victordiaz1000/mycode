@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
@@ -39,14 +41,44 @@ enum DownloadStatus {
   /// Every book landed.
   complete,
 
-  /// A book failed. Whatever arrived is kept and the next attempt resumes.
+  /// A book's payload was unusable (non-200 4xx, or a 200 carrying no chapter).
+  /// Whatever arrived is kept and the next attempt resumes.
   failed,
+
+  /// The request never reached the server — offline, DNS, airplane mode.
+  noConnection,
+
+  /// The server answered slowly or refused: timeout, 429, or 5xx. A retry in a
+  /// few minutes is the honest answer.
+  serverError,
 
   /// [DownloadService.cancel] was called mid-flight.
   cancelled,
 
   /// The version has no free source (copyright, décision 9).
   unavailable,
+}
+
+/// How one book fetch ended, before deciding whether to stop the install.
+enum _BookFetchKind {
+  ok,
+  noConnection,
+  serverError,
+  invalidPayload;
+
+  DownloadStatus get status => switch (this) {
+        _BookFetchKind.ok => DownloadStatus.complete,
+        _BookFetchKind.noConnection => DownloadStatus.noConnection,
+        _BookFetchKind.serverError => DownloadStatus.serverError,
+        _BookFetchKind.invalidPayload => DownloadStatus.failed,
+      };
+}
+
+class _BookFetchResult {
+  final _BookFetchKind kind;
+  final Map<String, dynamic>? payload;
+
+  const _BookFetchResult(this.kind, [this.payload]);
 }
 
 /// Outcome of one install attempt.
@@ -78,6 +110,12 @@ class DownloadOutcome {
             'livres conservés, la reprise repartira de là.',
         DownloadStatus.unavailable =>
           'Cette version n\'a pas de source libre.',
+        DownloadStatus.noConnection => 'Échec du téléchargement — aucune '
+            'connexion internet. Vérifiez votre réseau puis relancez, '
+            '$done/$total livres conservés.',
+        DownloadStatus.serverError => 'Échec du téléchargement — le serveur est '
+            'momentanément indisponible. Patientez quelques minutes puis '
+            'relancez, $done/$total livres conservés.',
         DownloadStatus.failed => failedBook == null
             ? 'Téléchargement interrompu — $done/$total livres conservés.'
             : 'Échec sur ${catalogEntry(failedBook!).shortName} — $done/$total '
@@ -108,12 +146,21 @@ class DownloadService {
   /// landed stays on the device.
   void cancel() => _cancelled = true;
 
-  /// The getbible endpoint serving one whole book.
+  /// The endpoint serving one whole book for [entry].
   ///
+  /// A direct host wins when the entry carries a [VersionEntry.urlTemplate]
+  /// (GitHub raw, décision 7) : its `{book}` token is replaced by the
+  /// **standard** 1..66 number. Otherwise the getbible.net v2 endpoint is used.
   /// [standardBook] is the standard 1..66 number, not the BYM index — see
   /// [bymToStandard].
-  static Uri bookUri(String getbibleId, int standardBook) =>
-      Uri.parse('https://api.getbible.net/v2/$getbibleId/$standardBook.json');
+  static Uri bookUri(VersionEntry entry, int standardBook) {
+    final template = entry.urlTemplate;
+    if (template != null && template.isNotEmpty) {
+      return Uri.parse(template.replaceAll('{book}', '$standardBook'));
+    }
+    return Uri.parse(
+        'https://api.getbible.net/v2/${entry.getbibleId}/$standardBook.json');
+  }
 
   /// Installs [entry], skipping the books already on the device.
   ///
@@ -124,9 +171,8 @@ class DownloadService {
   }) async {
     _cancelled = false;
     final total = bookCatalog.length;
-    final id = entry.getbibleId;
 
-    if (!entry.downloadable || id == null) {
+    if (!entry.fetchable) {
       return DownloadOutcome(
         code: entry.code,
         status: DownloadStatus.unavailable,
@@ -154,18 +200,18 @@ class DownloadService {
         currentBook: bookIndex,
       ));
 
-      final book = await _fetchBook(id, bookIndex);
-      if (book == null) {
+      final book = await _fetchBook(entry, bookIndex);
+      if (book.kind != _BookFetchKind.ok) {
         return DownloadOutcome(
           code: entry.code,
-          status: DownloadStatus.failed,
+          status: book.kind.status,
           done: done,
           total: total,
           failedBook: bookIndex,
         );
       }
 
-      await _store.saveBook(entry.code, bookIndex, book);
+      await _store.saveBook(entry.code, bookIndex, book.payload!);
       done++;
     }
 
@@ -179,25 +225,48 @@ class DownloadService {
     );
   }
 
-  /// One book as getbible serves it, or null on any failure.
+  /// One book as getbible serves it, classified instead of swallowed.
   ///
-  /// Returning null rather than throwing keeps the caller's resume logic in one
-  /// place: every failure means « stop here, keep what landed ».
-  Future<Map<String, dynamic>?> _fetchBook(String id, int bymIndex) async {
+  /// Returning a [._BookFetchResult] rather than throwing keeps the caller's
+  /// resume logic in one place: every failure means « stop here, keep what
+  /// landed » — and the kind tells the user *why* (offline, busy server,
+  /// unusable payload) so the message can be precise.
+  Future<_BookFetchResult> _fetchBook(VersionEntry entry, int bymIndex) async {
     try {
-      final uri = bookUri(id, bymToStandard(bymIndex));
+      final uri = bookUri(entry, bymToStandard(bymIndex));
       final response = await _client.get(uri).timeout(requestTimeout);
-      if (response.statusCode != 200) return null;
+      if (response.statusCode != 200) {
+        return _BookFetchResult(_kindOfStatus(response.statusCode));
+      }
 
       final decoded = jsonDecode(utf8.decode(response.bodyBytes));
-      if (decoded is! Map<String, dynamic>) return null;
+      if (decoded is! Map<String, dynamic>) {
+        return const _BookFetchResult(_BookFetchKind.invalidPayload);
+      }
       // A 200 carrying no chapter is a failure too — an empty book stored as
       // installed would read as a hole in the version.
       final chapters = decoded['chapters'];
-      if (chapters is! List || chapters.isEmpty) return null;
-      return decoded;
+      if (chapters is! List || chapters.isEmpty) {
+        return const _BookFetchResult(_BookFetchKind.invalidPayload);
+      }
+      return _BookFetchResult(_BookFetchKind.ok, decoded);
+    } on TimeoutException {
+      // The server did not answer in time: busy or the network is slow.
+      return const _BookFetchResult(_BookFetchKind.serverError);
+    } on SocketException {
+      // The request never left the device (offline, DNS, airplane).
+      return const _BookFetchResult(_BookFetchKind.noConnection);
+    } on http.ClientException {
+      return const _BookFetchResult(_BookFetchKind.noConnection);
     } catch (_) {
-      return null;
+      return const _BookFetchResult(_BookFetchKind.invalidPayload);
     }
+  }
+
+  /// What a non-200 status says: a busy/limited server asks for patience, a
+  /// broken link reads as a payload problem.
+  static _BookFetchKind _kindOfStatus(int status) {
+    if (status == 429 || status >= 500) return _BookFetchKind.serverError;
+    return _BookFetchKind.invalidPayload;
   }
 }

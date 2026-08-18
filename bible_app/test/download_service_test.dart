@@ -26,6 +26,17 @@ const lsgs = VersionEntry(
   rights: 'sans source libre',
 );
 
+/// A downloadable version served from GitHub raw (un JSON par livre), the
+/// direct-host path the [urlTemplate] field enables.
+const githubVersion = VersionEntry(
+  code: 'GITHUB',
+  name: 'Version GitHub',
+  rights: 'libre de droit',
+  availability: VersionAvailability.downloadable,
+  urlTemplate:
+      'https://raw.githubusercontent.com/user/repo/main/books/{book}.json',
+);
+
 /// A book payload shaped like the live getbible answer, mixed types included:
 /// `chapter` is an int on the chapter but a String on the verse.
 String bookBody(int standardNumber) => jsonEncode({
@@ -81,8 +92,15 @@ void main() {
       // BYM 27 is Psaumes, standard 19 — the mapping the API expects.
       expect(bymToStandard(27), 19);
       expect(
-        DownloadService.bookUri('darby', bymToStandard(27)).toString(),
+        DownloadService.bookUri(darby, bymToStandard(27)).toString(),
         'https://api.getbible.net/v2/darby/19.json',
+      );
+    });
+
+    test('a direct URL template replaces the getbible endpoint', () {
+      expect(
+        DownloadService.bookUri(githubVersion, bymToStandard(27)).toString(),
+        'https://raw.githubusercontent.com/user/repo/main/books/19.json',
       );
     });
   });
@@ -106,6 +124,26 @@ void main() {
         (book!['chapters'] as List).first['verses'].first['text'],
         contains('accentué é à ù'),
       );
+    });
+
+    test('fetches from a GitHub URL template book by book', () async {
+      final asked = <String>[];
+      final client = MockClient((request) async {
+        asked.add(request.url.toString());
+        final number = int.parse(
+            request.url.pathSegments.last.replaceAll('.json', ''));
+        return http.Response.bytes(utf8.encode(bookBody(number)), 200);
+      });
+      final service = DownloadService(client: client, store: store);
+
+      final outcome = await service.install(githubVersion);
+
+      expect(outcome.status, DownloadStatus.complete);
+      expect(asked, hasLength(bookCatalog.length));
+      // Le token {book} est devenu le numéro standard du premier livre.
+      expect(asked.first, contains('raw.githubusercontent.com'));
+      expect(asked.first, endsWith('/books/1.json'));
+      expect((await store.versionState('GITHUB')).isComplete, isTrue);
     });
 
     test('skips the books already on the device', () async {
@@ -135,15 +173,40 @@ void main() {
       final outcome =
           await DownloadService(client: client, store: store).install(darby);
 
-      expect(outcome.status, DownloadStatus.failed);
+      expect(outcome.status, DownloadStatus.serverError);
       expect(outcome.failedBook, 3);
       expect(outcome.done, 2);
-      expect(outcome.message, contains('Lévitique'));
+      expect(outcome.message, contains('Patientez quelques minutes'));
       expect(outcome.message, contains('2/${bookCatalog.length}'));
 
       final state = await store.versionState('DBY');
       expect(state.books, {1, 2});
       expect(state.isPartial, isTrue);
+    });
+
+    test('no connection names the cause, not the book', () async {
+      final client = MockClient(
+          (request) async => throw const SocketException('offline'));
+      final service = DownloadService(client: client, store: store);
+
+      final outcome = await service.install(darby);
+
+      expect(outcome.status, DownloadStatus.noConnection);
+      expect(outcome.failedBook, 1);
+      expect(outcome.message, contains('aucune connexion internet'));
+      expect((await store.versionState('DBY')).isEmpty, isTrue);
+    });
+
+    test('a broken link is a payload failure, not a patience message',
+        () async {
+      final client = MockClient(
+          (request) async => http.Response('', 404));
+      final service = DownloadService(client: client, store: store);
+
+      final outcome = await service.install(darby);
+
+      expect(outcome.status, DownloadStatus.failed);
+      expect(outcome.message, contains('relancer reprendra'));
     });
 
     test('relaunching after a failure resumes and finishes', () async {
@@ -160,7 +223,7 @@ void main() {
       });
       final service = DownloadService(client: client, store: store);
 
-      expect((await service.install(darby)).status, DownloadStatus.failed);
+      expect((await service.install(darby)).status, DownloadStatus.serverError);
       failing = false;
       asked.clear();
 

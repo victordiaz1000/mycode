@@ -188,7 +188,7 @@ void main() {
           reason: 'LSGS gives Strong tokens but no BYM metadata or introduction');
     });
 
-    test('everything downloadable today is getbible', () {
+    test('everything downloadable is bare text with a named source', () {
       // The flag is not free-standing: `loadBook` chooses its parser from it, so
       // a downloadable entry left on the wrong format would parse to an empty
       // book at the first download rather than fail loudly.
@@ -200,8 +200,10 @@ void main() {
       expect(downloadable, isNotEmpty);
       for (final version in downloadable) {
         expect(version.format, VersionFormat.getbible,
-            reason: '${version.code} is served by getbible');
-        expect(version.getbibleId, isNotNull, reason: version.code);
+            reason: '${version.code} is served as bare text');
+        expect(version.fetchable, isTrue, reason: version.code);
+        expect(version.getbibleId != null || version.urlTemplate != null, isTrue,
+            reason: '${version.code} must name a source');
       }
     });
 

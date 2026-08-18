@@ -183,8 +183,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Bibliothèque'), findsOneWidget);
-    // 12 catalogue entries, BYM and LSGS being the only readable ones here.
-    expect(find.text('10 autres versions à télécharger'), findsOneWidget);
+    // 14 catalogue entries, BYM and LSGS being the only readable ones here.
+    expect(find.text('12 autres versions à télécharger'), findsOneWidget);
   });
 
   testWidgets('a listed version no longer carries an audio glyph', (tester) async {

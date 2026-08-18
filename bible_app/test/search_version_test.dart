@@ -302,7 +302,7 @@ void main() {
       await openVersionMenu(tester);
 
       // 12 catalogue entries, BYM and LSGS being the only searchable ones here.
-      expect(find.text('10 autres versions à télécharger'), findsOneWidget);
+      expect(find.text('12 autres versions à télécharger'), findsOneWidget);
       await tester.tap(find.text('Bibliothèque'));
       await tester.pumpAndSettle();
       expect(opened, 1);

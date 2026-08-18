@@ -58,6 +58,13 @@ class VersionEntry {
   /// null otherwise.
   final String? getbibleId;
 
+  /// URL template for [VersionAvailability.downloadable] entries served from a
+  /// direct host — GitHub raw (décision 7) or any public JSON host — instead of
+  /// getbible.net. The `{book}` token is replaced by the **standard** 1..66
+  /// book number (same numbering as getbible, cf. `bymToStandard`), one file
+  /// per book. Null for getbible-served entries.
+  final String? urlTemplate;
+
   /// Whether the embedded text carries Strong codes per word — the LSGS schema
   /// does, so the reading body can render each code clickable. BYM carries
   /// notes but no Strong; a getbible version carries neither.
@@ -70,6 +77,7 @@ class VersionEntry {
     this.availability = VersionAvailability.unavailable,
     this.format = VersionFormat.getbible,
     this.getbibleId,
+    this.urlTemplate,
     this.hasStrong = false,
   });
 
@@ -78,6 +86,13 @@ class VersionEntry {
 
   /// True when the version can be fetched from a free source right now.
   bool get downloadable => availability == VersionAvailability.downloadable;
+
+  /// True when « Télécharger » can actually fetch something: downloadable and
+  /// at least one source is configured — a getbible id or a direct URL
+  /// template. The catalogue lists some downloadable entries whose source is
+  /// not published yet; they must not offer a download that would fail.
+  bool get fetchable =>
+      downloadable && (getbibleId != null || urlTemplate != null);
 
   /// Whether its files carry notes, sections and book metadata.
   ///
@@ -100,8 +115,10 @@ class VersionGroup {
 /// are real:
 /// - **embedded** : BYM, the default reading version (décision 3), and **LSGS**,
 ///   the embedded Segond 1910 text with Strong codes (décision 10) ;
-/// - **downloadable** : the public-domain getbible.net translations we can
-///   actually serve — LSG (ls1910), Darby, Martin, KJV (décision 9) ;
+/// - **downloadable** : the public-domain translations we can actually serve —
+///   LSG (ls1910), Darby, Martin, KJV via getbible.net (décision 9), and
+///   Ostervald + néo-Crampon Libre via a direct GitHub host
+///   ([VersionEntry.urlTemplate]) ;
 /// - **unavailable** : copyright / sourceless versions shown greyed for parity
 ///   with the maquette (NBS, NEG79, NVS78P, S21, INT, KJF).
 ///
@@ -180,6 +197,28 @@ const List<VersionGroup> versionCatalog = [
       rights: '1744 · Libre de droit',
       availability: VersionAvailability.downloadable,
       getbibleId: 'martin',
+    ),
+    VersionEntry(
+      code: 'OST',
+      name: 'Bible Ostervald',
+      rights: '1744 · Libre de droit',
+      availability: VersionAvailability.downloadable,
+      // Servie depuis GitHub (décision 7) : un JSON par livre, numérotation
+      // standard 1=Genèse … 66=Apocalypse. Le jeton {book} est remplacé par le
+      // numéro standard (cf. DownloadService.bookUri).
+      urlTemplate:
+          'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/main/ostervald/{book}.json',
+    ),
+    VersionEntry(
+      code: 'NCL',
+      name: 'Bible néo-Crampon Libre',
+      rights: '© 2022 Fraternité de Tibériade · CC BY-SA 4.0',
+      availability: VersionAvailability.downloadable,
+      // Même hébergement GitHub, sous-dossier propre. Canon ramené aux
+      // 66 livres de l'app ; numérotation des chapitres catholique (Joël 4,
+      // Malachie 3), alignée sur la BYM.
+      urlTemplate:
+          'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/main/neocrampon/{book}.json',
     ),
     VersionEntry(
       code: 'KJV',
