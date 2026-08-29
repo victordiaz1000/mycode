@@ -110,29 +110,8 @@ void main() {
       expect(find.text('ABBA'), findsWidgets);
       expect(find.text('Westphal 1932'), findsOneWidget,
           reason: 'the badge in the fiche body, the AppBar title is gone');
-    });
-
-    testWidgets('an entry opened from the index can open in a reading tab',
-        (tester) async {
-      final opened = <String>[];
-      await tester.pumpWidget(MaterialApp(
-        home: FredawIndexScreen(
-          onOpenDictionary: (term, definition) => opened.add(term),
-        ),
-      ));
-      await tester.pumpAndSettle();
-
-      await tester.tap(find.text('ABBA'));
-      await tester.pumpAndSettle();
-
-      expect(find.text('Ouvrir onglet'), findsOneWidget,
-          reason: 'the fiche carries the tab escape hatch');
-      await tester.tap(find.text('Ouvrir onglet'));
-      await tester.pumpAndSettle();
-
-      expect(opened, ['ABBA']);
       expect(find.text('Ouvrir onglet'), findsNothing,
-          reason: 'the stacked routes are cleared after handing the entry off');
+          reason: 'the fiche no longer offers a reading-tab escape hatch');
     });
   });
 
@@ -231,31 +210,22 @@ void main() {
           reason: 'the linked entry article is shown');
     });
 
-    testWidgets('a Bible reference in the article is a link to the reader',
+    testWidgets('a Bible reference in the article stays plain text',
         (tester) async {
-      final opened = <(int, int, int?)>[];
-      await tester.pumpWidget(MaterialApp(
+      await tester.pumpWidget(const MaterialApp(
         home: FredawEntryScreen(
-          entry: const FreDawEntry(
+          entry: FreDawEntry(
             term: 'VERSET',
             definition: 'Voir Jn 1:42 pour la suite.',
           ),
-          onOpenVerse: (b, c, v) => opened.add((b, c, v)),
         ),
       ));
       await tester.pumpAndSettle();
 
-      final paragraph = tester.renderObject<RenderParagraph>(
-          find.text('Voir Jn 1:42 pour la suite.', findRichText: true));
-      final boxes = paragraph.getBoxesForSelection(
-        const TextSelection(baseOffset: 5, extentOffset: 12),
-      );
-      expect(boxes, isNotEmpty);
-      await tester.tapAt(paragraph.localToGlobal(boxes.first.toRect().center));
-      await tester.pumpAndSettle();
-
-      expect(opened, [(43, 1, 42)],
-          reason: 'the tapped reference opens Jean 1:42 in the reader');
+      final paragraph = tester.widget<Text>(find.text('Voir Jn 1:42 pour la suite.'));
+      final spans = _flatten(paragraph.textSpan! as TextSpan);
+      expect(spans.where((s) => s.recognizer != null), isEmpty,
+          reason: 'the reference is not clickable');
     });
 
     testWidgets('references stay plain when no reader callback is wired',
@@ -273,7 +243,7 @@ void main() {
           reason: 'no callback, no link');
     });
 
-    testWidgets('a reference wins over a dictionary word at the same spot',
+    testWidgets('a dictionary word next to a reference stays tappable',
         (tester) async {
       FreDawLexicon.useBundle(FakeFreDawBundle({
         'VERSET': {
@@ -287,34 +257,23 @@ void main() {
       }));
       addTearDown(FreDawLexicon.useRootBundle);
 
-      final opened = <(int, int, int?)>[];
       await tester.pumpWidget(MaterialApp(
         home: FredawEntryScreen(
           entry: const FreDawEntry(
             term: 'VERSET',
             definition: 'Voir Jean 3:16 en entier.',
           ),
-          onOpenVerse: (b, c, v) => opened.add((b, c, v)),
         ),
       ));
       await tester.pumpAndSettle();
 
       final paragraph = tester.widget<Text>(find.text('Voir Jean 3:16 en entier.'));
       final spans = _flatten(paragraph.textSpan! as TextSpan);
-      expect(spans.any((s) => s.text == 'Jean'), isFalse,
-          reason: '« Jean » alone is not linked: the whole reference owns the spot');
-      final reference = spans.singleWhere((s) => s.text == 'Jean 3:16');
-      expect(reference.recognizer, isNotNull,
-          reason: 'the reference span is the link');
-
-      final renderParagraph = tester.renderObject<RenderParagraph>(
-          find.text('Voir Jean 3:16 en entier.', findRichText: true));
-      final boxes = renderParagraph.getBoxesForSelection(
-          const TextSelection(baseOffset: 5, extentOffset: 14));
-      expect(boxes, isNotEmpty);
-      await tester.tapAt(renderParagraph.localToGlobal(boxes.first.toRect().center));
-      await tester.pumpAndSettle();
-      expect(opened, [(43, 3, 16)]);
+      final jean = spans.singleWhere((s) => s.text == 'Jean');
+      expect(jean.recognizer, isNotNull,
+          reason: 'the dictionary word « Jean » stays a link');
+      expect(spans.any((s) => s.text == 'Jean 3:16'), isFalse,
+          reason: 'the reference itself is not a single linked span');
     });
   });
 }

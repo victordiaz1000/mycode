@@ -1,32 +1,47 @@
 import 'package:flutter/material.dart';
 
-import '../data/fredaw_lexicon.dart';
+import '../data/dictionary_catalog.dart';
+import '../data/dictionary_reader.dart';
+import '../data/dictionary_store.dart';
 import '../data/reference_parser.dart';
+import '../widgets/loading_skeleton.dart';
 import '../widgets/lexicon_index_widgets.dart';
 import '../widgets/premium_style.dart';
-import '../widgets/loading_skeleton.dart';
-import 'fredaw_entry_screen.dart';
+import 'dictionary_entry_screen.dart';
 
-/// Browse the whole Westphal 1932 dictionary: a search field, an alphabetical
-/// index (first-letter chips, accents folded: « ÂGE » lives under « A »), and
-/// the entries grouped by letter.
-class FredawIndexScreen extends StatefulWidget {
-  /// Ouvre la référence biblique d'un article dans la lecture. Null hors
-  /// coquille (tests) : les fiches restent consultables sans navigation,
-  /// comme pour les index BYM et Strong.
+/// Browse a downloaded dictionary: a search field, an alphabetical index
+/// (first-letter chips, accents folded) and the entries as cards. The content
+/// is read from [DictionaryStore] — the same `{entries: {...}}` shape as the
+/// embedded lexicons, whatever the source (décision 7: direct URL).
+class DictionaryBrowseScreen extends StatefulWidget {
+  final DictionaryEntry entry;
+
+  /// Where the downloaded file lives. Injected by tests; the app takes the
+  /// real store.
+  final DictionaryStore? store;
+
+  /// Ouvre une référence biblique d'une fiche dans la lecture. Null hors
+  /// coquille : les références des fiches restent du texte plat.
   final void Function(int bookIndex, int chapter, int verse)? onOpenVerse;
 
-  const FredawIndexScreen({super.key, this.onOpenVerse});
+  const DictionaryBrowseScreen({
+    super.key,
+    required this.entry,
+    this.store,
+    this.onOpenVerse,
+  });
 
   @override
-  State<FredawIndexScreen> createState() => _FredawIndexScreenState();
+  State<DictionaryBrowseScreen> createState() => _DictionaryBrowseScreenState();
 }
 
-class _FredawIndexScreenState extends State<FredawIndexScreen> {
+class _DictionaryBrowseScreenState extends State<DictionaryBrowseScreen> {
   final TextEditingController _controller = TextEditingController();
   String _query = '';
   String? _letter;
-  List<FreDawEntry>? _entries;
+  DictionaryReader? _reader;
+
+  DictionaryStore get _store => widget.store ?? DictionaryStore();
 
   @override
   void initState() {
@@ -41,14 +56,16 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
   }
 
   Future<void> _load() async {
-    final entries = await FreDawLexicon.instance.all();
+    final json = await _store.load(widget.entry.code);
     if (!mounted) return;
-    setState(() => _entries = entries);
+    setState(() {
+      _reader = json == null ? null : DictionaryReader.fromJson(json);
+    });
   }
 
-  /// Group key for [entry]: the folded first letter (Â → A, É → E).
-  static String _groupLetter(FreDawEntry entry) {
-    final folded = normalizeForSearch(entry.term);
+  /// Group key for [article]: the folded first letter (Â → A, É → E).
+  static String _groupLetter(DictionaryArticle article) {
+    final folded = normalizeForSearch(article.term);
     if (folded.isEmpty) return '#';
     final first = folded[0];
     return (first.compareTo('a') >= 0 && first.compareTo('z') <= 0)
@@ -56,23 +73,24 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
         : '#';
   }
 
-  List<FreDawEntry> get _filtered {
-    final entries = _entries ?? const [];
+  List<DictionaryArticle> get _filtered {
+    final entries = _reader?.all() ?? const [];
     final letter = _letter;
     final query = _query.trim().toLowerCase();
     return [
-      for (final entry in entries)
-        if (letter == null || _groupLetter(entry) == letter)
+      for (final article in entries)
+        if (letter == null || _groupLetter(article) == letter)
           if (query.isEmpty ||
-              entry.term.toLowerCase().contains(query) ||
-              entry.definition.toLowerCase().contains(query))
-            entry,
+              article.term.toLowerCase().contains(query) ||
+              article.definition.toLowerCase().contains(query))
+            article,
     ];
   }
 
   List<String> get _letters {
     final letters = <String>{
-      for (final e in _entries ?? const <FreDawEntry>[]) _groupLetter(e),
+      for (final article in _reader?.all() ?? const <DictionaryArticle>[])
+        _groupLetter(article),
     };
     final sorted = letters.toList()..sort();
     return sorted;
@@ -81,6 +99,7 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
+    final reader = _reader;
     return Scaffold(
       backgroundColor: premiumBackground(context),
       appBar: AppBar(
@@ -89,53 +108,53 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
         foregroundColor: p.textDark,
         centerTitle: true,
         title: Text(
-          'Westphal 1932',
+          widget.entry.name,
           style: premiumText(context, 18, FontWeight.w800, p.textDark),
         ),
       ),
       body: SafeArea(
         top: false,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildSearchField(context),
-              const SizedBox(height: 12),
-              SizedBox(
-                height: 40,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
+        child: reader == null
+            ? const Padding(
+                padding: EdgeInsets.fromLTRB(16, 12, 16, 0),
+                child: DictionaryBrowseLoadingSkeleton(),
+              )
+            : Padding(
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    LexiconLetterChip(
-                      label: 'Toutes',
-                      active: _letter == null,
-                      accent: p.primary,
-                      onTap: () => setState(() => _letter = null),
-                    ),
-                    for (final letter in _letters) ...[
-                      const SizedBox(width: 8),
-                      LexiconLetterChip(
-                        key: Key('letter-chip-$letter'),
-                        label: letter,
-                        active: _letter == letter,
-                        accent: p.primary,
-                        onTap: () => setState(() => _letter = letter),
+                    _buildSearchField(context),
+                    const SizedBox(height: 12),
+                    SizedBox(
+                      height: 40,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          LexiconLetterChip(
+                            label: 'Toutes',
+                            active: _letter == null,
+                            accent: p.primary,
+                            onTap: () => setState(() => _letter = null),
+                          ),
+                          for (final letter in _letters) ...[
+                            const SizedBox(width: 8),
+                            LexiconLetterChip(
+                              key: Key('letter-chip-$letter'),
+                              label: letter,
+                              active: _letter == letter,
+                              accent: p.primary,
+                              onTap: () => setState(() => _letter = letter),
+                            ),
+                          ],
+                        ],
                       ),
-                    ],
+                    ),
+                    const SizedBox(height: 10),
+                    Expanded(child: _buildList(context)),
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
-              const LexiconSourceMention(
-                text:
-                    'Dictionnaire encyclopédique de la Bible · Auguste Westphal, 1932',
-              ),
-              const SizedBox(height: 12),
-              Expanded(child: _buildList(context)),
-            ],
-          ),
-        ),
       ),
     );
   }
@@ -191,10 +210,17 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
 
   Widget _buildList(BuildContext context) {
     final p = premiumPalette(context);
-    final filtered = _filtered;
-    if (_entries == null) {
-      return const ListLoadingSkeleton();
+    final reader = _reader!;
+    if (reader.size == 0) {
+      return Center(
+        child: Text(
+          'Dictionnaire vide.',
+          style: premiumText(context, 14, FontWeight.w600, p.textGrey),
+        ),
+      );
     }
+
+    final filtered = _filtered;
     if (filtered.isEmpty) {
       return Center(
         child: Column(
@@ -211,9 +237,9 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
       );
     }
 
-    final grouped = <String, List<FreDawEntry>>{};
-    for (final entry in filtered) {
-      grouped.putIfAbsent(_groupLetter(entry), () => []).add(entry);
+    final grouped = <String, List<DictionaryArticle>>{};
+    for (final article in filtered) {
+      grouped.putIfAbsent(_groupLetter(article), () => []).add(article);
     }
     final letters = grouped.keys.toList()..sort();
 
@@ -243,14 +269,16 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
               ],
             ),
           ),
-          for (final entry in grouped[letter]!) ...[
+          for (final article in grouped[letter]!) ...[
             LexiconEntryCard(
-              title: entry.term,
-              subtitle: entry.definition,
+              title: article.term,
+              subtitle: article.definition,
               onTap: () => Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (_) => FredawEntryScreen(
-                    entry: entry,
+                  builder: (_) => DictionaryEntryScreen(
+                    entry: widget.entry,
+                    article: article,
+                    reader: reader,
                     onOpenVerse: widget.onOpenVerse,
                   ),
                 ),

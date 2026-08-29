@@ -1,0 +1,4302 @@
+{
+  "schema": "bym.dictionary.v1",
+  "source": "FreGBM.zip",
+  "entries": {
+    "ABBA": {
+      "term": "ABBA",
+      "definition": "En hébreu, signifie : papa, père."
+    },
+    "ABANDONNEMENT": {
+      "term": "ABANDONNEMENT",
+      "definition": "(1 Pi 4:4) Attitude de s'abandonner, de se laisser faire."
+    },
+    "ABHORRER": {
+      "term": "ABHORRER",
+      "definition": "Détester profondément."
+    },
+    "ABÎME": {
+      "term": "ABÎME",
+      "definition": "Gouffre sans fond, séparation éternelle."
+    },
+    "ABLUTION": {
+      "term": "ABLUTION",
+      "definition": "Action de se laver."
+    },
+    "ABOLIR": {
+      "term": "ABOLIR",
+      "definition": "Supprimer l'usage d'une loi, d'une tradition."
+    },
+    "ABOMINATION": {
+      "term": "ABOMINATION",
+      "definition": "Le comble de l'horreur."
+    },
+    "ABROGER": {
+      "term": "ABROGER",
+      "definition": "Annuler une loi, une décision."
+    },
+    "ABSINTHE": {
+      "term": "ABSINTHE",
+      "definition": "Plante amère ; parfois, signifie : poison."
+    },
+    "ABSOUDRE": {
+      "term": "ABSOUDRE",
+      "definition": "Acquitter une personne coupable, faire grâce, pardonner."
+    },
+    "ACHOPPEMENT": {
+      "term": "ACHOPPEMENT",
+      "definition": "Obstacle qui fait trébucher ou chuter."
+    },
+    "ADJURER": {
+      "term": "ADJURER",
+      "definition": "Supplier avec force."
+    },
+    "ADULTÈRE": {
+      "term": "ADULTÈRE",
+      "definition": "Tromper son époux (ou son épouse) en ayant une relation sexuelle avec une autre personne."
+    },
+    "AFFERMIR": {
+      "term": "AFFERMIR",
+      "definition": "Fortifier."
+    },
+    "AFFLICTION": {
+      "term": "AFFLICTION",
+      "definition": "Peine profonde, épreuve douloureuse."
+    },
+    "AFFRANCHIR": {
+      "term": "AFFRANCHIR",
+      "definition": "Dans l'Antiquité, libérer un esclave."
+    },
+    "AGAPE": {
+      "term": "AGAPE",
+      "definition": "Repas en commun, banquet joyeux."
+    },
+    "AGNEAU": {
+      "term": "AGNEAU",
+      "definition": "Dans la Loi de Moïse, animal saint pour le sacrifice."
+    },
+    "AGRÉER": {
+      "term": "AGRÉER",
+      "definition": "Accepter, recevoir favorablement."
+    },
+    "AÏEUX": {
+      "term": "AÏEUX",
+      "definition": "Ancêtres d'une lignée familiale."
+    },
+    "AIGUILLON": {
+      "term": "AIGUILLON",
+      "definition": "Bâton piquant pour mener le bétail."
+    },
+    "AÎNESSE": {
+      "term": "AÎNESSE",
+      "definition": "Aînesse (droit d') : la part principale d'héritage qui revient au fils aîné."
+    },
+    "AIRAIN": {
+      "term": "AIRAIN",
+      "definition": "Bronze, c-à-d, alliage de cuivre et d'étain."
+    },
+    "AIRE": {
+      "term": "AIRE",
+      "definition": "Surface plane pour battre le blé."
+    },
+    "ALBÂTRE": {
+      "term": "ALBÂTRE",
+      "definition": "Pierre décorative blanche et semi-transparente."
+    },
+    "ALLÉGORIE": {
+      "term": "ALLÉGORIE",
+      "definition": "Représentation une idée, tel un symbole."
+    },
+    "ALLÉGRESSE": {
+      "term": "ALLÉGRESSE",
+      "definition": "Joie éclatante."
+    },
+    "ALLÉGUER": {
+      "term": "ALLÉGUER",
+      "definition": "Citer un fait pour se justifier."
+    },
+    "ALLÉLUIA": {
+      "term": "ALLÉLUIA",
+      "definition": "En hébreu : « Gloire à Dieu », « Loué soit Dieu »."
+    },
+    "ALLIANCE": {
+      "term": "ALLIANCE",
+      "definition": "Contrat qui incluse des devoirs réciproques."
+    },
+    "ALPHA": {
+      "term": "ALPHA",
+      "definition": "La première lettre de l'alphabet grec."
+    },
+    "AMEN": {
+      "term": "AMEN",
+      "definition": "Mot hébreu signifiant : « Oui, c'est sûr » ou « je suis d'accord »."
+    },
+    "AMENDER": {
+      "term": "AMENDER",
+      "definition": "Amender (s') : choisir un meilleur comportement."
+    },
+    "AMÉTHYSTE": {
+      "term": "AMÉTHYSTE",
+      "definition": "Pierre précieuse violette, en quartz."
+    },
+    "AMORTI": {
+      "term": "AMORTI",
+      "definition": "Affaibli par l'âge."
+    },
+    "ANATHÈME": {
+      "term": "ANATHÈME",
+      "definition": "Exclusion d'une communauté."
+    },
+    "ANCIEN": {
+      "term": "ANCIEN",
+      "definition": "Personnage illustre du passé, ou personne respectable par sa sagesse ou son âge."
+    },
+    "ANETH": {
+      "term": "ANETH",
+      "definition": "Fenouil sauvage."
+    },
+    "ANIMOSITÉ": {
+      "term": "ANIMOSITÉ",
+      "definition": "Attitude hostile, avec acharnement et rancœur."
+    },
+    "ANNALES": {
+      "term": "ANNALES",
+      "definition": "Écrits relatant l'histoire d'une communauté."
+    },
+    "ANTÉCHRIST": {
+      "term": "ANTÉCHRIST",
+      "definition": "Ou antichrist : \n\nen grec, signifie : « contre Christ » ou « à la place de Christ »."
+    },
+    "APANAGE": {
+      "term": "APANAGE",
+      "definition": "Chose reçue par privilège, cadeau ou territoire offert par un roi."
+    },
+    "APOLOGIE": {
+      "term": "APOLOGIE",
+      "definition": "Discours consacré à la défense d'une personne."
+    },
+    "APOSTASIER": {
+      "term": "APOSTASIER",
+      "definition": "Renier publiquement ses convictions religieuses, celui qui abandonne sa foi."
+    },
+    "APOSTAT": {
+      "term": "APOSTAT",
+      "definition": "Renier publiquement ses convictions religieuses, celui qui abandonne sa foi."
+    },
+    "APOSTOLAT": {
+      "term": "APOSTOLAT",
+      "definition": "Ministère de l'Apôtre, qui fonde des assemblées religieuses (églises)."
+    },
+    "APÔTRE": {
+      "term": "APÔTRE",
+      "definition": "« Celui qui est envoyé », le plus haut responsable religieux parmi les chrétiens."
+    },
+    "APPROBATION": {
+      "term": "APPROBATION",
+      "definition": "Fait d'approuver quelqu'un ou quelque chose."
+    },
+    "AQUEDUC": {
+      "term": "AQUEDUC",
+      "definition": "Conduite en maçonnerie pour acheminer l'eau."
+    },
+    "AQUILON": {
+      "term": "AQUILON",
+      "definition": "Dans l'Antiquité romaine, vent venant du Nord."
+    },
+    "ARCHANGE": {
+      "term": "ARCHANGE",
+      "definition": "Le plus grand des Anges en puissance et en dignité."
+    },
+    "ARCHE": {
+      "term": "ARCHE",
+      "definition": "Grand navire de bois. C'est aussi un coffre saint contenant des objets sacrés."
+    },
+    "ARÉOPAGE": {
+      "term": "ARÉOPAGE",
+      "definition": "Place publique à Athènes en Grèce. Lieu de rassemblement des philosophes."
+    },
+    "ARPENT": {
+      "term": "ARPENT",
+      "definition": "Ancienne mesure de superficie (entre 3000 et 5000 m2)."
+    },
+    "ARRHES": {
+      "term": "ARRHES",
+      "definition": "Somme versée par un acheteur avant le paiement total pour garantir la transaction."
+    },
+    "ARTIFICE": {
+      "term": "ARTIFICE",
+      "definition": "Ruse pour dissimuler la vérité."
+    },
+    "ARTIMON": {
+      "term": "ARTIMON",
+      "definition": "Mât à l'arrière du bateau."
+    },
+    "ASPERGER": {
+      "term": "ASPERGER",
+      "definition": "Mouiller d'un liquide par jets successifs."
+    },
+    "ASPERSION": {
+      "term": "ASPERSION",
+      "definition": "Fait de mouiller un objet en projetant des gouttelettes de liquide."
+    },
+    "ASPIC": {
+      "term": "ASPIC",
+      "definition": "Petit serpent très venimeux."
+    },
+    "ASSERVIR": {
+      "term": "ASSERVIR",
+      "definition": "Contraindre au travail, rendre esclave."
+    },
+    "ASSIGNER": {
+      "term": "ASSIGNER",
+      "definition": "Convoquer au tribunal."
+    },
+    "ASSUJETTIR": {
+      "term": "ASSUJETTIR",
+      "definition": "Prendre le pouvoir sur quelqu'un."
+    },
+    "ASTROLOGUE": {
+      "term": "ASTROLOGUE",
+      "definition": "Celui qui pratique la science des astres pour deviner l'avenir."
+    },
+    "ÂTRE": {
+      "term": "ÂTRE",
+      "definition": "Partie centrale du foyer où brûle le feu."
+    },
+    "ATTESTER": {
+      "term": "ATTESTER",
+      "definition": "Certifier en témoignant sur l'honneur."
+    },
+    "AUGE": {
+      "term": "AUGE",
+      "definition": "Récipient pour la nourriture."
+    },
+    "AUGURE": {
+      "term": "AUGURE",
+      "definition": "Signe, présage, ou celui qui interprète les signes et les songes."
+    },
+    "AUMÔNE": {
+      "term": "AUMÔNE",
+      "definition": "Offrande, ou don volontaire, fait dans le souci de plaire à Dieu."
+    },
+    "AUTEL": {
+      "term": "AUTEL",
+      "definition": "Chez les israélites, table de bronze où l'on sacrifiait les animaux."
+    },
+    "AVARICE": {
+      "term": "AVARICE",
+      "definition": "Passion excessive pour l'argent."
+    },
+    "AVARIE": {
+      "term": "AVARIE",
+      "definition": "Détérioration."
+    },
+    "AVERSION": {
+      "term": "AVERSION",
+      "definition": "Sentiment d'écœurement, dégoût mêlé de haine."
+    },
+    "AVIDITÉ": {
+      "term": "AVIDITÉ",
+      "definition": "Désir insatiable, jamais assouvi."
+    },
+    "AVILIR": {
+      "term": "AVILIR",
+      "definition": "Rendre vil, méprisable ; souiller quelque chose ou quelqu'un."
+    },
+    "AVORTON": {
+      "term": "AVORTON",
+      "definition": "Enfant ou homme chétif, mal formé."
+    },
+    "BAAL": {
+      "term": "BAAL",
+      "definition": "Divinité païenne des Cananéens."
+    },
+    "BAI": {
+      "term": "BAI",
+      "definition": "Animal au pelage brun-rouge avec parties noires."
+    },
+    "BABIL": {
+      "term": "BABIL",
+      "definition": "Langage d'enfant, sans consistance, sans raison, multipliant les paroles vaines."
+    },
+    "BALBUTIER": {
+      "term": "BALBUTIER",
+      "definition": "Articuler avec difficulté, en hésitant."
+    },
+    "BALLE": {
+      "term": "BALLE",
+      "definition": "Enveloppe du grain des céréales."
+    },
+    "BANNIÈRE": {
+      "term": "BANNIÈRE",
+      "definition": "Drapeau, étendard."
+    },
+    "BANNIR": {
+      "term": "BANNIR",
+      "definition": "Exclure d'une communauté, exiler quelqu'un. Faire cesser un usage."
+    },
+    "BAPTÊME": {
+      "term": "BAPTÊME",
+      "definition": "en grec : baptizein : immerger, ou plonger dans un liquide."
+    },
+    "BARBARE": {
+      "term": "BARBARE",
+      "definition": "Dans l'Antiquité gréco-romaine, c'est un étranger qui ne parle pas la même langue, ou qui possède une civilisation différente."
+    },
+    "BARBIER": {
+      "term": "BARBIER",
+      "definition": "Celui qui coiffe, qui rase, ou qui soigne."
+    },
+    "BASILIC": {
+      "term": "BASILIC",
+      "definition": "Plante aromatique utilisée comme épice et plante médicinale. Peut signifier aussi un petit reptile venimeux."
+    },
+    "BATH": {
+      "term": "BATH",
+      "definition": "Mesure de contenance chez les Juifs."
+    },
+    "BATTEUR": {
+      "term": "BATTEUR",
+      "definition": "Dans le sens ancien, celui qui aime se quereller dans les débats pour avoir toujours raison."
+    },
+    "BAUME": {
+      "term": "BAUME",
+      "definition": "Médicament sous forme de pommade constitué de plantes médicinales, d'huile ou de résine."
+    },
+    "BDELLIUM": {
+      "term": "BDELLIUM",
+      "definition": "Selon certains, c'est une gomme aromatique tiré de la sève d'un arbre, pour d'autres, c'est une pierre précieuse comme une agate, une perle, etc..."
+    },
+    "BÉATITUDE": {
+      "term": "BÉATITUDE",
+      "definition": "Très grand bonheur."
+    },
+    "BÉHÉMOTH": {
+      "term": "BÉHÉMOTH",
+      "definition": "Animal inconnu, parfois comparé à l'hippopotame."
+    },
+    "BÉNÉDICTION": {
+      "term": "BÉNÉDICTION",
+      "definition": "Grâce ou faveur, mais aussi dire ou faire du bien, souhaiter du bien."
+    },
+    "BÉNIR": {
+      "term": "BÉNIR",
+      "definition": "Grâce ou faveur, mais aussi dire ou faire du bien, souhaiter du bien."
+    },
+    "BÉNÉFICENCE": {
+      "term": "BÉNÉFICENCE",
+      "definition": "(2 Cor 9:5) Bienfaisance, œuvre de générosité qui apporte une bénédiction."
+    },
+    "BÉNIGNITÉ": {
+      "term": "BÉNIGNITÉ",
+      "definition": "Douceur d'un caractère paisible, bon."
+    },
+    "BERCAIL": {
+      "term": "BERCAIL",
+      "definition": "Lieu de repos pour le troupeau, par extension : son foyer, son chez-soi."
+    },
+    "BÉRYL": {
+      "term": "BÉRYL",
+      "definition": "minerai où l'on trouve des pierres précieuses comme l'émeraude."
+    },
+    "BIENFAISANCE": {
+      "term": "BIENFAISANCE",
+      "definition": "Faire du bien, aider, soigner, etc..."
+    },
+    "BIENFAIT": {
+      "term": "BIENFAIT",
+      "definition": "Faire du bien, aider, soigner, etc..."
+    },
+    "BIENSÉANT": {
+      "term": "BIENSÉANT",
+      "definition": "Ce qui est moralement convenable."
+    },
+    "BIENVEILLANCE": {
+      "term": "BIENVEILLANCE",
+      "definition": "Fait d'être bien disposé envers quelqu'un ou quelque chose."
+    },
+    "BIÈRE": {
+      "term": "BIÈRE",
+      "definition": "(Luc 7:14) Cercueil, civière pour porter un cadavre."
+    },
+    "BIGARRÉ": {
+      "term": "BIGARRÉ",
+      "definition": "Aux couleurs variées, ou mélangées."
+    },
+    "BITUME": {
+      "term": "BITUME",
+      "definition": "Résine gluante à base de substances hydrocarbures, comme le pétrole."
+    },
+    "BLÂMER": {
+      "term": "BLÂMER",
+      "definition": "Désapprouver, porter un jugement défavorable."
+    },
+    "BLASPHÈME": {
+      "term": "BLASPHÈME",
+      "definition": "Injure faite à une chose sacrée, ou à Dieu."
+    },
+    "BOISSEAU": {
+      "term": "BOISSEAU",
+      "definition": "Un coffre, un meuble de rangement."
+    },
+    "BOUFFI": {
+      "term": "BOUFFI",
+      "definition": "Enflé, sous-entendu d'orgueil, vaniteux, prétentieux."
+    },
+    "BOUFFON": {
+      "term": "BOUFFON",
+      "definition": "Personnage grotesque."
+    },
+    "BOURBIER": {
+      "term": "BOURBIER",
+      "definition": "Lieu plein de boue, par extension, lieu de perdition ou de débauche."
+    },
+    "BOURGADE": {
+      "term": "BOURGADE",
+      "definition": "Hameau, village, ou très petite ville."
+    },
+    "BOURGEOIS": {
+      "term": "BOURGEOIS",
+      "definition": "Citoyen d'une ville ou d'un pays."
+    },
+    "BOURREAU": {
+      "term": "BOURREAU",
+      "definition": "Celui qui exécute à mort quelqu'un, qui martyrise."
+    },
+    "BRANLER": {
+      "term": "BRANLER",
+      "definition": "Hocher la tête, ou être instable, prêt à tomber."
+    },
+    "BRASIER": {
+      "term": "BRASIER",
+      "definition": "Foyer d'un incendie, d'un feu violent."
+    },
+    "BRASSE": {
+      "term": "BRASSE",
+      "definition": "Mesure de distance correspondant aux deux bras écartés, soit environ 1,65 m."
+    },
+    "BRAVOURE": {
+      "term": "BRAVOURE",
+      "definition": "Courage."
+    },
+    "BRÈCHE": {
+      "term": "BRÈCHE",
+      "definition": "Faille dans une construction."
+    },
+    "BRONCHER": {
+      "term": "BRONCHER",
+      "definition": "Être instable, prêt à tomber, signifie aussi : critiquer, murmurer son mécontentement."
+    },
+    "BUIS": {
+      "term": "BUIS",
+      "definition": "Buisson souvent utilisé pour former des haies."
+    },
+    "BUTIN": {
+      "term": "BUTIN",
+      "definition": "Trésor pris à l'ennemi, qui servait parfois à payer les soldats."
+    },
+    "CABALE": {
+      "term": "CABALE",
+      "definition": "Complot."
+    },
+    "CACHET": {
+      "term": "CACHET",
+      "definition": "Ferme une lettre avec un tampon de cire pour empêcher de la lire."
+    },
+    "CACHOT": {
+      "term": "CACHOT",
+      "definition": "Cellule de prison."
+    },
+    "CALAMITÉ": {
+      "term": "CALAMITÉ",
+      "definition": "Grande catastrophe."
+    },
+    "CALCÉDOINE": {
+      "term": "CALCÉDOINE",
+      "definition": "Pierre précieuse, mais aussi ville de Bythinie."
+    },
+    "CALICE": {
+      "term": "CALICE",
+      "definition": "Vase antique pour boire."
+    },
+    "CALOMNIER": {
+      "term": "CALOMNIER",
+      "definition": "Accuser gravement quelqu'un par de faux témoignages."
+    },
+    "CANDÉLABRE": {
+      "term": "CANDÉLABRE",
+      "definition": "Chandelier."
+    },
+    "CANTIQUE": {
+      "term": "CANTIQUE",
+      "definition": "Chant religieux."
+    },
+    "CAROUGE": {
+      "term": "CAROUGE",
+      "definition": "Fruit allongé avec de la pulpe."
+    },
+    "CARQUOIS": {
+      "term": "CARQUOIS",
+      "definition": "Sac de peau de l'archer pour y transporter ses flèches."
+    },
+    "CATHOLIQUE": {
+      "term": "CATHOLIQUE",
+      "definition": "Signifie à l'origine : universelle. Une épître catholique s'adresse donc à l'ensemble des chrétiens."
+    },
+    "CAUTÉRISÉE": {
+      "term": "CAUTÉRISÉE",
+      "definition": "Cautérisée (conscience) : entièrement brûlée, comme une chair cicatrisée."
+    },
+    "CAUTION": {
+      "term": "CAUTION",
+      "definition": "Paiement qui garantie une transaction, un prêt."
+    },
+    "CEINDRE": {
+      "term": "CEINDRE",
+      "definition": "Entourer son vêtement autour de soi (parfois avec une ceinture) pour le tenir fermement pendant la marche, par extension signifie : être prêt, se préparer."
+    },
+    "CÉLÉBRATION": {
+      "term": "CÉLÉBRATION",
+      "definition": "Cérémonie en l'honneur de quelqu'un."
+    },
+    "CÈNE": {
+      "term": "CÈNE",
+      "definition": "Repas en commun. Désigne aussi le dernier repas de Jésus-Christ, qui sert de modèle à la Sainte-Cène, repas commémoratif de l'Église."
+    },
+    "CENSURER": {
+      "term": "CENSURER",
+      "definition": "Interdire quelque chose, empêcher quelqu'un d'agir."
+    },
+    "CENTENIER": {
+      "term": "CENTENIER",
+      "definition": "Chef militaire romain, qui commandait sur cent soldats."
+    },
+    "CEP": {
+      "term": "CEP",
+      "definition": "Le pied de vigne."
+    },
+    "CEPS": {
+      "term": "CEPS",
+      "definition": "Au pluriel, peut signifier des chaînes de forçat."
+    },
+    "CERVOISE": {
+      "term": "CERVOISE",
+      "definition": "Bière de céréales très appréciée dans l'Antiquité."
+    },
+    "CHAIR": {
+      "term": "CHAIR",
+      "definition": "Tout ce qui est en relation avec le corps humain et ses instincts naturels, tout ce qui concerne l'état naturel de l'humanité."
+    },
+    "CHAIRE": {
+      "term": "CHAIRE",
+      "definition": "La place d'honneur dans une assemblée religieuse, l'endroit où l'on prêche."
+    },
+    "CHALOUPE": {
+      "term": "CHALOUPE",
+      "definition": "Petite embarcation fluviale ou maritime."
+    },
+    "CHALUMEAU": {
+      "term": "CHALUMEAU",
+      "definition": "Instrument de musique, ancêtre du hautbois."
+    },
+    "CHAMBELLAN": {
+      "term": "CHAMBELLAN",
+      "definition": "Officier royal chargé de la chambre du palais, il s'occupe du confort et de la sécurité de son roi."
+    },
+    "CHANDELIER": {
+      "term": "CHANDELIER",
+      "definition": "Ustensile du culte israélite où brûle de l'huile d'éclairage."
+    },
+    "CHANGEUR": {
+      "term": "CHANGEUR",
+      "definition": "Agent (bancaire) qui calcule le taux des différentes monnaies et qui les échange."
+    },
+    "CHAOS": {
+      "term": "CHAOS",
+      "definition": "Confusion générale, désordre complet."
+    },
+    "CHAPITEAU": {
+      "term": "CHAPITEAU",
+      "definition": "En architecture, partie la plus haute d'une colonne."
+    },
+    "CHARITÉ": {
+      "term": "CHARITÉ",
+      "definition": "Vertu qui souhaite le bien d'autrui. Voir 1 Cor 13, la définition la plus précise de la Bible."
+    },
+    "CHARNEL": {
+      "term": "CHARNEL",
+      "definition": "Qui a les caractéristiques de l'homme naturel et instinctif. Tout ce qui a trait à la chair par opposition aux choses spirituelles de Dieu."
+    },
+    "CHASTETÉ": {
+      "term": "CHASTETÉ",
+      "definition": ": abstinence sexuelle."
+    },
+    "CHÂTIER": {
+      "term": "CHÂTIER",
+      "definition": "Infliger une peine à quelqu'un à cause d'une faute commise."
+    },
+    "CHENIX": {
+      "term": "CHENIX",
+      "definition": "(Ap 6:6) quantité de nourriture pour un homme et un jour."
+    },
+    "CHEMIN": {
+      "term": "CHEMIN",
+      "definition": "Chemin d'un Sabbat : environ 2000 coudées (de 45 cm) soit 900 m."
+    },
+    "CHÉRUBIN": {
+      "term": "CHÉRUBIN",
+      "definition": "Une catégorie d'anges qui servent Dieu."
+    },
+    "CHÉTIF": {
+      "term": "CHÉTIF",
+      "definition": "Fragile, faible."
+    },
+    "CHICHETÉ": {
+      "term": "CHICHETÉ",
+      "definition": "(2 Cor 9:6) Avec pauvreté, par manque de générosité, avec avarice."
+    },
+    "CHIMÈRE": {
+      "term": "CHIMÈRE",
+      "definition": "Pensée illusoire, fantasme, idée irréalisable."
+    },
+    "CHRÉTIEN": {
+      "term": "CHRÉTIEN",
+      "definition": "Littéralement « petit Christ », celui qui se réclame ou qui appartient à Christ."
+    },
+    "CHRIST": {
+      "term": "CHRIST",
+      "definition": "En grec signifie « Oint », équivalent de l'hébreu « messie » : celui qui est choisi.\n\nLes Israélites attendaient le messie, roi-sauveur, à cause des nombreuses prophéties qui en parlaient."
+    },
+    "CHRONIQUE": {
+      "term": "CHRONIQUE",
+      "definition": "Récit historique."
+    },
+    "CHRYSOLITHE": {
+      "term": "CHRYSOLITHE",
+      "definition": "Pierre précieuse très pure, de couleur vert olive."
+    },
+    "CHRYSOPRASE": {
+      "term": "CHRYSOPRASE",
+      "definition": "Pierre précieuse blanche et translucide, teintée d'impuretés."
+    },
+    "CIGUË": {
+      "term": "CIGUË",
+      "definition": "Plante vénéneuse dont on extrait un poison."
+    },
+    "CINNAMONE": {
+      "term": "CINNAMONE",
+      "definition": "Plante odoriférante, pour fabriquer le parfum."
+    },
+    "CIRCONCIRE": {
+      "term": "CIRCONCIRE",
+      "definition": "Petite opération chirurgicale pratiquée sur le sexe masculin (ablation du prépuce)."
+    },
+    "CIRCONCISION": {
+      "term": "CIRCONCISION",
+      "definition": "Signe distinctif chez les Juifs depuis Abraham et selon la Loi de Moïse. Par extension la Circoncision désigne la communauté juive, en opposition à la communauté des Gentils (non juifs) appelée Prépuce (voir ce mot)."
+    },
+    "CIRCONSPECT": {
+      "term": "CIRCONSPECT",
+      "definition": "Prudent et réservé."
+    },
+    "CIRCONVENIR": {
+      "term": "CIRCONVENIR",
+      "definition": "Se concilier quelqu'un en le séduisant par ruse."
+    },
+    "CITADELLE": {
+      "term": "CITADELLE",
+      "definition": "Forteresse souvent placée en hauteur pour protéger une région, une ville."
+    },
+    "CITERNE": {
+      "term": "CITERNE",
+      "definition": "Réservoir d'eau de pluie, souvent enfoui en profondeur."
+    },
+    "CITHARE": {
+      "term": "CITHARE",
+      "definition": "Sorte de guitare antique."
+    },
+    "CLAIRVOYANCE": {
+      "term": "CLAIRVOYANCE",
+      "definition": "Qualité qui permet de discerner les choses cachées, les sentiments, les dangers."
+    },
+    "CLAMEUR": {
+      "term": "CLAMEUR",
+      "definition": "Cris collectifs de grande ampleur, souvent confus."
+    },
+    "CLAUSE": {
+      "term": "CLAUSE",
+      "definition": "Disposition particulière d'une alliance, d'un traité."
+    },
+    "CLÉMENCE": {
+      "term": "CLÉMENCE",
+      "definition": "Indulgence, qualité de celui qui pardonne ou qui ne punit pas sévèrement."
+    },
+    "CLOAQUE": {
+      "term": "CLOAQUE",
+      "definition": "Endroit malpropre, destiné à recevoir les immondices, les eaux usées."
+    },
+    "COGNÉE": {
+      "term": "COGNÉE",
+      "definition": "Grosse hâche du bucheron."
+    },
+    "COHÉRITIER": {
+      "term": "COHÉRITIER",
+      "definition": "Celui qui hérite avec un ou plusieurs autres."
+    },
+    "COHORTE": {
+      "term": "COHORTE",
+      "definition": "Armée de 600 soldats romains combattant à pied (fantassins)."
+    },
+    "COLONNES": {
+      "term": "COLONNES",
+      "definition": "Dans les épîtres de Paul, signifie « colonnes de l'Église » c'est-à-dire des chrétiens solides et dignes de confiance."
+    },
+    "COLLYRE": {
+      "term": "COLLYRE",
+      "definition": "Potion médicinale pour soigner les yeux."
+    },
+    "COLONIE": {
+      "term": "COLONIE",
+      "definition": "Ville fondée par les Romains, dépendant de l'administration de l'Empire."
+    },
+    "COLOQUINTE": {
+      "term": "COLOQUINTE",
+      "definition": "Fruit sauvage utilisé pour fabriquer des médecines purgatoires."
+    },
+    "COLPORTER": {
+      "term": "COLPORTER",
+      "definition": "Propager, faire une activité itinérante."
+    },
+    "COMBLE": {
+      "term": "COMBLE",
+      "definition": "Plein, ou le maximum, dans le sens de l'excès."
+    },
+    "COMMERCE": {
+      "term": "COMMERCE",
+      "definition": "(2 Cor 6:1) Activité marchande, mais aussi tout type de rapport que l'on peut avoir avec quelqu'un."
+    },
+    "COMMÉMORATION": {
+      "term": "COMMÉMORATION",
+      "definition": "Cérémonie du souvenir."
+    },
+    "COMMETTRE": {
+      "term": "COMMETTRE",
+      "definition": "Charger quelqu'un de s'occuper de quelque chose."
+    },
+    "COMMIS": {
+      "term": "COMMIS",
+      "definition": "Celui qui a été nommé responsable."
+    },
+    "COMMUNION": {
+      "term": "COMMUNION",
+      "definition": "Union de plusieurs dans un même sentiment."
+    },
+    "COMPASSION": {
+      "term": "COMPASSION",
+      "definition": "Sentiment qui naît quand on éprouve pour quelqu'un de la pitié mêlée de tendresse et de bienveillance."
+    },
+    "COMPLAINTE": {
+      "term": "COMPLAINTE",
+      "definition": "Chant plaintif sur un sujet triste."
+    },
+    "COMPLAIRE": {
+      "term": "COMPLAIRE",
+      "definition": "Se satisfaire soi-même, ou désirer plaire à quelqu'un."
+    },
+    "COMPLAISANCE": {
+      "term": "COMPLAISANCE",
+      "definition": "Indulgence parfois excessive, désir de plaire, de servir."
+    },
+    "COMPLOT": {
+      "term": "COMPLOT",
+      "definition": "Piège réalisé en secret, machination pour perdre quelqu'un."
+    },
+    "COMPONCTION": {
+      "term": "COMPONCTION",
+      "definition": "Sentiment de gravité solennelle."
+    },
+    "CONCESSION": {
+      "term": "CONCESSION",
+      "definition": "Bien cédé à autrui, parfois avec un loyer ou fait de se conformer à la volonté de l'autre."
+    },
+    "CONCILIABULE": {
+      "term": "CONCILIABULE",
+      "definition": "Entretien privé ou secret entre plusieurs personnes."
+    },
+    "CONCUBINE": {
+      "term": "CONCUBINE",
+      "definition": "Dans l'Antiquité, femme du sérail d'un roi. Plus généralement, femme qui entretient des rapports conjugaux avec un homme sans être son épouse légitime."
+    },
+    "CONCUSSION": {
+      "term": "CONCUSSION",
+      "definition": "(Luc 3:14) Délit de celui qui perçoit de l'argent illégalement."
+    },
+    "CONDOLÉANCES": {
+      "term": "CONDOLÉANCES",
+      "definition": "Marque de sympathie envers quelqu'un qui souffre, qui est dans le deuil."
+    },
+    "CONFÉRER": {
+      "term": "CONFÉRER",
+      "definition": "Avoir une discussion avec quelqu'un, ou accorder quelque chose dont on a le pouvoir."
+    },
+    "CONFESSER": {
+      "term": "CONFESSER",
+      "definition": "Avouer ses fautes."
+    },
+    "CONFINER": {
+      "term": "CONFINER",
+      "definition": "Toucher les limites d'une région, ou s'isoler."
+    },
+    "CONFINS": {
+      "term": "CONFINS",
+      "definition": "Les limites d'un pays, d'une terre."
+    },
+    "CONFUS": {
+      "term": "CONFUS",
+      "definition": "Imprécis, embrouillé, ou, honteux."
+    },
+    "CONJUGAL": {
+      "term": "CONJUGAL",
+      "definition": "Qui se rapporte au fait d'être marié."
+    },
+    "CONJURER": {
+      "term": "CONJURER",
+      "definition": "Implorer par la prière, ou, comploter."
+    },
+    "CONJURATION": {
+      "term": "CONJURATION",
+      "definition": "Complot."
+    },
+    "CONNAÎTRE": {
+      "term": "CONNAÎTRE",
+      "definition": "Dans la pensée hébraïque, un homme connaît une femme quand il a des rapports sexuels avec elle."
+    },
+    "CONNIVENCE": {
+      "term": "CONNIVENCE",
+      "definition": "Complicité de celui qui fait semblant d'ignorer quelque chose."
+    },
+    "CONSACRER": {
+      "term": "CONSACRER",
+      "definition": "Vouer quelqu'un ou quelque chose à Dieu, en son honneur."
+    },
+    "CONSENTIR": {
+      "term": "CONSENTIR",
+      "definition": "Accepter."
+    },
+    "CONSIGNER": {
+      "term": "CONSIGNER",
+      "definition": "Remettre un bien en dépôt."
+    },
+    "CONSOMMATEUR": {
+      "term": "CONSOMMATEUR",
+      "definition": "Consommateur (de la foi) : au sens religieux, celui qui rend la foi parfaite en l'éprouvant."
+    },
+    "CONSOMPTION": {
+      "term": "CONSOMPTION",
+      "definition": "Épuisement total."
+    },
+    "CONSPIRATION": {
+      "term": "CONSPIRATION",
+      "definition": "Complot, piège préparé en secret."
+    },
+    "CONSTANCE": {
+      "term": "CONSTANCE",
+      "definition": "Fidélité et persévérance dans un sentiment, une situation, une action."
+    },
+    "CONSTERNATION": {
+      "term": "CONSTERNATION",
+      "definition": "Stupéfaction douloureuse causée par une mauvaise nouvelle, une catastrophe."
+    },
+    "CONSUMER": {
+      "term": "CONSUMER",
+      "definition": "Réduire en cendres."
+    },
+    "CONTEMPTEUR": {
+      "term": "CONTEMPTEUR",
+      "definition": "Celui qui méprise."
+    },
+    "CONTENTEMENT": {
+      "term": "CONTENTEMENT",
+      "definition": "Satisfaction."
+    },
+    "CONTENTIEUX": {
+      "term": "CONTENTIEUX",
+      "definition": "(Rom 2:8) Celui qui est susceptible d'être trouvé coupable."
+    },
+    "CONTINENCE": {
+      "term": "CONTINENCE",
+      "definition": "Abstinence, renonciation aux relations sexuelles, au plaisir de la chair."
+    },
+    "CONTRÉE": {
+      "term": "CONTRÉE",
+      "definition": "Région, partie d'un pays."
+    },
+    "CONTREFAIRE": {
+      "term": "CONTREFAIRE",
+      "definition": "Imiter."
+    },
+    "CONTRE-NATURE": {
+      "term": "CONTRE-NATURE",
+      "definition": "Contre nature (péché) : acte sexuel abominable (homosexualité, sodomie)."
+    },
+    "CONTRIT": {
+      "term": "CONTRIT",
+      "definition": "Attristé en regrettant une faute."
+    },
+    "CONVERSION": {
+      "term": "CONVERSION",
+      "definition": "Changement complet de mentalité, de mode de vie."
+    },
+    "CONVICTION": {
+      "term": "CONVICTION",
+      "definition": "Intime certitude."
+    },
+    "CONVOCATION": {
+      "term": "CONVOCATION",
+      "definition": "Invitation officielle."
+    },
+    "CONVOITISE": {
+      "term": "CONVOITISE",
+      "definition": "Désir ardent, souvent envers une chose coupable, dans la pensée biblique."
+    },
+    "COR": {
+      "term": "COR",
+      "definition": "Sorte de trompette en corne."
+    },
+    "CORAIL": {
+      "term": "CORAIL",
+      "definition": "Matière calcaire sous-marine très décorative."
+    },
+    "CORBAN": {
+      "term": "CORBAN",
+      "definition": "(Mc 7:11) Offrande faite à Dieu pour bénir un de ses proches. Par extension, bien dont on prive un membre de sa famille pour l'offrir au service du culte."
+    },
+    "CORDEAU": {
+      "term": "CORDEAU",
+      "definition": "Corde utilisée pour tracer des lignes parfaites."
+    },
+    "CORDIAL": {
+      "term": "CORDIAL",
+      "definition": "Aimable et chaleureux."
+    },
+    "CORIANDRE": {
+      "term": "CORIANDRE",
+      "definition": "Plante utilisée comme épices."
+    },
+    "CORMORAN": {
+      "term": "CORMORAN",
+      "definition": "Oiseau au bec crochu, au long cou et au plumage sombre nichant dans les hauteurs."
+    },
+    "CORNALINE": {
+      "term": "CORNALINE",
+      "definition": "Pierre précieuse translucide zonée de rouge."
+    },
+    "CORROMPRE": {
+      "term": "CORROMPRE",
+      "definition": "Provoquer la putréfaction, la décomposition, donner un effet nocif, action de pervertir quelque chose ou quelqu'un."
+    },
+    "CORROYEUR": {
+      "term": "CORROYEUR",
+      "definition": "Celui qui tanne le cuir."
+    },
+    "CORRUPTIBLE": {
+      "term": "CORRUPTIBLE",
+      "definition": "Ce qui est périssable par nature, ce que l'on peut corrompre."
+    },
+    "CÔTOYER": {
+      "term": "CÔTOYER",
+      "definition": "Se tenir aux cotés de quelqu'un, de quelque chose. Sur mer, avancer en longeant les côtes."
+    },
+    "COUDÉE": {
+      "term": "COUDÉE",
+      "definition": "Mesure d'environ 45 cm."
+    },
+    "COURROUCÉ": {
+      "term": "COURROUCÉ",
+      "definition": "En colère."
+    },
+    "COURROUX": {
+      "term": "COURROUX",
+      "definition": "Une forte colère très indignée."
+    },
+    "COUVERTEMENT": {
+      "term": "COUVERTEMENT",
+      "definition": "De façon cachée, secrète, sournoisement."
+    },
+    "COURTISAN": {
+      "term": "COURTISAN",
+      "definition": "Celui qui fait partie de la cour d'un roi, par extension : celui qui cherche à séduire. Une courtisane est soit une femme prostituée, soit une personne dont la beauté lui permet de résider à la cour du roi."
+    },
+    "COUTUME": {
+      "term": "COUTUME",
+      "definition": "Tradition, règle de comportement."
+    },
+    "CRAMOISI": {
+      "term": "CRAMOISI",
+      "definition": "De couleur rouge foncé."
+    },
+    "CRÉANCIER": {
+      "term": "CRÉANCIER",
+      "definition": "Celui envers lequel on a une dette."
+    },
+    "CRÈCHE": {
+      "term": "CRÈCHE",
+      "definition": "Mangeoire du bétail, par extension, berceau des enfants."
+    },
+    "CRÉNEAU": {
+      "term": "CRÉNEAU",
+      "definition": "La partie haute d'une muraille."
+    },
+    "CREUSET": {
+      "term": "CREUSET",
+      "definition": "Récipient spécial pour y fondre les métaux."
+    },
+    "CRIBLE": {
+      "term": "CRIBLE",
+      "definition": "Grande passoire servant à séparer le grain de blé de son enveloppe (la balle)."
+    },
+    "CRIBLER": {
+      "term": "CRIBLER",
+      "definition": "Passer au crible, percer de nombreux trous, par extension, détruire un ennemi."
+    },
+    "CROISÉE": {
+      "term": "CROISÉE",
+      "definition": "Carrefour de chemins. Autrefois, signifiait aussi : une fenêtre."
+    },
+    "CROÎTRE": {
+      "term": "CROÎTRE",
+      "definition": "Grandir."
+    },
+    "CROULER": {
+      "term": "CROULER",
+      "definition": "S'effondrer."
+    },
+    "CRUCIFIER": {
+      "term": "CRUCIFIER",
+      "definition": "Clouer sur une croix (supplice de l'époque romaine)."
+    },
+    "CUIRASSE": {
+      "term": "CUIRASSE",
+      "definition": "Armure en métal qui protège la poitrine et le dos."
+    },
+    "CULPABILITÉ": {
+      "term": "CULPABILITÉ",
+      "definition": "Fait d'être reconnu coupable."
+    },
+    "CULTE": {
+      "term": "CULTE",
+      "definition": "Cérémonie d'adoration."
+    },
+    "CUMIN": {
+      "term": "CUMIN",
+      "definition": "Épice de poivre."
+    },
+    "CUPIDE": {
+      "term": "CUPIDE",
+      "definition": "Celui qui aime l'argent de façon excessive."
+    },
+    "CURATEUR": {
+      "term": "CURATEUR",
+      "definition": "Magistrat chargé de gérer les affaires de la cité, ou d'administrer les biens d'une personne mineure ou irresponsable."
+    },
+    "CURÉE": {
+      "term": "CURÉE",
+      "definition": "La portion que l'on reçoit après une bataille, ou, le moment où l'on se jette sur le butin de l'ennemi vaincu."
+    },
+    "DAIGNER": {
+      "term": "DAIGNER",
+      "definition": "Consentir, finir par accepter (concéder donner une faveur, par exemple)."
+    },
+    "DAIS": {
+      "term": "DAIS",
+      "definition": "Un grand drap en baldaquin au dessus d'un trône, par exemple."
+    },
+    "DAMAS": {
+      "term": "DAMAS",
+      "definition": "Étoffe de soie brillante, très luxueuse."
+    },
+    "DARD": {
+      "term": "DARD",
+      "definition": "Lance de guerre, pique, tout type de flèche."
+    },
+    "DARDER": {
+      "term": "DARDER",
+      "definition": "Lancer des piques."
+    },
+    "DARIQUE": {
+      "term": "DARIQUE",
+      "definition": "Monnaie d'or des anciens perses, sous Darius."
+    },
+    "DÉBAUCHE": {
+      "term": "DÉBAUCHE",
+      "definition": "Pratique outrancière des plaisirs sensuels."
+    },
+    "DÉBILE": {
+      "term": "DÉBILE",
+      "definition": "Faible, maladif."
+    },
+    "DÉBITER": {
+      "term": "DÉBITER",
+      "definition": "Enlever d'une somme d'argent."
+    },
+    "DÉBITEUR": {
+      "term": "DÉBITEUR",
+      "definition": "Celui qui a une dette envers quelqu'un."
+    },
+    "DÉBONNAIRE": {
+      "term": "DÉBONNAIRE",
+      "definition": "(2 Cor 10:1) Sentiment de douceur et de grande bonté."
+    },
+    "DEÇÀ": {
+      "term": "DEÇÀ",
+      "definition": "D'ici."
+    },
+    "DÉCENT": {
+      "term": "DÉCENT",
+      "definition": "Qui est convenable, selon les règles de la pudeur."
+    },
+    "DÉCHOIR": {
+      "term": "DÉCHOIR",
+      "definition": "(2 Cor 4:16) Chuter de sa position élevé, perdre son honneur, être humilié."
+    },
+    "DÉCLIN": {
+      "term": "DÉCLIN",
+      "definition": "Affaiblissement."
+    },
+    "DÉCLINER": {
+      "term": "DÉCLINER",
+      "definition": "Tomber, s'affaiblir, aller sur sa fin."
+    },
+    "DÉCOMBRES": {
+      "term": "DÉCOMBRES",
+      "definition": "Ruines."
+    },
+    "DÉCRÉTER": {
+      "term": "DÉCRÉTER",
+      "definition": "Proclamer une loi nouvelle."
+    },
+    "DÉCRIÉ": {
+      "term": "DÉCRIÉ",
+      "definition": "Critiqué avec mépris."
+    },
+    "DÉDAIGNER": {
+      "term": "DÉDAIGNER",
+      "definition": "Mépriser, ne pas accorder de considération à quelqu'un ou à quelque chose."
+    },
+    "DÉDAIN": {
+      "term": "DÉDAIN",
+      "definition": "Mépris, rejet."
+    },
+    "DÉDICACE": {
+      "term": "DÉDICACE",
+      "definition": "Fête juive en l'honneur du Temple de Jérusalem que Judas Maccabée avait consacré en 165 av JC."
+    },
+    "DÉDOMMAGER": {
+      "term": "DÉDOMMAGER",
+      "definition": "Rembourser en fonction d'un préjudice causé."
+    },
+    "DÉFAILLANCE": {
+      "term": "DÉFAILLANCE",
+      "definition": "Perte de ses forces, s'affaiblir complètement."
+    },
+    "DÉFECTION": {
+      "term": "DÉFECTION",
+      "definition": "Abandon dans une situation donnée, absence."
+    },
+    "DÉFÉRENCE": {
+      "term": "DÉFÉRENCE",
+      "definition": "Grand respect."
+    },
+    "DÉFIANCE": {
+      "term": "DÉFIANCE",
+      "definition": "Défiance, se défier  : ne pas donner sa confiance, prendre garde avec une grande méfiance."
+    },
+    "DÉFRICHER": {
+      "term": "DÉFRICHER",
+      "definition": "Enlever les mauvaises herbes pour rendre un terrain propre à le cultiver."
+    },
+    "DÉFUNT": {
+      "term": "DÉFUNT",
+      "definition": "Celui qui est mort."
+    },
+    "DEGRÉ": {
+      "term": "DEGRÉ",
+      "definition": "Marche d'escalier."
+    },
+    "DÉJOUER": {
+      "term": "DÉJOUER",
+      "definition": "Empêcher une action prévue de se dérouler."
+    },
+    "DÉLATEUR": {
+      "term": "DÉLATEUR",
+      "definition": "Dénonciateur."
+    },
+    "DÉLECTER": {
+      "term": "DÉLECTER",
+      "definition": "Se délecter : prendre un grand plaisir."
+    },
+    "DÉLIBÉRATION": {
+      "term": "DÉLIBÉRATION",
+      "definition": "Débat pour décider d'un jugement."
+    },
+    "DÉLIBÉRER": {
+      "term": "DÉLIBÉRER",
+      "definition": "Discuter en vue de prendre des résolutions."
+    },
+    "DÉLICES": {
+      "term": "DÉLICES",
+      "definition": "Grands plaisirs."
+    },
+    "DÉLIER": {
+      "term": "DÉLIER",
+      "definition": "Enlever les liens. Dans la Bible, peut signifier, pardonner."
+    },
+    "DÉLUGE": {
+      "term": "DÉLUGE",
+      "definition": "Immense inondation."
+    },
+    "DÉMANTELER": {
+      "term": "DÉMANTELER",
+      "definition": "Défaire entièrement une construction, comme des remparts."
+    },
+    "DÉMENCE": {
+      "term": "DÉMENCE",
+      "definition": "Folie, dérèglement mental."
+    },
+    "DÉMENT": {
+      "term": "DÉMENT",
+      "definition": "Celui qui a complètement perdu sa raison."
+    },
+    "DÉMENTIR": {
+      "term": "DÉMENTIR",
+      "definition": "Contredire. affirmer une autre vérité."
+    },
+    "DÉMETTRE": {
+      "term": "DÉMETTRE",
+      "definition": "Enlever. Retirer une responsabilité à quelqu'un."
+    },
+    "DÉMON": {
+      "term": "DÉMON",
+      "definition": "Soit le diable (Satan), soit un esprit impur, un ange déchu."
+    },
+    "DÉMONIAQUE": {
+      "term": "DÉMONIAQUE",
+      "definition": "Qui vient du diable."
+    },
+    "DENIER": {
+      "term": "DENIER",
+      "definition": "Pièce de monnaie romaine, équivalent au salaire d'une journée de travail environ."
+    },
+    "DÉNOMBREMENT": {
+      "term": "DÉNOMBREMENT",
+      "definition": "Recensement."
+    },
+    "DENRÉE": {
+      "term": "DENRÉE",
+      "definition": "Nourriture."
+    },
+    "DÉNUÉ": {
+      "term": "DÉNUÉ",
+      "definition": "Sans ressources."
+    },
+    "DÉNUEMENT": {
+      "term": "DÉNUEMENT",
+      "definition": "Extrême pauvreté."
+    },
+    "DÉPARTIR": {
+      "term": "DÉPARTIR",
+      "definition": "Attribuer."
+    },
+    "DÉPECER": {
+      "term": "DÉPECER",
+      "definition": "Découper en morceaux."
+    },
+    "DÉPÉRISSEMENT": {
+      "term": "DÉPÉRISSEMENT",
+      "definition": "Fait de perdre toutes ses forces."
+    },
+    "DÉPÉRIR": {
+      "term": "DÉPÉRIR",
+      "definition": "Être sur le point de mourir."
+    },
+    "DÉPLOYER": {
+      "term": "DÉPLOYER",
+      "definition": "(Luc 4:17) Étendre, ouvrir largement."
+    },
+    "DÉPORTATION": {
+      "term": "DÉPORTATION",
+      "definition": "Exil des vaincus dans le pays des vainqueurs."
+    },
+    "DÉPOSITAIRE": {
+      "term": "DÉPOSITAIRE",
+      "definition": "Celui qui reçoit quelque chose pour le garder en dépôt."
+    },
+    "DÉPOSITION": {
+      "term": "DÉPOSITION",
+      "definition": "Témoignage officiel rendu devant un tribunal ou des témoins."
+    },
+    "DÉPRAVÉ": {
+      "term": "DÉPRAVÉ",
+      "definition": "Débauché."
+    },
+    "DÉRÈGLEMENT": {
+      "term": "DÉRÈGLEMENT",
+      "definition": "Désordre immoral."
+    },
+    "DÉRISION": {
+      "term": "DÉRISION",
+      "definition": "Moquerie pleine de mépris."
+    },
+    "DÉROBER": {
+      "term": "DÉROBER",
+      "definition": "Voler le bien d'autrui."
+    },
+    "DÉROUTE": {
+      "term": "DÉROUTE",
+      "definition": "Défaite."
+    },
+    "DÉSALTÉRER": {
+      "term": "DÉSALTÉRER",
+      "definition": "Boire jusqu'à satiété."
+    },
+    "DESCRIPTION": {
+      "term": "DESCRIPTION",
+      "definition": "(Luc 2:2) Dénombrement, recensement."
+    },
+    "DÉSISTER": {
+      "term": "DÉSISTER",
+      "definition": "(1 Pi 4:1) Abandonner par renoncement."
+    },
+    "DÉSOLATION": {
+      "term": "DÉSOLATION",
+      "definition": "Profonde détresse, aspect d'une région dévastée."
+    },
+    "DESSEIN": {
+      "term": "DESSEIN",
+      "definition": "Projet."
+    },
+    "DÉCILLER": {
+      "term": "DÉCILLER",
+      "definition": "Ouvrir les yeux."
+    },
+    "DESTITUER": {
+      "term": "DESTITUER",
+      "definition": "Retirer à quelqu'un ses attributions, le démettre de ses fonctions."
+    },
+    "DÉTREMPER": {
+      "term": "DÉTREMPER",
+      "definition": "Amollir quelque chose en le laissant dans un liquide."
+    },
+    "DÉTRIMENT": {
+      "term": "DÉTRIMENT",
+      "definition": "Préjudice."
+    },
+    "DEUIL": {
+      "term": "DEUIL",
+      "definition": "État douloureux à la mort d'un être cher."
+    },
+    "DÉVALER": {
+      "term": "DÉVALER",
+      "definition": "(Ac 9:25) Faire descendre."
+    },
+    "DÉVASTATION": {
+      "term": "DÉVASTATION",
+      "definition": "Grande catastrophe qui ravage tout."
+    },
+    "DEVINERESSE": {
+      "term": "DEVINERESSE",
+      "definition": "Femme qui prédit l'avenir."
+    },
+    "DEVISE": {
+      "term": "DEVISE",
+      "definition": "Soit une monnaie, soit une phrase que l'on choisit comme symbole de soi-même."
+    },
+    "DÉVOYER": {
+      "term": "DÉVOYER",
+      "definition": "Inciter au mal, corrompre, pervertir."
+    },
+    "DÉVOT": {
+      "term": "DÉVOT",
+      "definition": "Celui qui a une grande piété religieuse."
+    },
+    "DIABLE": {
+      "term": "DIABLE",
+      "definition": "Équivaut à Satan : « l'adversaire ». Le plus puissant des anges déchus."
+    },
+    "DIACRE": {
+      "term": "DIACRE",
+      "definition": "En grec : « serviteur ».\n\nDans l'Église primitive, homme (ou femme) qui est chargé des affaires matérielles de la communauté chrétienne (gestion, aumônes, etc.), sous les ordres de l'Évêque (voir évêque)."
+    },
+    "DIADÈME": {
+      "term": "DIADÈME",
+      "definition": "Couronne."
+    },
+    "DICTON": {
+      "term": "DICTON",
+      "definition": "Proverbe, phrase pleine de sagesse."
+    },
+    "DIDRACHME": {
+      "term": "DIDRACHME",
+      "definition": "Pièce de monnaie romaine de deux drachmes."
+    },
+    "DIFFAMER": {
+      "term": "DIFFAMER",
+      "definition": "Déshonorer."
+    },
+    "DIFFAMATEUR": {
+      "term": "DIFFAMATEUR",
+      "definition": "Accusateur qui souhaite déshonorer quelqu'un."
+    },
+    "DIFFÉREND": {
+      "term": "DIFFÉREND",
+      "definition": "Conflit, ce qui oppose deux parties."
+    },
+    "DIFFÉRER": {
+      "term": "DIFFÉRER",
+      "definition": "Retarder un peu l'accomplissement d'une action."
+    },
+    "DIGNE": {
+      "term": "DIGNE",
+      "definition": "Celui qui mérité le respect et l'honneur."
+    },
+    "DILAPIDER": {
+      "term": "DILAPIDER",
+      "definition": "Disperser, gaspiller."
+    },
+    "DILIGENT": {
+      "term": "DILIGENT",
+      "definition": "(2 Co 8:8) Celui qui est plein de zèle, qui s'empresse d'accomplir quelque chose."
+    },
+    "DÎME": {
+      "term": "DÎME",
+      "definition": "Impôt du dixième des revenus, prescrit dans la Loi de Moïse."
+    },
+    "DÎMER": {
+      "term": "DÎMER",
+      "definition": "Percevoir l'impôt de la dîme."
+    },
+    "DISCERNEMENT": {
+      "term": "DISCERNEMENT",
+      "definition": "Aptitude à bien juger."
+    },
+    "DISCIPLE": {
+      "term": "DISCIPLE",
+      "definition": "Celui qui suit un maître et son enseignement."
+    },
+    "DISCORDE": {
+      "term": "DISCORDE",
+      "definition": "Désaccord qui divise."
+    },
+    "DISCOUREUR": {
+      "term": "DISCOUREUR",
+      "definition": "Beau-parleur, qui fait de grands discours."
+    },
+    "DISCRÉDITER": {
+      "term": "DISCRÉDITER",
+      "definition": "Faire perdre la confiance en quelqu'un."
+    },
+    "DISETTE": {
+      "term": "DISETTE",
+      "definition": "Famine, grande pénurie."
+    },
+    "DISPENSATEUR": {
+      "term": "DISPENSATEUR",
+      "definition": "Celui qui distribue."
+    },
+    "DISPUTE": {
+      "term": "DISPUTE",
+      "definition": "Le sens ancien est : débat, échange d'idées, discussion soutenue. Puis, le mot a signifié aussi : désaccord violent, querelle animée."
+    },
+    "DISSENSION": {
+      "term": "DISSENSION",
+      "definition": "Discorde provoquée par des opinions, des sentiments différents."
+    },
+    "DISSIMULATION": {
+      "term": "DISSIMULATION",
+      "definition": "Attitude qui cherche à cacher quelque chose, cacher ses sentiments pour tromper."
+    },
+    "DISSIPATEUR": {
+      "term": "DISSIPATEUR",
+      "definition": "Faire disparaître en dispersant, gaspiller."
+    },
+    "DISSOLUTION": {
+      "term": "DISSOLUTION",
+      "definition": "Relâchement des mœurs, pratiques immorales."
+    },
+    "DISTRICT": {
+      "term": "DISTRICT",
+      "definition": "Division administrative d'une région."
+    },
+    "DIVAGUER": {
+      "term": "DIVAGUER",
+      "definition": "Perdre la raison."
+    },
+    "DIVIN": {
+      "term": "DIVIN",
+      "definition": "Qui vient de Dieu, selon Dieu."
+    },
+    "DIVINATION": {
+      "term": "DIVINATION",
+      "definition": "Prédire l'avenir ou les choses cachées."
+    },
+    "DIVORCE": {
+      "term": "DIVORCE",
+      "definition": "Rupture d'un mariage."
+    },
+    "DIVULGUER": {
+      "term": "DIVULGUER",
+      "definition": "Révéler un secret."
+    },
+    "DOCILE": {
+      "term": "DOCILE",
+      "definition": "Obéissant, celui qui accepte très facilement un commandement."
+    },
+    "DOCTEUR": {
+      "term": "DOCTEUR",
+      "definition": "• . Médecin.\n\n• . Spécialiste de la doctrine ou de la Loi de Moïse."
+    },
+    "DOCTRINE": {
+      "term": "DOCTRINE",
+      "definition": "Ensemble de règles, de croyances, de commandements."
+    },
+    "DOT": {
+      "term": "DOT",
+      "definition": "Donation faite à un futur époux ou à sa famille."
+    },
+    "DOUCEREUX": {
+      "term": "DOUCEREUX",
+      "definition": "Douceur avec de la fadeur."
+    },
+    "DRACHME": {
+      "term": "DRACHME",
+      "definition": "Monnaie romaine qui valait 1/4 de Sicle, ou 20 oboles (la plus petite monnaie)."
+    },
+    "DRAGON": {
+      "term": "DRAGON",
+      "definition": "Serpent monstrueux, c'est aussi un surnom du diable, de Satan."
+    },
+    "DROIT": {
+      "term": "DROIT",
+      "definition": "Droit d'ainesse : avantage qui revient à l'aîné dans un héritage."
+    },
+    "DUPE": {
+      "term": "DUPE",
+      "definition": "Celui qui est trompé."
+    },
+    "DUPERIE": {
+      "term": "DUPERIE",
+      "definition": "Tromperie."
+    },
+    "DUPLICITÉ": {
+      "term": "DUPLICITÉ",
+      "definition": "Action de jouer double-jeu, hypocrisie."
+    },
+    "ÉBATS": {
+      "term": "ÉBATS",
+      "definition": "Mouvements du corps."
+    },
+    "ÉBÈNE": {
+      "term": "ÉBÈNE",
+      "definition": "Bois de construction de couleur noire."
+    },
+    "ÉBRANLER": {
+      "term": "ÉBRANLER",
+      "definition": "Faire vibrer, faire trembler."
+    },
+    "ÉCARLATE": {
+      "term": "ÉCARLATE",
+      "definition": "Rouge vif."
+    },
+    "ÉCCLÉSIASTE": {
+      "term": "ÉCCLÉSIASTE",
+      "definition": "En hébreu, littéralement : « celui qui prêche dans l'assemblée ».\n\nSalomon est l'auteur du livre biblique de l'Écclésiaste."
+    },
+    "ÉCHANSON": {
+      "term": "ÉCHANSON",
+      "definition": "Dans les cours royales, l'officier chargé des vins."
+    },
+    "ÉCHINE": {
+      "term": "ÉCHINE",
+      "definition": "Colonne vertébrale."
+    },
+    "ÉCHOIR": {
+      "term": "ÉCHOIR",
+      "definition": "Être attribué."
+    },
+    "ÉCONOME": {
+      "term": "ÉCONOME",
+      "definition": "Celui qui est chargé de gérer des biens."
+    },
+    "ÉCRIN": {
+      "term": "ÉCRIN",
+      "definition": "Coffret pour les objets précieux."
+    },
+    "ÉCUME": {
+      "term": "ÉCUME",
+      "definition": "Mousse blanchâtre des liquides, ou salive des animaux."
+    },
+    "ÉCUYER": {
+      "term": "ÉCUYER",
+      "definition": "Officier chargé des chevaux."
+    },
+    "ÉDIFICATION": {
+      "term": "ÉDIFICATION",
+      "definition": "Construction matérielle, ou, instruction morale."
+    },
+    "EFFÉMINÉ": {
+      "term": "EFFÉMINÉ",
+      "definition": "Travesti, ou aussi, homosexuel."
+    },
+    "EFFICACE": {
+      "term": "EFFICACE",
+      "definition": "Efficacité."
+    },
+    "EFFIGIE": {
+      "term": "EFFIGIE",
+      "definition": "Portrait."
+    },
+    "EFFRÉNÉ": {
+      "term": "EFFRÉNÉ",
+      "definition": "Sans frein."
+    },
+    "EFFROI": {
+      "term": "EFFROI",
+      "definition": "Peur intense."
+    },
+    "EFFRONTÉ": {
+      "term": "EFFRONTÉ",
+      "definition": "Sans crainte et sans scrupule."
+    },
+    "EFFUSION": {
+      "term": "EFFUSION",
+      "definition": "Action de répandre."
+    },
+    "ÉGAYER": {
+      "term": "ÉGAYER",
+      "definition": "S'égayer : se réjouir."
+    },
+    "ÉGLISE": {
+      "term": "ÉGLISE",
+      "definition": "Assemblée, communauté chrétienne."
+    },
+    "ÉLARGIR": {
+      "term": "ÉLARGIR",
+      "definition": "Mettre au large, libérer."
+    },
+    "ÉLÉGIE": {
+      "term": "ÉLÉGIE",
+      "definition": "Petit poème tendre."
+    },
+    "ÉLI": {
+      "term": "ÉLI",
+      "definition": "En hébreu : « Mon Dieu »."
+    },
+    "ÉLU": {
+      "term": "ÉLU",
+      "definition": "Qui a été choisi."
+    },
+    "EMBAUMER": {
+      "term": "EMBAUMER",
+      "definition": "Placer des aromates dans un corps mort en vue de le conserver."
+    },
+    "EMBLÈME": {
+      "term": "EMBLÈME",
+      "definition": "Signes distinctifs, figure symbolique."
+    },
+    "EMBÛCHE": {
+      "term": "EMBÛCHE",
+      "definition": "Obstacle."
+    },
+    "EMBUSCADE": {
+      "term": "EMBUSCADE",
+      "definition": "Piège pour réaliser une attaque-surprise."
+    },
+    "EMBUSQUER": {
+      "term": "EMBUSQUER",
+      "definition": "S'embusquer : se cacher pour réaliser une attaque surprise."
+    },
+    "ÉMERAUDE": {
+      "term": "ÉMERAUDE",
+      "definition": "Pierre précieuse de couleur verte."
+    },
+    "ÉMEUTE": {
+      "term": "ÉMEUTE",
+      "definition": "Révolte populaire."
+    },
+    "ÉMINENT": {
+      "term": "ÉMINENT",
+      "definition": "Élevé, qui a des qualités remarquables."
+    },
+    "ÉMOI": {
+      "term": "ÉMOI",
+      "definition": "Émotion provoquée par une inquiétude, agitation intérieure."
+    },
+    "ÉMONDER": {
+      "term": "ÉMONDER",
+      "definition": "Tailler un arbre pour le fortifier."
+    },
+    "ÉMOTION": {
+      "term": "ÉMOTION",
+      "definition": "Une émeute du peuple, en soudaine révolte."
+    },
+    "ÉMOUVOIR": {
+      "term": "ÉMOUVOIR",
+      "definition": "Provoquer des sentiments attendrissants, mais signifie aussi, provoquer une émotion populaire, c'est-à-dire : une émeute, une révolte soudaine."
+    },
+    "EMPAN": {
+      "term": "EMPAN",
+      "definition": "Distance maximale entre le pouce et l'auriculaire écartés (23 cm)."
+    },
+    "EMPORTEMENT": {
+      "term": "EMPORTEMENT",
+      "definition": "Transport de colère."
+    },
+    "EMPREINT": {
+      "term": "EMPREINT",
+      "definition": "Rempli."
+    },
+    "EMPRESSEMENT": {
+      "term": "EMPRESSEMENT",
+      "definition": "Zèle, aptitude à agir avec rapidité."
+    },
+    "ENCHANTEMENT": {
+      "term": "ENCHANTEMENT",
+      "definition": "Dans la bible, action d'ensorceler ou d'empoisonner."
+    },
+    "ENCHÂSSER": {
+      "term": "ENCHÂSSER",
+      "definition": "Encastrer, sertir un bijou dans un métal."
+    },
+    "ENCOURIR": {
+      "term": "ENCOURIR",
+      "definition": "Risquer de subir quelque chose."
+    },
+    "ENFER": {
+      "term": "ENFER",
+      "definition": "Lieu de perdition éternelle."
+    },
+    "ENFLER": {
+      "term": "ENFLER",
+      "definition": "Au sens figuré : se gonfler d'orgueil."
+    },
+    "ENGEANCE": {
+      "term": "ENGEANCE",
+      "definition": "Groupe de personnes méprisables ou pécheresses."
+    },
+    "ENGENDRER": {
+      "term": "ENGENDRER",
+      "definition": "Faire naître."
+    },
+    "ENGOURDIR": {
+      "term": "ENGOURDIR",
+      "definition": "S'engourdir : devenir insensible."
+    },
+    "ENHARDIR": {
+      "term": "ENHARDIR",
+      "definition": "S'enhardir : prendre courage."
+    },
+    "ENJOINDRE": {
+      "term": "ENJOINDRE",
+      "definition": "Donner un ordre impératif."
+    },
+    "ÉNOMBRER": {
+      "term": "ÉNOMBRER",
+      "definition": "Compter."
+    },
+    "ENQUÉRIR": {
+      "term": "ENQUÉRIR",
+      "definition": "S'enquérir : s'informer."
+    },
+    "ENRÔLER": {
+      "term": "ENRÔLER",
+      "definition": "Engager comme soldat."
+    },
+    "ENSOUPLE": {
+      "term": "ENSOUPLE",
+      "definition": "Bobine d'un métier à tisser."
+    },
+    "ENTENDEMENT": {
+      "term": "ENTENDEMENT",
+      "definition": "Intelligence, compréhension."
+    },
+    "ENTER": {
+      "term": "ENTER",
+      "definition": "Greffer."
+    },
+    "ENTRAILLES": {
+      "term": "ENTRAILLES",
+      "definition": "Au sens figuré : le fond du cœur, le plus profond des sentiments."
+    },
+    "ENTRAVE": {
+      "term": "ENTRAVE",
+      "definition": "Obstacle."
+    },
+    "ENVIEILLIR": {
+      "term": "ENVIEILLIR",
+      "definition": "Rendre vieux, déclarer vieux."
+    },
+    "ÉPANCHEMENT": {
+      "term": "ÉPANCHEMENT",
+      "definition": "Écoulement."
+    },
+    "ÉPEAUTRE": {
+      "term": "ÉPEAUTRE",
+      "definition": "Variété de blé pauvre."
+    },
+    "ÉPHA": {
+      "term": "ÉPHA",
+      "definition": "Mesure de 22 l pour les éléments solides."
+    },
+    "ÉPHÉMÈRE": {
+      "term": "ÉPHÉMÈRE",
+      "definition": "Qui ne dure pas."
+    },
+    "ÉPHOD": {
+      "term": "ÉPHOD",
+      "definition": "Tunique en lin."
+    },
+    "ÉPICURIENS": {
+      "term": "ÉPICURIENS",
+      "definition": "Philosophes grecs qui prêchaient le plaisir des sens."
+    },
+    "ÉPÎTRE": {
+      "term": "ÉPÎTRE",
+      "definition": "Lettre."
+    },
+    "ÉPURER": {
+      "term": "ÉPURER",
+      "definition": "Rendre pur."
+    },
+    "ÉQUITABLE": {
+      "term": "ÉQUITABLE",
+      "definition": "Celui qui reconnait les droits de chacun en toute bonne justice."
+    },
+    "ESCARBOUCLE": {
+      "term": "ESCARBOUCLE",
+      "definition": "Un rubis, pierre précieuse rouge vif."
+    },
+    "ESCOUADE": {
+      "term": "ESCOUADE",
+      "definition": "Petite compagnie de soldats."
+    },
+    "ESQUIF": {
+      "term": "ESQUIF",
+      "definition": "Petite embarcation légère."
+    },
+    "ESQUIVER": {
+      "term": "ESQUIVER",
+      "definition": "Éviter de justesse."
+    },
+    "ESTROPIÉ": {
+      "term": "ESTROPIÉ",
+      "definition": "Personne mutilée dont le membre est inutilisable."
+    },
+    "ÉTAIN": {
+      "term": "ÉTAIN",
+      "definition": "Métal."
+    },
+    "ÉTANCHER": {
+      "term": "ÉTANCHER",
+      "definition": "Faire cesser, ou rendre étanche, imperméable."
+    },
+    "ÉTENDARD": {
+      "term": "ÉTENDARD",
+      "definition": "Drapeau."
+    },
+    "ÉTOUPE": {
+      "term": "ÉTOUPE",
+      "definition": "Partie emmêlée du chanvre."
+    },
+    "EUCHARISTIE": {
+      "term": "EUCHARISTIE",
+      "definition": "En grec « action de grâce »\n\n, désigne le moment de la Sainte-Cène dans le culte chrétien (voir : Cène)."
+    },
+    "EUNUQUE": {
+      "term": "EUNUQUE",
+      "definition": "Officier royal chargé du sérail des femmes. Homme émasculé, privé de sa virilité."
+    },
+    "ÉVANGÉLISER": {
+      "term": "ÉVANGÉLISER",
+      "definition": "Annoncer l'Évangile, prêcher le salut en Jésus-Christ."
+    },
+    "ÉVANGILE": {
+      "term": "ÉVANGILE",
+      "definition": "Littéralement « bonne nouvelle » : les 4 évangiles de la Bible parlent de la Vie de Jésus."
+    },
+    "ÉVÊQUE": {
+      "term": "ÉVÊQUE",
+      "definition": "En grec « surveillant »\n\n : dans l'Église primitive, celui qui est placé à la tête de sa communauté chrétienne pour bien la diriger."
+    },
+    "EXACTEUR": {
+      "term": "EXACTEUR",
+      "definition": "Celui qui commet des violences injustes, ou qui réclame plus que son droit."
+    },
+    "EXALTER": {
+      "term": "EXALTER",
+      "definition": "Louer, glorifier."
+    },
+    "EXAMINER": {
+      "term": "EXAMINER",
+      "definition": "(Ac 22) Questionner par la torture."
+    },
+    "EXAUCER": {
+      "term": "EXAUCER",
+      "definition": "Accomplir un vœu, réaliser une prière."
+    },
+    "EXÉCRABLE": {
+      "term": "EXÉCRABLE",
+      "definition": "Détestable."
+    },
+    "EXÉCRATION": {
+      "term": "EXÉCRATION",
+      "definition": "Malédiction, forte haine."
+    },
+    "EXHALER": {
+      "term": "EXHALER",
+      "definition": "Répandre une odeur."
+    },
+    "EXHORTER": {
+      "term": "EXHORTER",
+      "definition": "Encourager."
+    },
+    "EXORCISTE": {
+      "term": "EXORCISTE",
+      "definition": "Celui qui chasse les démons."
+    },
+    "EXPIATION": {
+      "term": "EXPIATION",
+      "definition": "Châtiment qui permet de se racheter."
+    },
+    "EXPIER": {
+      "term": "EXPIER",
+      "definition": "Subir un supplice légal à cause d'une faute."
+    },
+    "EXTASE": {
+      "term": "EXTASE",
+      "definition": "(2 Cor 5:13) État où l'esprit est ravi dans des visions extraordinaires."
+    },
+    "EXTIRPER": {
+      "term": "EXTIRPER",
+      "definition": "Ôter."
+    },
+    "EXTORSION": {
+      "term": "EXTORSION",
+      "definition": "Action d'obtenir quelque chose par la contrainte ou la violence."
+    },
+    "FABLE": {
+      "term": "FABLE",
+      "definition": "Histoire inventée."
+    },
+    "FÂCHEUX": {
+      "term": "FÂCHEUX",
+      "definition": "Pénible, contraignant, désagréable."
+    },
+    "FAINÉANT": {
+      "term": "FAINÉANT",
+      "definition": "Paresseux."
+    },
+    "FAISCEAU": {
+      "term": "FAISCEAU",
+      "definition": "Assemblage de choses liées ensemble."
+    },
+    "FAÎTE": {
+      "term": "FAÎTE",
+      "definition": "Sommet."
+    },
+    "FALSIFIER": {
+      "term": "FALSIFIER",
+      "definition": "Fausser volontairement pour tromper."
+    },
+    "FANFARON": {
+      "term": "FANFARON",
+      "definition": "Prétentieux."
+    },
+    "FANGE": {
+      "term": "FANGE",
+      "definition": "Boue."
+    },
+    "FANON": {
+      "term": "FANON",
+      "definition": "Morceau d'étoffe qui pend de chaque côté d'un couvre-chef."
+    },
+    "FANTASSIN": {
+      "term": "FANTASSIN",
+      "definition": "Soldat qui combat à pied."
+    },
+    "FAONNER": {
+      "term": "FAONNER",
+      "definition": "Allaiter son petit en parlant d'une bête fauve."
+    },
+    "FARDEAU": {
+      "term": "FARDEAU",
+      "definition": "Chose pesante."
+    },
+    "FAROUCHE": {
+      "term": "FAROUCHE",
+      "definition": "Sauvage."
+    },
+    "FEINDRE": {
+      "term": "FEINDRE",
+      "definition": "Faire sembler, imiter."
+    },
+    "FEINTE": {
+      "term": "FEINTE",
+      "definition": "Action d'esquiver ou d'imiter."
+    },
+    "FENAISON": {
+      "term": "FENAISON",
+      "definition": "Couper et récolter les foins."
+    },
+    "FERVENT": {
+      "term": "FERVENT",
+      "definition": "Ardent, passionné."
+    },
+    "FERVEUR": {
+      "term": "FERVEUR",
+      "definition": "Ardents sentiments religieux."
+    },
+    "FÉTIDE": {
+      "term": "FÉTIDE",
+      "definition": "Qui sent mauvais."
+    },
+    "FÉTU": {
+      "term": "FÉTU",
+      "definition": "Brin (de paille)."
+    },
+    "FIEL": {
+      "term": "FIEL",
+      "definition": "Amertume."
+    },
+    "FIENTE": {
+      "term": "FIENTE",
+      "definition": "Excrément."
+    },
+    "FINESSE": {
+      "term": "FINESSE",
+      "definition": "(2 Cor 12:16) Ruse."
+    },
+    "FIOLE": {
+      "term": "FIOLE",
+      "definition": "Petite bouteille de verre ou de terre."
+    },
+    "FIRMAMENT": {
+      "term": "FIRMAMENT",
+      "definition": "Le ciel, la voûte céleste."
+    },
+    "FLÉAU": {
+      "term": "FLÉAU",
+      "definition": "Fouet pour battre les blés, ou, calamité, grande catastrophe."
+    },
+    "FLÉCHIR": {
+      "term": "FLÉCHIR",
+      "definition": "Faire plier, courber."
+    },
+    "FLÉTRIR": {
+      "term": "FLÉTRIR",
+      "definition": "Marquer d'un fer rouge, déshonorer."
+    },
+    "FOI": {
+      "term": "FOI",
+      "definition": "Confiance, croyance ferme."
+    },
+    "FONTE": {
+      "term": "FONTE",
+      "definition": "Alliage de fer."
+    },
+    "FOR": {
+      "term": "FOR",
+      "definition": "For intérieur : conscience."
+    },
+    "FORFAIT": {
+      "term": "FORFAIT",
+      "definition": "Crime, grande faute."
+    },
+    "FORUM": {
+      "term": "FORUM",
+      "definition": "Place publique."
+    },
+    "FOSSOYEUR": {
+      "term": "FOSSOYEUR",
+      "definition": "Celui qui creuse les fosses du cimetière."
+    },
+    "FOUIR": {
+      "term": "FOUIR",
+      "definition": "(Luc 6:48) Creuser."
+    },
+    "FOULER": {
+      "term": "FOULER",
+      "definition": "Presser, mais aussi, piétiner."
+    },
+    "FOULON": {
+      "term": "FOULON",
+      "definition": "Ouvrier qui prépare le cuir, les tissus pour les assouplir."
+    },
+    "FOURBE": {
+      "term": "FOURBE",
+      "definition": "Trompeur, menteur."
+    },
+    "FOURBIR": {
+      "term": "FOURBIR",
+      "definition": "Nettoyer, astiquer."
+    },
+    "FOURCHÉ": {
+      "term": "FOURCHÉ",
+      "definition": "Divisé en forme de fourche."
+    },
+    "FOURNAISE": {
+      "term": "FOURNAISE",
+      "definition": "Grand four où brûle un feu violent."
+    },
+    "FOURNEAU": {
+      "term": "FOURNEAU",
+      "definition": "Four en cuve."
+    },
+    "FOURREAU": {
+      "term": "FOURREAU",
+      "definition": "Étui, gaine."
+    },
+    "FRACTION": {
+      "term": "FRACTION",
+      "definition": "Fraction du pain : expression qui désigne la Sainte Cène, le partage du pain en mémoire du sacrifice de Jésus sur la croix. (voir cène)."
+    },
+    "FRAUDE": {
+      "term": "FRAUDE",
+      "definition": "Action faite avec mauvaise foi pour tromper."
+    },
+    "FRAYER": {
+      "term": "FRAYER",
+      "definition": "Tracer un passage."
+    },
+    "FRICHE": {
+      "term": "FRICHE",
+      "definition": "Terre non cultivée."
+    },
+    "FRIMAS": {
+      "term": "FRIMAS",
+      "definition": "Froid."
+    },
+    "FRIVOLE": {
+      "term": "FRIVOLE",
+      "definition": "Futile, superficiel."
+    },
+    "FROMENT": {
+      "term": "FROMENT",
+      "definition": "Grains de blé."
+    },
+    "FRONTEAU": {
+      "term": "FRONTEAU",
+      "definition": "Bande de toile sur un vêtement religieux."
+    },
+    "FRUSTRER": {
+      "term": "FRUSTRER",
+      "definition": "Priver quelqu'un d'un avantage auquel il avait droit."
+    },
+    "FUNESTE": {
+      "term": "FUNESTE",
+      "definition": "Qui provoque la mort."
+    },
+    "FURIBOND": {
+      "term": "FURIBOND",
+      "definition": "Furieux."
+    },
+    "FURIE": {
+      "term": "FURIE",
+      "definition": "Passion furieuse."
+    },
+    "FURTIVEMENT": {
+      "term": "FURTIVEMENT",
+      "definition": "En cachette."
+    },
+    "FUSEAU": {
+      "term": "FUSEAU",
+      "definition": "Outil pour enrouler le fil."
+    },
+    "FUTILE": {
+      "term": "FUTILE",
+      "definition": "Insignifiant, vain."
+    },
+    "GAGE": {
+      "term": "GAGE",
+      "definition": "Dépôt de garantie."
+    },
+    "GALE": {
+      "term": "GALE",
+      "definition": "Maladie contagieuse de la peau qui crée de graves démangeaisons."
+    },
+    "GARANTIR": {
+      "term": "GARANTIR",
+      "definition": "Se garantir : se protéger."
+    },
+    "GARNISON": {
+      "term": "GARNISON",
+      "definition": "Troupe armée pour protéger un endroit."
+    },
+    "GARROTTER": {
+      "term": "GARROTTER",
+      "definition": "Lier solidement."
+    },
+    "GÉHENNE": {
+      "term": "GÉHENNE",
+      "definition": "Enfer, lieu de souffrances éternelles."
+    },
+    "GÉNÉALOGIE": {
+      "term": "GÉNÉALOGIE",
+      "definition": "Liste des ancêtres familiaux."
+    },
+    "GENTILS": {
+      "term": "GENTILS",
+      "definition": "Tous les peuples qui sont non-Juifs."
+    },
+    "GEÔLIER": {
+      "term": "GEÔLIER",
+      "definition": "Gardien de la prison."
+    },
+    "GERBOISE": {
+      "term": "GERBOISE",
+      "definition": "Petit animal rongeur."
+    },
+    "GERCE": {
+      "term": "GERCE",
+      "definition": "Teigne qui ronge les tissus, le papier."
+    },
+    "GIBECIÈRE": {
+      "term": "GIBECIÈRE",
+      "definition": "Bourse portée à la ceinture."
+    },
+    "GIBET": {
+      "term": "GIBET",
+      "definition": "Potence pour exécuter les condamnés."
+    },
+    "GIRON": {
+      "term": "GIRON",
+      "definition": "Partie du vêtement replié entre la ceinture et les genoux quand on est assis."
+    },
+    "GLANER": {
+      "term": "GLANER",
+      "definition": "Ramasser les épis laissés après la moisson."
+    },
+    "GLANURE": {
+      "term": "GLANURE",
+      "definition": "Ce qui est glané."
+    },
+    "GONORRHÉE": {
+      "term": "GONORRHÉE",
+      "definition": "Maladie qui affecte le sperme."
+    },
+    "GOPHER": {
+      "term": "GOPHER",
+      "definition": "Bois de cèdre, ou de sapin, qui a servi à construire l'Arche (coffre sacré) du culte juif."
+    },
+    "GRABAT": {
+      "term": "GRABAT",
+      "definition": "Lit misérable."
+    },
+    "GRABATAIRE": {
+      "term": "GRABATAIRE",
+      "definition": "Malade qui ne quitte pas un lit."
+    },
+    "GRENU": {
+      "term": "GRENU",
+      "definition": "Riche en grains."
+    },
+    "GRISER": {
+      "term": "GRISER",
+      "definition": "Mettre dans un état d'ivresse."
+    },
+    "GRONDEMENT": {
+      "term": "GRONDEMENT",
+      "definition": "Son menaçant et sourd."
+    },
+    "GRONDER": {
+      "term": "GRONDER",
+      "definition": "Émettre un son sourd, ou, réprimander."
+    },
+    "GUET": {
+      "term": "GUET",
+      "definition": "Celui qui monte la garde."
+    },
+    "GUET-APENS": {
+      "term": "GUET-APENS",
+      "definition": "Piège préparé à l'avance pour attaquer quelqu'un."
+    },
+    "HAGAB": {
+      "term": "HAGAB",
+      "definition": "Sorte de sauterelles comestibles."
+    },
+    "HAILLONS": {
+      "term": "HAILLONS",
+      "definition": "Vêtements misérables."
+    },
+    "HÂLE": {
+      "term": "HÂLE",
+      "definition": "Action du soleil qui brunît la chair ou les tissus."
+    },
+    "HARANGUER": {
+      "term": "HARANGUER",
+      "definition": "Prononcer un discours devant une foule."
+    },
+    "HARCELER": {
+      "term": "HARCELER",
+      "definition": "Tourmenter par de nombreuses attaques."
+    },
+    "HARDES": {
+      "term": "HARDES",
+      "definition": "Habits de peu de valeur."
+    },
+    "HARDIESSE": {
+      "term": "HARDIESSE",
+      "definition": "Courage."
+    },
+    "HARDIMENT": {
+      "term": "HARDIMENT",
+      "definition": "Courageusement."
+    },
+    "HÂTE": {
+      "term": "HÂTE",
+      "definition": "Hâte, se hâter : se dépêcher."
+    },
+    "HAUTAIN": {
+      "term": "HAUTAIN",
+      "definition": "Qui se montre supérieur aux autres."
+    },
+    "HÉBREU": {
+      "term": "HÉBREU",
+      "definition": "Membre d'un peuple sémite. Synonyme de Juif, appellation qui apparaît après l'Exode des hébreux hors d'Égypte."
+    },
+    "HÉRAUT": {
+      "term": "HÉRAUT",
+      "definition": "Annonciateur, messager."
+    },
+    "HÉRÉSIE": {
+      "term": "HÉRÉSIE",
+      "definition": "Doctrine religieuse qui s'écarte de la vérité."
+    },
+    "HÉRÉTIQUE": {
+      "term": "HÉRÉTIQUE",
+      "definition": "Celui qui professe cette fausse doctrine."
+    },
+    "HÉRISSER": {
+      "term": "HÉRISSER",
+      "definition": "Garnir avec des pointes."
+    },
+    "HEURTER": {
+      "term": "HEURTER",
+      "definition": "Frapper (à une porte par exemple)."
+    },
+    "HIN": {
+      "term": "HIN",
+      "definition": "Mesure d'environ 6 litres."
+    },
+    "HOCHER": {
+      "term": "HOCHER",
+      "definition": "Secouer la tête de haut en bas (en signe de tristesse ou de mépris ou d'accord)."
+    },
+    "HOCHEMENT": {
+      "term": "HOCHEMENT",
+      "definition": "Secouer la tête de haut en bas (en signe de tristesse ou de mépris ou d'accord)."
+    },
+    "HOLOCAUSTE": {
+      "term": "HOLOCAUSTE",
+      "definition": "Sacrifice fait à Dieu où l'offrande est entièrement consumée par le feu. Signifie par extension : sacrifice total."
+    },
+    "HOMER": {
+      "term": "HOMER",
+      "definition": "Mesure d'environ 220 litres."
+    },
+    "HORDE": {
+      "term": "HORDE",
+      "definition": "Troupe sauvage."
+    },
+    "HOSANNA": {
+      "term": "HOSANNA",
+      "definition": "Expression hébraïque signifie : « sauve par grâce », acclamation religieuse chez les Juifs."
+    },
+    "HOSPITALIER": {
+      "term": "HOSPITALIER",
+      "definition": "Action charitable de celui qui héberge, prend soin et nourrit un étranger ou quelqu'un sans domicile."
+    },
+    "HOSTILE": {
+      "term": "HOSTILE",
+      "definition": "Ennemi, opposé."
+    },
+    "HÔTE": {
+      "term": "HÔTE",
+      "definition": "Celui qui accueille chez lui, mais aussi celui qui est accueilli."
+    },
+    "HOULETTE": {
+      "term": "HOULETTE",
+      "definition": "Bâton de berger avec une extrémité plate pour jeter de la terre aux animaux qui s'écartent du troupeau."
+    },
+    "HOYAU": {
+      "term": "HOYAU",
+      "definition": "Petite houe."
+    },
+    "HUCHE": {
+      "term": "HUCHE",
+      "definition": "Grand coffre en bois."
+    },
+    "HUIS": {
+      "term": "HUIS",
+      "definition": "Porte, tout type d'ouverture dans une construction."
+    },
+    "HUISSIER": {
+      "term": "HUISSIER",
+      "definition": "Celui qui veille sur les portes."
+    },
+    "HUMBLE": {
+      "term": "HUMBLE",
+      "definition": "Celui qui est de condition sociale inférieure, ou, celui qui s'abaisse devant les autres pour les servir, par modestie ou par charité."
+    },
+    "HUMER": {
+      "term": "HUMER",
+      "definition": "Sentir."
+    },
+    "HUPPE": {
+      "term": "HUPPE",
+      "definition": "Coq des champs."
+    },
+    "HYDROPIQUE": {
+      "term": "HYDROPIQUE",
+      "definition": "Malade victime d'œdèmes."
+    },
+    "HYMNE": {
+      "term": "HYMNE",
+      "definition": "Cantique solennel."
+    },
+    "HYSOPE": {
+      "term": "HYSOPE",
+      "definition": "Petit arbuste à fines branches."
+    },
+    "IDOLÂTRE": {
+      "term": "IDOLÂTRE",
+      "definition": "Qui adore des faux dieux."
+    },
+    "IDOLE": {
+      "term": "IDOLE",
+      "definition": "Faux dieu."
+    },
+    "IGNOMINIE": {
+      "term": "IGNOMINIE",
+      "definition": "Situation d'une personne avilie par un comportement infamant."
+    },
+    "ILLICITE": {
+      "term": "ILLICITE",
+      "definition": "Illégal, interdit."
+    },
+    "IMMOLER": {
+      "term": "IMMOLER",
+      "definition": "Offrir en sacrifice."
+    },
+    "IMMONDE": {
+      "term": "IMMONDE",
+      "definition": "Détestable."
+    },
+    "IMMORTALITÉ": {
+      "term": "IMMORTALITÉ",
+      "definition": "Qui vit sans fin, non sujet à la mort."
+    },
+    "IMMUTABILITÉ": {
+      "term": "IMMUTABILITÉ",
+      "definition": "Qui ne peut être modifié, changé."
+    },
+    "IMPÉNITENT": {
+      "term": "IMPÉNITENT",
+      "definition": "Celui qui ne se repend pas."
+    },
+    "IMPÉNITENCE": {
+      "term": "IMPÉNITENCE",
+      "definition": "Action de pas demander pardon."
+    },
+    "IMPÉTUEUX": {
+      "term": "IMPÉTUEUX",
+      "definition": "Dont le mouvement est violent et rapide."
+    },
+    "IMPIE": {
+      "term": "IMPIE",
+      "definition": "Sans piété, sans respect pour les choses divines."
+    },
+    "IMPIÉTÉ": {
+      "term": "IMPIÉTÉ",
+      "definition": "Sans piété, sans respect pour les choses divines."
+    },
+    "IMPLACABLE": {
+      "term": "IMPLACABLE",
+      "definition": "Qui ne peut être attendri."
+    },
+    "IMPLORER": {
+      "term": "IMPLORER",
+      "definition": "Supplier."
+    },
+    "IMPORTUNER": {
+      "term": "IMPORTUNER",
+      "definition": "Déranger."
+    },
+    "IMPOSTEUR": {
+      "term": "IMPOSTEUR",
+      "definition": "Qui se fait passer pour un autre."
+    },
+    "IMPOSTURE": {
+      "term": "IMPOSTURE",
+      "definition": "Tromperie sur sa vraie identité."
+    },
+    "IMPOTENT": {
+      "term": "IMPOTENT",
+      "definition": "Invalide."
+    },
+    "IMPRÉCATION": {
+      "term": "IMPRÉCATION",
+      "definition": "Malédiction, juron."
+    },
+    "IMPUDENT": {
+      "term": "IMPUDENT",
+      "definition": "Insolent, sans respect."
+    },
+    "IMPUDICITÉ": {
+      "term": "IMPUDICITÉ",
+      "definition": "Acte sans pudeur, immoralité sexuelle."
+    },
+    "IMPUDIQUE": {
+      "term": "IMPUDIQUE",
+      "definition": "Acte sans pudeur, immoralité sexuelle."
+    },
+    "IMPUNÉMENT": {
+      "term": "IMPUNÉMENT",
+      "definition": "Sans être puni."
+    },
+    "IMPUTER": {
+      "term": "IMPUTER",
+      "definition": "Imputer à justice : rendre responsable, compter comme avantage."
+    },
+    "INADVERTANCE": {
+      "term": "INADVERTANCE",
+      "definition": "Manque d'attention."
+    },
+    "INALTÉRABLE": {
+      "term": "INALTÉRABLE",
+      "definition": "Qui ne peut être détruit."
+    },
+    "INANITION": {
+      "term": "INANITION",
+      "definition": "Immobilité provoquée par une faiblesse extrême."
+    },
+    "INCANTATION": {
+      "term": "INCANTATION",
+      "definition": "Formule magique pour envoyer des sortilèges."
+    },
+    "INCIRCONCIS": {
+      "term": "INCIRCONCIS",
+      "definition": "Homme qui a conservé son prépuce naturel. (voir prépuce et circoncision)."
+    },
+    "INCLINATION": {
+      "term": "INCLINATION",
+      "definition": "Tendance, penchant."
+    },
+    "INCONDUITE": {
+      "term": "INCONDUITE",
+      "definition": "Attitude immorale."
+    },
+    "INCONSIDÉRÉ": {
+      "term": "INCONSIDÉRÉ",
+      "definition": "Qui manque de sagesse."
+    },
+    "INCONSTANT": {
+      "term": "INCONSTANT",
+      "definition": "Qui ne persévère pas."
+    },
+    "INCONTINENCE": {
+      "term": "INCONTINENCE",
+      "definition": "Impossibilité à maîtriser ses désirs sexuels."
+    },
+    "INCONTINENT": {
+      "term": "INCONTINENT",
+      "definition": "Adverbe de temps signifiant : immédiatement, aussitôt."
+    },
+    "INCORRUPTIBLE": {
+      "term": "INCORRUPTIBLE",
+      "definition": "Qualité de ce qui ne peut pas être détruit, ni souillé, ni abimé."
+    },
+    "INCRÉDULE": {
+      "term": "INCRÉDULE",
+      "definition": "Qui ne croit pas."
+    },
+    "INCRÉDULITÉ": {
+      "term": "INCRÉDULITÉ",
+      "definition": "Absence de foi religieuse."
+    },
+    "INCULQUER": {
+      "term": "INCULQUER",
+      "definition": "Enseigner avec insistance."
+    },
+    "INCULTE": {
+      "term": "INCULTE",
+      "definition": "• . (pour une personne) sans éducation.\n\n• . (pour une terre) qui n'a pas été cultivé."
+    },
+    "INDIGENCE": {
+      "term": "INDIGENCE",
+      "definition": "Pauvreté extrême."
+    },
+    "INDIGÈNE": {
+      "term": "INDIGÈNE",
+      "definition": "Habitant originaire d'une région donnée."
+    },
+    "INDOLENCE": {
+      "term": "INDOLENCE",
+      "definition": "Nonchalance, mollesse, qui refuse tout effort."
+    },
+    "INDUIRE": {
+      "term": "INDUIRE",
+      "definition": "Inciter."
+    },
+    "INÉBRANLABLE": {
+      "term": "INÉBRANLABLE",
+      "definition": "Qui ne peut être abattu."
+    },
+    "INEFFABLE": {
+      "term": "INEFFABLE",
+      "definition": "Que l'on ne peut pas raconter."
+    },
+    "INEXORABLE": {
+      "term": "INEXORABLE",
+      "definition": "Que rien ne peut attendrir."
+    },
+    "INFÂME": {
+      "term": "INFÂME",
+      "definition": "Ignoble."
+    },
+    "INFÂMIE": {
+      "term": "INFÂMIE",
+      "definition": "Action répugnante."
+    },
+    "INFORTUNE": {
+      "term": "INFORTUNE",
+      "definition": "Malchance, malheur."
+    },
+    "INFRUCTUEUX": {
+      "term": "INFRUCTUEUX",
+      "definition": "Qui ne produit pas de fruit."
+    },
+    "INGÉRER": {
+      "term": "INGÉRER",
+      "definition": "S'ingérer : intervenir abusivement."
+    },
+    "INHUMATION": {
+      "term": "INHUMATION",
+      "definition": "Enterrement."
+    },
+    "INIMITIÉ": {
+      "term": "INIMITIÉ",
+      "definition": "Haine, sentiment d'aversion."
+    },
+    "INIQUE": {
+      "term": "INIQUE",
+      "definition": "Contraire à la justice, absence de justice."
+    },
+    "INIQUITÉ": {
+      "term": "INIQUITÉ",
+      "definition": "Contraire à la justice, absence de justice."
+    },
+    "INOPINÉMENT": {
+      "term": "INOPINÉMENT",
+      "definition": "De façon imprévue."
+    },
+    "INSATIABLE": {
+      "term": "INSATIABLE",
+      "definition": "Qui ne peut jamais être rassasié, satisfait."
+    },
+    "INSENSÉ": {
+      "term": "INSENSÉ",
+      "definition": "Qui manque de sagesse, de raison."
+    },
+    "INSTAMMENT": {
+      "term": "INSTAMMENT",
+      "definition": "Avec insistance."
+    },
+    "INSTANCE": {
+      "term": "INSTANCE",
+      "definition": "Prière insistante."
+    },
+    "INSTITUER": {
+      "term": "INSTITUER",
+      "definition": "Fonder une loi, établir une chose officielle."
+    },
+    "INTEMPÉRANCE": {
+      "term": "INTEMPÉRANCE",
+      "definition": "Impossibilité de trouver un juste équilibre, de se modérer."
+    },
+    "INTERCÉDER": {
+      "term": "INTERCÉDER",
+      "definition": "Intervenir en faveur de quelqu'un."
+    },
+    "INVOQUER": {
+      "term": "INVOQUER",
+      "definition": "• . Implorer par la prière.\n\n• . Citer un témoignage."
+    },
+    "IOTA": {
+      "term": "IOTA",
+      "definition": "La lettre i de l'alphabet grec."
+    },
+    "IRASCIBLE": {
+      "term": "IRASCIBLE",
+      "definition": "Qui se met facilement en colère."
+    },
+    "ISRAÉLITE": {
+      "term": "ISRAÉLITE",
+      "definition": "Qui appartient à la nation d'Israël, ou qui appartient à la religion judaïque."
+    },
+    "IVRAIE": {
+      "term": "IVRAIE",
+      "definition": "Mauvaise herbe."
+    },
+    "JABOT": {
+      "term": "JABOT",
+      "definition": "Dilatation de la gorge chez certains animaux. Par extension, linge décoratif des chemises."
+    },
+    "JACHÈRE": {
+      "term": "JACHÈRE",
+      "definition": "État d'une terre laissée sans culture."
+    },
+    "JACTANCE": {
+      "term": "JACTANCE",
+      "definition": "Bavardage arrogant."
+    },
+    "JADIS": {
+      "term": "JADIS",
+      "definition": "Il y a longtemps, autrefois."
+    },
+    "JARRE": {
+      "term": "JARRE",
+      "definition": "Grand récipient en terre cuite."
+    },
+    "JASPE": {
+      "term": "JASPE",
+      "definition": "Pierre précieuse de quartz colorée en vert, rouge, brun ou noir."
+    },
+    "JEÛNE": {
+      "term": "JEÛNE",
+      "definition": "Privation volontaire de nourriture."
+    },
+    "JOINTURE": {
+      "term": "JOINTURE",
+      "definition": "Articulation du corps humain."
+    },
+    "JOUG": {
+      "term": "JOUG",
+      "definition": "Pièce de bois placé sur le cou d'un animal pour le maîtriser. Par extension, tout type de contrainte, de domination."
+    },
+    "JUBILÉ": {
+      "term": "JUBILÉ",
+      "definition": "Fête solennelle juive qui se déroule tous les 50 ans et au cours de laquelle on efface les dettes."
+    },
+    "JUDAÏQUE": {
+      "term": "JUDAÏQUE",
+      "definition": "Tout ce qui concerne les coutumes religieuses des Juifs, selon la Loi de Moïse. (Voir prosélyte)."
+    },
+    "JUDAÏSER": {
+      "term": "JUDAÏSER",
+      "definition": "Adopter tout ce qui concerne les coutumes religieuses des Juifs, selon la Loi de Moïse.(Voir prosélyte)."
+    },
+    "JUSTIFICATION": {
+      "term": "JUSTIFICATION",
+      "definition": "Action de rendre conforme à la justice, d'innocenter."
+    },
+    "KAB": {
+      "term": "KAB",
+      "definition": "Unité de mesure, qui contenait 24 coques d'œufs."
+    },
+    "KESITA": {
+      "term": "KESITA",
+      "definition": "Monnaie d'une valeur probable d'une mine d'argent (500 g) à l'effigie d'un agneau."
+    },
+    "LABEUR": {
+      "term": "LABEUR",
+      "definition": "Dur travail."
+    },
+    "LANGUEUR": {
+      "term": "LANGUEUR",
+      "definition": "Faiblesse, sans vitalité."
+    },
+    "LAPIDER": {
+      "term": "LAPIDER",
+      "definition": "Tuer à coups de pierre."
+    },
+    "LARRON": {
+      "term": "LARRON",
+      "definition": "Voleur."
+    },
+    "LAS": {
+      "term": "LAS",
+      "definition": "Fatigué."
+    },
+    "LASSER": {
+      "term": "LASSER",
+      "definition": "Se lasser : se fatiguer."
+    },
+    "LÉGION": {
+      "term": "LÉGION",
+      "definition": "Dans l'Antiquité, armée romaine de 6000 hommes."
+    },
+    "LÉGISLATEUR": {
+      "term": "LÉGISLATEUR",
+      "definition": "Celui qui fait les lois."
+    },
+    "LÉSER": {
+      "term": "LÉSER",
+      "definition": "Priver quelqu'un d'une chose par avarice."
+    },
+    "LÉSINERIE": {
+      "term": "LÉSINERIE",
+      "definition": "Priver quelqu'un d'une chose par avarice."
+    },
+    "LÉTHEC": {
+      "term": "LÉTHEC",
+      "definition": "Mesure de capacité."
+    },
+    "LÉVIRAT": {
+      "term": "LÉVIRAT",
+      "definition": "Pratique de la Loi mosaïque : si un homme meurt sans héritier, son frère plus jeune est obligé d'épouser la veuve pour donner une descendance au défunt."
+    },
+    "LÉVITE": {
+      "term": "LÉVITE",
+      "definition": "Membre de la tribu de Lévi, chargé du culte divin."
+    },
+    "LIBATION": {
+      "term": "LIBATION",
+      "definition": "Dans les religions antiques, répandre un liquide en offrande aux dieux."
+    },
+    "LIBÉRALITÉ": {
+      "term": "LIBÉRALITÉ",
+      "definition": "Attitude à se montrer généreux."
+    },
+    "LICE": {
+      "term": "LICE",
+      "definition": "Terrain entourée de haies où se déroulaient les compétitions athlétiques."
+    },
+    "LICTEUR": {
+      "term": "LICTEUR",
+      "definition": "Magistrat dans l'administration romaine chargés d'exécuter les sentences."
+    },
+    "LIGUER": {
+      "term": "LIGUER",
+      "definition": "Se liguer : former une association (en vue de faire une guerre)."
+    },
+    "LINCEUL": {
+      "term": "LINCEUL",
+      "definition": "Toile dans laquelle on enterre un mort."
+    },
+    "LINTEAU": {
+      "term": "LINTEAU",
+      "definition": "Traverse horizontale de bois, de métal ou de pierre qui soutient la maçonnerie placée au-dessus d'une ouverture."
+    },
+    "LOG": {
+      "term": "LOG",
+      "definition": "Mesure de poids : petit récipient pouvant contenir 6 œufs."
+    },
+    "LOMBES": {
+      "term": "LOMBES",
+      "definition": "Parties dorsales au-dessous de la nuque."
+    },
+    "LONGANIMITÉ": {
+      "term": "LONGANIMITÉ",
+      "definition": "Patience avec laquelle on supporte les chagrins, l'adversité, ou les offenses d'autrui."
+    },
+    "LOYAUTÉ": {
+      "term": "LOYAUTÉ",
+      "definition": "Fidélité à quelqu'un ou à quelque chose."
+    },
+    "LUBRICITÉ": {
+      "term": "LUBRICITÉ",
+      "definition": "Goût immodéré des plaisirs sexuels."
+    },
+    "LUMIGNON": {
+      "term": "LUMIGNON",
+      "definition": "Bout de chandelle."
+    },
+    "LUNATIQUE": {
+      "term": "LUNATIQUE",
+      "definition": "Personne de caractère changeant, versatile. Sorte de maladie qu'on associait avec les effets de la Lune."
+    },
+    "LUTH": {
+      "term": "LUTH",
+      "definition": "Instrument à cordes."
+    },
+    "LUXURE": {
+      "term": "LUXURE",
+      "definition": "Pratique des plaisirs sexuels."
+    },
+    "LYRE": {
+      "term": "LYRE",
+      "definition": "Instrument à cordes."
+    },
+    "MACHINATION": {
+      "term": "MACHINATION",
+      "definition": "Piège fait de ruses déloyales."
+    },
+    "MAGE": {
+      "term": "MAGE",
+      "definition": "Magicien, ou sage de l'Antiquité."
+    },
+    "MAGICIEN": {
+      "term": "MAGICIEN",
+      "definition": "Personne qui possède un pouvoir occulte."
+    },
+    "MAGIE": {
+      "term": "MAGIE",
+      "definition": "Pratique occulte, pleine de mystères qui procure des pouvoirs étranges."
+    },
+    "MAGNANIME": {
+      "term": "MAGNANIME",
+      "definition": "Qui pardonne généreusement."
+    },
+    "MAGNIFICENCE": {
+      "term": "MAGNIFICENCE",
+      "definition": "Splendeur grandiose."
+    },
+    "MAGNIFIER": {
+      "term": "MAGNIFIER",
+      "definition": "Célébrer avec force, embellir."
+    },
+    "MALIN": {
+      "term": "MALIN",
+      "definition": "Celui qui est rusé (pour faire du mal). Désigne aussi : Satan, le diable (voir ces mots)."
+    },
+    "MALIGNITÉ": {
+      "term": "MALIGNITÉ",
+      "definition": "Caractère malveillant, méchant, qui prend plaisir à faire du mal."
+    },
+    "MALSÉANT": {
+      "term": "MALSÉANT",
+      "definition": "Qui n'est pas convenable."
+    },
+    "MALVEILLANT": {
+      "term": "MALVEILLANT",
+      "definition": "Celui qui est mal disposé envers autrui."
+    },
+    "MAMELLE": {
+      "term": "MAMELLE",
+      "definition": "Sein, ou, poitrine (aussi bien de l'homme que de la femme)."
+    },
+    "MANDER": {
+      "term": "MANDER",
+      "definition": "Faire venir quelqu'un, convoquer."
+    },
+    "MANNE": {
+      "term": "MANNE",
+      "definition": "Nourriture miraculeuse donnée aux Juifs dans le désert (Livre de l'Exode)."
+    },
+    "MARANATHA": {
+      "term": "MARANATHA",
+      "definition": "Littéralement en hébreu : « le Seigneur Vient », ou « que le Seigneur vienne »,\n\nformule prononcée par les Juifs contre ceux qui devaient être punis de mort selon la Loi de Moïse. Pour éviter de les lapider, on les excluait de la communauté par cette formule, qui appelait sur eux la vengeance divine."
+    },
+    "MARCHEPIED": {
+      "term": "MARCHEPIED",
+      "definition": "Escabeau d'un trône pour y poser ses pieds."
+    },
+    "MARRI": {
+      "term": "MARRI",
+      "definition": "Contrit, triste et honteux."
+    },
+    "MARTYR": {
+      "term": "MARTYR",
+      "definition": "Victime tuée pour sa foi."
+    },
+    "MAUDIRE": {
+      "term": "MAUDIRE",
+      "definition": "Souhaiter la mort ou le malheur de quelqu'un, exprimer sa haine contre lui."
+    },
+    "MAUDIT": {
+      "term": "MAUDIT",
+      "definition": "Celui qui est condamné, rejeté et donc privé de toute possibilité de bonheur."
+    },
+    "MAUSOLÉE": {
+      "term": "MAUSOLÉE",
+      "definition": "Grand monument funéraire."
+    },
+    "MAXIME": {
+      "term": "MAXIME",
+      "definition": "Pensée philosophique."
+    },
+    "MÉDIATEUR": {
+      "term": "MÉDIATEUR",
+      "definition": "Celui qui se place entre deux personnes. En justice, il est entre le tribunal et l'accusé, pour trouver un équilibre entre les parties."
+    },
+    "MÉDIRE": {
+      "term": "MÉDIRE",
+      "definition": "Dire du mal de quelqu'un."
+    },
+    "MÉDISANCE": {
+      "term": "MÉDISANCE",
+      "definition": "Dire du mal de quelqu'un."
+    },
+    "MÉGARDE": {
+      "term": "MÉGARDE",
+      "definition": "Erreur, imprudence, inattention."
+    },
+    "MERCENAIRE": {
+      "term": "MERCENAIRE",
+      "definition": "Soldat (ou ouvrier) qui n'agit que pour de l'argent."
+    },
+    "MESSIE": {
+      "term": "MESSIE",
+      "definition": "En hébreu « oint »,\n\ncelui qui est choisi et envoyé par Dieu."
+    },
+    "MILLE": {
+      "term": "MILLE",
+      "definition": "Distance de 1000 pas, soit environ 1485 m."
+    },
+    "MINE": {
+      "term": "MINE",
+      "definition": "Poids d'environ 500 g."
+    },
+    "MIRACLE": {
+      "term": "MIRACLE",
+      "definition": "Fait extraordinaire qui ne s'explique que par l'action de Dieu."
+    },
+    "MISÉRICORDE": {
+      "term": "MISÉRICORDE",
+      "definition": "Sentiment de grande pitié qui pousse à aider ou à pardonner."
+    },
+    "MITRE": {
+      "term": "MITRE",
+      "definition": "Sorte de bonnet, coiffure des prêtres de l'Antiquité, perses et romains."
+    },
+    "MOLOC": {
+      "term": "MOLOC",
+      "definition": "Idole des peuple moabites et ammonites."
+    },
+    "MORIBOND": {
+      "term": "MORIBOND",
+      "definition": "Personne à l'agonie."
+    },
+    "MORTIFIER": {
+      "term": "MORTIFIER",
+      "definition": "Purifier par des privations, des souffrances humiliantes."
+    },
+    "MYRIADE": {
+      "term": "MYRIADE",
+      "definition": "Très grand nombre, milliers de milliers."
+    },
+    "MYRRHE": {
+      "term": "MYRRHE",
+      "definition": "Gomme résine extraite d'arbres pour produire du parfum."
+    },
+    "MYRTE": {
+      "term": "MYRTE",
+      "definition": "Arbuste méditerranéen, symbole de gloire et d'amour dans l'Antiquité."
+    },
+    "NACRE": {
+      "term": "NACRE",
+      "definition": "Substance décorative extraite des coquillages."
+    },
+    "NACELLE": {
+      "term": "NACELLE",
+      "definition": "Barque ou petite embarcation."
+    },
+    "NAGUÈRE": {
+      "term": "NAGUÈRE",
+      "definition": "Autrefois."
+    },
+    "NAZARÉEN": {
+      "term": "NAZARÉEN",
+      "definition": "De la ville de Nazareth."
+    },
+    "NAZIRÉAT": {
+      "term": "NAZIRÉAT",
+      "definition": "Homme consacré à Dieu dès sa naissance."
+    },
+    "NÉCROMANCIEN": {
+      "term": "NÉCROMANCIEN",
+      "definition": "Magicien qui consulte les morts pour prédire l'avenir."
+    },
+    "NIELLE": {
+      "term": "NIELLE",
+      "definition": "Mauvaise herbe à fleurs dans les champs de céréales."
+    },
+    "NITRE": {
+      "term": "NITRE",
+      "definition": "Salpêtre, qui sert à faire la poudre explosive."
+    },
+    "NOIRCIR": {
+      "term": "NOIRCIR",
+      "definition": "Noircir quelqu'un (1 Pi 4:14) : médire et critiquer, diffamer."
+    },
+    "NONCHALANT": {
+      "term": "NONCHALANT",
+      "definition": "Celui qui est sans énergie, ou sans intérêt pour son activité."
+    },
+    "NOTOIRE": {
+      "term": "NOTOIRE",
+      "definition": "Publiquement reconnu."
+    },
+    "NOUVEL-HOMME": {
+      "term": "NOUVEL-HOMME",
+      "definition": "(Col 3:10) : expression de l'Apôtre Paul en relation avec l'exemple parfait de Jésus-Christ (voir son contraire : vieil homme)."
+    },
+    "OBLATION": {
+      "term": "OBLATION",
+      "definition": "Offrande faite à Dieu."
+    },
+    "OBOLE": {
+      "term": "OBOLE",
+      "definition": "Monnaie de peu de valeur, 20 oboles faisant un drachme."
+    },
+    "OFFENSE": {
+      "term": "OFFENSE",
+      "definition": "Péché, acte coupable devant Dieu."
+    },
+    "OINDRE": {
+      "term": "OINDRE",
+      "definition": "Appliquer de l'huile sainte en geste de bénédiction."
+    },
+    "OINT": {
+      "term": "OINT",
+      "definition": "Celui qui reçoit l'onction, ou « qui est choisi par Dieu »."
+    },
+    "OISIF": {
+      "term": "OISIF",
+      "definition": "Qui a choisi de ne pas travailler, sans activité."
+    },
+    "OMÉGA": {
+      "term": "OMÉGA",
+      "definition": "La dernière lettre de l'alphabet grec."
+    },
+    "OMER": {
+      "term": "OMER",
+      "definition": "Mesure de capacité."
+    },
+    "ONAGRE": {
+      "term": "ONAGRE",
+      "definition": "Sorte de grand mulet, d'âne."
+    },
+    "ONCTION": {
+      "term": "ONCTION",
+      "definition": "Action de répandre de l'huile sainte, signifie aussi recevoir une grâce divine particulière."
+    },
+    "ONYX": {
+      "term": "ONYX",
+      "definition": "Pierre précieuse de quartz avec des variations de couleurs."
+    },
+    "OPINIÂTRE": {
+      "term": "OPINIÂTRE",
+      "definition": "Obstiné."
+    },
+    "OPPORTUN": {
+      "term": "OPPORTUN",
+      "definition": "Approprié, qui convient bien aux circonstances."
+    },
+    "OPPROBRE": {
+      "term": "OPPROBRE",
+      "definition": "Honte extrême, corruption morale."
+    },
+    "OPULENCE": {
+      "term": "OPULENCE",
+      "definition": "Abondante richesse, pleine de luxe."
+    },
+    "ORACLE": {
+      "term": "ORACLE",
+      "definition": "Parole divine, prédiction, prophétie."
+    },
+    "ORAISON": {
+      "term": "ORAISON",
+      "definition": "Prière intérieure."
+    },
+    "ORFRAIE": {
+      "term": "ORFRAIE",
+      "definition": "Genre d'aigle."
+    },
+    "ORGIES": {
+      "term": "ORGIES",
+      "definition": "Débauches sexuelles."
+    },
+    "ORIENT": {
+      "term": "ORIENT",
+      "definition": "L'ouest."
+    },
+    "OUÏR": {
+      "term": "OUÏR",
+      "definition": "Entendre, écouter."
+    },
+    "OURDIR": {
+      "term": "OURDIR",
+      "definition": "Au sens figuré, préparer un piège."
+    },
+    "OUTRAGER": {
+      "term": "OUTRAGER",
+      "definition": "Infliger une grave offense à quelqu'un."
+    },
+    "OUTRE": {
+      "term": "OUTRE",
+      "definition": "Gourde en peau."
+    },
+    "OUTRÉ": {
+      "term": "OUTRÉ",
+      "definition": "Fortement indigné."
+    },
+    "PACAGE": {
+      "term": "PACAGE",
+      "definition": "Pâturages pour faire paître les troupeaux."
+    },
+    "PACIFIQUE": {
+      "term": "PACIFIQUE",
+      "definition": "De nature paisible, qui contribue à la paix."
+    },
+    "PACTE": {
+      "term": "PACTE",
+      "definition": "Contrat, alliance solennelle."
+    },
+    "PAÏEN": {
+      "term": "PAÏEN",
+      "definition": "Qui n'honore pas Dieu, qui pratique des cultes idolâtres."
+    },
+    "PAÎTRE": {
+      "term": "PAÎTRE",
+      "definition": "Conduire et prendre soin des troupeaux."
+    },
+    "PAMPRE": {
+      "term": "PAMPRE",
+      "definition": "Rameau de la vigne."
+    },
+    "PANETIER": {
+      "term": "PANETIER",
+      "definition": "Officier chargé de la table du roi."
+    },
+    "PANSER": {
+      "term": "PANSER",
+      "definition": "Soigner des blessures avec des pansements."
+    },
+    "PÂQUE": {
+      "term": "PÂQUE",
+      "definition": "Fête religieuse Juive, qui se fait en souvenir du jour où le peuple hébreu a été délivré de la servitude en Égypte (Livre de l'Exode)."
+    },
+    "PARABOLE": {
+      "term": "PARABOLE",
+      "definition": "Petite histoire imaginée pour faire comprendre une vérité spirituelle."
+    },
+    "PARADIS": {
+      "term": "PARADIS",
+      "definition": "Lieu céleste où Dieu réside avec les Saints et les Anges."
+    },
+    "PARJURE": {
+      "term": "PARJURE",
+      "definition": "Faux serment."
+    },
+    "PARJURER": {
+      "term": "PARJURER",
+      "definition": "Se parjurer : faire un faux témoignage."
+    },
+    "PARTIALITÉ": {
+      "term": "PARTIALITÉ",
+      "definition": "Sentiment injuste qui favorise une partie plutôt qu'une autre dans un jugement."
+    },
+    "PARVIS": {
+      "term": "PARVIS",
+      "definition": "La cour d'entrée d'un bâtiment."
+    },
+    "PASCAL": {
+      "term": "PASCAL",
+      "definition": "Qui est en rapport avec la Pâque. (Voir ce mot)."
+    },
+    "PASTEUR": {
+      "term": "PASTEUR",
+      "definition": "Berger, celui qui est chargé de veiller sur un troupeau (soit de bétail, ou par extension sur une communauté chrétienne)."
+    },
+    "PATRIARCHES": {
+      "term": "PATRIARCHES",
+      "definition": "Les plus anciens ancêtres du peuple Hébreu."
+    },
+    "PAVILLON": {
+      "term": "PAVILLON",
+      "definition": "Tente."
+    },
+    "PÉCHÉ": {
+      "term": "PÉCHÉ",
+      "definition": "Faute, égarement, action injuste ou immorale qui appelle la condamnation de Dieu."
+    },
+    "PÉCHÉ-CONTRE-NATURE": {
+      "term": "PÉCHÉ-CONTRE-NATURE",
+      "definition": "Acte sexuel immoral (homosexualité, sodomie)."
+    },
+    "PÉDAGOGUE": {
+      "term": "PÉDAGOGUE",
+      "definition": "Enseignant, professeur, ou maître d'école."
+    },
+    "PÈLERINAGE": {
+      "term": "PÈLERINAGE",
+      "definition": "Voyage religieux vers un lieu sacré."
+    },
+    "PENTECÔTE": {
+      "term": "PENTECÔTE",
+      "definition": "en Grec signifie « cinquante »\n\n : nom d'une Fête Juive qui a lieu 50 jours après Pâque."
+    },
+    "PERCLUS": {
+      "term": "PERCLUS",
+      "definition": "Paralysé."
+    },
+    "PERFIDIE": {
+      "term": "PERFIDIE",
+      "definition": "Tromperie, traîtrise."
+    },
+    "PERNICIEUX": {
+      "term": "PERNICIEUX",
+      "definition": "Dangereux pour la santé."
+    },
+    "PERPÉTUEL": {
+      "term": "PERPÉTUEL",
+      "definition": "Éternel, pour toujours."
+    },
+    "PERPLEXITÉ": {
+      "term": "PERPLEXITÉ",
+      "definition": "État de celui qui est indécis, qui ne sait pas choisir."
+    },
+    "PERVERS": {
+      "term": "PERVERS",
+      "definition": "Celui qui prend plaisir à enfreindre la morale, à commettre des choses interdites."
+    },
+    "PHARISIEN": {
+      "term": "PHARISIEN",
+      "definition": "Membre d'une secte Juive, qui observe rigoureusement toutes les règles de la Loi de Moïse."
+    },
+    "PHYLACTÈRE": {
+      "term": "PHYLACTÈRE",
+      "definition": "Morceau de parchemin où sont écrits des textes sacrés et que l'on porte sur soi, par religiosité ou pour être protégé."
+    },
+    "PIÉTÉ": {
+      "term": "PIÉTÉ",
+      "definition": "Attitude de ferveur religieuse, d'amour pour les choses de Dieu."
+    },
+    "PITIÉ": {
+      "term": "PITIÉ",
+      "definition": "Sentiment de tristesse et d'amour que l'on éprouve face au malheur d'autrui."
+    },
+    "PITOYABLE": {
+      "term": "PITOYABLE",
+      "definition": "Le premier sens est : qui éprouve de la pitié. Parfois, signifie aussi le contraire : misérable."
+    },
+    "PLÉIADES": {
+      "term": "PLÉIADES",
+      "definition": "Constellation céleste, dans l'astronomie de l'Antiquité."
+    },
+    "PLÉNITUDE": {
+      "term": "PLÉNITUDE",
+      "definition": "Caractère de ce qui est complètement plein."
+    },
+    "PLOYER": {
+      "term": "PLOYER",
+      "definition": "(Luc 4:20) Plier sous le poids."
+    },
+    "POMPE": {
+      "term": "POMPE",
+      "definition": "En grande pompe : grande cérémonie luxueuse."
+    },
+    "PORPHYRE": {
+      "term": "PORPHYRE",
+      "definition": "Roche comportant de multiples cristaux."
+    },
+    "POSSÉDÉ": {
+      "term": "POSSÉDÉ",
+      "definition": "Personne victime d'un esprit impur qui habite en lui et qui le domine."
+    },
+    "POSTÉRITÉ": {
+      "term": "POSTÉRITÉ",
+      "definition": "Descendance de père en fils."
+    },
+    "POUPE": {
+      "term": "POUPE",
+      "definition": "Arrière d'un navire."
+    },
+    "POURCEAU": {
+      "term": "POURCEAU",
+      "definition": "Porc."
+    },
+    "PRÊCHER": {
+      "term": "PRÊCHER",
+      "definition": "Enseigner des vérités religieuses."
+    },
+    "PRÉDESTINER": {
+      "term": "PRÉDESTINER",
+      "definition": "Vouer à l'avance."
+    },
+    "PRÉDICATEUR": {
+      "term": "PRÉDICATEUR",
+      "definition": "Celui qui prêche."
+    },
+    "PRÉDICTION": {
+      "term": "PRÉDICTION",
+      "definition": "Révélation d'une chose cachée comme l'avenir."
+    },
+    "PRÉFET": {
+      "term": "PRÉFET",
+      "definition": "Officier romain chargé de la justice."
+    },
+    "PRÉMICES": {
+      "term": "PRÉMICES",
+      "definition": "Le tout début d'une récolte, qu'on offrait aux dieux, ou à Dieu."
+    },
+    "PRÉPUCE": {
+      "term": "PRÉPUCE",
+      "definition": "Signe distinctif entre ceux qui sont non-circoncis (les Gentils) et ceux qui sont circoncis (les Juifs). Par extension, Prépuce désigne l'ensemble des Gentils, c'est-à-dire tout homme non Juif et Circoncision désigne l'ensemble des Juifs. (voir Circoncision)."
+    },
+    "PRÉROGATIVE": {
+      "term": "PRÉROGATIVE",
+      "definition": "Avantage, privilège dont on profite grâce à une circonstance particulière."
+    },
+    "PRÉSAGE": {
+      "term": "PRÉSAGE",
+      "definition": "Signe qui annonce l'avenir."
+    },
+    "PRÉSOMPTION": {
+      "term": "PRÉSOMPTION",
+      "definition": "Peut signifier : orgueil, et aussi, réflexion fondée sur les circonstances."
+    },
+    "PRÉSOMPTUEUX": {
+      "term": "PRÉSOMPTUEUX",
+      "definition": "Celui qui est orgueilleux de soi-même."
+    },
+    "PRÉTOIRE": {
+      "term": "PRÉTOIRE",
+      "definition": "Chez les Romains, salle d'audience du tribunal."
+    },
+    "PRÊTRE": {
+      "term": "PRÊTRE",
+      "definition": "Personne chargé du culte religieux."
+    },
+    "PRÉVARICATEUR": {
+      "term": "PRÉVARICATEUR",
+      "definition": "Celui qui manque aux devoirs de sa charge, ou de son ministère, en commettant une lourde faute."
+    },
+    "PROBITÉ": {
+      "term": "PROBITÉ",
+      "definition": "Droiture, intégrité, honnêteté."
+    },
+    "PROCONSUL": {
+      "term": "PROCONSUL",
+      "definition": "Chez les Romains, gouverneur d'une province."
+    },
+    "PRODIGE": {
+      "term": "PRODIGE",
+      "definition": "Phénomène extraordinaire qu'on ne peut expliquer, comme un miracle."
+    },
+    "PROFANE": {
+      "term": "PROFANE",
+      "definition": "Qui est en dehors des choses de la religion."
+    },
+    "PROFANER": {
+      "term": "PROFANER",
+      "definition": "Mépriser une chose sainte, ou souiller une chose sacrée."
+    },
+    "PROFÉRER": {
+      "term": "PROFÉRER",
+      "definition": "Déclarer à haute voix."
+    },
+    "PROFITER": {
+      "term": "PROFITER",
+      "definition": "Tirer avantage de quelque chose, ou, grandir en toute harmonie."
+    },
+    "PROMPT": {
+      "term": "PROMPT",
+      "definition": "Rapide à agir ou à réagir."
+    },
+    "PROMULGUER": {
+      "term": "PROMULGUER",
+      "definition": "Rendre officiel (une loi, une décision)."
+    },
+    "PROPHÈTE": {
+      "term": "PROPHÈTE",
+      "definition": "Celui qui parle pour Dieu, qui interprète la volonté de Dieu (prédit l'avenir, révèle des vérités cachées, etc)."
+    },
+    "PROPHÉTIE": {
+      "term": "PROPHÉTIE",
+      "definition": "Littéralement : interprétation divine, parole de Dieu, parler pour Dieu. Par extension, apporter une prédiction, une parole de sagesse, révéler un mystère."
+    },
+    "PROPICE": {
+      "term": "PROPICE",
+      "definition": "Favorable, bien disposé."
+    },
+    "PROPITIATION": {
+      "term": "PROPITIATION",
+      "definition": "Acte religieux destiné à justifier un coupable."
+    },
+    "PROPITIATOIRE": {
+      "term": "PROPITIATOIRE",
+      "definition": "Qui rend propice, c'est-à-dire qui justifie, qui rend digne."
+    },
+    "PROSÉLYTE": {
+      "term": "PROSÉLYTE",
+      "definition": "Païen récemment converti au Judaïsme."
+    },
+    "PROUE": {
+      "term": "PROUE",
+      "definition": "Avant d'un navire."
+    },
+    "PSALMODIER": {
+      "term": "PSALMODIER",
+      "definition": "Chanter des Psaumes, des cantiques."
+    },
+    "PSAUME": {
+      "term": "PSAUME",
+      "definition": "Cantique, poème chanté."
+    },
+    "PUBLICAIN": {
+      "term": "PUBLICAIN",
+      "definition": "Agent de l'administration chargé de percevoir les impôts."
+    },
+    "PUSILLANIME": {
+      "term": "PUSILLANIME",
+      "definition": "De caractère faible, craintif, fuyant les difficultés."
+    },
+    "PYTHON": {
+      "term": "PYTHON",
+      "definition": "Esprit de python : esprit impur qui révèle l'avenir."
+    },
+    "QUALITÉ": {
+      "term": "QUALITÉ",
+      "definition": "Qualité de : se dit d'une personne qui appartient à la haute société."
+    },
+    "QUENOUILLE": {
+      "term": "QUENOUILLE",
+      "definition": "Petit baton servant à filer la laine enroulée dessus."
+    },
+    "QUÉRIR": {
+      "term": "QUÉRIR",
+      "definition": "Chercher."
+    },
+    "QUITTER": {
+      "term": "QUITTER",
+      "definition": "(Luc 6:37) Acquitter, annuler une dette."
+    },
+    "RABBI": {
+      "term": "RABBI",
+      "definition": "Mot hébreu signifiant : Maître."
+    },
+    "RABBOUNI": {
+      "term": "RABBOUNI",
+      "definition": "Mot hébreu signifiant : Maître."
+    },
+    "RACA": {
+      "term": "RACA",
+      "definition": "Injure en langue syriaque, signifiant : homme vain (avec la notion de cracher)."
+    },
+    "RAILLER": {
+      "term": "RAILLER",
+      "definition": "Critiquer, se moquer, injure méprisante."
+    },
+    "RAPPAISER": {
+      "term": "RAPPAISER",
+      "definition": "Se rappaiser (Rom 1:31) : trouver la paix."
+    },
+    "RAPT": {
+      "term": "RAPT",
+      "definition": "Vol d'une personne."
+    },
+    "RASSIS": {
+      "term": "RASSIS",
+      "definition": "De sens rassi (2 Cor 5:13) : qui a un esprit réfléchi, raisonnable."
+    },
+    "RATIFIER": {
+      "term": "RATIFIER",
+      "definition": "(2 Cor 2:8) Confirmer publiquement un acte authentique."
+    },
+    "RAVI": {
+      "term": "RAVI",
+      "definition": "(2 Cor 12:4) Celui dont l'esprit est transporté au ciel pour y voir des choses merveilleuses."
+    },
+    "RAVISSEMENT": {
+      "term": "RAVISSEMENT",
+      "definition": "Ravissement d'esprit (Ac 10:10) : sorte d'extase, état spirituel qui procure une vision des choses célestes."
+    },
+    "REBUT": {
+      "term": "REBUT",
+      "definition": "Ce qui a été rejeté, bon à jeter."
+    },
+    "RECENSEMENT": {
+      "term": "RECENSEMENT",
+      "definition": "Procédure administrative pour compter les habitants d'une région."
+    },
+    "RÉCONCILIATION": {
+      "term": "RÉCONCILIATION",
+      "definition": "Action de rétablir une entente, un accord, une harmonie entre deux parties."
+    },
+    "RECOUVRER": {
+      "term": "RECOUVRER",
+      "definition": "Reprendre possession de quelque chose, ou percevoir un impôt."
+    },
+    "RÉCRÉER": {
+      "term": "RÉCRÉER",
+      "definition": "Se récréer : comme « récréation », c'est-à-dire, renouveler dans ses forces par le repos."
+    },
+    "RÉDEMPTEUR": {
+      "term": "RÉDEMPTEUR",
+      "definition": "Celui qui rachète les fautes du coupable."
+    },
+    "RÉDEMPTION": {
+      "term": "RÉDEMPTION",
+      "definition": "Rachat des fautes, salut offert dans la justice de Dieu."
+    },
+    "RÉDIGER": {
+      "term": "RÉDIGER",
+      "definition": "Écrire."
+    },
+    "RÉFUTER": {
+      "term": "RÉFUTER",
+      "definition": "Prouver la fausseté d'un discours, d'une action."
+    },
+    "RÉGÉNÉRATION": {
+      "term": "RÉGÉNÉRATION",
+      "definition": "Action de reconstruire quelque chose de détruit, purifier."
+    },
+    "REGIMBER": {
+      "term": "REGIMBER",
+      "definition": "Résister avec de nombreux mouvements, avec des ruades."
+    },
+    "REJETON": {
+      "term": "REJETON",
+      "definition": "Petite pousse sur un tronc. Signifie aussi petit enfant."
+    },
+    "RÉMISSION": {
+      "term": "RÉMISSION",
+      "definition": "Action de remettre les péchés, de les pardonner."
+    },
+    "RÉMUNÉRATEUR": {
+      "term": "RÉMUNÉRATEUR",
+      "definition": "Celui qui donne une récompense."
+    },
+    "REPAÎTRE": {
+      "term": "REPAÎTRE",
+      "definition": "Nourrir."
+    },
+    "REPENTANCE": {
+      "term": "REPENTANCE",
+      "definition": "Regret de ses fautes, s'engager à les abandonner."
+    },
+    "RÉPIT": {
+      "term": "RÉPIT",
+      "definition": "Délai. Temps de repos."
+    },
+    "RÉPRIMANDER": {
+      "term": "RÉPRIMANDER",
+      "definition": "Gronder, blâmer pour corriger."
+    },
+    "RÉPROUVER": {
+      "term": "RÉPROUVER",
+      "definition": "Rejeter par une condamnation."
+    },
+    "RÉPUDIER": {
+      "term": "RÉPUDIER",
+      "definition": "Rompre son mariage et renvoyer l'épouse."
+    },
+    "RÉSOLUTION": {
+      "term": "RÉSOLUTION",
+      "definition": "Solution, décision."
+    },
+    "RESTITUER": {
+      "term": "RESTITUER",
+      "definition": "Redonner un bien qui avait été supprimé injustement."
+    },
+    "RÉSURRECTION": {
+      "term": "RÉSURRECTION",
+      "definition": "Quitter l'état de mort et revenir à la vie."
+    },
+    "RETRANCHER": {
+      "term": "RETRANCHER",
+      "definition": "Couper, enlever."
+    },
+    "RÉTRIBUER": {
+      "term": "RÉTRIBUER",
+      "definition": "Payer un salaire."
+    },
+    "RETS": {
+      "term": "RETS",
+      "definition": "Filet, piège."
+    },
+    "RÉVOLU": {
+      "term": "RÉVOLU",
+      "definition": "Ancien, qui n'a plus cours."
+    },
+    "RICIN": {
+      "term": "RICIN",
+      "definition": "Arbuste à grandes feuilles."
+    },
+    "RIS": {
+      "term": "RIS",
+      "definition": "Rire."
+    },
+    "RISÉE": {
+      "term": "RISÉE",
+      "definition": "Moquerie."
+    },
+    "RIXE": {
+      "term": "RIXE",
+      "definition": "Violente dispute avec des coups."
+    },
+    "ROIDE": {
+      "term": "ROIDE",
+      "definition": "Raide."
+    },
+    "ROUVRE": {
+      "term": "ROUVRE",
+      "definition": "Petit chêne."
+    },
+    "RUBIS": {
+      "term": "RUBIS",
+      "definition": "Pierre précieuse rouge transparente."
+    },
+    "RUDOYER": {
+      "term": "RUDOYER",
+      "definition": "Traiter avec violence, avec dureté."
+    },
+    "SABBAT": {
+      "term": "SABBAT",
+      "definition": "Jour de samedi chez les Juifs, pendant lequel on ne doit faire aucune activité selon la Loi de Moïse."
+    },
+    "SACERDOCE": {
+      "term": "SACERDOCE",
+      "definition": "Magistrature religieuse réservée à ceux qui sont chargés de diriger le culte Juif."
+    },
+    "SACERDOTAL": {
+      "term": "SACERDOTAL",
+      "definition": "Tout ce qui est relation avec le culte Juif."
+    },
+    "SACRIFICATEUR": {
+      "term": "SACRIFICATEUR",
+      "definition": "Celui qui réalise les sacrifices dans le culte Juif."
+    },
+    "SACRIFICATURE": {
+      "term": "SACRIFICATURE",
+      "definition": "Magistrature qui se transmet de père en fils parmi les descendants de la Tribu de Lévi."
+    },
+    "SACRIFICE": {
+      "term": "SACRIFICE",
+      "definition": "Acte solennel pour demander le pardon de ses fautes en offrant un animal qui est tué. Par extension, toute action qui demande à Dieu le pardon de ses fautes : chant, prière, vœu, etc..."
+    },
+    "SACRILÈGE": {
+      "term": "SACRILÈGE",
+      "definition": "Acte qui déshonore Dieu, ou une chose sacrée."
+    },
+    "SADDUCÉEN": {
+      "term": "SADDUCÉEN",
+      "definition": "Membre d'une secte religieuse Juive qui refusait de croire en la résurrection des morts."
+    },
+    "SAINT": {
+      "term": "SAINT",
+      "definition": "Littéralement : qui est séparé du monde impur. Qui est pur selon Dieu. État de ce qui est conforme à la pureté de Dieu."
+    },
+    "SANCTIFICATION": {
+      "term": "SANCTIFICATION",
+      "definition": "Purifié et mise à part pour Dieu."
+    },
+    "SANCTIFIER": {
+      "term": "SANCTIFIER",
+      "definition": "Rendre saint."
+    },
+    "SANCTUAIRE": {
+      "term": "SANCTUAIRE",
+      "definition": "Lieu principal du culte divin, qui est un lieu purifié."
+    },
+    "SANHÉDRIN": {
+      "term": "SANHÉDRIN",
+      "definition": "Le gouvernement religieux des Juifs, à l'époque de Jésus."
+    },
+    "SAPHIR": {
+      "term": "SAPHIR",
+      "definition": "Pierre précieuse de couleur bleu transparent."
+    },
+    "SARCASME": {
+      "term": "SARCASME",
+      "definition": "Moquerie insultante ou ironique."
+    },
+    "SARDOINE": {
+      "term": "SARDOINE",
+      "definition": "Pierre précieuse de couleur brunâtre."
+    },
+    "SATAN": {
+      "term": "SATAN",
+      "definition": "En hébreu signifie : l'adversaire.\n\nC'est le nom donné au tentateur, ange déchu qui cherche à détruire les œuvres de Dieu."
+    },
+    "SATIÉTÉ": {
+      "term": "SATIÉTÉ",
+      "definition": "État de satisfaction générale, (comme celle de la faim apaisée après un bon repas)."
+    },
+    "SATRAPE": {
+      "term": "SATRAPE",
+      "definition": "Officier royal dans les empires perses, chargé de gouverner une province."
+    },
+    "SCANDALISER": {
+      "term": "SCANDALISER",
+      "definition": "Choquer fortement au point de décourager complètement."
+    },
+    "SCEAU": {
+      "term": "SCEAU",
+      "definition": "Cachet apposé pour signer un acte solennel. Cachet de cire pour fermer une lettre."
+    },
+    "SCELLER": {
+      "term": "SCELLER",
+      "definition": "Mettre un sceau pour authentifier quelque chose ou pour confirmer son appartenance à quelqu'un."
+    },
+    "SCEPTRE": {
+      "term": "SCEPTRE",
+      "definition": "Bâton symbolique du pouvoir royal."
+    },
+    "SCIEMMENT": {
+      "term": "SCIEMMENT",
+      "definition": "Volontairement, en le sachant, en toute connaissance de cause."
+    },
+    "SCORIE": {
+      "term": "SCORIE",
+      "definition": "Résidu impur du métal après la fusion."
+    },
+    "SCRIBE": {
+      "term": "SCRIBE",
+      "definition": "Chargé de copier les écrits. À l'époque de Jésus, chargé de l'enseignement religieux et de la prédication."
+    },
+    "SÉANT": {
+      "term": "SÉANT",
+      "definition": "Ce qui est convenable, digne de la bonne morale."
+    },
+    "SECOND-PREMIER": {
+      "term": "SECOND-PREMIER",
+      "definition": "(Luc 6:1) Jour de Sabbat après la fête de Pâque."
+    },
+    "SECTE": {
+      "term": "SECTE",
+      "definition": "Groupe religieux professant une doctrine à part."
+    },
+    "SÉDITIEUX": {
+      "term": "SÉDITIEUX",
+      "definition": "(2 Cor 12:20) Qui se révolte contre l'autorité publique."
+    },
+    "SEIGNEUR": {
+      "term": "SEIGNEUR",
+      "definition": "Dans l'Antiquité, homme noble ou puissant.\n\nEn hébreu « Adonaï » : nom donné à Dieu et à Jésus-Christ."
+    },
+    "SÉNEVÉ": {
+      "term": "SÉNEVÉ",
+      "definition": "Graine de moutarde sauvage."
+    },
+    "SENSIBLEMENT": {
+      "term": "SENSIBLEMENT",
+      "definition": "D'une façon qu'on peut sentir, c'est-à-dire, de façon évidente."
+    },
+    "SENTENCE": {
+      "term": "SENTENCE",
+      "definition": "Jugement rendu par un tribunal. Pensée philosophique."
+    },
+    "SENTINE": {
+      "term": "SENTINE",
+      "definition": "Endroit où les eaux descendent dans un navire. Signifie aussi lieu sale et humide."
+    },
+    "SEOIR": {
+      "term": "SEOIR",
+      "definition": "• . être assis.\n\n• . il sied, il convient, il est convenable."
+    },
+    "SEPTENTRION": {
+      "term": "SEPTENTRION",
+      "definition": "Dans l'antiquité, signifie le Nord."
+    },
+    "SEPTUPLE": {
+      "term": "SEPTUPLE",
+      "definition": "Multiplié sept fois."
+    },
+    "SÉPULCRE": {
+      "term": "SÉPULCRE",
+      "definition": "Tombeau."
+    },
+    "SÉPULTURE": {
+      "term": "SÉPULTURE",
+      "definition": "Tombe où est enseveli un mort. Signifie aussi, cérémonie funéraire."
+    },
+    "SÉQUESTRER": {
+      "term": "SÉQUESTRER",
+      "definition": "Enfermer et isoler."
+    },
+    "SÉRAIL": {
+      "term": "SÉRAIL",
+      "definition": "Palais du sultan perse. Lieu de résidence de femmes du roi."
+    },
+    "SÉRAPHIN": {
+      "term": "SÉRAPHIN",
+      "definition": "Ange supérieur dans la hiérarchie céleste."
+    },
+    "SÉRÉNITÉ": {
+      "term": "SÉRÉNITÉ",
+      "definition": "Profonde paix."
+    },
+    "SERF": {
+      "term": "SERF",
+      "definition": "Homme qui appartient à un seigneur. Signifie aussi servile."
+    },
+    "SERGENT": {
+      "term": "SERGENT",
+      "definition": "Chef militaire d'une petite troupe armée."
+    },
+    "SERMENT": {
+      "term": "SERMENT",
+      "definition": "Promesse solennelle."
+    },
+    "SÉVIR": {
+      "term": "SÉVIR",
+      "definition": "Devenir sévère."
+    },
+    "SICLE": {
+      "term": "SICLE",
+      "definition": "Unité de poids et de monnaie : équivalent à 20 oboles ou 4 drachmes."
+    },
+    "SIÈCLES": {
+      "term": "SIÈCLES",
+      "definition": "Siècles des siècles : expression hébraïque signifiant : à perpétuité, ou pour l'éternité."
+    },
+    "SIMILITUDE": {
+      "term": "SIMILITUDE",
+      "definition": "Signifie parabole, petite histoire imaginée pour faire comprendre une vérité spirituelle."
+    },
+    "SIMULACRE": {
+      "term": "SIMULACRE",
+      "definition": "Apparence de la réalité, illusion."
+    },
+    "SISTRE": {
+      "term": "SISTRE",
+      "definition": "Instrument de musique, sorte de hochet avec des cymbalettes."
+    },
+    "SIX-VINGTS": {
+      "term": "SIX-VINGTS",
+      "definition": "Six fois vingt, soit cent-vingt."
+    },
+    "SOLENNEL": {
+      "term": "SOLENNEL",
+      "definition": "Qui est réalisé avec une cérémonie, avec des formalités spéciales pour lui donner un caractère important."
+    },
+    "SOLLICITER": {
+      "term": "SOLLICITER",
+      "definition": "Demander avec beaucoup de respect."
+    },
+    "SOLLICITUDE": {
+      "term": "SOLLICITUDE",
+      "definition": "Attention affectueuse envers quelqu'un que l'on veut soigner ou honorer."
+    },
+    "SOMMER": {
+      "term": "SOMMER",
+      "definition": "Sommer quelqu'un : lui ordonner de façon solennelle."
+    },
+    "SORCELLERIE": {
+      "term": "SORCELLERIE",
+      "definition": "Pratiques secrètes des sorciers, des magiciens."
+    },
+    "SORTILÈGE": {
+      "term": "SORTILÈGE",
+      "definition": "Action secrète d'un sorcier faite dans un but particulier."
+    },
+    "SOUDOYER": {
+      "term": "SOUDOYER",
+      "definition": "Obtenir l'aide de quelqu'un en lui donnant de l'argent."
+    },
+    "SOUFFLET": {
+      "term": "SOUFFLET",
+      "definition": "Gifle."
+    },
+    "SOUFFLETER": {
+      "term": "SOUFFLETER",
+      "definition": "Gifler quelqu'un."
+    },
+    "SOUILLER": {
+      "term": "SOUILLER",
+      "definition": "Rendre sale, impur."
+    },
+    "SOUILLURE": {
+      "term": "SOUILLURE",
+      "definition": "Toute forme de salissure, d'impureté, physique ou morale."
+    },
+    "SOURNOISEMENT": {
+      "term": "SOURNOISEMENT",
+      "definition": "Par en-dessous, de façon rusée et traître."
+    },
+    "SPECTRE": {
+      "term": "SPECTRE",
+      "definition": "Fantôme."
+    },
+    "SPIRITUEL": {
+      "term": "SPIRITUEL",
+      "definition": "Qui est en rapport avec le Saint-Esprit, l'esprit de Dieu."
+    },
+    "SPOLIATEUR": {
+      "term": "SPOLIATEUR",
+      "definition": "Celui qui s'empare injustement du bien d'autrui."
+    },
+    "SPOLIER": {
+      "term": "SPOLIER",
+      "definition": "Voler quelqu'un en commettant un acte injuste ou violent."
+    },
+    "STADE": {
+      "term": "STADE",
+      "definition": "Arène sportive, mais aussi longueur de 185 m environ."
+    },
+    "STATÈRE": {
+      "term": "STATÈRE",
+      "definition": "Monnaie d'or ou d'argent (2 à 4 drachmes pour l'argent, 20 à 28 drachmes pour l'or) soit monnaie de grande valeur."
+    },
+    "STÈLE": {
+      "term": "STÈLE",
+      "definition": "Embase d'une statue, ou bloc de pierre où l'on gravait un texte officiel."
+    },
+    "STIGMATES": {
+      "term": "STIGMATES",
+      "definition": "Blessures."
+    },
+    "STOÏCIENS": {
+      "term": "STOÏCIENS",
+      "definition": "Philosophes grecs qui enseignaient une morale sévère."
+    },
+    "SUAIRE": {
+      "term": "SUAIRE",
+      "definition": "Linge pour s'essuyer. Sorte de mouchoir."
+    },
+    "SUPERFLUITÉ": {
+      "term": "SUPERFLUITÉ",
+      "definition": "Qui est en trop, superflu, qui n'est pas nécessaire."
+    },
+    "SUPPLÉER": {
+      "term": "SUPPLÉER",
+      "definition": "Remplacer."
+    },
+    "SUPPLICATION": {
+      "term": "SUPPLICATION",
+      "definition": "Prière faite avec insistance et humilité."
+    },
+    "SUPPUTER": {
+      "term": "SUPPUTER",
+      "definition": "Évaluer, calculer approximativement."
+    },
+    "SURCROÎT": {
+      "term": "SURCROÎT",
+      "definition": "Ce qui est ajouté."
+    },
+    "SURINTENDANT": {
+      "term": "SURINTENDANT",
+      "definition": "Officier chargé de surveiller les services de l'administration."
+    },
+    "SUS": {
+      "term": "SUS",
+      "definition": "Courir sus : pourchasser, poursuivre."
+    },
+    "SYNAGOGUE": {
+      "term": "SYNAGOGUE",
+      "definition": "Lieu de rassemblement dans le culte Juif, pour y lire la Loi et prêcher."
+    },
+    "TABERNACLE": {
+      "term": "TABERNACLE",
+      "definition": "Vient d'un mot latin qui signifie tente. Se rapporte à la construction en toile que les premiers juifs avaient dressé dans le désert pour leur culte. Par extension signifie lieu saint où Dieu habite."
+    },
+    "TÂCHER": {
+      "term": "TÂCHER",
+      "definition": "Essayer de."
+    },
+    "TAMARIS": {
+      "term": "TAMARIS",
+      "definition": "Petit arbrisseau d'Orient."
+    },
+    "TALENT": {
+      "term": "TALENT",
+      "definition": "Poids d'environ 35 Kg."
+    },
+    "TANCER": {
+      "term": "TANCER",
+      "definition": "Réprimander avec fermeté."
+    },
+    "TEIGNE": {
+      "term": "TEIGNE",
+      "definition": "Insectes comme la mite, ou, maladie parasitaire qui cause des infections de la peau."
+    },
+    "TÉMÉRAIRE": {
+      "term": "TÉMÉRAIRE",
+      "definition": "Courageux jusqu'à l'imprudence."
+    },
+    "TESTAMENT": {
+      "term": "TESTAMENT",
+      "definition": "Mot qui traduit l'hébreu « bérith : alliance », et le grec « diathêkê : convention ». Acte solennel de celui qui déclare ses volontés pour le jour de sa mort."
+    },
+    "TESTATEUR": {
+      "term": "TESTATEUR",
+      "definition": "Celui qui rédige un testament."
+    },
+    "TÉTRARQUE": {
+      "term": "TÉTRARQUE",
+      "definition": "Gouverneur romain qui commande quatre régions."
+    },
+    "THERAPHIM": {
+      "term": "THERAPHIM",
+      "definition": "Objet sacré qui permettait de deviner l'avenir, ou la volonté divine."
+    },
+    "THUMMIM": {
+      "term": "THUMMIM",
+      "definition": "Objet sacré qui permettait de deviner l'avenir, ou la volonté divine."
+    },
+    "TIARE": {
+      "term": "TIARE",
+      "definition": "Sorte de couronne."
+    },
+    "TIRER": {
+      "term": "TIRER",
+      "definition": "Tirer droit : terme de navigation signifiant, voguer droit vers un lieu."
+    },
+    "TOISON": {
+      "term": "TOISON",
+      "definition": "Peau animal. Par extension, chevelure abondante."
+    },
+    "TOPAZE": {
+      "term": "TOPAZE",
+      "definition": "Pierre précieuse très dure de couleur vert, orange, bleu, rouge."
+    },
+    "TORTUES": {
+      "term": "TORTUES",
+      "definition": "(Luc 3:5) qui n'est pas droit, tout tordu."
+    },
+    "TORTUEUX": {
+      "term": "TORTUEUX",
+      "definition": "Au sens figuré, se dit de celui qui a un esprit compliqué, ou plein de ruse."
+    },
+    "TRANSGRESSION": {
+      "term": "TRANSGRESSION",
+      "definition": "Action de passer outre, de franchir une limite interdite. Par extension, toute sorte de désobéissances, de péchés."
+    },
+    "TRESSAILLIR": {
+      "term": "TRESSAILLIR",
+      "definition": "Vibrer, frissonner d'émotion."
+    },
+    "TRIBU": {
+      "term": "TRIBU",
+      "definition": "Peuple formé de clans, de familles, dont la langue, les coutumes sont les mêmes."
+    },
+    "TRIBULATIONS": {
+      "term": "TRIBULATIONS",
+      "definition": "Aventures douloureuse à vivre, grandes épreuves."
+    },
+    "TRIBUN": {
+      "term": "TRIBUN",
+      "definition": "Magistrat romain chargé de défendre le peuple."
+    },
+    "TRIBUT": {
+      "term": "TRIBUT",
+      "definition": "Contribution en nature ou en argent que le vaincu doit donner à son vainqueur."
+    },
+    "TUMULTE": {
+      "term": "TUMULTE",
+      "definition": "Grande rumeur confuse, très bruyante."
+    },
+    "TUTEUR": {
+      "term": "TUTEUR",
+      "definition": "Celui qui est légalement chargé de gérer la vie et les affaires d'une personne déclarée irresponsable par la loi (enfant mineur par exemple)."
+    },
+    "TYRANNISER": {
+      "term": "TYRANNISER",
+      "definition": "Gouverner de manière autoritaire, sans respect des lois."
+    },
+    "USER": {
+      "term": "USER",
+      "definition": "Élimer à force d'utilisation, ou, utiliser."
+    },
+    "VAISSEAU": {
+      "term": "VAISSEAU",
+      "definition": "Navire, mais aussi en ancien français : tout type de récipients. Par extension peut signifier : le corps humain qui renferme l'âme."
+    },
+    "VAN": {
+      "term": "VAN",
+      "definition": "Panier agricole pour trier le blé, comme une fine passoire (voir Crible)."
+    },
+    "VANTERIE": {
+      "term": "VANTERIE",
+      "definition": "Action de celui qui se vante, qui se met en valeur avec vanité."
+    },
+    "VAQUER": {
+      "term": "VAQUER",
+      "definition": "S'occuper, se livrer à une occupation."
+    },
+    "VAUTRER": {
+      "term": "VAUTRER",
+      "definition": "Se vautrer : se coucher négligemment. Par extension, peut signifier : s'abandonner dans une situation immorale."
+    },
+    "VÉHÉMENCE": {
+      "term": "VÉHÉMENCE",
+      "definition": "Grande force, parfois violente, provoquée par des sentiments intenses."
+    },
+    "VÉRACITÉ": {
+      "term": "VÉRACITÉ",
+      "definition": "Qualité de celui qui dit la vérité."
+    },
+    "VERMILLON": {
+      "term": "VERMILLON",
+      "definition": "De couleur rouge vif, rouge orangé."
+    },
+    "VERTU": {
+      "term": "VERTU",
+      "definition": "Peut signifier : grande qualité morale, mais aussi force surnaturelle divine."
+    },
+    "VERTUEUX": {
+      "term": "VERTUEUX",
+      "definition": "Celui qui est plein de qualités morales."
+    },
+    "VESTIBULE": {
+      "term": "VESTIBULE",
+      "definition": "Pièce d'entrée d'un bâtiment."
+    },
+    "VICE": {
+      "term": "VICE",
+      "definition": "Défaut, ou plus encore, penchant à faire ce qui est mal."
+    },
+    "VICIEUX": {
+      "term": "VICIEUX",
+      "definition": "Celui qui aime pratiquer le péché."
+    },
+    "VIEIL-HOMME": {
+      "term": "VIEIL-HOMME",
+      "definition": "(Col 3:9) Expression de l'Apôtre Paul en relation avec la nature pécheresse de l'homme charnel (voir son contraire : nouvel homme)."
+    },
+    "VIGUEUR": {
+      "term": "VIGUEUR",
+      "definition": "Fermeté énergique."
+    },
+    "VIGOUREUX": {
+      "term": "VIGOUREUX",
+      "definition": "Celui qui est plein de force et de santé."
+    },
+    "VIL": {
+      "term": "VIL",
+      "definition": "Méprisable, sans valeur."
+    },
+    "VINDICATIF": {
+      "term": "VINDICATIF",
+      "definition": "Qui veut se venger violemment."
+    },
+    "VIVIFIER": {
+      "term": "VIVIFIER",
+      "definition": "Redonner la vie."
+    },
+    "VOCATION": {
+      "term": "VOCATION",
+      "definition": "Appel intérieur à la vie religieuse, ou, disposition spéciale pour accomplir quelque chose."
+    },
+    "VOLTE-FACE": {
+      "term": "VOLTE-FACE",
+      "definition": "Demi-tour."
+    },
+    "VOLUPTÉ": {
+      "term": "VOLUPTÉ",
+      "definition": "Intense plaisir, souvent en rapport avec le plaisir des sens."
+    },
+    "VOYANT": {
+      "term": "VOYANT",
+      "definition": "Celui qui est sujet à des visions surnaturelles, ou qui prédit l'avenir."
+    },
+    "ZÉLATEUR": {
+      "term": "ZÉLATEUR",
+      "definition": "Synonyme de Zélote."
+    },
+    "ZÈLE": {
+      "term": "ZÈLE",
+      "definition": "Empressement à faire quelque chose."
+    },
+    "ZÉLOTE": {
+      "term": "ZÉLOTE",
+      "definition": "Juif membre d'une armée populaire qui combattait contre l'occupation romaine de la Judée."
+    },
+    "ZODIAQUE": {
+      "term": "ZODIAQUE",
+      "definition": "Construction astronomique dans laquelle les astres et les étoiles de la voûte céleste trouvent une place ou jouent un rôle particulier."
+    }
+  }
+}
