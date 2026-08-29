@@ -11,7 +11,13 @@ Conversion des 66 livres de la Bible (version BYM, en français) du format Markd
 ```bash
 python md_to_json.py                      # convertit bym_md/ -> bym_json/
 python md_to_json.py <source> <dest>      # dossiers personnalisés
+python generate_manifest.py --apply       # génère manifest.json (voir PUBLISH_Bym.md)
+python publish_bym.py --notes "corr Ge 1:1"  # publie MàJ BYM sur GitHub (bym-text)
 ```
+
+> **MàJ BYM via GitHub :** toute correction de texte suit `../PUBLISH_Bym.md` (doc canonique).
+> Source = `bym_md/` → `md_to_json.py` → `generate_manifest.py` → `publish_bym.py` → repo `victordiaz1000/bym-text`.
+> Ne jamais éditer `bym_json/` à la main. Phrase déclencheuse : `envoie sur GitHub` / `publie la MàJ BYM`.
 
 Python 3.12, aucune dépendance externe (stdlib uniquement).
 

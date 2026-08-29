@@ -2,6 +2,10 @@
 .claude/
 .deep-copilot/
 
+# Réglages d'éditeur, propres à cette machine.
+.idea/
+.vscode/
+
 # Sorties régénérables des convertisseurs. `python md_to_json.py` reconstruit
 # `appCodebar/bym_json/` depuis `appCodebar/bym_md/`, et `python sg1910_to_json.py`
 # reconstruit `appCodebar/sg1910_json/` depuis `Sg1910-csv/`. Dans chaque cas les
