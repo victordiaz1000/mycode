@@ -34,7 +34,6 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  google_fonts: ^6.2.1
   http: ^1.2.0
   dio: ^5.7.0
   path_provider: ^2.1.4
@@ -42,6 +41,8 @@ dependencies:
   provider: ^6.1.2
   sqflite: ^2.4.1
   path: ^1.9.0
+  share_plus: ^13.3.0
+  image_picker: ^1.2.3
 
 dev_dependencies:
   flutter_test:
@@ -71,7 +72,10 @@ flutter:
     - assets/bible/lsgs/
     - assets/lexicon/
     - assets/themes/
-    - assets/brand/
+    # `assets/fonts/` n'est PAS listé ici : la section `fonts:` plus bas embarque
+    # déjà ces fichiers. Le dossier n'y figurait que pour que google_fonts les
+    # retrouve dans le manifest d'assets — dépendance supprimée, l'application
+    # nomme désormais ses familles directement.
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -103,3 +107,82 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
+        - asset: assets/fonts/Lato-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Lato-Italic.ttf
+          style: italic
+    - family: Lora
+      fonts:
+        - asset: assets/fonts/Lora.ttf
+        - asset: assets/fonts/Lora-Italic.ttf
+          style: italic
+    - family: Plus Jakarta Sans
+      # Deux fichiers variables suffisent : leur axe `wght` couvre 200 à 800,
+      # donc toute la gamme que `premiumText` demande (w300 à w800), et Flutter
+      # actionne bien cet axe depuis `TextStyle.fontWeight` — vérifié en
+      # mesurant les deux montages côte à côte : les douze coupes statiques et
+      # ces deux fichiers rendent la même largeur au centième de pixel, poids
+      # par poids, romain comme italique. Pas de graissage synthétique, et
+      # ~600 Ko de moins dans l'archive.
+      #
+      # Le romain n'a pas de `weight:` : l'instance par défaut du fichier
+      # variable EST le 400 (il n'existe pas de « PlusJakartaSans-Regular.ttf »,
+      # d'où l'échec de google_fonts, cf. `kUiFontFamily`).
+      fonts:
+        - asset: assets/fonts/PlusJakartaSans.ttf
+        - asset: assets/fonts/PlusJakartaSans-Italic.ttf
+          style: italic
+    - family: EB Garamond
+      fonts:
+        - asset: assets/fonts/EBGaramond.ttf
+        - asset: assets/fonts/EBGaramondItalic.ttf
+          style: italic
+    - family: Crimson Pro
+      fonts:
+        - asset: assets/fonts/CrimsonPro.ttf
+        - asset: assets/fonts/CrimsonProItalic.ttf
+          style: italic
+    - family: Noto Serif
+      fonts:
+        - asset: assets/fonts/NotoSerif.ttf
+        - asset: assets/fonts/NotoSerifItalic.ttf
+          style: italic
+    - family: Literata
+      fonts:
+        - asset: assets/fonts/Literata.ttf
+        - asset: assets/fonts/Literata-Italic.ttf
+          style: italic
+    - family: Spectral
+      fonts:
+        - asset: assets/fonts/Spectral-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Spectral-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/Spectral-Regular.ttf
+        - asset: assets/fonts/Spectral-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Spectral-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Spectral-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+    - family: Alegreya
+      fonts:
+        - asset: assets/fonts/Alegreya.ttf
+        - asset: assets/fonts/Alegreya-Italic.ttf
+          style: italic
+    - family: Gentium Plus
+      fonts:
+        - asset: assets/fonts/GentiumPlus-Regular.ttf
+        - asset: assets/fonts/GentiumPlus-Italic.ttf
+          style: italic
+        - asset: assets/fonts/GentiumPlus-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/GentiumPlus-BoldItalic.ttf
+          weight: 700
+          style: italic
