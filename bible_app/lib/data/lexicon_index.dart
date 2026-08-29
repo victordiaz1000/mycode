@@ -70,6 +70,12 @@ class LexiconIndex {
     _building = null;
   }
 
+  /// Every entry, alphabetical, for the index screen.
+  Future<List<DictionaryEntry>> all() async {
+    await ensureIndexed();
+    return _entries;
+  }
+
   /// Builds the index once, returning when it is ready.
   Future<void> ensureIndexed() {
     if (_built) return Future.value();
