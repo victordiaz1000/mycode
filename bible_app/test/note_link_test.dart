@@ -42,6 +42,18 @@ void main() {
   /// The reader renders notes inside a lazy ListView, so the note card can sit
   /// below the viewport: bring it into view first or the tap lands off-screen.
   Future<void> tapReference(WidgetTester tester, String needle) async {
+    // The reader renders notes inside a lazy ListView, so the note card can sit
+    // below the viewport: bring it into view first or the tap lands off-screen.
+    // The book header (metadata + introduction) is tall, so on the small default
+    // surface even verse 1's card is beyond the cache extent: drag the list.
+    await tester.dragUntilVisible(
+      noteRichText(),
+      find.descendant(
+        of: find.byType(ChapterReader),
+        matching: find.byType(ListView),
+      ),
+      const Offset(0, -200),
+    );
     await tester.ensureVisible(noteRichText());
     await tester.pumpAndSettle();
     final paragraph =
