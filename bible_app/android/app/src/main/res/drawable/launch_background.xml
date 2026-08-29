@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Modify this file to customize your launch splash screen -->
+<!-- Écran de démarrage pour Android 11 et avant. ATTENTION : ce fichier ne sert
+     que sur Android 4.x — `drawable-v21/launch_background.xml` le remplace dès
+     Android 5. Les deux doivent donc rester identiques, sinon on corrige un
+     fichier qui ne s'affiche sur aucun appareil réel. -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@android:color/white" />
+    <item android:drawable="@color/splash_background" />
 
     <item>
         <bitmap

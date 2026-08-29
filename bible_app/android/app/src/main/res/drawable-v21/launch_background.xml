@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Modify this file to customize your launch splash screen -->
+<!-- Écran de démarrage pour Android 5 à 11. C'est CE fichier qui s'affiche sur
+     la quasi-totalité des appareils antérieurs à Android 12 (le qualificatif
+     `-v21` prime sur `drawable/`) : il doit rester identique à son homologue
+     sans qualificatif. Sur Android 12 et après, ni l'un ni l'autre ne sert —
+     voir `windowSplashScreenBackground` dans `values/styles.xml`. -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@android:color/black" />
+    <item android:drawable="@color/splash_background" />
 
     <item>
         <bitmap

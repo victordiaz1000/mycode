@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fond de l'écran de démarrage. La marque de `splash_logo` est blanche,
+         donc ce fond doit rester sombre : c'est la même combinaison que
+         l'icône de lanceur (`ic_launcher_background` + foreground blanc).
+
+         Cette couleur est utilisée par les DEUX mécanismes de démarrage, qui ne
+         se recouvrent pas :
+           - `drawable/launch_background.xml` et `drawable-v21/` pour Android 11
+             et avant (via `android:windowBackground`) ;
+           - `android:windowSplashScreenBackground` pour Android 12 et après.
+         Les tenir sur la même valeur est ce qui évite un rendu différent selon
+         l'âge de l'appareil. -->
+    <color name="splash_background">#000000</color>
+</resources>

@@ -5,7 +5,18 @@
         <!-- Show a splash screen on the activity. Automatically removed when
              the Flutter engine draws its first frame -->
         <item name="android:windowBackground">@drawable/launch_background</item>
-        <item name="android:windowSplashScreenBackground">@android:color/white</item>
+        <!-- Les deux attributs suivants ne valent que sur Android 12+ (API 31),
+             où le système ignore `windowBackground` au démarrage. Ils restent
+             dans `values/` et non dans un `values-v31/` à dessein : le
+             qualificatif `night` prime sur `v31` dans l'ordre de résolution des
+             ressources, donc un `values-v31/` serait supplanté par
+             `values-night/` en thème sombre et l'écran de démarrage d'Android 12
+             perdrait sa configuration. Les versions antérieures ignorent
+             simplement les attributs qu'elles ne connaissent pas. -->
+        <item name="android:windowSplashScreenBackground">@color/splash_background</item>
+        <!-- Android 12+ masque cette icône en cercle : la marque doit tenir dans
+             le disque central des deux tiers. `appCodebar/generate_splash.py`
+             borne sa diagonale à 60 % du canevas pour cette raison. -->
         <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
     </style>
     <!-- Theme applied to the Android Window as soon as the process has started.
