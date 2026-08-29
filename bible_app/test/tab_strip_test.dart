@@ -83,4 +83,76 @@ void main() {
 
     expect(find.byIcon(Icons.push_pin), findsOneWidget);
   });
+
+  testWidgets('tab width follows the title, capped at 116', (tester) async {
+    final m = TabManager();
+    m.openHome(); // long title « Nouvel onglet »
+
+    Rect chipRect() => tester.getRect(find
+        .ancestor(
+          of: find.byIcon(Icons.close),
+          matching: find.byWidgetPredicate((w) =>
+              w is Container &&
+              w.constraints == const BoxConstraints(maxWidth: 116)),
+        )
+        .first);
+
+    // The reader shell rebuilds the strip on every manager signal ; mirror
+    // that here, otherwise the chip keeps the old title.
+    await tester.pumpWidget(MaterialApp(
+      home: Scaffold(
+        body: ListenableBuilder(
+          listenable: m,
+          builder: (context, _) =>
+              TabStrip(manager: m, onOpenSwitcher: () {}),
+        ),
+      ),
+    ));
+    final longWidth = chipRect().width;
+    expect(longWidth, lessThanOrEqualTo(116));
+
+    // Choosing a book shortens the title (« Ge. 1 ») : the chip narrows.
+    m.replaceActiveReading(1, 1);
+    await tester.pump();
+
+    final shortWidth = chipRect().width;
+    expect(shortWidth, lessThan(longWidth));
+  });
+
+  testWidgets('a tab activated off-screen is scrolled into view',
+      (tester) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+
+    final m = TabManager();
+    for (var book = 1; book <= 5; book++) {
+      m.openReading(book, 1); // five tabs, the last one active
+    }
+    m.activate(0); // the visible first tab
+
+    // The reader shell rebuilds the strip on every manager signal ; mirror
+    // that here, otherwise activate() would never reach the widget.
+    await tester.pumpWidget(MaterialApp(
+      home: Scaffold(
+        body: ListenableBuilder(
+          listenable: m,
+          builder: (context, _) =>
+              TabStrip(manager: m, onOpenSwitcher: () {}),
+        ),
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    // Five chips overflow the 400 px surface : « De. 1 » sits off-screen.
+    expect(tester.getRect(find.text('De. 1')).right, greaterThan(400));
+
+    // Activating the last tab reveals it — no manual scrolling.
+    m.activate(4);
+    await tester.pumpAndSettle();
+
+    final revealed = tester.getRect(find.text('De. 1'));
+    expect(revealed.left, greaterThanOrEqualTo(0));
+    expect(revealed.right, lessThan(400));
+  });
 }

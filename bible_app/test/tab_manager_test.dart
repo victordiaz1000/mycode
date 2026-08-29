@@ -2,6 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:bible_app/data/tab_manager.dart';
+import 'package:bible_app/models/study_tab.dart';
+import 'package:bible_app/models/tab_group.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -37,48 +39,6 @@ void main() {
     expect(idx, 0);
     expect(m.active!.isHome, isTrue);
     expect(m.active!.title, 'Nouvel onglet');
-  });
-
-  test('openDictionary overwrites an open tab for the same term, never duplicates',
-      () {
-    final m = TabManager();
-    m.openReading(1, 1);
-
-    final idx = m.openDictionary('ABBA', 'Définition test.');
-    expect(idx, 1);
-    expect(m.count, 2, reason: 'the reading tab is still there');
-    expect(m.active!.isDictionary, isTrue);
-    expect(m.active!.title, 'ABBA');
-    expect(m.active!.dictionaryTerm, 'ABBA');
-    expect(m.active!.dictionaryDefinition, 'Définition test.');
-    expect(m.tabs[0].title, 'Ge. 1', reason: 'the reading tab is untouched');
-
-    // Reopening the same term overwrites the tab in place (latest definition),
-    // keeps its id and focuses it — it does not stack a duplicate.
-    final idBefore = m.tabs[1].id;
-    final idx2 = m.openDictionary('ABBA', 'Définition à jour.');
-    expect(idx2, 1);
-    expect(m.count, 2, reason: 'no new tab for a term already open');
-    expect(m.tabs[1].id, idBefore, reason: 'same tab, refreshed');
-    expect(m.tabs[1].dictionaryDefinition, 'Définition à jour.');
-    expect(m.activeIndex, 1);
-
-    // A different term still adds its own tab.
-    m.openDictionary('ACACIA', 'Autre article.');
-    expect(m.count, 3);
-    expect(m.tabs[2].isDictionary, isTrue);
-  });
-
-  test('a dictionary tab survives close → reopen with its content', () {
-    final m = TabManager();
-    m.openDictionary('ABBA', 'Définition test.');
-    m.close(0);
-    expect(m.count, 0);
-
-    m.reopen();
-    expect(m.active!.isDictionary, isTrue);
-    expect(m.active!.dictionaryTerm, 'ABBA');
-    expect(m.active!.dictionaryDefinition, 'Définition test.');
   });
 
   test('close moves tab into recently-closed queue (max 8)', () {
@@ -197,6 +157,65 @@ void main() {
     expect(m.tabs[0].pinned, isFalse);
   });
 
+  test('updateTabVerse records the reading position on the tab', () {
+    final m = TabManager();
+    final idx = m.openReading(1, 1);
+    final id = m.tabs[idx].id;
+
+    m.updateTabVerse(id, 24);
+    expect(m.tabs[idx].verse, 24);
+
+    // Unknown tab → ignored, no crash.
+    m.updateTabVerse('ghost', 5);
+    expect(m.tabs[idx].verse, 24);
+  });
+
+  test('openReading carries a restored verse into a fresh tab', () {
+    final m = TabManager();
+    final idx = m.openReading(12, 40, verse: 16);
+    expect(m.tabs[idx].verse, 16);
+    // The tab title stays the chapter reference, the verse is positional.
+    expect(m.tabs[idx].title, 'És. 40');
+  });
+
+  test('replaceActiveReading keeps the verse unless a new one is given', () {
+    final m = TabManager();
+    final idx = m.openReading(1, 1, verse: 10);
+    final id = m.tabs[idx].id;
+
+    // Stepping to the next chapter without a verse: the position resets (a new
+    // chapter has no "last verse" yet — the reader reports it on first scroll).
+    m.replaceActiveReading(1, 2);
+    expect(m.tabs[idx].verse, isNull);
+    expect(m.tabs[idx].id, id);
+
+    // Replacing with a verse records it straight away.
+    m.replaceActiveReading(1, 3, verse: 7);
+    expect(m.tabs[idx].verse, 7);
+  });
+
+  test('duplicate copies the verse and the version', () {
+    final m = TabManager();
+    m.openReading(1, 1, verse: 5);
+    m.updateTabVersion(m.tabs[0].id, 'LSGS');
+
+    final idx = m.duplicate(0);
+
+    expect(m.tabs[idx].verse, 5);
+    expect(m.tabs[idx].versionCode, 'LSGS');
+  });
+
+  test('a persisted verse survives a reload', () async {
+    final m = TabManager();
+    m.openReading(43, 3, verse: 16);
+    await Future<void>.delayed(const Duration(milliseconds: 20));
+    await m.load();
+
+    expect(m.count, 1);
+    expect(m.tabs[0].bookIndex, 43);
+    expect(m.tabs[0].verse, 16);
+  });
+
   test('closeAll moves every tab to recently closed', () {
     final m = TabManager();
     m.openReading(1, 1);
@@ -219,5 +238,159 @@ void main() {
     expect(m.activeIndex, 0);
     expect(m.tabs[1].bookIndex, 43);
     expect(m.tabs[1].chapter, 3);
+  });
+
+  test('a persisted dictionary tab is restored as a home tab, never crashes', () {
+    // A build that still hosted dictionary tabs in the reader could have saved
+    // one: reading tabs no longer hold dictionary content, so the tab must come
+    // back as a home tab instead of a reading tab with no book.
+    final tab = StudyTab.fromJson(const {
+      'id': 'd1',
+      'kind': 'dictionary',
+      'title': 'ABBA',
+      'dictionaryTerm': 'ABBA',
+      'dictionaryDefinition': 'Définition.',
+      'versionCode': 'BYM',
+      'pinned': false,
+    });
+
+    expect(tab.isHome, isTrue);
+    expect(tab.bookIndex, isNull);
+    expect(tab.title, 'ABBA');
+  });
+
+  // ---- Groups (maquette v2) ----
+
+  test('createGroup + assignTabToGroup tag tabs with the group id', () {
+    final m = TabManager();
+    m.openReading(1, 1);
+    m.openReading(12, 40);
+
+    final group = m.createGroup(name: 'Lecture du soir', color: TabGroupColor.violet);
+    m.assignTabToGroup(0, group.id);
+
+    expect(m.tabs[0].groupId, group.id);
+    expect(m.tabs[1].groupId, isNull);
+    expect(m.groups.single.name, 'Lecture du soir');
+  });
+
+  test('assigning a dangling group id is normalized to ungrouped', () {
+    final m = TabManager();
+    m.openReading(1, 1);
+
+    m.assignTabToGroup(0, 'g-ghost');
+
+    expect(m.tabs[0].groupId, isNull);
+  });
+
+  test('ungrouping clears the membership', () {
+    final m = TabManager();
+    m.openReading(1, 1);
+    final g = m.createGroup(name: 'G', color: TabGroupColor.bleu);
+    m.assignTabToGroup(0, g.id);
+
+    m.assignTabToGroup(0, null);
+
+    expect(m.tabs[0].groupId, isNull);
+    // Empty and unreferenced → pruned.
+    expect(m.groups, isEmpty);
+  });
+
+  test('rename / recolor / collapse update the group in place', () {
+    final m = TabManager();
+    final g = m.createGroup(name: 'Étude', color: TabGroupColor.bleu);
+
+    m.renameGroup(g.id, 'Le berger');
+    m.setGroupColor(g.id, TabGroupColor.vert);
+    m.toggleGroupCollapsed(g.id);
+
+    expect(m.groups.single.name, 'Le berger');
+    expect(m.groups.single.color, TabGroupColor.vert);
+    expect(m.groups.single.collapsed, isTrue);
+  });
+
+  test('closeGroup sends members to recently closed keeping their group', () {
+    final m = TabManager();
+    m.openReading(1, 1);
+    m.openReading(19, 23);
+    m.openReading(40, 1); // active, ungrouped
+    final g = m.createGroup(name: 'Soir', color: TabGroupColor.or);
+    m.assignTabToGroup(0, g.id);
+    m.assignTabToGroup(1, g.id);
+
+    m.closeGroup(g.id);
+
+    expect(m.count, 1);
+    expect(m.active!.bookIndex, 40);
+    expect(m.recentlyClosed.length, 2);
+    // The queue keeps the group id so each tab can be restored into it.
+    expect(m.recentlyClosed.every((t) => t.groupId == g.id), isTrue);
+    // Still referenced by the closed tabs → not dissolved yet.
+    expect(m.groups.single.id, g.id);
+  });
+
+  test('reopen restores a tab into its original group', () {
+    final m = TabManager();
+    m.openReading(1, 1);
+    final g = m.createGroup(name: 'Soir', color: TabGroupColor.or);
+    m.assignTabToGroup(0, g.id);
+    m.closeGroup(g.id);
+
+    m.reopen();
+
+    expect(m.active!.groupId, g.id);
+    expect(m.groups.single.id, g.id);
+  });
+
+  test('clearing the recently-closed queue dissolves dead groups', () {
+    final m = TabManager();
+    m.openReading(1, 1);
+    final g = m.createGroup(name: 'Soir', color: TabGroupColor.or);
+    m.assignTabToGroup(0, g.id);
+    m.close(0);
+    expect(m.groups, isNotEmpty); // kept for restore
+
+    m.clearRecentlyClosed();
+
+    expect(m.groups, isEmpty);
+  });
+
+  test('closing the active grouped tab refocuses a surviving tab', () {
+    final m = TabManager();
+    m.openReading(1, 1);
+    m.openReading(2, 1);
+    final g = m.createGroup(name: 'G', color: TabGroupColor.rose);
+    m.assignTabToGroup(0, g.id);
+    m.assignTabToGroup(1, g.id);
+    m.activate(0); // active inside the doomed group
+
+    m.closeGroup(g.id);
+
+    expect(m.count, 0);
+    expect(m.activeIndex, -1);
+  });
+
+  test('groups persist across a reload', () async {
+    final m = TabManager();
+    m.openReading(1, 1);
+    final g = m.createGroup(name: 'Psaumes', color: TabGroupColor.vert);
+    m.assignTabToGroup(0, g.id);
+    await Future<void>.delayed(const Duration(milliseconds: 20));
+    await m.load();
+
+    expect(m.groups.single.name, 'Psaumes');
+    expect(m.groups.single.color, TabGroupColor.vert);
+    expect(m.tabs.single.groupId, g.id);
+  });
+
+  test('duplicate keeps the source tab group', () {
+    final m = TabManager();
+    m.openReading(1, 1);
+    final g = m.createGroup(name: 'G', color: TabGroupColor.rouge);
+    m.assignTabToGroup(0, g.id);
+
+    final idx = m.duplicate(0);
+
+    expect(m.tabs[idx].groupId, g.id);
   });
 }

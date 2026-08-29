@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../data/tab_manager.dart';
 import '../models/study_tab.dart';
+import '../models/tab_group.dart';
 import '../widgets/bible_theme_scope.dart';
 import '../widgets/premium_style.dart';
+import '../widgets/tab_context_menu.dart';
 
-/// Full-screen card switcher (maquette v1.1): a grid of tab previews, a
-/// "Fermés récemment" queue, and bottom actions (Accueil / + / Tout fermer).
+/// Full-screen card switcher (maquette v2): grouped sections (named, colored,
+/// collapsible), a "Fermés récemment" queue, and bottom actions
+/// (Accueil / + / Tout fermer). Long-press or ⋯ on a card opens the shared
+/// context menu.
 ///
 /// Restyled in the app's premium language (crème, cartes blanches, or) so the
 /// selector matches the Accueil, Favoris, Historique and the reading chrome.
@@ -22,10 +26,8 @@ class TabSwitcher extends StatelessWidget {
       PageRouteBuilder(
         opaque: true,
         pageBuilder: (_, animation, _) => TabSwitcher(manager: manager),
-        transitionsBuilder: (_, anim, _, child) => FadeTransition(
-          opacity: anim,
-          child: child,
-        ),
+        transitionsBuilder: (_, anim, _, child) =>
+            FadeTransition(opacity: anim, child: child),
       ),
     );
   }
@@ -33,17 +35,9 @@ class TabSwitcher extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
-    final pinned =
-        manager.tabs.where((t) => t.pinned).toList();
-    final unpinned =
-        manager.tabs.where((t) => !t.pinned).toList();
-    final ordered = [...pinned, ...unpinned];
-
-    int originalIndexOf(StudyTab t) =>
-        manager.tabs.indexWhere((x) => x.id == t.id);
 
     return Scaffold(
-      backgroundColor: kPremiumBackground,
+      backgroundColor: premiumBackground(context),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -51,13 +45,20 @@ class TabSwitcher extends StatelessWidget {
         title: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('${manager.count} onglet${manager.count > 1 ? 's' : ''}',
-                style:
-                    premiumText(context, 15, FontWeight.w800, p.textDark)),
-            Text('mémorisés en local',
-                style: premiumText(context, 9.5, FontWeight.w600,
-                    p.textGrey,
-                    spacing: .14)),
+            Text(
+              '${manager.count} onglet${manager.count > 1 ? 's' : ''}',
+              style: premiumText(context, 15, FontWeight.w800, p.textDark),
+            ),
+            Text(
+              'mémorisés en local',
+              style: premiumText(
+                context,
+                9.5,
+                FontWeight.w600,
+                p.textGrey,
+                spacing: .14,
+              ),
+            ),
           ],
         ),
         centerTitle: true,
@@ -66,39 +67,36 @@ class TabSwitcher extends StatelessWidget {
             padding: const EdgeInsets.only(right: 8),
             child: TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: Text('Terminé',
-                  style: premiumText(
-                      context, 13, FontWeight.w800, p.primary)),
+              child: Text(
+                'Terminé',
+                style: premiumText(context, 13, FontWeight.w800, p.primary),
+              ),
             ),
           ),
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 4, 16, 14),
-        children: [
-          GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 14,
-              crossAxisSpacing: 14,
-              childAspectRatio: 0.8,
-            ),
-            itemCount: ordered.length,
-            itemBuilder: (context, i) {
-              final tab = ordered[i];
-              final idx = originalIndexOf(tab);
-              return _SwitcherCard(
-                manager: manager,
-                tab: tab,
-                index: idx,
-              );
-            },
-          ),
-          if (manager.recentlyClosed.isNotEmpty)
-            _Recently(manager: manager),
-        ],
+      body: ListenableBuilder(
+        listenable: manager,
+        builder: (context, _) {
+          final liveSections = <_Section>[
+            for (final group in manager.groups)
+              if (manager.tabs.any((t) => t.groupId == group.id))
+                _Section(group: group, tabs: _pinnedFirst(manager.tabs.where((t) => t.groupId == group.id))),
+            if (manager.tabs.any((t) => t.groupId == null))
+              _Section(
+                  group: null,
+                  tabs:
+                      _pinnedFirst(manager.tabs.where((t) => t.groupId == null))),
+          ];
+          return ListView(
+            padding: const EdgeInsets.fromLTRB(16, 4, 16, 14),
+            children: [
+              for (final section in liveSections)
+                _GroupSection(manager: manager, section: section),
+              if (manager.recentlyClosed.isNotEmpty) _Recently(manager: manager),
+            ],
+          );
+        },
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
@@ -133,6 +131,147 @@ class TabSwitcher extends StatelessWidget {
       ),
     );
   }
+
+  static List<StudyTab> _pinnedFirst(Iterable<StudyTab> tabs) {
+    final list = tabs.toList();
+    list.sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0));
+    return list;
+  }
+}
+
+class _Section {
+  final TabGroup? group;
+  final List<StudyTab> tabs;
+
+  const _Section({required this.group, required this.tabs});
+}
+
+/// A collapsible group section (maquette v2 « g-head »): color dot, editable
+/// name, member count, ✕ to close the whole group, chevron to fold.
+class _GroupSection extends StatelessWidget {
+  final TabManager manager;
+  final _Section section;
+
+  const _GroupSection({required this.manager, required this.section});
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    final group = section.group;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(top: group == null ? 8 : 14, bottom: 2),
+          child: group == null
+              ? Text(
+                  'Sans groupe',
+                  style: premiumText(context, 9.5, FontWeight.w800, p.textGrey,
+                      spacing: .22),
+                )
+              : _GroupHeader(manager: manager, group: group),
+        ),
+        if (group?.collapsed ?? false)
+          const SizedBox.shrink()
+        else
+          _CardGrid(manager: manager, tabs: section.tabs),
+      ],
+    );
+  }
+}
+
+class _GroupHeader extends StatelessWidget {
+  final TabManager manager;
+  final TabGroup group;
+
+  const _GroupHeader({required this.manager, required this.group});
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    final memberCount =
+        manager.tabs.where((t) => t.groupId == group.id).length;
+    return Row(
+      children: [
+        Container(
+          width: 11,
+          height: 11,
+          decoration:
+              BoxDecoration(color: group.color.color, shape: BoxShape.circle),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: InkWell(
+            onTap: () => showGroupEditor(context, manager, group: group),
+            child: Text(
+              group.name,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: premiumText(context, 12, FontWeight.w800, p.textDark),
+            ),
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+          decoration: BoxDecoration(
+            color: p.textDark.withValues(alpha: .08),
+            borderRadius: BorderRadius.circular(99),
+          ),
+          child: Text('$memberCount',
+              style: premiumText(context, 10, FontWeight.w800, p.textDark)),
+        ),
+        IconButton(
+          visualDensity: VisualDensity.compact,
+          tooltip: 'Fermer le groupe',
+          onPressed: () => manager.closeGroup(group.id),
+          icon: Icon(Icons.close, size: 15, color: p.textGrey),
+        ),
+        InkWell(
+          onTap: () => manager.toggleGroupCollapsed(group.id),
+          borderRadius: BorderRadius.circular(8),
+          child: Padding(
+            padding: const EdgeInsets.all(6),
+            child: AnimatedRotation(
+              turns: group.collapsed ? -.25 : 0,
+              duration: const Duration(milliseconds: 220),
+              child: Icon(Icons.expand_more,
+                  size: 15, color: p.textGrey),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _CardGrid extends StatelessWidget {
+  final TabManager manager;
+  final List<StudyTab> tabs;
+
+  const _CardGrid({required this.manager, required this.tabs});
+
+  @override
+  Widget build(BuildContext context) {
+    int originalIndexOf(StudyTab t) =>
+        manager.tabs.indexWhere((x) => x.id == t.id);
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      padding: const EdgeInsets.symmetric(vertical: 7),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 14,
+        crossAxisSpacing: 14,
+        childAspectRatio: 0.8,
+      ),
+      itemCount: tabs.length,
+      itemBuilder: (context, i) {
+        final tab = tabs[i];
+        return _SwitcherCard(
+            manager: manager, tab: tab, index: originalIndexOf(tab));
+      },
+    );
+  }
 }
 
 class _SwitcherCard extends StatelessWidget {
@@ -146,135 +285,194 @@ class _SwitcherCard extends StatelessWidget {
     required this.index,
   });
 
+  void _openMenu(BuildContext context) {
+    hapticMenuPulse();
+    showTabContextMenu(context, manager, index);
+  }
+
   @override
   Widget build(BuildContext context) {
     final bibleTheme = BibleThemeScope.of(context);
     final p = premiumPalette(context);
     final active = manager.activeIndex == index;
+    final groupName = manager.groupById(tab.groupId)?.name;
     return GestureDetector(
+      onLongPress: () => _openMenu(context),
       onTap: () {
         manager.activate(index);
         Navigator.of(context).pop();
       },
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-            color: active ? bibleTheme.highlightRef : Colors.transparent,
-            width: active ? 2 : 1,
-          ),
-          boxShadow: active
-              ? [
-                  BoxShadow(
-                      color: bibleTheme.highlightRef.withValues(alpha: 0.38),
-                      blurRadius: 14,
-                      offset: const Offset(0, 6)),
-                ]
-              : premiumShadow(p.primaryDark,
-                  opacity: 0.07, blur: 16, offset: const Offset(0, 6)),
-        ),
-        clipBehavior: Clip.antiAlias,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 8, 6, 6),
-              child: Row(
-                children: [
-                  Text(tab.isReading ? '❧' : '⌂',
-                      style: TextStyle(color: p.primary, fontSize: 13)),
-                  const SizedBox(width: 5),
-                  Expanded(
-                    child: Text(
-                      tab.title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: premiumText(
-                          context, 11.5, FontWeight.w800, p.textDark),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () => manager.togglePin(index),
-                    child: Icon(
-                      tab.pinned ? Icons.push_pin : Icons.push_pin_outlined,
-                      size: 14,
-                      color: tab.pinned ? p.primary : p.textGrey,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      // Duplicate via long-lived UI is revealed in the menu;
-                      // simple ✕ close is kept here.
-                      manager.close(index);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(4),
-                      child: Icon(Icons.close,
-                          size: 13, color: p.textGrey),
-                    ),
-                  ),
-                ],
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: p.surface,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: active ? bibleTheme.highlightRef : Colors.transparent,
+                width: active ? 2 : 1,
               ),
+              boxShadow: active
+                  ? [
+                      BoxShadow(
+                        color: bibleTheme.highlightRef.withValues(alpha: 0.38),
+                        blurRadius: 14,
+                        offset: const Offset(0, 6),
+                      ),
+                    ]
+                  : premiumShadow(
+                      p.primaryDark,
+                      opacity: 0.07,
+                      blur: 16,
+                      offset: const Offset(0, 6),
+                    ),
             ),
-            Expanded(
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                  color: tab.isHome
-                      ? p.primarySoft
-                      : const Color(0xFFF3F1EB),
-                  borderRadius: BorderRadius.circular(14),
-                ),
-                child: Center(
-                  child: tab.isHome
-                      ? Text('⌂',
-                          style: TextStyle(
-                              fontSize: 30, color: p.primary))
-                      : Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(tab.title,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: premiumText(context, 14,
-                                      FontWeight.w700, p.textDark)),
-                              const SizedBox(height: 8),
-                              Container(
-                                height: 4,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: p.primary.withValues(alpha: 0.35),
-                                  borderRadius: BorderRadius.circular(2),
-                                ),
-                              ),
-                            ],
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 8, 4, 6),
+                  child: Row(
+                    children: [
+                      Text(
+                        tab.isReading ? '❧' : '⌂',
+                        style: TextStyle(color: p.primary, fontSize: 13),
+                      ),
+                      const SizedBox(width: 5),
+                      Expanded(
+                        child: Text(
+                          tab.title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: premiumText(
+                            context,
+                            11.5,
+                            FontWeight.w800,
+                            p.textDark,
                           ),
                         ),
+                      ),
+                      InkWell(
+                        onTap: () => _openMenu(context),
+                        borderRadius: BorderRadius.circular(7),
+                        child: Padding(
+                          padding: const EdgeInsets.all(3),
+                          child: Icon(Icons.more_horiz,
+                              size: 14, color: p.textGrey),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () => manager.close(index),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4),
+                          child:
+                              Icon(Icons.close, size: 13, color: p.textGrey),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+                Expanded(
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: tab.isHome ? p.primarySoft : p.surfaceAlt,
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: Center(
+                      child: tab.isHome
+                          ? Text(
+                              '⌂',
+                              style:
+                                  TextStyle(fontSize: 30, color: p.primary),
+                            )
+                          : Padding(
+                              padding: const EdgeInsets.all(12),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    tab.title,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: premiumText(
+                                      context,
+                                      14,
+                                      FontWeight.w700,
+                                      p.textDark,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  if (tab.verse != null)
+                                    Text('v. ${tab.verse}',
+                                        style: premiumText(context, 10,
+                                            FontWeight.w700, p.textGrey))
+                                  else
+                                    Container(
+                                      height: 4,
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color:
+                                            p.primary.withValues(alpha: 0.35),
+                                        borderRadius:
+                                            BorderRadius.circular(2),
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 8, 10, 9),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        tab.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: premiumText(
+                          context,
+                          11,
+                          FontWeight.w800,
+                          p.textDark,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        groupName == null
+                            ? 'mémorisé en local'
+                            : 'groupe « $groupName »',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: premiumText(
+                            context, 9, FontWeight.w700, p.textGrey),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 8, 10, 9),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(tab.title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: premiumText(
-                          context, 11, FontWeight.w800, p.textDark)),
-                  const SizedBox(height: 2),
-                  Text('mémorisé en local',
-                      style: premiumText(
-                          context, 9, FontWeight.w700, p.textGrey)),
+          ),
+          // Pinned marker (maquette « .pin », top-left of the card).
+          if (tab.pinned)
+            Positioned(
+              top: 5,
+              left: 5,
+              child: Icon(
+                Icons.push_pin,
+                size: 12,
+                color: p.primary,
+                shadows: const [
+                  Shadow(color: Colors.white, blurRadius: 4),
                 ],
               ),
             ),
-          ],
-        ),
+        ],
       ),
     );
   }
@@ -293,7 +491,8 @@ class _Recently extends StatelessWidget {
       padding: const EdgeInsets.only(top: 14),
       decoration: BoxDecoration(
         border: Border(
-            top: BorderSide(color: Colors.black.withValues(alpha: 0.06))),
+          top: BorderSide(color: Colors.black.withValues(alpha: 0.06)),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -301,15 +500,22 @@ class _Recently extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Fermés récemment',
-                  style: premiumText(context, 11.5, FontWeight.w800,
-                      p.textDark,
-                      spacing: .22)),
+              Text(
+                'Fermés récemment',
+                style: premiumText(
+                  context,
+                  11.5,
+                  FontWeight.w800,
+                  p.textDark,
+                  spacing: .22,
+                ),
+              ),
               TextButton(
                 onPressed: () => manager.clearRecentlyClosed(),
-                child: Text('Vider',
-                    style: premiumText(
-                        context, 11, FontWeight.w700, p.textGrey)),
+                child: Text(
+                  'Vider',
+                  style: premiumText(context, 11, FontWeight.w700, p.textGrey),
+                ),
               ),
             ],
           ),
@@ -317,42 +523,54 @@ class _Recently extends StatelessWidget {
           for (final tab in manager.recentlyClosed)
             Container(
               margin: const EdgeInsets.only(bottom: 8),
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: p.surface,
                 borderRadius: BorderRadius.circular(14),
-                boxShadow: premiumShadow(p.primaryDark,
-                    opacity: 0.05, blur: 10, offset: const Offset(0, 4)),
+                boxShadow: premiumShadow(
+                  p.primaryDark,
+                  opacity: 0.05,
+                  blur: 10,
+                  offset: const Offset(0, 4),
+                ),
               ),
               child: Row(
                 children: [
-                  Text('❧',
-                      style:
-                          TextStyle(color: p.primary, fontSize: 13)),
+                  Text('❧', style: TextStyle(color: p.primary, fontSize: 13)),
                   const SizedBox(width: 9),
                   Expanded(
-                    child: Text(tab.title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: premiumText(
-                            context, 11.5, FontWeight.w600, p.textDark)),
+                    child: Text(
+                      tab.title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: premiumText(
+                        context,
+                        11.5,
+                        FontWeight.w600,
+                        p.textDark,
+                      ),
+                    ),
                   ),
                   InkWell(
                     onTap: () => manager.reopen(),
                     borderRadius: BorderRadius.circular(9),
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 13, vertical: 5),
+                        horizontal: 13,
+                        vertical: 5,
+                      ),
                       decoration: BoxDecoration(
                         color: p.primary,
                         borderRadius: BorderRadius.circular(9),
                       ),
-                      child: Text('Rouvrir',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10,
-                              fontWeight: FontWeight.w800)),
+                      child: Text(
+                        'Rouvrir',
+                        style: TextStyle(
+                          color: p.onPrimary,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -381,16 +599,20 @@ class _RoundAction extends StatelessWidget {
     return Tooltip(
       message: tooltip,
       child: Material(
-        color: Colors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(16),
         elevation: 0,
         shadowColor: Colors.transparent,
         child: Ink(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: p.surface,
             borderRadius: BorderRadius.circular(16),
-            boxShadow: premiumShadow(p.primaryDark,
-                opacity: 0.06, blur: 12, offset: const Offset(0, 5)),
+            boxShadow: premiumShadow(
+              p.primaryDark,
+              opacity: 0.06,
+              blur: 12,
+              offset: const Offset(0, 5),
+            ),
           ),
           child: InkWell(
             borderRadius: BorderRadius.circular(16),
@@ -425,16 +647,20 @@ class _GoldPlus extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: p.heroGradient,
             shape: BoxShape.circle,
-            boxShadow: premiumShadow(p.primary,
-                opacity: 0.35, blur: 14, offset: const Offset(0, 6)),
+            boxShadow: premiumShadow(
+              p.primary,
+              opacity: 0.35,
+              blur: 14,
+              offset: const Offset(0, 6),
+            ),
           ),
           child: InkWell(
             customBorder: const CircleBorder(),
             onTap: onTap,
-            child: const SizedBox(
+            child: SizedBox(
               width: 56,
               height: 56,
-              child: Icon(Icons.add, color: Colors.white, size: 28),
+              child: Icon(Icons.add, color: p.onPrimary, size: 28),
             ),
           ),
         ),

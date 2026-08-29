@@ -30,7 +30,9 @@ void main() {
     m.activate(0);
 
     await tester.pumpWidget(MaterialApp(home: TabSwitcher(manager: m)));
-    await tester.tap(find.text('Mt. 40').last);
+    // The card head title, not the foot caption (which can sit behind the
+    // bottom action bar on the default test surface).
+    await tester.tap(find.text('Mt. 40').first);
     await tester.pumpAndSettle();
 
     expect(m.activeIndex, 1);

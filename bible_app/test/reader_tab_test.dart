@@ -30,11 +30,19 @@ Future<void> openChapterViaLivres(
 }) async {
   await tester.tap(find.text(pill));
   await tester.pumpAndSettle();
+  // Scoper à la BottomSheet : derrière elle, l'en-tête de livre du lecteur
+  // porte lui aussi le nom BYM complet (« Bereshit (Genèse) »).
+  Finder inSheet(Finder f) => find.descendant(
+        of: find.byType(BottomSheet),
+        matching: f,
+      );
   // Unfold the book, then pick the chapter tile from its grid.
-  await tester.tap(find.text(book));
+  await tester.tap(inSheet(find.text(book)));
   await tester.pumpAndSettle();
   await tester.tap(
-    find.descendant(of: find.byType(Wrap), matching: find.text(chapter)),
+    inSheet(
+      find.descendant(of: find.byType(Wrap), matching: find.text(chapter)),
+    ),
   );
   await tester.pumpAndSettle();
 }
@@ -60,8 +68,8 @@ void main() {
     await tester.pumpWidget(const MaterialApp(home: ReaderScreen()));
     await tester.pumpAndSettle();
 
-    // The empty state has no AppBar at all: the reading action bar is the only
-    // navigation surface (the ＋ button lives in the strip, once tabs exist).
+    // The empty state has no AppBar at all: the strip and the reading action
+    // bar are the only navigation surfaces.
     expect(find.byType(AppBar), findsNothing);
     // Navigation now goes through the reading action bar (« Livres » pill), not
     // the old full-screen sections listing.
@@ -73,7 +81,9 @@ void main() {
       ),
       findsOneWidget,
     );
-    expect(find.byType(TabStrip), findsNothing);
+    // The strip stays visible with zero tabs: ＋ and a counter reading « 0 ».
+    expect(find.byType(TabStrip), findsOneWidget);
+    expect(tabCounter('0'), findsOneWidget);
   });
 
   testWidgets('injected manager: pre-opened tab is shown with strip',
@@ -88,6 +98,16 @@ void main() {
     expect(find.text('Ge. 1'), findsOneWidget);
     expect(tabCounter('1'), findsOneWidget);
     expect(find.byType(ChapterReader), findsOneWidget);
+    // The book header (metadata + introduction) is tall: the first verse sits
+    // below the fold on the small default surface, scroll it into view.
+    await tester.dragUntilVisible(
+      find.text('Verset de test Ge. 1:1.'),
+      find.descendant(
+        of: find.byType(ChapterReader),
+        matching: find.byType(ListView),
+      ),
+      const Offset(0, -200),
+    );
     expect(find.text('Verset de test Ge. 1:1.'), findsOneWidget);
   });
 
@@ -95,13 +115,23 @@ void main() {
     await tester.pumpWidget(const MaterialApp(home: ReaderScreen()));
     await tester.pumpAndSettle();
 
-    await openChapterViaLivres(tester, 'Genèse', '1');
+    await openChapterViaLivres(tester, 'Bereshit (Genèse)', '1');
 
     expect(find.byType(TabStrip), findsOneWidget);
     expect(find.text('Ge. 1'), findsOneWidget);
     expect(tabCounter('1'), findsOneWidget);
     // The books sheet was popped, the chapter is rendered in the tab.
     expect(find.byType(ChapterReader), findsOneWidget);
+    // The book header (metadata + introduction) is tall: the first verse sits
+    // below the fold on the small default surface, scroll it into view.
+    await tester.dragUntilVisible(
+      find.text('Verset de test Ge. 1:1.'),
+      find.descendant(
+        of: find.byType(ChapterReader),
+        matching: find.byType(ListView),
+      ),
+      const Offset(0, -200),
+    );
     expect(find.text('Verset de test Ge. 1:1.'), findsOneWidget);
   });
 
@@ -117,7 +147,7 @@ void main() {
     // fresh « Nouvel onglet » is *filled* by the pick, it does not stay behind.
     await tester.tap(find.byIcon(Icons.add));
     await tester.pumpAndSettle();
-    await openChapterViaLivres(tester, 'Genèse', '2');
+    await openChapterViaLivres(tester, 'Bereshit (Genèse)', '2');
 
     expect(m.tabs.map((t) => t.title), ['Ge. 1', 'Ge. 2']);
     expect(m.activeIndex, 1);
@@ -142,7 +172,7 @@ void main() {
 
     final id = m.active!.id;
     // Inside a reading tab the pill carries the current reference.
-    await openChapterViaLivres(tester, 'Exode', '2', pill: 'Genèse 1');
+    await openChapterViaLivres(tester, 'Shemot (Exode)', '2', pill: 'Genèse 1');
 
     expect(m.count, 1, reason: 'the pill moves the tab, it does not add one');
     expect(m.active!.title, 'Ex. 2');
@@ -178,7 +208,7 @@ void main() {
 
     await tester.tap(find.byIcon(Icons.add));
     await tester.pumpAndSettle();
-    await openChapterViaLivres(tester, 'Genèse', '2', pill: 'Livres');
+    await openChapterViaLivres(tester, 'Bereshit (Genèse)', '2', pill: 'Livres');
 
     expect(m.count, 2);
     expect(m.tabs[1].versionCode, 'LSGS');
