@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -388,10 +388,11 @@ void main() {
       expect(find.text('Texte + notes'), findsNothing);
       expect(find.text('Notes à la suite'), findsNothing);
       expect(find.text('Notes sous le verset'), findsNothing);
-      // One line that says why, rather than four dead entries.
-      expect(find.text('Notes — BYM uniquement'), findsOneWidget);
+      // One card that says why, rather than four dead entries.
+      expect(find.text('NOTES'), findsOneWidget);
+      expect(find.text('BYM uniquement'), findsOneWidget);
       // The size ladder still applies — it is not about notes.
-      expect(find.text('Taille du texte'), findsOneWidget);
+      expect(find.text('TAILLE DU TEXTE'), findsOneWidget);
     });
 
     testWidgets('a stored « notes on » does not follow onto a download',

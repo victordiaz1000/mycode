@@ -8,18 +8,27 @@ import '../data/app_database.dart';
 import '../data/app_preferences.dart';
 import '../data/book_catalog.dart';
 import '../data/library_store.dart';
+import '../data/note_reference_linker.dart';
 import '../data/reference_parser.dart';
+import '../data/share_text.dart';
 import '../data/strong_lexicon.dart';
+import '../data/theme_catalog.dart';
 import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
 import '../models/bible_book.dart';
 import '../models/chapter.dart';
+import '../models/user_data.dart';
 import '../models/verse.dart';
 import '../screens/chapter_screen.dart';
 import '../screens/ecran_comparer.dart';
 import '../screens/etude_verset_screen.dart';
+import '../screens/parallel_reading_screen.dart';
+import '../screens/strong_detail_screen.dart';
+import '../utils/hex_color.dart';
+import 'fiche_text_settings.dart';
+import 'loading_skeleton.dart';
 import 'reader_actions_bar.dart';
-import 'note_dialog.dart';
+import 'note_editor_sheet.dart';
 import 'study_sheet.dart';
 import 'verse_tile.dart';
 import 'bible_theme_scope.dart';
@@ -59,6 +68,15 @@ class ChapterReader extends StatefulWidget {
   /// and already-open ones (listened to live).
   final ValueListenable<VerseTarget?>? jumpToVerse;
 
+  /// Restored reading position: the verse to scroll to on first load, without
+  /// the gold flash (it is a position to resume, not a fresh jump). Null = top
+  /// of the chapter.
+  final int? initialVerse;
+
+  /// Called when the reader settles on a verse (scroll or jump), so the owning
+  /// tab can persist the reading position across restarts.
+  final ValueChanged<int>? onVerseChanged;
+
   /// Optional way to open another chapter from the books navigation; when null
   /// the standalone [ChapterScreen] flow is used (push a new screen).
   final void Function(int bookIndex, int chapter)? onOpenChapter;
@@ -85,6 +103,8 @@ class ChapterReader extends StatefulWidget {
     this.initialVersionCode,
     this.onVersionChanged,
     this.jumpToVerse,
+    this.initialVerse,
+    this.onVerseChanged,
     this.onOpenChapter,
     this.onReferenceTap,
     this.onOpenLibrary,
@@ -118,16 +138,69 @@ class _ChapterReaderState extends State<ChapterReader> {
   bool get _multiMode => _selected.isNotEmpty;
 
   /// Verse to scroll to (matching this chapter), exposed via [_jumpKey].
+  /// Verse number to scroll to and flash; null once a jump is fully done.
   int? _targetVerse;
+
+  /// Le verset du dernier saut, épinglé comme position rapportée jusqu'à ce
+  /// que l'utilisateur fasse défiler lui-même. L'estimateur « verset en haut
+  /// du viewport » retombe sur un voisin (le verset visé se pose à 35 % de la
+  /// hauteur, ses voisins le dépassent) : sans épingle, il écrase la position
+  /// demandée quelques centaines de ms après l'atterrissage — et cette
+  /// position dérivées ressuscite au prochain montage de l'onglet.
+  int? _jumpedToVerse;
+
+  /// Vrai dès que l'utilisateur tire la liste lui-même : l'épingle se lève et
+  /// le rapporteur redevient une estimation honnête de la lecture.
+  bool _userTookOverScroll = false;
   final GlobalKey _jumpKey = GlobalKey();
+
+  /// Identifies the verse list itself, so position reporting in the
+  /// continuous-paragraph layout can ask the list which verse sits near the
+  /// viewport top — item math has no meaning there (one block can span the
+  /// whole chapter).
+  final GlobalKey<ChapterVerseListState> _listKey = GlobalKey();
   final ScrollController _verseScroll = ScrollController();
   Set<int> _flashingVerses = {};
   Timer? _flashTimer;
+
+  /// The [widget.initialVerse] still waiting for the book to load. Cleared the
+  /// first time the chapter is built so the restore runs exactly once per tab.
+  int? _pendingRestore;
+
+  /// Debounces verse reporting during scrolling: persisting the position on
+  /// every scroll notification would hammer shared_preferences.
+  Timer? _reportTimer;
+
+  /// Last verse reported to [widget.onVerseChanged], to skip no-op writes.
+  int? _lastReportedVerse;
 
   /// Neighbouring reading positions, resolved once the book is known: null
   /// while loading, and at the two ends of the Bible.
   (int, int)? _previous;
   (int, int)? _next;
+
+  /// The chapter currently rendered by the [FutureBuilder], kept so the
+  /// selection actions (copy a range) and the find-in-page scan work on the
+  /// same data the reader displays.
+  Chapter? _chapterData;
+
+  /// Accumulated horizontal delta of the swipe in progress — chapter paging
+  /// (see [_onChapterSwipe]).
+  double? _swipeDx;
+
+  // ---- Find in chapter (« trouver dans la page ») ----
+
+  bool _findOpen = false;
+  String _findQuery = '';
+  final TextEditingController _findController = TextEditingController();
+  final FocusNode _findFocus = FocusNode();
+  Timer? _findDebounce;
+
+  /// Verse numbers of the current matches, in reading order.
+  List<int> _findMatches = [];
+
+  /// Index inside [_findMatches] the reader is parked on; -1 when none.
+  int _findIndex = -1;
 
   @override
   void initState() {
@@ -135,18 +208,47 @@ class _ChapterReaderState extends State<ChapterReader> {
     _bookFuture = _bootstrap();
     _loadUserData();
     _loadNeighbours();
+    _pendingRestore = widget.initialVerse;
+    _verseScroll.addListener(_onScrollChanged);
     widget.jumpToVerse?.addListener(_onJumpChanged);
     _onJumpChanged(); // covers a chapter opened fresh with the target preset
     LibraryStore.revision.addListener(_onLibraryChanged);
+    AppPreferences.revision.addListener(_onPreferencesChanged);
   }
 
   @override
   void dispose() {
+    _reportTimer?.cancel();
+    _findDebounce?.cancel();
+    _findController.dispose();
+    _findFocus.dispose();
     widget.jumpToVerse?.removeListener(_onJumpChanged);
     LibraryStore.revision.removeListener(_onLibraryChanged);
+    AppPreferences.revision.removeListener(_onPreferencesChanged);
     _flashTimer?.cancel();
+    _verseScroll.removeListener(_onScrollChanged);
     _verseScroll.dispose();
     super.dispose();
+  }
+
+  /// A reading preference was saved somewhere in the app — this reader's own ⋯
+  /// sheet, another tab's, the Réglages screen — so re-read them: size,
+  /// alignment, notes, opacité and the rest are app-wide and must land live.
+  ///
+  /// Deliberately does NOT adopt `prefs.versionCode`. Every open tab lives in
+  /// the shell's `IndexedStack`, so this listener fires on *all* of them at
+  /// once: reading the shared code here made a version picked in tab 3 — or
+  /// merely a font size changed there, since any save bumps the revision — drag
+  /// tabs 1 and 2 onto that version too. The version being read belongs to the
+  /// tab ([StudyTab.versionCode]); the preference is only the default a **new**
+  /// tab starts from (« Version de lecture par défaut » in the Réglages).
+  Future<void> _onPreferencesChanged() async {
+    final prefs = await AppPreferences.load();
+    if (!mounted) return;
+    setState(() {
+      _prefs = prefs;
+      _prefsLoaded = true;
+    });
   }
 
   /// A download finished or a version was deleted while this reader was alive.
@@ -195,18 +297,21 @@ class _ChapterReaderState extends State<ChapterReader> {
     _beginJump(target.verse);
   }
 
-  void _beginJump(int verseNumber) {
+  void _beginJump(int verseNumber, {bool flash = true}) {
     setState(() {
       _targetVerse = verseNumber;
-      _flashingVerses = {verseNumber};
+      _flashingVerses = flash ? {verseNumber} : {};
     });
+    _jumpedToVerse = verseNumber;
+    _userTookOverScroll = false;
     // The flash is armed only once the verse is on screen (see
     // [_scrollToTarget]): clearing it on a timer started here would detach
     // [_jumpKey] mid-scroll on a long chapter.
     _flashTimer?.cancel();
     WidgetsBinding.instance.addPostFrameCallback(
-      (_) => _scrollToTarget(verseNumber),
+      (_) => _scrollToTarget(verseNumber, flash: flash),
     );
+    _reportVerse(verseNumber);
   }
 
   /// Brings the target verse into view, building it first if needed.
@@ -220,7 +325,21 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// comes from `maxScrollExtent`, which a lazy list refines as more tiles get
   /// measured, hence the loop: each jump improves the next guess. As soon as
   /// the tile exists, [Scrollable.ensureVisible] does the precise placement.
-  Future<void> _scrollToTarget(int verseNumber) async {
+  ///
+  /// [flash] is false when restoring a persisted position: the verse scrolls
+  /// into place without the gold flash — a place to resume, not a fresh jump.
+  Future<void> _scrollToTarget(int verseNumber, {bool flash = true}) async {
+    // A chapter opened fresh by a tap (note reference, search hit, picker)
+    // starts on the loading spinner: the book is still being read and the
+    // list does not exist yet, so [_verseScroll] has no client and every
+    // scroll below would silently do nothing — the target stayed on verse 1
+    // until a second, cache-warm attempt landed correctly. Wait for the list.
+    var waitedFrames = 0;
+    while (mounted && !_verseScroll.hasClients && waitedFrames < 120) {
+      await WidgetsBinding.instance.endOfFrame;
+      waitedFrames++;
+    }
+    if (!mounted) return;
     await Future<void>.delayed(const Duration(milliseconds: 50));
     if (!mounted) return;
 
@@ -229,26 +348,22 @@ class _ChapterReaderState extends State<ChapterReader> {
       final chapter = await _activeChapter();
       if (!mounted) return;
 
-      // Must match what [ChapterVerseList] actually built, or the offset
-      // estimate below is off by one tile on a downloaded version.
-      final hasHeader = _showsBookHeader;
-      // Mirrors the numbering ChapterVerseList uses when a verse carries no
-      // explicit number.
-      var verseIndex = -1;
-      for (var i = 0; i < chapter.verses.length; i++) {
-        final v = chapter.verses[i];
-        if ((v.number == 0 ? i + 1 : v.number) == verseNumber) {
-          verseIndex = i;
-          break;
-        }
-      }
-      if (verseIndex >= 0 && _verseScroll.hasClients) {
-        final itemCount = chapter.verses.length + (hasHeader ? 1 : 0);
-        final itemIndex = verseIndex + (hasHeader ? 1 : 0);
-
+      // Layout-aware slot math: tiles count one item per verse; the
+      // continuous layout counts blocks and their section titles. Must match
+      // what [ChapterVerseList] actually built, or the offset estimate below
+      // is off.
+      final metrics = ChapterVerseList.jumpMetricsFor(
+        chapter: chapter,
+        layout: _prefs.layout,
+        hasHeader: _showsBookHeader,
+        verseNumber: verseNumber,
+      );
+      if (metrics != null && _verseScroll.hasClients) {
         for (var attempt = 0; attempt < 12; attempt++) {
           final position = _verseScroll.position;
-          final fraction = itemCount <= 1 ? 0.0 : itemIndex / (itemCount - 1);
+          final fraction = metrics.itemCount <= 1
+              ? 0.0
+              : metrics.itemIndex / (metrics.itemCount - 1);
           final estimate = position.maxScrollExtent * fraction;
           _verseScroll.jumpTo(
             estimate.clamp(position.minScrollExtent, position.maxScrollExtent),
@@ -262,19 +377,44 @@ class _ChapterReaderState extends State<ChapterReader> {
       if (!mounted) return;
     }
 
-    _flashTimer = Timer(const Duration(milliseconds: 900), () {
+    if (!flash) {
+      // Saut de restauration : pas de flash à éteindre, mais le target doit
+      // partir quand même, sinon la clé de saut reste accrochée à la tuile
+      // et les rapports suivants resteraient figés sur lui.
+      setState(() => _targetVerse = null);
+      return;
+    }
+    _flashTimer = Timer(kVerseFlashHold, () {
       if (!mounted) return;
-      setState(() {
-        _flashingVerses = {};
-        _targetVerse = null;
+      // Only the wash goes here. Dropping [_targetVerse] in the same breath
+      // moved the tile's key off [_jumpKey] and onto its ValueKey, so the lazy
+      // list built a fresh Element — and a fresh [AnimatedContainer] state
+      // starts *at* its target colour: the wash vanished in one frame instead
+      // of fading. The target is released just after, once the fade is over.
+      setState(() => _flashingVerses = {});
+      _flashTimer = Timer(kVerseFlashFadeOut, () {
+        if (!mounted) return;
+        setState(() => _targetVerse = null);
       });
     });
   }
 
   /// Scrolls the target verse into place, or returns false if it is not built.
+  ///
+  /// A plain tile answers to [Scrollable.ensureVisible]; a paragraph block
+  /// implements [VerseAnchor] and reveals the exact verse inside flowing text
+  /// via its own caret geometry.
   Future<bool> _revealBuiltTarget() async {
     final ctx = _jumpKey.currentContext;
     if (ctx == null || !ctx.mounted) return false;
+    if (ctx is StatefulElement) {
+      final Object anchor = ctx.state;
+      final target = _targetVerse;
+      if (anchor is VerseAnchor && target != null) {
+        await anchor.revealVerse(target, _verseScroll);
+        return true;
+      }
+    }
     await Scrollable.ensureVisible(
       ctx,
       duration: const Duration(milliseconds: 350),
@@ -282,6 +422,107 @@ class _ChapterReaderState extends State<ChapterReader> {
       alignment: 0.35,
     );
     return true;
+  }
+
+  /// The scroll controller reports the reading position while the reader is
+  /// idle (debounced): the owning tab persists it so a cold restart resumes
+  /// where the reader stopped instead of the top of the chapter.
+  void _onScrollChanged() {
+    _reportTimer?.cancel();
+    _reportTimer = Timer(
+      const Duration(milliseconds: 400),
+      _reportCurrentVerse,
+    );
+  }
+
+  /// Estimates the verse currently at the top of the viewport from the scroll
+  /// offset, then reports it. Deliberately an *estimate*: the tiles are a lazy
+  /// `ListView.builder` of variable heights, so an exact mapping would need
+  /// each tile to report its own geometry. The fraction is the same one
+  /// [_scrollToTarget] inverts to jump, so restoring lands on the same verse.
+  Future<void> _reportCurrentVerse() async {
+    if (widget.onVerseChanged == null) return;
+    // Un saut non encore « repris » par l'utilisateur fait foi : rapporter
+    // le verset VISÉ plutôt qu'estimer le haut du viewport.
+    if (!_userTookOverScroll && _jumpedToVerse != null) {
+      _reportVerse(_jumpedToVerse!);
+      return;
+    }
+    final position = _verseScroll.position;
+    if (!position.hasContentDimensions || position.maxScrollExtent <= 0) {
+      return;
+    }
+
+    // Continuous layout: ask the list itself — its blocks know their own
+    // geometry, and one block can span the whole chapter so item fractions
+    // carry no verse meaning.
+    if (_prefs.layout == ReadingLayout.paragraph) {
+      final verse = _listKey.currentState?.verseNearViewportTop();
+      if (verse != null) {
+        _reportVerse(verse);
+        return;
+      }
+      return;
+    }
+
+    final chapter = await _activeChapter();
+    if (!mounted || chapter.verses.isEmpty) return;
+
+    final hasHeader = _showsBookHeader;
+    final itemCount = chapter.verses.length + (hasHeader ? 1 : 0);
+    if (itemCount <= 1) return;
+    final fraction = (position.pixels / position.maxScrollExtent).clamp(
+      0.0,
+      1.0,
+    );
+    final itemIndex = (fraction * (itemCount - 1)).round();
+    final verseIndex = itemIndex - (hasHeader ? 1 : 0);
+    if (verseIndex < 0 || verseIndex >= chapter.verses.length) return;
+    final verse = chapter.verses[verseIndex];
+    _reportVerse(verse.number == 0 ? verseIndex + 1 : verse.number);
+  }
+
+  /// Fires [widget.onVerseChanged] when the verse actually changed, so the tab
+  /// persists a position only when there is one to record.
+  ///
+  /// The call is deferred out of the current frame: a jump read in `initState`
+  /// (chapter opened by a reference tap) reports BEFORE the first build ends,
+  /// and notifying the TabManager then would mark an ancestor dirty mid-build
+  /// (`markNeedsBuild called during build`) and abort the very jump that
+  /// triggered it.
+  void _reportVerse(int verseNumber) {
+    if (verseNumber == _lastReportedVerse) return;
+    _lastReportedVerse = verseNumber;
+    final cb = widget.onVerseChanged;
+    if (cb == null) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      cb(verseNumber);
+    });
+  }
+
+  /// Restores the persisted reading position once, the first time the chapter
+  /// is laid out. Runs after the frame so the list has clients and the target
+  /// tile's key is attached; the flash is off so the reader silently resumes
+  /// instead of flashing a verse it was already on.
+  ///
+  /// A jump already begun wins and the restore is dropped. Every verse link
+  /// outside the reader — occurrence Strong, référence d'une feuille d'étude,
+  /// fiche de dictionnaire, note BYM, résultat de recherche — goes through the
+  /// shell's `_openReading`, which sets BOTH the tab's `verse` (so the position
+  /// survives in the tab) and the jump target. On a tab opened by that link the
+  /// two arrive together: the restore aimed at the very same verse and, being
+  /// silent by design, wiped the flash the jump had just armed a frame earlier.
+  /// The link landed on the right verse — with nothing to show for it.
+  void _consumePendingRestore() {
+    final pending = _pendingRestore;
+    if (pending == null) return;
+    _pendingRestore = null;
+    if (_jumpedToVerse != null) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      _beginJump(pending, flash: false);
+    });
   }
 
   /// Whether chapter 1 opens on the book header (metadata grid + introduction).
@@ -309,6 +550,23 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// Whether the version being read embeds Strong codes per word (LSGS): their
   /// display becomes tappable and tapping one opens its French definition.
   bool get _hasStrong => versionByCode(_versionCode)?.hasStrong ?? false;
+
+  /// Notes actually displayed. « Texte + notes » is enough: the disposition is
+  /// a tiles-only choice.
+  ///
+  /// The continuous flow renders notes ONE way — woven into the sentence, in
+  /// parentheses — because « sous le verset » cards would chop the printed-text
+  /// feel. So there the disposition simply does not apply, and the flow reads
+  /// the notes whatever it says. This used to gate on
+  /// `disposition == inline` instead, which made the sheet lie: in the flow the
+  /// « Notes à la suite » chip already draws itself as selected (the « sous le
+  /// verset » chip isn't even offered), yet a reader whose stored disposition
+  /// was still the default « sous le verset » saw a highlighted chip and no
+  /// notes — and had to tap the chip that already looked active.
+  ///
+  /// Gating here rather than coercing the preference on the way in is what keeps
+  /// « sous le verset » intact for when the reader goes back to the tiles.
+  bool get _effectiveShowNotes => _prefs.notesMode && _supportsNotes;
 
   /// Reads the preferences and the library, *then* the book.
   ///
@@ -363,16 +621,28 @@ class _ChapterReaderState extends State<ChapterReader> {
   }
 
   /// Switches the version being read, keeping book and chapter.
+  ///
+  /// The choice is recorded on the **owning tab** ([widget.onVersionChanged]),
+  /// never in the shared preferences: writing there bumped
+  /// `AppPreferences.revision`, which every other open tab listens to, so
+  /// picking a version in one tab pulled all the already-open ones onto it.
+  /// A standalone reader ([ChapterScreen]) has no tab to hold the choice — there
+  /// the preference stays its store.
   void _switchVersion(String code) {
     if (code == _versionCode) return;
     setState(() {
       _versionCode = code;
       _bookFuture = _versions.loadBook(code, widget.bookIndex);
       _targetVerse = null;
+      _jumpedToVerse = null;
       _flashingVerses = {};
     });
+    final onVersionChanged = widget.onVersionChanged;
+    if (onVersionChanged != null) {
+      onVersionChanged(code);
+      return;
+    }
     _prefs.versionCode = code;
-    widget.onVersionChanged?.call(code);
     _savePrefs();
   }
 
@@ -419,106 +689,542 @@ class _ChapterReaderState extends State<ChapterReader> {
     await _prefs.save();
   }
 
-  void _setNotesMode(bool value) {
+  Future<void> _setNotesMode(bool value) async {
     if (_prefs.notesMode == value) return;
     setState(() => _prefs.notesMode = value);
-    _savePrefs();
+    await _savePrefs();
   }
 
-  void _setDisposition(NoteDisposition value) {
+  Future<void> _setDisposition(NoteDisposition value) async {
     if (_prefs.disposition == value) return;
     setState(() => _prefs.disposition = value);
-    _savePrefs();
+    await _savePrefs();
   }
 
-  void _setFontSize(double value) {
+  Future<void> _setLayout(ReadingLayout value) async {
+    if (_prefs.layout == value) return;
+    setState(() => _prefs.layout = value);
+    await _savePrefs();
+  }
+
+  Future<void> _setFontWeight(ReadingFontWeight value) async {
+    if (_prefs.fontWeight == value) return;
+    setState(() => _prefs.fontWeight = value);
+    await _savePrefs();
+  }
+
+  Future<void> _setSpacing(ReadingSpacing value) async {
+    if (_prefs.spacing == value) return;
+    setState(() => _prefs.spacing = value);
+    await _savePrefs();
+  }
+
+  Future<void> _setFontSize(double value) async {
     if (_prefs.fontSize == value) return;
     setState(() => _prefs.fontSize = value);
-    _savePrefs();
+    await _savePrefs();
+  }
+
+  Future<void> _setTextAlign(ReadingTextAlign value) async {
+    if (_prefs.textAlign == value) return;
+    setState(() => _prefs.textAlign = value);
+    await _savePrefs();
+  }
+
+  Future<void> _setReadingFont(ReadingFont value) async {
+    if (_prefs.readingFont == value) return;
+    setState(() => _prefs.readingFont = value);
+    await _savePrefs();
+  }
+
+  /// Live dial from the ⋯ sheet's slider: the reader rebuilds behind the
+  /// open sheet so the panel fades while the thumb moves; [_savePanelOpacity]
+  /// persists once the drag ends — writing every tick would hammer the
+  /// preferences a dozen times per gesture.
+  void _setPanelOpacity(double value) {
+    if ((_prefs.panelOpacity - value).abs() < .001) return;
+    setState(() => _prefs.panelOpacity = value);
+  }
+
+  Future<void> _savePanelOpacity() async {
+    if (!_prefsLoaded) return;
+    await _prefs.save();
+  }
+
+  /// The scoped theme with the « Couleur du texte » override applied — null
+  /// preference (or an unparsable leftover) means the theme's own colour.
+  /// Derived colours (notes, links) and the light/dark panel machinery
+  /// recompute inside `withTextColor`, so any choice stays readable.
+  BibleTheme _effectiveTheme(BuildContext context) {
+    final theme = BibleThemeScope.of(context);
+    final value = int.tryParse(_prefs.textColorOverride ?? '');
+    return value == null ? theme : theme.withTextColor(Color(value));
+  }
+
+  /// Persists the text-colour override; null returns to the theme's colour.
+  Future<void> _setTextColorOverride(int? argb) async {
+    _prefs.textColorOverride = argb?.toString();
+    setState(() {});
+    await _savePrefs();
+  }
+
+  /// The ⋯ sheet of the reading bar: the notes toggle and disposition on top,
+  /// then the same size / alignment / typeface sections as the fiches' display
+  /// sheet — one shared look. Every change lands live, behind the open sheet.
+  Future<void> _showDisplaySheet() async {
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      isScrollControlled: true,
+      builder: (sheetContext) => StatefulBuilder(
+        builder: (sheetContext, setSheet) {
+          return DisplaySettingsSheetLayout(
+            // Exit on the « Affichage » title line, always at the top.
+            onClose: () => Navigator.of(sheetContext).pop(),
+            children: [
+              // The immersion mode first: an action one reaches for, not a
+              // styling dial to hunt at the bottom of the sheet. It closes
+              // the sheet on activation.
+              DisplayToggleCard(
+                icon: Icons.fullscreen,
+                title: 'Mode immersion',
+                subtitle: 'Masquer les barres pour ne lire que le texte',
+                value: _prefs.immersion,
+                onChanged: (value) {
+                  Navigator.of(sheetContext).pop();
+                  _setImmersion(value);
+                },
+              ),
+              const SizedBox(height: 12),
+              // The reading panel's transparency: how much of the theme's
+              // background shows through behind the verses. Live on drag,
+              // persisted on release.
+              DisplayCard(
+                label: 'Opacité du panneau',
+                icon: Icons.texture,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        '${(_prefs.panelOpacity * 100).round()} %',
+                        style: Theme.of(sheetContext).textTheme.bodySmall,
+                      ),
+                    ),
+                    Slider(
+                      value: _prefs.panelOpacity,
+                      min: 0.0,
+                      max: 1.0,
+                      divisions: 20,
+                      label: '${(_prefs.panelOpacity * 100).round()} %',
+                      onChanged: (value) {
+                        _setPanelOpacity(value);
+                        setSheet(() {});
+                      },
+                      onChangeEnd: (value) => _savePanelOpacity(),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 12),
+              DisplayLayoutSection(
+                layout: _prefs.layout,
+                onChanged: (value) async {
+                  await _setLayout(value);
+                  setSheet(() {});
+                },
+              ),
+              const SizedBox(height: 12),
+              if (_supportsNotes)
+                DisplayNotesSection(
+                  notesMode: _prefs.notesMode,
+                  disposition: _prefs.disposition,
+                  belowAvailable: _prefs.layout != ReadingLayout.paragraph,
+                  onNotesMode: (value) async {
+                    await _setNotesMode(value);
+                    setSheet(() {});
+                  },
+                  onDisposition: (value) async {
+                    await _setDisposition(value);
+                    setSheet(() {});
+                  },
+                )
+              else
+                const DisplayCard(
+                  label: 'Notes',
+                  icon: Icons.note_alt,
+                  child: Text(
+                    'BYM uniquement',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ),
+              const SizedBox(height: 12),
+              DisplaySizeSection(
+                fontSize: _prefs.fontSize,
+                // L'échelle complète : « petit » à « géant ». La restriction
+                // aux trois derniers crans faisait perdre le choix fin aux
+                // lecteurs qui n'ont pas besoin du très grand.
+                sizes: ReadingTextSize.values,
+                onChanged: (value) async {
+                  await _setFontSize(value);
+                  setSheet(() {});
+                },
+              ),
+              const SizedBox(height: 12),
+              // The body text colour: « suivre le thème » by default, then a
+              // handful of presets. A light colour flips the panels dark via
+              // `withTextColor`, so every swatch stays readable.
+              DisplayCard(
+                label: 'Couleur du texte',
+                icon: Icons.format_color_text,
+                child: Wrap(
+                  spacing: 10,
+                  runSpacing: 10,
+                  children: [
+                    for (final choice in _textColorChoices)
+                      _TextColorSwatch(
+                        argb: choice,
+                        selected:
+                            _prefs.textColorOverride == choice?.toString(),
+                        onTap: () async {
+                          await _setTextColorOverride(choice);
+                          setSheet(() {});
+                        },
+                      ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 12),
+              DisplayAlignSection(
+                align: _prefs.textAlign,
+                onChanged: (value) async {
+                  await _setTextAlign(value);
+                  setSheet(() {});
+                },
+              ),
+              const SizedBox(height: 12),
+              DisplayWeightSection(
+                weight: _prefs.fontWeight,
+                onChanged: (value) async {
+                  await _setFontWeight(value);
+                  setSheet(() {});
+                },
+              ),
+              const SizedBox(height: 12),
+              DisplaySpacingSection(
+                spacing: _prefs.spacing,
+                onChanged: (value) async {
+                  await _setSpacing(value);
+                  setSheet(() {});
+                },
+              ),
+              const SizedBox(height: 12),
+              DisplayFontSection(
+                font: _prefs.readingFont,
+                onChanged: (value) async {
+                  await _setReadingFont(value);
+                  setSheet(() {});
+                },
+              ),
+              const SizedBox(height: 12),
+              // The two-versions side-by-side reading: a mode, not a display
+              // knob — it lives at the bottom of the sheet and closes it.
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                child: OutlinedButton.icon(
+                  onPressed: () {
+                    Navigator.of(sheetContext).pop();
+                    _openParallel();
+                  },
+                  style: OutlinedButton.styleFrom(
+                    side: BorderSide(
+                      color: Theme.of(context).colorScheme.primary,
+                      width: 1.5,
+                    ),
+                    foregroundColor: Theme.of(context).colorScheme.primary,
+                  ),
+                  icon: const Icon(Icons.vertical_split, size: 18),
+                  label: const Text('Lecture parallèle — deux versions'),
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    // Nominal size only: the narrow-screen reduction rides on the ambient
+    // `textScaler` posed in `main.dart`, so applying a second width-keyed
+    // ladder here would shrink the body twice.
+    final bodyFontSize = ReadingTextSize.nearest(_prefs.fontSize).fontSize;
+    // Immersion: only the text remains. The find bar and the action bar are
+    // the reader's own; the shells above hide theirs on the same preference.
+    final immersive = _prefs.immersion;
+    return Stack(
       children: [
-        ReaderActionsBar(
-          bookIndex: widget.bookIndex,
-          chapter: widget.chapter,
-          versionCode: _versionCode,
-          installedVersions: _installed,
-          onSelectVersion: _switchVersion,
-          onOpenLibrary: widget.onOpenLibrary,
-          onOpenChapter: _openChapter,
-          onVerses: _openVersePicker,
-          onPreviousChapter: _stepTo(_previous),
-          onNextChapter: _stepTo(_next),
-          trailing: _DisplayMenu(
-            notesMode: _prefs.notesMode,
-            notesAvailable: _supportsNotes,
-            disposition: _prefs.disposition,
-            fontSize: _prefs.fontSize,
-            onNotesMode: _setNotesMode,
-            onDisposition: _setDisposition,
-            onFontSize: _setFontSize,
-          ),
+        Column(
+          children: [
+            if (!immersive) ...[
+              ReaderActionsBar(
+                bookIndex: widget.bookIndex,
+                chapter: widget.chapter,
+                versionCode: _versionCode,
+                installedVersions: _installed,
+                onSelectVersion: _switchVersion,
+                onOpenLibrary: widget.onOpenLibrary,
+                onOpenChapter: _openChapter,
+                onVerses: _openVersePicker,
+                onPreviousChapter: _stepTo(_previous),
+                onNextChapter: _stepTo(_next),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      tooltip: 'Trouver dans le chapitre',
+                      icon: const Icon(Icons.search),
+                      onPressed: _openFind,
+                      visualDensity: VisualDensity.compact,
+                    ),
+                    IconButton(
+                      tooltip: 'Affichage du texte',
+                      icon: const Icon(Icons.more_vert),
+                      onPressed: _showDisplaySheet,
+                      visualDensity: VisualDensity.compact,
+                    ),
+                  ],
+                ),
+              ),
+              if (_findOpen) _buildFindBar(),
+            ],
+            Expanded(
+              child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                onHorizontalDragStart: (_) => _swipeDx = 0,
+                onHorizontalDragUpdate: (d) =>
+                    _swipeDx = (_swipeDx ?? 0) + d.delta.dx,
+                onHorizontalDragEnd: _onChapterSwipe,
+                child: FutureBuilder<BibleBook>(
+                future: _bookFuture,
+                builder: (context, snapshot) {
+                  final error = snapshot.error;
+                  if (error is BookNotDownloaded) {
+                    return _MissingBookPanel(
+                      error: error,
+                      onReadEmbedded: () =>
+                          _switchVersion(VersionRepository.embeddedCode),
+                      onOpenLibrary: widget.onOpenLibrary,
+                    );
+                  }
+                  if (snapshot.hasError) {
+                    return Center(child: Text('Erreur : $error'));
+                  }
+                  if (!snapshot.hasData) {
+                    // Squelette façonné comme la page qui arrive (en-tête de
+                    // livre si le chapitre 1 d'une version riche va l'afficher,
+                    // puis lignes de versets) : pas de saut de layout au
+                    // chargement, et un repère visuel plutôt qu'un spinner.
+                    return ChapterLoadingSkeleton(header: _showsBookHeader);
+                  }
+                  final book = snapshot.data!;
+                  final chapter = book.chapters.firstWhere(
+                    (c) => c.chapter == widget.chapter,
+                    orElse: () => const Chapter(chapter: 0, verses: []),
+                  );
+                  if (chapter.verses.isEmpty && widget.chapter != 1) {
+                    return const Center(child: Text('Chapitre vide.'));
+                  }
+                  // A persisted reading position resumes once the chapter is laid
+                  // out: the list must exist for [_verseScroll] to have clients and
+                  // for [_jumpKey] to attach to the target verse's tile.
+                  _consumePendingRestore();
+                  _chapterData = chapter;
+                  // The scoped theme with the « Couleur du texte » override
+                  // applied: the body style AND the whole verse list (notes,
+                  // links, panels) read from the same effective theme.
+                  final readingTheme = _effectiveTheme(context);
+                  // THE shared verse-body style: one object for the flowing
+                  // blocks, the tiles' bodyLarge override AND the header
+                  // introduction. Whatever the layout, the body and its intro
+                  // are size-identical by construction — they cannot drift.
+                  // Its leading comes from the reading rhythm so large type
+                  // keeps breathing room; [ChapterVerseList] re-applies the
+                  // same rhythm to its own fallback style.
+                  final readingRhythm = ReadingRhythm(
+                    fontSize: bodyFontSize,
+                    spacing: _prefs.spacing,
+                  );
+                  final flowBodyStyle = TextStyle(
+                    fontSize: bodyFontSize,
+                    color: readingTheme.textColor,
+                    fontFamily: _prefs.readingFont.fontFamily,
+                    fontWeight: _prefs.fontWeight.weight,
+                    height: readingRhythm.lineHeight,
+                    letterSpacing: readingRhythm.letterSpacing,
+                  );
+                  // L'utilisateur qui tire la liste lui-même lève l'épingle du
+                  // dernier saut : les rapports redeviennent une estimation.
+                  // `dragDetails` ne porte que sur un geste tactile — les
+                  // sauts programmatiques (jumpTo/ensureVisible) passent ici
+                  // sans jamais lever l'épingle.
+                  return NotificationListener<ScrollNotification>(
+                    onNotification: (notification) {
+                      if (notification is ScrollStartNotification &&
+                          notification.dragDetails != null) {
+                        _userTookOverScroll = true;
+                      }
+                      return false;
+                    },
+                    child: ChapterVerseList(
+                      key: _listKey,
+                      // Pas de ValueKey incluant l'affichage ici : il recréerait le
+                      // ListView + son ScrollController à chaque changement d'alignement
+                      // et ramènerait Jean 3:16 au verset 1 (repro signalé).
+                      theme: readingTheme,
+                      panelOpacity: _prefs.panelOpacity,
+                      chapter: chapter,
+                      showNotes: _effectiveShowNotes,
+                      disposition: _prefs.disposition,
+                      layout: _prefs.layout,
+                      fontWeight: _prefs.fontWeight.weight,
+                      spacing: _prefs.spacing,
+                      fontSize: bodyFontSize,
+                      bodyStyle: flowBodyStyle,
+                      readingFont: _prefs.readingFont,
+                      textAlign: _prefs.textAlign.align,
+                      header: _showsBookHeader
+                          ? _BookHeader(
+                              book: book,
+                              // The intro inherits the rhythm's leading through
+                              // flowBodyStyle — no fixed ratio on top of it.
+                              introStyle: flowBodyStyle,
+                            )
+                          : null,
+                      highlightOf: (vn) => _highlights[vn],
+                      isFavoriteOf: (vn) => _favorites.contains(vn),
+                      hasNoteOf: (vn) => _userNotes.contains(vn),
+                      selectedVerses: _selected,
+                      jumpVerse: _targetVerse,
+                      jumpKey: _jumpKey,
+                      controller: _verseScroll,
+                      flashingVerses: _flashingVerses,
+                      searchMatches: _findMatches.isEmpty
+                          ? null
+                          : Set<int>.from(_findMatches),
+                      footer: immersive || _multiMode
+                          ? null
+                          : _buildContinueFooter(),
+                      onVerseTap: _onVerseTap,
+                      onVerseLongPress: _onVerseLongPress,
+                      onStrongTap: _hasStrong ? _onStrongTap : null,
+                      onReferenceTap: _onReferenceTap,
+                    ),
+                  );
+                },
+                ),
+              ),
+            ),
+            if (_multiMode)
+              _SelectionBar(
+                key: const ValueKey('selection-bar'),
+                count: _selected.length,
+                onHighlight: _showSelectionColors,
+                onFavorite: _bulkFavorite,
+                onCopy: _copySelection,
+                onDone: () => setState(() => _selected.clear()),
+              ),
+          ],
         ),
-        Expanded(
-          child: FutureBuilder<BibleBook>(
-            future: _bookFuture,
-            builder: (context, snapshot) {
-              final error = snapshot.error;
-              if (error is BookNotDownloaded) {
-                return _MissingBookPanel(
-                  error: error,
-                  onReadEmbedded: () =>
-                      _switchVersion(VersionRepository.embeddedCode),
-                  onOpenLibrary: widget.onOpenLibrary,
-                );
-              }
-              if (snapshot.hasError) {
-                return Center(child: Text('Erreur : $error'));
-              }
-              if (!snapshot.hasData) {
-                return const Center(child: CircularProgressIndicator());
-              }
-              final book = snapshot.data!;
-              final chapter = book.chapters.firstWhere(
-                (c) => c.chapter == widget.chapter,
-                orElse: () => const Chapter(chapter: 0, verses: []),
-              );
-              if (chapter.verses.isEmpty && widget.chapter != 1) {
-                return const Center(child: Text('Chapitre vide.'));
-              }
-              final readingTheme = BibleThemeScope.of(context);
-              return ChapterVerseList(
-                theme: readingTheme,
-                chapter: chapter,
-                showNotes: _prefs.notesMode && _supportsNotes,
-                disposition: _prefs.disposition,
-                fontSize: _prefs.fontSize,
-                header: _showsBookHeader ? _BookHeader(book: book) : null,
-                highlightOf: (vn) => _highlights[vn],
-                isFavoriteOf: (vn) => _favorites.contains(vn),
-                hasNoteOf: (vn) => _userNotes.contains(vn),
-                selectedVerses: _selected,
-                jumpVerse: _targetVerse,
-                jumpKey: _jumpKey,
-                controller: _verseScroll,
-                flashingVerses: _flashingVerses,
-                onVerseTap: _onVerseTap,
-                onVerseLongPress: _onVerseLongPress,
-                onStrongTap: _hasStrong ? _onStrongTap : null,
-                onReferenceTap: _onReferenceTap,
-              );
-            },
-          ),
-        ),
-        if (_multiMode)
-          _EndSelectionBar(
-            count: _selected.length,
-            onDone: () => setState(() => _selected.clear()),
+        if (immersive)
+          Positioned(
+            right: 16,
+            bottom: 16,
+            child: FloatingActionButton.small(
+              heroTag: 'exit-immersion',
+              tooltip: 'Quitter le mode immersion',
+              onPressed: () => _setImmersion(false),
+              child: const Icon(Icons.fullscreen_exit),
+            ),
           ),
       ],
+    );
+  }
+
+  /// The « continuer au chapitre suivant » tile at the end of the verse list —
+  /// the end of the page is where a reader reaches for what comes next, and
+  /// the top arrows sit off-screen by then. Null while [_next] is unresolved.
+  Widget? _buildContinueFooter() {
+    final next = _next;
+    if (next == null) return null;
+    return _ContinueChapterTile(
+      label: '${catalogEntry(next.$1).barLabel} ${next.$2}',
+      onTap: () => _openChapter(next.$1, next.$2),
+    );
+  }
+
+  /// The inline find row: field, occurrence counter, prev/next, close.
+  Widget _buildFindBar() {
+    final p = premiumPalette(context);
+    return Material(
+      color: premiumBackground(context),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(12, 0, 4, 8),
+        child: Row(
+          children: [
+            Expanded(
+              child: TextField(
+                controller: _findController,
+                focusNode: _findFocus,
+                onChanged: _onFindChanged,
+                textInputAction: TextInputAction.search,
+                onSubmitted: (_) => _stepFind(1),
+                style: premiumText(context, 14, FontWeight.w500, p.textDark),
+                decoration: InputDecoration(
+                  hintText: 'Trouver dans le chapitre',
+                  hintStyle: premiumText(
+                    context,
+                    14,
+                    FontWeight.w400,
+                    p.textGrey,
+                  ),
+                  isDense: true,
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 10,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(24),
+                    borderSide: BorderSide(color: p.primary.withValues(alpha: .3)),
+                  ),
+                  prefixIcon: Icon(Icons.search, size: 20, color: p.primary),
+                ),
+              ),
+            ),
+            Text(
+              _findCounter,
+              style: premiumText(context, 13, FontWeight.w700, p.textGrey),
+            ),
+            IconButton(
+              tooltip: 'Occurrence précédente',
+              icon: const Icon(Icons.keyboard_arrow_up),
+              onPressed: _findMatches.isEmpty ? null : () => _stepFind(-1),
+            ),
+            IconButton(
+              tooltip: 'Occurrence suivante',
+              icon: const Icon(Icons.keyboard_arrow_down),
+              onPressed: _findMatches.isEmpty ? null : () => _stepFind(1),
+            ),
+            IconButton(
+              tooltip: 'Fermer la recherche',
+              icon: const Icon(Icons.close),
+              onPressed: _closeFind,
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -531,11 +1237,15 @@ class _ChapterReaderState extends State<ChapterReader> {
     }
     final vn = verse.number;
     // The Lexique button proposes the same verse in the embedded LSGS Strong
-    // rendering — a property of the canon (BYM / LSGS cover the same verses),
-    // not of the notes the version happens to carry. Downloaded translations
-    // keep the button off rather than offer a Strong verse that may not match
-    // their own versification.
-    final embeddedVersion = _versions.isEmbedded(_versionCode);
+    // rendering — a property of the BYM canon, not of the notes the version
+    // happens to carry, so the gate asks the FORMAT (the same predicate as the
+    // book header and the notes toggle) rather than the code: a future
+    // BYM-format version keeps the button where `code == 'BYM'` would drop it.
+    // It is off for LSGS itself (the reader already sees the Strong text word
+    // by word) and for bare-text translations, rather than offer a Strong verse
+    // that may not match their own versification.
+    final lexiqueEnabled =
+        versionByCode(_versionCode)?.carriesNotes ?? false;
     final action = await showStudySheet(
       context,
       reference:
@@ -543,10 +1253,10 @@ class _ChapterReaderState extends State<ChapterReader> {
       excerpt: verse.text,
       isFavorite: _favorites.contains(vn),
       currentHighlight: _highlights[vn],
-      lexiqueEnabled: embeddedVersion,
-      lexiqueLabel: embeddedVersion
+      lexiqueEnabled: lexiqueEnabled,
+      lexiqueLabel: lexiqueEnabled
           ? 'Lexique & Dictionnaire — verset mot à mot'
-          : 'Lexique & Dictionnaire — versions BYM/LSGS',
+          : 'Lexique & Dictionnaire — version BYM',
       onHighlight: (color) => _applyHighlight(vn, color),
       onFavorite: (value) => _applyFavorite(vn, value),
     );
@@ -561,24 +1271,33 @@ class _ChapterReaderState extends State<ChapterReader> {
         break;
       case StudyAction.copy:
         await Clipboard.setData(
-          ClipboardData(text: '${verse.verse} ${verse.text}'),
+          ClipboardData(text: '${_referenceLabel(verse)} ${verse.text}'),
         );
-        _snack('Versets copiés.');
+        _snack('Verset copié.');
         break;
       case StudyAction.compare:
         await _openComparer(vn);
         break;
       case StudyAction.references:
-        _snack('Références — bientôt disponible.');
-        break;
-      case StudyAction.listen:
-        _snack('Audio — bientôt disponible.');
+        await _showVerseReferences(verse);
         break;
       case StudyAction.share:
-        _snack('Partage — bientôt disponible.');
+        // A downloaded version is named, so the reader knows whose words they
+        // are passing on; the embedded BYM needs no badge.
+        final versionTag = _versionCode == VersionRepository.embeddedCode
+            ? ''
+            : ' ($_versionCode)';
+        await shareText(
+          '« ${verse.text} »\n'
+          '— ${_referenceLabel(verse)}$versionTag',
+        );
         break;
     }
   }
+
+  /// « Genèse 1:1 » — the label carried by the copied and shared verse.
+  String _referenceLabel(Verse verse) =>
+      '${catalogEntry(widget.bookIndex).shortName} ${verse.verse}';
 
   /// Applies a colour picked in the study sheet, or clears it when null.
   ///
@@ -586,12 +1305,17 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// string is not null, so [VerseTile] would still read it as a highlight and
   /// `_parseColor('')` would fall back to amber — an un-highlighted verse
   /// repainted itself until the chapter was reloaded from SQLite.
+  /// Persists one user-data row **without blocking** the on-screen state:
+  /// the database opens through path_provider/sqflite, whose first answer can
+  /// take a beat on a cold start — painting the highlight must not wait for
+  /// it. Errors are swallowed, same contract as [_loadUserData].
+  void _persist(Future<void> op) {
+    op.then((_) {}, onError: (_) {});
+  }
+
   Future<void> _applyHighlight(int verseNumber, String? color) async {
-    await _db.setHighlight(
-      widget.bookIndex,
-      widget.chapter,
-      verseNumber,
-      color,
+    _persist(
+      _db.setHighlight(widget.bookIndex, widget.chapter, verseNumber, color),
     );
     if (!mounted) return;
     setState(() {
@@ -604,7 +1328,7 @@ class _ChapterReaderState extends State<ChapterReader> {
   }
 
   Future<void> _applyFavorite(int verseNumber, bool value) async {
-    await _db.setFavorite(widget.bookIndex, widget.chapter, verseNumber, value);
+    _persist(_db.setFavorite(widget.bookIndex, widget.chapter, verseNumber, value));
     if (!mounted) return;
     setState(() {
       if (value) {
@@ -615,12 +1339,153 @@ class _ChapterReaderState extends State<ChapterReader> {
     });
   }
 
+  /// Applies a color picked in the selection bar to every selected verse (or
+  /// erases their highlights). One write per verse — the table is keyed on
+  /// (book, chapter, verse), there is no range form.
+  Future<void> _bulkHighlight(String? color) async {
+    final targets = _selected.toList();
+    if (targets.isEmpty) return;
+    if (!mounted) return;
+    setState(() {
+      for (final vn in targets) {
+        if (color == null || color.isEmpty) {
+          _highlights.remove(vn);
+        } else {
+          _highlights[vn] = color;
+        }
+      }
+    });
+    for (final vn in targets) {
+      _persist(
+        _db.setHighlight(widget.bookIndex, widget.chapter, vn, color),
+      );
+    }
+    _snack(
+      color == null || color.isEmpty
+          ? 'Surlignage effacé sur ${targets.length} verset${targets.length > 1 ? 's' : ''}.'
+          : '${targets.length} verset${targets.length > 1 ? 's' : ''} surligné${targets.length > 1 ? 's' : ''}.',
+    );
+  }
+
+  /// Toggles favourite on the whole selection: any verse not yet starred adds
+  /// all of them; only then does a second pass remove them.
+  Future<void> _bulkFavorite() async {
+    final targets = _selected.toList();
+    if (targets.isEmpty) return;
+    final add = targets.any((vn) => !_favorites.contains(vn));
+    if (!mounted) return;
+    setState(() {
+      add ? _favorites.addAll(targets) : _favorites.removeAll(targets);
+    });
+    for (final vn in targets) {
+      _persist(_db.setFavorite(widget.bookIndex, widget.chapter, vn, add));
+    }
+    _snack(add ? 'Ajouté aux favoris.' : 'Retiré des favoris.');
+  }
+
+  /// Copies the selection as one block, verses in reading order:
+  /// « Ge. 1:1 texte » / « Ge. 1:2 texte ». Exits selection mode afterwards —
+  /// copying is terminal, unlike coloring which invites more.
+  Future<void> _copySelection() async {
+    final chapter = _chapterData;
+    if (chapter == null || _selected.isEmpty) return;
+    final wanted = Set<int>.from(_selected);
+    final lines = <String>[];
+    for (var i = 0; i < chapter.verses.length; i++) {
+      final v = chapter.verses[i];
+      final vn = v.number == 0 ? i + 1 : v.number;
+      if (wanted.remove(vn)) lines.add('${_referenceLabel(v)} ${v.text}');
+      if (wanted.isEmpty) break;
+    }
+    await Clipboard.setData(ClipboardData(text: lines.join('\n')));
+    if (!mounted) return;
+    setState(_selected.clear);
+    _snack('${lines.length} verset${lines.length > 1 ? 's' : ''} copié${lines.length > 1 ? 's' : ''}.');
+  }
+
+  /// The color row of the selection bar: same palette as the study sheet,
+  /// applied to every selected verse at once.
+  Future<void> _showSelectionColors() async {
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (sheetContext) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Surligner ${_selected.length} verset${_selected.length > 1 ? 's' : ''}',
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              const SizedBox(height: 12),
+              Wrap(
+                spacing: 10,
+                runSpacing: 10,
+                children: [
+                  for (final color in highlightColors)
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(sheetContext).pop();
+                        _bulkHighlight(color);
+                      },
+                      child: Container(
+                        width: 36,
+                        height: 36,
+                        decoration: BoxDecoration(
+                          color: hexToColor(color),
+                          shape: BoxShape.circle,
+                          border: Border.all(color: Colors.black26),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              OutlinedButton.icon(
+                onPressed: () {
+                  Navigator.of(sheetContext).pop();
+                  _bulkHighlight(null);
+                },
+                icon: const Icon(Icons.format_color_reset),
+                label: const Text('Effacer le surlignage'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   void _onVerseLongPress(Verse verse) {
     HapticFeedback.mediumImpact();
     setState(() {
       _selected.clear();
       _selected.add(verse.number);
     });
+  }
+
+  /// A horizontal swipe pages the chapter: left → next, right → previous, the
+  /// same direction a photo pager uses. Two gates so an accidental graze never
+  /// turns the page: a fast flick (velocity) or a deliberate long drag
+  /// (distance). Disabled in multi-selection — there, horizontal moves are
+  /// just imprecise taps.
+  void _onChapterSwipe(DragEndDetails details) {
+    final dx = _swipeDx ?? 0;
+    _swipeDx = null;
+    if (_multiMode) return;
+    final velocity = details.primaryVelocity ?? 0;
+    final isFlick = velocity.abs() > 400 && dx.abs() > 70;
+    final isLongDrag = dx.abs() > 140;
+    if (!isFlick && !isLongDrag) return;
+
+    // Swipe left (dx < 0) reveals what follows; swipe right what precedes.
+    final target = dx < 0 ? _next : _previous;
+    if (target == null) return;
+    HapticFeedback.lightImpact();
+    _openChapter(target.$1, target.$2);
   }
 
   /// Opens the chapter picked in the « Livres » sheet: inside the tab system
@@ -669,39 +1534,178 @@ class _ChapterReaderState extends State<ChapterReader> {
     );
   }
 
-  Future<void> _editNote(Verse verse) async {
-    final vn = verse.number;
-    final existing = await _db.getNote(widget.bookIndex, widget.chapter, vn);
+  /// The « Lecture parallèle » button: the current chapter across two
+  /// versions, side by side. The left pane starts on the version being read.
+  Future<void> _openParallel() async {
     if (!mounted) return;
-    // The controller lives inside [NoteDialog] and is disposed with it — the
-    // route is still animating out when `showDialog` returns, and disposing the
-    // controller from here used to crash on the fade's listener re-subscribe.
-    final result = await showDialog<NoteDialogResult>(
-      context: context,
-      builder: (context) => NoteDialog(
-        title: 'Note — ${verse.verse}',
-        initialText: existing?.text ?? '',
-        showDelete: existing != null,
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => ParallelReadingScreen(
+          bookIndex: widget.bookIndex,
+          chapter: widget.chapter,
+          initialLeftCode: _versionCode,
+          store: _library,
+        ),
       ),
     );
-    if (!mounted || result == null) return;
-    switch (result.kind) {
-      case NoteDialogResultKind.saved:
-        await _db.saveNote(widget.bookIndex, widget.chapter, vn, result.text);
-        if (!mounted) return;
-        _userNotes.add(vn);
-        setState(() {});
-        _snack('Note enregistrée.');
-        break;
-      case NoteDialogResultKind.deleted:
-        await _db.deleteNote(widget.bookIndex, widget.chapter, vn);
-        if (!mounted) return;
-        _userNotes.remove(vn);
-        setState(() {});
-        break;
-      case NoteDialogResultKind.cancelled:
-        break;
+  }
+
+  // ---- Find in chapter ----
+
+  void _openFind() {
+    setState(() => _findOpen = true);
+    _findFocus.requestFocus();
+  }
+
+  void _closeFind() {
+    _findDebounce?.cancel();
+    setState(() {
+      _findOpen = false;
+      _findController.clear();
+      _findMatches = const [];
+      _findIndex = -1;
+    });
+  }
+
+  /// Debounced: scanning every verse on each keystroke would stutter on long
+  /// chapters (Psaume 119 = 176 versets).
+  void _onFindChanged(String query) {
+    _findDebounce?.cancel();
+    _findDebounce = Timer(const Duration(milliseconds: 300), () {
+      if (mounted) _runFind(query);
+    });
+  }
+
+  void _runFind(String query) {
+    final chapter = _chapterData;
+    final needle = normalizeForSearch(query);
+    if (!mounted) return;
+    if (needle.isEmpty || chapter == null) {
+      setState(() {
+        _findQuery = query;
+        _findMatches = const [];
+        _findIndex = -1;
+      });
+      return;
     }
+    final matches = <int>[];
+    for (var i = 0; i < chapter.verses.length; i++) {
+      final v = chapter.verses[i];
+      final vn = v.number == 0 ? i + 1 : v.number;
+      final hay = normalizeForSearch('${v.section ?? ''} ${v.text}');
+      if (hay.contains(needle)) matches.add(vn);
+    }
+    setState(() {
+      _findQuery = query;
+      _findMatches = matches;
+      _findIndex = matches.isEmpty ? -1 : 0;
+    });
+    _jumpToCurrentMatch();
+  }
+
+  void _stepFind(int direction) {
+    if (_findMatches.isEmpty) return;
+    var next = _findIndex + direction;
+    if (next < 0) next = _findMatches.length - 1;
+    if (next >= _findMatches.length) next = 0;
+    setState(() => _findIndex = next);
+    _jumpToCurrentMatch();
+  }
+
+  void _jumpToCurrentMatch() {
+    if (_findIndex < 0 || _findIndex >= _findMatches.length) return;
+    _beginJump(_findMatches[_findIndex]);
+  }
+
+  /// The counter between the arrows — « 3/12 », or « 0 » while nothing matches.
+  String get _findCounter =>
+      _findMatches.isEmpty || _findIndex < 0
+      ? (_findQuery.trim().isEmpty ? '' : '0')
+      : '${_findIndex + 1}/${_findMatches.length}';
+
+  // ---- Cross references of a verse ----
+
+  /// The « Références » action of the study sheet: every scripture reference
+  /// carried by the verse's own BYM notes (« Voir Es. 45:18. »), listed in one
+  /// sheet; tapping one jumps the reading to it through the same machinery as
+  /// a reference tapped inline.
+  Future<void> _showVerseReferences(Verse verse) async {
+    final refs = <BibleReference>{
+      for (final note in verse.notes)
+        ...findNoteReferences(note.note).map((span) => span.reference),
+    }.toList();
+    if (!mounted) return;
+    if (refs.isEmpty) {
+      _snack('Aucune référence dans les notes de ce verset.');
+      return;
+    }
+    refs.sort(
+      (a, b) => Object.hash(a.bookIndex, a.chapter ?? 0, a.verse ?? 0)
+          .compareTo(Object.hash(b.bookIndex, b.chapter ?? 0, b.verse ?? 0)),
+    );
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (sheetContext) {
+        final p = premiumPalette(sheetContext);
+        return SafeArea(
+          child: ListView(
+            shrinkWrap: true,
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+            children: [
+              Text(
+                'Références — ${catalogEntry(widget.bookIndex).abbreviation} ${verse.verse}',
+                style: premiumText(sheetContext, 15, FontWeight.w800, p.textDark),
+              ),
+              const SizedBox(height: 8),
+              for (final ref in refs)
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  dense: true,
+                  leading: Icon(Icons.link, color: p.primary, size: 20),
+                  title: Text(ref.label),
+                  onTap: () {
+                    Navigator.of(sheetContext).pop();
+                    _onReferenceTap(ref);
+                  },
+                ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  // ---- Immersion mode ----
+
+  Future<void> _setImmersion(bool value) async {
+    if (_prefs.immersion == value) return;
+    setState(() => _prefs.immersion = value);
+    // Entering immersion clears an open find: its bar is hidden anyway and
+    // leftover match washes would outlive their controls.
+    if (value && _findOpen) _closeFind();
+    await _savePrefs();
+  }
+
+  Future<void> _editNote(Verse verse) async {
+    final vn = verse.number;
+    final outcome = await editVerseNotes(
+      context: context,
+      db: _db,
+      bookIndex: widget.bookIndex,
+      chapter: widget.chapter,
+      verse: vn,
+      reference: 'Note — ${verse.verse}',
+      verseText: verse.text,
+    );
+    if (!mounted || outcome == null) return;
+    // Several notes can share a verse now: refresh the chapter marks from
+    // storage instead of adding/removing one number by hand.
+    _userNotes = await _db.notesInChapter(widget.bookIndex, widget.chapter);
+    if (!mounted) return;
+    setState(() {});
+    if (outcome == NoteEditorOutcome.saved) _snack('Note enregistrée.');
+    if (outcome == NoteEditorOutcome.deleted) _snack('Note supprimée.');
   }
 
   /// The Lexique button of the study sheet: it always shows the *same verse*
@@ -728,11 +1732,9 @@ class _ChapterReaderState extends State<ChapterReader> {
           verseNumber: verseNumber,
           tokens: tokens,
           verseNumbers: verseNumbers,
-          loadVerseTokens: (v) => _versions.lsgsTokens(
-            widget.bookIndex,
-            widget.chapter,
-            v,
-          ),
+          loadVerseTokens: (v) =>
+              _versions.lsgsTokens(widget.bookIndex, widget.chapter, v),
+          onOpenVerse: _openStrongOccurrence,
         ),
       ),
     );
@@ -762,204 +1764,32 @@ class _ChapterReaderState extends State<ChapterReader> {
     );
   }
 
-  /// Tapping a Strong code in a version that carries them (LSGS) opens its
-  /// French definition — the quick look the reader wants, without leaving the
-  /// chapter.
-  Future<void> _onStrongTap(Verse verse, String strong) async {
+  /// Tapping a Strong code in a version that carries them (LSGS) opens the
+  /// complete Strong word detail screen used by the rest of the app. Tapping
+  /// an occurrence verse there targets that verse in the reading screen.
+  Future<void> _onStrongTap(Verse _, String strong) async {
     final definition = await StrongLexicon.instance.lookup(strong);
     if (!mounted) return;
-    await showModalBottomSheet<void>(
-      context: context,
-      showDragHandle: true,
-      isScrollControlled: true,
-      backgroundColor: kPremiumBackground,
-      builder: (context) => _StrongDefinitionSheet(
-        reference:
-            '${catalogEntry(widget.bookIndex).abbreviation} '
-            '${verse.verse}',
-        definition: definition,
-        onOpenLexique: () => _openLexique(verse.number),
-      ),
-    );
-  }
-}
-
-/// The quick definition of a tapped Strong code, as a bottom sheet.
-class _StrongDefinitionSheet extends StatelessWidget {
-  /// "Ge. 1:1" — where the tapped code lives.
-  final String reference;
-  final StrongDefinition definition;
-
-  /// Opens the full word-by-word lexique for the same verse.
-  final VoidCallback? onOpenLexique;
-
-  const _StrongDefinitionSheet({
-    required this.reference,
-    required this.definition,
-    this.onOpenLexique,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final p = premiumPalette(context);
-    final labelStyle = premiumText(context, 11, FontWeight.w800, p.primary, spacing: 1);
-    final details = <String>[
-      if (definition.transliteration != null) definition.transliteration!,
-      if (definition.pronunciation != null) definition.pronunciation!,
-      if (definition.partOfSpeech != null) definition.partOfSpeech!,
-    ];
-
-    return SafeArea(
-      top: false,
-      child: SizedBox(
-        height: MediaQuery.sizeOf(context).height * .72,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: p.primarySoft,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Icon(Icons.menu_book_outlined, color: p.primary),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('FICHE STRONG', style: labelStyle),
-                        const SizedBox(height: 2),
-                        Text(
-                          reference,
-                          style: premiumText(context, 13, FontWeight.w600, p.textGrey),
-                        ),
-                      ],
-                    ),
-                  ),
-                  _QuickStrongCode(code: definition.strong),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                child: Container(height: 1, color: p.textGrey.withValues(alpha: .18)),
-              ),
-              if (definition.lemma != null) ...[
-                Text('MOT ORIGINAL', style: labelStyle),
-                const SizedBox(height: 4),
-                Directionality(
-                  textDirection: definition.language == 'hebrew'
-                      ? TextDirection.rtl
-                      : TextDirection.ltr,
-                  child: Text(
-                    definition.lemma!,
-                    textAlign: TextAlign.start,
-                    style: premiumText(context, 26, FontWeight.w700, p.primary, spacing: 1),
-                  ),
-                ),
-              ],
-              if (details.isNotEmpty) ...[
-                const SizedBox(height: 10),
-                Wrap(
-                  spacing: 6,
-                  runSpacing: 6,
-                  children: [
-                    for (final detail in details)
-                      _QuickDetailChip(text: detail),
-                  ],
-                ),
-              ],
-              const SizedBox(height: 18),
-              Text('DÉFINITION FRANÇAISE', style: labelStyle),
-              const SizedBox(height: 6),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        definition.definition,
-                        style: premiumText(context, 15, FontWeight.w500, p.textDark, height: 1.55),
-                      ),
-                      if (definition.etymology != null) ...[
-                        const SizedBox(height: 18),
-                        Text('ORIGINE', style: labelStyle),
-                        const SizedBox(height: 5),
-                        Text(
-                          definition.etymology!,
-                          style: premiumText(context, 13, FontWeight.w500, p.textGrey, height: 1.45),
-                        ),
-                      ],
-                    ],
-                  ),
-                ),
-              ),
-              if (onOpenLexique != null) ...[
-                const SizedBox(height: 14),
-                FilledButton.icon(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                    onOpenLexique!();
-                  },
-                  icon: const Icon(Icons.translate, size: 18),
-                  label: const Text('Ouvrir le lexique du verset'),
-                ),
-              ],
-            ],
-          ),
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => StrongDetailScreen(
+          strong: definition,
+          onOpenVerse: (bookIndex, chapter, verse) =>
+              _openStrongOccurrence(bookIndex, chapter, verse),
         ),
       ),
     );
   }
-}
 
-class _QuickStrongCode extends StatelessWidget {
-  final String code;
-  const _QuickStrongCode({required this.code});
-
-  @override
-  Widget build(BuildContext context) {
-    final p = premiumPalette(context);
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 7),
-      decoration: BoxDecoration(
-        color: p.primarySoft,
-        borderRadius: BorderRadius.circular(99),
-      ),
-      child: Text(
-        code,
-        style: premiumText(context, 12, FontWeight.w800, p.primary, spacing: .35),
-      ),
-    );
-  }
-}
-
-class _QuickDetailChip extends StatelessWidget {
-  final String text;
-  const _QuickDetailChip({required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    final p = premiumPalette(context);
-    return Container(
-      constraints: const BoxConstraints(maxWidth: 280),
-      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
-      decoration: BoxDecoration(
-        color: p.primarySoft,
-        borderRadius: BorderRadius.circular(99),
-      ),
-      child: Text(
-        text,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: premiumText(context, 11, FontWeight.w700, p.primary),
-      ),
+  /// A Strong occurrence tapped inside the fiche: clear the fiches stacked on
+  /// the shell (a code may have been reached through « Voir plus » or an
+  /// etymology link, several routes deep), then open the verse through the same
+  /// reference machinery as a note reference — the shell jumps the reading to
+  /// it, standalone use falls back to a pushed chapter.
+  void _openStrongOccurrence(int bookIndex, int chapter, int verse) {
+    Navigator.of(context).popUntil((route) => route.isFirst);
+    _onReferenceTap(
+      BibleReference(bookIndex: bookIndex, chapter: chapter, verse: verse),
     );
   }
 }
@@ -992,7 +1822,7 @@ class _MissingBookPanel extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.fromLTRB(24, 28, 24, 24),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: p.surface,
             borderRadius: BorderRadius.circular(20),
             boxShadow: premiumShadow(
               p.primaryDark,
@@ -1029,7 +1859,13 @@ class _MissingBookPanel extends StatelessWidget {
                 'Terminez le téléchargement depuis la Bibliothèque pour lire ce '
                 'livre en ${error.code}.',
                 textAlign: TextAlign.center,
-                style: premiumText(context, 13, FontWeight.w500, p.textGrey, height: 1.5),
+                style: premiumText(
+                  context,
+                  13,
+                  FontWeight.w500,
+                  p.textGrey,
+                  height: 1.5,
+                ),
               ),
               const SizedBox(height: 20),
               Wrap(
@@ -1057,230 +1893,272 @@ class _MissingBookPanel extends StatelessWidget {
   }
 }
 
-enum _DisplayChoice { textOnly, textWithNotes, inline, below }
-
-/// The ⋯ menu of the reading bar (maquette `modif/3boutons.jpg`): the v4
-/// « Texte seul / Texte + notes » toggle, the note disposition and the reading
-/// text size, folded into the single action row instead of a second bar.
-///
-/// The size ladder is not made of menu values — it is the chip row of
-/// [_TextSizeRow], which pops the menu itself.
-class _DisplayMenu extends StatelessWidget {
+/// The notes part of the reader's display sheet: the « Texte seul /
+/// Texte + notes » toggle and the disposition, as chip rows — the same look
+/// as the shared size / alignment / typeface sections below them.
+class DisplayNotesSection extends StatelessWidget {
   final bool notesMode;
-
-  /// False on a downloaded version, which carries no notes: the four note
-  /// entries collapse into one disabled line naming the reason. Greying them out
-  /// in place would leave five dead rows in a popup that then holds nothing but
-  /// the size ladder.
-  final bool notesAvailable;
   final NoteDisposition disposition;
-  final double fontSize;
-  final ValueChanged<bool> onNotesMode;
-  final ValueChanged<NoteDisposition> onDisposition;
-  final ValueChanged<double> onFontSize;
 
-  const _DisplayMenu({
+  /// Whether « sous le verset » is renderable. False in the continuous
+  /// layout, where note cards would chop the printed-text feel: the chip
+  /// disappears and the disposition row keeps only « à la suite ».
+  final bool belowAvailable;
+  final Future<void> Function(bool) onNotesMode;
+  final Future<void> Function(NoteDisposition) onDisposition;
+
+  const DisplayNotesSection({
+    super.key,
     required this.notesMode,
-    required this.notesAvailable,
     required this.disposition,
-    required this.fontSize,
+    required this.belowAvailable,
     required this.onNotesMode,
     required this.onDisposition,
-    required this.onFontSize,
   });
 
   @override
   Widget build(BuildContext context) {
-    final currentSize = ReadingTextSize.nearest(fontSize);
-    return PopupMenuButton<_DisplayChoice>(
-      tooltip: 'Affichage du texte',
-      icon: const Icon(Icons.more_vert),
-      onSelected: (choice) {
-        switch (choice) {
-          case _DisplayChoice.textOnly:
-            onNotesMode(false);
-            break;
-          case _DisplayChoice.textWithNotes:
-            onNotesMode(true);
-            break;
-          case _DisplayChoice.inline:
-            onDisposition(NoteDisposition.inline);
-            break;
-          case _DisplayChoice.below:
-            onDisposition(NoteDisposition.below);
-            break;
-        }
-      },
-      itemBuilder: (context) => [
-        if (notesAvailable) ...[
-          CheckedPopupMenuItem<_DisplayChoice>(
-            value: _DisplayChoice.textOnly,
-            checked: !notesMode,
-            child: const Text('Texte seul'),
+    return DisplayCard(
+      label: 'Notes',
+      icon: Icons.note_alt,
+      child: Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: [
+          displayFilterChip(
+            context,
+            'Texte seul',
+            !notesMode,
+            () => onNotesMode(false),
           ),
-          CheckedPopupMenuItem<_DisplayChoice>(
-            value: _DisplayChoice.textWithNotes,
-            checked: notesMode,
-            child: const Text('Texte + notes'),
+          displayFilterChip(
+            context,
+            'Texte + notes',
+            notesMode,
+            () => onNotesMode(true),
           ),
-          const PopupMenuDivider(),
-          CheckedPopupMenuItem<_DisplayChoice>(
-            value: _DisplayChoice.inline,
-            checked: disposition == NoteDisposition.inline,
-            child: const Text('Notes à la suite'),
-          ),
-          CheckedPopupMenuItem<_DisplayChoice>(
-            value: _DisplayChoice.below,
-            checked: disposition == NoteDisposition.below,
-            child: const Text('Notes sous le verset'),
-          ),
-        ] else
-          PopupMenuItem<_DisplayChoice>(
-            // One line that says why, rather than four greyed entries the
-            // reader would try before concluding the menu is broken.
-            enabled: false,
-            child: Text(
-              'Notes — BYM uniquement',
-              style: TextStyle(color: Theme.of(context).colorScheme.outline),
+          if (notesMode) ...[
+            displayFilterChip(
+              context,
+              'Notes à la suite',
+              notesMode &&
+                  (disposition == NoteDisposition.inline || !belowAvailable),
+              () => onDisposition(NoteDisposition.inline),
             ),
-          ),
-        const PopupMenuDivider(),
-        PopupMenuItem<_DisplayChoice>(
-          // Not selectable itself: the chips inside carry the taps.
-          enabled: false,
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          child: _TextSizeRow(current: currentSize, onFontSize: onFontSize),
-        ),
-      ],
-    );
-  }
-}
-
-/// The reading-size ladder, as one compact row of preview chips.
-///
-/// Six full-height menu entries pushed the largest option off the screen —
-/// precisely the option a reader with failing eyesight would have had to scroll
-/// to find. Each chip shows an « A » drawn at the size it selects (capped so a
-/// 30 pt chip does not tower over the row).
-class _TextSizeRow extends StatelessWidget {
-  final ReadingTextSize current;
-  final ValueChanged<double> onFontSize;
-
-  const _TextSizeRow({required this.current, required this.onFontSize});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          'Taille du texte',
-          style: theme.textTheme.labelMedium?.copyWith(
-            color: theme.colorScheme.onSurfaceVariant,
-          ),
-        ),
-        const SizedBox(height: 6),
-        Wrap(
-          spacing: 6,
-          runSpacing: 6,
-          children: [
-            for (final size in ReadingTextSize.values.skip(3))
-              _SizeChip(
-                size: size,
-                selected: size == current,
-                onTap: () {
-                  onFontSize(size.fontSize);
-                  Navigator.pop(context);
-                },
+            if (belowAvailable)
+              displayFilterChip(
+                context,
+                'Notes sous le verset',
+                notesMode && disposition == NoteDisposition.below,
+                () => onDisposition(NoteDisposition.below),
               ),
           ],
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
+/// The « Disposition du texte » part of the reader's display sheet: verses as
+/// separate tiles, or a continuous printed-Bible flow. Same chip look as the
+/// notes section above it.
+class DisplayLayoutSection extends StatelessWidget {
+  final ReadingLayout layout;
+  final Future<void> Function(ReadingLayout) onChanged;
 
-class _SizeChip extends StatelessWidget {
-  final ReadingTextSize size;
-  final bool selected;
-  final VoidCallback onTap;
-
-  const _SizeChip({
-    required this.size,
-    required this.selected,
-    required this.onTap,
+  const DisplayLayoutSection({
+    super.key,
+    required this.layout,
+    required this.onChanged,
   });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final accent = theme.colorScheme.primary;
-    return Tooltip(
-      message: 'Texte ${size.label}',
-      child: Semantics(
-        button: true,
-        selected: selected,
-        label: 'Texte ${size.label}',
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(8),
-          child: Container(
-            width: 44,
-            height: 44,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: selected ? accent.withValues(alpha: .15) : null,
-              border: Border.all(
-                color: selected ? accent : theme.colorScheme.outlineVariant,
-              ),
+    return DisplayCard(
+      label: 'Disposition du texte',
+      icon: Icons.segment,
+      child: Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: [
+          for (final option in ReadingLayout.values)
+            displayFilterChip(
+              context,
+              option.label,
+              layout == option,
+              () => onChanged(option),
             ),
-            child: Text(
-              'A',
-              style: TextStyle(
-                fontSize: size.fontSize > 24 ? 24 : size.fontSize,
-                color: selected ? accent : theme.colorScheme.onSurface,
-                fontWeight: selected ? FontWeight.bold : null,
-              ),
-            ),
-          ),
-        ),
+        ],
       ),
     );
   }
 }
 
-class _EndSelectionBar extends StatelessWidget {
+/// The « Graisse » part of the reader's display sheet: Léger / Normal /
+/// Foncé. Some screens render w400 visibly darker than others — this lets the
+/// reader dial the stroke to taste, identically in both layouts.
+class DisplayWeightSection extends StatelessWidget {
+  final ReadingFontWeight weight;
+  final Future<void> Function(ReadingFontWeight) onChanged;
+
+  const DisplayWeightSection({
+    super.key,
+    required this.weight,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DisplayCard(
+      label: 'Graisse du texte',
+      icon: Icons.format_bold,
+      child: Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: [
+          for (final option in ReadingFontWeight.values)
+            displayFilterChip(
+              context,
+              option.label,
+              weight == option,
+              () => onChanged(option),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The « Aération » part of the reader's display sheet: Serré / Normal /
+/// Aéré. The vertical rhythm already scales with the font size (see
+/// [ReadingRhythm]) so big type keeps its breathing room; this lets the
+/// reader tighten or loosen that rhythm to taste, identically in both
+/// layouts.
+class DisplaySpacingSection extends StatelessWidget {
+  final ReadingSpacing spacing;
+  final Future<void> Function(ReadingSpacing) onChanged;
+
+  const DisplaySpacingSection({
+    super.key,
+    required this.spacing,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DisplayCard(
+      label: 'Aération du texte',
+      icon: Icons.format_line_spacing,
+      child: Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: [
+          for (final option in ReadingSpacing.values)
+            displayFilterChip(
+              context,
+              option.label,
+              spacing == option,
+              () => onChanged(option),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The FilterChip look shared by every display-sheet section: selected chips
+/// tint with the accent, unselected ones stay outlined. One builder for the
+/// four sections, which each used to carry an identical local closure.
+Widget displayFilterChip(
+  BuildContext context,
+  String label,
+  bool selected,
+  VoidCallback onTap,
+) {
+  final p = premiumPalette(context);
+  return FilterChip(
+    label: Text(
+      label,
+      style: TextStyle(
+        color: selected ? p.primary : p.textDark,
+        fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+      ),
+    ),
+    selected: selected,
+    onSelected: (_) => onTap(),
+    showCheckmark: false,
+    side: BorderSide(
+      color: selected ? p.primary : p.textGrey.withValues(alpha: .35),
+    ),
+    backgroundColor: Colors.transparent,
+    selectedColor: p.primary.withValues(alpha: .14),
+  );
+}
+
+class _SelectionBar extends StatelessWidget {
   final int count;
+  final VoidCallback onHighlight;
+  final VoidCallback onFavorite;
+  final VoidCallback onCopy;
   final VoidCallback onDone;
 
-  const _EndSelectionBar({required this.count, required this.onDone});
+  const _SelectionBar({
+    super.key,
+    required this.count,
+    required this.onHighlight,
+    required this.onFavorite,
+    required this.onCopy,
+    required this.onDone,
+  });
 
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
+    // Icons only: a labelled « Terminer » button next to three actions pushed
+    // the row 42 px past a 360 px screen. The bare count keeps the « combien »
+    // without its sentence; closing is the ✕ at the end like everywhere else.
     return Material(
       elevation: 8,
-      color: Colors.white,
+      color: p.surface,
       child: SafeArea(
         top: false,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           child: Row(
             children: [
               Icon(Icons.check_circle, color: p.primary),
-              const SizedBox(width: 8),
+              const SizedBox(width: 6),
               Text(
-                '$count sélectionné${count > 1 ? 's' : ''}',
+                '$count',
                 style: premiumText(context, 14, FontWeight.w700, p.textDark),
               ),
-              const Spacer(),
-              FilledButton.tonalIcon(
-                onPressed: onDone,
-                icon: const Icon(Icons.close),
-                label: const Text('Terminer'),
+              const SizedBox(width: 6),
+              Container(width: 1, height: 22, color: p.primary.withValues(alpha: .2)),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    IconButton(
+                      tooltip: 'Surligner la sélection',
+                      onPressed: onHighlight,
+                      icon: const Icon(Icons.format_color_fill),
+                    ),
+                    IconButton(
+                      tooltip: 'Favoris sur la sélection',
+                      onPressed: onFavorite,
+                      icon: const Icon(Icons.star_border),
+                    ),
+                    IconButton(
+                      tooltip: 'Copier les versets',
+                      onPressed: onCopy,
+                      icon: const Icon(Icons.copy_all),
+                    ),
+                    IconButton(
+                      tooltip: 'Terminer la sélection',
+                      onPressed: onDone,
+                      icon: const Icon(Icons.close),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -1290,10 +2168,67 @@ class _EndSelectionBar extends StatelessWidget {
   }
 }
 
+/// End-of-chapter tile: names what comes next and moves the current tab (or
+/// pushes a chapter when reading standalone). Shown only outside selection
+/// mode and immersion.
+class _ContinueChapterTile extends StatelessWidget {
+  final String label;
+  final VoidCallback onTap;
+
+  const _ContinueChapterTile({required this.label, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = BibleThemeScope.of(context);
+    return Padding(
+      padding: const EdgeInsets.only(top: 24),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(child: Container(height: 1, color: theme.panelBorderColor)),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Text(
+                  'Fin du chapitre',
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: theme.verseNumColor,
+                  ),
+                ),
+              ),
+              Expanded(child: Container(height: 1, color: theme.panelBorderColor)),
+            ],
+          ),
+          const SizedBox(height: 16),
+          OutlinedButton.icon(
+            onPressed: onTap,
+            style: OutlinedButton.styleFrom(
+              side: BorderSide(color: theme.accentColor, width: 1.5),
+              foregroundColor: theme.accentColor,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            ),
+            icon: const Icon(Icons.arrow_downward, size: 18),
+            label: Text('Continuer — $label'),
+          ),
+          const SizedBox(height: 8),
+        ],
+      ),
+    );
+  }
+}
+
 /// Book metadata + introduction, shown at the top of chapter 1 (repliable).
 class _BookHeader extends StatefulWidget {
   final BibleBook book;
-  const _BookHeader({required this.book});
+
+  /// The resolved verse-body style (same object the flowing blocks and tiles
+  /// use): the introduction is body prose and must be size-identical to the
+  /// text that follows, in every layout.
+  final TextStyle introStyle;
+  const _BookHeader({
+    required this.book,
+    required this.introStyle,
+  });
 
   @override
   State<_BookHeader> createState() => _BookHeaderState();
@@ -1306,15 +2241,16 @@ class _BookHeaderState extends State<_BookHeader> {
   Widget build(BuildContext context) {
     final book = widget.book;
     final m = book.metadata;
-    final accent = BibleThemeScope.of(context).accentColor;
-    final dark = Theme.of(context).colorScheme.onSurface;
+    final readingTheme = BibleThemeScope.of(context);
+    final accent = readingTheme.accentColor;
+    final dark = readingTheme.textColor;
     return Card(
       elevation: 0,
-      color: Colors.white.withValues(alpha: .92),
+      color: readingTheme.panelColor,
       margin: const EdgeInsets.only(bottom: 16),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: accent.withValues(alpha: .22), width: 1),
+        side: BorderSide(color: readingTheme.panelBorderColor, width: 1),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -1343,17 +2279,28 @@ class _BookHeaderState extends State<_BookHeader> {
               const SizedBox(height: 6),
               Text(
                 '${book.abbreviation} · Traduction BYM',
-                style: premiumText(context, 12, FontWeight.w700, accent, spacing: .2),
+                style: premiumText(
+                  context,
+                  12,
+                  FontWeight.w700,
+                  accent,
+                  spacing: .2,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 14),
-                child: Container(height: 1, color: accent.withValues(alpha: .18)),
+                child: Container(
+                  height: 1,
+                  color: accent.withValues(alpha: .18),
+                ),
               ),
               GridView.count(
                 crossAxisCount: 2,
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                childAspectRatio: 3.2,
+                childAspectRatio: MediaQuery.sizeOf(context).width < 600
+                    ? 2.65
+                    : 3.2,
                 children: [
                   _metaCell('Signification', m.signification),
                   _metaCell('Auteur', m.auteur),
@@ -1364,11 +2311,14 @@ class _BookHeaderState extends State<_BookHeader> {
               if (book.introduction.isNotEmpty) ...[
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 14),
-                  child: Container(height: 1, color: accent.withValues(alpha: .18)),
+                  child: Container(
+                    height: 1,
+                    color: accent.withValues(alpha: .18),
+                  ),
                 ),
                 Text(
                   book.introduction,
-                  style: premiumText(context, 14, FontWeight.w500, dark, height: 1.55),
+                  style: widget.introStyle,
                 ),
               ],
             ],
@@ -1381,8 +2331,9 @@ class _BookHeaderState extends State<_BookHeader> {
   Widget _metaCell(String label, String value) => _metaBlock(label, value);
 
   Widget _metaBlock(String label, String value) {
-    final accent = BibleThemeScope.of(context).accentColor;
-    final dark = Theme.of(context).colorScheme.onSurface;
+    final readingTheme = BibleThemeScope.of(context);
+    final accent = readingTheme.accentColor;
+    final dark = readingTheme.textColor;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
       child: Column(
@@ -1390,17 +2341,112 @@ class _BookHeaderState extends State<_BookHeader> {
         children: [
           Text(
             label,
-            style: premiumText(context, 10, FontWeight.w800, accent, spacing: .5),
+            style: premiumText(
+              context,
+              9.5,
+              FontWeight.w800,
+              accent,
+              spacing: .5,
+            ),
           ),
           Expanded(
             child: Text(
               value,
-              style: premiumText(context, 12, FontWeight.w600, dark),
+              style: premiumText(
+                context,
+                10.5,
+                FontWeight.w600,
+                dark,
+                height: 1.25,
+              ),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// The « Couleur du texte » presets: null first (follow the theme), then a
+/// handful of deep hues plus one light — on a light theme the light choice
+/// flips the reading panels dark instead of becoming invisible.
+const List<int?> _textColorChoices = [
+  null,
+  0xFF1B1B1F, // noir doux
+  0xFF3B2312, // brun profond
+  0xFF1E2A44, // bleu nuit
+  0xFF24331F, // vert olive
+  0xFF4A1F24, // bordeaux
+  0xFFEDF3FC, // blanc glacé
+];
+
+/// A round swatch of [_textColorChoices]; the first (null) draws the
+/// « suivre le thème » marker instead of a flat colour.
+class _TextColorSwatch extends StatelessWidget {
+  final int? argb;
+  final bool selected;
+  final VoidCallback onTap;
+
+  const _TextColorSwatch({
+    required this.argb,
+    required this.selected,
+    required this.onTap,
+  });
+
+  String get _tooltip => switch (argb) {
+    null => 'Suivre le thème',
+    0xFF1B1B1F => 'Noir',
+    0xFF3B2312 => 'Brun',
+    0xFF1E2A44 => 'Bleu nuit',
+    0xFF24331F => 'Vert',
+    0xFF4A1F24 => 'Bordeaux',
+    _ => 'Blanc',
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = BibleThemeScope.of(context);
+    final fill = argb == null ? null : Color(argb!);
+    return Tooltip(
+      message: _tooltip,
+      child: InkWell(
+        onTap: onTap,
+        customBorder: const CircleBorder(),
+        child: Container(
+          width: 36,
+          height: 36,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            // « Suivre le thème » : la couleur courante du corps de texte.
+            color: fill ?? theme.textColor,
+            border: Border.all(
+              color: selected
+                  ? theme.accentColor
+                  : theme.panelBorderColor,
+              width: selected ? 2.5 : 1,
+            ),
+          ),
+          child: fill == null
+              ? Icon(
+                  Icons.palette_outlined,
+                  size: 16,
+                  // Contrasté sur la couleur du thème elle-même.
+                  color: theme.usesLightText
+                      ? Colors.black54
+                      : Colors.white70,
+                )
+              : selected
+              ? Icon(
+                  Icons.check,
+                  size: 16,
+                  color: fill.computeLuminance() > .5
+                      ? Colors.black
+                      : Colors.white,
+                )
+              : null,
+        ),
       ),
     );
   }

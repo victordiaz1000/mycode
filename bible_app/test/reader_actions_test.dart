@@ -2,27 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:bible_app/data/app_preferences.dart';
 import 'package:bible_app/data/library_store.dart';
 import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/screens/reader_screen.dart';
+import 'package:bible_app/widgets/bible_theme_scope.dart';
 import 'package:bible_app/widgets/chapter_reader.dart';
+import 'package:bible_app/widgets/fiche_text_settings.dart';
+import 'package:bible_app/widgets/premium_style.dart';
 import 'package:bible_app/widgets/reader_actions_bar.dart';
+import 'package:bible_app/widgets/verse_tile.dart';
 
 import 'support/fake_bible_bundle.dart';
 
 /// Finds [text] inside the action bar itself (the same label often also exists
 /// in the sheet or in the chapter body behind it).
 Finder inBar(String text) => find.descendant(
-      of: find.byType(ReaderActionsBar),
-      matching: find.text(text),
-    );
+  of: find.byType(ReaderActionsBar),
+  matching: find.text(text),
+);
 
 /// Finds a number tile of a sheet grid (chapters or verses); the same digits
 /// also exist as verse numbers in the reader behind the sheet.
-Finder gridTile(String number) => find.descendant(
-      of: find.byType(Wrap),
-      matching: find.text(number),
-    );
+Finder gridTile(String number) =>
+    find.descendant(of: find.byType(Wrap), matching: find.text(number));
 
 /// The chapter-stepping arrow carrying [icon]; read its `onPressed` to tell
 /// enabled from greyed.
@@ -42,11 +45,11 @@ void main() {
   tearDown(LocalRepository.useRootBundle);
 
   Future<void> pumpReader(WidgetTester tester) async {
-    await tester.pumpWidget(const MaterialApp(
-      home: Scaffold(
-        body: ChapterReader(bookIndex: 1, chapter: 1),
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(body: ChapterReader(bookIndex: 1, chapter: 1)),
       ),
-    ));
+    );
     await tester.pumpAndSettle();
   }
 
@@ -58,21 +61,24 @@ void main() {
     int chapter,
     List<String> opened,
   ) async {
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(
-        body: ChapterReader(
-          key: ValueKey('$book:$chapter'),
-          bookIndex: book,
-          chapter: chapter,
-          onOpenChapter: (b, c) => opened.add('$b:$c'),
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: ChapterReader(
+            key: ValueKey('$book:$chapter'),
+            bookIndex: book,
+            chapter: chapter,
+            onOpenChapter: (b, c) => opened.add('$b:$c'),
+          ),
         ),
       ),
-    ));
+    );
     await tester.pumpAndSettle();
   }
 
-  testWidgets('the bar shows the reference pill, the version and the chevron',
-      (tester) async {
+  testWidgets('the bar shows the reference pill, the version and the chevron', (
+    tester,
+  ) async {
     await pumpReader(tester);
 
     expect(find.byType(ReaderActionsBar), findsOneWidget);
@@ -82,68 +88,89 @@ void main() {
     expect(find.byIcon(Icons.keyboard_double_arrow_down), findsOneWidget);
   });
 
-  testWidgets('a long book name is shortened in the pill and never overflows',
-      (tester) async {
+  testWidgets('a long book name is shortened in the pill and never overflows', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(360, 640);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
     final opened = <String>[];
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(
-        body: ChapterReader(
-          bookIndex: 49,
-          chapter: 1,
-          onOpenChapter: (b, c) => opened.add('$b:$c'),
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: ChapterReader(
+            bookIndex: 49,
+            chapter: 1,
+            onOpenChapter: (b, c) => opened.add('$b:$c'),
+          ),
         ),
       ),
-    ));
+    );
     await tester.pumpAndSettle();
 
-    expect(tester.takeException(), isNull,
-        reason: '1 Corinthiens must not overflow the action bar');
-    expect(inBar('1 Cor. 1'), findsOneWidget,
-        reason: 'the bar uses the compact name for long books');
+    expect(
+      tester.takeException(),
+      isNull,
+      reason: '1 Corinthiens must not overflow the action bar',
+    );
+    expect(
+      inBar('1 Cor. 1'),
+      findsOneWidget,
+      reason: 'the bar uses the compact name for long books',
+    );
   });
 
-  testWidgets('the reference pill opens the Livres sheet and unfolds chapters',
-      (tester) async {
-    await pumpReader(tester);
+  testWidgets(
+    'the reference pill opens the Livres sheet and unfolds chapters',
+    (tester) async {
+      await pumpReader(tester);
 
-    await tester.tap(inBar('Genèse 1'));
-    await tester.pumpAndSettle();
+      await tester.tap(inBar('Genèse 1'));
+      await tester.pumpAndSettle();
 
-    expect(find.text('Livres'), findsOneWidget);
-    // Sections are kept (only the first ones fit on screen), books use their
-    // short French name.
-    expect(find.text('Torah'), findsOneWidget);
-    expect(find.text('Genèse'), findsOneWidget);
-    expect(find.text('Deutéronome'), findsOneWidget);
+      expect(find.text('Livres'), findsOneWidget);
+      // Sections are kept (only the first ones fit on screen); les livres
+      // portent leur nom BYM complet, scopé à la feuille car l'en-tête du
+      // lecteur, derrière, affiche le même nom.
+      Finder inSheet(Finder f) => find.descendant(
+            of: find.byType(BottomSheet),
+            matching: f,
+          );
+      expect(find.text('Torah'), findsOneWidget);
+      expect(inSheet(find.text('Bereshit (Genèse)')), findsOneWidget);
+      // La grille dépliée de la Genèse pousse les rangées suivantes hors du
+      // premier extent : viser la voisine directe plutôt que Deutéronome.
+      expect(inSheet(find.text('Shemot (Exode)')), findsOneWidget);
 
-    // The current book starts unfolded: its chapters are already listed
-    // (FakeBibleBundle generates 2 chapters per book).
-    expect(gridTile('1'), findsOneWidget);
-    expect(gridTile('2'), findsOneWidget);
+      // The current book starts unfolded: its chapters are already listed
+      // (FakeBibleBundle generates 2 chapters per book).
+      expect(gridTile('1'), findsOneWidget);
+      expect(gridTile('2'), findsOneWidget);
 
-    // Fold it back: the chapter grid disappears.
-    await tester.tap(find.text('Genèse'));
-    await tester.pumpAndSettle();
-    expect(gridTile('2'), findsNothing);
-  });
+      // Fold it back: the chapter grid disappears.
+      await tester.tap(inSheet(find.text('Bereshit (Genèse)')));
+      await tester.pumpAndSettle();
+      expect(gridTile('2'), findsNothing);
+    },
+  );
 
-  testWidgets('picking a chapter in the Livres sheet reports it and closes',
-      (tester) async {
+  testWidgets('picking a chapter in the Livres sheet reports it and closes', (
+    tester,
+  ) async {
     final opened = <String>[];
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(
-        body: ChapterReader(
-          bookIndex: 1,
-          chapter: 1,
-          onOpenChapter: (book, chapter) => opened.add('$book:$chapter'),
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: ChapterReader(
+            bookIndex: 1,
+            chapter: 1,
+            onOpenChapter: (book, chapter) => opened.add('$book:$chapter'),
+          ),
         ),
       ),
-    ));
+    );
     await tester.pumpAndSettle();
 
     await tester.tap(inBar('Genèse 1'));
@@ -187,20 +214,24 @@ void main() {
     expect(find.text('12 autres versions à télécharger'), findsOneWidget);
   });
 
-  testWidgets('a listed version no longer carries an audio glyph', (tester) async {
+  testWidgets('a listed version no longer carries an audio glyph', (
+    tester,
+  ) async {
     // Audio was removed from the app (décision 2026-08) : the maquette prints a
     // 🔊 next to versions with an audio reading, but nothing plays audio today,
     // so the sheet must not advertise what it cannot deliver.
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(
-        body: ReaderActionsBar(
-          installedVersions: const {
-            'LSG': InstalledVersion(code: 'LSG', books: {1}),
-          },
-          onOpenChapter: (_, _) {},
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: ReaderActionsBar(
+            installedVersions: const {
+              'LSG': InstalledVersion(code: 'LSG', books: {1}),
+            },
+            onOpenChapter: (_, _) {},
+          ),
         ),
       ),
-    ));
+    );
     await tester.pumpAndSettle();
 
     await tester.tap(inBar('BYM'));
@@ -210,8 +241,9 @@ void main() {
     expect(find.byIcon(Icons.volume_up_outlined), findsNothing);
   });
 
-  testWidgets('a version without files is absent, whatever its licence',
-      (tester) async {
+  testWidgets('a version without files is absent, whatever its licence', (
+    tester,
+  ) async {
     // LSG has no free source (décision 9) and DBY is only downloadable: both
     // used to be listed and answer a snackbar. Neither can be read, so the
     // sheet does not carry them — the Bibliothèque does.
@@ -224,12 +256,15 @@ void main() {
     expect(find.text('Bible Darby'), findsNothing);
     // Only BYM and the footer are tappable, so nothing can raise these.
     expect(find.text('LSG — bientôt disponible.'), findsNothing);
-    expect(find.text('DBY — à télécharger depuis la Bibliothèque.'),
-        findsNothing);
+    expect(
+      find.text('DBY — à télécharger depuis la Bibliothèque.'),
+      findsNothing,
+    );
   });
 
-  testWidgets('the chevron opens the verse grid and jumps to the pick',
-      (tester) async {
+  testWidgets('the chevron opens the verse grid and jumps to the pick', (
+    tester,
+  ) async {
     await pumpReader(tester);
 
     await tester.tap(find.byIcon(Icons.keyboard_double_arrow_down));
@@ -248,19 +283,22 @@ void main() {
     await tester.pumpAndSettle();
   });
 
-  testWidgets('a far verse is reached even though its tile was never built',
-      (tester) async {
+  testWidgets('a far verse is reached even though its tile was never built', (
+    tester,
+  ) async {
     // 60 verses: verse 55 sits well past the lazy list's cache extent, so its
     // tile does not exist when the jump is asked for.
     LocalRepository.useBundle(FakeBibleBundle(verses: 60));
     final target = ValueNotifier<VerseTarget?>(null);
     addTearDown(target.dispose);
 
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(
-        body: ChapterReader(bookIndex: 1, chapter: 1, jumpToVerse: target),
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: ChapterReader(bookIndex: 1, chapter: 1, jumpToVerse: target),
+        ),
       ),
-    ));
+    );
     await tester.pumpAndSettle();
     expect(find.text('Verset de test Ge. 1:55.'), findsNothing);
 
@@ -286,6 +324,74 @@ void main() {
     await tester.pumpAndSettle();
   });
 
+  testWidgets('a restored verse is scrolled to on open, without the flash', (
+    tester,
+  ) async {
+    // 60 verses so verse 55 is past the cache extent on first load: the
+    // restore has to drive the lazy list, exactly like a jump.
+    LocalRepository.useBundle(FakeBibleBundle(verses: 60));
+    final verses = <int>[];
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: ChapterReader(
+            bookIndex: 1,
+            chapter: 1,
+            initialVerse: 55,
+            onVerseChanged: verses.add,
+          ),
+        ),
+      ),
+    );
+    // The restore waits a frame, loads the chapter, then converges: pump
+    // explicitly like the jump test above.
+    for (var i = 0; i < 20; i++) {
+      await tester.pump(const Duration(milliseconds: 60));
+    }
+    await tester.pumpAndSettle();
+
+    final tile = find.text('Verset de test Ge. 1:55.');
+    expect(tile, findsOneWidget);
+    final viewport = tester.getRect(find.byType(ChapterReader));
+    final rect = tester.getRect(tile);
+    expect(rect.top, greaterThanOrEqualTo(viewport.top));
+    expect(rect.bottom, lessThanOrEqualTo(viewport.bottom));
+
+    await tester.pump(const Duration(seconds: 1));
+    await tester.pumpAndSettle();
+
+    // The restored position is reported once to the owning tab.
+    expect(verses, contains(55));
+  });
+
+  testWidgets('scrolling the reader reports the current verse', (tester) async {
+    final verses = <int>[];
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: ChapterReader(
+            bookIndex: 1,
+            chapter: 1,
+            onVerseChanged: verses.add,
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    // Drag far enough that the reader settles beyond verse 1: the debounced
+    // reporter then estimates the verse at the top of the viewport.
+    await tester.drag(find.byType(ChapterVerseList), const Offset(0, -800));
+    // The reporter debounces 400 ms and reads the position asynchronously.
+    await tester.pump(const Duration(milliseconds: 450));
+    await tester.pumpAndSettle();
+
+    expect(verses, isNotEmpty);
+    // FakeBibleBundle makes 3 verses; drifting the whole list must land on the
+    // last one at the top.
+    expect(verses.last, greaterThan(1));
+  });
+
   testWidgets('the ⋯ menu carries the text display options', (tester) async {
     await pumpReader(tester);
 
@@ -294,24 +400,60 @@ void main() {
 
     expect(find.text('Texte seul'), findsOneWidget);
     expect(find.text('Texte + notes'), findsOneWidget);
-    expect(find.text('Notes à la suite'), findsOneWidget);
-    expect(find.text('Notes sous le verset'), findsOneWidget);
+    // The disposition chips are meaningless while notes are off.
+    expect(find.text('Notes à la suite'), findsNothing);
+    expect(find.text('Notes sous le verset'), findsNothing);
 
     // The checkmark offsets the label's centre; the tap still lands on the menu
     // item, so silence the known spurious hit-test warning.
     await tester.tap(find.text('Texte + notes'), warnIfMissed: false);
     await tester.pumpAndSettle();
-    // Notes are on: the reader reconstructs the annotated verse from text +
-    // notes (NoteAwareVerseText), so the note body now shows. It lives in a
-    // RichText span, hence findRichText.
+    // Notes are on: both dispositions appear, the reader reconstructs the
+    // annotated verse from text + notes (NoteAwareVerseText), so the note body
+    // now shows. It lives in a RichText span, hence findRichText.
+    expect(find.text('Notes à la suite'), findsOneWidget);
+    expect(find.text('Notes sous le verset'), findsOneWidget);
     expect(
       find.textContaining('Note de test', findRichText: true),
       findsWidgets,
     );
   });
 
-  testWidgets('no-tab home shows the Livres pill with the chevron disabled',
-      (tester) async {
+  testWidgets('the ⋯ sheet follows the canonical section order', (tester) async {
+    await pumpReader(tester);
+
+    await tester.tap(find.byIcon(Icons.more_vert));
+    await tester.pumpAndSettle();
+
+    // The sheet is a SingleChildScrollView: every section is laid out, even
+    // the ones below the fold, so their vertical order is directly readable.
+    // DisplaySectionLabel uppercases its text; plain Text rows do not.
+    double y(String label) => tester.getTopLeft(find.text(label)).dy;
+    final sections = [
+      'Mode immersion',
+      'OPACITÉ DU PANNEAU',
+      'DISPOSITION DU TEXTE',
+      'NOTES',
+      'TAILLE DU TEXTE',
+      'COULEUR DU TEXTE',
+      'ALIGNEMENT',
+      'GRAISSE DU TEXTE',
+      'AÉRATION DU TEXTE',
+      'POLICE',
+      'Lecture parallèle — deux versions',
+    ];
+    for (var i = 0; i < sections.length - 1; i++) {
+      expect(
+        y(sections[i]),
+        lessThan(y(sections[i + 1])),
+        reason: '"${sections[i]}" must sit above "${sections[i + 1]}"',
+      );
+    }
+  });
+
+  testWidgets('no-tab home shows the Livres pill with the chevron disabled', (
+    tester,
+  ) async {
     await tester.pumpWidget(const MaterialApp(home: ReaderScreen()));
     await tester.pumpAndSettle();
 
@@ -331,13 +473,17 @@ void main() {
 
   // ---- Previous / next chapter ------------------------------------------
 
-  testWidgets('at Genèse 1 the back arrow is disabled and forward steps on',
-      (tester) async {
+  testWidgets('at Genèse 1 the back arrow is disabled and forward steps on', (
+    tester,
+  ) async {
     final opened = <String>[];
     await pumpReaderReporting(tester, 1, 1, opened);
 
-    expect(arrow(tester, Icons.chevron_left).onPressed, isNull,
-        reason: 'Genèse 1 is the very beginning');
+    expect(
+      arrow(tester, Icons.chevron_left).onPressed,
+      isNull,
+      reason: 'Genèse 1 is the very beginning',
+    );
     expect(arrow(tester, Icons.chevron_right).onPressed, isNotNull);
 
     await tester.tap(find.byIcon(Icons.chevron_right));
@@ -345,8 +491,9 @@ void main() {
     expect(opened, ['1:2']);
   });
 
-  testWidgets('the arrows cross book boundaries in both directions',
-      (tester) async {
+  testWidgets('the arrows cross book boundaries in both directions', (
+    tester,
+  ) async {
     // FakeBibleBundle gives every book 2 chapters, so Genèse 2 is the last one.
     final forward = <String>[];
     await pumpReaderReporting(tester, 1, 2, forward);
@@ -361,18 +508,53 @@ void main() {
     expect(backward, ['1:2'], reason: 'Exode 1 → last chapter of Genèse');
   });
 
-  testWidgets('the forward arrow is disabled at the end of Apocalypse',
-      (tester) async {
+  testWidgets('the forward arrow is disabled at the end of Apocalypse', (
+    tester,
+  ) async {
     await pumpReaderReporting(tester, 66, 2, []);
 
     expect(arrow(tester, Icons.chevron_right).onPressed, isNull);
     expect(arrow(tester, Icons.chevron_left).onPressed, isNotNull);
   });
 
+  testWidgets('the reading font is applied and updates live', (tester) async {
+    SharedPreferences.setMockInitialValues({
+      'reading.fontFamily': ReadingFont.classic.name,
+    });
+    await pumpReader(tester);
+
+    Text verse() => tester.widget<Text>(find.text('Verset de test Ge. 1:1.'));
+    expect(verse().style?.fontFamily, 'Lora');
+
+    final prefs = await AppPreferences.load();
+    prefs.readingFont = ReadingFont.jakarta;
+    await prefs.save();
+    await tester.pumpAndSettle();
+
+    expect(verse().style?.fontFamily, 'Plus Jakarta Sans');
+  });
+
+  testWidgets('a font choice stored as « Moderne » migrates', (tester) async {
+    // 'modern' asked for the platform `sans-serif`, the one family the bundle
+    // did not embed — it rendered differently on every device, so the option
+    // was dropped. A reader who had picked it must land on the embedded sans
+    // serif, NOT on the reader's Literata fallback, which is a serif.
+    SharedPreferences.setMockInitialValues({'reading.fontFamily': 'modern'});
+    await pumpReader(tester);
+
+    expect(
+      tester
+          .widget<Text>(find.text('Verset de test Ge. 1:1.'))
+          .style
+          ?.fontFamily,
+      'Plus Jakarta Sans',
+    );
+  });
   // ---- Reading text size --------------------------------------------------
 
-  testWidgets('the ⋯ menu changes the verse text size and remembers it',
-      (tester) async {
+  testWidgets('the ⋯ menu changes the verse text size and remembers it', (
+    tester,
+  ) async {
     await pumpReader(tester);
 
     // Default is « très grand » (22) — ReadingTextSize.extraLarge.
@@ -381,29 +563,137 @@ void main() {
     await tester.tap(find.byIcon(Icons.more_vert));
     await tester.pumpAndSettle();
     // The ladder is a row of « A » chips, labelled for screen readers.
-    expect(find.text('Taille du texte'), findsOneWidget);
-    // Only the three large-print steps are offered now, the default leading
-    // them: très grand (22), énorme (26), géant (30).
-    expect(find.byTooltip('Texte très grand'), findsOneWidget);
-    expect(find.byTooltip('Texte énorme'), findsOneWidget);
-    expect(find.byTooltip('Texte géant'), findsOneWidget);
-    expect(find.byTooltip('Texte petit'), findsNothing);
-    expect(find.byTooltip('Texte moyen'), findsNothing);
-    // The whole ladder must fit without scrolling: the readers who need
-    // « géant » are the least likely to go hunting for it.
+    expect(find.text('TAILLE DU TEXTE'), findsOneWidget);
+    // The full ladder is offered, « petit » through « géant ».
+    expect(find.byTooltip('Taille du texte petit'), findsOneWidget);
+    expect(find.byTooltip('Taille du texte moyen'), findsOneWidget);
+    expect(find.byTooltip('Taille du texte grand'), findsOneWidget);
+    expect(find.byTooltip('Taille du texte très grand'), findsOneWidget);
+    expect(find.byTooltip('Taille du texte énorme'), findsOneWidget);
+    expect(find.byTooltip('Taille du texte géant'), findsOneWidget);
+    // The sheet scrolls if needed, but « géant » must stay reachable without
+    // hunting: it fits inside the viewport of a standard test surface.
     final screen =
         tester.view.physicalSize.height / tester.view.devicePixelRatio;
+    await tester.ensureVisible(find.byTooltip('Taille du texte géant'));
+    await tester.pumpAndSettle();
     expect(
-      tester.getBottomLeft(find.byTooltip('Texte géant')).dy,
+      tester.getBottomLeft(find.byTooltip('Taille du texte géant')).dy,
       lessThan(screen),
     );
 
-    await tester.tap(find.byTooltip('Texte géant'));
+    await tester.tap(find.byTooltip('Taille du texte géant'));
     await tester.pumpAndSettle();
     expect(verseFontSize(tester), 30);
 
     // Remounting reads the size back from shared_preferences.
     await pumpReader(tester);
     expect(verseFontSize(tester), 30);
+  });
+  testWidgets('the ⋯ sheet has a labelled close button', (tester) async {
+    await pumpReader(tester);
+
+    await tester.tap(find.byIcon(Icons.more_vert));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('display-sheet-close')), findsOneWidget);
+
+    await tester.tap(find.byKey(const ValueKey('display-sheet-close')));
+    await tester.pumpAndSettle();
+
+    // Back to the reader, sheet gone.
+    expect(find.text('TAILLE DU TEXTE'), findsNothing);
+    expect(find.byIcon(Icons.more_vert), findsOneWidget);
+  });
+
+  testWidgets('the ⋯ menu changes the aération and remembers it', (
+    tester,
+  ) async {
+    double? verseHeight(WidgetTester tester) =>
+        tester.widget<Text>(find.text('Verset de test Ge. 1:1.')).style?.height;
+
+    await pumpReader(tester);
+    final before = verseHeight(tester)!;
+
+    await tester.tap(find.byIcon(Icons.more_vert));
+    await tester.pumpAndSettle();
+    expect(find.text('AÉRATION DU TEXTE'), findsOneWidget);
+    // « Normal » exists twice (Graisse + Aération): scope to the section.
+    final spacingSection = find.byType(DisplaySpacingSection);
+    Finder chip(String label) =>
+        find.descendant(of: spacingSection, matching: find.text(label));
+    expect(chip('Serré'), findsOneWidget);
+    expect(chip('Normal'), findsOneWidget);
+    expect(chip('Aéré'), findsOneWidget);
+
+    // The sheet outgrew the test surface with the aération row: scroll the
+    // chip into view first, then tap it.
+    final sheetScrollable = find.descendant(
+      of: find.byType(DisplaySettingsSheetLayout),
+      matching: find.byType(Scrollable),
+    );
+    await tester.scrollUntilVisible(find.text('Aéré'), 120,
+        scrollable: sheetScrollable);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Aéré'));
+    await tester.pumpAndSettle();
+    expect(verseHeight(tester), greaterThan(before));
+
+    // Dismiss via the barrier (the ✕ can sit off-screen after scrolling),
+    // then remount: the choice is read back from shared_preferences.
+    await tester.tapAt(const Offset(10, 10));
+    await tester.pumpAndSettle();
+    await pumpReader(tester);
+    expect(verseHeight(tester), greaterThan(before));
+
+    // And « serré » tightens below the default leading again.
+    await tester.tap(find.byIcon(Icons.more_vert));
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(find.text('Serré'), 120,
+        scrollable: sheetScrollable);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Serré'));
+    await tester.pumpAndSettle();
+    expect(verseHeight(tester), lessThan(before));
+  });
+
+  testWidgets('reading sheets inherit the selected theme surface', (
+    tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({'reading.themeId': 'forest'});
+    AppPreferences.themeNotifier.value = 'forest';
+    addTearDown(() => AppPreferences.themeNotifier.value = 'vitrail');
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: BibleThemeScope(
+          child: Scaffold(body: ChapterReader(bookIndex: 1, chapter: 1)),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final expected = premiumPalette(
+      tester.element(find.byType(ReaderActionsBar)),
+    ).surface;
+    await tester.tap(inBar('Genèse 1'));
+    await tester.pumpAndSettle();
+    final bookTiles = tester.widgetList<Material>(
+      find.descendant(of: find.byType(Wrap), matching: find.byType(Material)),
+    );
+    expect(bookTiles.any((tile) => tile.color == expected), isTrue);
+    expect(bookTiles.any((tile) => tile.color == Colors.white), isFalse);
+
+    await tester.tapAt(const Offset(10, 10));
+    await tester.pumpAndSettle();
+    await tester.tap(inBar('BYM'));
+    await tester.pumpAndSettle();
+    final versionTiles = tester.widgetList<Material>(
+      find.descendant(
+        of: find.byKey(const Key('versionSheetList')),
+        matching: find.byType(Material),
+      ),
+    );
+    expect(versionTiles.any((tile) => tile.color == expected), isTrue);
+    expect(versionTiles.any((tile) => tile.color == Colors.white), isFalse);
   });
 }

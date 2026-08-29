@@ -2,14 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../data/app_preferences.dart';
-import '../data/fredaw_lexicon.dart';
 import '../data/library_store.dart';
+import '../data/reading_history.dart';
 import '../data/tab_manager.dart';
 import '../data/version_repository.dart';
 import '../models/study_tab.dart';
-import '../widgets/bible_theme_scope.dart';
 import '../widgets/chapter_reader.dart';
-import '../widgets/fredaw_article_view.dart';
 import '../widgets/premium_style.dart';
 import '../widgets/reader_actions_bar.dart';
 import '../widgets/tab_strip.dart';
@@ -75,52 +73,54 @@ class _ReaderScreenState extends State<ReaderScreen> {
   Widget build(BuildContext context) {
     return ListenableBuilder(
       listenable: _manager,
-      builder: (context, _) {
-        if (!_manager.hasTabs) {
-          return _NewTabHome(
-            manager: _manager,
-            onOpenLibrary: widget.onOpenLibrary,
-          );
-        }
-        final activeIndex = _manager.activeIndex < 0 ? 0 : _manager.activeIndex;
-        return Scaffold(
-          body: SafeArea(
-            child: Column(
-              children: [
-                TabStrip(
-                  manager: _manager,
-                  onOpenSwitcher: () => TabSwitcher.show(context, _manager),
-                ),
-                Expanded(
-                  child: IndexedStack(
-                    index: activeIndex,
-                    children: [
-                      for (final tab in _manager.tabs) _buildTabContent(tab),
-                    ],
+      builder: (context, _) => ListenableBuilder(
+        listenable: AppPreferences.immersionNotifier,
+        builder: (context, _) {
+          if (!_manager.hasTabs) {
+            return _NewTabHome(
+              manager: _manager,
+              onOpenLibrary: widget.onOpenLibrary,
+            );
+          }
+          final activeIndex = _manager.activeIndex < 0
+              ? 0
+              : _manager.activeIndex;
+          // Immersion hides the strip too — the reader's exit pill brings it
+          // back. Without this the tabs stayed as a golden crown over a text
+          // that asked to be alone.
+          final immersive = AppPreferences.immersionNotifier.value;
+          return Scaffold(
+            body: SafeArea(
+              child: Column(
+                children: [
+                  if (!immersive)
+                    TabStrip(
+                      manager: _manager,
+                      onOpenSwitcher: () => TabSwitcher.show(context, _manager),
+                    ),
+                  Expanded(
+                    child: IndexedStack(
+                      index: activeIndex,
+                      children: [
+                        for (final tab in _manager.tabs) _buildTabContent(tab),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 
   Widget _buildTabContent(StudyTab tab) {
     if (tab.isHome) {
-      return _HomeTab(manager: _manager, onOpenLibrary: widget.onOpenLibrary);
-    }
-    if (tab.isDictionary) {
-      return _DictionaryTab(
-        entry: tab,
-        // A cross-linked word opens (or refocuses) its own dictionary tab —
-        // and overwrites it if the same term is already open.
-        onOpenDictionary: (term, definition) =>
-            _manager.openDictionary(term, definition),
-        // A Bible reference of the article opens a reading tab for the chapter.
-        onOpenVerse: (bookIndex, chapter) =>
-            _manager.openReading(bookIndex, chapter),
+      return _HomeTab(
+        manager: _manager,
+        tab: tab,
+        onOpenLibrary: widget.onOpenLibrary,
       );
     }
     return ChapterReader(
@@ -128,6 +128,8 @@ class _ReaderScreenState extends State<ReaderScreen> {
       bookIndex: tab.bookIndex!,
       chapter: tab.chapter!,
       initialVersionCode: tab.versionCode,
+      initialVerse: tab.verse,
+      onVerseChanged: (verse) => _manager.updateTabVerse(tab.id, verse),
       jumpToVerse: widget.jumpToVerse,
       onOpenLibrary: widget.onOpenLibrary,
       onVersionChanged: (code) => _manager.updateTabVersion(tab.id, code),
@@ -141,220 +143,11 @@ class _ReaderScreenState extends State<ReaderScreen> {
       onReferenceTap: widget.onOpenVerse == null
           ? null
           : (ref) => widget.onOpenVerse!(
-                ref.bookIndex,
-                ref.chapter ?? 1,
-                ref.verse ?? 1,
-              ),
-    );
-  }
-}
-
-class _DictionaryTab extends StatefulWidget {
-  final StudyTab entry;
-
-  /// Opens a cross-linked word of the article as a dictionary tab (overwrites
-  /// the same term if already open).
-  final void Function(String term, String definition)? onOpenDictionary;
-
-  /// Opens a Bible reference of the article as a reading tab.
-  final void Function(int bookIndex, int chapter)? onOpenVerse;
-
-  const _DictionaryTab({
-    required this.entry,
-    this.onOpenDictionary,
-    this.onOpenVerse,
-  });
-
-  @override
-  State<_DictionaryTab> createState() => _DictionaryTabState();
-}
-
-/// Menu entries of the dictionary tab's ⋯ button (text size + alignment).
-enum _DisplayChoice {
-  sizeSmall,
-  sizeMedium,
-  sizeLarge,
-  sizeExtraLarge,
-  sizeHuge,
-  sizeGiant,
-  alignLeft,
-  alignCenter,
-  alignRight,
-  alignJustify;
-
-  static _DisplayChoice forSize(ReadingTextSize size) => switch (size) {
-        ReadingTextSize.small => sizeSmall,
-        ReadingTextSize.medium => sizeMedium,
-        ReadingTextSize.large => sizeLarge,
-        ReadingTextSize.extraLarge => sizeExtraLarge,
-        ReadingTextSize.huge => sizeHuge,
-        ReadingTextSize.giant => sizeGiant,
-      };
-
-  static _DisplayChoice forAlign(ReadingTextAlign align) => switch (align) {
-        ReadingTextAlign.left => alignLeft,
-        ReadingTextAlign.center => alignCenter,
-        ReadingTextAlign.right => alignRight,
-        ReadingTextAlign.justify => alignJustify,
-      };
-}
-
-class _DictionaryTabState extends State<_DictionaryTab> {
-  AppPreferences? _prefs;
-  double _fontSize = ReadingTextSize.medium.fontSize;
-  ReadingTextAlign _align = ReadingTextAlign.justify;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadPreferences();
-  }
-
-  Future<void> _loadPreferences() async {
-    final prefs = await AppPreferences.load();
-    if (!mounted) return;
-    setState(() {
-      _prefs = prefs;
-      _fontSize = prefs.fontSize;
-      _align = prefs.textAlign;
-    });
-  }
-
-  void _setFontSize(ReadingTextSize size) {
-    setState(() => _fontSize = size.fontSize);
-    final prefs = _prefs;
-    if (prefs != null) {
-      prefs.fontSize = size.fontSize;
-      prefs.save();
-    }
-  }
-
-  void _setAlign(ReadingTextAlign align) {
-    setState(() => _align = align);
-    final prefs = _prefs;
-    if (prefs != null) {
-      prefs.textAlign = align;
-      prefs.save();
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final materialTheme = Theme.of(context);
-    final readingTheme = BibleThemeScope.of(context);
-    final entry = widget.entry;
-    final currentSize = ReadingTextSize.nearest(_fontSize);
-
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: readingTheme.accentColor.withValues(alpha: .14),
-        foregroundColor: readingTheme.titleColor,
-        title: Text(
-          '',
-          style: TextStyle(
-            color: readingTheme.titleColor,
-            fontWeight: FontWeight.w800,
-          ),
-        ),
-        actions: [
-          PopupMenuButton<_DisplayChoice>(
-            tooltip: 'Affichage du texte',
-            icon: const Icon(Icons.more_vert),
-            onSelected: (choice) {
-              switch (choice) {
-                case _DisplayChoice.sizeSmall:
-                  _setFontSize(ReadingTextSize.small);
-                  break;
-                case _DisplayChoice.sizeMedium:
-                  _setFontSize(ReadingTextSize.medium);
-                  break;
-                case _DisplayChoice.sizeLarge:
-                  _setFontSize(ReadingTextSize.large);
-                  break;
-                case _DisplayChoice.sizeExtraLarge:
-                  _setFontSize(ReadingTextSize.extraLarge);
-                  break;
-                case _DisplayChoice.sizeHuge:
-                  _setFontSize(ReadingTextSize.huge);
-                  break;
-                case _DisplayChoice.sizeGiant:
-                  _setFontSize(ReadingTextSize.giant);
-                  break;
-                case _DisplayChoice.alignLeft:
-                  _setAlign(ReadingTextAlign.left);
-                  break;
-                case _DisplayChoice.alignCenter:
-                  _setAlign(ReadingTextAlign.center);
-                  break;
-                case _DisplayChoice.alignRight:
-                  _setAlign(ReadingTextAlign.right);
-                  break;
-                case _DisplayChoice.alignJustify:
-                  _setAlign(ReadingTextAlign.justify);
-                  break;
-              }
-            },
-            itemBuilder: (context) => [
-              for (final size in ReadingTextSize.values)
-                CheckedPopupMenuItem<_DisplayChoice>(
-                  value: _DisplayChoice.forSize(size),
-                  checked: size == currentSize,
-                  child: Text('Texte ${size.label}'),
-                ),
-              const PopupMenuDivider(),
-              for (final align in ReadingTextAlign.values)
-                CheckedPopupMenuItem<_DisplayChoice>(
-                  value: _DisplayChoice.forAlign(align),
-                  checked: align == _align,
-                  child: Text('Aligner ${align.label}'),
-                ),
-            ],
-          ),
-        ],
-      ),
-      body: SafeArea(
-        top: false,
-        child: Container(
-          decoration: readingTheme.hasBackground
-              ? BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(readingTheme.backgroundAsset),
-                    fit: BoxFit.cover,
-                    colorFilter: const ColorFilter.mode(
-                      Color.fromRGBO(0, 0, 0, 0.16),
-                      BlendMode.dstATop,
-                    ),
-                  ),
-                )
-              : null,
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-            child: FredawArticleView(
-              entry: FreDawEntry(
-                term: entry.dictionaryTerm ?? '',
-                definition: entry.dictionaryDefinition ?? '',
-              ),
-              paragraphStyle: materialTheme.textTheme.bodyLarge?.copyWith(
-                fontSize: _fontSize,
-                color: readingTheme.textColor,
-              ),
-              paragraphAlign: _align.align,
-              onTermTap: _openTerm,
-              onReferenceTap: (reference) => widget.onOpenVerse?.call(
-                reference.bookIndex,
-                reference.chapter ?? 1,
-              ),
+              ref.bookIndex,
+              ref.chapter ?? 1,
+              ref.verse ?? 1,
             ),
-          ),
-        ),
-      ),
     );
-  }
-
-  Future<void> _openTerm(String term) async {
-    final entry = await FreDawLexicon.instance.lookup(term);
-    if (!mounted) return;
-    widget.onOpenDictionary?.call(entry.term, entry.definition);
   }
 }
 
@@ -363,54 +156,132 @@ class _DictionaryTabState extends State<_DictionaryTab> {
 /// Picking a book here fills *this* tab instead of opening another one — the
 /// empty « Nouvel onglet » added by the ＋ is exactly the tab the reader means
 /// to fill, like typing a URL in a blank Chrome tab.
+///
+/// The version picked here is recorded on the tab, not in the shared
+/// preferences: a blank tab is a tab like any other, and its choice must not
+/// move the tabs already open (nor be overwritten by them).
 class _HomeTab extends StatelessWidget {
   final TabManager manager;
+  final StudyTab tab;
   final VoidCallback? onOpenLibrary;
-  const _HomeTab({required this.manager, this.onOpenLibrary});
+  const _HomeTab({
+    required this.manager,
+    required this.tab,
+    this.onOpenLibrary,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kPremiumBackground,
+      backgroundColor: premiumBackground(context),
       body: Column(
         children: [
           _HomeActionsBar(
+            versionCode: tab.versionCode,
+            onSelectVersion: (code) => manager.updateTabVersion(tab.id, code),
+            // `replaceActiveReading` keeps the tab's own version, so the order
+            // the pills read in — version, then book — opens straight into it.
             onOpenChapter: (bookIndex, chapter) =>
                 manager.replaceActiveReading(bookIndex, chapter),
             onOpenLibrary: onOpenLibrary,
           ),
-          const Expanded(child: _EmptyReadingHint()),
+          Expanded(
+            child: _EmptyReadingBody(
+              onOpenChapter: (bookIndex, chapter) =>
+                  manager.replaceActiveReading(bookIndex, chapter),
+            ),
+          ),
         ],
       ),
     );
   }
 }
 
-/// Empty state (no open tabs): the reading action bar alone on top (the
-/// reference pill reads « Livres » and opens the books sheet; the verse
-/// chevron stays disabled without a chapter) over a navigation hint.
+/// Empty state (no open tabs): the strip stays put — ＋ and the counter
+/// reading « 0 » remain the anchor that opens tabs and the card switcher —
+/// over the reading action bar and a navigation hint.
 ///
-/// No AppBar here: the bar *is* the navigation surface, and the ＋ button that
-/// adds a « Nouvel onglet » lives in the [TabStrip], which appears as soon as
-/// the first tab opens.
-class _NewTabHome extends StatelessWidget {
+/// No AppBar here: the bars *are* the navigation surface.
+///
+/// The one page with no tab to record a version on, so here — and only here —
+/// the « Version de lecture par défaut » preference is the store: it is both
+/// what the pill shows and what seeds the tab this page is about to open.
+class _NewTabHome extends StatefulWidget {
   final TabManager manager;
   final VoidCallback? onOpenLibrary;
   const _NewTabHome({required this.manager, this.onOpenLibrary});
 
   @override
+  State<_NewTabHome> createState() => _NewTabHomeState();
+}
+
+class _NewTabHomeState extends State<_NewTabHome> {
+  AppPreferences? _prefs;
+
+  /// BYM until the preferences answer — the same default the reader shows.
+  String _versionCode = VersionRepository.embeddedCode;
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+    // The Réglages screen can move the default while this page sits open.
+    AppPreferences.revision.addListener(_load);
+  }
+
+  @override
+  void dispose() {
+    AppPreferences.revision.removeListener(_load);
+    super.dispose();
+  }
+
+  Future<void> _load() async {
+    final prefs = await AppPreferences.load();
+    if (!mounted) return;
+    setState(() {
+      _prefs = prefs;
+      _versionCode = prefs.versionCode;
+    });
+  }
+
+  /// Records the pick as the new default. `save()` bumps the revision, which
+  /// calls [_load] back — it reads the very value just written, so the two
+  /// paths cannot disagree.
+  void _selectVersion(String code) {
+    final prefs = _prefs;
+    if (prefs == null || code == _versionCode) return;
+    setState(() => _versionCode = code);
+    prefs.versionCode = code;
+    prefs.save();
+  }
+
+  /// Opens the first tab in the version the pill names — [TabManager] has no
+  /// active tab to inherit from here, and would otherwise fall back to BYM.
+  void _openChapter(int bookIndex, int chapter) =>
+      widget.manager.openReading(bookIndex, chapter, versionCode: _versionCode);
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kPremiumBackground,
+      backgroundColor: premiumBackground(context),
       body: SafeArea(
         child: Column(
           children: [
-            _HomeActionsBar(
-              onOpenChapter: (bookIndex, chapter) =>
-                  manager.openReading(bookIndex, chapter),
-              onOpenLibrary: onOpenLibrary,
+            // The strip never disappears, even with zero tabs: hiding it made
+            // the ＋ / counter vanish without warning after closing the last
+            // tab. The switcher opens from here too.
+            TabStrip(
+              manager: widget.manager,
+              onOpenSwitcher: () =>
+                  TabSwitcher.show(context, widget.manager),
             ),
-            const Expanded(child: _EmptyReadingHint()),
+            _HomeActionsBar(
+              versionCode: _versionCode,
+              onSelectVersion: _selectVersion,
+              onOpenChapter: _openChapter,
+              onOpenLibrary: widget.onOpenLibrary,
+            ),
+            Expanded(child: _EmptyReadingBody(onOpenChapter: _openChapter)),
           ],
         ),
       ),
@@ -421,19 +292,30 @@ class _NewTabHome extends StatelessWidget {
 /// The reading bar of a tab that holds no chapter yet.
 ///
 /// It exists because the plain [ReaderActionsBar] defaults `installedVersions`
-/// to `const {}`, and the two home pages used to take that default: the sheet
-/// read every downloaded translation as absent and answered « à télécharger
-/// depuis la Bibliothèque » for versions sitting on the device.
+/// to `const {}`, and the two home pages took that default: the sheet read
+/// every downloaded translation as absent and answered « à télécharger depuis
+/// la Bibliothèque » for versions sitting on the device.
 ///
-/// Picking a version here **records it for the next chapter** rather than
-/// refusing for lack of one to switch. `ChapterReader` reads the same
-/// preference at `initState`, so choosing the version and then the book — the
-/// order the pills are laid out in — opens straight into it.
+/// Where the pick is *recorded* is the caller's business ([versionCode] /
+/// [onSelectVersion]): a hosted home tab writes on its tab, the zero-tab home
+/// on the default preference. This bar only reads the registry and reports the
+/// choice.
 class _HomeActionsBar extends StatefulWidget {
+  /// Version the pill names — the code the hosting page holds.
+  final String versionCode;
+
+  /// Records a version picked in the sheet.
+  final ValueChanged<String> onSelectVersion;
+
   final void Function(int bookIndex, int chapter) onOpenChapter;
   final VoidCallback? onOpenLibrary;
 
-  const _HomeActionsBar({required this.onOpenChapter, this.onOpenLibrary});
+  const _HomeActionsBar({
+    required this.versionCode,
+    required this.onSelectVersion,
+    required this.onOpenChapter,
+    this.onOpenLibrary,
+  });
 
   @override
   State<_HomeActionsBar> createState() => _HomeActionsBarState();
@@ -441,12 +323,7 @@ class _HomeActionsBar extends StatefulWidget {
 
 class _HomeActionsBarState extends State<_HomeActionsBar> {
   final LibraryStore _library = LibraryStore();
-  AppPreferences? _prefs;
   Map<String, InstalledVersion> _installed = const {};
-
-  /// BYM until the preferences answer — the same default the reader shows.
-  String get _versionCode =>
-      _prefs?.versionCode ?? VersionRepository.embeddedCode;
 
   @override
   void initState() {
@@ -464,13 +341,9 @@ class _HomeActionsBarState extends State<_HomeActionsBar> {
   }
 
   Future<void> _load() async {
-    final prefs = await AppPreferences.load();
     final installed = await _installedVersions();
     if (!mounted) return;
-    setState(() {
-      _prefs = prefs;
-      _installed = installed;
-    });
+    setState(() => _installed = installed);
   }
 
   Future<void> _onLibraryChanged() async {
@@ -481,10 +354,10 @@ class _HomeActionsBarState extends State<_HomeActionsBar> {
     // The recorded version just lost its files — the reader would fall back to
     // BYM on the next chapter anyway, so say so here rather than keep a pill
     // pointing at nothing.
-    final code = _versionCode;
+    final code = widget.versionCode;
     if (code != VersionRepository.embeddedCode &&
         installed[code]?.isEmpty != false) {
-      _selectVersion(VersionRepository.embeddedCode);
+      widget.onSelectVersion(VersionRepository.embeddedCode);
     }
   }
 
@@ -497,22 +370,104 @@ class _HomeActionsBarState extends State<_HomeActionsBar> {
     }
   }
 
-  void _selectVersion(String code) {
-    final prefs = _prefs;
-    if (prefs == null || prefs.versionCode == code) return;
-    setState(() => prefs.versionCode = code);
-    prefs.save();
-  }
-
   @override
   Widget build(BuildContext context) {
     return ReaderActionsBar(
-      versionCode: _versionCode,
+      versionCode: widget.versionCode,
       installedVersions: _installed,
-      onSelectVersion: _selectVersion,
+      onSelectVersion: widget.onSelectVersion,
       onOpenChapter: widget.onOpenChapter,
       onOpenLibrary: widget.onOpenLibrary,
       onVerses: null,
+    );
+  }
+}
+
+/// What an empty reading tab shows: the resume banner (last position from the
+/// history, if any) above the navigation hint.
+class _EmptyReadingBody extends StatelessWidget {
+  /// Where resuming goes — fills *this* tab (the same routing the « Livres »
+  /// pill above uses).
+  final void Function(int bookIndex, int chapter) onOpenChapter;
+
+  const _EmptyReadingBody({required this.onOpenChapter});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<ReadingEntry?>(
+      future: ReadingHistory().last(),
+      builder: (context, snapshot) {
+        final entry = snapshot.data;
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (entry != null)
+              _ResumeCard(entry: entry, onTap: () => onOpenChapter(entry.bookIndex, entry.chapter))
+            else
+              const _EmptyReadingHint(),
+          ],
+        );
+      },
+    );
+  }
+}
+
+/// « Reprendre Ge. 1 » : the last visited chapter, one tap back into it. The
+/// verse-level position is restored by the reader itself (tab persistence).
+class _ResumeCard extends StatelessWidget {
+  final ReadingEntry entry;
+  final VoidCallback onTap;
+  const _ResumeCard({required this.entry, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 28),
+      child: Card(
+        margin: const EdgeInsets.symmetric(horizontal: 24),
+        elevation: 0,
+        color: p.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+          side: BorderSide(color: p.primary.withValues(alpha: .25)),
+        ),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(16),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            child: Row(
+              children: [
+                Icon(Icons.history_edu, color: p.primary),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Reprendre ${entry.label}',
+                        style: premiumText(
+                          context,
+                          15,
+                          FontWeight.w800,
+                          p.textDark,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        entry.bookName,
+                        style: premiumText(context, 12, FontWeight.w500, p.textGrey),
+                      ),
+                    ],
+                  ),
+                ),
+                Icon(Icons.chevron_right, color: p.primary),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -546,7 +501,13 @@ class _EmptyReadingHint extends StatelessWidget {
               'Ouvrez le sélecteur « Livres » ci-dessus pour commencer '
               'la lecture.',
               textAlign: TextAlign.center,
-              style: premiumText(context, 15, FontWeight.w600, p.textGrey, height: 1.45),
+              style: premiumText(
+                context,
+                15,
+                FontWeight.w600,
+                p.textGrey,
+                height: 1.45,
+              ),
             ),
           ],
         ),

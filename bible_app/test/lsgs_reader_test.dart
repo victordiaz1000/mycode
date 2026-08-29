@@ -8,7 +8,9 @@ import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/data/lsgs_repository.dart';
 import 'package:bible_app/data/strong_lexicon.dart';
 import 'package:bible_app/data/version_repository.dart';
+import 'package:bible_app/screens/chapter_screen.dart';
 import 'package:bible_app/screens/etude_verset_screen.dart';
+import 'package:bible_app/screens/strong_detail_screen.dart';
 import 'package:bible_app/widgets/chapter_reader.dart';
 
 import 'support/fake_bible_bundle.dart';
@@ -17,9 +19,9 @@ import 'support/fake_lsgs_bundle.dart';
 import 'support/fake_strong_lexicon_bundle.dart';
 
 /// The LSGS reading contract: a Strong code in the verse is tappable and opens
-/// the quick French definition in a bottom sheet; the words elsewhere keep
-/// opening the study sheet, whose Lexique button leads to the word-by-word
-/// clickable rendering.
+/// the complete Strong detail screen; the words elsewhere keep opening the
+/// study sheet, whose Lexique button is off — the reader already sees the
+/// Strong text word by word.
 void main() {
   setUp(() {
     SharedPreferences.setMockInitialValues({});
@@ -39,21 +41,24 @@ void main() {
   });
 
   Future<void> pumpLsgsReader(WidgetTester tester) async {
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(
-        body: ChapterReader(
-          bookIndex: 1,
-          chapter: 1,
-          initialVersionCode: VersionRepository.lsgsCode,
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: ChapterReader(
+            bookIndex: 1,
+            chapter: 1,
+            initialVersionCode: VersionRepository.lsgsCode,
+          ),
         ),
       ),
-    ));
+    );
     await tester.pumpAndSettle();
   }
 
   /// The RichText that carries the LSGS corpus text (verse 1, « AA H7225 »).
-  Finder strongVerseText() => find.byWidgetPredicate((w) =>
-      w is RichText && w.text.toPlainText() == 'AA H7225');
+  Finder strongVerseText() => find.byWidgetPredicate(
+    (w) => w is RichText && w.text.toPlainText() == 'AA H7225',
+  );
 
   /// Taps inside the recognised span of the Strong code, not the centre of the
   /// whole RichText (which fills the reading line).
@@ -73,48 +78,84 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('tapping a Strong code opens its French definition',
-      (tester) async {
+  testWidgets('tapping a Strong code opens the Strong detail screen', (
+    tester,
+  ) async {
     await pumpLsgsReader(tester);
 
-    // The Strong span now carries a recogniser: the tap answers with the
-    // definition sheet, not the study sheet.
+    // The Strong span opens the same complete fiche as the Strong dictionary,
+    // not the study sheet or the old quick modal.
     await tapStrongCode(tester);
 
     expect(find.byType(EtudeVersetScreen), findsNothing);
+    expect(find.byType(StrongDetailScreen), findsOneWidget);
     // The fake lexicon serves a definition for H7225.
     expect(find.text('H7225'), findsWidgets);
-    expect(find.text('Définition test de H7225.'), findsOneWidget,
-        reason: 'the Strong code opens the definition sheet');
+    expect(
+      find.text('Définition test de H7225.'),
+      findsWidgets,
+      reason: 'the Strong code opens the complete detail screen',
+    );
   });
 
-  testWidgets('the Lexique button of the study sheet opens the Strong lexicon',
-      (tester) async {
+  testWidgets('an occurrence verse tapped in the fiche targets the reader', (
+    tester,
+  ) async {
     await pumpLsgsReader(tester);
 
-    // Verse 2 bears no Strong code — same path: tap, sheet, Lexique button.
+    await tapStrongCode(tester);
+    expect(find.byType(StrongDetailScreen), findsOneWidget);
+
+    // The fake corpus indexes H7225 at Genèse 1:1 — the very verse the reader
+    // is on. Tap it: the fiche clears and the reference machinery opens the
+    // chapter (standalone fallback pushes a ChapterScreen).
+    await tester.scrollUntilVisible(find.text('Genèse 1:1'), 200);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Genèse 1:1'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(StrongDetailScreen), findsNothing,
+        reason: 'the fiche is cleared before the reader takes over');
+    expect(find.byType(ChapterScreen), findsOneWidget,
+        reason: 'the standalone fallback opens the referenced chapter');
+  });
+
+  testWidgets(
+    'the Lexique button of the study sheet is off in LSGS',
+    (tester) async {
+      await pumpLsgsReader(tester);
+
+      // Verse 2 bears no Strong code — the study sheet opens on tap.
+      await tester.tap(find.text('Au commencement'));
+      await tester.pumpAndSettle();
+
+      // LSGS already renders every Strong code word by word, so the Lexique
+      // button stays off rather than open a screen the reader already sees.
+      final lexiqueButton = find.widgetWithText(
+        OutlinedButton,
+        'Lexique & Dictionnaire — version BYM',
+      );
+      await tester.ensureVisible(lexiqueButton);
+      await tester.pumpAndSettle();
+      final button = tester.widget<OutlinedButton>(lexiqueButton);
+      expect(button.onPressed, isNull);
+      expect(find.byType(EtudeVersetScreen), findsNothing);
+    },
+  );
+
+  testWidgets('the Lexique button is off on the LSGS verse', (tester) async {
+    await pumpLsgsReader(tester);
+
     await tester.tap(find.text('Au commencement'));
     await tester.pumpAndSettle();
 
-    final lexiqueButton = find.widgetWithText(
-        OutlinedButton, 'Lexique & Dictionnaire — verset mot à mot');
-    await tester.ensureVisible(lexiqueButton);
-    await tester.pumpAndSettle();
-    await tester.tap(lexiqueButton);
-    await tester.pumpAndSettle();
-
-    expect(find.byType(EtudeVersetScreen), findsOneWidget);
-  });
-
-  testWidgets('the Lexique button is enabled by the LSGS verse',
-      (tester) async {
-    await pumpLsgsReader(tester);
-
-    await tester.tap(find.text('Au commencement'));
-    await tester.pumpAndSettle();
-
-    final button = tester.widget<OutlinedButton>(find.widgetWithText(
-        OutlinedButton, 'Lexique & Dictionnaire — verset mot à mot'));
-    expect(button.onPressed, isNotNull);
+    final button = tester.widget<OutlinedButton>(
+      find.widgetWithText(
+        OutlinedButton,
+        'Lexique & Dictionnaire — version BYM',
+      ),
+    );
+    expect(button.onPressed, isNull,
+        reason: 'LSGS is already the word-by-word Strong rendering');
   });
 }

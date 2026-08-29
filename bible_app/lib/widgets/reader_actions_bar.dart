@@ -6,21 +6,8 @@ import '../data/library_store.dart';
 import '../data/local_repository.dart';
 import '../data/version_catalog.dart';
 import '../models/chapter.dart';
+import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
-
-const Color _gold = Color(0xFFD3A94F);
-
-/// Bottom padding a scrolling sheet needs to clear the system navigation.
-///
-/// The sheets are sized as a fraction of the screen, which includes the area
-/// the Android gesture bar (or the 3-button bar) sits over: with a flat 24 the
-/// last row of the list — KJV in « Version », the last chapter tile in
-/// « Livres » — was drawn underneath it and could not be tapped.
-///
-/// `viewPadding` rather than `padding`: inside a sheet the latter is already
-/// consumed by the route, and reads 0.
-double sheetBottomInset(BuildContext context) =>
-    24 + MediaQuery.viewPaddingOf(context).bottom;
 
 /// The reading action bar (maquette `modif/3boutons.jpg`): a joined pill group
 /// showing the **current reference** (`Genèse 1`) and the **active version code**
@@ -97,48 +84,53 @@ class ReaderActionsBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
     return Container(
-      color: kPremiumBackground,
+      color: premiumBackground(context),
       child: Column(
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(10, 4, 4, 4),
             child: Row(
               children: [
-                Flexible(
-                  fit: FlexFit.loose,
-                  child: _Pill(
-                    label: reference,
-                    side: _PillSide.left,
-                    onTap: () => showBooksSheet(
-                      context,
-                      currentBook: bookIndex,
-                      currentChapter: chapter,
-                      onSelect: onOpenChapter,
-                    ),
+                Expanded(
+                  child: Row(
+                    children: [
+                      Flexible(
+                        fit: FlexFit.loose,
+                        child: _Pill(
+                          label: reference,
+                          side: _PillSide.left,
+                          onTap: () => showBooksSheet(
+                            context,
+                            currentBook: bookIndex,
+                            currentChapter: chapter,
+                            onSelect: onOpenChapter,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 2),
+                      _Pill(
+                        label: versionCode,
+                        side: _PillSide.right,
+                        filled: true,
+                        onTap: () => showVersionSheet(
+                          context,
+                          activeCode: versionCode,
+                          installed: installedVersions,
+                          onSelect: onSelectVersion,
+                          onOpenLibrary: onOpenLibrary,
+                        ),
+                      ),
+                      IconButton(
+                        tooltip: 'Aller au verset',
+                        onPressed: onVerses,
+                        visualDensity: VisualDensity.compact,
+                        color: p.primary,
+                        disabledColor: p.textGrey,
+                        icon: const Icon(Icons.keyboard_double_arrow_down),
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(width: 2),
-                _Pill(
-                  label: versionCode,
-                  side: _PillSide.right,
-                  filled: true,
-                  onTap: () => showVersionSheet(
-                    context,
-                    activeCode: versionCode,
-                    installed: installedVersions,
-                    onSelect: onSelectVersion,
-                    onOpenLibrary: onOpenLibrary,
-                  ),
-                ),
-                IconButton(
-                  tooltip: 'Aller au verset',
-                  onPressed: onVerses,
-                  visualDensity: VisualDensity.compact,
-                  color: p.primary,
-                  disabledColor: p.textGrey,
-                  icon: const Icon(Icons.keyboard_double_arrow_down),
-                ),
-                const Spacer(),
                 IconButton(
                   tooltip: 'Chapitre précédent',
                   onPressed: onPreviousChapter,
@@ -195,7 +187,7 @@ class _Pill extends StatelessWidget {
         ? const BorderRadius.horizontal(left: outer, right: inner)
         : const BorderRadius.horizontal(left: inner, right: outer);
     return Material(
-      color: filled ? null : Colors.white,
+      color: filled ? null : p.surface,
       borderRadius: radius,
       clipBehavior: Clip.antiAlias,
       child: Ink(
@@ -209,7 +201,10 @@ class _Pill extends StatelessWidget {
         child: InkWell(
           onTap: onTap,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.sizeOf(context).width < 360 ? 8 : 14,
+              vertical: 8,
+            ),
             child: Text(
               label,
               maxLines: 1,
@@ -218,7 +213,7 @@ class _Pill extends StatelessWidget {
                 context,
                 13,
                 FontWeight.w700,
-                filled ? Colors.white : p.primary,
+                filled ? p.onPrimary : p.primary,
               ),
             ),
           ),
@@ -278,14 +273,23 @@ Future<void> showBooksSheet(
   return showModalBottomSheet<void>(
     context: context,
     isScrollControlled: true,
+    useSafeArea: true,
     showDragHandle: true,
-    backgroundColor: kPremiumBackground,
-    builder: (sheetContext) => SizedBox(
-      height: MediaQuery.sizeOf(sheetContext).height * .85,
-      child: _BooksSheet(
-        currentBook: currentBook,
-        currentChapter: currentChapter,
-        onSelect: onSelect,
+    backgroundColor: premiumBackground(context),
+    builder: (sheetContext) => Padding(
+      // Android 3-button and gesture navigation can overlay modal routes.
+      // Reserve that physical system area around the sheet itself, not merely
+      // at the end of its scrollable content (same guard as the study sheet).
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.viewPaddingOf(sheetContext).bottom,
+      ),
+      child: SizedBox(
+        height: MediaQuery.sizeOf(sheetContext).height * .85,
+        child: _BooksSheet(
+          currentBook: currentBook,
+          currentChapter: currentChapter,
+          onSelect: onSelect,
+        ),
       ),
     ),
   );
@@ -334,7 +338,7 @@ class _BooksSheetState extends State<_BooksSheet> {
         ),
         Expanded(
           child: ListView(
-            padding: EdgeInsets.only(bottom: sheetBottomInset(context)),
+            padding: const EdgeInsets.only(bottom: 24),
             children: [
               for (final section in bibleSections) ...[
                 Padding(
@@ -368,20 +372,46 @@ class _BooksSheetState extends State<_BooksSheet> {
         Material(
           color: active ? p.primarySoft : Colors.transparent,
           child: InkWell(
-            onTap: () =>
-                setState(() => _expanded = expanded ? null : bymIndex),
+            onTap: () => setState(() => _expanded = expanded ? null : bymIndex),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
               child: Row(
                 children: [
                   Expanded(
                     child: Text(
-                      catalogEntry(bymIndex).barLabel,
+                      // Le nom BYM complet (« Bereshit (Genèse) »), pas le
+                      // raccourci français : cette feuille est la table des
+                      // matières DE LA VERSION BYM, ses intitulés font partie
+                      // du texte. La pilule de référence, elle, garde le
+                      // compact [BookEntry.barLabel] pour ne pas déborder.
+                      catalogEntry(bymIndex).name,
                       style: premiumText(
                         context,
                         15,
                         active ? FontWeight.w800 : FontWeight.w600,
                         active ? p.primary : p.textDark,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 3,
+                    ),
+                    decoration: BoxDecoration(
+                      color: active
+                          ? p.primary.withValues(alpha: .16)
+                          : p.primarySoft,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Text(
+                      catalogEntry(bymIndex).abbreviation,
+                      style: premiumText(
+                        context,
+                        11.5,
+                        FontWeight.w800,
+                        p.primary,
                       ),
                     ),
                   ),
@@ -431,8 +461,9 @@ class _ChapterGrid extends StatefulWidget {
 }
 
 class _ChapterGridState extends State<_ChapterGrid> {
-  late final Future<int> _count =
-      LocalRepository().chapterCount(widget.bookIndex);
+  late final Future<int> _count = LocalRepository().chapterCount(
+    widget.bookIndex,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -446,13 +477,18 @@ class _ChapterGridState extends State<_ChapterGrid> {
           );
         }
         if (!snapshot.hasData) {
-          return const Padding(
-            padding: EdgeInsets.all(16),
-            child: Center(
-              child: SizedBox(
-                width: 20,
-                height: 20,
-                child: CircularProgressIndicator(strokeWidth: 2),
+          // Tuiles fantômes à la taille exacte des _NumberTile (52×46) : la
+          // grille se matérialise sans saut de layout.
+          return Padding(
+            padding: const EdgeInsets.fromLTRB(16, 10, 16, 14),
+            child: LoadingSkeleton(
+              child: Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  for (var i = 0; i < 18; i++)
+                    const SkeletonBox(width: 52, height: 46, radius: 10),
+                ],
               ),
             ),
           );
@@ -496,12 +532,12 @@ class _NumberTile extends StatelessWidget {
       width: 52,
       height: 46,
       child: Material(
-        color: Colors.white,
+        color: p.surface,
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
           side: current
-              ? const BorderSide(color: _gold, width: 2)
+              ? BorderSide(color: p.primary, width: 2)
               : BorderSide(color: p.textGrey.withValues(alpha: .22)),
         ),
         child: InkWell(
@@ -513,7 +549,7 @@ class _NumberTile extends StatelessWidget {
                 context,
                 15,
                 current ? FontWeight.w800 : FontWeight.w600,
-                current ? _gold : p.textDark,
+                current ? p.primary : p.textDark,
               ),
             ),
           ),
@@ -572,58 +608,64 @@ Future<void> showVersionSheet(
   return showModalBottomSheet<void>(
     context: context,
     isScrollControlled: true,
+    useSafeArea: true,
     showDragHandle: true,
-    backgroundColor: kPremiumBackground,
-    builder: (sheetContext) => SizedBox(
-      height: MediaQuery.sizeOf(sheetContext).height * .8,
-      child: Column(
-        children: [
-          const _SheetHeader(title: 'Version'),
-          Expanded(
-            child: ListView(
-              key: const Key('versionSheetList'),
-              padding: EdgeInsets.only(bottom: sheetBottomInset(sheetContext)),
-              children: [
-                for (final group in groups) ...[
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 6),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          group.title,
-                          style: premiumText(
-                            sheetContext,
-                            13,
-                            FontWeight.w800,
-                            premiumPalette(sheetContext).textGrey,
-                            spacing: .4,
+    backgroundColor: premiumBackground(context),
+    builder: (sheetContext) => Padding(
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.viewPaddingOf(sheetContext).bottom,
+      ),
+      child: SizedBox(
+        height: MediaQuery.sizeOf(sheetContext).height * .8,
+        child: Column(
+          children: [
+            const _SheetHeader(title: 'Version'),
+            Expanded(
+              child: ListView(
+                key: const Key('versionSheetList'),
+                padding: const EdgeInsets.only(bottom: 24),
+                children: [
+                  for (final group in groups) ...[
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 6),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            group.title,
+                            style: premiumText(
+                              sheetContext,
+                              13,
+                              FontWeight.w800,
+                              premiumPalette(sheetContext).textGrey,
+                              spacing: .4,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 8),
-                        Container(
-                          height: 1,
-                          color: premiumPalette(sheetContext)
-                              .primary
-                              .withValues(alpha: .12),
-                        ),
-                      ],
+                          const SizedBox(height: 8),
+                          Container(
+                            height: 1,
+                            color: premiumPalette(
+                              sheetContext,
+                            ).primary.withValues(alpha: .12),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  for (final version in group.versions)
-                    _VersionRow(
-                      version: version,
-                      active: version.code == activeCode,
-                      state: installed[version.code],
-                      onSelect: onSelect,
-                    ),
+                    for (final version in group.versions)
+                      _VersionRow(
+                        version: version,
+                        active: version.code == activeCode,
+                        state: installed[version.code],
+                        onSelect: onSelect,
+                      ),
+                  ],
+                  if (elsewhere > 0)
+                    _LibraryFooter(count: elsewhere, onOpen: onOpenLibrary),
                 ],
-                if (elsewhere > 0)
-                  _LibraryFooter(count: elsewhere, onOpen: onOpenLibrary),
-              ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );
@@ -648,7 +690,8 @@ class _LibraryFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
     final open = onOpen;
-    final label = '$count autre${count > 1 ? 's' : ''} '
+    final label =
+        '$count autre${count > 1 ? 's' : ''} '
         'version${count > 1 ? 's' : ''} à télécharger';
 
     return Column(
@@ -677,8 +720,11 @@ class _LibraryFooter extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   alignment: Alignment.center,
-                  child: Icon(Icons.library_books_outlined,
-                      size: 20, color: p.primary),
+                  child: Icon(
+                    Icons.library_books_outlined,
+                    size: 20,
+                    color: p.primary,
+                  ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -707,8 +753,7 @@ class _LibraryFooter extends StatelessWidget {
                     ],
                   ),
                 ),
-                if (open != null)
-                  Icon(Icons.chevron_right, color: p.textGrey),
+                if (open != null) Icon(Icons.chevron_right, color: p.textGrey),
               ],
             ),
           ),
@@ -750,7 +795,7 @@ class _VersionRow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
       child: Material(
-        color: active ? p.primarySoft : Colors.white,
+        color: active ? p.primarySoft : p.surface,
         borderRadius: BorderRadius.circular(14),
         clipBehavior: Clip.antiAlias,
         child: InkWell(
@@ -782,7 +827,7 @@ class _VersionRow extends StatelessWidget {
                     ),
                     if (active) ...[
                       const SizedBox(width: 8),
-                      const Icon(Icons.check, color: _gold, size: 18),
+                      Icon(Icons.check, color: p.primary, size: 18),
                     ],
                   ],
                 ),
@@ -825,10 +870,12 @@ class _VersionRow extends StatelessWidget {
 
     // Nothing to switch without an open chapter (the « Nouvel onglet » bars).
     if (onSelect == null) {
-      messenger.showSnackBar(const SnackBar(
-        content: Text('Ouvrez un chapitre pour changer de version.'),
-        duration: Duration(seconds: 2),
-      ));
+      messenger.showSnackBar(
+        const SnackBar(
+          content: Text('Ouvrez un chapitre pour changer de version.'),
+          duration: Duration(seconds: 2),
+        ),
+      );
       return;
     }
     onSelect!(version.code);
@@ -852,7 +899,7 @@ Future<void> showVersePickerSheet(
     context: context,
     isScrollControlled: true,
     showDragHandle: true,
-    backgroundColor: kPremiumBackground,
+    backgroundColor: premiumBackground(context),
     builder: (sheetContext) => SafeArea(
       child: Column(
         mainAxisSize: MainAxisSize.min,
