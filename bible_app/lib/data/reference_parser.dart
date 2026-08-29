@@ -1,34 +1,47 @@
 import 'book_catalog.dart';
 
 /// A parsed scripture reference: a book, and optionally a chapter and a verse.
+///
+/// [verseEnd] carries a verse RANGE read from the query (« Exode 4:5-10 »):
+/// navigation opens the first verse, the label keeps the whole range. Null
+/// outside a range. A bare « Mt 5-7 » stays a chapter-only reference — without
+/// a colon the second number reads as a chapter, not a verse.
 class BibleReference {
   /// BYM book index (1..66).
   final int bookIndex;
   final int? chapter;
   final int? verse;
+  final int? verseEnd;
 
-  const BibleReference({required this.bookIndex, this.chapter, this.verse});
+  const BibleReference({
+    required this.bookIndex,
+    this.chapter,
+    this.verse,
+    this.verseEnd,
+  });
 
-  /// "Ge. 1:1", "Ge. 1", "Ge."
+  /// "Ge. 1:1", "Ge. 1:1-3", "Ge. 1", "Ge."
   String get label {
     final abbr = catalogEntry(bookIndex).abbreviation;
     if (chapter == null) return abbr;
     if (verse == null) return '$abbr $chapter';
+    if (verseEnd != null) return '$abbr $chapter:$verse-$verseEnd';
     return '$abbr $chapter:$verse';
   }
 
   @override
-  String toString() => 'BibleReference($bookIndex, $chapter, $verse)';
+  String toString() => 'BibleReference($bookIndex, $chapter, $verse, $verseEnd)';
 
   @override
   bool operator ==(Object other) =>
       other is BibleReference &&
       other.bookIndex == bookIndex &&
       other.chapter == chapter &&
-      other.verse == verse;
+      other.verse == verse &&
+      other.verseEnd == verseEnd;
 
   @override
-  int get hashCode => Object.hash(bookIndex, chapter, verse);
+  int get hashCode => Object.hash(bookIndex, chapter, verse, verseEnd);
 }
 
 const Map<String, String> _accents = {
@@ -136,33 +149,45 @@ List<int> searchBooks(String query) {
   return [for (final s in scored) s.book];
 }
 
-/// Trailing "3:16", "3.16", "3 16" or "3" — chapter and optional verse.
+/// Trailing "3:16", "3.16", "3 16", "3:16-18" or "3" — chapter and optional
+/// verse, itself optionally ranged. The range end is only meaningful behind a
+/// verse (« 4:5-10 »): a bare « 5-7 » tail keeps [splitReference] from reading
+/// its second number as a verse.
 final RegExp _trailingNumbers =
-    RegExp(r'\s+(\d{1,3})(?:\s*[:.,v]\s*(\d{1,3}))?\s*$');
+    RegExp(r'\s+(\d{1,3})(?:\s*[:.,v]\s*(\d{1,3}))?(?:\s*-\s*(\d{1,3}))?\s*$');
 
 /// Splits "Jean 3:16" into its book part ("Jean") and trailing chapter/verse.
 ///
 /// Only *trailing* numbers count, so book names that start with a digit
 /// ("1 Samuel") keep working. When the trailing numbers do not follow a known
 /// book they stay part of [bookQuery] (e.g. "1 Samuel").
-({String bookQuery, int? chapter, int? verse}) splitReference(String query) {
+({String bookQuery, int? chapter, int? verse, int? verseEnd})
+    splitReference(String query) {
   final trimmed = query.trim();
   final match = _trailingNumbers.firstMatch(trimmed);
-  if (match == null) return (bookQuery: trimmed, chapter: null, verse: null);
+  if (match == null) {
+    return (bookQuery: trimmed, chapter: null, verse: null, verseEnd: null);
+  }
 
   final bookPart = trimmed.substring(0, match.start);
   if (searchBooks(bookPart).isEmpty) {
-    return (bookQuery: trimmed, chapter: null, verse: null);
+    return (bookQuery: trimmed, chapter: null, verse: null, verseEnd: null);
   }
+  final verse = match.group(2) == null ? null : int.tryParse(match.group(2)!);
+  final verseEnd = verse == null || match.group(3) == null
+      ? null
+      : int.tryParse(match.group(3)!);
   return (
     bookQuery: bookPart,
     chapter: int.tryParse(match.group(1)!),
-    verse: match.group(2) == null ? null : int.tryParse(match.group(2)!),
+    verse: verse,
+    verseEnd: verseEnd,
   );
 }
 
-/// Parses a free-text reference such as "Jean 3:16", "Ge 1", "1 Samuel 3.4"
-/// or just "Psaumes". Returns null when no book can be identified.
+/// Parses a free-text reference such as "Jean 3:16", "Ge 1", "1 Samuel 3.4",
+/// "Exode 4:5-10" or just "Psaumes". Returns null when no book can be
+/// identified.
 BibleReference? parseReference(String query) {
   final parts = splitReference(query);
   final books = searchBooks(parts.bookQuery);
@@ -171,6 +196,7 @@ BibleReference? parseReference(String query) {
     bookIndex: books.first,
     chapter: parts.chapter,
     verse: parts.verse,
+    verseEnd: parts.verseEnd,
   );
 }
 

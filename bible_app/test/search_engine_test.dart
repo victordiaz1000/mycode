@@ -1,6 +1,9 @@
-import 'package:flutter_test/flutter_test.dart';
+﻿import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:bible_app/data/dictionary_catalog.dart';
+import 'package:bible_app/data/dictionary_store.dart';
+import 'package:bible_app/data/fredaw_lexicon.dart';
 import 'package:bible_app/data/fulltext_index.dart';
 import 'package:bible_app/data/lexicon_index.dart';
 import 'package:bible_app/data/local_repository.dart';
@@ -9,7 +12,22 @@ import 'package:bible_app/data/search_engine.dart';
 import 'package:bible_app/data/strong_lexicon.dart';
 
 import 'support/fake_bible_bundle.dart';
+import 'support/fake_fredaw_bundle.dart';
 import 'support/fake_strong_lexicon_bundle.dart';
+
+/// An in-memory [DictionaryStore]: the engine only calls [installed] and
+/// [load], so the disk never has to be involved.
+class FakeDictionaryStore extends DictionaryStore {
+  FakeDictionaryStore(Map<String, Map<String, dynamic>> data) : _data = data;
+
+  final Map<String, Map<String, dynamic>> _data;
+
+  @override
+  Future<Set<String>> installed() async => _data.keys.toSet();
+
+  @override
+  Future<Map<String, dynamic>?> load(String code) async => _data[code];
+}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +38,7 @@ void main() {
     SharedPreferences.setMockInitialValues({});
     LocalRepository.useBundle(FakeBibleBundle());
     StrongLexicon.useBundle(FakeStrongLexiconBundle());
+    FreDawLexicon.useBundle(FakeFreDawBundle());
     FulltextIndex.instance.clearIndex();
     LexiconIndex.instance.clearIndex();
     // No AppDatabase: it needs path_provider. The engine must degrade to the
@@ -30,6 +49,7 @@ void main() {
   tearDown(() {
     LocalRepository.useRootBundle();
     StrongLexicon.useRootBundle();
+    FreDawLexicon.useRootBundle();
   });
 
   group('SearchFilters', () {
@@ -162,6 +182,33 @@ void main() {
       expect(outcome.reference, isNull);
     });
 
+    test('a reference range resolves to its first verse and keeps the span',
+        () async {
+      // The fake books stop at chapter 2 by default — widen for Exode 4.
+      LocalRepository.useBundle(FakeBibleBundle(chapters: 4, verses: 12));
+      final outcome =
+          await SearchEngine(history: ReadingHistory()).search('Exode 4:5-10');
+
+      expect(outcome.reference, isNotNull);
+      expect(outcome.reference!.bookIndex, 2);
+      expect(outcome.reference!.chapter, 4);
+      expect(outcome.reference!.verse, 5);
+      expect(outcome.reference!.verseEnd, 10);
+      expect(outcome.reference!.label, 'Exode 4:5-10');
+      expect(outcome.reference!.text, contains('Ex. 4:5'));
+    });
+
+    test('a bare dashed tail reads as chapters, not as a verse', () async {
+      // « Matthieu 1-2 » : sans deux-points, le second nombre est un
+      // chapitre — la carte ouvre le chapitre au lieu d'échouer.
+      final outcome = await engine.search('Matthieu 1-2');
+      expect(outcome.reference, isNotNull);
+      expect(outcome.reference!.chapter, 1);
+      expect(outcome.reference!.verse, isNull);
+      expect(outcome.reference!.verseEnd, isNull);
+      expect(outcome.reference!.label, 'Matthieu 1');
+    });
+
     test('the book filter restricts the passage rows', () async {
       final outcome = await engine.search(
         'verset',
@@ -213,6 +260,127 @@ void main() {
         categories: {SearchCategory.nave},
       );
       expect(outcome.groups, isEmpty);
+    });
+
+    test('downloaded dictionaries are searched beside the Westphal', () async {
+      final store = FakeDictionaryStore({
+        'GBM': {
+          'entries': {
+            'ABBA': {
+              'term': 'ABBA',
+              'definition': 'Père, en hébreu.',
+            },
+          },
+        },
+      });
+      final outcome = await SearchEngine(
+        history: ReadingHistory(),
+        dictionaries: store,
+      ).search('abba', categories: {SearchCategory.dictionnaire});
+
+      final group =
+          outcome.groups.firstWhere((g) => g.category == SearchCategory.dictionnaire);
+      expect(group.hits, isNotEmpty);
+      final gbm = group.hits.firstWhere((h) => h.dictionaryCode == 'GBM');
+      expect(gbm.title, 'ABBA');
+      expect(gbm.badge, dictionaryByCode('GBM')!.name);
+      expect(gbm.subtitle, contains('hébreu'));
+    });
+
+    test('the BYM lexicon answers with its own badge beside Westphal', () async {
+      final outcome = await SearchEngine(
+        history: ReadingHistory(),
+        dictionaries: FakeDictionaryStore({}),
+      ).search('verset', categories: {SearchCategory.dictionnaire});
+
+      final group =
+          outcome.groups.firstWhere((g) => g.category == SearchCategory.dictionnaire);
+
+      // The fake bundle notes anchor « Verset » across the 66 books.
+      final bym = group.hits.firstWhere((h) => h.bymLexiconEntry != null);
+      expect(bym.title, 'Verset');
+      expect(bym.badge, 'Notes BYM Lexique');
+      expect(bym.bymLexiconEntry!.occurrences, 132);
+      expect(bym.canOpen, isTrue);
+
+      // The Westphal row keeps its own badge next to it.
+      final westphal =
+          group.hits.firstWhere((h) => h.badge == 'Westphal 1932');
+      expect(westphal.title, 'Verset');
+    });
+
+    test('a dictionary with no matching entry contributes nothing', () async {
+      final store = FakeDictionaryStore({
+        'GBM': {
+          'entries': {'ABBA': {'term': 'ABBA', 'definition': 'Père.'}},
+        },
+      });
+      final outcome = await SearchEngine(
+        history: ReadingHistory(),
+        dictionaries: store,
+      ).search('verset', categories: {SearchCategory.dictionnaire});
+
+      final group =
+          outcome.groups.firstWhere((g) => g.category == SearchCategory.dictionnaire);
+      expect(group.hits.every((h) => h.dictionaryCode == null), isTrue,
+          reason: 'only the embedded Westphal matched');
+    });
+
+    test('a dictionary absent from the catalogue is skipped', () async {
+      final store = FakeDictionaryStore({
+        'INCONNU': {
+          'entries': {
+            'Verset': {'term': 'Verset', 'definition': 'Une portion.'},
+          },
+        },
+      });
+      final outcome = await SearchEngine(
+        history: ReadingHistory(),
+        dictionaries: store,
+      ).search('verset', categories: {SearchCategory.dictionnaire});
+
+      final group =
+          outcome.groups.firstWhere((g) => g.category == SearchCategory.dictionnaire);
+      expect(group.hits.every((h) => h.dictionaryCode == null), isTrue,
+          reason: 'an unknown code has no name to badge the row with');
+    });
+
+    test('a removed dictionary is dropped from the next search', () async {
+      final store = FakeDictionaryStore({
+        'GBM': {
+          'entries': {
+            'Verset': {'term': 'Verset', 'definition': 'Père.'},
+          },
+        },
+      });
+      final engine = SearchEngine(history: ReadingHistory(), dictionaries: store);
+
+      final first = await engine.search(
+        'verset',
+        categories: {SearchCategory.dictionnaire},
+      );
+      expect(
+        first.groups
+            .firstWhere((g) => g.category == SearchCategory.dictionnaire)
+            .hits
+            .any((h) => h.dictionaryCode == 'GBM'),
+        isTrue,
+      );
+
+      // The registry changes: the dictionary is gone. The cached reader must
+      // not survive — the next search must answer without it.
+      final revisionBefore = DictionaryStore.revision.value;
+      store._data.clear();
+      DictionaryStore.revision.value = revisionBefore + 1;
+
+      final second = await engine.search(
+        'verset',
+        categories: {SearchCategory.dictionnaire},
+      );
+      final group =
+          second.groups.firstWhere((g) => g.category == SearchCategory.dictionnaire);
+      expect(group.hits.every((h) => h.dictionaryCode == null), isTrue,
+          reason: 'a deleted dictionary must not keep answering from the cache');
     });
 
     test('études come from the reading history', () async {

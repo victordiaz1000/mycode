@@ -49,8 +49,7 @@ class LocalRepository {
 
     final raw = await _bundle.loadString(assetPath(bookNumber));
     final decoded = jsonDecode(raw) as Map<String, dynamic>;
-    final book =
-        BibleBook.fromJson(decoded, number: bookNumber);
+    final book = BibleBook.fromJson(decoded, number: bookNumber);
     _cache[bookNumber] = book;
     return book;
   }

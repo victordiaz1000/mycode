@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -6,13 +6,20 @@ import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 
 import 'package:bible_app/data/book_catalog.dart';
+import 'package:bible_app/data/dictionary_catalog.dart';
+import 'package:bible_app/data/dictionary_download_service.dart';
+import 'package:bible_app/data/dictionary_store.dart';
 import 'package:bible_app/data/download_service.dart';
 import 'package:bible_app/data/fredaw_lexicon.dart';
+import 'package:bible_app/data/lexicon_index.dart' hide DictionaryEntry;
 import 'package:bible_app/data/library_store.dart';
+import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/data/strong_lexicon.dart';
 import 'package:bible_app/data/version_catalog.dart';
+import 'package:bible_app/screens/bym_lexicon_index_screen.dart';
 import 'package:bible_app/screens/library_screen.dart';
 
+import 'support/fake_bible_bundle.dart';
 import 'support/fake_fredaw_bundle.dart';
 import 'support/fake_strong_lexicon_bundle.dart';
 
@@ -38,6 +45,57 @@ class FakeStore extends LibraryStore {
   Future<void> remove(String code) async {
     removed.add(code);
     books.remove(code);
+  }
+}
+
+/// Same, for dictionaries: the tab reads [installed] / [sizeOnDisk] and calls
+/// [remove] / [load].
+class FakeDictionaryStore extends DictionaryStore {
+  FakeDictionaryStore([Set<String>? initial])
+      : codes = initial ?? <String>{};
+
+  final Set<String> codes;
+  final List<String> removed = [];
+  final Map<String, Map<String, dynamic>> saved = {};
+
+  @override
+  Future<Set<String>> installed() async => Set.of(codes);
+
+  @override
+  Future<int> sizeOnDisk(String code) async => 100000;
+
+  @override
+  Future<void> remove(String code) async {
+    removed.add(code);
+    codes.remove(code);
+  }
+
+  @override
+  Future<Map<String, dynamic>?> load(String code) async => saved[code];
+}
+
+/// A dictionary install with a gate, so the bar is observable mid-flight.
+class FakeDictionaryService extends DictionaryDownloadService {
+  FakeDictionaryService({
+    this.status = DictionaryDownloadStatus.complete,
+    this.hold = false,
+  }) : super(client: MockClient((_) async => http.Response('', 404)));
+
+  final DictionaryDownloadStatus status;
+  final bool hold;
+  final Completer<void> gate = Completer<void>();
+  final List<String> installed = [];
+  FakeDictionaryStore? target;
+
+  @override
+  Future<DictionaryDownloadOutcome> install(
+    DictionaryEntry entry, {
+    void Function(DictionaryDownloadProgress)? onProgress,
+  }) async {
+    installed.add(entry.code);
+    if (hold) await gate.future;
+    target?.codes.add(entry.code);
+    return DictionaryDownloadOutcome(code: entry.code, status: status);
   }
 }
 
@@ -95,6 +153,9 @@ void main() {
     WidgetTester tester, {
     required FakeStore store,
     required FakeService service,
+    FakeDictionaryStore? dictionaryStore,
+    FakeDictionaryService? dictionaryService,
+    List<DictionaryEntry>? dictionaryCatalog,
   }) async {
     tester.view.physicalSize = const Size(1000, 3600);
     tester.view.devicePixelRatio = 1.0;
@@ -102,10 +163,27 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
 
     await tester.pumpWidget(MaterialApp(
-      home: LibraryScreen(store: store, service: service),
+      home: LibraryScreen(
+        store: store,
+        service: service,
+        dictionaryStore: dictionaryStore ?? FakeDictionaryStore(),
+        dictionaryService: dictionaryService ?? FakeDictionaryService(),
+        dictionaryCatalog: dictionaryCatalog,
+      ),
     ));
     await tester.pumpAndSettle();
   }
+
+  /// A downloadable dictionary with a configured URL, for the download-flow
+  /// tests (the real catalogue leaves them unconfigured on purpose).
+  const configuredBailly = DictionaryEntry(
+    code: 'BAILLY',
+    name: 'Bailly — Grec-français',
+    rights: 'libre',
+    description: 'Dictionnaire grec-français.',
+    availability: DictionaryAvailability.downloadable,
+    url: 'https://s3.filebase.example/dictionaries/bailly.json',
+  );
 
   group('LibraryScreen', () {
     testWidgets('opens on Bibles and offers a Dictionnaires tab',
@@ -121,11 +199,15 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byKey(const Key('libraryDictionaries')), findsOneWidget);
-      expect(find.text('Lexique BYM'), findsOneWidget);
+      expect(find.text('Notes BYM Lexique'), findsOneWidget);
       expect(find.text('Strong FR'), findsOneWidget);
       expect(find.text('Westphal 1932'), findsOneWidget);
-      // Après l'arrivée de FreDAW, seule Nave reste « À venir ».
-      expect(find.text('À venir'), findsOneWidget);
+      // Nave reste sans source : elle s'affiche « Bientôt disponible ».
+      expect(find.text('Bientôt disponible'), findsOneWidget);
+      // GBM a une URL configurée : elle s'offre au téléchargement.
+      expect(find.byKey(const Key('dict-download-GBM')), findsOneWidget);
+      // Bailly a été retirée du catalogue.
+      expect(find.byKey(const Key('dict-download-BAILLY')), findsNothing);
     });
 
     testWidgets('tapping Westphal opens the FreDAW index, not a stub',
@@ -148,6 +230,29 @@ void main() {
       expect(find.text('Verset'), findsOneWidget);
     });
 
+    testWidgets('tapping Notes BYM Lexique opens the BYM index, not a stub',
+        (tester) async {
+      final store = FakeStore();
+      await pumpLibrary(tester, store: store, service: FakeService(store));
+
+      LocalRepository.useBundle(FakeBibleBundle());
+      LexiconIndex.instance.clearIndex();
+      addTearDown(() {
+        LocalRepository.useRootBundle();
+        LexiconIndex.instance.clearIndex();
+      });
+
+      await tester.tap(find.text('Dictionnaires'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Notes BYM Lexique'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(BymLexiconIndexScreen), findsOneWidget);
+      // The fake bundle notes only « Verset » across its 66 books.
+      expect(find.text('1 entrée'), findsOneWidget);
+      expect(find.text('Verset'), findsOneWidget);
+    });
+
     testWidgets('tapping Strong FR opens the Strong index, not a stub',
         (tester) async {
       final store = FakeStore();
@@ -167,38 +272,6 @@ void main() {
       expect(find.text('H0001'), findsOneWidget);
     });
 
-    testWidgets('a FreDAW entry opened from the Library can open in a reading tab',
-        (tester) async {
-      final store = FakeStore();
-      final opened = <String>[];
-      await tester.pumpWidget(MaterialApp(
-        home: LibraryScreen(
-          store: store,
-          service: FakeService(store),
-          onOpenDictionary: (term, definition) => opened.add(term),
-        ),
-      ));
-      await tester.pumpAndSettle();
-
-      FreDawLexicon.useBundle(FakeFreDawBundle());
-      addTearDown(FreDawLexicon.useRootBundle);
-
-      await tester.tap(find.text('Dictionnaires'));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('Westphal 1932'));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('ABBA'));
-      await tester.pumpAndSettle();
-
-      await tester.tap(find.text('Ouvrir onglet'));
-      await tester.pumpAndSettle();
-
-      expect(opened, ['ABBA'],
-          reason: 'the fiche hands the entry to the reading tab');
-      expect(find.text('Ouvrir onglet'), findsNothing,
-          reason: 'the index and fiche routes are cleared after the handoff');
-    });
-
     testWidgets('a fresh device: BYM and LSGS are integrated, DBY downloadable',
         (tester) async {
       final store = FakeStore();
@@ -212,6 +285,18 @@ void main() {
       expect(find.byKey(const Key('download-DBY')), findsOneWidget);
       expect(find.byKey(const Key('delete-DBY')), findsNothing);
       expect(find.text('Bientôt disponible'), findsWidgets);
+      // Rien sur l'appareil : pas de bandeau récapitulatif.
+      expect(find.textContaining('sur l\'appareil ·'), findsNothing);
+    });
+
+    testWidgets('the installed summary sits above the groups', (tester) async {
+      final store = FakeStore({
+        'DBY': {for (var i = 1; i <= bookCatalog.length; i++) i},
+      });
+      await pumpLibrary(tester, store: store, service: FakeService(store));
+
+      // 66 × 40 000 o factices ≈ 2,5 Mo.
+      expect(find.text('1 version sur l\'appareil · 2,5 Mo'), findsOneWidget);
     });
 
     testWidgets('tapping a sourceless version explains why', (tester) async {
@@ -222,6 +307,22 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('NBS — bientôt disponible.'), findsOneWidget);
+    });
+
+    testWidgets('the locked versions gather last, below the downloadable ones',
+        (tester) async {
+      final store = FakeStore();
+      await pumpLibrary(tester, store: store, service: FakeService(store));
+
+      // Elles quittent leurs groupes d'origine pour un intertitre dédié en bas.
+      expect(find.text('BIENTÔT DISPONIBLES'), findsOneWidget);
+
+      // Une version téléchargeable passe au-dessus d'une cadenassée.
+      final lastAvailable =
+          tester.getTopLeft(find.text('King James Version (anglais)')).dy;
+      final firstLocked =
+          tester.getTopLeft(find.text('Nouvelle Bible Segond')).dy;
+      expect(lastAvailable, lessThan(firstLocked));
     });
 
     testWidgets('downloading shows the bar, then the size and the outcome',
@@ -324,7 +425,9 @@ void main() {
 
       await tester.tap(find.byKey(const Key('delete-DBY')));
       await tester.pumpAndSettle();
-      expect(find.text('Supprimer DBY ?'), findsOneWidget);
+      expect(find.text('Supprimer Bible Darby ?'), findsOneWidget);
+      // La taille libérée est annoncée avant de confirmer.
+      expect(find.textContaining('(2,5 Mo)'), findsOneWidget);
 
       // Backing out leaves the files alone.
       await tester.tap(find.text('Annuler'));
@@ -337,9 +440,185 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(store.removed, ['DBY']);
-      expect(find.text('DBY supprimée de l\'appareil.'), findsOneWidget);
+      expect(find.text('Bible Darby supprimée de l\'appareil.'),
+          findsOneWidget);
       expect(find.byKey(const Key('download-DBY')), findsOneWidget);
       expect(find.byKey(const Key('delete-DBY')), findsNothing);
+    });
+
+    testWidgets(
+        'a configured downloadable dictionary offers Télécharger, then 🗑',
+        (tester) async {
+      final dictStore = FakeDictionaryStore();
+      final dictService = FakeDictionaryService()..target = dictStore;
+      await pumpLibrary(
+        tester,
+        store: FakeStore(),
+        service: FakeService(FakeStore()),
+        dictionaryStore: dictStore,
+        dictionaryService: dictService,
+        dictionaryCatalog: const [configuredBailly],
+      );
+
+      await tester.tap(find.text('Dictionnaires'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Bailly — Grec-français'), findsOneWidget);
+      expect(find.byKey(const Key('dict-download-BAILLY')), findsOneWidget);
+      expect(find.byKey(const Key('dict-delete-BAILLY')), findsNothing);
+
+      await tester.tap(find.byKey(const Key('dict-download-BAILLY')));
+      await tester.pumpAndSettle();
+
+      expect(dictService.installed, ['BAILLY']);
+      expect(find.text('Dictionnaire téléchargé.'), findsOneWidget);
+      expect(find.byKey(const Key('dict-download-BAILLY')), findsNothing);
+      expect(find.byKey(const Key('dict-delete-BAILLY')), findsOneWidget);
+      expect(find.textContaining('Téléchargé ·'), findsOneWidget);
+    });
+
+    testWidgets('dictionary progress shows a bar, cancel reaches the service',
+        (tester) async {
+      final dictStore = FakeDictionaryStore();
+      final dictService = FakeDictionaryService(hold: true);
+      await pumpLibrary(
+        tester,
+        store: FakeStore(),
+        service: FakeService(FakeStore()),
+        dictionaryStore: dictStore,
+        dictionaryService: dictService,
+        dictionaryCatalog: const [configuredBailly],
+      );
+
+      await tester.tap(find.text('Dictionnaires'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byKey(const Key('dict-download-BAILLY')));
+      await tester.pump();
+
+      expect(find.byKey(const Key('dict-progress-BAILLY')), findsOneWidget);
+      expect(find.byKey(const Key('dict-cancel-BAILLY')), findsOneWidget);
+
+      await tester.tap(find.byKey(const Key('dict-cancel-BAILLY')));
+      dictService.gate.complete();
+      await tester.pumpAndSettle();
+    });
+
+    testWidgets('a failed dictionary download says so and stays empty',
+        (tester) async {
+      final dictStore = FakeDictionaryStore();
+      final dictService = FakeDictionaryService(
+          status: DictionaryDownloadStatus.noConnection);
+      await pumpLibrary(
+        tester,
+        store: FakeStore(),
+        service: FakeService(FakeStore()),
+        dictionaryStore: dictStore,
+        dictionaryService: dictService,
+        dictionaryCatalog: const [configuredBailly],
+      );
+
+      await tester.tap(find.text('Dictionnaires'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('dict-download-BAILLY')));
+      await tester.pumpAndSettle();
+
+      expect(find.textContaining('Échec du téléchargement'), findsOneWidget);
+      expect(find.byKey(const Key('dict-download-BAILLY')), findsOneWidget);
+      expect(find.byKey(const Key('dict-delete-BAILLY')), findsNothing);
+    });
+
+    testWidgets('delete asks first, then clears the dictionary', (tester) async {
+      final dictStore = FakeDictionaryStore({'BAILLY'});
+      await pumpLibrary(
+        tester,
+        store: FakeStore(),
+        service: FakeService(FakeStore()),
+        dictionaryStore: dictStore,
+        dictionaryService: FakeDictionaryService(),
+        dictionaryCatalog: const [configuredBailly],
+      );
+
+      await tester.tap(find.text('Dictionnaires'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byKey(const Key('dict-delete-BAILLY')));
+      await tester.pumpAndSettle();
+      expect(find.text('Supprimer Bailly — Grec-français ?'), findsOneWidget);
+
+      // Backing out leaves the files alone.
+      await tester.tap(find.text('Annuler'));
+      await tester.pumpAndSettle();
+      expect(dictStore.removed, isEmpty);
+
+      await tester.tap(find.byKey(const Key('dict-delete-BAILLY')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('confirmDictionaryDelete')));
+      await tester.pumpAndSettle();
+
+      expect(dictStore.removed, ['BAILLY']);
+      expect(find.textContaining('supprimé de l\'appareil.'), findsOneWidget);
+      expect(find.byKey(const Key('dict-download-BAILLY')), findsOneWidget);
+      expect(find.byKey(const Key('dict-delete-BAILLY')), findsNothing);
+    });
+
+    testWidgets('an unconfigured downloadable dictionary cannot be downloaded',
+        (tester) async {
+      const unconfigured = DictionaryEntry(
+        code: 'BAILLY',
+        name: 'Bailly — Grec-français',
+        rights: 'libre',
+        description: 'Dictionnaire grec-français.',
+        availability: DictionaryAvailability.downloadable,
+      );
+      final dictStore = FakeDictionaryStore();
+      final dictService = FakeDictionaryService();
+      await pumpLibrary(
+        tester,
+        store: FakeStore(),
+        service: FakeService(FakeStore()),
+        dictionaryStore: dictStore,
+        dictionaryService: dictService,
+        dictionaryCatalog: const [unconfigured],
+      );
+
+      await tester.tap(find.text('Dictionnaires'));
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key('dict-download-BAILLY')), findsNothing);
+      expect(find.text('URL à configurer pour télécharger'), findsOneWidget);
+
+      await tester.tap(find.text('Bailly — Grec-français'));
+      await tester.pumpAndSettle();
+
+      expect(dictService.installed, isEmpty);
+      expect(find.textContaining('URL non configurée'), findsOneWidget);
+    });
+
+    testWidgets('tapping a downloaded dictionary opens the generic reader',
+        (tester) async {
+      final dictStore = FakeDictionaryStore({'BAILLY'})
+        ..saved['BAILLY'] = {
+          'entries': {
+            'ALPHA': {'term': 'ALPHA', 'definition': 'Première lettre.'},
+          },
+        };
+      await pumpLibrary(
+        tester,
+        store: FakeStore(),
+        service: FakeService(FakeStore()),
+        dictionaryStore: dictStore,
+        dictionaryService: FakeDictionaryService(),
+        dictionaryCatalog: const [configuredBailly],
+      );
+
+      await tester.tap(find.text('Dictionnaires'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Bailly — Grec-français'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('1 entrée'), findsOneWidget);
+      expect(find.text('ALPHA'), findsOneWidget);
     });
   });
 }

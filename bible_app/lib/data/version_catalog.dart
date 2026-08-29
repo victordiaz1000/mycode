@@ -70,6 +70,11 @@ class VersionEntry {
   /// notes but no Strong; a getbible version carries neither.
   final bool hasStrong;
 
+  /// Langue d'affichage du texte ('FR', 'EN'…) — une étiquette de carte
+  /// (Comparer), pas une donnée de parsing. Défaut FR : toutes les versions
+  /// servables aujourd'hui sont françaises sauf la KJV.
+  final String languageCode;
+
   const VersionEntry({
     required this.code,
     required this.name,
@@ -79,6 +84,7 @@ class VersionEntry {
     this.getbibleId,
     this.urlTemplate,
     this.hasStrong = false,
+    this.languageCode = 'FR',
   });
 
   /// True for the version shipped inside the app (readable offline, no download).
@@ -226,6 +232,7 @@ const List<VersionGroup> versionCatalog = [
       rights: '1611 · Libre de droit',
       availability: VersionAvailability.downloadable,
       getbibleId: 'kjv',
+      languageCode: 'EN',
     ),
   ]),
 ];

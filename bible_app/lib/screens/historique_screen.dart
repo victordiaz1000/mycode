@@ -4,6 +4,7 @@ import '../data/bible_sections.dart';
 import '../data/reading_history.dart';
 import '../data/reference_parser.dart';
 import '../utils/date_format.dart';
+import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
 
 /// Historique complet des lectures (bouton « Tout voir » de l'Accueil).
@@ -85,7 +86,7 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
     final filtered = _filtered;
 
     return Scaffold(
-      backgroundColor: kPremiumBackground,
+      backgroundColor: premiumBackground(context),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -100,7 +101,7 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
           child: _loading
-              ? const Center(child: CircularProgressIndicator())
+              ? const Center(child: ListLoadingSkeleton())
               : Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -109,8 +110,13 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
                     _buildSectionChips(context),
                     const SizedBox(height: 12),
                     Text(
-                      '${filtered.length} étude${filtered.length > 1 ? 's' : ''}',
-                      style: premiumText(context, 13, FontWeight.w500, p.textGrey),
+                      '${filtered.length} lecture${filtered.length > 1 ? 's' : ''}',
+                      style: premiumText(
+                        context,
+                        13,
+                        FontWeight.w500,
+                        p.textGrey,
+                      ),
                     ),
                     const SizedBox(height: 12),
                     Expanded(
@@ -118,7 +124,8 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
                           ? _buildEtatVide(context)
                           : ListView.separated(
                               itemCount: filtered.length,
-                              separatorBuilder: (_, _) => const SizedBox(height: 12),
+                              separatorBuilder: (_, _) =>
+                                  const SizedBox(height: 12),
                               itemBuilder: (context, i) =>
                                   _buildCarte(context, filtered[i]),
                             ),
@@ -135,7 +142,7 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
     final p = premiumPalette(context);
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(20),
         boxShadow: premiumShadow(p.primaryDark),
       ),
@@ -184,15 +191,21 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
-          color: actif ? null : Colors.white,
+          color: actif ? null : p.surfaceAlt,
           gradient: actif ? p.heroGradient : null,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: actif ? Colors.transparent : Colors.grey.shade300,
+            color: actif
+                ? Colors.transparent
+                : p.textGrey.withValues(alpha: .3),
           ),
           boxShadow: actif
-              ? premiumShadow(p.primary,
-                  opacity: 0.3, blur: 12, offset: const Offset(0, 5))
+              ? premiumShadow(
+                  p.primary,
+                  opacity: 0.3,
+                  blur: 12,
+                  offset: const Offset(0, 5),
+                )
               : null,
         ),
         child: Text(
@@ -201,7 +214,7 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
             context,
             13,
             FontWeight.w700,
-            actif ? Colors.white : Colors.black87,
+            actif ? p.onPrimary : p.textDark,
           ),
         ),
       ),
@@ -209,30 +222,60 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
   }
 
   // --- État vide ---
+  //
+  // Centré quand la place le permet, défilable quand elle manque. Le bloc fait
+  // ~143 px à police agrandie (icône 56 + titre + phrase sur deux lignes) : en
+  // paysage 360 px de haut, ce qui reste sous le champ de recherche et les
+  // puces descend sous cette hauteur, et la `Column` débordait alors de 114 px.
+  //
+  // `minHeight: maxHeight` dans un `SingleChildScrollView` est la recette qui
+  // tient les deux cas : hauteur libre → le `Center` reçoit au moins tout le
+  // viewport et centre ; hauteur trop courte → le contenu garde sa taille
+  // naturelle et défile au lieu de rogner.
   Widget _buildEtatVide(BuildContext context) {
     final p = premiumPalette(context);
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(Icons.history_rounded, size: 56, color: Colors.grey.shade300),
-          const SizedBox(height: 12),
-          Text(
-            _entries.isEmpty ? 'Aucune étude pour le moment' : 'Aucun résultat',
-            style: premiumText(context, 16, FontWeight.w800, p.textDark),
-          ),
-          const SizedBox(height: 6),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: Text(
-              _entries.isEmpty
-                  ? 'Les chapitres que vous ouvrez dans la lecture apparaîtront ici.'
-                  : 'Aucune lecture ne correspond à ce filtre.',
-              style: premiumText(context, 13, FontWeight.w500, p.textGrey, height: 1.5),
-              textAlign: TextAlign.center,
+    return LayoutBuilder(
+      builder: (context, constraints) => SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(minHeight: constraints.maxHeight),
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.history_rounded,
+                  size: 56,
+                  color: p.textGrey.withValues(alpha: .4),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  _entries.isEmpty
+                      ? 'Aucune lecture pour le moment'
+                      : 'Aucun résultat',
+                  style: premiumText(context, 16, FontWeight.w800, p.textDark),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 6),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: Text(
+                    _entries.isEmpty
+                        ? 'Les chapitres que vous ouvrez dans la lecture apparaîtront ici.'
+                        : 'Aucune lecture ne correspond à ce filtre.',
+                    style: premiumText(
+                      context,
+                      13,
+                      FontWeight.w500,
+                      p.textGrey,
+                      height: 1.5,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
@@ -241,16 +284,20 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
   Widget _buildCarte(BuildContext context, ReadingEntry e) {
     final p = premiumPalette(context);
     return Material(
-      color: Colors.white,
+      color: p.surface,
       borderRadius: BorderRadius.circular(20),
       elevation: 0,
       shadowColor: Colors.transparent,
       child: Ink(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: p.surface,
           borderRadius: BorderRadius.circular(20),
-          boxShadow: premiumShadow(p.primaryDark,
-              opacity: 0.07, blur: 16, offset: const Offset(0, 6)),
+          boxShadow: premiumShadow(
+            p.primaryDark,
+            opacity: 0.07,
+            blur: 16,
+            offset: const Offset(0, 6),
+          ),
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
@@ -266,7 +313,11 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
                     color: p.primarySoft,
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Icon(Icons.auto_awesome_rounded, color: p.primary, size: 20),
+                  child: Icon(
+                    Icons.auto_awesome_rounded,
+                    color: p.primary,
+                    size: 20,
+                  ),
                 ),
                 const SizedBox(width: 14),
                 Expanded(
@@ -275,18 +326,31 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
                     children: [
                       Text(
                         '${e.bookName} ${e.chapter}',
-                        style: premiumText(context, 15.5, FontWeight.w700, p.textDark),
+                        style: premiumText(
+                          context,
+                          15.5,
+                          FontWeight.w700,
+                          p.textDark,
+                        ),
                       ),
                       const SizedBox(height: 3),
                       Text(
                         'Lecture · ${formatRelativeDate(e.dateTime)}',
-                        style: premiumText(context, 12.5, FontWeight.w500, p.textGrey),
+                        style: premiumText(
+                          context,
+                          12.5,
+                          FontWeight.w500,
+                          p.textGrey,
+                        ),
                       ),
                     ],
                   ),
                 ),
-                Icon(Icons.chevron_right_rounded,
-                    size: 22, color: p.textGrey.withValues(alpha: 0.6)),
+                Icon(
+                  Icons.chevron_right_rounded,
+                  size: 22,
+                  color: p.textGrey.withValues(alpha: 0.6),
+                ),
               ],
             ),
           ),

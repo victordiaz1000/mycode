@@ -1,8 +1,12 @@
-import 'app_database.dart';
+﻿import 'app_database.dart';
 import '../models/chapter.dart';
 import 'bible_sections.dart';
 import 'book_catalog.dart';
+import 'dictionary_catalog.dart';
+import 'dictionary_reader.dart';
+import 'dictionary_store.dart';
 import 'fulltext_index.dart';
+import 'lexicon_index.dart' as lexicon;
 import 'local_repository.dart';
 import 'reading_history.dart';
 import 'reference_parser.dart';
@@ -84,7 +88,7 @@ class SearchFilters {
   final SearchOrder order;
 
   const SearchFilters({
-    this.versionCode = 'BYM',
+    this.versionCode = VersionRepository.embeddedCode,
     this.sectionIndex,
     this.bookIndex,
     this.order = SearchOrder.biblical,
@@ -144,6 +148,17 @@ class SearchHit {
   /// Small pill next to the title (the version code, "Dictionnaire"…).
   final String? badge;
 
+  /// The [DictionaryEntry.code] when this row comes from a downloaded
+  /// dictionary (BAILLY, GBM…). Null on a Westphal row, which the app opens
+  /// through [FreDawLexicon] instead of the generic [DictionaryReader].
+  final String? dictionaryCode;
+
+  /// The full BYM lexicon entry when this row comes from the embedded lexicon
+  /// built over the BYM notes. Null on Westphal and downloaded rows: only the
+  /// BYM fiche needs the occurrences count, which the scalars above don't
+  /// carry.
+  final lexicon.DictionaryEntry? bymLexiconEntry;
+
   /// Where tapping the row leads. Null on a row that cannot be opened.
   final int? bookIndex;
   final int? chapter;
@@ -159,6 +174,8 @@ class SearchHit {
     this.lemma,
     this.transliteration,
     this.badge,
+    this.dictionaryCode,
+    this.bymLexiconEntry,
     this.bookIndex,
     this.chapter,
     this.verse,
@@ -199,6 +216,10 @@ class ReferenceHit {
   /// Null when the query only named a book and a chapter.
   final int? verse;
 
+  /// End of the verse range when the query read as one (« Exode 4:5-10 »):
+  /// the card prints the range and shows the first verse's text.
+  final int? verseEnd;
+
   /// The verse text, or the chapter's opening verse when [verse] is null.
   final String text;
 
@@ -209,6 +230,7 @@ class ReferenceHit {
     required this.bookIndex,
     required this.chapter,
     required this.verse,
+    this.verseEnd,
     required this.text,
     required this.versionCode,
   });
@@ -216,7 +238,9 @@ class ReferenceHit {
   /// "Jean 3:16" — the full book name, as the maquette prints it.
   String get label {
     final name = catalogEntry(bookIndex).shortName;
-    return verse == null ? '$name $chapter' : '$name $chapter:$verse';
+    if (verse == null) return '$name $chapter';
+    if (verseEnd != null) return '$name $chapter:$verse-$verseEnd';
+    return '$name $chapter:$verse';
   }
 }
 
@@ -257,7 +281,8 @@ class SearchOutcome {
 /// - [SearchCategory.notes] → the `notes` table of [AppDatabase];
 /// - [SearchCategory.etudes] → [ReadingHistory] (the chapters already studied);
 /// - [SearchCategory.strong] → [StrongLexicon] (the French Strong definitions);
-/// - [SearchCategory.dictionnaire] → [FreDawLexicon] (FreDAW dictionary entries).
+/// - [SearchCategory.dictionnaire] → [FreDawLexicon] (Westphal 1932, embedded)
+///   plus every downloaded dictionary on the device ([DictionaryStore]).
 ///
 /// Each source is queried concurrently and failures are swallowed per source,
 /// so a missing database (widget tests, first launch) still lets the passages
@@ -269,6 +294,7 @@ class SearchEngine {
     StrongLexicon? strong,
     AppDatabase? database,
     bool ambientDatabase = true,
+    DictionaryStore? dictionaries,
     ReadingHistory? history,
     LocalRepository? repository,
     VersionRepository? versions,
@@ -280,6 +306,7 @@ class SearchEngine {
         _database = database,
         // ignore: prefer_initializing_formals (named params cannot be private)
         _ambientDatabase = ambientDatabase,
+        _dictionaries = dictionaries ?? DictionaryStore(),
         _history = history ?? ReadingHistory(),
         _repository = repository ?? LocalRepository(),
         _versions = versions ?? VersionRepository();
@@ -293,7 +320,19 @@ class SearchEngine {
   final LocalRepository _repository;
   final VersionRepository _versions;
 
+  /// Downloaded dictionaries to search beside Westphal — a real store in
+  /// production, an injected one in tests (path_provider never answers inside
+  /// the fake-async zone of `testWidgets`, so a real store would hang `load`).
+  final DictionaryStore _dictionaries;
+
   final FreDawLexicon _freDawLexicon;
+
+  /// Parsed readers of the downloaded dictionaries, keyed by code. See
+  /// [_downloadedEntries] for why they are cached.
+  final Map<String, DictionaryReader> _readerCache = {};
+
+  /// The [DictionaryStore.revision] the cache was built against.
+  int _dictionaryRevision = DictionaryStore.revision.value;
 
   /// The index covering [code] — the injected one when it matches, else the
   /// shared per-version registry.
@@ -440,6 +479,7 @@ class SearchEngine {
         bookIndex: parsed.bookIndex,
         chapter: parsed.chapter!,
         verse: target,
+        verseEnd: parsed.verseEnd,
         text: verse.text,
         versionCode: used,
       );
@@ -572,28 +612,118 @@ class SearchEngine {
     }
   }
 
+  /// Westphal 1932 (embedded) plus every downloaded dictionary on the device —
+  /// the Dictionnaire family of the maquette. Each source contributes its own
+  /// badge, so a "père" query shows Westphal and Bailly side by side.
   Future<SearchGroup?> _dictionnaire(String query, bool expanded) async {
     try {
-      final freDawEntries = await _freDawLexicon.search(query, limit: sourceLimit);
-      if (freDawEntries.isEmpty) return null;
+      final hits = <SearchHit>[];
 
-      final shown = expanded ? freDawEntries : freDawEntries.take(pageSize);
+      final freDawEntries =
+          await _freDawLexicon.search(query, limit: sourceLimit);
+      hits.addAll([
+        for (final e in freDawEntries)
+          SearchHit(
+            category: SearchCategory.dictionnaire,
+            title: e.term,
+            subtitle: e.definition,
+            badge: 'Westphal 1932',
+          ),
+      ]);
+
+      // The embedded BYM lexicon, built over the anchored notes of the 66
+      // books. Its own badge distinguishes it from Westphal and the
+      // downloaded dictionaries in the same family.
+      final bymLexiconEntries =
+          await lexicon.LexiconIndex.instance.search(query, limit: sourceLimit);
+      hits.addAll([
+        for (final e in bymLexiconEntries)
+          SearchHit(
+            category: SearchCategory.dictionnaire,
+            title: e.word,
+            subtitle: e.definition,
+            badge: 'Notes BYM Lexique',
+            bymLexiconEntry: e,
+          ),
+      ]);
+
+      final downloaded = await _downloadedEntries(query);
+      hits.addAll(downloaded);
+
+      if (hits.isEmpty) return null;
+
+      final shown = expanded ? hits : hits.take(pageSize);
       return SearchGroup(
         category: SearchCategory.dictionnaire,
-        total: freDawEntries.length,
-        hits: [
-          for (final e in shown)
-            SearchHit(
-              category: SearchCategory.dictionnaire,
-              title: e.term,
-              subtitle: e.definition,
-              badge: 'Westphal 1932',
-            ),
-        ],
+        total: hits.length,
+        hits: shown.toList(),
       );
     } catch (_) {
       return null;
     }
+  }
+
+  /// Every downloaded dictionary on the device, searched. Each row carries its
+  /// [SearchHit.dictionaryCode] so the screen can open the right fiche.
+  ///
+  /// Parsed readers are cached per code: a downloaded dictionary is one file
+  /// of thousands of entries (Bailly: 50 493), and a search is debounced but
+  /// re-fired on every keystroke. The cache drops when the registry changes
+  /// ([DictionaryStore.revision]), so a freshly downloaded or deleted
+  /// dictionary is picked up on the next search without a stale reader.
+  Future<List<SearchHit>> _downloadedEntries(String query) async {
+    final store = _dictionaries;
+    Set<String> installed;
+    try {
+      installed = await store.installed();
+    } catch (_) {
+      return const []; // no registry → nothing downloaded to search
+    }
+
+    final revision = DictionaryStore.revision.value;
+    if (revision != _dictionaryRevision) {
+      _dictionaryRevision = revision;
+      _readerCache.clear();
+    }
+
+    final hits = <SearchHit>[];
+    for (final code in installed) {
+      final entry = dictionaryByCode(code);
+      if (entry == null) continue;
+      try {
+        var reader = _readerCache[code];
+        if (reader == null) {
+          reader = await _loadReader(store, code);
+          if (reader != null) _readerCache[code] = reader;
+        }
+        if (reader == null || reader.size == 0) continue;
+        hits.addAll([
+          for (final article in reader.search(query, limit: sourceLimit))
+            SearchHit(
+              category: SearchCategory.dictionnaire,
+              title: article.term,
+              subtitle: article.definition,
+              badge: entry.name,
+              dictionaryCode: code,
+            ),
+        ]);
+      } catch (_) {
+        continue; // a corrupted file skips its dictionary, not the search
+      }
+    }
+    return hits;
+  }
+
+  /// Reads one dictionary file into a reader, or null when it is absent or
+  /// unreadable — the file can vanish between [installed] and [load] (deleted
+  /// from the Bibliothèque mid-search).
+  Future<DictionaryReader?> _loadReader(
+    DictionaryStore store,
+    String code,
+  ) async {
+    final payload = await store.load(code);
+    if (payload == null) return null;
+    return DictionaryReader.fromJson(payload);
   }
 
   /// The French Strong dictionary: a code query ("H0430") answers the

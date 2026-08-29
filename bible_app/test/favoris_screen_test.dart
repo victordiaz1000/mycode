@@ -84,19 +84,16 @@ void main() {
     final db = _FakeDb()..seed(1, 1, 2);
     await pumpFavoris(tester, db: db);
 
+    // Un menu de choix ne liste que ce qui est choisissable : aucune fabrique
+    // ne crée encore de favori Strong ou dictionnaire, donc les puces
+    // correspondantes n'existent pas tant qu'il n'y en a pas.
+    expect(find.text('Strong'), findsNothing);
+    expect(find.text('Dictionnaire'), findsNothing);
+
     await tester.tap(find.text('Versets'));
     await tester.pumpAndSettle();
     expect(find.text('Genèse 1:2'), findsOneWidget,
         reason: 'verse favorites match the Versets filter');
-
-    await tester.tap(find.text('Strong'));
-    await tester.pumpAndSettle();
-    expect(find.text('Aucun favori ici'), findsOneWidget);
-    expect(find.text('0 favori'), findsOneWidget);
-
-    await tester.tap(find.text('Dictionnaire'));
-    await tester.pumpAndSettle();
-    expect(find.text('Aucun favori ici'), findsOneWidget);
 
     await tester.tap(find.text('Tous'));
     await tester.pumpAndSettle();

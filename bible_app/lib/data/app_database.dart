@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -18,6 +19,10 @@ class AppDatabase {
   final DatabaseFactory? _factory;
   Database? _db;
 
+  /// Incrémenté à chaque création / modification / suppression de note.
+  /// L'Accueil écoute ce notifier pour rester live sans `setState` manuel.
+  static final ValueNotifier<int> notesRevision = ValueNotifier<int>(0);
+
   DatabaseFactory get _effectiveFactory =>
       _factory ?? databaseFactory;
 
@@ -27,7 +32,11 @@ class AppDatabase {
     final path = p.join(dir.path, 'bym.db');
     _db = await _effectiveFactory.openDatabase(
       path,
-      options: OpenDatabaseOptions(version: 1, onCreate: _onCreate),
+      options: OpenDatabaseOptions(
+        version: 2,
+        onCreate: _onCreate,
+        onUpgrade: _onUpgrade,
+      ),
     );
     return _db!;
   }
@@ -37,13 +46,39 @@ class AppDatabase {
     final f = _factory ?? databaseFactory;
     return f.openDatabase(
       inMemoryDatabasePath,
-      options: OpenDatabaseOptions(version: 1, onCreate: _onCreate),
+      options: OpenDatabaseOptions(
+        version: 2,
+        onCreate: _onCreate,
+        onUpgrade: _onUpgrade,
+      ),
     );
   }
 
   /// Makes this instance use an in-memory DB (tests), avoiding path_provider.
   Future<void> useInMemory() async {
     _db = await openInMemory();
+  }
+
+  /// Opens an existing file with the app's schema options — used by the
+  /// migration tests to replay a v1 database through [_onUpgrade].
+  Future<Database> testOpen(String path) async {
+    final f = _factory ?? databaseFactory;
+    return f.openDatabase(
+      path,
+      options: OpenDatabaseOptions(
+        version: 2,
+        onCreate: _onCreate,
+        onUpgrade: _onUpgrade,
+      ),
+    );
+  }
+
+  /// Closes the underlying database, if any. The factory keys connections by
+  /// path — including `inMemoryDatabasePath` — so tests MUST close between
+  /// cases or every later « :memory: » open silently reuses the first one.
+  Future<void> close() async {
+    await _db?.close();
+    _db = null;
   }
 
   Future<void> _onCreate(Database db, int version) async {
@@ -56,17 +91,7 @@ class AppDatabase {
         PRIMARY KEY (book, chapter, verse)
       )
     ''');
-    await db.execute('''
-      CREATE TABLE notes (
-        book INTEGER NOT NULL,
-        chapter INTEGER NOT NULL,
-        verse INTEGER NOT NULL,
-        text TEXT NOT NULL,
-        updated_at INTEGER NOT NULL,
-        created_at INTEGER,
-        PRIMARY KEY (book, chapter, verse)
-      )
-    ''');
+    await _createNotesTable(db);
     await db.execute('''
       CREATE TABLE favorites (
         book INTEGER NOT NULL,
@@ -81,6 +106,39 @@ class AppDatabase {
         value TEXT
       )
     ''');
+  }
+
+  /// v2 — personal notes become first-class rows: autoincrement id (several
+  /// notes per verse), optional title. The v1 table keyed notes by verse and
+  /// is migrated row-per-row; nothing is dropped but the old shape.
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      await db.execute('ALTER TABLE notes RENAME TO notes_v1');
+      await _createNotesTable(db);
+      await db.execute('''
+        INSERT INTO notes (book, chapter, verse, title, text, updated_at, created_at)
+        SELECT book, chapter, verse, '', text, updated_at, created_at FROM notes_v1
+      ''');
+      await db.execute('DROP TABLE notes_v1');
+    }
+  }
+
+  Future<void> _createNotesTable(Database db) async {
+    await db.execute('''
+      CREATE TABLE notes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        book INTEGER NOT NULL,
+        chapter INTEGER NOT NULL,
+        verse INTEGER NOT NULL,
+        title TEXT NOT NULL DEFAULT '',
+        text TEXT NOT NULL,
+        updated_at INTEGER NOT NULL,
+        created_at INTEGER
+      )
+    ''');
+    await db.execute(
+      'CREATE INDEX idx_notes_verse ON notes(book, chapter, verse)',
+    );
   }
 
   // ---- Highlights ----
@@ -124,37 +182,56 @@ class AppDatabase {
 
   // ---- Notes ----
 
-  Future<void> saveNote(int book, int chapter, int verse, String text) async {
+  /// Writes [note] and returns its row id. A note carrying an [UserNote.id]
+  /// is updated in place; one without is inserted — so several notes can
+  /// live on the same verse, each with its own identity.
+  Future<int> upsertNote(UserNote note) async {
     final db = await database;
     final now = DateTime.now().millisecondsSinceEpoch;
-    final existing = await getNote(book, chapter, verse);
-    await db.insert(
+    if (note.id != null) {
+      await db.update(
+        'notes',
+        {
+          'title': note.title,
+          'text': note.text,
+          'updated_at': now,
+        },
+        where: 'id=?',
+        whereArgs: [note.id],
+      );
+      notesRevision.value++;
+      return note.id!;
+    }
+    final id = await db.insert(
       'notes',
-      UserNote(
-        bookIndex: book,
-        chapter: chapter,
-        verse: verse,
-        text: text,
-        updatedAt: now,
-        createdAt: existing?.createdAt ?? now,
-      ).toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
+      note
+          .copyWith(updatedAt: now)
+          .toMap(),
     );
+    notesRevision.value++;
+    return id;
   }
 
-  Future<UserNote?> getNote(int book, int chapter, int verse) async {
+  /// Every note on the verse, most recently edited first.
+  Future<List<UserNote>> notesForVerse(
+    int book,
+    int chapter,
+    int verse,
+  ) async {
     final db = await database;
-    final rows = await db.query('notes',
-        where: 'book=? AND chapter=? AND verse=?',
-        whereArgs: [book, chapter, verse]);
-    return rows.isEmpty ? null : UserNote.fromMap(rows.first);
+    final rows = await db.query(
+      'notes',
+      where: 'book=? AND chapter=? AND verse=?',
+      whereArgs: [book, chapter, verse],
+      orderBy: 'updated_at DESC',
+    );
+    return [for (final r in rows) UserNote.fromMap(r)];
   }
 
-  Future<void> deleteNote(int book, int chapter, int verse) async {
+  Future<void> deleteNoteById(int id) async {
     final db = await database;
-    await db.delete('notes',
-        where: 'book=? AND chapter=? AND verse=?',
-        whereArgs: [book, chapter, verse]);
+    await db.delete('notes', where: 'id=?', whereArgs: [id]);
+    notesRevision.value++;
   }
 
   // ---- Favorites ----
@@ -220,6 +297,18 @@ class AppDatabase {
       whereArgs: ['%$pattern%'],
       orderBy: 'updated_at DESC',
       limit: limit,
+    );
+    return [for (final r in rows) UserNote.fromMap(r)];
+  }
+
+  /// Every note with text, most recent first. Feeds the home « Mes notes »
+  /// section and the dedicated [NotesScreen].
+  Future<List<UserNote>> allNotes() async {
+    final db = await database;
+    final rows = await db.query(
+      'notes',
+      where: "text != ''",
+      orderBy: 'updated_at DESC',
     );
     return [for (final r in rows) UserNote.fromMap(r)];
   }

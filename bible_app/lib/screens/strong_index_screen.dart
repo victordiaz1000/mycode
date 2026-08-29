@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/strong_lexicon.dart';
 import '../widgets/premium_style.dart';
+import '../widgets/loading_skeleton.dart';
 import 'strong_detail_screen.dart';
 
 /// Browse the whole French Strong lexicon: a search field (code, word,
@@ -49,8 +50,7 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
   bool _isGreek(StrongDefinition entry) =>
       entry.language == 'greek' || entry.strong.startsWith('G');
 
-  String _langue(StrongDefinition entry) =>
-      _isGreek(entry) ? 'Grec' : 'Hébreu';
+  String _langue(StrongDefinition entry) => _isGreek(entry) ? 'Grec' : 'Hébreu';
 
   List<StrongDefinition> get _filtered {
     final entries = _entries ?? const [];
@@ -71,7 +71,7 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
     return Scaffold(
-      backgroundColor: kPremiumBackground,
+      backgroundColor: premiumBackground(context),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -115,9 +115,14 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: premiumShadow(p.primaryDark, opacity: 0.05, blur: 10, offset: const Offset(0, 4)),
+        boxShadow: premiumShadow(
+          p.primaryDark,
+          opacity: 0.05,
+          blur: 10,
+          offset: const Offset(0, 4),
+        ),
       ),
       child: Row(
         children: [
@@ -157,14 +162,21 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
-          color: actif ? null : Colors.white,
+          color: actif ? null : p.surfaceAlt,
           gradient: actif ? p.heroGradient : null,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: actif ? Colors.transparent : Colors.grey.shade300,
+            color: actif
+                ? Colors.transparent
+                : p.textGrey.withValues(alpha: .3),
           ),
           boxShadow: actif
-              ? premiumShadow(p.primary, opacity: 0.3, blur: 12, offset: const Offset(0, 5))
+              ? premiumShadow(
+                  p.primary,
+                  opacity: 0.3,
+                  blur: 12,
+                  offset: const Offset(0, 5),
+                )
               : null,
         ),
         alignment: Alignment.center,
@@ -174,7 +186,7 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
             context,
             13,
             FontWeight.w700,
-            actif ? Colors.white : Colors.black87,
+            actif ? p.onPrimary : p.textDark,
           ),
         ),
       ),
@@ -185,14 +197,14 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
     final p = premiumPalette(context);
     final filtered = _filtered;
     if (_entries == null) {
-      return const Center(child: CircularProgressIndicator());
+      return const ListLoadingSkeleton();
     }
     if (filtered.isEmpty) {
       return Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.search_off_rounded, size: 48, color: Colors.grey.shade400),
+            Icon(Icons.search_off_rounded, size: 48, color: p.textGrey),
             const SizedBox(height: 8),
             Text(
               'Aucune entrée trouvée',
@@ -255,23 +267,25 @@ class _EntryCard extends StatelessWidget {
     this.onOpenVerse,
   });
 
-  static const Color _grec = Color(0xFF1A73E8);
-  static const Color _hebreu = Color(0xFFD95300);
-
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
-    final couleurLangue = isGreek ? _grec : _hebreu;
+    final couleurLangue = isGreek ? p.greek : p.hebrew;
     return Material(
-      color: Colors.white,
+      color: p.surface,
       borderRadius: BorderRadius.circular(20),
       elevation: 0,
       shadowColor: Colors.transparent,
       child: Ink(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: p.surface,
           borderRadius: BorderRadius.circular(20),
-          boxShadow: premiumShadow(p.primaryDark, opacity: 0.07, blur: 16, offset: const Offset(0, 6)),
+          boxShadow: premiumShadow(
+            p.primaryDark,
+            opacity: 0.07,
+            blur: 16,
+            offset: const Offset(0, 6),
+          ),
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
@@ -286,14 +300,22 @@ class _EntryCard extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 8,
+                  ),
                   decoration: BoxDecoration(
                     color: couleurLangue.withValues(alpha: .12),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
                     entry.strong,
-                    style: premiumText(context, 13, FontWeight.w800, couleurLangue),
+                    style: premiumText(
+                      context,
+                      13,
+                      FontWeight.w800,
+                      couleurLangue,
+                    ),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -303,12 +325,18 @@ class _EntryCard extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          if (entry.lemma != null && entry.lemma!.isNotEmpty) ...[
+                          if (entry.lemma != null &&
+                              entry.lemma!.isNotEmpty) ...[
                             Flexible(
                               child: Text(
                                 entry.lemma!,
                                 overflow: TextOverflow.ellipsis,
-                                style: premiumText(context, 16, FontWeight.w800, p.textDark),
+                                style: premiumText(
+                                  context,
+                                  16,
+                                  FontWeight.w800,
+                                  p.textDark,
+                                ),
                               ),
                             ),
                             const SizedBox(width: 8),
@@ -320,7 +348,13 @@ class _EntryCard extends StatelessWidget {
                                 entry.transliteration!,
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style: premiumText(context, 13, FontWeight.w500, p.textGrey, italic: FontStyle.italic),
+                                style: premiumText(
+                                  context,
+                                  13,
+                                  FontWeight.w500,
+                                  p.textGrey,
+                                  italic: FontStyle.italic,
+                                ),
                               ),
                             ),
                         ],
@@ -330,7 +364,12 @@ class _EntryCard extends StatelessWidget {
                         entry.definition,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: premiumText(context, 13, FontWeight.w500, p.textGrey),
+                        style: premiumText(
+                          context,
+                          13,
+                          FontWeight.w500,
+                          p.textGrey,
+                        ),
                       ),
                     ],
                   ),

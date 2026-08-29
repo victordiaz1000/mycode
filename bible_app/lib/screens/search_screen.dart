@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 
 import '../data/bible_sections.dart';
 import '../data/book_catalog.dart';
+import '../data/dictionary_catalog.dart';
+import '../data/dictionary_reader.dart';
+import '../data/dictionary_store.dart';
 import '../data/fredaw_lexicon.dart';
 import '../data/library_store.dart';
 import '../data/reference_parser.dart';
@@ -13,7 +16,10 @@ import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
 import '../widgets/bible_theme_scope.dart';
 import '../widgets/premium_style.dart';
+import '../widgets/loading_skeleton.dart';
+import 'dictionary_entry_screen.dart';
 import 'fredaw_entry_screen.dart';
+import 'bym_lexicon_entry_screen.dart';
 import 'strong_detail_screen.dart';
 
 /// Icon and accent colour of a search category — the coloured glyphs of the
@@ -26,21 +32,28 @@ class _CategoryStyle {
   const _CategoryStyle(this.icon, this.color);
 }
 
-const Map<SearchCategory, _CategoryStyle> _categoryStyles = {
-  SearchCategory.passages:
-      _CategoryStyle(Icons.menu_book_outlined, Color(0xFF2FA9A0)),
-  SearchCategory.notes:
-      _CategoryStyle(Icons.description_outlined, Color(0xFFE4694F)),
-  SearchCategory.liens: _CategoryStyle(Icons.link, Color(0xFFE2A32B)),
-  SearchCategory.etudes:
-      _CategoryStyle(Icons.history_edu_outlined, Color(0xFF6F6390)),
-  SearchCategory.strong: _CategoryStyle(Icons.translate, Color(0xFFC56B9B)),
-  SearchCategory.dictionnaire: _CategoryStyle(Icons.abc, Color(0xFFDFA51F)),
-  SearchCategory.nave: _CategoryStyle(Icons.hub_outlined, Color(0xFF4F5FA6)),
-};
-
-_CategoryStyle _styleOf(SearchCategory category) =>
-    _categoryStyles[category] ?? const _CategoryStyle(Icons.search, Colors.grey);
+_CategoryStyle _styleOf(BuildContext context, SearchCategory category) {
+  final p = premiumPalette(context);
+  final icon = switch (category) {
+    SearchCategory.passages => Icons.menu_book_outlined,
+    SearchCategory.notes => Icons.description_outlined,
+    SearchCategory.liens => Icons.link,
+    SearchCategory.etudes => Icons.history_edu_outlined,
+    SearchCategory.strong => Icons.translate,
+    SearchCategory.dictionnaire => Icons.abc,
+    SearchCategory.nave => Icons.hub_outlined,
+  };
+  final color = switch (category) {
+    SearchCategory.passages => p.primary,
+    SearchCategory.notes => p.hebrew,
+    SearchCategory.liens => p.greek,
+    SearchCategory.etudes => p.primaryDark,
+    SearchCategory.strong => p.greek,
+    SearchCategory.dictionnaire => p.hebrew,
+    SearchCategory.nave => p.primaryDark,
+  };
+  return _CategoryStyle(icon, color);
+}
 
 /// The chip row and the result list build lazily, so tests have to scroll them
 /// to reach the last chips and rows. These keys make the right list
@@ -58,15 +71,12 @@ const Key resultListKey = ValueKey('search-result-list');
 /// chip row filters which categories are queried; the four menus underneath
 /// narrow the corpus (version, section, book) and the ordering.
 ///
-/// Categories with no data source yet (Liens, Strong, Nave) are listed but
-/// disabled, so the layout matches the design and only needs wiring later.
+/// Categories with no data source yet (Liens, Nave) are listed but disabled,
+/// so the layout matches the design and only needs wiring later.
 class SearchScreen extends StatefulWidget {
   /// Opens a chapter in a reading tab (and optionally jumps to a verse),
   /// then switches to the Lecture destination.
   final void Function(int bookIndex, int chapter, {int? verse}) onOpenReading;
-
-  /// Opens a dictionary entry in a new reader tab.
-  final void Function(String term, String definition)? onOpenDictionary;
 
   /// Engine to search with. Injectable for tests: the default one reaches
   /// [AppDatabase], whose path_provider call never completes inside the
@@ -78,18 +88,31 @@ class SearchScreen extends StatefulWidget {
   /// the same reason as [engine]: the real one reads through path_provider.
   final LibraryStore? store;
 
+  /// Downloaded dictionaries, so the Dictionnaire category can open a hit from
+  /// a downloaded dictionary (Bailly, GBM…) in its own fiche. Injectable for
+  /// the same reason as [store].
+  final DictionaryStore? dictionaryStore;
+
   /// Switches to the Bibliothèque destination. Null when the screen stands
   /// alone (tests): the « Version » menu then still names what is missing, but
   /// its last row leads nowhere rather than to a dead end.
   final VoidCallback? onOpenLibrary;
 
+  /// Requête demandée depuis l'extérieur (la puce « Jean 3.16 » de
+  /// l'accueil). L'écran vit dans l'`IndexedStack` du shell : un simple
+  /// paramètre de construction ne suffirait pas à atteindre une page déjà
+  /// montée — le shell écrit dans ce notificateur et l'écran écoute, puis le
+  /// remet à null une fois consommé. Null en usage isolé.
+  final ValueNotifier<String?>? request;
+
   const SearchScreen({
     super.key,
     required this.onOpenReading,
-    this.onOpenDictionary,
     this.engine,
     this.store,
+    this.dictionaryStore,
     this.onOpenLibrary,
+    this.request,
   });
 
   @override
@@ -102,6 +125,8 @@ class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController _controller = TextEditingController();
   late final SearchEngine _engine = widget.engine ?? SearchEngine();
   late final LibraryStore _library = widget.store ?? LibraryStore();
+  late final DictionaryStore _dictStore =
+      widget.dictionaryStore ?? DictionaryStore();
 
   /// What the device holds — read once, refreshed when the screen is shown
   /// again (a download can have landed since).
@@ -128,6 +153,30 @@ class _SearchScreenState extends State<SearchScreen> {
     super.initState();
     _loadInstalled();
     LibraryStore.revision.addListener(_onLibraryChanged);
+    // Requête déjà posée avant la première construction (le shell écrit la
+    // valeur puis crée la page) : consommée ici, hors setState — le champ et
+    // l'état se remplissent en silence, la recherche part à la frame suivante.
+    final pending = widget.request?.value;
+    if (pending != null && pending.trim().isNotEmpty) {
+      widget.request!.value = null;
+      _controller.text = pending;
+      _controller.selection = TextSelection.collapsed(offset: pending.length);
+      _query = pending;
+      _searching = true;
+      WidgetsBinding.instance.addPostFrameCallback((_) => _run());
+    } else {
+      widget.request?.addListener(_onExternalRequest);
+    }
+  }
+
+  /// La puce « Jean 3.16 » de l'accueil a demandé une recherche sur un écran
+  /// déjà monté : même traitement qu'une suggestion tapée.
+  void _onExternalRequest() {
+    final q = widget.request?.value;
+    if (q == null || q.trim().isEmpty) return;
+    widget.request!.value = null; // consommée — une relance identique re-tirera
+    if (!mounted) return;
+    _submit(q);
   }
 
   @override
@@ -154,13 +203,15 @@ class _SearchScreenState extends State<SearchScreen> {
     if (!mounted) return;
     // A version deleted from the Bibliothèque must not stay selected.
     final code = _filters.versionCode;
-    final gone = code != VersionRepository.embeddedCode &&
+    final gone =
+        code != VersionRepository.embeddedCode &&
         installed[code]?.isEmpty != false;
     setState(() {
       _installed = installed;
       if (gone) {
-        _filters =
-            _filters.copyWith(versionCode: VersionRepository.embeddedCode);
+        _filters = _filters.copyWith(
+          versionCode: VersionRepository.embeddedCode,
+        );
       }
     });
   }
@@ -190,13 +241,17 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Future<void> _run() async {
     final id = ++_requestId;
+    final query = _query.trim();
     final outcome = await _engine.search(
       _query,
       filters: _filters,
       categories: _selected.isEmpty ? null : _selected,
       expanded: _expanded,
     );
-    if (!mounted || id != _requestId) return;
+    // The id alone is not enough: clearing the field does not start a new
+    // request, so a search left in flight would otherwise resurrect its
+    // results over the empty state the user just asked for.
+    if (!mounted || id != _requestId || _query.trim() != query) return;
     setState(() {
       _outcome = outcome;
       _searching = false;
@@ -205,8 +260,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   void _submit(String suggestion) {
     _controller.text = suggestion;
-    _controller.selection =
-        TextSelection.collapsed(offset: suggestion.length);
+    _controller.selection = TextSelection.collapsed(offset: suggestion.length);
     _onChanged(suggestion);
   }
 
@@ -248,37 +302,99 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Future<void> _openHit(SearchHit hit) async {
     if (hit.category == SearchCategory.dictionnaire) {
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (_) => FredawEntryScreen(
-          entry: FreDawEntry(term: hit.title, definition: hit.subtitle),
-          onOpenDictionary: widget.onOpenDictionary,
-          onOpenVerse: (bookIndex, chapter, verse) =>
-              widget.onOpenReading(bookIndex, chapter, verse: verse),
+      // A BYM lexicon row opens the embedded fiche of its own entry; a row
+      // from a downloaded dictionary opens in the generic fiche of its own
+      // dictionary; a Westphal row opens the embedded FreDAW fiche.
+      final bymLexiconEntry = hit.bymLexiconEntry;
+      if (bymLexiconEntry != null) {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => BymLexiconEntryScreen(
+              entry: bymLexiconEntry,
+              onOpenVerse: (bookIndex, chapter, verse) {
+                // Same contract as the Strong fiche: clear the stacked fiche
+                // chain before switching to the reading tab.
+                Navigator.of(context).popUntil((route) => route.isFirst);
+                widget.onOpenReading(bookIndex, chapter, verse: verse);
+              },
+            ),
+          ),
+        );
+        return;
+      }
+      final code = hit.dictionaryCode;
+      if (code != null) {
+        await _openDownloadedDictionary(hit, code);
+        return;
+      }
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (_) => FredawEntryScreen(
+            entry: FreDawEntry(term: hit.title, definition: hit.subtitle),
+            onOpenVerse: (bookIndex, chapter, verse) {
+              // Same contract as the Strong fiche: clear the stacked fiche
+              // chain before switching to the reading tab.
+              Navigator.of(context).popUntil((route) => route.isFirst);
+              widget.onOpenReading(bookIndex, chapter, verse: verse);
+            },
+          ),
         ),
-      ));
+      );
       return;
     }
     if (hit.category == SearchCategory.strong) {
       final strong = await StrongLexicon.instance.lookup(hit.title);
       if (!mounted) return;
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (_) => StrongDetailScreen(
-          strong: strong,
-          onOpenVerse: (bookIndex, chapter, verse) {
-            // Clear the whole stacked chain of fiches (a code may have been
-            // reached through « Voir plus » or an etymology link, several
-            // routes deep) before switching to the reading tab: a single pop
-            // would leave an intermediate route covering the reader, landing
-            // the user one screen back instead of on the opened verse.
-            Navigator.of(context).popUntil((route) => route.isFirst);
-            widget.onOpenReading(bookIndex, chapter, verse: verse);
-          },
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (_) => StrongDetailScreen(
+            strong: strong,
+            onOpenVerse: (bookIndex, chapter, verse) {
+              // Clear the whole stacked chain of fiches (a code may have been
+              // reached through « Voir plus » or an etymology link, several
+              // routes deep) before switching to the reading tab: a single pop
+              // would leave an intermediate route covering the reader, landing
+              // the user one screen back instead of on the opened verse.
+              Navigator.of(context).popUntil((route) => route.isFirst);
+              widget.onOpenReading(bookIndex, chapter, verse: verse);
+            },
+          ),
         ),
-      ));
+      );
       return;
     }
     if (!hit.canOpen) return;
     widget.onOpenReading(hit.bookIndex!, hit.chapter!, verse: hit.verse);
+  }
+
+  /// Opens a downloaded dictionary hit in the generic fiche of its dictionary.
+  ///
+  /// The row only carries the code, the term and the definition; the fiche
+  /// needs the full reader for its cross-links, so the file is re-read here.
+  Future<void> _openDownloadedDictionary(SearchHit hit, String code) async {
+    final entry = dictionaryByCode(code);
+    if (entry == null) return;
+    final payload = await _dictStore.load(code);
+    if (!mounted || payload == null) return;
+    final reader = DictionaryReader.fromJson(payload);
+    final article = reader.lookup(hit.title) ??
+        DictionaryArticle(term: hit.title, definition: hit.subtitle);
+    if (!mounted) return;
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => DictionaryEntryScreen(
+          entry: entry,
+          article: article,
+          reader: reader,
+          onOpenVerse: (bookIndex, chapter, verse) {
+            // Same contract as the Strong fiche: clear the stacked fiche
+            // chain before switching to the reading tab.
+            Navigator.of(context).popUntil((route) => route.isFirst);
+            widget.onOpenReading(bookIndex, chapter, verse: verse);
+          },
+        ),
+      ),
+    );
   }
 
   @override
@@ -286,7 +402,7 @@ class _SearchScreenState extends State<SearchScreen> {
     final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
     return Scaffold(
-      backgroundColor: kPremiumBackground,
+      backgroundColor: premiumBackground(context),
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -299,13 +415,21 @@ class _SearchScreenState extends State<SearchScreen> {
                 children: [
                   Text(
                     'Rechercher',
-                    style: premiumText(context, 20, FontWeight.w800, bibleTheme.titleColor),
+                    style: premiumText(
+                      context,
+                      20,
+                      FontWeight.w800,
+                      bibleTheme.titleColor,
+                    ),
                   ),
                   const SizedBox(height: 12),
                   _SearchField(
                     controller: _controller,
                     onChanged: _onChanged,
                     onClear: _clear,
+                    // The keyboard's « Rechercher » key must not sit through
+                    // the 300 ms debounce: flush and run now.
+                    onSubmitted: _rerun,
                     hasText: _query.isNotEmpty,
                   ),
                 ],
@@ -336,16 +460,26 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Widget _body() {
-    if (_query.trim().isEmpty) {
+    final query = _query.trim();
+    if (query.isEmpty) {
       return _EmptyState(onPick: _submit);
+    }
+    // Below the engine's minimum, no source is queried at all — say so instead
+    // of dressing the silence up as « aucun résultat ».
+    if (query.length < SearchEngine.minQueryLength) {
+      return _NoResults(
+        query: query,
+        message:
+            'Saisissez au moins ${SearchEngine.minQueryLength} lettres.',
+      );
     }
     final outcome = _outcome;
     if (_searching && outcome == null) {
-      return const Center(child: CircularProgressIndicator());
+      return const ListLoadingSkeleton(itemCount: 5);
     }
     if (outcome == null) {
       return _NoResults(
-        query: _query,
+        query: query,
         message: 'Saisissez au moins ${SearchEngine.minQueryLength} lettres.',
       );
     }
@@ -355,11 +489,11 @@ class _SearchScreenState extends State<SearchScreen> {
         query: outcome.query,
         message: coverage != null
             ? '$coverage\nTerminez le téléchargement depuis la Bibliothèque, '
-                'ou revenez à la BYM.'
+                  'ou revenez à la BYM.'
             : _filters.isNarrowed
-                ? 'Aucun résultat avec ces filtres — élargissez la section '
-                    'ou le livre.'
-                : 'Aucun résultat dans les sources disponibles.',
+            ? 'Aucun résultat avec ces filtres — élargissez la section '
+                  'ou le livre.'
+            : 'Aucun résultat dans les sources disponibles.',
       );
     }
     return _Results(
@@ -383,12 +517,14 @@ class _SearchField extends StatelessWidget {
   final TextEditingController controller;
   final ValueChanged<String> onChanged;
   final VoidCallback onClear;
+  final VoidCallback onSubmitted;
   final bool hasText;
 
   const _SearchField({
     required this.controller,
     required this.onChanged,
     required this.onClear,
+    required this.onSubmitted,
     required this.hasText,
   });
 
@@ -397,19 +533,34 @@ class _SearchField extends StatelessWidget {
     final bibleTheme = BibleThemeScope.of(context);
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: bibleTheme.panelColor,
         borderRadius: BorderRadius.circular(18),
-        boxShadow: premiumShadow(bibleTheme.accentColor, opacity: 0.06, blur: 10, offset: const Offset(0, 4)),
+        boxShadow: premiumShadow(
+          bibleTheme.accentColor,
+          opacity: 0.06,
+          blur: 10,
+          offset: const Offset(0, 4),
+        ),
       ),
       child: TextField(
         controller: controller,
         onChanged: onChanged,
+        onSubmitted: (_) => onSubmitted(),
         textInputAction: TextInputAction.search,
         style: premiumText(context, 16, FontWeight.w500, bibleTheme.textColor),
         decoration: InputDecoration(
           hintText: 'Mot, verset ou référence',
-          hintStyle: premiumText(context, 14, FontWeight.w500, bibleTheme.textColor.withValues(alpha: .62)),
-          prefixIcon: Icon(Icons.search, color: bibleTheme.accentColor, size: 24),
+          hintStyle: premiumText(
+            context,
+            14,
+            FontWeight.w500,
+            bibleTheme.textColor.withValues(alpha: .62),
+          ),
+          prefixIcon: Icon(
+            Icons.search,
+            color: bibleTheme.accentColor,
+            size: 24,
+          ),
           suffixIcon: hasText
               ? IconButton(
                   tooltip: 'Effacer',
@@ -427,6 +578,7 @@ class _SearchField extends StatelessWidget {
     );
   }
 }
+
 /// The horizontally scrollable row of coloured category chips.
 ///
 /// No selection means « everything »; tapping a chip narrows the search to it,
@@ -485,27 +637,34 @@ class _CategoryChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = _styleOf(category);
+    final p = premiumPalette(context);
+    final style = _styleOf(context, category);
     final enabled = category.available;
 
-    final foreground =
-        enabled ? Colors.black87 : Colors.black.withValues(alpha: .38);
-    final iconColor = enabled ? style.color : style.color.withValues(alpha: .35);
+    final foreground = enabled ? p.onSurface : p.onSurfaceMuted;
+    final iconColor = enabled
+        ? style.color
+        : style.color.withValues(alpha: .35);
 
     return Semantics(
       button: true,
       selected: active,
       enabled: enabled,
       child: Material(
-        color: Colors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(14),
         elevation: 0,
         shadowColor: Colors.transparent,
         child: Ink(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: p.surface,
             borderRadius: BorderRadius.circular(14),
-            boxShadow: premiumShadow(style.color, opacity: 0.08, blur: 8, offset: const Offset(0, 4)),
+            boxShadow: premiumShadow(
+              style.color,
+              opacity: 0.08,
+              blur: 8,
+              offset: const Offset(0, 4),
+            ),
           ),
           child: InkWell(
             onTap: onTap,
@@ -516,7 +675,9 @@ class _CategoryChip extends StatelessWidget {
                 borderRadius: BorderRadius.circular(14),
                 color: active ? style.color.withValues(alpha: .14) : null,
                 border: Border.all(
-                  color: active ? style.color : Colors.grey.shade300,
+                  color: active
+                      ? style.color
+                      : p.textGrey.withValues(alpha: .3),
                   width: 1.2,
                 ),
               ),
@@ -565,11 +726,20 @@ class _CountBadge extends StatelessWidget {
       ),
       child: Text(
         '$count',
-        style: premiumText(context, 11, FontWeight.w700, Color.alphaBlend(color.withValues(alpha: .85), Colors.black87)),
+        style: premiumText(
+          context,
+          11,
+          FontWeight.w700,
+          Color.alphaBlend(
+            color.withValues(alpha: .85),
+            premiumPalette(context).onSurface,
+          ),
+        ),
       ),
     );
   }
 }
+
 /// The « Version · Section · Livre · Ordre » row under the chips.
 class _FilterBar extends StatelessWidget {
   final SearchFilters filters;
@@ -597,16 +767,17 @@ class _FilterBar extends StatelessWidget {
   /// The rest used to be listed, greyed, answering a snackbar. Twelve rows for
   /// one usable choice, in a menu whose only job is to choose.
   List<VersionEntry> get _searchable => [
-        for (final group in versionCatalog)
-          for (final version in group.versions)
-            if (version.embedded || installed[version.code]?.isEmpty == false)
-              version,
-      ];
+    for (final group in versionCatalog)
+      for (final version in group.versions)
+        if (version.embedded || installed[version.code]?.isEmpty == false)
+          version,
+  ];
 
   @override
   Widget build(BuildContext context) {
     final searchable = _searchable;
-    final missing = versionCatalog.fold<int>(
+    final missing =
+        versionCatalog.fold<int>(
           0,
           (total, group) => total + group.versions.length,
         ) -
@@ -654,9 +825,11 @@ class _FilterBar extends StatelessWidget {
                 ),
             ],
             // Picking a section releases the single-book restriction.
-            onSelected: (index) => onChanged(index == null
-                ? filters.copyWith(clearSection: true, clearBook: true)
-                : filters.copyWith(sectionIndex: index, clearBook: true)),
+            onSelected: (index) => onChanged(
+              index == null
+                  ? filters.copyWith(clearSection: true, clearBook: true)
+                  : filters.copyWith(sectionIndex: index, clearBook: true),
+            ),
           ),
           const SizedBox(width: 22),
           _BookFilterMenu(filters: filters, onChanged: onChanged),
@@ -707,11 +880,7 @@ class _FilterFooter {
   /// the row then states the fact instead of pretending to be a button.
   final VoidCallback? onTap;
 
-  const _FilterFooter({
-    required this.label,
-    required this.detail,
-    this.onTap,
-  });
+  const _FilterFooter({required this.label, required this.detail, this.onTap});
 }
 
 /// A small « label / bold value ⌄ » control opening a popup menu.
@@ -768,7 +937,12 @@ class _FilterMenu<T> extends StatelessWidget {
                       if (option.detail != null)
                         Text(
                           option.detail!,
-                          style: premiumText(context, 12, FontWeight.w500, bibleTheme.textColor.withValues(alpha: .72)),
+                          style: premiumText(
+                            context,
+                            12,
+                            FontWeight.w500,
+                            bibleTheme.textColor.withValues(alpha: .72),
+                          ),
                         ),
                     ],
                   ),
@@ -783,8 +957,11 @@ class _FilterMenu<T> extends StatelessWidget {
             onTap: footer!.onTap,
             child: Row(
               children: [
-                Icon(Icons.library_books_outlined,
-                    size: 17, color: bibleTheme.textColor.withValues(alpha: .72)),
+                Icon(
+                  Icons.library_books_outlined,
+                  size: 17,
+                  color: bibleTheme.textColor.withValues(alpha: .72),
+                ),
                 const SizedBox(width: 10),
                 Flexible(
                   child: Column(
@@ -794,7 +971,12 @@ class _FilterMenu<T> extends StatelessWidget {
                       Text(footer!.label),
                       Text(
                         footer!.detail,
-                        style: premiumText(context, 12, FontWeight.w500, bibleTheme.textColor.withValues(alpha: .72)),
+                        style: premiumText(
+                          context,
+                          12,
+                          FontWeight.w500,
+                          bibleTheme.textColor.withValues(alpha: .72),
+                        ),
                       ),
                     ],
                   ),
@@ -827,7 +1009,12 @@ class _FilterLabel extends StatelessWidget {
       children: [
         Text(
           label,
-          style: premiumText(context, 11, FontWeight.w600, bibleTheme.textColor.withValues(alpha: .72)),
+          style: premiumText(
+            context,
+            11,
+            FontWeight.w600,
+            bibleTheme.textColor.withValues(alpha: .72),
+          ),
         ),
         const SizedBox(height: 2),
         Row(
@@ -837,16 +1024,26 @@ class _FilterLabel extends StatelessWidget {
               child: Text(
                 value,
                 overflow: TextOverflow.ellipsis,
-                style: premiumText(context, 14, FontWeight.w800, bibleTheme.accentColor),
+                style: premiumText(
+                  context,
+                  14,
+                  FontWeight.w800,
+                  bibleTheme.accentColor,
+                ),
               ),
             ),
-            Icon(Icons.keyboard_arrow_down, size: 18, color: bibleTheme.accentColor),
+            Icon(
+              Icons.keyboard_arrow_down,
+              size: 18,
+              color: bibleTheme.accentColor,
+            ),
           ],
         ),
       ],
     );
   }
 }
+
 /// « Livre » needs a scrollable sheet rather than a popup: 66 entries plus
 /// « Tout », grouped by the five BYM sections.
 class _BookFilterMenu extends StatelessWidget {
@@ -866,6 +1063,12 @@ class _BookFilterMenu extends StatelessWidget {
         maxChildSize: .92,
         builder: (context, controller) => ListView(
           controller: controller,
+          // The sheet is sized as a fraction of the screen with the gesture
+          // bar over it: without the view padding the last book (Apocalypse)
+          // is drawn under it and cannot be tapped.
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.viewPaddingOf(context).bottom + 16,
+          ),
           children: [
             ListTile(
               leading: const Icon(Icons.clear_all),
@@ -880,7 +1083,12 @@ class _BookFilterMenu extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(16, 14, 16, 4),
                 child: Text(
                   section.name,
-                  style: premiumText(context, 13, FontWeight.w700, BibleThemeScope.of(context).accentColor),
+                  style: premiumText(
+                    context,
+                    13,
+                    FontWeight.w700,
+                    BibleThemeScope.of(context).accentColor,
+                  ),
                 ),
               ),
               for (var book = section.from; book <= section.to; book++)
@@ -889,7 +1097,14 @@ class _BookFilterMenu extends StatelessWidget {
                   title: Text(catalogEntry(book).shortName),
                   trailing: Text(
                     catalogEntry(book).abbreviation,
-                    style: premiumText(context, 11, FontWeight.w500, Colors.black54),
+                    style: premiumText(
+                      context,
+                      11,
+                      FontWeight.w500,
+                      BibleThemeScope.of(
+                        context,
+                      ).textColor.withValues(alpha: .62),
+                    ),
                   ),
                   selected: filters.bookIndex == book,
                   onTap: () => Navigator.of(context).pop(book),
@@ -900,9 +1115,11 @@ class _BookFilterMenu extends StatelessWidget {
       ),
     );
     if (picked == null) return;
-    onChanged(picked == 0
-        ? filters.copyWith(clearBook: true)
-        : filters.copyWith(bookIndex: picked, clearSection: true));
+    onChanged(
+      picked == 0
+          ? filters.copyWith(clearBook: true)
+          : filters.copyWith(bookIndex: picked, clearSection: true),
+    );
   }
 
   @override
@@ -925,17 +1142,11 @@ class _EmptyState extends StatelessWidget {
   static const List<({String title, List<String> queries})> _suggestions = [
     (
       title: 'Chercher une référence',
-      queries: ['Jean 3:16', 'Psaume 23', 'Exode 4:5']
+      queries: ['Jean 3:16', 'Psaume 23', 'Exode 4:5-10'],
     ),
-    (
-      title: 'Chercher un verset',
-      queries: ['Jésus pleura', 'Au commencement']
-    ),
+    (title: 'Chercher un verset', queries: ['Jésus pleura', 'Au commencement']),
     (title: 'Chercher un mot', queries: ['amour', 'grâce', 'alliance']),
-    (
-      title: 'Chercher un mot Strong',
-      queries: ['H0430', 'G2316', 'agapao']
-    ),
+    (title: 'Chercher un mot Strong', queries: ['H0430', 'G2316', 'agapao']),
     (title: 'Chercher un livre', queries: ['Apocalypse', 'Bereshit']),
   ];
 
@@ -954,14 +1165,24 @@ class _EmptyState extends StatelessWidget {
         Center(
           child: Text(
             'Que cherchez-vous ?',
-            style: premiumText(context, 20, FontWeight.w800, bibleTheme.titleColor),
+            style: premiumText(
+              context,
+              20,
+              FontWeight.w800,
+              bibleTheme.titleColor,
+            ),
           ),
         ),
         const SizedBox(height: 28),
         for (final group in _suggestions) ...[
           Text(
             group.title,
-            style: premiumText(context, 15, FontWeight.w800, bibleTheme.titleColor),
+            style: premiumText(
+              context,
+              15,
+              FontWeight.w800,
+              bibleTheme.titleColor,
+            ),
           ),
           const SizedBox(height: 8),
           Wrap(
@@ -972,10 +1193,17 @@ class _EmptyState extends StatelessWidget {
                 ActionChip(
                   label: Text(
                     query,
-                    style: premiumText(context, 13, FontWeight.w600, bibleTheme.titleColor),
+                    style: premiumText(
+                      context,
+                      13,
+                      FontWeight.w600,
+                      bibleTheme.titleColor,
+                    ),
                   ),
                   onPressed: () => onPick(query),
-                  backgroundColor: bibleTheme.accentColor.withValues(alpha: .35),
+                  backgroundColor: bibleTheme.accentColor.withValues(
+                    alpha: .35,
+                  ),
                   side: BorderSide.none,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -1002,25 +1230,39 @@ class _NoResults extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(28, 60, 28, 24),
       children: [
-        Icon(Icons.search_off,
-            size: 76,
-            color: bibleTheme.titleColor.withValues(alpha: .35)),
+        Icon(
+          Icons.search_off,
+          size: 76,
+          color: bibleTheme.titleColor.withValues(alpha: .35),
+        ),
         const SizedBox(height: 16),
         Text(
           '« $query »',
           textAlign: TextAlign.center,
-          style: premiumText(context, 18, FontWeight.w800, bibleTheme.titleColor),
+          style: premiumText(
+            context,
+            18,
+            FontWeight.w800,
+            bibleTheme.titleColor,
+          ),
         ),
         const SizedBox(height: 8),
         Text(
           message,
           textAlign: TextAlign.center,
-          style: premiumText(context, 14, FontWeight.w500, bibleTheme.textColor.withValues(alpha: .88), height: 1.5),
+          style: premiumText(
+            context,
+            14,
+            FontWeight.w500,
+            bibleTheme.textColor.withValues(alpha: .88),
+            height: 1.5,
+          ),
         ),
       ],
     );
   }
 }
+
 /// The results list: the reference card first (when the query read as one),
 /// then one section per category with its header, count badge and rows.
 class _Results extends StatelessWidget {
@@ -1055,7 +1297,7 @@ class _Results extends StatelessWidget {
               _GroupHeader(
                 title: 'Référence biblique',
                 count: 1,
-                color: _styleOf(SearchCategory.passages).color,
+                color: _styleOf(context, SearchCategory.passages).color,
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
@@ -1069,7 +1311,7 @@ class _Results extends StatelessWidget {
               _GroupHeader(
                 title: group.category.label,
                 count: group.total,
-                color: _styleOf(group.category).color,
+                color: _styleOf(context, group.category).color,
               ),
               for (final hit in group.hits)
                 Padding(
@@ -1088,12 +1330,18 @@ class _Results extends StatelessWidget {
                     child: ActionChip(
                       label: Text(
                         'Voir plus',
-                        style: premiumText(context, 13, FontWeight.w700, _styleOf(group.category).color),
+                        style: premiumText(
+                          context,
+                          13,
+                          FontWeight.w700,
+                          _styleOf(context, group.category).color,
+                        ),
                       ),
                       onPressed: () => onExpand(group.category),
-                      backgroundColor: _styleOf(group.category)
-                          .color
-                          .withValues(alpha: .14),
+                      backgroundColor: _styleOf(
+                        context,
+                        group.category,
+                      ).color.withValues(alpha: .14),
                       side: BorderSide.none,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
@@ -1135,13 +1383,21 @@ class _CoverageNote extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(Icons.cloud_download_outlined,
-              size: 18, color: bibleTheme.titleColor.withValues(alpha: .85)),
+          Icon(
+            Icons.cloud_download_outlined,
+            size: 18,
+            color: bibleTheme.titleColor.withValues(alpha: .85),
+          ),
           const SizedBox(width: 10),
           Expanded(
             child: Text(
               text,
-              style: premiumText(context, 13, FontWeight.w500, bibleTheme.textColor.withValues(alpha: .85)),
+              style: premiumText(
+                context,
+                13,
+                FontWeight.w500,
+                bibleTheme.textColor.withValues(alpha: .85),
+              ),
             ),
           ),
         ],
@@ -1171,7 +1427,12 @@ class _GroupHeader extends StatelessWidget {
         children: [
           Text(
             title,
-            style: premiumText(context, 16, FontWeight.w800, bibleTheme.textColor.withValues(alpha: .82)),
+            style: premiumText(
+              context,
+              16,
+              FontWeight.w800,
+              bibleTheme.textColor.withValues(alpha: .82),
+            ),
           ),
           const SizedBox(width: 8),
           _CountBadge(count, color: color),
@@ -1192,15 +1453,20 @@ class _ReferenceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final bibleTheme = BibleThemeScope.of(context);
     return Material(
-      color: Colors.white,
+      color: bibleTheme.panelColor,
       borderRadius: BorderRadius.circular(20),
       elevation: 0,
       shadowColor: Colors.transparent,
       child: Ink(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: bibleTheme.panelColor,
           borderRadius: BorderRadius.circular(20),
-          boxShadow: premiumShadow(bibleTheme.accentColor, opacity: 0.07, blur: 16, offset: const Offset(0, 6)),
+          boxShadow: premiumShadow(
+            bibleTheme.accentColor,
+            opacity: 0.07,
+            blur: 16,
+            offset: const Offset(0, 6),
+          ),
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
@@ -1214,7 +1480,12 @@ class _ReferenceCard extends StatelessWidget {
                   children: [
                     Text(
                       reference.label,
-                      style: premiumText(context, 17, FontWeight.w800, bibleTheme.titleColor),
+                      style: premiumText(
+                        context,
+                        17,
+                        FontWeight.w800,
+                        bibleTheme.titleColor,
+                      ),
                     ),
                     const SizedBox(width: 8),
                     _Badge(reference.versionCode),
@@ -1223,7 +1494,13 @@ class _ReferenceCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   reference.text,
-                  style: premiumText(context, 15, FontWeight.w500, bibleTheme.textColor, height: 1.5),
+                  style: premiumText(
+                    context,
+                    15,
+                    FontWeight.w500,
+                    bibleTheme.textColor,
+                    height: 1.5,
+                  ),
                 ),
               ],
             ),
@@ -1241,30 +1518,33 @@ class _HitTile extends StatelessWidget {
   final String query;
   final VoidCallback onTap;
 
-  const _HitTile({
-    required this.hit,
-    required this.query,
-    required this.onTap,
-  });
+  const _HitTile({required this.hit, required this.query, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     final bibleTheme = BibleThemeScope.of(context);
-    final style = _styleOf(hit.category);
+    final style = _styleOf(context, hit.category);
     return Material(
-      color: Colors.white,
+      color: bibleTheme.panelColor,
       borderRadius: BorderRadius.circular(20),
       elevation: 0,
       shadowColor: Colors.transparent,
       child: Ink(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: bibleTheme.panelColor,
           borderRadius: BorderRadius.circular(20),
-          boxShadow: premiumShadow(style.color, opacity: 0.06, blur: 12, offset: const Offset(0, 5)),
+          boxShadow: premiumShadow(
+            style.color,
+            opacity: 0.06,
+            blur: 12,
+            offset: const Offset(0, 5),
+          ),
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
-          onTap: (hit.category == SearchCategory.strong || hit.canOpen) ? onTap : null,
+          onTap: (hit.category == SearchCategory.strong || hit.canOpen)
+              ? onTap
+              : null,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
             child: Row(
@@ -1281,65 +1561,185 @@ class _HitTile extends StatelessWidget {
                 ),
                 const SizedBox(width: 12),
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              hit.title,
-                              overflow: TextOverflow.ellipsis,
-                              style: premiumText(context, 15, FontWeight.w800, bibleTheme.titleColor),
-                            ),
-                          ),
-                          if (hit.badge != null) ...[
-                            const SizedBox(width: 8),
-                            _Badge(hit.badge!),
-                          ],
-                        ],
-                      ),
-                      if (hit.transliteration != null &&
-                          hit.transliteration!.isNotEmpty) ...[
-                        const SizedBox(height: 6),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            _Badge('translitéré'),
-                            const SizedBox(width: 6),
-                            Expanded(
-                              child: Text(
-                                hit.transliteration!,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: premiumText(context, 13, FontWeight.w600, bibleTheme.accentColor, italic: FontStyle.italic),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                      if (hit.lemma != null && hit.lemma!.isNotEmpty) ...[
-                        const SizedBox(height: 2),
-                        Text(
-                          hit.lemma!,
-                          overflow: TextOverflow.ellipsis,
-                          style: premiumText(context, 13, FontWeight.w700, bibleTheme.textColor.withValues(alpha: .72)),
-                        ),
-                      ],
-                      const SizedBox(height: 2),
-                      _HighlightedText(
-                        text: hit.subtitle,
-                        query: query,
-                        maxLines: 2,
-                      ),
-                    ],
-                  ),
+                  child: hit.category == SearchCategory.strong
+                      ? _StrongHitBody(
+                          hit: hit,
+                          query: query,
+                          color: style.color,
+                        )
+                      : _StandardHitBody(hit: hit, query: query),
                 ),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class _StrongHitBody extends StatelessWidget {
+  final SearchHit hit;
+  final String query;
+  final Color color;
+
+  const _StrongHitBody({
+    required this.hit,
+    required this.query,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final bibleTheme = BibleThemeScope.of(context);
+    final isGreek = hit.title.toUpperCase().startsWith('G');
+    final lemma = hit.lemma?.trim() ?? '';
+    final transliteration = hit.transliteration?.trim() ?? '';
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Wrap(
+          spacing: 7,
+          runSpacing: 5,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+              decoration: BoxDecoration(
+                color: color.withValues(alpha: .16),
+                borderRadius: BorderRadius.circular(7),
+                border: Border.all(color: color.withValues(alpha: .34)),
+              ),
+              child: Text(
+                hit.title,
+                style: premiumText(context, 12, FontWeight.w800, color),
+              ),
+            ),
+            Text(
+              isGreek ? 'Grec' : 'Hébreu',
+              style: premiumText(
+                context,
+                11,
+                FontWeight.w700,
+                bibleTheme.textColor.withValues(alpha: .58),
+              ),
+            ),
+          ],
+        ),
+        if (lemma.isNotEmpty) ...[
+          const SizedBox(height: 8),
+          Text(
+            lemma,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            textDirection: isGreek ? TextDirection.ltr : TextDirection.rtl,
+            style: premiumText(
+              context,
+              18,
+              FontWeight.w800,
+              bibleTheme.titleColor,
+            ),
+          ),
+        ],
+        if (transliteration.isNotEmpty) ...[
+          const SizedBox(height: 5),
+          Wrap(
+            spacing: 6,
+            runSpacing: 3,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Text(
+                'translitéré',
+                style: premiumText(
+                  context,
+                  10,
+                  FontWeight.w700,
+                  bibleTheme.textColor.withValues(alpha: .55),
+                ),
+              ),
+              Text(
+                transliteration,
+                style: premiumText(
+                  context,
+                  13,
+                  FontWeight.w600,
+                  color,
+                  italic: FontStyle.italic,
+                ),
+              ),
+            ],
+          ),
+        ],
+        const SizedBox(height: 8),
+        _HighlightedText(text: hit.subtitle, query: query, maxLines: 3),
+      ],
+    );
+  }
+}
+
+class _StandardHitBody extends StatelessWidget {
+  final SearchHit hit;
+  final String query;
+
+  const _StandardHitBody({required this.hit, required this.query});
+
+  @override
+  Widget build(BuildContext context) {
+    final bibleTheme = BibleThemeScope.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Flexible(
+              child: Text(
+                hit.title,
+                overflow: TextOverflow.ellipsis,
+                style: premiumText(
+                  context,
+                  15,
+                  FontWeight.w800,
+                  bibleTheme.titleColor,
+                ),
+              ),
+            ),
+            if (hit.badge != null) ...[
+              const SizedBox(width: 8),
+              _Badge(hit.badge!),
+            ],
+          ],
+        ),
+        if (hit.transliteration != null && hit.transliteration!.isNotEmpty) ...[
+          const SizedBox(height: 6),
+          Text(
+            hit.transliteration!,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: premiumText(
+              context,
+              13,
+              FontWeight.w600,
+              bibleTheme.accentColor,
+              italic: FontStyle.italic,
+            ),
+          ),
+        ],
+        if (hit.lemma != null && hit.lemma!.isNotEmpty) ...[
+          const SizedBox(height: 2),
+          Text(
+            hit.lemma!,
+            overflow: TextOverflow.ellipsis,
+            style: premiumText(
+              context,
+              13,
+              FontWeight.w700,
+              bibleTheme.textColor.withValues(alpha: .72),
+            ),
+          ),
+        ],
+        const SizedBox(height: 2),
+        _HighlightedText(text: hit.subtitle, query: query, maxLines: 2),
+      ],
     );
   }
 }
@@ -1361,7 +1761,12 @@ class _Badge extends StatelessWidget {
         text,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: premiumText(context, 10, FontWeight.w700, bibleTheme.textColor.withValues(alpha: .9)),
+        style: premiumText(
+          context,
+          10,
+          FontWeight.w700,
+          bibleTheme.textColor.withValues(alpha: .9),
+        ),
       ),
     );
   }
@@ -1383,7 +1788,12 @@ class _HighlightedText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bibleTheme = BibleThemeScope.of(context);
-    final baseStyle = premiumText(context, 13, FontWeight.w500, bibleTheme.textColor.withValues(alpha: .78));
+    final baseStyle = premiumText(
+      context,
+      13,
+      FontWeight.w500,
+      bibleTheme.textColor.withValues(alpha: .78),
+    );
     final range = findIgnoringAccents(text, query.trim());
     if (range == null) {
       return Text(
@@ -1402,8 +1812,7 @@ class _HighlightedText extends StatelessWidget {
             text: text.substring(range.start, range.end),
             style: TextStyle(
               color: bibleTheme.textColor,
-              backgroundColor:
-                  bibleTheme.accentColor.withValues(alpha: .24),
+              backgroundColor: bibleTheme.accentColor.withValues(alpha: .24),
               fontWeight: FontWeight.w700,
             ),
           ),

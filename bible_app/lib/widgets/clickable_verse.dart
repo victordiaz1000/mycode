@@ -56,6 +56,10 @@ class ClickableVerse extends StatelessWidget {
     }
 
     return RichText(
+      // `RichText` défaut à `TextScaler.noScaling` : sans ce scaler ce verset
+      // ignorerait l'échelle de lecture posée dans `main.dart`, contrairement
+      // aux tuiles de `verse_tile.dart` qui l'appliquent.
+      textScaler: MediaQuery.textScalerOf(context),
       text: TextSpan(children: spans),
       textAlign: TextAlign.start,
     );

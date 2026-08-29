@@ -4,6 +4,8 @@ import '../data/lsgs_repository.dart';
 import '../data/strong_lexicon.dart';
 import '../data/strong_occurrences.dart';
 import '../models/lsgs.dart';
+import '../widgets/fiche_text_settings.dart';
+import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
 import '../widgets/strong_code_text.dart';
 import 'strong_occurrences_screen.dart';
@@ -34,12 +36,10 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
   final Map<int, List<LsgsToken>> _tokens = {};
   bool _loaded = false;
 
-  bool get _isGreek => widget.strong.language == 'greek' ||
-      widget.strong.strong.startsWith('G');
+  bool get _isGreek =>
+      widget.strong.language == 'greek' || widget.strong.strong.startsWith('G');
 
   String get _langue => _isGreek ? 'Grec' : 'Hébreu';
-
-  Color get _langueColor => _isGreek ? const Color(0xFF1A73E8) : const Color(0xFFD95300);
 
   /// The complete definition, as bullet points: the structured senses when the
   /// entry carries them, the bulleted `definition` otherwise.
@@ -66,8 +66,7 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
     return first;
   }
 
-  List<StrongOccurrence> get _visibles =>
-      _occurrences.take(_limite).toList();
+  List<StrongOccurrence> get _visibles => _occurrences.take(_limite).toList();
 
   @override
   void initState() {
@@ -76,15 +75,19 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
   }
 
   Future<void> _load() async {
-    final occurrences = await StrongOccurrenceIndex.instance
-        .occurrences(widget.strong.strong);
+    final occurrences = await StrongOccurrenceIndex.instance.occurrences(
+      widget.strong.strong,
+    );
     final repository = LsgsRepository();
     final tokens = <int, List<LsgsToken>>{};
     final preview = occurrences.take(_limite).toList();
     for (var i = 0; i < preview.length; i++) {
       final occ = preview[i];
-      final verseTokens =
-          await repository.verseTokens(occ.bookIndex, occ.chapter, occ.verse);
+      final verseTokens = await repository.verseTokens(
+        occ.bookIndex,
+        occ.chapter,
+        occ.verse,
+      );
       if (verseTokens.isNotEmpty) tokens[i] = verseTokens;
     }
     if (!mounted) return;
@@ -97,10 +100,17 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    return FicheTextScope(
+      group: DisplayGroup.etude,
+      builder: (context, style) => _buildScaffold(context, style),
+    );
+  }
+
+  Widget _buildScaffold(BuildContext context, FicheTextStyle style) {
     final p = premiumPalette(context);
     final accent = p.primary;
     return Scaffold(
-      backgroundColor: kPremiumBackground,
+      backgroundColor: premiumBackground(context),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -108,8 +118,9 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
         centerTitle: true,
         title: Text(
           'Détail du mot',
-          style: premiumText(context, 16, FontWeight.w600, Colors.black54),
+          style: premiumText(context, 16, FontWeight.w600, p.textGrey),
         ),
+        actions: const [FicheDisplayMenuButton(group: DisplayGroup.etude)],
       ),
       body: SafeArea(
         top: false,
@@ -121,29 +132,42 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
                   children: [
                     _buildHeader(context, accent),
                     const SizedBox(height: 24),
-                    _buildSectionTitle(context, 'Définition brève',
-                        Icons.menu_book_rounded, accent),
+                    _buildSectionTitle(
+                      context,
+                      'Définition brève',
+                      Icons.menu_book_rounded,
+                      accent,
+                    ),
                     const SizedBox(height: 12),
-                    _buildBreveCard(context, accent),
+                    _buildBreveCard(context, accent, style),
                     const SizedBox(height: 24),
-                    _buildSectionTitle(context, 'Définition complète',
-                        Icons.format_list_bulleted_rounded, accent),
+                    _buildSectionTitle(
+                      context,
+                      'Définition complète',
+                      Icons.format_list_bulleted_rounded,
+                      accent,
+                    ),
                     const SizedBox(height: 12),
-                    _buildCompleteCard(context, accent),
+                    _buildCompleteCard(context, accent, style),
                     if (widget.strong.etymology != null &&
                         widget.strong.etymology!.isNotEmpty) ...[
                       const SizedBox(height: 24),
-                      _buildSectionTitle(context, 'Origine',
-                          Icons.hub_outlined, accent),
+                      _buildSectionTitle(
+                        context,
+                        'Origine',
+                        Icons.hub_outlined,
+                        accent,
+                      ),
                       const SizedBox(height: 12),
-                      _buildEtymologyCard(context, accent),
+                      _buildEtymologyCard(context, accent, style),
                     ],
                     const SizedBox(height: 24),
                     _buildSectionTitle(
-                        context,
-                        'Occurrences du mot (${_occurrences.length})',
-                        Icons.format_quote_rounded,
-                        accent),
+                      context,
+                      'Occurrences du mot (${_occurrences.length})',
+                      Icons.format_quote_rounded,
+                      accent,
+                    ),
                     const SizedBox(height: 12),
                     if (_occurrences.isEmpty)
                       _buildEmptyOccurrences(context)
@@ -161,7 +185,30 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
                   ],
                 ),
               )
-            : const Center(child: CircularProgressIndicator()),
+            : const SingleChildScrollView(
+                key: Key('strong-detail-loading-skeleton'),
+                padding: EdgeInsets.all(20),
+                child: LoadingSkeleton(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SkeletonBox(height: 210, radius: 20),
+                      SizedBox(height: 26),
+                      SkeletonBox(width: 175, height: 22),
+                      SizedBox(height: 12),
+                      SkeletonBox(height: 88, radius: 16),
+                      SizedBox(height: 26),
+                      SkeletonBox(width: 205, height: 22),
+                      SizedBox(height: 12),
+                      SkeletonBox(height: 130, radius: 16),
+                      SizedBox(height: 26),
+                      SkeletonBox(width: 190, height: 22),
+                      SizedBox(height: 12),
+                      SkeletonBox(height: 92, radius: 14),
+                    ],
+                  ),
+                ),
+              ),
       ),
     );
   }
@@ -173,20 +220,25 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
       width: double.infinity,
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: premiumShadow(p.primaryDark, opacity: 0.04, blur: 12, offset: const Offset(0, 6)),
+        boxShadow: premiumShadow(
+          p.primaryDark,
+          opacity: 0.04,
+          blur: 12,
+          offset: const Offset(0, 6),
+        ),
       ),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _Badge(_langue, _langueColor),
+              _Badge(_langue, _isGreek ? p.greek : p.hebrew),
               const SizedBox(width: 8),
               if (strong.partOfSpeech != null &&
                   strong.partOfSpeech!.isNotEmpty)
-                _Badge(strong.partOfSpeech!, Colors.grey.shade700),
+                _Badge(strong.partOfSpeech!, p.textGrey),
             ],
           ),
           const SizedBox(height: 16),
@@ -230,10 +282,16 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
                 ? ''
                 : _wrapAfterOu(strong.transliteration!),
             textAlign: TextAlign.center,
-            style: premiumText(context, 18, FontWeight.w500, p.textGrey, italic: FontStyle.italic),
+            style: premiumText(
+              context,
+              18,
+              FontWeight.w500,
+              p.textGrey,
+              italic: FontStyle.italic,
+            ),
           ),
           const SizedBox(height: 20),
-          Divider(color: Colors.grey.shade200, height: 1),
+          Divider(color: p.textGrey.withValues(alpha: .2), height: 1),
           const SizedBox(height: 16),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -245,7 +303,12 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
                   children: [
                     Text(
                       'Numéro Strong',
-                      style: premiumText(context, 12, FontWeight.w500, p.textGrey),
+                      style: premiumText(
+                        context,
+                        12,
+                        FontWeight.w500,
+                        p.textGrey,
+                      ),
                     ),
                     const SizedBox(height: 4),
                     Text(
@@ -263,13 +326,23 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
                     children: [
                       Text(
                         'Prononciation',
-                        style: premiumText(context, 12, FontWeight.w500, p.textGrey),
+                        style: premiumText(
+                          context,
+                          12,
+                          FontWeight.w500,
+                          p.textGrey,
+                        ),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         strong.pronunciation!,
                         textAlign: TextAlign.end,
-                        style: premiumText(context, 14, FontWeight.w500, p.textDark),
+                        style: premiumText(
+                          context,
+                          14,
+                          FontWeight.w500,
+                          p.textDark,
+                        ),
                       ),
                     ],
                   ),
@@ -285,12 +358,10 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
   /// (ex. « ’Abiygayil ou raccourci ’Abiygal ») : un espace de césure (U+200B)
   /// après le « ou » permet au texte de passer à la ligne juste après lui au
   /// lieu de déborder de la carte.
-  String _wrapAfterOu(String text) => text.replaceAllMapped(
-        RegExp(r' ou(?= |\()'),
-        (m) => ' ou\u200B',
-      );
+  String _wrapAfterOu(String text) =>
+      text.replaceAllMapped(RegExp(r' ou(?= |\()'), (m) => ' ou\u200B');
 
-  Widget _buildBreveCard(BuildContext context, Color accent) {
+  Widget _buildBreveCard(BuildContext context, Color accent, FicheTextStyle style) {
     final p = premiumPalette(context);
     return Container(
       width: double.infinity,
@@ -302,21 +373,35 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
       ),
       child: Text(
         _breve,
-        style: premiumText(context, 16, FontWeight.w500, p.textDark, height: 1.5, italic: FontStyle.italic),
+        textAlign: style.align,
+        style: premiumText(
+          context,
+          style.fontSize,
+          FontWeight.w500,
+          p.textDark,
+          height: 1.5,
+          italic: FontStyle.italic,
+        ).copyWith(fontFamily: style.fontFamily),
       ),
     );
   }
 
-  Widget _buildCompleteCard(BuildContext context, Color accent) {
+  Widget _buildCompleteCard(
+      BuildContext context, Color accent, FicheTextStyle style) {
     final p = premiumPalette(context);
     final senses = _senses;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: premiumShadow(p.primaryDark, opacity: 0.03, blur: 8, offset: const Offset(0, 4)),
+        boxShadow: premiumShadow(
+          p.primaryDark,
+          opacity: 0.03,
+          blur: 8,
+          offset: const Offset(0, 4),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -329,13 +414,23 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
                   margin: const EdgeInsets.only(top: 6),
                   width: 6,
                   height: 6,
-                  decoration: BoxDecoration(color: accent, shape: BoxShape.circle),
+                  decoration: BoxDecoration(
+                    color: accent,
+                    shape: BoxShape.circle,
+                  ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     senses[i],
-                    style: premiumText(context, 15, FontWeight.w500, p.textDark, height: 1.6),
+                    textAlign: style.align,
+                    style: premiumText(
+                      context,
+                      style.fontSize,
+                      FontWeight.w500,
+                      p.textDark,
+                      height: 1.6,
+                    ).copyWith(fontFamily: style.fontFamily),
                   ),
                 ),
               ],
@@ -347,7 +442,8 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
     );
   }
 
-  Widget _buildEtymologyCard(BuildContext context, Color accent) {
+  Widget _buildEtymologyCard(
+      BuildContext context, Color accent, FicheTextStyle style) {
     final p = premiumPalette(context);
     return Container(
       width: double.infinity,
@@ -359,7 +455,14 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
       ),
       child: StrongCodeText(
         text: widget.strong.etymology!,
-        style: premiumText(context, 15, FontWeight.w500, p.textDark, height: 1.6, italic: FontStyle.italic),
+        style: premiumText(
+          context,
+          style.fontSize,
+          FontWeight.w500,
+          p.textDark,
+          height: 1.6,
+          italic: FontStyle.italic,
+        ).copyWith(fontFamily: style.fontFamily),
         linkBareNumbers: true,
         onStrongTap: _openStrongFiche,
       ),
@@ -389,8 +492,9 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
   /// sometimes « 7225 » for H7225): resolve them to a lexicon key before
   /// opening the definition.
   Future<void> _openStrongFiche(String strong) async {
-    final definition =
-        await StrongLexicon.instance.lookup(await _resolveStrong(strong));
+    final definition = await StrongLexicon.instance.lookup(
+      await _resolveStrong(strong),
+    );
     if (!mounted) return;
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -408,13 +512,24 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(14),
-        boxShadow: premiumShadow(p.primaryDark, opacity: 0.05, blur: 10, offset: const Offset(0, 4)),
+        boxShadow: premiumShadow(
+          p.primaryDark,
+          opacity: 0.05,
+          blur: 10,
+          offset: const Offset(0, 4),
+        ),
       ),
       child: Text(
         'Aucune occurrence dans la LSGS embarquée.',
-        style: premiumText(context, 13, FontWeight.w500, p.textGrey, italic: FontStyle.italic),
+        style: premiumText(
+          context,
+          13,
+          FontWeight.w500,
+          p.textGrey,
+          italic: FontStyle.italic,
+        ),
       ),
     );
   }
@@ -441,7 +556,9 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
         style: OutlinedButton.styleFrom(
           side: BorderSide(color: accent.withValues(alpha: .4)),
           backgroundColor: accent.withValues(alpha: .05),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+          ),
           padding: const EdgeInsets.symmetric(vertical: 14),
         ),
         icon: Icon(Icons.menu_book_rounded, color: accent),
@@ -462,7 +579,12 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
     );
   }
 
-  Widget _buildSectionTitle(BuildContext context, String title, IconData icon, Color color) {
+  Widget _buildSectionTitle(
+    BuildContext context,
+    String title,
+    IconData icon,
+    Color color,
+  ) {
     final p = premiumPalette(context);
     return Row(
       children: [

@@ -59,7 +59,7 @@ void main() {
     expect(find.text('Jean 3'), findsOneWidget);
     expect(find.text('Bereshit (Genèse) 1'), findsOneWidget);
     expect(find.text('Tehilim (Psaumes) 23'), findsOneWidget);
-    expect(find.text('3 études'), findsOneWidget);
+    expect(find.text('3 lectures'), findsOneWidget);
     expect(find.textContaining('Lecture · '), findsNWidgets(3),
         reason: 'each card carries its relative date');
   });
@@ -67,8 +67,8 @@ void main() {
   testWidgets('an empty history shows the hint, not a list', (tester) async {
     await pumpHistorique(tester);
 
-    expect(find.text('Aucune étude pour le moment'), findsOneWidget);
-    expect(find.text('0 étude'), findsOneWidget);
+    expect(find.text('Aucune lecture pour le moment'), findsOneWidget);
+    expect(find.text('0 lecture'), findsOneWidget);
   });
 
   testWidgets('the section chips narrow the list', (tester) async {
@@ -87,7 +87,7 @@ void main() {
     expect(find.text('Bereshit (Genèse) 1'), findsNothing);
     expect(find.text('Tehilim (Psaumes) 23'), findsNothing);
     expect(find.text('Actes 2'), findsNothing);
-    expect(find.text('1 étude'), findsOneWidget);
+    expect(find.text('1 lecture'), findsOneWidget);
   });
 
   testWidgets('the search filters by book name, accent-insensitive',
@@ -105,7 +105,7 @@ void main() {
     expect(find.text('Tehilim (Psaumes) 23'), findsOneWidget);
     expect(find.text('Jean 3'), findsNothing);
     expect(find.text('Bereshit (Genèse) 1'), findsNothing);
-    expect(find.text('1 étude'), findsOneWidget);
+    expect(find.text('1 lecture'), findsOneWidget);
   });
 
   testWidgets('search and section combine', (tester) async {
@@ -136,7 +136,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Aucun résultat'), findsOneWidget);
-    expect(find.text('0 étude'), findsOneWidget);
+    expect(find.text('0 lecture'), findsOneWidget);
   });
 
   testWidgets('tapping a card opens the chapter', (tester) async {
@@ -213,7 +213,7 @@ void main() {
     expect(find.byType(HistoriqueScreen), findsOneWidget);
     expect(find.text('Shoftim (Juges) 1'), findsOneWidget,
         reason: 'l\'historique complet liste aussi la 7ᵉ lecture');
-    expect(find.text('7 études'), findsOneWidget);
+    expect(find.text('7 lectures'), findsOneWidget);
     // Le filtre de l'historique est bien là.
     expect(find.text(bibleSections[0].name), findsOneWidget);
   });

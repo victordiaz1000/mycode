@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../data/app_preferences.dart';
 import '../data/book_catalog.dart';
 import '../data/library_store.dart';
 import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
 import '../models/verse.dart';
+import '../widgets/loading_skeleton.dart';
 
 /// Une traduction du verset comparé : le texte qu'une version donne pour cette
 /// référence.
@@ -59,6 +61,24 @@ class _ComparerScreenState extends State<ComparerScreen> {
   List<VersionBible> _versionsDisponibles = const [];
   bool _loading = true;
 
+  /// Reading preferences, for the size and family of the compared verses: this
+  /// is a reading surface, so « Taille du texte » must reach it. Null until the
+  /// first frame after [initState]; the fallbacks below are the enum defaults.
+  AppPreferences? _prefs;
+
+  /// Point size of a compared verse. The cards stack vertically, so they read
+  /// one notch below the reader itself — the ratio is set so the default step
+  /// (22 pt) lands on the 15 pt this screen has always used.
+  double get _verseFontSize =>
+      ReadingTextSize.nearest(_prefs?.fontSize ?? ReadingTextSize.extraLarge.fontSize)
+          .fontSize *
+      .68;
+
+  /// Serif accent of the chrome. It used to ask for `'Georgia'`, which ships on
+  /// no Android device and is not in `pubspec.yaml` either — the intent fell
+  /// back to the platform sans-serif everywhere but iOS.
+  static final String _serif = ReadingFont.classic.fontFamily;
+
   @override
   void initState() {
     super.initState();
@@ -66,9 +86,11 @@ class _ComparerScreenState extends State<ComparerScreen> {
   }
 
   Future<void> _load() async {
+    final prefs = await AppPreferences.load();
     final versions = await _buildVersions();
     if (!mounted) return;
     setState(() {
+      _prefs = prefs;
       _versionsDisponibles = versions;
       _actives
         ..clear()
@@ -98,12 +120,14 @@ class _ComparerScreenState extends State<ComparerScreen> {
       final verse = await _verseIn(code);
       if (verse == null || verse.text.trim().isEmpty) continue;
       final entry = versionByCode(code);
-      result.add(VersionBible(
-        code: code,
-        nom: entry?.name ?? code,
-        langue: _langueFor(code),
-        texte: verse.text.trim(),
-      ));
+      result.add(
+        VersionBible(
+          code: code,
+          nom: entry?.name ?? code,
+          langue: _langueFor(code),
+          texte: verse.text.trim(),
+        ),
+      );
     }
     return result;
   }
@@ -127,9 +151,9 @@ class _ComparerScreenState extends State<ComparerScreen> {
     return null;
   }
 
-  /// Langue de la version — le catalogue ne la porte pas, KJV est la seule
-  /// anglaise aujourd'hui.
-  String _langueFor(String code) => code == 'KJV' ? 'EN' : 'FR';
+  /// Langue de la version, portée par le catalogue (`languageCode`) : une
+  /// deuxième version anglaise n'exigerait aucun changement ici.
+  String _langueFor(String code) => versionByCode(code)?.languageCode ?? 'FR';
 
   String get _reference =>
       '${catalogEntry(widget.bookIndex).shortName} '
@@ -138,8 +162,9 @@ class _ComparerScreenState extends State<ComparerScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final affichees =
-        _versionsDisponibles.where((v) => _actives.contains(v.code)).toList();
+    final affichees = _versionsDisponibles
+        .where((v) => _actives.contains(v.code))
+        .toList();
 
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
@@ -152,44 +177,46 @@ class _ComparerScreenState extends State<ComparerScreen> {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            fontFamily: 'Georgia',
+            fontFamily: _serif,
             color: theme.colorScheme.onSurface,
           ),
         ),
       ),
       body: SafeArea(
         child: _loading
-            ? const Center(child: CircularProgressIndicator())
+            // Squelette façonné comme la page : en-tête de référence,
+            // pastilles de versions, puis les cartes empilées.
+            ? const CardsLoadingSkeleton()
             : SingleChildScrollView(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _buildEnTete(theme),
-                        const SizedBox(height: 24),
-                        _buildSelection(theme, affichees),
-                        const SizedBox(height: 16),
-                        if (affichees.isEmpty)
-                          Padding(
-                            padding: const EdgeInsets.only(top: 40),
-                            child: Center(
-                              child: Text(
-                                'Sélectionnez au moins une version à comparer.',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: theme.colorScheme.onSurfaceVariant,
-                                ),
-                              ),
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildEnTete(theme),
+                    const SizedBox(height: 24),
+                    _buildSelection(theme, affichees),
+                    const SizedBox(height: 16),
+                    if (affichees.isEmpty)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 40),
+                        child: Center(
+                          child: Text(
+                            'Sélectionnez au moins une version à comparer.',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: theme.colorScheme.onSurfaceVariant,
                             ),
                           ),
-                        for (final v in affichees) ...[
-                          _buildCarteVersion(theme, v),
-                          const SizedBox(height: 14),
-                        ],
-                        const SizedBox(height: 20),
-                      ],
-                    ),
-                  ),
+                        ),
+                      ),
+                    for (final v in affichees) ...[
+                      _buildCarteVersion(theme, v),
+                      const SizedBox(height: 14),
+                    ],
+                    const SizedBox(height: 20),
+                  ],
+                ),
+              ),
       ),
     );
   }
@@ -218,7 +245,7 @@ class _ComparerScreenState extends State<ComparerScreen> {
               fontSize: 24,
               fontWeight: FontWeight.bold,
               color: theme.colorScheme.onSurface,
-              fontFamily: 'Georgia',
+              fontFamily: _serif,
             ),
           ),
           const SizedBox(height: 6),
@@ -244,12 +271,17 @@ class _ComparerScreenState extends State<ComparerScreen> {
           children: [
             Icon(Icons.compare_arrows_rounded, size: 20, color: accent),
             const SizedBox(width: 8),
-            Text(
-              'Versions affichées',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.onSurface,
+            // `Flexible` et non `Text` nu : un enfant non-flex d'une `Row` est
+            // mesuré sous une largeur infinie, donc ce titre ne se replie
+            // jamais et sortait de l'écran sur les appareils étroits.
+            Flexible(
+              child: Text(
+                'Versions affichées',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.onSurface,
+                ),
               ),
             ),
           ],
@@ -292,13 +324,17 @@ class _ComparerScreenState extends State<ComparerScreen> {
           color: actif ? accent : theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: actif ? accent : Colors.grey.shade300,
+            color: actif
+                ? accent
+                : theme.colorScheme.outline.withValues(alpha: .5),
           ),
         ),
         child: Text(
           v.code,
           style: TextStyle(
-            color: actif ? theme.colorScheme.onPrimary : Colors.black87,
+            color: actif
+                ? theme.colorScheme.onPrimary
+                : theme.colorScheme.onSurface,
             fontSize: 13,
             fontWeight: FontWeight.w600,
           ),
@@ -330,7 +366,10 @@ class _ComparerScreenState extends State<ComparerScreen> {
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
+                ),
                 decoration: BoxDecoration(
                   color: accent.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
@@ -358,7 +397,7 @@ class _ComparerScreenState extends State<ComparerScreen> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
+                  color: theme.colorScheme.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Text(
@@ -366,7 +405,7 @@ class _ComparerScreenState extends State<ComparerScreen> {
                   style: TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
-                    color: Colors.grey.shade700,
+                    color: theme.colorScheme.onSurfaceVariant,
                   ),
                 ),
               ),
@@ -376,8 +415,10 @@ class _ComparerScreenState extends State<ComparerScreen> {
           Text(
             v.texte,
             style: TextStyle(
-              fontSize: 15,
+              fontSize: _verseFontSize,
               height: 1.7,
+              fontFamily: _prefs?.readingFont.fontFamily,
+              fontWeight: _prefs?.fontWeight.weight,
               color: theme.colorScheme.onSurface,
             ),
             textAlign: TextAlign.justify,

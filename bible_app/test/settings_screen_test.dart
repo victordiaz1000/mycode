@@ -67,8 +67,30 @@ void main() {
     expect(prefs.fontSize, ReadingTextSize.giant.fontSize);
   });
 
-  testWidgets('the default-version sheet offers embedded versions only',
-      (tester) async {
+  testWidgets('a reading font choice is persisted', (tester) async {
+    await pumpSettings(tester);
+
+    await tester.tap(find.text('Police de lecture'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Classique · Lora'), findsOneWidget);
+    expect(find.text('Élégante'), findsOneWidget);
+    expect(find.text('Plus Jakarta Sans'), findsWidgets);
+    expect(find.text('Literata'), findsWidgets);
+    // « Moderne » asked for the platform `sans-serif`, the one family the
+    // bundle did not embed: it rendered differently on every device and was
+    // dropped. A stored 'modern' migrates to Plus Jakarta Sans.
+    expect(find.text('Moderne'), findsNothing);
+
+    await tester.tap(find.text('Élégante'));
+    await tester.pumpAndSettle();
+
+    final prefs = await AppPreferences.load();
+    expect(prefs.readingFont, ReadingFont.elegant);
+  });
+  testWidgets('the default-version sheet offers embedded versions only', (
+    tester,
+  ) async {
     await pumpSettings(tester);
 
     await tester.tap(find.text('Bible de Yehoshoua Ha Mashiah'));
@@ -81,8 +103,9 @@ void main() {
     expect(find.text('Bible Darby'), findsNothing);
   });
 
-  testWidgets('choosing LSGS in the sheet persists the default version',
-      (tester) async {
+  testWidgets('choosing LSGS in the sheet persists the default version', (
+    tester,
+  ) async {
     await pumpSettings(tester);
 
     await tester.tap(find.text('Bible de Yehoshoua Ha Mashiah'));
@@ -95,12 +118,15 @@ void main() {
     expect(find.text('Bible Segond 1910 + Strongs'), findsOneWidget);
   });
 
-  testWidgets('effacer l’historique asks for confirmation then clears',
-      (tester) async {
+  testWidgets('effacer l’historique asks for confirmation then clears', (
+    tester,
+  ) async {
     // A chapter recorded so the action has something to erase.
     final prefs = SharedPreferences.getInstance;
-    (await prefs()).setString('history.recent',
-        '[{"book":1,"chapter":1,"at":1000}]');
+    (await prefs()).setString(
+      'history.recent',
+      '[{"book":1,"chapter":1,"at":1000}]',
+    );
 
     await pumpSettings(tester);
     await scrollTo(tester, find.text('Effacer l’historique'));
@@ -136,7 +162,9 @@ void main() {
     await tester.tap(find.text('Thème de lecture'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Choisis un thème de lecture : palette + fond.'),
-        findsOneWidget);
+    expect(
+      find.text('Choisis un thème de lecture : palette + fond.'),
+      findsOneWidget,
+    );
   });
 }

@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart';
 
 import '../data/book_catalog.dart';
 import '../data/local_repository.dart';
@@ -10,9 +10,12 @@ import '../data/tab_manager.dart';
 import '../models/chapter.dart';
 import '../utils/date_format.dart';
 import '../widgets/bible_theme_scope.dart';
+import '../widgets/loading_skeleton.dart';
+import '../widgets/premium_style.dart';
 import 'ecran_comparer.dart';
 import 'favoris_screen.dart';
 import 'historique_screen.dart';
+import 'notes_screen.dart';
 import 'themes_screen.dart';
 
 /// Destinations of the bottom navigation bar (maquette § 01).
@@ -51,7 +54,10 @@ _Pal _pal(BuildContext context) {
     heroGradient: LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
-      colors: [Color.lerp(accent, Colors.white, 0.26)!, Color.lerp(accent, Colors.black, 0.30)!],
+      colors: [
+        Color.lerp(accent, Colors.white, 0.26)!,
+        Color.lerp(accent, Colors.black, 0.30)!,
+      ],
     ),
   );
 }
@@ -61,15 +67,17 @@ List<BoxShadow> _softShadow(
   double opacity = 0.08,
   double blur = 18,
   Offset offset = const Offset(0, 8),
-}) =>
-    [
-      BoxShadow(
-        color: color.withValues(alpha: opacity),
-        blurRadius: blur,
-        offset: offset,
-      ),
-    ];
+}) => [
+  BoxShadow(
+    color: color.withValues(alpha: opacity),
+    blurRadius: blur,
+    offset: offset,
+  ),
+];
 
+/// Raccourci local vers [premiumText] : l'Accueil l'appelle 40 fois, d'où le nom
+/// court. Il redéfinissait auparavant le style à l'identique via google_fonts,
+/// ce qui dupliquait la typographie de l'interface à deux endroits.
 TextStyle _t(
   BuildContext context,
   double size,
@@ -78,15 +86,15 @@ TextStyle _t(
   double? spacing,
   double? height,
   FontStyle? italic,
-}) =>
-    GoogleFonts.plusJakartaSans(
-      fontSize: size,
-      fontWeight: weight,
-      color: color,
-      letterSpacing: spacing,
-      height: height,
-      fontStyle: italic,
-    );
+}) => premiumText(
+  context,
+  size,
+  weight,
+  color,
+  spacing: spacing,
+  height: height,
+  italic: italic,
+);
 
 // ---- Données statiques des sections ----
 class _AlphabetCard {
@@ -193,11 +201,21 @@ class HomeScreen extends StatefulWidget {
   /// [manager.openReading] without a verse target.
   final void Function(int bookIndex, int chapter, {int? verse})? onOpenReading;
 
+  /// Lance une recherche depuis l'accueil (la puce « Jean 3.16 ») : le shell
+  /// l'écrit dans le notificateur que [SearchScreen] écoute, puis bascule sur
+  /// la destination Recherche. Null hors du shell.
+  final ValueChanged<String>? onSearchQuery;
+
+  /// Chargé en paresseux pour l'extrait de la carte « Reprendre la lecture ».
+  final LocalRepository? repository;
+
   const HomeScreen({
     super.key,
     required this.manager,
     required this.onSelectDestination,
     this.onOpenReading,
+    this.onSearchQuery,
+    this.repository,
   });
 
   @override
@@ -205,10 +223,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final LocalRepository _repository = LocalRepository();
+  late final LocalRepository _repository = widget.repository ?? LocalRepository();
   List<ReadingEntry> _recent = const [];
+  bool _loading = true;
   int _concilesPage = 0;
-  final PageController _concilesController = PageController(viewportFraction: 0.9);
+  final PageController _concilesController = PageController(
+    viewportFraction: 0.9,
+  );
 
   @override
   void initState() {
@@ -227,7 +248,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _reload() async {
     final recent = await widget.manager.history.load();
     if (!mounted) return;
-    setState(() => _recent = recent);
+    setState(() {
+      _recent = recent;
+      _loading = false;
+    });
   }
 
   void _openReading(int bookIndex, int chapter, {int? verse}) {
@@ -262,17 +286,29 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void _openNotes() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => NotesScreen(
+          onOpenVerse: (book, chapter, verse) {
+            Navigator.of(context).pop();
+            _openReading(book, chapter, verse: verse);
+          },
+        ),
+      ),
+    );
+    // Live via AppDatabase.notesRevision — pas de rechargement explicite.
+  }
+
   void _openCompare() {
     final resume = _recent.isEmpty ? null : _recent.first;
-    if (resume == null) {
-      _soon('Comparaison');
-      return;
-    }
+    // Sans historique : Genèse 1:1, un passage réel plutôt qu'un refus —
+    // l'écran existe et sert n'importe quelle référence.
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => ComparerScreen(
-          bookIndex: resume.bookIndex,
-          chapter: resume.chapter,
+          bookIndex: resume?.bookIndex ?? 1,
+          chapter: resume?.chapter ?? 1,
           // L'historique de lecture ne garde que le chapitre,
           // pas le verset : on compare depuis le début.
           verseNumber: 1,
@@ -304,7 +340,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final resume = _recent.isEmpty ? null : _recent.first;
     return ColoredBox(
-      color: const Color(0xFFFAF9F6),
+      color: premiumBackground(context),
       child: SafeArea(
         child: Stack(
           children: [
@@ -318,15 +354,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 24),
                 _quickActions(context, resume),
                 const SizedBox(height: 26),
-                if (resume == null)
-                  _emptyResume(context)
-                else
-                  _heroCard(context, resume),
-                const SizedBox(height: 30),
-                _studiesHeader(context),
-                const SizedBox(height: 14),
-                ..._recentStudies(context),
-                const SizedBox(height: 30),
+                if (_loading)
+                  const HomeLoadingSkeleton()
+                else ...[
+                  if (resume == null)
+                    _emptyResume(context)
+                  else
+                    _heroCard(context, resume),
+                  const SizedBox(height: 30),
+                  _studiesHeader(context),
+                  const SizedBox(height: 14),
+                  ..._recentStudies(context),
+                  const SizedBox(height: 30),
+                ],
                 _alphabetsSection(context),
                 const SizedBox(height: 30),
                 _historySection(context),
@@ -360,8 +400,16 @@ class _HomeScreenState extends State<HomeScreen> {
       ignoring: true,
       child: Stack(
         children: [
-          Positioned(top: -90, right: -70, child: _glow(context, 260, const Color(0xFFDCE8CC))),
-          Positioned(top: 150, left: -100, child: _glow(context, 220, const Color(0xFFF0E9DC))),
+          Positioned(
+            top: -90,
+            right: -70,
+            child: _glow(context, 260, const Color(0xFFDCE8CC)),
+          ),
+          Positioned(
+            top: 150,
+            left: -100,
+            child: _glow(context, 220, const Color(0xFFF0E9DC)),
+          ),
         ],
       ),
     );
@@ -383,38 +431,74 @@ class _HomeScreenState extends State<HomeScreen> {
   // En-tête
   Widget _header(BuildContext context) {
     final p = _pal(context);
+    final compact = MediaQuery.sizeOf(context).width < 400;
     return Row(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 2, top: 4, bottom: 4),
-          child: ShaderMask(
-            shaderCallback: (rect) => p.heroGradient.createShader(rect),
-            child: RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'Bym',
-                    style: _t(context, 32, FontWeight.w800, Colors.white, spacing: -0.5),
+        // `Expanded` + `FittedBox` : le titre est la seule pièce élastique de
+        // la barre (les deux boutons font 44 px chacun, plus leur écart). Sans
+        // contrainte il débordait de 25 à 65 px sur les téléphones de 320, 360
+        // et 412 px de large — 412 y passait aussi car au-delà de 400 px le
+        // titre repasse à 32/24 pt, plus large que le gain de place.
+        //
+        // `Expanded` et non `Flexible` : la boîte du titre doit occuper TOUT
+        // l'espace restant pour coller les deux boutons au bord droit, comme le
+        // faisait la `Spacer` d'origine. Un `Flexible` se contente de la largeur
+        // du texte et laisse le reliquat après le dernier enfant, ce qui décolle
+        // les boutons du bord. Le `FittedBox` garde le titre à gauche de cette
+        // boîte et ne le réduit que s'il n'entre pas.
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 2, top: 4, bottom: 4),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: ShaderMask(
+                shaderCallback: (rect) => p.heroGradient.createShader(rect),
+                child: RichText(
+                  // `RichText` ne consulte pas le `MediaQuery` : sans ce
+                  // scaler le titre ignorerait l'échelle de texte du système,
+                  // là où le compteur d'onglets à sa droite la suit.
+                  textScaler: MediaQuery.textScalerOf(context),
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Bym',
+                        style: _t(
+                          context,
+                          compact ? 26 : 32,
+                          FontWeight.w800,
+                          Colors.white,
+                          spacing: -0.5,
+                        ),
+                      ),
+                      TextSpan(
+                        text: ' classic',
+                        style: _t(
+                          context,
+                          compact ? 19 : 24,
+                          FontWeight.w300,
+                          Colors.white,
+                          spacing: 2,
+                        ),
+                      ),
+                    ],
                   ),
-                  TextSpan(
-                    text: ' classic',
-                    style: _t(context, 24, FontWeight.w300, Colors.white, spacing: 2),
-                  ),
-                ],
+                ),
               ),
             ),
           ),
         ),
-        const Spacer(),
-        _squareButton(
-          context,
-          Icons.palette_outlined,
+        const SizedBox(width: 8),
+        _Pressable(
+          label: 'Thèmes',
           onTap: () => Navigator.of(
             context,
           ).push(MaterialPageRoute(builder: (_) => const ThemesScreen())),
+          child: _squareButton(context, Icons.palette_outlined),
         ),
-        const SizedBox(width: 12),
-        GestureDetector(
+        SizedBox(width: compact ? 6 : 12),
+        _Pressable(
+          label: 'Onglets ouverts : ${widget.manager.count}',
           onTap: _openTabs,
           child: Container(
             width: 44,
@@ -422,7 +506,12 @@ class _HomeScreenState extends State<HomeScreen> {
             decoration: BoxDecoration(
               gradient: p.heroGradient,
               borderRadius: BorderRadius.circular(14),
-              boxShadow: _softShadow(p.primary, opacity: 0.35, blur: 12, offset: const Offset(0, 6)),
+              boxShadow: _softShadow(
+                p.primary,
+                opacity: 0.35,
+                blur: 12,
+                offset: const Offset(0, 6),
+              ),
             ),
             alignment: Alignment.center,
             child: Text(
@@ -435,35 +524,38 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _squareButton(BuildContext context, IconData icon, {required VoidCallback onTap}) {
+  Widget _squareButton(
+    BuildContext context,
+    IconData icon,
+  ) {
     final p = _pal(context);
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 44,
-        height: 44,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(14),
-          boxShadow: _softShadow(p.primaryDark),
-        ),
-        child: Icon(icon, size: 22, color: p.primary),
+    return Container(
+      width: 44,
+      height: 44,
+      decoration: BoxDecoration(
+        color: premiumPalette(context).surface,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: p.primary.withValues(alpha: 0.10)),
+        boxShadow: _softShadow(p.primaryDark),
       ),
+      child: Icon(icon, size: 22, color: p.primary),
     );
   }
 
   // Recherche
   Widget _searchBar(BuildContext context) {
     final p = _pal(context);
-    return GestureDetector(
+    return _Pressable(
+      label: 'Rechercher un verset, un livre',
       onTap: () => widget.onSelectDestination(BymDestination.recherche),
       child: Container(
         height: 62,
         padding: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: premiumPalette(context).surface,
           borderRadius: BorderRadius.circular(20),
-          boxShadow: _softShadow(p.primaryDark),
+          border: Border.all(color: p.primary.withValues(alpha: 0.12)),
+          boxShadow: _softShadow(p.primaryDark, opacity: 0.11, blur: 22),
         ),
         child: Row(
           children: [
@@ -471,7 +563,11 @@ class _HomeScreenState extends State<HomeScreen> {
               width: 42,
               height: 42,
               decoration: BoxDecoration(
-                color: p.primarySoft,
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [p.primarySoft, p.primarySoft.withValues(alpha: 0.05)],
+                ),
                 borderRadius: BorderRadius.circular(14),
               ),
               child: Icon(Icons.search_rounded, color: p.primary, size: 22),
@@ -485,13 +581,28 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(width: 8),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 9),
-              decoration: BoxDecoration(
-                gradient: p.heroGradient,
-                borderRadius: BorderRadius.circular(12),
+            _Pressable(
+              label: 'Rechercher Jean 3:16',
+              onTap: widget.onSearchQuery == null
+                  ? null
+                  : () => widget.onSearchQuery!('Jean 3:16'),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 9),
+                decoration: BoxDecoration(
+                  gradient: p.heroGradient,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: _softShadow(
+                    p.primary,
+                    opacity: 0.30,
+                    blur: 10,
+                    offset: const Offset(0, 4),
+                  ),
+                ),
+                child: Text(
+                  'Jean 3.16',
+                  style: _t(context, 12.5, FontWeight.w700, Colors.white),
+                ),
               ),
-              child: Text('Jean 3.16', style: _t(context, 12.5, FontWeight.w700, Colors.white)),
             ),
           ],
         ),
@@ -521,11 +632,11 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _openFavorites,
       ),
       _QuickActionData(
-        'Audio',
-        Icons.headphones_rounded,
+        'Notes',
+        Icons.edit_note_rounded,
         const Color(0xFFE7F0F7),
         const Color(0xFF3E6E91),
-        onTap: () => _soon('Audio'),
+        onTap: _openNotes,
       ),
       _QuickActionData(
         'Comparer',
@@ -548,13 +659,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _quickActionChip(BuildContext context, _QuickActionData a) {
     final p = _pal(context);
-    final labelColor = a.enabled ? p.textDark : p.textGrey.withValues(alpha: 0.5);
-    return GestureDetector(
+    final labelColor = a.enabled
+        ? p.textDark
+        : p.textGrey.withValues(alpha: 0.5);
+    return _Pressable(
       onTap: a.enabled ? a.onTap : null,
+      label: a.label,
       child: Container(
         width: 96,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: premiumPalette(context).surface,
           borderRadius: BorderRadius.circular(22),
           boxShadow: _softShadow(p.primaryDark, opacity: 0.07),
         ),
@@ -565,12 +679,22 @@ class _HomeScreenState extends State<HomeScreen> {
               width: 46,
               height: 46,
               decoration: BoxDecoration(
-                color: a.tint.withValues(alpha: a.enabled ? 1 : 0.45),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    a.tint.withValues(alpha: a.enabled ? 1 : 0.45),
+                    Color.lerp(a.tint, Colors.white, 0.45)!
+                        .withValues(alpha: a.enabled ? 1 : 0.45),
+                  ],
+                ),
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Icon(
                 a.icon,
-                color: a.enabled ? a.iconColor : p.textGrey.withValues(alpha: 0.5),
+                color: a.enabled
+                    ? a.iconColor
+                    : p.textGrey.withValues(alpha: 0.5),
                 size: 22,
               ),
             ),
@@ -585,34 +709,68 @@ class _HomeScreenState extends State<HomeScreen> {
   // Carte héro « reprise de lecture »
   Widget _emptyResume(BuildContext context) {
     final p = _pal(context);
-    return Container(
-      padding: const EdgeInsets.all(22),
-      decoration: BoxDecoration(
-        gradient: p.heroGradient,
-        borderRadius: BorderRadius.circular(28),
-        boxShadow: _softShadow(p.primaryDark, opacity: 0.35, blur: 26, offset: const Offset(0, 12)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 6),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.16),
-              borderRadius: BorderRadius.circular(20),
+    return _Pressable(
+      label: 'Aller à la Lecture',
+      onTap: () => widget.onSelectDestination(BymDestination.lecture),
+      child: Container(
+        padding: const EdgeInsets.all(22),
+        decoration: BoxDecoration(
+          gradient: p.heroGradient,
+          borderRadius: BorderRadius.circular(28),
+          boxShadow: _softShadow(
+            p.primaryDark,
+            opacity: 0.35,
+            blur: 26,
+            offset: const Offset(0, 12),
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 11,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.16),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    'En cours',
+                    style: _t(context, 11, FontWeight.w700, Colors.white),
+                  ),
+                ),
+                const Spacer(),
+                Icon(
+                  Icons.arrow_forward_rounded,
+                  size: 20,
+                  color: Colors.white.withValues(alpha: .9),
+                ),
+              ],
             ),
-            child: Text('En cours', style: _t(context, 11, FontWeight.w700, Colors.white)),
-          ),
-          const SizedBox(height: 16),
-          Text('Aucune lecture pour l’instant', style: _t(context, 20, FontWeight.w800, Colors.white)),
-          const SizedBox(height: 10),
-          Text(
-            'Ouvrez un chapitre depuis l’onglet Lecture ou la recherche.',
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: _t(context, 14, FontWeight.w500, Colors.white.withValues(alpha: 0.85), height: 1.55),
-          ),
-        ],
+            const SizedBox(height: 16),
+            Text(
+              'Aucune lecture pour l’instant',
+              style: _t(context, 20, FontWeight.w800, Colors.white),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Ouvrez un chapitre depuis l’onglet Lecture ou la recherche.',
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: _t(
+                context,
+                14,
+                FontWeight.w500,
+                Colors.white.withValues(alpha: 0.85),
+                height: 1.55,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -623,14 +781,46 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
         gradient: p.heroGradient,
         borderRadius: BorderRadius.circular(28),
-        boxShadow: _softShadow(p.primaryDark, opacity: 0.35, blur: 26, offset: const Offset(0, 12)),
+        boxShadow: _softShadow(
+          p.primaryDark,
+          opacity: 0.35,
+          blur: 26,
+          offset: const Offset(0, 12),
+        ),
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(28),
         child: Stack(
           children: [
-            Positioned(top: -55, right: -45, child: _decoCircle(context, 160, 0.10)),
-            Positioned(bottom: -70, right: 40, child: _decoCircle(context, 130, 0.08)),
+            // Voile brillant diagonal — la lumière accroche le haut gauche,
+            // comme un reflet sur une couverture reliée.
+            Positioned.fill(
+              child: IgnorePointer(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      stops: const [0.0, 0.42],
+                      colors: [
+                        Colors.white.withValues(alpha: 0.13),
+                        Colors.white.withValues(alpha: 0.0),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: -55,
+              right: -45,
+              child: _decoCircle(context, 160, 0.10),
+            ),
+            Positioned(
+              bottom: -70,
+              right: 40,
+              child: _decoCircle(context, 130, 0.08),
+            ),
             Padding(
               padding: const EdgeInsets.all(22),
               child: Column(
@@ -639,19 +829,30 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 6),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 11,
+                          vertical: 6,
+                        ),
                         decoration: BoxDecoration(
                           color: Colors.white.withValues(alpha: 0.16),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Text('En cours', style: _t(context, 11, FontWeight.w700, Colors.white)),
+                        child: Text(
+                          'En cours',
+                          style: _t(context, 11, FontWeight.w700, Colors.white),
+                        ),
                       ),
                       const Spacer(),
                       FutureBuilder<int>(
                         future: _repository.chapterCount(entry.bookIndex),
                         builder: (context, count) => Text(
                           'ch. ${entry.chapter} / ${count.data ?? '…'}',
-                          style: _t(context, 12, FontWeight.w600, Colors.white70),
+                          style: _t(
+                            context,
+                            12,
+                            FontWeight.w600,
+                            Colors.white70,
+                          ),
                         ),
                       ),
                     ],
@@ -663,7 +864,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 10),
                   FutureBuilder<Chapter>(
-                    future: _repository.loadChapter(entry.bookIndex, entry.chapter),
+                    future: _repository.loadChapter(
+                      entry.bookIndex,
+                      entry.chapter,
+                    ),
                     builder: (context, snapshot) {
                       final excerpt =
                           snapshot.hasData && snapshot.data!.verses.isNotEmpty
@@ -692,27 +896,53 @@ class _HomeScreenState extends State<HomeScreen> {
                       return ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: LinearProgressIndicator(
-                          value: total <= 0 ? 0 : (entry.chapter / total).clamp(0.0, 1.0),
+                          value: total <= 0
+                              ? 0
+                              : (entry.chapter / total).clamp(0.0, 1.0),
                           minHeight: 8,
                           backgroundColor: Colors.white.withValues(alpha: 0.2),
-                          valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
+                          valueColor: const AlwaysStoppedAnimation<Color>(
+                            Colors.white,
+                          ),
                         ),
                       );
                     },
                   ),
                   const SizedBox(height: 20),
-                  GestureDetector(
+                  _Pressable(
+                    label: 'Reprendre la lecture — ${catalogEntry(entry.bookIndex).name} ${entry.chapter}',
                     onTap: () => _openReading(entry.bookIndex, entry.chapter),
                     child: Row(
                       children: [
                         Expanded(
-                          child: Text('Reprendre la lecture', style: _t(context, 15, FontWeight.w700, Colors.white)),
+                          child: Text(
+                            'Reprendre la lecture',
+                            style: _t(
+                              context,
+                              15,
+                              FontWeight.w700,
+                              Colors.white,
+                            ),
+                          ),
                         ),
                         Container(
                           width: 46,
                           height: 46,
-                          decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-                          child: Icon(Icons.arrow_forward_rounded, color: p.primary, size: 22),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                            boxShadow: _softShadow(
+                              Colors.black,
+                              opacity: 0.18,
+                              blur: 12,
+                              offset: const Offset(0, 5),
+                            ),
+                          ),
+                          child: Icon(
+                            Icons.arrow_forward_rounded,
+                            color: p.primary,
+                            size: 22,
+                          ),
                         ),
                       ],
                     ),
@@ -742,11 +972,21 @@ class _HomeScreenState extends State<HomeScreen> {
     final p = _pal(context);
     return Row(
       children: [
-        Text('Études récentes', style: _t(context, 18, FontWeight.w800, p.textDark)),
-        const Spacer(),
+        Expanded(
+          child: Text(
+            'Études récentes',
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: _t(context, 18, FontWeight.w800, p.textDark),
+          ),
+        ),
+        const SizedBox(width: 12),
         GestureDetector(
           onTap: _openHistorique,
-          child: Text('Tout voir', style: _t(context, 13, FontWeight.w700, p.primary)),
+          child: Text(
+            'Tout voir',
+            style: _t(context, 13, FontWeight.w700, p.primary),
+          ),
         ),
       ],
     );
@@ -774,13 +1014,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _studyCard(BuildContext context, ReadingEntry s) {
     final p = _pal(context);
-    return GestureDetector(
+    return _Pressable(
       onTap: () => _openReading(s.bookIndex, s.chapter),
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: premiumPalette(context).surface,
           borderRadius: BorderRadius.circular(20),
           boxShadow: _softShadow(p.primaryDark, opacity: 0.06),
         ),
@@ -793,20 +1033,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: p.primarySoft,
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Icon(Icons.auto_awesome_rounded, color: p.primary, size: 20),
+              child: Icon(
+                Icons.auto_awesome_rounded,
+                color: p.primary,
+                size: 20,
+              ),
             ),
             const SizedBox(width: 14),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('${s.bookName} ${s.chapter}', style: _t(context, 15.5, FontWeight.w700, p.textDark)),
+                  Text(
+                    '${s.bookName} ${s.chapter}',
+                    style: _t(context, 15.5, FontWeight.w700, p.textDark),
+                  ),
                   const SizedBox(height: 3),
-                  Text('Lecture · ${formatRelativeDate(s.dateTime)}', style: _t(context, 12.5, FontWeight.w500, p.textGrey)),
+                  Text(
+                    'Lecture · ${formatRelativeDate(s.dateTime)}',
+                    style: _t(context, 12.5, FontWeight.w500, p.textGrey),
+                  ),
                 ],
               ),
             ),
-            Icon(Icons.chevron_right_rounded, size: 22, color: p.textGrey.withValues(alpha: 0.6)),
+            Icon(
+              Icons.chevron_right_rounded,
+              size: 22,
+              color: p.textGrey.withValues(alpha: 0.6),
+            ),
           ],
         ),
       ),
@@ -840,12 +1094,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _alphabetCard(BuildContext context, _AlphabetCard a) {
     final p = _pal(context);
-    return GestureDetector(
+    return _Pressable(
       onTap: () => _soon('Alphabets'),
       child: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: premiumPalette(context).surface,
           borderRadius: BorderRadius.circular(24),
           boxShadow: _softShadow(p.primaryDark, opacity: 0.07),
         ),
@@ -871,11 +1125,19 @@ class _HomeScreenState extends State<HomeScreen> {
                       bottom: -16,
                       child: Text(
                         a.glyph,
-                        style: _t(context, 84, FontWeight.w800, p.primary.withValues(alpha: 0.10)),
+                        style: _t(
+                          context,
+                          84,
+                          FontWeight.w800,
+                          p.primary.withValues(alpha: 0.10),
+                        ),
                       ),
                     ),
                     Center(
-                      child: Text(a.letter, style: _t(context, 19, FontWeight.w800, p.primary)),
+                      child: Text(
+                        a.letter,
+                        style: _t(context, 19, FontWeight.w800, p.primary),
+                      ),
                     ),
                   ],
                 ),
@@ -884,7 +1146,10 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 12),
             Text(a.title, style: _t(context, 15, FontWeight.w800, p.textDark)),
             const SizedBox(height: 3),
-            Text(a.subtitle, style: _t(context, 12.5, FontWeight.w500, p.textGrey)),
+            Text(
+              a.subtitle,
+              style: _t(context, 12.5, FontWeight.w500, p.textGrey),
+            ),
           ],
         ),
       ),
@@ -897,12 +1162,17 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("La Bible et l'histoire", style: _t(context, 20, FontWeight.w800, p.textDark)),
+        Text(
+          "La Bible et l'histoire",
+          style: _t(context, 20, FontWeight.w800, p.textDark),
+        ),
         const SizedBox(height: 14),
         Wrap(
           spacing: 10,
           runSpacing: 10,
-          children: _kHistoryTopics.map((label) => _topicChip(context, label)).toList(),
+          children: _kHistoryTopics
+              .map((label) => _topicChip(context, label))
+              .toList(),
         ),
       ],
     );
@@ -910,17 +1180,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _topicChip(BuildContext context, String label) {
     final p = _pal(context);
-    return GestureDetector(
+    return _Pressable(
       onTap: () => _soon(label),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: premiumPalette(context).surface,
           borderRadius: BorderRadius.circular(24),
           border: Border.all(color: p.primary.withValues(alpha: 0.35)),
           boxShadow: _softShadow(p.primaryDark, opacity: 0.05),
         ),
-        child: Text(label, style: _t(context, 13.5, FontWeight.w700, p.primary)),
+        child: Text(
+          label,
+          style: _t(context, 13.5, FontWeight.w700, p.primary),
+        ),
       ),
     );
   }
@@ -929,7 +1202,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _measureSection(BuildContext context, _MeasureSectionData m) {
     final p = _pal(context);
     return Column(
-      crossAxisAlignment: m.alignRight ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      crossAxisAlignment: m.alignRight
+          ? CrossAxisAlignment.end
+          : CrossAxisAlignment.start,
       children: [
         _badge(context, m.badge),
         const SizedBox(height: 12),
@@ -939,7 +1214,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: _t(context, 20, FontWeight.w800, p.textDark, height: 1.3),
         ),
         const SizedBox(height: 16),
-        GestureDetector(
+        _Pressable(
           onTap: () => _soon('Mesures'),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(24),
@@ -955,8 +1230,16 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: Stack(
                 children: [
-                  Positioned(top: -30, left: -30, child: _tintCircle(context, 120, m.iconColor, 0.10)),
-                  Positioned(bottom: -40, right: -20, child: _tintCircle(context, 150, m.iconColor, 0.12)),
+                  Positioned(
+                    top: -30,
+                    left: -30,
+                    child: _tintCircle(context, 120, m.iconColor, 0.10),
+                  ),
+                  Positioned(
+                    bottom: -40,
+                    right: -20,
+                    child: _tintCircle(context, 150, m.iconColor, 0.12),
+                  ),
                   Center(
                     child: Container(
                       width: 74,
@@ -964,7 +1247,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
-                        boxShadow: _softShadow(p.primaryDark, opacity: 0.15, blur: 16, offset: const Offset(0, 8)),
+                        boxShadow: _softShadow(
+                          p.primaryDark,
+                          opacity: 0.15,
+                          blur: 16,
+                          offset: const Offset(0, 8),
+                        ),
                       ),
                       child: Icon(m.icon, size: 34, color: m.iconColor),
                     ),
@@ -978,7 +1266,12 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _tintCircle(BuildContext context, double size, Color color, double opacity) {
+  Widget _tintCircle(
+    BuildContext context,
+    double size,
+    Color color,
+    double opacity,
+  ) {
     return Container(
       width: size,
       height: size,
@@ -1002,7 +1295,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: _t(context, 20, FontWeight.w800, p.textDark, height: 1.3),
         ),
         const SizedBox(height: 12),
-        GestureDetector(
+        _Pressable(
           onTap: () => _soon('Dénominations'),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -1012,7 +1305,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   "Le paysage chrétien moderne est marqué par une prolifération inquiétante des dénominations comme en témoignent les nombreuses affiches et écriteaux placardés dans les villes. Alors que Yéhoshoua (Jésus) n'a donné aucun nom spécifique à son Assemblée, les humains …",
                   maxLines: 7,
                   overflow: TextOverflow.ellipsis,
-                  style: _t(context, 15, FontWeight.w500, p.textGrey, height: 1.65),
+                  style: _t(
+                    context,
+                    15,
+                    FontWeight.w500,
+                    p.textGrey,
+                    height: 1.65,
+                  ),
                 ),
               ),
               const SizedBox(width: 8),
@@ -1021,7 +1320,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         const SizedBox(height: 18),
-        GestureDetector(
+        _Pressable(
           onTap: () => _soon('Dénominations'),
           child: _voirPlusButton(context),
         ),
@@ -1036,9 +1335,17 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
         gradient: p.heroGradient,
         borderRadius: BorderRadius.circular(26),
-        boxShadow: _softShadow(p.primary, opacity: 0.35, blur: 14, offset: const Offset(0, 6)),
+        boxShadow: _softShadow(
+          p.primary,
+          opacity: 0.35,
+          blur: 14,
+          offset: const Offset(0, 6),
+        ),
       ),
-      child: Text('Voir plus', style: _t(context, 13, FontWeight.w800, Colors.white, spacing: 1)),
+      child: Text(
+        'Voir plus',
+        style: _t(context, 13, FontWeight.w800, Colors.white, spacing: 1),
+      ),
     );
   }
 
@@ -1056,8 +1363,14 @@ class _HomeScreenState extends State<HomeScreen> {
             controller: _concilesController,
             onPageChanged: (i) => setState(() => _concilesPage = i),
             children: [
-              Padding(padding: const EdgeInsets.only(right: 14), child: _concileCard(context, _kConcilesCards[0])),
-              Padding(padding: const EdgeInsets.only(right: 14), child: _concileCard(context, _kConcilesCards[1])),
+              Padding(
+                padding: const EdgeInsets.only(right: 14),
+                child: _concileCard(context, _kConcilesCards[0]),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 14),
+                child: _concileCard(context, _kConcilesCards[1]),
+              ),
             ],
           ),
         ),
@@ -1073,7 +1386,9 @@ class _HomeScreenState extends State<HomeScreen> {
               width: i == _concilesPage ? 22 : 8,
               height: 8,
               decoration: BoxDecoration(
-                color: i == _concilesPage ? p.primary : p.textGrey.withValues(alpha: 0.35),
+                color: i == _concilesPage
+                    ? p.primary
+                    : p.textGrey.withValues(alpha: 0.35),
                 borderRadius: BorderRadius.circular(4),
               ),
             ),
@@ -1085,21 +1400,39 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _concileCard(BuildContext context, String label) {
     final p = _pal(context);
-    return GestureDetector(
+    return _Pressable(
       onTap: () => _soon(label),
       child: Container(
         decoration: BoxDecoration(
           gradient: p.heroGradient,
           borderRadius: BorderRadius.circular(24),
-          boxShadow: _softShadow(p.primaryDark, opacity: 0.35, blur: 22, offset: const Offset(0, 10)),
+          boxShadow: _softShadow(
+            p.primaryDark,
+            opacity: 0.35,
+            blur: 22,
+            offset: const Offset(0, 10),
+          ),
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(24),
           child: Stack(
             children: [
-              Positioned(top: -40, right: -40, child: _decoCircle(context, 130, 0.10)),
-              Positioned(bottom: -50, left: -30, child: _decoCircle(context, 120, 0.08)),
-              Center(child: Text(label, style: _t(context, 18, FontWeight.w800, Colors.white))),
+              Positioned(
+                top: -40,
+                right: -40,
+                child: _decoCircle(context, 130, 0.10),
+              ),
+              Positioned(
+                bottom: -50,
+                left: -30,
+                child: _decoCircle(context, 120, 0.08),
+              ),
+              Center(
+                child: Text(
+                  label,
+                  style: _t(context, 18, FontWeight.w800, Colors.white),
+                ),
+              ),
             ],
           ),
         ),
@@ -1120,11 +1453,14 @@ class _HomeScreenState extends State<HomeScreen> {
           style: _t(context, 20, FontWeight.w800, p.textDark, height: 1.3),
         ),
         const SizedBox(height: 16),
-        GestureDetector(
+        _Pressable(
           onTap: () => _soon('Empereurs'),
           child: Row(
             children: [
-              Expanded(flex: 11, child: _emperorTile(context, height: 220, iconSize: 60)),
+              Expanded(
+                flex: 11,
+                child: _emperorTile(context, height: 220, iconSize: 60),
+              ),
               const SizedBox(width: 10),
               Expanded(
                 flex: 10,
@@ -1132,17 +1468,43 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Row(
                       children: [
-                        Expanded(child: _emperorTile(context, height: 105, iconSize: 32)),
+                        Expanded(
+                          child: _emperorTile(
+                            context,
+                            height: 105,
+                            iconSize: 32,
+                          ),
+                        ),
                         const SizedBox(width: 10),
-                        Expanded(child: _emperorTile(context, height: 105, iconSize: 32, alt: true)),
+                        Expanded(
+                          child: _emperorTile(
+                            context,
+                            height: 105,
+                            iconSize: 32,
+                            alt: true,
+                          ),
+                        ),
                       ],
                     ),
                     const SizedBox(height: 10),
                     Row(
                       children: [
-                        Expanded(child: _emperorTile(context, height: 105, iconSize: 32, alt: true)),
+                        Expanded(
+                          child: _emperorTile(
+                            context,
+                            height: 105,
+                            iconSize: 32,
+                            alt: true,
+                          ),
+                        ),
                         const SizedBox(width: 10),
-                        Expanded(child: _emperorTile(context, height: 105, iconSize: 32)),
+                        Expanded(
+                          child: _emperorTile(
+                            context,
+                            height: 105,
+                            iconSize: 32,
+                          ),
+                        ),
                       ],
                     ),
                   ],
@@ -1157,7 +1519,12 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _emperorTile(BuildContext context, {required double height, required double iconSize, bool alt = false}) {
+  Widget _emperorTile(
+    BuildContext context, {
+    required double height,
+    required double iconSize,
+    bool alt = false,
+  }) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(18),
       child: Container(
@@ -1174,8 +1541,18 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: Stack(
           children: [
-            Positioned(right: -12, bottom: -16, child: _tintCircle(context, 90, const Color(0xFF8A7A62), 0.12)),
-            Center(child: Icon(Icons.person_rounded, size: iconSize, color: const Color(0xFF8A7A62))),
+            Positioned(
+              right: -12,
+              bottom: -16,
+              child: _tintCircle(context, 90, const Color(0xFF8A7A62), 0.12),
+            ),
+            Center(
+              child: Icon(
+                Icons.person_rounded,
+                size: iconSize,
+                color: const Color(0xFF8A7A62),
+              ),
+            ),
           ],
         ),
       ),
@@ -1190,7 +1567,11 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         _badge(context, 'FAUSSES DIVINITÉS'),
         const SizedBox(height: 12),
-        Text('Fausses divinités', textAlign: TextAlign.right, style: _t(context, 20, FontWeight.w800, p.textDark)),
+        Text(
+          'Fausses divinités',
+          textAlign: TextAlign.right,
+          style: _t(context, 20, FontWeight.w800, p.textDark),
+        ),
         const SizedBox(height: 8),
         Text(
           'Quelques divinités adorées par les païens dans la Bible.',
@@ -1201,7 +1582,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            GestureDetector(
+            _Pressable(
               onTap: () => _soon('Fausses divinités'),
               child: _voirPlusButton(context),
             ),
@@ -1227,12 +1608,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _timeTopicCard(BuildContext context, _TimeTopic t) {
     final p = _pal(context);
-    return GestureDetector(
+    return _Pressable(
       onTap: () => _soon(t.title),
       child: Container(
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: premiumPalette(context).surface,
           borderRadius: BorderRadius.circular(20),
           boxShadow: _softShadow(p.primaryDark, opacity: 0.06),
         ),
@@ -1244,7 +1625,12 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                 gradient: p.heroGradient,
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: _softShadow(p.primary, opacity: 0.3, blur: 10, offset: const Offset(0, 4)),
+                boxShadow: _softShadow(
+                  p.primary,
+                  opacity: 0.3,
+                  blur: 10,
+                  offset: const Offset(0, 4),
+                ),
               ),
               child: Icon(t.icon, color: Colors.white, size: 26),
             ),
@@ -1253,9 +1639,21 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(t.title, style: _t(context, 15.5, FontWeight.w800, p.textDark)),
+                  Text(
+                    t.title,
+                    style: _t(context, 15.5, FontWeight.w800, p.textDark),
+                  ),
                   const SizedBox(height: 3),
-                  Text(t.subtitle, style: _t(context, 12.5, FontWeight.w500, p.textGrey, height: 1.4)),
+                  Text(
+                    t.subtitle,
+                    style: _t(
+                      context,
+                      12.5,
+                      FontWeight.w500,
+                      p.textGrey,
+                      height: 1.4,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -1274,7 +1672,7 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         _badge(context, 'JOURS DE LA SEMAINE'),
         const SizedBox(height: 16),
-        GestureDetector(
+        _Pressable(
           onTap: () => _soon('Jours de la semaine'),
           child: Row(
             children: [
@@ -1325,19 +1723,40 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 62,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  gradient: const RadialGradient(colors: [Color(0xFFFFE29A), Color(0xFFF2A93B)]),
+                  gradient: const RadialGradient(
+                    colors: [Color(0xFFFFE29A), Color(0xFFF2A93B)],
+                  ),
                   boxShadow: [
-                    BoxShadow(color: const Color(0xFFF2A93B).withValues(alpha: 0.55), blurRadius: 26, spreadRadius: 4),
+                    BoxShadow(
+                      color: const Color(0xFFF2A93B).withValues(alpha: 0.55),
+                      blurRadius: 26,
+                      spreadRadius: 4,
+                    ),
                   ],
                 ),
               ),
             ),
             // Planètes
-            Align(alignment: const Alignment(-0.55, -0.55), child: _planet(context, 30, const Color(0xFFD8A06B))),
-            Align(alignment: const Alignment(-0.30, 0.50), child: _planet(context, 24, const Color(0xFF6FA8DC))),
-            Align(alignment: const Alignment(0.60, 0.55), child: _planet(context, 20, const Color(0xFFC46A4A))),
-            Align(alignment: const Alignment(-0.75, 0.05), child: _planet(context, 14, const Color(0xFFE3C58F))),
-            Align(alignment: const Alignment(0.05, -0.80), child: _planet(context, 10, const Color(0xFFDDE6EE))),
+            Align(
+              alignment: const Alignment(-0.55, -0.55),
+              child: _planet(context, 30, const Color(0xFFD8A06B)),
+            ),
+            Align(
+              alignment: const Alignment(-0.30, 0.50),
+              child: _planet(context, 24, const Color(0xFF6FA8DC)),
+            ),
+            Align(
+              alignment: const Alignment(0.60, 0.55),
+              child: _planet(context, 20, const Color(0xFFC46A4A)),
+            ),
+            Align(
+              alignment: const Alignment(-0.75, 0.05),
+              child: _planet(context, 14, const Color(0xFFE3C58F)),
+            ),
+            Align(
+              alignment: const Alignment(0.05, -0.80),
+              child: _planet(context, 10, const Color(0xFFDDE6EE)),
+            ),
           ],
         ),
       ),
@@ -1371,8 +1790,87 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
         color: p.primarySoft,
         borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: p.primary.withValues(alpha: 0.16)),
       ),
-      child: Text(label, style: _t(context, 11, FontWeight.w800, p.primary, spacing: 1.2)),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: 5,
+            height: 5,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: p.primary,
+            ),
+          ),
+          const SizedBox(width: 6),
+          // `Flexible` et non `Text` nu : dans une `Row`, un enfant non-flex est
+          // mesuré sous une contrainte de largeur infinie, donc ce label ne se
+          // replie jamais — il sortait de l'écran. Le plus long
+          // (« CONCILES ET PÈRES DE L'ÉGLISE ORGANISÉE ») débordait de 21 px sur
+          // un 320 px à taille de texte normale, et de 60 px avec la police
+          // système agrandie. `Flexible` reste *loose* : la pastille continue de
+          // se serrer autour des libellés courts, seuls les longs passent sur
+          // deux lignes.
+          Flexible(
+            child: Text(
+              label,
+              style: _t(context, 11, FontWeight.w800, p.primary, spacing: 1.2),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Toute surface interactive de l'accueil : enfoncement visuel au toucher
+/// (léger rétrécissement), retour haptique discret, et sémantique « bouton »
+/// pour les lecteurs d'écran — les cartes n'étaient jusque là que des
+/// [GestureDetector] muets.
+class _Pressable extends StatefulWidget {
+  final Widget child;
+
+  /// Null = inertie (l'enfant reste visible mais ne répond pas).
+  final VoidCallback? onTap;
+
+  /// Libellé pour les lecteurs d'écran ; sans lui, le contenu textuel de
+  /// l'enfant sert de label.
+  final String? label;
+
+  const _Pressable({required this.child, this.onTap, this.label});
+
+  @override
+  State<_Pressable> createState() => _PressableState();
+}
+
+class _PressableState extends State<_Pressable> {
+  bool _down = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: widget.onTap != null,
+      label: widget.label,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTapDown:
+            widget.onTap == null ? null : (_) => setState(() => _down = true),
+        onTapUp: (_) => setState(() => _down = false),
+        onTapCancel: () => setState(() => _down = false),
+        onTap: widget.onTap == null
+            ? null
+            : () {
+                HapticFeedback.selectionClick();
+                widget.onTap!();
+              },
+        child: AnimatedScale(
+          scale: _down ? 0.965 : 1.0,
+          duration: const Duration(milliseconds: 110),
+          curve: Curves.easeOut,
+          child: widget.child,
+        ),
+      ),
     );
   }
 }

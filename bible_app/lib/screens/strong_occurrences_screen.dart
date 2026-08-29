@@ -4,6 +4,7 @@ import '../data/book_catalog.dart';
 import '../data/lsgs_repository.dart';
 import '../data/strong_occurrences.dart';
 import '../models/lsgs.dart';
+import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
 
 /// One occurrence row: the reference and the full verse text with the Strong
@@ -36,15 +37,20 @@ class StrongOccurrenceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
     return Material(
-      color: Colors.white,
+      color: p.surface,
       borderRadius: BorderRadius.circular(20),
       elevation: 0,
       shadowColor: Colors.transparent,
       child: Ink(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: p.surface,
           borderRadius: BorderRadius.circular(20),
-          boxShadow: premiumShadow(p.primaryDark, opacity: 0.07, blur: 16, offset: const Offset(0, 6)),
+          boxShadow: premiumShadow(
+            p.primaryDark,
+            opacity: 0.07,
+            blur: 16,
+            offset: const Offset(0, 6),
+          ),
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
@@ -56,7 +62,9 @@ class StrongOccurrenceCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(9),
                   decoration: BoxDecoration(
-                      color: accent.withValues(alpha: .12), shape: BoxShape.circle),
+                    color: accent.withValues(alpha: .12),
+                    shape: BoxShape.circle,
+                  ),
                   child: Icon(Icons.menu_book_rounded, size: 18, color: accent),
                 ),
                 const SizedBox(width: 12),
@@ -66,14 +74,25 @@ class StrongOccurrenceCard extends StatelessWidget {
                     children: [
                       Text(
                         reference,
-                        style: premiumText(context, 15, FontWeight.w700, p.textDark),
+                        style: premiumText(
+                          context,
+                          15,
+                          FontWeight.w700,
+                          p.textDark,
+                        ),
                       ),
                       if (tokens.isNotEmpty) ...[
                         const SizedBox(height: 3),
                         _OccurrenceVerseText(
                           tokens: tokens,
                           highlight: highlight,
-                          style: premiumText(context, 13, FontWeight.w500, p.textGrey, height: 1.4),
+                          style: premiumText(
+                            context,
+                            13,
+                            FontWeight.w500,
+                            p.textGrey,
+                            height: 1.4,
+                          ),
                           highlightStyle: TextStyle(
                             backgroundColor: accent.withValues(alpha: .25),
                           ),
@@ -84,7 +103,11 @@ class StrongOccurrenceCard extends StatelessWidget {
                 ),
                 if (onTap != null) ...[
                   const SizedBox(width: 8),
-                  Icon(Icons.chevron_right_rounded, color: p.textGrey, size: 22),
+                  Icon(
+                    Icons.chevron_right_rounded,
+                    color: p.textGrey,
+                    size: 22,
+                  ),
                 ],
               ],
             ),
@@ -122,10 +145,7 @@ class _OccurrenceVerseText extends StatelessWidget {
       runSpacing: 2,
       children: [
         for (final segment in segments)
-          Text(
-            segment.text,
-            style: segment.isTarget ? highlightStyle : style,
-          ),
+          Text(segment.text, style: segment.isTarget ? highlightStyle : style),
       ],
     );
   }
@@ -159,7 +179,7 @@ class StrongOccurrencesScreen extends StatelessWidget {
     final books = grouped.keys.toList()..sort();
 
     return Scaffold(
-      backgroundColor: kPremiumBackground,
+      backgroundColor: premiumBackground(context),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -188,15 +208,17 @@ class StrongOccurrencesScreen extends StatelessWidget {
                 child: _BookCard(
                   name: catalogEntry(book).shortName,
                   count: grouped[book]!.length,
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) => StrongBookOccurrencesScreen(
-                      bookIndex: book,
-                      bookName: catalogEntry(book).shortName,
-                      occurrences: grouped[book]!,
-                      highlight: code,
-                      onOpenVerse: onOpenVerse,
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => StrongBookOccurrencesScreen(
+                        bookIndex: book,
+                        bookName: catalogEntry(book).shortName,
+                        occurrences: grouped[book]!,
+                        highlight: code,
+                        onOpenVerse: onOpenVerse,
+                      ),
                     ),
-                  )),
+                  ),
                 ),
               ),
           ],
@@ -262,7 +284,7 @@ class _StrongBookOccurrencesScreenState
     final p = premiumPalette(context);
     final accent = p.primary;
     return Scaffold(
-      backgroundColor: kPremiumBackground,
+      backgroundColor: premiumBackground(context),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -276,7 +298,9 @@ class _StrongBookOccurrencesScreenState
       body: SafeArea(
         top: false,
         child: !_ready
-            ? const Center(child: CircularProgressIndicator())
+            // Les versets d'occurrences arrivent en liste : le même squelette
+            // que les autres écrans de liste, pas un spinner nu.
+            ? const ListLoadingSkeleton(padding: EdgeInsets.all(20))
             : ListView.builder(
                 padding: const EdgeInsets.all(20),
                 itemCount: widget.occurrences.length,
@@ -287,13 +311,17 @@ class _StrongBookOccurrencesScreenState
                     child: StrongOccurrenceCard(
                       occ: occ,
                       reference: occ.reference,
-                      tokens: _tokens['${occ.chapter}:${occ.verse}'] ?? const [],
+                      tokens:
+                          _tokens['${occ.chapter}:${occ.verse}'] ?? const [],
                       highlight: widget.highlight,
                       accent: accent,
                       onTap: widget.onOpenVerse == null
                           ? null
                           : () => widget.onOpenVerse!(
-                              occ.bookIndex, occ.chapter, occ.verse),
+                              occ.bookIndex,
+                              occ.chapter,
+                              occ.verse,
+                            ),
                     ),
                   );
                 },
@@ -319,15 +347,20 @@ class _BookCard extends StatelessWidget {
     final p = premiumPalette(context);
     final accent = p.primary;
     return Material(
-      color: Colors.white,
+      color: p.surface,
       borderRadius: BorderRadius.circular(20),
       elevation: 0,
       shadowColor: Colors.transparent,
       child: Ink(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: p.surface,
           borderRadius: BorderRadius.circular(20),
-          boxShadow: premiumShadow(p.primaryDark, opacity: 0.07, blur: 16, offset: const Offset(0, 6)),
+          boxShadow: premiumShadow(
+            p.primaryDark,
+            opacity: 0.07,
+            blur: 16,
+            offset: const Offset(0, 6),
+          ),
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
@@ -339,18 +372,28 @@ class _BookCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(9),
                   decoration: BoxDecoration(
-                      color: accent.withValues(alpha: .12), shape: BoxShape.circle),
+                    color: accent.withValues(alpha: .12),
+                    shape: BoxShape.circle,
+                  ),
                   child: Icon(Icons.menu_book_rounded, size: 18, color: accent),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     name,
-                    style: premiumText(context, 15, FontWeight.w700, p.textDark),
+                    style: premiumText(
+                      context,
+                      15,
+                      FontWeight.w700,
+                      p.textDark,
+                    ),
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 4,
+                  ),
                   decoration: BoxDecoration(
                     color: accent.withValues(alpha: .12),
                     borderRadius: BorderRadius.circular(20),

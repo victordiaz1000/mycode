@@ -8,6 +8,7 @@ import '../data/reading_history.dart';
 import '../data/theme_catalog.dart';
 import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
+import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
 import 'themes_screen.dart';
 
@@ -80,6 +81,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Future<void> _save() async {
     final prefs = _prefs;
     if (prefs == null) return;
+    // Do not let this long-lived IndexedStack screen overwrite a theme chosen
+    // from the dedicated theme screen with its stale preferences snapshot.
+    prefs.themeId = AppPreferences.themeNotifier.value;
     await prefs.save();
   }
 
@@ -103,14 +107,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final groups = [
       for (final group in versionCatalog)
         if (group.versions.any(readable))
-          (title: group.title, versions: group.versions.where(readable).toList()),
+          (
+            title: group.title,
+            versions: group.versions.where(readable).toList(),
+          ),
     ];
 
     showModalBottomSheet<void>(
       context: context,
       showDragHandle: true,
       isScrollControlled: true,
-      backgroundColor: kPremiumBackground,
+      backgroundColor: premiumBackground(context),
       builder: (context) => SafeArea(
         top: false,
         child: Column(
@@ -135,7 +142,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       child: Text(
                         group.title,
                         style: premiumText(
-                            context, 11, FontWeight.w800, p.textGrey, spacing: 1),
+                          context,
+                          11,
+                          FontWeight.w800,
+                          p.textGrey,
+                          spacing: 1,
+                        ),
                       ),
                     ),
                     for (final version in group.versions)
@@ -147,8 +159,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           Navigator.of(context).pop();
                           setState(() => prefs.versionCode = version.code);
                           _save();
-                          _snack(
-                              'Version par défaut : ${version.name}.');
+                          _snack('Version par défaut : ${version.name}.');
                         },
                       ),
                   ],
@@ -156,6 +167,102 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  void _pickReadingFont() {
+    final prefs = _prefs;
+    if (prefs == null) return;
+    final p = premiumPalette(context);
+    showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      useSafeArea: true,
+      backgroundColor: premiumBackground(context),
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.viewPaddingOf(context).bottom,
+        ),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 18),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(4, 0, 4, 12),
+                  child: Text(
+                    'Police de lecture',
+                    style: premiumText(
+                      context,
+                      17,
+                      FontWeight.w800,
+                      p.textDark,
+                    ),
+                  ),
+                ),
+                for (final font in ReadingFont.values)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: Material(
+                      color: font == prefs.readingFont
+                          ? p.primarySoft
+                          : p.surface,
+                      borderRadius: BorderRadius.circular(8),
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(8),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          setState(() => prefs.readingFont = font);
+                          _save();
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(14),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      font.label,
+                                      style: TextStyle(
+                                        fontFamily: font.fontFamily,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w700,
+                                        color: p.textDark,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      'Au commencement Élohîm créa les cieux et la Terre.',
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontFamily: font.fontFamily,
+                                        fontSize: 15,
+                                        height: 1.35,
+                                        color: p.textDark,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                              if (font == prefs.readingFont)
+                                Icon(Icons.check_circle, color: p.primary),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -183,8 +290,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       builder: (context) => AlertDialog(
         title: const Text('Effacer l’historique ?'),
         content: const Text(
-            'Les chapitres récemment ouverts seront oubliés. Vos notes, '
-            'surlignages et favoris ne sont pas touchés.'),
+          'Les chapitres récemment ouverts seront oubliés. Vos notes, '
+          'surlignages et favoris ne sont pas touchés.',
+        ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
@@ -207,7 +315,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
     return Scaffold(
-      backgroundColor: kPremiumBackground,
+      backgroundColor: premiumBackground(context),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -221,163 +329,188 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: SafeArea(
         top: false,
         child: _prefs == null
-            ? const Center(child: CircularProgressIndicator())
+            // Même façonnage que les rangées qui arrivent (pastille + titre),
+            // sous les mêmes marges que la liste réelle.
+            ? const ListLoadingSkeleton(
+                itemCount: 8,
+                padding: EdgeInsets.fromLTRB(20, 8, 20, 24),
+              )
             : ListView(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                 children: [
                   _SectionBadge('LECTURE'),
                   const SizedBox(height: 10),
-                  _SettingsCard(children: [
-                    _SettingsRow(
-                      icon: Icons.menu_book_outlined,
-                      title: 'Version par défaut',
-                      subtitle: _versionLabel(_p.versionCode),
-                      trailing: const Icon(Icons.chevron_right),
-                      onTap: _pickDefaultVersion,
-                    ),
-                    _Divider(),
-                    _SettingsRow(
-                      icon: Icons.format_size,
-                      title: 'Taille du texte',
-                      trailing: _SizePicker(
-                        current: ReadingTextSize.nearest(_p.fontSize),
-                        onChanged: (size) {
-                          setState(() => _p.fontSize = size.fontSize);
-                          _save();
-                        },
+                  _SettingsCard(
+                    children: [
+                      _SettingsRow(
+                        icon: Icons.menu_book_outlined,
+                        title: 'Version par défaut',
+                        subtitle: _versionLabel(_p.versionCode),
+                        trailing: const Icon(Icons.chevron_right),
+                        onTap: _pickDefaultVersion,
                       ),
-                    ),
-                    _Divider(),
-                    _SettingsRow(
-                      icon: Icons.format_align_justify,
-                      title: 'Alignement',
-                      trailing: _AlignPicker(
-                        current: _p.textAlign,
-                        onChanged: (align) {
-                          setState(() => _p.textAlign = align);
-                          _save();
-                        },
-                      ),
-                    ),
-                    _Divider(),
-                    _SettingsRow(
-                      icon: Icons.note_alt_outlined,
-                      title: 'Notes',
-                      subtitle: _p.notesMode
-                          ? 'Texte + notes'
-                          : 'Texte seul',
-                      trailing: Switch(
-                        value: _p.notesMode,
-                        onChanged: (value) {
-                          setState(() => _p.notesMode = value);
-                          _save();
-                        },
-                      ),
-                    ),
-                    if (_p.notesMode) ...[
                       _Divider(),
                       _SettingsRow(
-                        icon: Icons.view_headline,
-                        title: 'Disposition des notes',
-                        trailing: _DispositionPicker(
-                          current: _p.disposition,
-                          onChanged: (value) {
-                            setState(() => _p.disposition = value);
+                        icon: Icons.format_size,
+                        title: 'Taille du texte',
+                        below: _SizePicker(
+                          current: ReadingTextSize.nearest(_p.fontSize),
+                          onChanged: (size) {
+                            setState(() => _p.fontSize = size.fontSize);
                             _save();
                           },
                         ),
                       ),
+                      _Divider(),
+                      _SettingsRow(
+                        icon: Icons.font_download_outlined,
+                        title: 'Police de lecture',
+                        subtitle: _p.readingFont.label,
+                        trailing: const Icon(Icons.chevron_right),
+                        onTap: _pickReadingFont,
+                      ),
+                      _Divider(),
+                      _SettingsRow(
+                        icon: Icons.format_align_justify,
+                        title: 'Alignement',
+                        trailing: _AlignPicker(
+                          current: _p.textAlign,
+                          onChanged: (align) {
+                            setState(() => _p.textAlign = align);
+                            _save();
+                          },
+                        ),
+                      ),
+                      _Divider(),
+                      _SettingsRow(
+                        icon: Icons.note_alt_outlined,
+                        title: 'Notes',
+                        subtitle: _p.notesMode ? 'Texte + notes' : 'Texte seul',
+                        trailing: Switch(
+                          value: _p.notesMode,
+                          onChanged: (value) {
+                            setState(() => _p.notesMode = value);
+                            _save();
+                          },
+                        ),
+                      ),
+                      if (_p.notesMode) ...[
+                        _Divider(),
+                        _SettingsRow(
+                          icon: Icons.view_headline,
+                          title: 'Disposition des notes',
+                          trailing: _DispositionPicker(
+                            current: _p.disposition,
+                            onChanged: (value) {
+                              setState(() => _p.disposition = value);
+                              _save();
+                            },
+                          ),
+                        ),
+                      ],
                     ],
-                  ]),
+                  ),
                   const SizedBox(height: 18),
                   _SectionBadge('APPARENCE'),
                   const SizedBox(height: 10),
-                  _SettingsCard(children: [
-                    _SettingsRow(
-                      icon: Icons.palette_outlined,
-                      title: 'Thème de lecture',
-                      subtitle: themeById(_p.themeId).name,
-                      trailing: const Icon(Icons.chevron_right),
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => const ThemesScreen(),
-                        ),
+                  _SettingsCard(
+                    children: [
+                      _SettingsRow(
+                        icon: Icons.palette_outlined,
+                        title: 'Thème de lecture',
+                        subtitle: themeById(_p.themeId).name,
+                        trailing: const Icon(Icons.chevron_right),
+                        onTap: () async {
+                          await Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const ThemesScreen(),
+                            ),
+                          );
+                          if (mounted) await _load();
+                        },
                       ),
-                    ),
-                  ]),
+                    ],
+                  ),
                   const SizedBox(height: 18),
                   _SectionBadge('DONNÉES'),
                   const SizedBox(height: 10),
-                  _SettingsCard(children: [
-                    if (_installed.isNotEmpty) ...[
+                  _SettingsCard(
+                    children: [
+                      if (_installed.isNotEmpty) ...[
+                        _SettingsRow(
+                          icon: Icons.storage_outlined,
+                          title: 'Versions téléchargées',
+                          subtitle:
+                              '${_formatBytes(_sizes['_total'] ?? 0)} '
+                              'sur l’appareil',
+                        ),
+                        _Divider(),
+                        for (final entry in _installed.entries) ...[
+                          _SettingsRow(
+                            icon: Icons.folder_outlined,
+                            title: versionByCode(entry.key)?.name ?? entry.key,
+                            subtitle:
+                                '${entry.value.bookCount}/66 livres · '
+                                '${_formatBytes(_sizes[entry.key] ?? 0)}',
+                          ),
+                          if (entry.key != _installed.keys.last) _Divider(),
+                        ],
+                      ],
+                      if (_installed.isEmpty) ...[
+                        _SettingsRow(
+                          icon: Icons.storage_outlined,
+                          title: 'Versions téléchargées',
+                          subtitle: 'Aucune — tout est embarqué',
+                        ),
+                      ],
+                      _Divider(),
                       _SettingsRow(
-                        icon: Icons.storage_outlined,
-                        title: 'Versions téléchargées',
-                        subtitle: '${_formatBytes(_sizes['_total'] ?? 0)} '
-                            'sur l’appareil',
+                        icon: Icons.cleaning_services_outlined,
+                        title: 'Vider le cache',
+                        subtitle: 'Relit les textes depuis le disque',
+                        onTap: _clearCache,
                       ),
                       _Divider(),
-                      for (final entry in _installed.entries) ...[
-                        _SettingsRow(
-                          icon: Icons.folder_outlined,
-                          title: versionByCode(entry.key)?.name ?? entry.key,
-                          subtitle: '${entry.value.bookCount}/66 livres · '
-                              '${_formatBytes(_sizes[entry.key] ?? 0)}',
-                        ),
-                        if (entry.key != _installed.keys.last) _Divider(),
-                      ],
-                    ],
-                    if (_installed.isEmpty) ...[
                       _SettingsRow(
-                        icon: Icons.storage_outlined,
-                        title: 'Versions téléchargées',
-                        subtitle: 'Aucune — tout est embarqué',
+                        icon: Icons.history,
+                        title: 'Effacer l’historique',
+                        subtitle: 'Chapitres récemment ouverts',
+                        onTap: _clearHistory,
                       ),
                     ],
-                    _Divider(),
-                    _SettingsRow(
-                      icon: Icons.cleaning_services_outlined,
-                      title: 'Vider le cache',
-                      subtitle: 'Relit les textes depuis le disque',
-                      onTap: _clearCache,
-                    ),
-                    _Divider(),
-                    _SettingsRow(
-                      icon: Icons.history,
-                      title: 'Effacer l’historique',
-                      subtitle: 'Chapitres récemment ouverts',
-                      onTap: _clearHistory,
-                    ),
-                  ]),
+                  ),
                   const SizedBox(height: 18),
                   _SectionBadge('À PROPOS'),
                   const SizedBox(height: 10),
-                  _SettingsCard(children: [
-                    _SettingsRow(
-                      icon: Icons.menu_book,
-                      title: 'BYM — Bible de Yehoshoua Ha Mashiah',
-                      subtitle: 'Version 1.0.0',
-                    ),
-                    _Divider(),
-                    _SettingsRow(
-                      icon: Icons.translate,
-                      title: 'Textes embarqués',
-                      subtitle: 'BYM · Segond 1910 + Strongs (LSGS)',
-                    ),
-                    _Divider(),
-                    _SettingsRow(
-                      icon: Icons.import_contacts_outlined,
-                      title: 'Dictionnaires & lexiques',
-                      subtitle: 'Westphal 1932 · Strong français '
-                          '(CrossWire/SWORD)',
-                    ),
-                    _Divider(),
-                    _SettingsRow(
-                      icon: Icons.cloud_outlined,
-                      title: 'Versions téléchargeables',
-                      subtitle: 'getbible.net · catalogue configurable',
-                    ),
-                  ]),
+                  _SettingsCard(
+                    children: [
+                      _SettingsRow(
+                        icon: Icons.menu_book,
+                        title: 'BYM — Bible de Yehoshoua Ha Mashiah',
+                        subtitle: 'Version 1.0.0',
+                      ),
+                      _Divider(),
+                      _SettingsRow(
+                        icon: Icons.translate,
+                        title: 'Textes embarqués',
+                        subtitle: 'BYM · Segond 1910 + Strongs (LSGS)',
+                      ),
+                      _Divider(),
+                      _SettingsRow(
+                        icon: Icons.import_contacts_outlined,
+                        title: 'Dictionnaires & lexiques',
+                        subtitle:
+                            'Westphal 1932 · Strong français '
+                            '(CrossWire/SWORD)',
+                      ),
+                      _Divider(),
+                      _SettingsRow(
+                        icon: Icons.cloud_outlined,
+                        title: 'Versions téléchargeables',
+                        subtitle: 'getbible.net · catalogue configurable',
+                      ),
+                    ],
+                  ),
                 ],
               ),
       ),
@@ -406,7 +539,13 @@ class _SectionBadge extends StatelessWidget {
     final p = premiumPalette(context);
     return Text(
       label,
-      style: premiumText(context, 11, FontWeight.w800, p.textGrey, spacing: 1.2),
+      style: premiumText(
+        context,
+        11,
+        FontWeight.w800,
+        p.textGrey,
+        spacing: 1.2,
+      ),
     );
   }
 }
@@ -421,7 +560,7 @@ class _SettingsCard extends StatelessWidget {
     final p = premiumPalette(context);
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: p.surface,
         borderRadius: BorderRadius.circular(16),
         boxShadow: premiumShadow(
           p.primaryDark,
@@ -440,6 +579,13 @@ class _SettingsRow extends StatelessWidget {
   final String title;
   final String? subtitle;
   final Widget? trailing;
+
+  /// Contenu affiché sur sa propre ligne SOUS la rangée, à largeur bornée.
+  /// Les pickers trop larges pour un `trailing` (les 6 tailles de texte)
+  /// passent par là : dans la Row, un enfant non-flex reçoit une largeur
+  /// infinie, le Wrap tient tout sur une ligne et la carte déborde sur les
+  /// écrans étroits.
+  final Widget? below;
   final VoidCallback? onTap;
 
   const _SettingsRow({
@@ -447,6 +593,7 @@ class _SettingsRow extends StatelessWidget {
     required this.title,
     this.subtitle,
     this.trailing,
+    this.below,
     this.onTap,
   });
 
@@ -457,38 +604,59 @@ class _SettingsRow extends StatelessWidget {
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: 38,
-              height: 38,
-              decoration: BoxDecoration(
-                color: p.primarySoft,
-                borderRadius: BorderRadius.circular(11),
-              ),
-              alignment: Alignment.center,
-              child: Icon(icon, size: 20, color: p.primary),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title,
-                      style: premiumText(
-                          context, 14, FontWeight.w700, p.textDark)),
-                  if (subtitle != null) ...[
-                    const SizedBox(height: 2),
-                    Text(subtitle!,
+            Row(
+              children: [
+                Container(
+                  width: 38,
+                  height: 38,
+                  decoration: BoxDecoration(
+                    color: p.primarySoft,
+                    borderRadius: BorderRadius.circular(11),
+                  ),
+                  alignment: Alignment.center,
+                  child: Icon(icon, size: 20, color: p.primary),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
                         style: premiumText(
-                            context, 12, FontWeight.w500, p.textGrey)),
-                  ],
-                ],
-              ),
+                          context,
+                          14,
+                          FontWeight.w700,
+                          p.textDark,
+                        ),
+                      ),
+                      if (subtitle != null) ...[
+                        const SizedBox(height: 2),
+                        Text(
+                          subtitle!,
+                          style: premiumText(
+                            context,
+                            12,
+                            FontWeight.w500,
+                            p.textGrey,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+                if (trailing != null) ...[const SizedBox(width: 8), trailing!],
+              ],
             ),
-            if (trailing != null) ...[
-              const SizedBox(width: 8),
-              trailing!,
+            if (below != null) ...[
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(left: 50),
+                child: below!,
+              ),
             ],
           ],
         ),
@@ -558,11 +726,11 @@ class _AlignPicker extends StatelessWidget {
   }
 
   String _alignIcon(ReadingTextAlign align) => switch (align) {
-        ReadingTextAlign.left => '⇤',
-        ReadingTextAlign.center => '≡',
-        ReadingTextAlign.right => '⇥',
-        ReadingTextAlign.justify => '☰',
-      };
+    ReadingTextAlign.left => '⇤',
+    ReadingTextAlign.center => '≡',
+    ReadingTextAlign.right => '⇥',
+    ReadingTextAlign.justify => '☰',
+  };
 }
 
 /// The two note dispositions, as selectable chips.
@@ -673,14 +841,21 @@ class _VersionOption extends StatelessWidget {
               width: 38,
               height: 38,
               decoration: BoxDecoration(
-                color: selected ? p.primarySoft : p.primarySoft.withValues(alpha: .5),
+                color: selected
+                    ? p.primarySoft
+                    : p.primarySoft.withValues(alpha: .5),
                 borderRadius: BorderRadius.circular(10),
               ),
               alignment: Alignment.center,
               child: Text(
                 version.code,
                 style: premiumText(
-                    context, 11, FontWeight.w800, p.primary, spacing: .3),
+                  context,
+                  11,
+                  FontWeight.w800,
+                  p.primary,
+                  spacing: .3,
+                ),
               ),
             ),
             const SizedBox(width: 12),
@@ -688,19 +863,28 @@ class _VersionOption extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(version.name,
-                      style: premiumText(
-                          context, 14, FontWeight.w700, p.textDark)),
+                  Text(
+                    version.name,
+                    style: premiumText(
+                      context,
+                      14,
+                      FontWeight.w700,
+                      p.textDark,
+                    ),
+                  ),
                   Text(
                     installedLine ?? version.rights,
                     style: premiumText(
-                        context, 11, FontWeight.w500, p.textGrey),
+                      context,
+                      11,
+                      FontWeight.w500,
+                      p.textGrey,
+                    ),
                   ),
                 ],
               ),
             ),
-            if (selected)
-              Icon(Icons.check_circle, color: p.primary, size: 22),
+            if (selected) Icon(Icons.check_circle, color: p.primary, size: 22),
           ],
         ),
       ),

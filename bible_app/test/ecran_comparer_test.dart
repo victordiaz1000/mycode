@@ -134,15 +134,26 @@ void main() {
     ));
     await tester.pumpAndSettle();
 
+    // The book header (metadata + introduction) is tall: the first verse sits
+    // below the fold on the small default surface, scroll it into view.
+    await tester.dragUntilVisible(
+      find.text('Verset de test Ge. 1:1.'),
+      find.descendant(
+        of: find.byType(ChapterReader),
+        matching: find.byType(ListView),
+      ),
+      const Offset(0, -200),
+    );
+    await tester.ensureVisible(find.text('Verset de test Ge. 1:1.'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Verset de test Ge. 1:1.'));
     await tester.pumpAndSettle();
 
-    await tester.scrollUntilVisible(find.text('Comparer'), 120,
-        scrollable: find
-            .descendant(
-                of: find.byType(DraggableScrollableSheet),
-                matching: find.byType(Scrollable))
-            .first);
+    // The sheet grew: 16 colour dots push the action chips below the test
+    // screen edge, and scrollUntilVisible stops as soon as the Wrap builds the
+    // chip even when it is off-screen — ensureVisible does the final scroll.
+    await tester.ensureVisible(find.text('Comparer'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Comparer'));
     await tester.pumpAndSettle();
 

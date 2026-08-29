@@ -27,3 +27,11 @@ String formatRelativeDate(DateTime when, {DateTime? now}) {
   return '${when.day.toString().padLeft(2, '0')}/'
       '${when.month.toString().padLeft(2, '0')}';
 }
+
+/// "12/03/2026 à 21:14" — pour l'export des notes et les fiches imprimées.
+String formatFullDate(DateTime when) =>
+    '${when.day.toString().padLeft(2, '0')}/'
+    '${when.month.toString().padLeft(2, '0')}/'
+    '${when.year} à '
+    '${when.hour.toString().padLeft(2, '0')}:'
+    '${when.minute.toString().padLeft(2, '0')}';

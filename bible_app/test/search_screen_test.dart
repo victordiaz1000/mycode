@@ -1,8 +1,12 @@
+﻿import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:bible_app/data/dictionary_catalog.dart';
+import 'package:bible_app/data/dictionary_store.dart';
 import 'package:bible_app/data/fredaw_lexicon.dart';
 import 'package:bible_app/data/fulltext_index.dart';
 import 'package:bible_app/data/lexicon_index.dart';
@@ -12,12 +16,28 @@ import 'package:bible_app/data/search_engine.dart';
 import 'package:bible_app/data/strong_lexicon.dart';
 import 'package:bible_app/data/strong_occurrences.dart';
 import 'package:bible_app/screens/search_screen.dart';
+import 'package:bible_app/screens/bym_lexicon_entry_screen.dart';
 import 'package:bible_app/screens/strong_detail_screen.dart';
 
 import 'support/fake_bible_bundle.dart';
 import 'support/fake_fredaw_bundle.dart';
 import 'support/fake_lsgs_bundle.dart';
 import 'support/fake_strong_lexicon_bundle.dart';
+
+/// An in-memory [DictionaryStore] for the search screen: opening a downloaded
+/// dictionary hit reads the file back through [load], which must not touch the
+/// disk (path_provider never answers inside the fake-async zone).
+class FakeDictionaryStore extends DictionaryStore {
+  FakeDictionaryStore(Map<String, Map<String, dynamic>> data) : _data = data;
+
+  final Map<String, Map<String, dynamic>> _data;
+
+  @override
+  Future<Set<String>> installed() async => _data.keys.toSet();
+
+  @override
+  Future<Map<String, dynamic>?> load(String code) async => _data[code];
+}
 
 void main() {
   setUp(() {
@@ -40,13 +60,16 @@ void main() {
   /// ambient [AppDatabase] would hang the search instead of failing fast.
   Widget app({
     void Function(int, int, {int? verse})? onOpen,
-    void Function(String, String)? onOpenDictionary,
+    DictionaryStore? dictionaryStore,
   }) =>
       MaterialApp(
         home: SearchScreen(
           onOpenReading: onOpen ?? (_, _, {verse}) {},
-          onOpenDictionary: onOpenDictionary,
-          engine: SearchEngine(ambientDatabase: false),
+          engine: SearchEngine(
+            ambientDatabase: false,
+            dictionaries: dictionaryStore,
+          ),
+          dictionaryStore: dictionaryStore,
         ),
       );
 
@@ -166,6 +189,49 @@ void main() {
 
     expect(find.text('Référence biblique'), findsOneWidget);
     expect(find.text('Jean 1:2'), findsWidgets);
+  });
+
+  testWidgets('a request handed in before construction runs on its own',
+      (tester) async {
+    // Le shell écrit la requête puis crée la page : l'écran doit la consommer
+    // au premier build, sans aucune frappe, puis remettre le notificateur à
+    // null (une relance identique devra re-tirer).
+    final request = ValueNotifier<String?>('Jean 1:2');
+    addTearDown(request.dispose);
+    await tester.pumpWidget(MaterialApp(
+      home: SearchScreen(
+        onOpenReading: (_, _, {verse}) {},
+        engine: SearchEngine(ambientDatabase: false),
+        request: request,
+      ),
+    ));
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Référence biblique'), findsOneWidget);
+    expect(find.text('Jean 1:2'), findsWidgets);
+    expect(request.value, isNull, reason: 'la requête a été consommée');
+  });
+
+  testWidgets('an external request reaches an already-mounted screen',
+      (tester) async {
+    final request = ValueNotifier<String?>(null);
+    addTearDown(request.dispose);
+    await tester.pumpWidget(MaterialApp(
+      home: SearchScreen(
+        onOpenReading: (_, _, {verse}) {},
+        engine: SearchEngine(ambientDatabase: false),
+        request: request,
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    request.value = 'Jean 1:2';
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Référence biblique'), findsOneWidget);
+    expect(request.value, isNull);
   });
 
   testWidgets('an unavailable category explains itself instead of filtering',
@@ -348,14 +414,9 @@ void main() {
     expect(find.byType(Scaffold), findsWidgets);
   });
 
-  testWidgets('the dictionary fiche can open the entry in a reading tab',
+  testWidgets('the dictionary fiche is pushed from the search results',
       (tester) async {
-    final opened = <String>[];
-    await tester.pumpWidget(
-      app(onOpenDictionary: (term, definition) {
-        opened.add(term);
-      }),
-    );
+    await tester.pumpWidget(app());
     await type(tester, 'verset');
     await tapChip(tester, 'Dictionnaire');
     await tester.pumpAndSettle();
@@ -363,14 +424,81 @@ void main() {
     await tester.tap(find.text('Verset').first);
     await tester.pumpAndSettle();
 
-    // The fiche keeps the reader-tab escape hatch that the old detail page
-    // had: the article still opens as a reading page from the search results.
-    await tester.tap(find.text('Ouvrir onglet'));
+    // The fiche opens without the « Ouvrir onglet » escape hatch: dictionary
+    // entries are read as a fiche, not as a reading tab.
+    expect(find.text('Ouvrir onglet'), findsNothing);
+    expect(find.text('Westphal 1932'), findsWidgets);
+  });
+
+  testWidgets('tapping a downloaded dictionary result opens its fiche',
+      (tester) async {
+    final store = FakeDictionaryStore({
+      'GBM': {
+        'entries': {
+          'RACHAT': {'term': 'RACHAT', 'definition': 'Action de racheter.'},
+        },
+      },
+    });
+    await tester.pumpWidget(app(dictionaryStore: store));
+
+    await type(tester, 'rachat');
+    await tapChip(tester, 'Dictionnaire');
     await tester.pumpAndSettle();
 
-    expect(opened, ['Verset']);
-    expect(find.text('Ouvrir onglet'), findsNothing,
-        reason: 'the fiche is popped after handing the entry to the reader');
+    // The GBM row carries its dictionary badge.
+    expect(find.text('RACHAT'), findsOneWidget);
+    expect(find.text(dictionaryByCode('GBM')!.name), findsOneWidget);
+
+    await tester.tap(find.text('RACHAT').first);
+    await tester.pumpAndSettle();
+
+    // The generic fiche: the dictionary name as badge and the article body.
+    expect(find.text(dictionaryByCode('GBM')!.name), findsWidgets);
+    expect(find.text('Action de racheter.'), findsOneWidget);
+  });
+
+  testWidgets('a Westphal result still opens the embedded FreDAW fiche',
+      (tester) async {
+    // No downloaded dictionary on the device: the Dictionnaire category answers
+    // from the embedded Westphal alone, which must keep opening its own fiche.
+    final store = FakeDictionaryStore({});
+    await tester.pumpWidget(app(dictionaryStore: store));
+
+    await type(tester, 'verset');
+    await tapChip(tester, 'Dictionnaire');
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Verset').first);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Westphal 1932'), findsWidgets);
+  });
+
+  testWidgets('tapping a BYM lexicon result opens its own fiche',
+      (tester) async {
+    final opened = <(int, int, int)>[];
+    await tester.pumpWidget(app(
+      onOpen: (book, chapter, {verse}) => opened.add((book, chapter, verse!)),
+    ));
+    await type(tester, 'verset');
+    await tapChip(tester, 'Dictionnaire');
+    await tester.pumpAndSettle();
+
+    // The BYM row carries its own badge, distinct from Westphal's.
+    expect(find.text('Notes BYM Lexique'), findsOneWidget);
+
+    await tester.tap(find.text('Notes BYM Lexique'));
+    await tester.pumpAndSettle();
+
+    // The embedded BYM fiche: word, reference with occurrences, and the
+    // « Ouvrir le verset » button wired to the reading tab.
+    expect(find.byType(BymLexiconEntryScreen), findsOneWidget);
+    expect(find.text('Verset'), findsWidgets);
+    expect(find.textContaining('132 occurrences'), findsOneWidget);
+
+    await tester.tap(find.text('Ouvrir le verset'));
+    await tester.pumpAndSettle();
+    expect(opened, [(1, 1, 1)]);
   });
 
   testWidgets('« Voir plus » unfolds a truncated group', (tester) async {
@@ -422,4 +550,82 @@ void main() {
     expect(find.text('Que cherchez-vous ?'), findsNothing);
     expect(find.textContaining('Jean 3:16'), findsWidgets);
   });
+
+  testWidgets('a query under the minimum asks for more letters, not silence',
+      (tester) async {
+    await tester.pumpWidget(app());
+    await type(tester, 'a');
+
+    expect(find.textContaining('Saisissez au moins'), findsOneWidget);
+    expect(find.textContaining('Aucun résultat'), findsNothing);
+  });
+
+  testWidgets('clearing mid-search does not resurrect stale results',
+      (tester) async {
+    final gate = Completer<void>();
+    late final GatedEngine engine;
+    engine = GatedEngine(gate);
+
+    await tester.pumpWidget(MaterialApp(
+      home: SearchScreen(
+        onOpenReading: (_, _, {verse}) {},
+        engine: engine,
+        dictionaryStore: FakeDictionaryStore(const {}),
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'verset');
+    // Past the debounce: the search is now in flight, held by the gate.
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.text('Que cherchez-vous ?'), findsNothing);
+
+    await tester.tap(find.byTooltip('Effacer'));
+    await tester.pumpAndSettle();
+    expect(find.text('Que cherchez-vous ?'), findsOneWidget);
+
+    // The in-flight search lands NOW — it must stay ignored.
+    gate.complete();
+    await tester.pumpAndSettle();
+
+    expect(find.text('Que cherchez-vous ?'), findsOneWidget);
+    expect(find.textContaining('Ge. 1:1'), findsNothing);
+  });
+}
+
+/// An engine whose answer only lands once [Completer] resolves — the slow
+/// source racing the field being cleared.
+class GatedEngine extends SearchEngine {
+  GatedEngine(this._gate) : super(ambientDatabase: false);
+
+  final Completer<void> _gate;
+
+  @override
+  Future<SearchOutcome> search(
+    String query, {
+    SearchFilters filters = const SearchFilters(),
+    Set<SearchCategory>? categories,
+    Set<SearchCategory> expanded = const {},
+  }) =>
+      _gate.future.then(
+        (_) => SearchOutcome(
+          query: query,
+          groups: [
+            SearchGroup(
+              category: SearchCategory.passages,
+              total: 1,
+              hits: [
+                const SearchHit(
+                  category: SearchCategory.passages,
+                  title: 'Ge. 1:1',
+                  subtitle: 'Verset de test Ge. 1:1.',
+                  bookIndex: 1,
+                  chapter: 1,
+                  verse: 1,
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
 }

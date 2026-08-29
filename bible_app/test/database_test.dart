@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
+import 'package:path/path.dart' as p;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 import 'package:bible_app/data/app_database.dart';
+import 'package:bible_app/models/user_data.dart';
 
 void main() {
   sqfliteFfiInit();
@@ -23,17 +27,97 @@ void main() {
     expect(await db.getHighlight(1, 1, 26), isNull);
   });
 
-  test('note save/get/update/delete persisted', () async {
-    await db.saveNote(1, 6, 14, 'couvriras = kaphar : expiatoire');
-    final note = await db.getNote(1, 6, 14);
-    expect(note, isNotNull);
-    expect(note!.text, contains('kaphar'));
+  test('note upsert / multiple per verse / delete by id', () async {
+    final id = await db.upsertNote(
+      UserNote(
+        bookIndex: 1,
+        chapter: 6,
+        verse: 14,
+        title: 'Kaphar',
+        text: 'couvriras = kaphar : expiatoire',
+        updatedAt: 1,
+      ),
+    );
+    var notes = await db.notesForVerse(1, 6, 14);
+    expect(notes, hasLength(1));
+    expect(notes.single.text, contains('kaphar'));
+    expect(notes.single.title, 'Kaphar');
+
+    // Updating keeps ONE row (identity lives on the id, not the verse).
+    await db.upsertNote(notes.single.copyWith(text: 'texte corrigé'));
+    notes = await db.notesForVerse(1, 6, 14);
+    expect(notes, hasLength(1));
+    expect(notes.single.text, 'texte corrigé');
+
+    // A second note on the same verse coexists with the first.
+    final id2 = await db.upsertNote(
+      UserNote(
+        bookIndex: 1,
+        chapter: 6,
+        verse: 14,
+        text: 'seconde lecture',
+        updatedAt: 2,
+      ),
+    );
+    expect(id2, isNot(id));
+    notes = await db.notesForVerse(1, 6, 14);
+    expect(notes, hasLength(2));
 
     final inChapter = await db.notesInChapter(1, 6);
-    expect(inChapter, contains(14));
+    expect(inChapter, {14});
 
-    await db.deleteNote(1, 6, 14);
-    expect(await db.getNote(1, 6, 14), isNull);
+    await db.deleteNoteById(id2);
+    notes = await db.notesForVerse(1, 6, 14);
+    expect(notes, hasLength(1));
+    expect(notes.single.id, id);
+
+    await db.deleteNoteById(id);
+    expect(await db.notesForVerse(1, 6, 14), isEmpty);
+  });
+
+  test('v1 rows survive the v2 migration (title empty, text kept)', () async {
+    // Simulate a v1 database: open at version 1 with the old schema.
+    final f = databaseFactoryFfi;
+    final dir = await f.getDatabasesPath();
+    final path = p.join(dir, 'migration-test-${DateTime.now().microsecondsSinceEpoch}.db');
+    final old = await f.openDatabase(
+      path,
+      options: OpenDatabaseOptions(version: 1, onCreate: (db, _) async {
+        await db.execute('''
+          CREATE TABLE notes (
+            book INTEGER NOT NULL,
+            chapter INTEGER NOT NULL,
+            verse INTEGER NOT NULL,
+            text TEXT NOT NULL,
+            updated_at INTEGER NOT NULL,
+            created_at INTEGER,
+            PRIMARY KEY (book, chapter, verse)
+          )
+        ''');
+      }),
+    );
+    await old.insert('notes', {
+      'book': 23,
+      'chapter': 53,
+      'verse': 5,
+      'text': 'blessé pour nos péchés',
+      'updated_at': 42,
+      'created_at': 40,
+    });
+    await old.close();
+
+    // Reopen through the app class: the upgrade path runs to v2.
+    final migrated = AppDatabase(factory: f);
+    final dbHandle = await migrated.testOpen(path);
+    final rows =
+        await dbHandle.query('notes', where: 'book=?', whereArgs: [23]);
+    expect(rows, hasLength(1));
+    expect(rows.single['text'], 'blessé pour nos péchés');
+    expect(rows.single['title'], '');
+    expect(rows.single['id'], isNotNull);
+    await dbHandle.close();
+    // Leave no trace in the temp databases dir.
+    await File(path).delete();
   });
 
   test('favorite toggle', () async {

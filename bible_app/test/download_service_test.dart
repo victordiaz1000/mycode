@@ -160,7 +160,7 @@ void main() {
     });
 
     test('a failure keeps what landed and names the failing book', () async {
-      // Book 3 in reading order fails; the two before it must survive.
+      // Book 3 in reading order fails; whatever landed around it must survive.
       final client = MockClient((request) async {
         final number = int.parse(
             request.url.pathSegments.last.replaceAll('.json', ''));
@@ -170,24 +170,33 @@ void main() {
         return http.Response.bytes(utf8.encode(bookBody(number)), 200);
       });
 
-      final outcome =
-          await DownloadService(client: client, store: store).install(darby);
+      final outcome = await DownloadService(
+        client: client,
+        store: store,
+        retryBackoff: Duration.zero,
+      ).install(darby);
 
       expect(outcome.status, DownloadStatus.serverError);
       expect(outcome.failedBook, 3);
-      expect(outcome.done, 2);
+      // Les quatre ouvriers initiaux partent ensemble : les livres 1, 2 et 4
+      // arrivent bons avant l'arrêt du tir — seul le 3 manque.
+      expect(outcome.done, 3);
       expect(outcome.message, contains('Patientez quelques minutes'));
-      expect(outcome.message, contains('2/${bookCatalog.length}'));
+      expect(outcome.message, contains('3/${bookCatalog.length}'));
 
       final state = await store.versionState('DBY');
-      expect(state.books, {1, 2});
+      expect(state.books, {1, 2, 4});
       expect(state.isPartial, isTrue);
     });
 
     test('no connection names the cause, not the book', () async {
       final client = MockClient(
           (request) async => throw const SocketException('offline'));
-      final service = DownloadService(client: client, store: store);
+      final service = DownloadService(
+        client: client,
+        store: store,
+        retryBackoff: Duration.zero,
+      );
 
       final outcome = await service.install(darby);
 
@@ -221,7 +230,11 @@ void main() {
         }
         return http.Response.bytes(utf8.encode(bookBody(number)), 200);
       });
-      final service = DownloadService(client: client, store: store);
+      final service = DownloadService(
+        client: client,
+        store: store,
+        retryBackoff: Duration.zero,
+      );
 
       expect((await service.install(darby)).status, DownloadStatus.serverError);
       failing = false;
@@ -229,8 +242,8 @@ void main() {
 
       final second = await service.install(darby);
       expect(second.status, DownloadStatus.complete);
-      // The two books of the first attempt are not fetched again.
-      expect(asked, hasLength(bookCatalog.length - 2));
+      // Les trois livres de la première tentative ne sont pas refetchés.
+      expect(asked, hasLength(bookCatalog.length - 3));
       expect(asked.first, bymToStandard(3), reason: 'resumes where it broke');
     });
 
@@ -246,7 +259,7 @@ void main() {
       expect((await store.versionState('DBY')).isEmpty, isTrue);
     });
 
-    test('cancel stops after the book in flight and keeps it', () async {
+    test('cancel stops the batch in flight and keeps what landed', () async {
       late DownloadService service;
       var served = 0;
       final client = MockClient((request) async {
@@ -261,9 +274,54 @@ void main() {
       final outcome = await service.install(darby);
 
       expect(outcome.status, DownloadStatus.cancelled);
-      expect(outcome.done, 2);
+      // L'annulation sonne pendant le dispatch du lot initial : les quatre
+      // ouvriers ont déjà tiré leur livre et leurs réponses arrivent bonnes —
+      // tout le lot atterrit, mais aucun ouvrier ne repart ensuite.
+      expect(outcome.done, DownloadService.maxInFlight);
       expect(outcome.message, contains('conservés'));
-      expect((await store.versionState('DBY')).books, {1, 2});
+      expect((await store.versionState('DBY')).bookCount, outcome.done);
+    });
+
+    test('a flaky book succeeds without a manual resume', () async {
+      final attempts = <int, int>{};
+      final client = MockClient((request) async {
+        final number = int.parse(
+            request.url.pathSegments.last.replaceAll('.json', ''));
+        attempts.update(number, (n) => n + 1, ifAbsent: () => 1);
+        // Le 5ᵉ livre échoue deux fois côté serveur, puis passe.
+        if (number == bymToStandard(5) && attempts[number]! <= 2) {
+          return http.Response('busy', 503);
+        }
+        return http.Response.bytes(utf8.encode(bookBody(number)), 200);
+      });
+      final service = DownloadService(
+        client: client,
+        store: store,
+        retryBackoff: Duration.zero,
+      );
+
+      final outcome = await service.install(darby);
+
+      expect(outcome.status, DownloadStatus.complete);
+      expect(attempts[bymToStandard(5)], 3, reason: 'two retries, then ok');
+      expect((await store.versionState('DBY')).isComplete, isTrue);
+    });
+
+    test('a broken payload is not retried — a dead link stays dead', () async {
+      final attempts = <int, int>{};
+      final client = MockClient((request) async {
+        final number = int.parse(
+            request.url.pathSegments.last.replaceAll('.json', ''));
+        attempts.update(number, (n) => n + 1, ifAbsent: () => 1);
+        return http.Response('', 404);
+      });
+      final service =
+          DownloadService(client: client, store: store);
+
+      final outcome = await service.install(darby);
+
+      expect(outcome.status, DownloadStatus.failed);
+      expect(attempts.values.every((n) => n == 1), isTrue);
     });
 
     test('a version without a free source is refused without a request',
@@ -276,19 +334,29 @@ void main() {
       expect(asked, isEmpty);
     });
 
-    test('progress reports the book being fetched, then the end', () async {
+    test('progress reports starts, completions, then the end', () async {
       final asked = <int>[];
-      final seen = <String>[];
+      final seen = <DownloadProgress>[];
 
       await DownloadService(client: servingAll(asked), store: store).install(
         darby,
-        onProgress: (p) => seen.add('${p.done}/${p.total}:'
-            '${p.currentBookName ?? "fin"}'),
+        onProgress: seen.add,
       );
 
-      expect(seen.first, '0/${bookCatalog.length}:Genèse');
-      expect(seen.last, '${bookCatalog.length}/${bookCatalog.length}:fin');
-      expect(seen, hasLength(bookCatalog.length + 1));
+      // Premier départ : rien d'arrivé, Genèse en vol.
+      expect(seen.first.done, 0);
+      expect(seen.first.currentBookName, 'Genèse');
+      // Fin : tout le canon, plus aucun livre en vol.
+      expect(seen.last.done, bookCatalog.length);
+      expect(seen.last.currentBookName, isNull);
+      // Un départ + une arrivée par livre, et l'appel final.
+      expect(seen, hasLength(bookCatalog.length * 2 + 1));
+      // La fraction complétée ne recule jamais, où qu'ils atterrissent.
+      var previous = -1;
+      for (final p in seen) {
+        expect(p.done, greaterThanOrEqualTo(previous));
+        previous = p.done;
+      }
     });
   });
 }
