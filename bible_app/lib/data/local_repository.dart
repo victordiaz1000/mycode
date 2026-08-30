@@ -5,13 +5,20 @@ import 'package:flutter/services.dart' show AssetBundle, rootBundle;
 import '../models/bible_book.dart';
 import '../models/chapter.dart';
 import 'book_catalog.dart';
+import 'bym_update_store.dart';
 
-/// Loads the embedded BYM books from `assets/bible/bym/`.
+/// Loads the embedded BYM books from `assets/bible/bym/`, une mise à jour du
+/// texte ayant la priorité quand elle existe.
 ///
 /// Parsing is lazy and per-book: calling [loadBook] parses the whole file on
 /// first request, then caches it in memory. [loadChapter] only loads the
 /// requested book. This keeps startup fast (66 books would be heavy to parse
 /// at once).
+///
+/// **Ce point d'entrée est le goulot de toute la BYM** : favoris, accueil,
+/// notes, recherche, lexique, occurrences Strong et `VersionRepository` passent
+/// tous par [loadBook]. C'est pourquoi la priorité de lecture est branchée ici
+/// et nulle part ailleurs.
 class LocalRepository {
   static const String assetPrefix = 'assets/bible/bym/';
 
@@ -43,15 +50,53 @@ class LocalRepository {
   bool isLoaded(int bookNumber) => _cache.containsKey(bookNumber);
 
   /// Loads and returns the book at [bookNumber] (1..66), caching it.
+  ///
+  /// Une mise à jour du texte l'emporte sur l'asset embarqué, mais **jamais au
+  /// prix de la lisibilité** : un fichier mis à jour illisible est effacé et
+  /// l'asset reprend la main. Sans ce filet, un JSON abîmé rendrait un livre
+  /// définitivement inaccessible, sans aucun recours depuis l'interface.
   Future<BibleBook> loadBook(int bookNumber) async {
     final cached = _cache[bookNumber];
     if (cached != null) return cached;
 
-    final raw = await _bundle.loadString(assetPath(bookNumber));
-    final decoded = jsonDecode(raw) as Map<String, dynamic>;
-    final book = BibleBook.fromJson(decoded, number: bookNumber);
+    final book = await _readUpdated(bookNumber) ?? await _readAsset(bookNumber);
     _cache[bookNumber] = book;
     return book;
+  }
+
+  /// Le livre tel que la mise à jour le porte, null s'il n'y en a pas ou si le
+  /// fichier ne tient pas.
+  ///
+  /// Le prédicat [BymUpdateStore.hasUpdate] est **synchrone** à dessein : sans
+  /// lui, ce chemin appellerait `path_provider` à chaque lecture de livre et
+  /// gèlerait `pumpAndSettle` dans la dizaine de tests widget qui passent par
+  /// ici — le `path_provider` réel ne répond jamais dans la zone fake-async.
+  Future<BibleBook?> _readUpdated(int bookNumber) async {
+    final name = catalogEntry(bookNumber).file;
+    if (!BymUpdateStore.hasUpdate(name)) return null;
+    try {
+      final raw = await BymUpdateStore().read(name);
+      if (raw == null) return null;
+      final decoded = jsonDecode(raw) as Map<String, dynamic>;
+      return BibleBook.fromJson(decoded, number: bookNumber);
+    } catch (_) {
+      // Retour au texte embarqué en entier plutôt qu'un panachage silencieux :
+      // le numéro de version affiché ne décrirait plus ce qui est lu. La
+      // prochaine vérification reproposera la mise à jour.
+      try {
+        await BymUpdateStore().clear();
+      } catch (_) {
+        // `clear` a déjà vidé l'état en mémoire de façon synchrone : l'asset
+        // reprend la main même si le disque résiste.
+      }
+      return null;
+    }
+  }
+
+  Future<BibleBook> _readAsset(int bookNumber) async {
+    final raw = await _bundle.loadString(assetPath(bookNumber));
+    final decoded = jsonDecode(raw) as Map<String, dynamic>;
+    return BibleBook.fromJson(decoded, number: bookNumber);
   }
 
   /// Returns only the chapter [chapter] (1-based) of the book at [bookNumber].
