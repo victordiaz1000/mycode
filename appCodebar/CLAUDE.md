@@ -9,23 +9,41 @@ Conversion des 66 livres de la Bible (version BYM, en français) du format Markd
 ## Commandes
 
 ```bash
-python md_to_json.py                      # convertit bym_md/ -> bym_json/
+python sync_bym_source.py --dry-run       # MàJ du texte : ce qui serait synchronisé
+python sync_bym_source.py                 # applique (télécharge, convertit, écrit _source.json)
+python sync_bym_source.py --all           # retélécharge et reconvertit les 66 livres
+python md_to_json.py                      # convertit bym_md/ -> bym_json/ (sortie de travail)
 python md_to_json.py <source> <dest>      # dossiers personnalisés
-python generate_manifest.py --apply       # génère manifest.json (voir PUBLISH_Bym.md)
-python publish_bym.py --notes "corr Ge 1:1"  # publie MàJ BYM sur GitHub (bym-text)
 ```
 
-> **MàJ BYM via GitHub :** toute correction de texte suit `../PUBLISH_Bym.md` (doc canonique).
-> Source = `bym_md/` → `md_to_json.py` → `generate_manifest.py` → `publish_bym.py` → repo `victordiaz1000/bym-text`.
-> Ne jamais éditer `bym_json/` à la main. Phrase déclencheuse : `envoie sur GitHub` / `publie la MàJ BYM`.
+> **MàJ du texte BYM depuis GitLab :** toute correction de texte suit `../MAJ_TEXTE_BYM.md` (doc
+> canonique, écrite d'après le code livré). Phrase déclencheuse : `mets à jour le texte BYM` /
+> `synchronise avec GitLab`.
+> Source officielle = `https://gitlab.com/anjc/bjc-source` (public, 66 `.md`, branche `master`)
+> → `sync_bym_source.py` → `bym_md/` + `bible_app/assets/bible/bym/*.json` + `_source.json`,
+> ce dernier étant la référence que `bible_app/lib/data/bym_update_service.dart` compare à
+> l'arbre distant. **Committer `_source.json` avec les JSON qu'il décrit.**
+> Ne jamais éditer `bym_md/` (miroir de l'amont) ni `assets/bible/bym/` (généré) à la main.
+> `--dry-run` d'abord, toujours.
+> Le signal de changement est l'**empreinte de blob git** — `sha1("blob <len>\0" + octets)`,
+> soit l'`id` que GitLab publie dans l'arbre. Elle porte sur les octets exacts : plus aucune
+> normalisation de fin de ligne. `git_blob_id` (Python) et `gitBlobId` (Dart) doivent rester
+> identiques.
+> L'application convertit elle-même les `.md` (`lib/data/bym_markdown_converter.dart`, port de
+> `md_to_json.py`) : toute correction de l'un doit être portée dans l'autre, et
+> `test/bym_markdown_converter_golden_test.dart` échoue à la première divergence.
+> Il n'y a plus de dépôt miroir, plus de manifest, plus de tag, plus de purge de cache :
+> `publish_bym.py`, `generate_manifest.py` et `PUBLISH_Bym.md` ont été supprimés.
 
 Python 3.12, aucune dépendance externe (stdlib uniquement).
 
 ## Structure
 
-- `bym_md/` — source : 66 fichiers `NN-Livre.md` (ne pas modifier, c'est la donnée d'origine)
-- `md_to_json.py` — script de conversion
-- `bym_json/` — sortie générée : un JSON par livre (regénérable à volonté, ne pas éditer à la main)
+- `bym_md/` — miroir des 66 `NN-Livre.md` du dépôt GitLab (écrit par `sync_bym_source.py`, ne pas éditer)
+- `md_to_json.py` — script de conversion, référence du format ; son port Dart est `bym_markdown_converter.dart`
+- `sync_bym_source.py` — la seule commande du flux de mise à jour du texte
+- `bym_json/` — sortie de travail de `md_to_json.py` sans argument (regénérable, non embarquée)
+- `../bible_app/assets/bible/bym/` — les JSON réellement embarqués, plus `_source.json`
 
 ## Format Markdown source
 
