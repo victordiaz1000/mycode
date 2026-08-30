@@ -1,0 +1,20 @@
+# Le système de mise à jour du texte BYM compare des **octets**, à deux endroits :
+#
+#   - `sync_bym_source.py` et `bym_update_service.dart` hachent chaque `.md` en
+#     empreinte de blob git — sha1("blob <len>\0" + octets) — pour la comparer à
+#     l'`id` que GitLab publie dans son arbre ;
+#   - `bym_markdown_converter_golden_test.dart` compare le JSON produit en Dart
+#     aux JSON embarqués, octet pour octet.
+#
+# Sous Windows, `core.autocrlf=true` est le réglage courant : sans les règles
+# ci-dessous, un clone neuf recevrait tout le corpus en CRLF. Le script
+# reproposerait alors les 66 livres à chaque passage, et le test doré échouerait
+# sur chacun d'eux — sur un artefact de checkout, pas sur un vrai écart. C'est
+# exactement la panne que l'ancienne normalisation `CRLF → LF` masquait ; elle a
+# été retirée, donc les fins de ligne se règlent ici, une fois.
+appCodebar/bym_md/*.md                text eol=lf
+bible_app/assets/bible/bym/*.json     text eol=lf
+
+# Les deux implémentations du hachage et le convertisseur Dart doivent rester
+# alignés : leurs sources aussi sont épinglées en LF.
+appCodebar/*.py                       text eol=lf

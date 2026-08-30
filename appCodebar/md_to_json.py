@@ -219,8 +219,15 @@ def main():
     for path in files:
         book = parse_book(path)
         out_path = dst / (path.stem + ".json")
+        # newline="\n" : sans lui, write_text traduit les sauts en CRLF sous
+        # Windows, et le JSON dépendrait alors du système qui l'a produit. C'est
+        # cette traduction qui obligeait le client à normaliser avant de hacher.
+        # Le convertisseur Dart (bym_markdown_converter.dart) écrit en LF : les
+        # deux sorties doivent rester identiques octet pour octet.
         out_path.write_text(
-            json.dumps(book, ensure_ascii=False, indent=2), encoding="utf-8"
+            json.dumps(book, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+            newline="\n",
         )
         n_verses = sum(len(c["verses"]) for c in book["chapters"])
         total_verses += n_verses
