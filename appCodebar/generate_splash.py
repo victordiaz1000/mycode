@@ -19,8 +19,14 @@ Deux contraintes dictent la géométrie :
    rendu reste comparable d'une version à l'autre.
 
 Usage :
-    python generate_splash.py              # depuis logoBym/splash_logo_hd.png
-    python generate_splash.py <source.png>
+    python generate_splash.py                       # marque noire, source par défaut
+    python generate_splash.py --encre blanc         # marque blanche (fond sombre)
+    python generate_splash.py <source.png> [--encre noir|blanc]
+
+L'encre doit contraster avec `@color/splash_background` dans
+`bible_app/android/app/src/main/res/values/colors.xml` : les deux se règlent
+ensemble, sinon on retombe sur le défaut d'origine — une marque noire sur un
+fond noir, donc un écran vide.
 """
 
 from __future__ import annotations
@@ -59,6 +65,12 @@ MEDIAN_CADRE = 5
 # Marge rendue au cadre détecté, pour compenser ce que le médian a pu ronger sur
 # le pourtour des traits les plus fins.
 MARGE_CADRE = 4
+
+# Couleur d'encre appliquée à la marque, son alpha étant conservé tel quel. La
+# source est blanche sur noir ; l'encrer en noir sert un fond clair, et c'est le
+# réglage retenu pour BYM afin qu'aucune transition de fenêtre ne montre du noir.
+ENCRES = {"noir": (0, 0, 0), "blanc": (255, 255, 255)}
+ENCRE_DEFAUT = "noir"
 
 
 def detourer(source: Path) -> Image.Image:
@@ -126,6 +138,18 @@ def cadre_utile(im: Image.Image) -> tuple[int, int, int, int]:
     )
 
 
+def encrer(marque: Image.Image, rgb: tuple[int, int, int]) -> Image.Image:
+    """Repeint la marque dans la couleur voulue, en gardant son alpha.
+
+    Le détourage a déjà ramené chaque pixel à pleine intensité, donc l'alpha
+    porte à lui seul la forme et l'antialiasing : remplacer le RVB ne dégrade
+    aucun contour.
+    """
+    plein = Image.new("RGBA", marque.size, rgb + (255,))
+    plein.putalpha(marque.getchannel("A"))
+    return plein
+
+
 def composer(marque: Image.Image, cote: int) -> Image.Image:
     """Place la marque au centre d'un canevas carré, diagonale bornée."""
     lm, hm = marque.size
@@ -140,12 +164,34 @@ def composer(marque: Image.Image, cote: int) -> Image.Image:
 
 
 def main(argv: list[str]) -> int:
-    source = Path(argv[1]) if len(argv) > 1 else SOURCE_DEFAUT
+    encre = ENCRE_DEFAUT
+    positionnels: list[str] = []
+    reste = argv[1:]
+    while reste:
+        arg = reste.pop(0)
+        if arg == "--encre":
+            if not reste:
+                raise SystemExit("ERREUR : --encre attend une valeur (noir ou blanc).")
+            encre = reste.pop(0)
+        elif arg.startswith("--encre="):
+            encre = arg.split("=", 1)[1]
+        elif arg.startswith("--"):
+            raise SystemExit(f"ERREUR : option inconnue : {arg}")
+        else:
+            positionnels.append(arg)
+
+    if encre not in ENCRES:
+        raise SystemExit(
+            f"ERREUR : encre inconnue : {encre} (valeurs : {', '.join(ENCRES)})"
+        )
+
+    source = Path(positionnels[0]) if positionnels else SOURCE_DEFAUT
     if not source.is_file():
         raise SystemExit(f"ERREUR : source introuvable : {source}")
 
     print(f"Source : {source.relative_to(RACINE)}")
-    marque = detourer(source)
+    print(f"Encre  : {encre} — le fond du thème doit contraster avec elle")
+    marque = encrer(detourer(source), ENCRES[encre])
     lm, hm = marque.size
     print(f"  marque détourée : {lm} x {hm} px (rapport {lm / hm:.2f}:1)")
 

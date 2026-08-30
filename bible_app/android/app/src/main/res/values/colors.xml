@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Fond de l'écran de démarrage. La marque de `splash_logo` est blanche,
-         donc ce fond doit rester sombre : c'est la même combinaison que
-         l'icône de lanceur (`ic_launcher_background` + foreground blanc).
+    <!-- Fond de l'écran de démarrage. La marque de `splash_logo` est NOIRE
+         (regénérée par `appCodebar/generate_splash.py`, option d'encre « noir »),
+         donc ce fond doit rester clair. Les deux se règlent ensemble : inverser
+         l'un sans l'autre donne un écran vide, noir sur noir ou blanc sur blanc.
 
-         Cette couleur est utilisée par les DEUX mécanismes de démarrage, qui ne
-         se recouvrent pas :
+         Cette couleur est utilisée par TROIS emplois, qui ne se recouvrent pas :
            - `drawable/launch_background.xml` et `drawable-v21/` pour Android 11
-             et avant (via `android:windowBackground`) ;
-           - `android:windowSplashScreenBackground` pour Android 12 et après.
+             et avant (via `android:windowBackground` de `LaunchTheme`) ;
+           - `android:windowSplashScreenBackground` pour Android 12 et après ;
+           - `android:windowBackground` de `NormalTheme`, c'est-à-dire la couleur
+             de la fenêtre derrière l'UI Flutter — celle qui apparaît quand
+             l'application passe en arrière-plan ou revient au premier plan.
          Les tenir sur la même valeur est ce qui évite un rendu différent selon
-         l'âge de l'appareil. -->
-    <color name="splash_background">#000000</color>
+         l'âge de l'appareil, et garantit qu'aucune transition ne montre du noir.
+
+         Pas de `values-night/colors.xml` : le démarrage reste clair même en mode
+         sombre du système, faute de quoi la marque noire disparaîtrait. C'est ici
+         le seul fichier à créer si ce choix devait changer. -->
+    <color name="splash_background">#FFFFFF</color>
 </resources>
