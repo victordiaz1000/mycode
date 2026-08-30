@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/book_catalog.dart';
+import '../data/bym_update_service.dart';
 import '../data/dictionary_catalog.dart';
 import '../data/dictionary_download_service.dart';
 import '../data/dictionary_store.dart';
@@ -41,6 +42,11 @@ class LibraryScreen extends StatefulWidget {
   /// reference instead of pretending to be buttons.
   final void Function(int bookIndex, int chapter, int? verse)? onOpenVerse;
 
+  /// Conduit à Réglages, où la mise à jour du texte BYM s'installe. Null quand
+  /// l'écran est monté seul : la pastille de rappel s'affiche alors sans être
+  /// cliquable, plutôt que de faire semblant.
+  final VoidCallback? onOpenSettings;
+
   const LibraryScreen({
     super.key,
     this.store,
@@ -49,6 +55,7 @@ class LibraryScreen extends StatefulWidget {
     this.dictionaryService,
     this.dictionaryCatalog,
     this.onOpenVerse,
+    this.onOpenSettings,
   });
 
   @override
@@ -303,17 +310,30 @@ class _LibraryScreenState extends State<LibraryScreen> {
     );
   }
 
-  Widget _tile(VersionEntry version) => _VersionTile(
-        version: version,
-        state: _stateOf(version.code),
-        sizeOnDisk: _sizes[version.code] ?? 0,
-        progress: _activeCode == version.code ? _progress : null,
-        otherBusy: _activeCode != null && _activeCode != version.code,
-        onDownload: () => _download(version),
-        onDelete: () => _delete(version),
-        onCancel: _service.cancel,
-        onUnavailable: () => _say('${version.code} — bientôt disponible.'),
-      );
+  Widget _tile(VersionEntry version) {
+    Widget build(String? updateLabel) => _VersionTile(
+          version: version,
+          state: _stateOf(version.code),
+          sizeOnDisk: _sizes[version.code] ?? 0,
+          progress: _activeCode == version.code ? _progress : null,
+          otherBusy: _activeCode != null && _activeCode != version.code,
+          onDownload: () => _download(version),
+          onDelete: () => _delete(version),
+          onCancel: _service.cancel,
+          onUnavailable: () => _say('${version.code} — bientôt disponible.'),
+          updateLabel: updateLabel,
+          onOpenSettings: widget.onOpenSettings,
+        );
+
+    // Seule la BYM peut recevoir une mise à jour de texte : elle est embarquée
+    // dans l'APK, donc corriger une coquille passerait sinon par le store. Les
+    // autres versions se téléchargent en entier depuis la Bibliothèque.
+    if (version.code != VersionRepository.embeddedCode) return build(null);
+    return ValueListenableBuilder<BymUpdateCheck?>(
+      valueListenable: BymUpdateChecker.available,
+      builder: (context, plan, _) => build(plan?.bookLabel),
+    );
+  }
 }
 
 class _GroupHeader extends StatelessWidget {
@@ -434,6 +454,12 @@ class _VersionTile extends StatelessWidget {
   final VoidCallback onCancel;
   final VoidCallback onUnavailable;
 
+  /// Ce que la mise à jour en attente remplacerait (« 21 livres »), null quand
+  /// il n'y a rien de neuf. Purement un rappel : rien ne se télécharge depuis
+  /// cette tuile.
+  final String? updateLabel;
+  final VoidCallback? onOpenSettings;
+
   const _VersionTile({
     required this.version,
     required this.state,
@@ -444,6 +470,8 @@ class _VersionTile extends StatelessWidget {
     required this.onDelete,
     required this.onCancel,
     required this.onUnavailable,
+    this.updateLabel,
+    this.onOpenSettings,
   });
 
   bool get _downloading => progress != null;
@@ -512,17 +540,31 @@ class _VersionTile extends StatelessWidget {
               ),
               if (_downloading)
                 _bar(context)
-              else if (status != null)
+              else if (status != null || updateLabel != null)
                 Padding(
                   padding: const EdgeInsets.only(top: 6),
-                  child: Text(
-                    status,
-                    style: premiumText(
-                      context,
-                      12,
-                      FontWeight.w600,
-                      state.isComplete ? p.primary : p.textGrey,
-                    ),
+                  child: Row(
+                    children: [
+                      if (status != null)
+                        Expanded(
+                          child: Text(
+                            status,
+                            style: premiumText(
+                              context,
+                              12,
+                              FontWeight.w600,
+                              state.isComplete ? p.primary : p.textGrey,
+                            ),
+                          ),
+                        ),
+                      if (updateLabel != null) ...[
+                        if (status != null) const SizedBox(width: 8),
+                        _UpdatePill(
+                          label: updateLabel!,
+                          onTap: onOpenSettings,
+                        ),
+                      ],
+                    ],
                   ),
                 ),
             ],
@@ -637,6 +679,50 @@ class _VersionTile extends StatelessWidget {
             icon: const Icon(Icons.delete_outline),
           ),
       ],
+    );
+  }
+}
+
+/// Rappel « une correction du texte BYM est en ligne », sur la tuile BYM.
+///
+/// L'appui conduit à Réglages et **rien d'autre** : le choix de télécharger
+/// appartient à l'utilisateur, dans l'écran qui montre les notes de publication
+/// et le poids. Une pastille qui lancerait 9 Mo au premier effleurement serait un
+/// piège.
+class _UpdatePill extends StatelessWidget {
+  final String label;
+  final VoidCallback? onTap;
+
+  const _UpdatePill({required this.label, this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        key: const Key('bymUpdatePill'),
+        borderRadius: BorderRadius.circular(20),
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+          decoration: BoxDecoration(
+            color: p.primary,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.auto_awesome, size: 12, color: p.onPrimary),
+              const SizedBox(width: 5),
+              Text(
+                'MàJ · $label',
+                style: premiumText(context, 11, FontWeight.w800, p.onPrimary),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
