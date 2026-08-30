@@ -118,7 +118,7 @@ Cette lettre fut rédigée avant la destruction de Yeroushalaim (Jérusalem), ca
 6:8	Mais porte-t-elle des épines et des chardons, elle est réprouvée et proche de malédiction, et sa fin est d'être brûlée.
 6:9	Mais nous sommes persuadés, en ce qui vous concerne, bien-aimés, de choses meilleures et qui tiennent au salut, quoique nous parlions aussi ainsi.
 6:10	Car l'Elohîm n'est pas injuste pour oublier votre œuvre et le travail d'amour que vous avez démontré pour son nom, ayant servi et servant les saints.
-6:11	Or, nous souhaitons que chacun de vous montre jusqu'à la fin, le même empressement pour la pleine certitude de l'espérance,
+6:11	Or, nous souhaitons que chacun de vous montre jusqu'à la fin, le même empressement pour la pleine assurance de l'espérance,
 6:12	afin que vous ne deveniez pas paresseux, mais des imitateurs de ceux qui, par le moyen de la foi et de la patience, héritent des promesses.
 6:13	Car, l'Elohîm ayant fait la promesse à Abraham, puisqu'il n'y avait personne de plus grand par qui jurer, il jura par lui-même,
 6:14	en disant : Oui, vraiment, en bénissant je te bénirai, et en multipliant je te multiplierai<!--Ge. 22:16-17.-->.
@@ -230,7 +230,7 @@ Cette lettre fut rédigée avant la destruction de Yeroushalaim (Jérusalem), ca
 10:19	Ayant donc, frères, la liberté pour entrer dans les lieux saints par le sang de Yéhoshoua,
 10:20	chemin<!--Yéhoshoua (Jésus) est le chemin qui conduit au Saint des saints, à la vie (Voir Jn. 14:6). Ce chemin n'avait pas été manifesté avant sa naissance. Hé. 9:8.--> nouveau et vivant qu'il nous a inauguré au travers du voile, c'est-à-dire de sa propre chair,
 10:21	et ayant un grand-prêtre établi sur la maison d'Elohîm,
-10:22	approchons-nous de lui avec un cœur sincère et une foi inébranlable, les cœurs, par aspersion, purifiés d'une mauvaise conscience et le corps lavé d'une eau pure.
+10:22	approchons-nous de lui avec un cœur véritable, dans une pleine assurance de foi, ayant les cœurs purifiés par aspersion d'une mauvaise conscience et ayant le corps lavé d'une eau pure.
 10:23	Retenons fermement la profession de l'espérance, car celui qui a fait la promesse est fidèle.
 10:24	Et observons-nous les uns les autres pour nous inciter à l'amour et aux bonnes œuvres.
 10:25	N'abandonnant pas notre rassemblement<!--Rassemblement : du grec « episunagoge » qui veut dire « être assemblé en un lieu ». Ce passage fait premièrement allusion au rassemblement de l'Assemblée auprès du Seigneur lors de son retour. On peut y voir aussi une forme d'encouragement pour demeurer dans la communion fraternelle et non une interdiction à quitter une assemblée locale. Ce même mot est aussi utilisé dans 2 Th. 2:1.-->, comme c'est la coutume de quelques-uns, mais nous exhortant les uns les autres, et cela d'autant plus que vous voyez approcher le jour.

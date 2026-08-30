@@ -60,16 +60,16 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 2:5	Et ils lui dirent : À Bethléhem en Judée, car voici ce qui a été écrit par le moyen du prophète :
 2:6	Et toi, Bethléhem, terre de Yéhouda, tu n'es nullement la plus petite parmi les gouverneurs de Yéhouda, car de toi sortira le Conducteur qui paîtra mon peuple d'Israël<!--Mi. 5:1.-->.
 2:7	Alors Hérode ayant appelé secrètement les mages, sut précisément d’eux le temps où l’étoile est apparue.
-2:8	Et en les envoyant à Bethléhem, il dit : Étant allés, informez-vous précisément au sujet de l'enfant. Et quand vous l'aurez trouvé, faites-le-moi savoir, afin que j'aille aussi moi-même l'adorer.
-2:9	Et ayant entendu le roi, ils partirent. Et voici, l'étoile<!--Le Seigneur Yéhoshoua ha Mashiah (Jésus-Christ) s'est révélé à Yohanan comme l'étoile brillante du matin (Ap. 22:16).--> qu'ils avaient vue en orient, allait devant eux jusqu'à ce qu'elle vînt s'arrêter au-dessus de l'endroit où était l'enfant.
+2:8	Et en les envoyant à Bethléhem, il dit : Étant allés, informez-vous précisément au sujet du petit enfant. Et quand vous l'aurez trouvé, faites-le-moi savoir, de sorte que moi aussi, étant parti, je l'adore.
+2:9	Et ayant entendu le roi, ils partirent. Et voici, l'étoile<!--Le Seigneur Yéhoshoua ha Mashiah (Jésus-Christ) s'est révélé à Yohanan comme l'étoile brillante du matin (Ap. 22:16).--> qu'ils avaient vue en orient, allait devant eux jusqu’à ce qu’étant arrivée au-dessus du lieu où était le petit enfant, elle s’arrêta.
 2:10	Et en voyant l’étoile, ils se réjouirent d'une très grande joie.
-2:11	Et étant entrés dans la maison, ils virent l'enfant avec Myriam, sa mère et, s'étant prosternés, ils l'adorèrent. Et ayant ouvert leurs trésors, ils lui présentèrent des dons : de l'or, de l'arbre à encens et de la myrrhe.
+2:11	Et étant entrés dans la maison, ils virent le petit enfant avec Myriam, sa mère et, s'étant prosternés, ils l'adorèrent. Et ayant ouvert leurs trésors, ils lui présentèrent des dons : de l'or, de l'arbre à encens et de la myrrhe.
 2:12	Et ayant été divinement avertis en rêve de ne pas retourner vers Hérode, ils se retirèrent dans leur pays par une autre voie.
 
 ### Fuite en Égypte
 
-2:13	Mais eux, s'étant retirés, voici qu’un ange du Seigneur apparaît en rêve à Yossef lui disant : Ayant été réveillé, prends l'enfant et sa mère, fuis en Égypte, et demeure là jusqu'à ce que je te le dise car Hérode est sur le point de chercher le petit enfant pour le détruire.
-2:14	Et ayant été réveillé, il prit de nuit l'enfant et sa mère, et il se retira en Égypte.
+2:13	Mais eux, s'étant retirés, voici qu’un ange du Seigneur apparaît en rêve à Yossef lui disant : Ayant été réveillé, prends le petit enfant et sa mère, fuis en Égypte, et demeure là jusqu'à ce que je te le dise car Hérode est sur le point de chercher le petit enfant pour le détruire.
+2:14	Et ayant été réveillé, il prit de nuit le petit enfant et sa mère, et il se retira en Égypte.
 2:15	Et il fut là jusqu’à la fin de la vie d'Hérode, afin que fût accompli ce que le Seigneur avait annoncé par le moyen du prophète, disant : J'ai appelé mon Fils hors d'Égypte<!--Os. 11:1.-->.
 
 ### Les enfants de Bethléhem massacrés
@@ -81,10 +81,10 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 ### Yossef, Myriam et Yéhoshoua reviennent en Israël<!--Lu. 2:39-52.-->
 
 2:19	Or Hérode s’étant éteint, voici, un ange du Seigneur apparaît dans un rêve à Yossef, en Égypte,
-2:20	disant : Ayant été réveillé, prends l'enfant et sa mère, et va en terre d'Israël car ils sont morts, les chercheurs de l’âme de l'enfant.
-2:21	Et ayant été réveillé, il prit l'enfant et sa mère et alla en terre d'Israël.
+2:20	disant : Ayant été réveillé, prends le petit enfant et sa mère, et va en terre d'Israël car ils sont morts, les chercheurs de l’âme du petit enfant.
+2:21	Et ayant été réveillé, il prit le petit enfant et sa mère et alla en terre d'Israël.
 2:22	Mais, ayant entendu qu'Archélaüs règne en Judée à la place d'Hérode, son père, il craignit d'y aller. Et étant divinement averti dans un rêve, il se retira dans les territoires de la Galilée,
-2:23	et vint habiter dans la ville appelée Nazareth, afin que fût accompli ce qui avait été dit par le moyen des prophètes : Il sera appelé Nazaréen<!--Ge. 49:26 ; De. 33:16 ; Am. 2:11-12.-->.
+2:23	et étant venu, il habita dans la ville appelée Nazareth, afin que fût accompli ce qui avait été dit par le moyen des prophètes : Il sera appelé Nazaréen<!--Ge. 49:26 ; De. 33:16 ; Am. 2:11-12.-->.
 
 ## Chapitre 3
 
@@ -100,16 +100,16 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 3:8	Produisez donc des fruits convenables à la repentance
 3:9	et ne pensez pas à dire en vous-mêmes : Nous avons Abraham pour père ! Car je vous dis qu'Elohîm peut réveiller, à partir de ces pierres, des enfants à Abraham.
 3:10	Et même la hache est déjà couchée vers la racine des arbres : tout arbre donc qui ne produit pas de beau fruit est coupé et jeté au feu.
-3:11	Moi, en effet je vous baptise dans l'eau en vue de la repentance, mais celui qui vient après moi est plus puissant que moi et je ne suis pas digne de porter ses sandales. C'est lui qui vous baptisera dans le Saint-Esprit et le feu<!--Le baptême du Saint-Esprit ne doit pas être confondu avec la plénitude du Saint-Esprit. Le baptême est un acte définitif qui nous greffe au corps du Mashiah lors de la conversion (1 Co. 12:13). La plénitude consiste quant à elle en un constant renouvellement que nous devons impérativement rechercher (Ep. 5:18). Certains courants chrétiens charismatiques enseignent que le parler en langues est le signe distinctif du baptême du Saint-Esprit. Cette doctrine est basée sur au moins trois passages : Ac. 2:4, 10:44-46 et 19:1-7. Si cela était vraiment le cas, plusieurs chrétiens seraient encore dans leurs péchés et n'appartiendraient pas au Seigneur Yéhoshoua ha Mashiah. En effet, Ro. 8:9 déclare ceci : « Si quelqu'un n'a pas l'Esprit du Mashiah, il ne lui appartient pas. » Or il est manifeste que bon nombre de chrétiens nés d'en haut ne parlent pas en langues, ce qui est d'ailleurs attesté par Paulos (Paul) (1 Co. 12:30). Il n'y a aucun verset dans les Écritures qui nous ordonne de chercher le baptême du Saint-Esprit pour la bonne et simple raison que nous le recevons à la conversion.-->.
+3:11	Moi, en effet je vous baptise dans l'eau pour la repentance, mais celui qui vient après moi est plus puissant que moi et je ne suis pas digne de porter ses sandales. C'est lui qui vous baptisera dans le Saint-Esprit et le feu<!--Le baptême du Saint-Esprit ne doit pas être confondu avec la plénitude du Saint-Esprit. Le baptême est un acte définitif qui nous greffe au corps du Mashiah lors de la conversion (1 Co. 12:13). La plénitude consiste quant à elle en un constant renouvellement que nous devons impérativement rechercher (Ep. 5:18). Certains courants chrétiens charismatiques enseignent que le parler en langues est le signe distinctif du baptême du Saint-Esprit. Cette doctrine est basée sur au moins trois passages : Ac. 2:4, 10:44-46 et 19:1-7. Si cela était vraiment le cas, plusieurs chrétiens seraient encore dans leurs péchés et n'appartiendraient pas au Seigneur Yéhoshoua ha Mashiah. En effet, Ro. 8:9 déclare ceci : « Si quelqu'un n'a pas l'Esprit du Mashiah, il ne lui appartient pas. » Or il est manifeste que bon nombre de chrétiens nés d'en haut ne parlent pas en langues, ce qui est d'ailleurs attesté par Paulos (Paul) (1 Co. 12:30). Il n'y a aucun verset dans les Écritures qui nous ordonne de chercher le baptême du Saint-Esprit pour la bonne et simple raison que nous le recevons à la conversion.-->.
 3:12	Il a la pelle à vanner dans sa main et il nettoiera complètement son aire, et il assemblera son blé dans le grenier, mais il brûlera la paille dans un feu qui ne s'éteint pas.
 
 ### Yohanan baptise Yéhoshoua ha Mashiah<!--Mc. 1:9-11 ; Lu. 3:21-22 ; Jn. 1:31-34.-->
 
 3:13	Alors Yéhoshoua arrive de Galilée au Yarden vers Yohanan, pour être baptisé par lui.
 3:14	Mais Yohanan l'en empêchait en disant : C'est moi qui ai besoin d'être baptisé par toi, et c'est toi qui viens à moi ! 
-3:15	Mais répondant, Yéhoshoua lui dit : Laisse faire maintenant, car c'est ainsi qu'il nous convient d'accomplir toute justice. Et alors il le laisse faire.
-3:16	Et ayant été baptisé, Yéhoshoua sortit directement de l'eau. Et voici, les cieux lui furent ouverts, et il vit l'Esprit d'Elohîm descendant comme une colombe et venant sur lui.
-3:17	Et voici une voix depuis les cieux dit : Celui-ci est mon Fils bien-aimé, en qui j'ai pris plaisir.
+3:15	Mais répondant, Yéhoshoua lui dit : Laisse faire maintenant, car c'est ainsi qu'il nous convient d'accomplir toute justice. Alors il le laissa faire.
+3:16	Et ayant été baptisé, Yéhoshoua remonta directement de l'eau. Et voici, les cieux lui furent ouverts, et il vit l'Esprit d'Elohîm descendant comme une colombe et venant sur lui.
+3:17	Et voici une voix depuis les cieux disant : Celui-ci est mon Fils bien-aimé, en qui j'ai pris plaisir.
 
 ## Chapitre 4
 
@@ -130,7 +130,7 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 ### Yéhoshoua s'établit à Capernaüm<!--Mc. 1:14-15 ; Lu. 4:14-15.-->
 
 4:12	Mais Yéhoshoua ayant appris que Yohanan avait été livré, se retira dans la Galilée.
-4:13	Et ayant quitté Nazareth, il alla demeurer à Capernaüm, ville maritime, sur les territoires de Zebouloun et de Nephthali,
+4:13	Et ayant quitté Nazareth, étant venu, il demeura à Capernaüm, ville maritime, sur les territoires de Zebouloun et de Nephthali,
 4:14	afin que fût accompli ce qui avait été annoncé par Yesha`yah le prophète, en disant :
 4:15	La terre de Zebouloun et la terre de Nephthali, la voie de la mer, au-delà du Yarden, et la Galilée des nations,
 4:16	le peuple assis dans la ténèbre a vu une grande lumière, et pour ceux qui sont assis dans la région et dans l'ombre de la mort, la lumière elle-même s'est levée<!--Es. 9:1.-->.
@@ -183,9 +183,9 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 5:21	Vous avez entendu qu'il a été dit aux anciens : Tu n'assassineras pas ; et quiconque aura assassiné sera passible du jugement.
 5:22	Mais moi, je vous dis que quiconque se fâche sans cause contre son frère, sera passible du jugement. Et quiconque dira à son frère : Raca<!--Expression de mépris utilisée parmi les Juifs au temps de Yéhoshoua (Jésus) signifiant « vide, indigne » ou encore « vaurien ».--> ! sera passible du sanhédrin. Et celui qui lui dira : Fou ! sera passible de la géhenne de feu<!--La géhenne ou le lac de feu. Voir commentaire en Ap. 20:14.-->.
 5:23	Si donc tu apportes ton offrande à l'autel, et que là tu te souviennes que ton frère a quelque chose contre toi,
-5:24	laisse là ton offrande devant l'autel et va te réconcilier d'abord avec ton frère, et alors viens et présente ton offrande.
-5:25	Accorde-toi promptement avec ton adversaire, tandis que tu es en chemin avec lui, de peur que l'adversaire ne te livre au juge, et que le juge ne te livre à l'officier de justice, et que tu ne sois jeté en prison.
-5:26	Amen, je te le dis, tu ne sortiras jamais de là, jusqu'à ce que tu aies payé le dernier quart de sou.
+5:24	laisse là ton offrande devant l'autel et va d'abord, sois réconcilié avec ton frère, et alors viens et présente ton offrande.
+5:25	Sois promptement bien disposé avec ton adversaire, tandis que tu es en chemin avec lui, de peur que l'adversaire ne te livre au juge, et que le juge ne te livre à l'officier de justice, et que tu ne sois jeté en prison.
+5:26	Amen, je te le dis, tu ne sortiras pas de là, jusqu'à ce que tu aies payé le dernier quart de sou.
 
 ### L'adultère, la convoitise et le divorce<!--Mt. 19:3-11 ; Mc. 10:2-12 ; 1 Co. 7:1-16.-->
 
@@ -466,7 +466,7 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 10:18	Et vous serez menés, à cause de moi, devant des gouverneurs et devant des rois, en témoignage pour eux et pour les nations.
 10:19	Mais, quand ils vous livrent, ne vous inquiétez pas comment ou de quoi vous parlerez, car ce dont vous parlerez vous sera donné à l’heure même.
 10:20	Car ce n’est pas vous qui êtes en train de parler, mais c’est l’Esprit de votre Père qui parle en vous.
-10:21	Mais le frère livrera son frère à la mort et le père son enfant. Et les enfants s'élèveront contre leurs parents et les feront mourir.
+10:21	Mais le frère livrera son frère à la mort et le père son enfant. Et les enfants s'élèveront contre leurs parents et les mettront à mort.
 10:22	Et vous serez haïs de tous, à cause de mon nom, mais celui qui supportera bravement et calmement les mauvais traitements jusqu'à la fin, celui-là sera sauvé.
 10:23	Mais quand ils vous persécutent dans une ville, fuyez dans une autre. Amen, je vous le dis, en effet, vous n'en aurez jamais fini avec les villes d'Israël, que le Fils d'humain sera venu.
 10:24	Le disciple n'est pas au-dessus du docteur, ni l'esclave au-dessus de son seigneur.
@@ -896,10 +896,10 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 ### L'humilité, le secret de la vraie grandeur<!--Mc. 9:33-37 ; Lu. 9:46-48.-->
 
 18:1	En cette même heure-là, les disciples s'approchèrent de Yéhoshoua, en disant : Qui est le plus grand dans le Royaume des cieux ?
-18:2	Et Yéhoshoua, ayant appelé un enfant, le mit au milieu d'eux
-18:3	et leur dit : Amen, je vous le dis, si vous ne vous convertissez pas et si vous ne devenez pas comme les enfants, vous n'entrerez jamais dans le Royaume des cieux.
-18:4	C'est pourquoi, quiconque s'abaissera<!--Mt. 23:12.--> comme cet enfant, celui-là est le plus grand dans le Royaume des cieux.
-18:5	Et si quelqu’un reçoit en mon nom un enfant comme celui-ci, il me reçoit.
+18:2	Et Yéhoshoua, ayant appelé un petit enfant, le mit au milieu d'eux
+18:3	et leur dit : Amen, je vous le dis, si vous ne vous convertissez pas et si vous ne devenez pas comme les petits enfants, vous n'entrerez jamais dans le Royaume des cieux.
+18:4	C'est pourquoi, quiconque s'abaissera<!--Mt. 23:12.--> comme ce petit enfant, celui-là est le plus grand dans le Royaume des cieux.
+18:5	Et si quelqu’un reçoit en mon nom un petit enfant comme celui-ci, il me reçoit.
 
 ### Les scandales et les occasions de chute
 
@@ -965,8 +965,8 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 
 ### Yéhoshoua et les enfants<!--Mc. 10:13-16 ; Lu. 18:15-17.-->
 
-19:13	Alors on lui apporta des enfants, afin qu'il leur imposât les mains et qu'il priât. Mais les disciples les réprimandaient d'une manière tranchante.
-19:14	Mais Yéhoshoua leur dit : Laissez les enfants et ne les empêchez pas de venir à moi, car le Royaume des cieux est pour ceux qui leur ressemblent.
+19:13	Alors on lui apporta des petits enfants, afin qu'il leur imposât les mains et qu'il priât. Mais les disciples les réprimandaient d'une manière tranchante.
+19:14	Mais Yéhoshoua leur dit : Laissez les petits enfants et ne les empêchez pas de venir à moi, car le Royaume des cieux est pour ceux qui leur ressemblent.
 19:15	Et leur ayant imposé les mains, il partit de là.
 
 ### Le jeune homme riche<!--Mc. 10:17-31 ; Lu. 10:25-37, 18:18-27.-->
@@ -1046,11 +1046,11 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 21:2	en leur disant : Allez au village qui est devant vous, et immédiatement vous trouverez une ânesse attachée et son ânon avec elle. Détachez-les et amenez-les-moi.
 21:3	Et si quelqu'un vous dit quelque chose, vous direz que le Seigneur en a besoin. Et immédiatement il les laissera aller.
 21:4	Or tout cela arriva afin que s'accomplît ce qui a été annoncé par le moyen du prophète, disant :
-21:5	Dites à la fille de Sion : Voici, ton Roi vient à toi, plein de douceur et monté sur un âne et sur un ânon, le fils d'une ânesse<!--Za. 9:9.-->.
+21:5	Dites à la fille de Sion : Voici, ton Roi vient à toi, plein de douceur et monté sur un âne et sur un ânon, fils d'une ânesse<!--celle qui est sous le joug. Za. 9:9.-->.
 21:6	Or étant donc allés, les disciples firent aussi ce que Yéhoshoua leur avait prescrit.
 21:7	Ils amenèrent l'ânesse et l'ânon et mirent leurs vêtements sur eux, et il s'assit dessus.
 21:8	Et la plus grande partie de la foule étendit ses vêtements sur la route, tandis que d'autres coupaient des rameaux des arbres et les étendaient sur la route.
-21:9	Or les foules, celles qui allaient devant et celles qui suivaient, criaient en disant : Hosanna<!--Le terme hébraïque « Hosanna » se trouve seulement dans (Ps. 118:25) où il signifie: « Sauve, s’il te plaît! ». C’est un cri de détresse à Elohîm.--> au Fils de David ! Béni soit celui qui vient au nom du Seigneur ! Hosanna dans les lieux très hauts !
+21:9	Or les foules, celles allant devant et celles venant après, criaient en disant : Hosanna<!--Le terme hébraïque « Hosanna » se trouve seulement dans (Ps. 118:25) où il signifie: « Sauve, s’il te plaît! ». C’est un cri de détresse à Elohîm.--> au Fils de David ! Béni soit celui qui vient au nom du Seigneur ! Hosanna dans les lieux très hauts !
 21:10	Et étant entré, lui, dans Yeroushalaim, toute la ville fut secouée et l’on disait : Qui est celui-ci ?
 21:11	Et les foules disaient : C'est Yéhoshoua, le prophète de Nazareth, en Galilée.
 
@@ -1231,22 +1231,22 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 24:5	car beaucoup viendront sous mon nom, en disant : « Moi, je suis le Mashiah », et ils en égareront beaucoup.
 24:6	Mais vous êtes sur le point d'entendre des guerres et des bruits de guerres : Faites attention ! Ne soyez pas troublés, car il faut que toutes ces choses arrivent, mais ce n’est pas encore la fin.
 24:7	Car nation se réveillera contre nation et royaume contre royaume, et il y aura des famines, des pestes et des tremblements de terre en divers lieux.
-24:8	Mais toutes ces choses ne seront que le commencement des douleurs.
-24:9	Alors ils vous livreront à la tribulation et vous tueront. Et vous serez haïs de toutes les nations à cause de mon nom.
+24:8	Mais toutes ces choses sont un commencement des douleurs de l'accouchement.
+24:9	Alors ils vous livreront à une tribulation et vous tueront. Et vous serez haïs de toutes les nations à cause de mon nom.
 24:10	Et alors beaucoup seront scandalisés, et ils se livreront les uns les autres et se haïront les uns les autres.
 24:11	Et beaucoup de faux prophètes se réveilleront et en égareront beaucoup.
 24:12	Et, parce que la violation de la torah sera multipliée, l'amour de beaucoup se refroidira.
-24:13	Mais celui qui aura supporté bravement et calmement les mauvais traitements jusqu'à la fin sera sauvé.
-24:14	Et cet Évangile du Royaume sera prêché dans toute la terre habitée, pour servir de témoignage à toutes les nations et alors viendra la fin.
+24:13	Mais celui qui, ayant supporté bravement et calmement les mauvais traitements jusqu'à la fin sera sauvé.
+24:14	Et cet Évangile du Royaume sera prêché dans toute la terre habitée, pour un témoignage à toutes les nations et alors viendra la fin.
 
 ### L'abomination qui causera la désolation<!--Da. 9:27, 11:32-35 ; Mc. 13:14-18 ; Lu. 21:20-23.-->
 
-24:15	Quand donc vous aurez vu l'abomination<!--Une chose folle, détestable, des idoles et choses appartenant à l'idolâtrie.--> de la désolation annoncée par le moyen de Daniye'l le prophète<!--Daniye'l (Daniel) fut le premier à prophétiser au sujet de l'abomination de la désolation (Da. 9:24-27). Cette prophétie trouva un premier accomplissement lorsqu'en 168 av. J.-C., le roi de Syrie, Antiochos Épiphane (règne : 175 - 164 av. J.-C.), consacra le temple de Yeroushalaim (Jérusalem) aux dieux grecs et dédia l'autel des holocaustes à Zeus, l'Olympien. En décembre 167 av. J.-C., il sacrifia dessus des porcs, animaux éminemment abominables aux yeux des Juifs, fit interdire la circoncision, la lecture de la torah et l'observance des fêtes de YHWH. Par cet acte, ce type d'anti-mashiah (antichrist) espérait changer les temps (le calendrier juif) et la torah (la loi selon Da. 7:25) en Israël. En l'an 70 de notre ère, la prophétie de Daniye'l s'accomplit une seconde fois lorsque le temple fut de nouveau profané en étant détruit par Titus (39 - 81 ap. J.-C.). Actuellement, nous vivons la réalisation finale de cette parole qui se manifeste par le progrès de l'apostasie parmi les chrétiens et la diffusion d'un évangile erroné, mondain, expurgé de son caractère christocentrique dans un nombre croissant d'assemblées. Ainsi, les chrétiens séduits par les fausses doctrines, ayant abandonné leur premier amour (Ap. 2:5), sont désormais des temples d'Elohîm profanés par l'action néfaste des faux prophètes (1 Co. 6:19). Cette situation ira en s'empirant et conduira à l'accomplissement parfait de la prophétie de Daniye'l en la personne de l'homme impie, qui s'introduira dans le futur temple de Yeroushalaim pour usurper l'adoration qui revient à Elohîm (2 Th. 2:4).--> établie en lieu saint, que celui qui lit comprenne !
-24:16	Alors, que ceux qui seront en Judée fuient sur les montagnes,
-24:17	que celui qui sera sur le toit ne descende pas pour emporter quoi que ce soit de sa maison,
-24:18	et que celui qui sera dans les champs, ne retourne pas en arrière pour prendre ses habits.
-24:19	Mais malheur aux femmes enceintes et à celles qui allaiteront en ces jours-là !
-24:20	Priez pour que votre fuite n'arrive pas en hiver, ni pendant le shabbat<!--Sous la loi mosaïque, il était interdit aux Juifs de parcourir plus de 2 000 coudées (1 100 mètres) du lieu où ils se trouvaient pendant le shabbat (Ex. 16:29). Voir le tableau « Mesures de longueurs ».-->.
+24:15	Quand donc vous aurez vu l'abomination<!--Une chose folle, détestable, des idoles et choses appartenant à l'idolâtrie.--> de la désolation annoncée par le moyen de Daniye'l le prophète<!--Daniye'l (Daniel) fut le premier à prophétiser au sujet de l'abomination de la désolation (Da. 9:24-27). Cette prophétie trouva un premier accomplissement lorsqu'en 168 av. J.-C., le roi de Syrie, Antiochos Épiphane (règne : 175 - 164 av. J.-C.), consacra le temple de Yeroushalaim (Jérusalem) aux dieux grecs et dédia l'autel des holocaustes à Zeus, l'Olympien. En décembre 167 av. J.-C., il sacrifia dessus des porcs, animaux éminemment abominables aux yeux des Juifs, fit interdire la circoncision, la lecture de la torah et l'observance des fêtes de YHWH. Par cet acte, ce type d'anti-mashiah (antichrist) espérait changer les temps (le calendrier juif) et la torah (la loi selon Da. 7:25) en Israël. En l'an 70 de notre ère, la prophétie de Daniye'l s'accomplit une seconde fois lorsque le temple fut de nouveau profané en étant détruit par Titus (39 - 81 ap. J.-C.). Actuellement, nous vivons la réalisation finale de cette parole qui se manifeste par le progrès de l'apostasie parmi les chrétiens et la diffusion d'un évangile erroné, mondain, expurgé de son caractère christocentrique dans un nombre croissant d'assemblées. Ainsi, les chrétiens séduits par les fausses doctrines, ayant abandonné leur premier amour (Ap. 2:5), sont désormais des temples d'Elohîm profanés par l'action néfaste des faux prophètes (1 Co. 6:19). Cette situation ira en s'empirant et conduira à l'accomplissement parfait de la prophétie de Daniye'l en la personne de l'homme impie, qui s'introduira dans le futur temple de Yeroushalaim pour usurper l'adoration qui revient à Elohîm (2 Th. 2:4).--> établie en lieu saint, que le lecteur comprenne !
+24:16	Alors, que ceux qui sont en Judée fuient sur les montagnes,
+24:17	que celui qui est sur le toit ne descende pas pour emporter quoi que ce soit hors de sa maison,
+24:18	et que celui qui est dans les champs, ne retourne pas en arrière pour prendre ses habits.
+24:19	Mais malheur à celles qui sont enceintes<!--Lit. Celles l'ayant dans le ventre.--> et à celles qui allaitent en ces jours-là !
+24:20	Mais priez afin que votre fuite n'arrive pas en hiver, ni pendant un shabbat<!--Sous la loi mosaïque, il était interdit aux Juifs de parcourir plus de 2 000 coudées (1 100 mètres) du lieu où ils se trouvaient pendant le shabbat (Ex. 16:29). Voir le tableau « Mesures de longueurs ».-->.
 
 ### La grande tribulation<!--Jé. 30:5-8 ; Ps. 2:5 ; Da. 12:1 ; Mc. 13:19-23 ; Lu. 21:23-24 ; Ap. 7:9-17.-->
 
@@ -1262,30 +1262,30 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 ### Le retour du Roi sur la Terre<!--Mc. 13:24-27 ; Lu. 21:25-28.-->
 
 24:29	Mais immédiatement après ces jours de tribulation, le soleil sera obscurci, la lune ne donnera plus sa lumière<!--Es. 13:10 ; Lu. 21:26.-->. Et les étoiles tomberont du ciel et les puissances des cieux seront ébranlées.
-24:30	Et alors le signe du Fils d'humain apparaîtra dans le ciel. Et alors toutes les tribus de la Terre se frapperont la poitrine de chagrin et verront le Fils d'humain venant sur les nuées du ciel, avec puissance et une grande gloire.
-24:31	Et il enverra ses anges avec un grand son de trompette, et ils rassembleront ses élus, des quatre vents, des extrémités des cieux à leurs extrémités.
+24:30	Et alors apparaîtra le signe du Fils d'humain dans le ciel. Et alors toutes les tribus de la Terre se frapperont la poitrine de chagrin et verront le Fils d'humain venant sur les nuées du ciel, avec puissance et une grande gloire.
+24:31	Et il enverra ses anges avec un grand son de trompette, et ils rassembleront ses élus, des quatre vents, des extrémités des cieux jusqu’à leurs extrémités.
 
 ### Parabole du figuier<!--Mc. 13:28-31 ; Lu. 21:29-33.-->
 
-24:32	Mais apprenez du figuier cette parabole. Dès que sa jeune branche devient tendre et qu'elle pousse des feuilles, vous savez que l'été est proche.
+24:32	Mais apprenez du figuier cette parabole. Dès que sa jeune branche est devenu tendre et qu'elle pousse des feuilles, vous savez que l'été est proche.
 24:33	De même vous aussi, quand vous aurez vu toutes ces choses, sachez qu'il est proche, aux portes.
-24:34	Amen, je vous le dis, cette génération ne passera jamais, jusqu'à ce que tout cela ne soit arrivé.
+24:34	Amen, je vous le dis, cette génération ne passera jamais, jusqu'à ce que toutes ces choses soient arrivées.
 24:35	Le ciel et la Terre passeront, mais mes paroles ne passeront jamais.
 
 ### Exhortation à la vigilance<!--Mc. 13:32-37 ; Lu. 21:34-38.-->
 
 24:36	Mais au sujet de ce jour-là et de l’heure, personne ne le sait, ni les anges des cieux, mais mon Père seul.
 24:37	Mais comme aux jours de Noah, ainsi sera la parousie du Fils d'humain.
-24:38	Car, comme ils étaient, aux jours d'avant le déluge, mangeant et buvant, se mariant et donnant en mariage, jusqu'au jour où Noah entra dans l'arche,
-24:39	et ils ne surent rien jusqu'à ce que le déluge vint et les emporta tous, ainsi sera la parousie du Fils d'humain.
+24:38	Car, comme ils étaient dans les jours avant le déluge, mangeant et buvant, se mariant et donnant en mariage, jusqu'au jour où Noah entra dans l'arche,
+24:39	et ils ne surent rien jusqu'à ce que le déluge vint et les emporta tous, ainsi sera aussi la parousie du Fils d'humain.
 24:40	Alors deux seront dans le champ : l'un est pris et l'autre est laissé à l'abandon.
-24:41	Deux seront en train de moudre au moulin : l'une est prise et l'autre est laissée à l'abandon.
+24:41	Deux moulant au moulin : l'une est prise et l'autre est laissée à l'abandon.
 24:42	Veillez donc, parce que vous ne savez pas à quelle heure votre Seigneur vient.
 24:43	Mais sachez que, si le maître de la maison savait à quelle veille le voleur vient, il veillerait et ne laisserait pas percer sa maison.
 24:44	En raison de cela, vous aussi soyez prêts<!--Devenez prêts.-->, parce que le Fils d'humain vient à l'heure que vous ne pensez pas.
 24:45	Quel est donc l'esclave fidèle et prudent, que son seigneur a établi sur ses serviteurs pour leur donner la nourriture au temps convenable ?
 24:46	Béni est cet esclave, celui que son seigneur, étant venu, trouvera agissant de cette manière !
-24:47	Amen, je vous le dis, il l'établira sur tous ses biens.
+24:47	Amen, je vous dis qu'il l'établira sur tous ses biens.
 24:48	Mais si c'est un méchant esclave, qui se dit en son cœur : Mon seigneur tarde à venir,
 24:49	et qu’il se mette à battre ses compagnons de service, à manger et boire avec les ivrognes,
 24:50	le seigneur de cet esclave viendra le jour où il ne s'y attend pas et à l'heure qu'il ne connaît pas.
@@ -1304,7 +1304,7 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 25:7	Alors toutes ces vierges se réveillèrent<!--Réveiller : du grec « egeiro ». Ce terme signifie également ressusciter. Les saints qui attendent le retour du Seigneur connaîtront un réveil après un temps de sommeil spirituel (Ro. 13:11).--> et préparèrent leurs lampes.
 25:8	Et les folles dirent aux prudentes : Donnez-nous de votre huile, car nos lampes s'éteignent.
 25:9	Mais les prudentes répondirent, en disant : Non, de peur que nous n'en ayons pas assez pour nous et pour vous. Mais allez plutôt chez ceux qui en vendent et achetez-en pour vous-mêmes.
-25:10	Or pendant qu'elles allaient en acheter, l'époux arriva. Celles qui étaient prêtes entrèrent avec lui dans la salle des noces, et la porte fut fermée.
+25:10	Or elles, en allant en acheter, l'époux arriva, et celles qui étaient prêtes entrèrent avec lui dans la salle des noces, et la porte fut fermée.
 25:11	Mais plus tard viennent aussi les autres vierges disant : Seigneur, Seigneur, ouvre-nous !
 25:12	Mais répondant, il dit : Amen, je vous le dis, je ne vous connais pas.
 25:13	Veillez donc, parce que vous ne savez ni le jour ni l'heure où le Fils d'humain vient.
@@ -1321,7 +1321,7 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 25:21	Et son Seigneur lui dit : C'est bien ! Bon et fidèle esclave ! Tu as été fidèle en peu de choses, je t'établirai sur beaucoup. Entre dans la joie de ton Seigneur.
 25:22	Et étant venu aussi, celui ayant reçu les deux talents, disant : Seigneur, tu m'as livré deux talents. Voici, j'en ai gagné deux autres par-dessus.
 25:23	Son Seigneur lui dit : C'est bien ! Bon et fidèle esclave ! Tu as été fidèle en peu de choses, je t'établirai sur beaucoup. Entre dans la joie de ton Seigneur.
-25:24	Et étant venu aussi, celui n'ayant reçu qu'un talent, disant : Seigneur, je te connaissais, que tu es un humain dur, moissonnant où tu n’as pas semé et recueillant où tu n'as pas répandu.
+25:24	Et étant venu aussi, celui ayant reçu un talent, disant : Seigneur, je te connaissais, que tu es un humain dur, moissonnant où tu n’as pas semé et recueillant où tu n'as pas répandu.
 25:25	Et ayant eu peur, en partant, j'ai caché ton talent dans la terre. Voici, tu as ici ce qui t'appartient.
 25:26	Et son Seigneur répondant, lui dit : Méchant et paresseux esclave ! Tu savais que je moissonne où je n’ai pas semé, et que je recueille où je n’ai pas répandu,
 25:27	il te fallait donc remettre mon argent aux banquiers et à mon retour, j'aurais retiré ce qui est à moi avec un intérêt.
@@ -1335,17 +1335,17 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 25:32	Et toutes les nations seront rassemblées<!--Es. 66:18.--> devant lui. Et il séparera<!--Ez. 34:16-17.--> les uns d'avec les autres, comme le berger sépare les brebis d'avec les boucs.
 25:33	Et il mettra en effet, les brebis à partir de ses droites, et les boucs à partir de ses gauches.
 25:34	Alors le Roi dira à ceux qui seront à partir de ses droites : Venez, vous qui êtes bénis de mon Père, recevez en héritage le Royaume qui vous a été préparé dès la fondation du monde.
-25:35	Car j'ai eu faim et vous m'avez donné à manger. J'ai eu soif et vous m'avez donné à boire. J'étais étranger et vous m'avez recueilli.
-25:36	J'étais nu et vous m'avez vêtu. J'étais malade et vous m'avez visité. J'étais en prison et vous êtes venus vers moi.
+25:35	Car j'ai eu faim et vous m'avez donné à manger. J'ai eu soif et vous m'avez donné à boire. J'étais étranger et vous m'avez recueilli,
+25:36	nu, et vous m'avez vêtu, malade et vous m'avez visité. J'étais en prison et vous êtes venus vers moi.
 25:37	Alors les justes lui répondront, en disant : Seigneur, quand est-ce que nous t'avons vu avoir faim, et que nous t'avons nourri, ou avoir soif, et que nous t'avons donné à boire ?
 25:38	Et quand est-ce que nous t'avons vu étranger, et que nous t'avons recueilli, ou nu et t'avons-nous vêtu ?
 25:39	Et quand est-ce que nous t'avons vu malade, ou en prison, et que nous sommes venus vers toi ?
-25:40	Et le Roi répondant, leur dira : Amen, je vous le dis, toutes les fois que vous avez fait ces choses à l'un de ces plus petits de mes frères, c'est à moi que vous les avez faites.
+25:40	Et le Roi répondant, leur dira : Amen, je vous le dis, autant de fois que vous avez fait ces choses à l'un de ces plus petits de mes frères, c'est à moi que vous les avez faites.
 25:41	Alors il dira aussi à ceux qui seront à partir de ses gauches : Maudits, retirez-vous de moi et allez dans le feu éternel, qui a été préparé pour le diable et pour ses anges.
 25:42	Car j'ai eu faim et vous ne m'avez pas donné à manger. J'ai eu soif et vous ne m'avez pas donné à boire.
-25:43	J'étais un étranger et vous ne m'avez pas recueilli, nu et vous ne m'avez pas vêtu, malade et en prison, et vous ne m'avez pas visité.
+25:43	J'étais un étranger et vous ne m'avez pas recueilli, nu, et vous ne m'avez pas vêtu, malade et en prison, et vous ne m'avez pas visité.
 25:44	Alors ils répondront aussi, en disant : Seigneur, quand est-ce que nous t'avons vu avoir faim, ou avoir soif, ou être étranger, ou nu, ou malade, ou en prison, et que nous ne t'avons pas servi ?
-25:45	Alors il leur répondra, en disant : Amen, je vous le dis, toutes les fois que vous n'avez pas fait ces choses à l'un de ces plus petits, c'est à moi que vous ne les avez pas faites.
+25:45	Alors il leur répondra, en disant : Amen, je vous le dis, autant de fois que vous n'avez pas fait ces choses à l'un de ces plus petits, c'est à moi que vous ne les avez pas faites.
 25:46	Et ceux-ci iront au châtiment éternel, mais les justes à la vie éternelle.
 
 ## Chapitre 26
@@ -1355,7 +1355,7 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 26:1	Et il arriva que, quand Yéhoshoua eut achevé tous ces discours, il dit à ses disciples :
 26:2	Vous savez que la fête de Pâque a lieu dans deux jours, et que le Fils d'humain sera livré pour être crucifié.
 26:3	Alors les principaux prêtres, les scribes et les anciens du peuple se réunirent dans la cour du grand-prêtre, appelé Kaïaphas<!--Un grand-prêtre des Juifs nommé à cette fonction par Valerius Gratus, gouverneur de Judée, en remplacement de Shim’ôn, fils de Camith, en 18 ap. J.-C. et remplacé en 36 ap. J.-C. par Yonathan, fils de Ananus, par une décision de Vitellius, gouverneur de Syrie.-->,
-26:4	et ils tinrent conseil ensemble pour se saisir de Yéhoshoua par ruse, afin de le tuer.
+26:4	et ils tinrent conseil ensemble afin qu'ils se saisissent de Yéhoshoua par ruse et qu'ils le tuent.
 26:5	Mais ils dirent : Que ce ne soit pas pendant la fête, de peur qu'il ne se fasse quelque tumulte parmi le peuple.
 
 ### Myriam de Béthanie répand du baume sur Yéhoshoua<!--Mc. 14:3-9 ; Jn. 12:1-8.-->
@@ -1373,7 +1373,7 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 
 26:14	Alors l'un des douze, appelé Yéhouda Iskariote, alla vers les principaux prêtres
 26:15	et leur dit : Que voulez-vous me donner et je vous le livrerai ? Et ils lui comptèrent 30 pièces d'argent<!--Za. 11:12-13.-->.
-26:16	Et dès lors, il cherchait une occasion favorable pour le livrer.
+26:16	Et dès lors, il cherchait une occasion favorable afin qu'il le livre.
 
 ### La dernière Pâque<!--Mc. 14:12-21 ; Lu. 22:7-20 ; Jn. 13:1-12.-->
 
@@ -1384,15 +1384,15 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 26:21	Et en mangeant, il leur dit : Amen, je vous le dis, l’un de vous me livrera.
 26:22	Et étant profondément attristés, chacun d'eux commença à lui dire : Seigneur, est-ce moi ?
 26:23	Mais il leur répondit et dit : Celui qui trempe sa main dans le plat avec moi, celui-là me livrera.
-26:24	Le Fils d'humain s'en va, selon qu'il est écrit de lui, mais malheur à cet humain par le moyen de qui le Fils d'humain est livré ! Mieux vaudrait pour cet humain qu'il ne soit pas né.
-26:25	Et Yéhouda qui le livrait, répondant, lui dit : Rabbi, est-ce moi ? Il lui dit : Tu l'as dit.
+26:24	Le Fils d'humain s'en va, selon ce qui a été écrit à son sujet, mais malheur à cet humain par le moyen duquel le Fils d'humain est livré ! Mieux vaudrait pour cet humain qu'il ne soit pas né.
+26:25	Et Yéhouda, en le livrant, répondant, lui dit : Rabbi, est-ce moi ? Il lui dit : Tu l'as dit.
 
 ### Le repas de la Pâque<!--Mc. 14:22-25 ; Lu. 22:17-20 ; Jn. 13:12-30 ; 1 Co. 11:23-26.-->
 
 26:26	Mais en mangeant, eux, Yéhoshoua prit du pain et, ayant prononcé la bénédiction, il le rompit et le donna aux disciples en disant : Prenez, mangez, ceci est mon corps.
-26:27	Et ayant pris la coupe, il rendit grâce, il la leur donna, en disant : Buvez-en tous,
+26:27	Et ayant pris la coupe et ayant rendu grâce, il la leur donna, en disant : Buvez-en tous,
 26:28	car ceci est mon sang, celui de la nouvelle alliance, qui est répandu pour beaucoup, pour le pardon des péchés.
-26:29	Or je vous dis que désormais je ne boirai plus de ce produit de la vigne, jusqu'à ce jour-là, quand je le boirai nouveau avec vous dans le royaume de mon Père.
+26:29	Or je vous dis que désormais je ne boirai plus de ce produit de la vigne, jusqu'à ce jour-là, quand je le bois nouveau avec vous dans le royaume de mon Père.
 
 ### Yéhoshoua annonce à Petros (Pierre) son triple reniement<!--Mc. 14:26-31 ; Lu. 22:31-34 ; Jn. 13:36-38.-->
 
@@ -1406,7 +1406,7 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 ### Gethsémané<!--Mc. 14:32-42 ; Lu. 22:39-46 ; Jn. 18:1.-->
 
 26:36	Alors Yéhoshoua arrive avec eux dans un lieu appelé Gethsémané, et il dit à ses disciples : Asseyez-vous ici, jusqu'à ce que m'en étant allé là, j'aie prié.
-26:37	Et il prit avec lui Petros et les deux fils de Zabdi, et il commença à être saisi de tristesse et d'angoisse<!--Vient du grec « ademoneo » qui signifie « être troublé, grande détresse ou angoisse, dépression ». C'est le mot grec le plus fort pour dépression. Voir Mc. 14:33 ; Ph. 2:26.-->.
+26:37	Et ayant pris avec lui Petros et les deux fils de Zabdi, il commença à être saisi de tristesse et d'angoisse<!--Vient du grec « ademoneo » qui signifie « être troublé, grande détresse ou angoisse, dépression ». C'est le mot grec le plus fort pour dépression. Voir Mc. 14:33 ; Ph. 2:26.-->.
 26:38	Alors il leur dit : Mon âme est très triste jusqu'à la mort. Restez ici et veillez avec moi !
 
 ### Première prière de Yéhoshoua<!--Mc. 14:35-38 ; Lu. 22:41-42.-->
@@ -1417,36 +1417,36 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 
 ### Deuxième prière de Yéhoshoua<!--Mc. 14:39 ; Lu. 22:44.-->
 
-26:42	Il s’en alla de nouveau, une seconde fois, et il pria, en disant : Mon Père, s'il n'est pas possible que cette coupe passe loin de moi sans que je la boive, que ta volonté soit faite !
+26:42	De nouveau, à partir d'une seconde fois, s'en étant allé, il pria, en disant : Mon Père, s'il n'est pas possible que cette coupe passe loin de moi sans que je la boive, que ta volonté soit faite !
 26:43	Et étant venu, il les trouva de nouveau endormis, car leurs yeux étaient appesantis.
 
 ### Troisième prière de Yéhoshoua<!--Mc. 14:41.-->
 
-26:44	Et les ayant laissés, il s’en alla de nouveau et pria pour la troisième fois, disant la même parole.
-26:45	Alors il vient vers les disciples et leur dit : Dormez maintenant et reposez-vous ! Voici, l'heure est proche, et le Fils d'humain va être livré entre les mains des pécheurs.
-26:46	Réveillez-vous, allons ! Voici, il s'approche, celui qui me livre.
+26:44	Et les ayant laissés, il s’en alla de nouveau et pria à partir de la troisième fois, disant la même parole.
+26:45	Alors il vient vers les disciples et leur dit : Dormez maintenant et reposez-vous ! Voici, l'heure s’est approchée, et le Fils d'humain est livré entre les mains des pécheurs.
+26:46	Réveillez-vous, allons ! Voici, il s’est approché, celui qui me livre.
 
 ### Yéhoshoua, trahi, abandonné et arrêté<!--Mc. 14:43-50 ; Lu. 22:47-53 ; Jn. 18:2-11.-->
 
 26:47	Or lui, en parlant encore, voici, Yéhouda, l'un des douze, vint, et avec lui, une grande foule avec des épées et des bâtons, de la part des principaux prêtres et des anciens du peuple.
-26:48	Or celui qui le livrait leur avait donné un signe, en disant : Celui à qui je donnerai un baiser, c'est lui, saisissez-le !
-26:49	Et immédiatement, s'approchant de Yéhoshoua, il lui dit : Rabbi, je te salue ! Et il l'embrassa tendrement.
+26:48	Or celui qui le livre leur avait donné un signe, en disant : Celui à qui je donnerai un baiser, c'est lui, saisissez-le !
+26:49	Et immédiatement, s'étant approché de Yéhoshoua, il lui dit : Rabbi, je te salue ! Et il l'embrassa tendrement.
 26:50	Et Yéhoshoua lui dit : Compagnon, pour quel sujet es-tu ici ? Alors s'étant approchés, ils jetèrent les mains sur Yéhoshoua et le saisirent.
 26:51	Et voici l'un de ceux qui étaient avec Yéhoshoua, ayant étendu la main, tira son épée et, ayant frappé l'esclave du grand-prêtre, lui emporta l'oreille.
 26:52	Alors Yéhoshoua lui dit : Remets ton épée à sa place, car tous ceux qui auront pris l'épée périront par l'épée<!--Ap. 13:10.-->.
 26:53	Ou bien penses-tu que je ne puisse pas maintenant appeler mon Père, et il m'offrira plus de douze légions d'anges ?
 26:54	Comment donc s'accompliraient les Écritures, puisqu'il faut que cela arrive ainsi ?
 26:55	En cette heure-là, Yéhoshoua dit aux foules : Vous êtes venus avec des épées et des bâtons, comme après un brigand, pour me prendre. J'étais tous les jours assis parmi vous, enseignant dans le temple, et vous ne m'avez pas saisi.
-26:56	Mais tout ceci est arrivé afin que les Écritures des prophètes soient accomplies. Alors tous les disciples l'abandonnèrent et s'enfuirent.
+26:56	Mais tout ceci est arrivé afin que les Écritures des prophètes soient accomplies. Alors tous les disciples l'ayant abandonné, ils s'enfuirent.
 
 ### Yéhoshoua comparaît devant Kaïaphas (Caïphe) et le sanhédrin<!--Mc. 14:53-65 ; Jn. 18:12-14,19-24.-->
 
-26:57	Et ceux-là, ayant saisi Yéhoshoua l'amenèrent chez Kaïaphas, le grand-prêtre, où les scribes et les anciens étaient rassemblés.
-26:58	Et Petros le suivit de loin jusqu'à la cour du grand-prêtre, y entra et s'assit avec les officiers pour voir comment cela finirait.
-26:59	Mais les principaux prêtres, les anciens et tout le sanhédrin cherchaient un faux témoignage contre Yéhoshoua pour le faire mourir.
-26:60	Et ils n'en trouvèrent pas, et bien que beaucoup de faux témoins se soient présentés, ils n'en trouvèrent pas. Mais à la fin, deux faux témoins s'approchèrent,
-26:61	et dirent : Celui-ci a dit : Je peux détruire le temple d'Elohîm et le rebâtir en trois jours.
-26:62	Et le grand-prêtre se leva et lui dit : Ne réponds-tu rien ? Qu'est-ce que ceux-ci témoignent contre toi ?
+26:57	Et s'étant saisis de Yéhoshoua, ils l’emmenèrent chez Kaïaphas, le grand-prêtre, où les scribes et les anciens étaient rassemblés.
+26:58	Et Petros le suivit de loin jusqu'à la cour du grand-prêtre, y entra et s'assit avec les officiers pour voir la fin.
+26:59	Mais les principaux prêtres, les anciens et tout le sanhédrin cherchaient un faux témoignage contre Yéhoshoua pour qu'ils le mettent à mort.
+26:60	Et ils n'en trouvèrent pas, et bien que beaucoup de faux témoins se soient présentés, ils n'en trouvèrent pas. Mais à la fin, deux faux témoins s'étant approchés,
+26:61	dirent : Celui-ci a dit : Je peux détruire le temple d'Elohîm et le rebâtir en trois jours.
+26:62	Et le grand-prêtre s'étant levé, lui dit : Ne réponds-tu rien ? Qu'est-ce que ceux-ci témoignent contre toi ?
 26:63	Mais Yéhoshoua garda le silence. Et le grand-prêtre, répondant, lui dit : Je t'adjure par l'Elohîm, le Vivant<!--Ap. 1:18.-->, de nous dire si tu es le Mashiah, le Fils d'Elohîm.
 26:64	Yéhoshoua lui dit : Tu l'as dit. De plus, je vous le dis, dès maintenant vous verrez le Fils d'humain assis à partir des droites de la Puissance et venant sur les nuées du ciel.
 26:65	Alors le grand-prêtre déchira ses vêtements<!--Lé. 10:6 et 21:10. La torah de Moshé (Moïse) interdisait aux grands-prêtres de déchirer leurs vêtements.-->, en disant : Il a blasphémé ! Qu'avons-nous encore besoin de témoins ? Voici, vous avez entendu maintenant son blasphème.
@@ -1455,15 +1455,15 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 ### Yéhoshoua, maltraité par les Juifs
 
 26:67	Alors ils lui crachèrent au visage et le frappèrent à coups de poing. Et d'autres le frappèrent avec leurs bâtons,
-26:68	en disant : Mashiah, prophétise-nous qui est celui qui t'a frappé.
+26:68	en disant : Prophétise-nous, Mashiah, qui est celui qui t'a frappé ?
 
 ### Le triple reniement de Petros (Pierre)<!--Mc. 14:66-72 ; Lu. 22:55-62 ; Jn. 18:15-18,25-27.-->
 
-26:69	Or Petros était assis dehors dans la cour. Et une servante s'approcha de lui et lui dit : Toi aussi, tu étais avec Yéhoshoua le Galiléen.
+26:69	Or Petros était assis dehors dans la cour. Et une servante s'approcha de lui, disant : Toi aussi, tu étais avec Yéhoshoua le Galiléen.
 26:70	Mais il le nia devant tous, en disant : Je ne sais pas ce que tu dis.
-26:71	Et lui, étant sorti dans le vestibule, une autre le vit et elle dit à ceux qui étaient là : Celui-ci aussi était avec Yéhoshoua, le Nazaréen.
+26:71	Et lui, étant sorti dans le vestibule, une autre le vit et elle dit à ceux qui étaient là : Celui-ci aussi était avec Yéhoshoua le Nazaréen.
 26:72	Et il le nia encore avec serment : Je ne connais pas cet homme.
-26:73	Et peu après, ceux qui se trouvaient là s'approchèrent et dirent à Petros : Vraiment, toi aussi tu es de ces gens-là, car ton langage<!--Au 1er siècle, la langue parlée par la majorité de la population juive était un dialecte de l’araméen. C'est seulement au sud de la Judée que l'on parlait hébreu à cette époque.--> te fait connaître.
+26:73	Et peu après, ceux qui se trouvaient là s'approchèrent et dirent à Petros : Vraiment, toi aussi tu es issu d'eux, car ton langage<!--Au 1er siècle, la langue parlée par la majorité de la population juive était un dialecte de l’araméen. C'est seulement au sud de la Judée que l'on parlait hébreu à cette époque.--> te fait connaître.
 26:74	Alors il commença à se maudire et à jurer : Je ne connais pas cet homme. Et immédiatement un coq chanta.
 26:75	Et Petros se souvint de la parole de Yéhoshoua, qui lui avait dit<!--Mt. 26:34.--> : Avant qu'un coq chante, tu me renieras trois fois. Et étant sorti dehors, il pleura amèrement.
 
@@ -1471,10 +1471,10 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 
 ### Suicide de Yéhouda Iskariote (Judas)<!--Ac. 1:16-19.-->
 
-27:1	Or le matin étant advenu, tous les principaux prêtres et les anciens du peuple tinrent conseil contre Yéhoshoua pour le faire mourir.
-27:2	Et l'ayant lié, ils l'amenèrent et le livrèrent à Ponce Pilate, le gouverneur.
+27:1	Or le matin étant advenu, tous les principaux prêtres et les anciens du peuple tinrent conseil contre Yéhoshoua pour le mettre à mort.
+27:2	Et l'ayant lié, ils l'emmenèrent et le livrèrent à Ponce Pilate, le gouverneur.
 27:3	Alors Yéhouda qui l'avait livré, voyant qu'il était condamné, s'étant repenti, il rapporta les 30 pièces d'argent aux principaux prêtres et aux anciens,
-27:4	en leur disant : J'ai péché en livrant le sang innocent. Mais ils dirent : Qu'est-ce pour nous ? Cela te regarde ! 
+27:4	en disant : J'ai péché en livrant le sang innocent. Mais ils dirent : Qu'est-ce pour nous ? Cela te regarde ! 
 27:5	Et jetant les pièces d'argent dans le temple, il se retira et s’en alla mettre fin à ses jours par pendaison<!--Étouffer, étrangler, afin de tuer.-->.
 27:6	Mais les principaux prêtres prirent les pièces d'argent, et dirent : Il n'est pas légal de les mettre dans le trésor, car c'est le prix du sang.
 27:7	Et ayant tenu conseil, ils achetèrent le champ du potier, pour la sépulture des étrangers.
@@ -1484,8 +1484,8 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 
 ### Yéhoshoua comparaît devant Pilate
 
-27:11	Or Yéhoshoua comparut devant le gouverneur. Et le gouverneur l'interrogea : Es-tu le Roi des Juifs ? Mais Yéhoshoua lui déclara : Tu le dis.
-27:12	Mais il ne répondit rien aux accusations des principaux prêtres et des anciens.
+27:11	Or Yéhoshoua comparut devant le gouverneur. Et le gouverneur l'interrogea : Es-tu le Roi des Juifs ? Mais Yéhoshoua lui déclara : « C’est toi qui le dis. »
+27:12	Mais dans l'accusation des principaux prêtres et des anciens, il ne répondit rien.
 27:13	Alors Pilate lui dit : N'entends-tu pas combien de choses ils témoignent contre toi ?
 27:14	Mais il ne lui donna de réponse sur aucune parole, ce qui étonna beaucoup le gouverneur.
 
@@ -1495,36 +1495,36 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 27:16	Et il y avait alors un prisonnier infâme, appelé Barabbas.
 27:17	Les ayant donc rassemblés, Pilate leur dit : Lequel voulez-vous que je vous relâche ? Barabbas ou Yéhoshoua, qu'on appelle Mashiah ?
 27:18	Car il savait que c’était par envie qu’ils l’avaient livré.
-27:19	Or lui, étant assis sur le tribunal, sa femme envoya quelqu'un pour lui dire : Qu'il n'y ait rien entre toi et ce juste, car j'ai beaucoup souffert aujourd'hui en rêve à cause de lui.
-27:20	Mais les principaux prêtres et les anciens persuadèrent la multitude du peuple de demander Barabbas et de faire périr Yéhoshoua.
+27:19	Or lui, étant assis sur le tribunal, sa femme lui envoya dire : Qu'il n'y ait rien entre toi et ce juste, car j'ai beaucoup souffert aujourd'hui en rêve à cause de lui.
+27:20	Mais les principaux prêtres et les anciens persuadèrent la multitude du peuple afin qu'ils demandent Barabbas et qu'ils fassent périr Yéhoshoua.
 27:21	Et le gouverneur, répondant, leur dit : Lequel des deux voulez-vous que je vous relâche ? Et ils dirent : Barabbas.
 27:22	Pilate leur dit : Que ferai-je donc de Yéhoshoua qu'on appelle Mashiah ? Ils lui disent tous : Qu'il soit crucifié !
 27:23	Et le gouverneur leur dit : Mais quel mal a-t-il fait ? Et ils crièrent encore plus fort, en disant : Qu'il soit crucifié !
-27:24	Alors Pilate voyant qu'il ne gagnait rien, mais que le tumulte s'augmentait, prit de l'eau et lava ses mains devant le peuple, en disant : Je suis innocent du sang de ce juste. Cela vous regarde.
+27:24	Alors Pilate voyant qu'il ne profite en rien, mais que le tumulte s'augmentait, prit de l'eau et lava ses mains devant le peuple, en disant : Je suis innocent du sang de ce juste. Cela vous regarde.
 27:25	Et tout le peuple répondit en disant : Que son sang soit sur nous et sur nos enfants !
 27:26	Alors il leur relâcha Barabbas, et quant à Yéhoshoua, l’ayant fait fouetter, il le livra pour qu'il soit crucifié.
 
 ### Le Roi couronné d'épines<!--Mc. 15:16-23 ; Lu. 23:26-32 ; Jn. 19:16-17.-->
 
-27:27	Alors les soldats du gouverneur amenèrent Yéhoshoua dans le prétoire et rassemblèrent devant lui toute la cohorte.
+27:27	Alors les soldats du gouverneur, ayant pris Yéhoshoua pour le prétoire, ils rassemblèrent devant lui toute la cohorte.
 27:28	Et l’ayant dépouillé, ils le revêtirent d'un manteau d'écarlate.
 27:29	Et ayant fait une couronne d'épines entrelacées, ils la mirent sur sa tête et ils lui mirent un roseau dans sa main droite et, tombant à genoux devant lui, ils se jouaient de lui, en disant : Nous te saluons, Roi des Juifs !
 
 ### Yéhoshoua, maltraité par les soldats
 
-27:30	Et ils crachaient sur lui, prenaient le roseau et frappaient sur sa tête.
-27:31	Et quand ils se furent joués de lui, ils lui ôtèrent le manteau et lui remirent ses propres vêtements, et l'amenèrent pour le crucifier.
+27:30	Et ayant craché sur lui, ils prirent le roseau et frappaient sur sa tête.
+27:31	Et quand ils se furent joués de lui, ils lui ôtèrent le manteau et lui remirent ses propres vêtements, et l'emmenèrent pour le crucifier.
 
 ### La crucifixion de Yéhoshoua<!--Mc. 15:24-41 ; Lu. 23:33-49 ; Jn. 19:17-37 ; Hé. 9:3-8, 10:19-20.-->
 
-27:32	Or en sortant, ils rencontrèrent un homme de Cyrène, du nom de Shim’ôn, et ils le contraignirent à porter sa croix.
-27:33	Et étant arrivés au lieu appelé Golgotha, c'est-à-dire, le lieu du Crâne,
+27:32	Or en sortant, ils rencontrèrent un homme de Cyrène, du nom de Shim’ôn, ils le contraignirent afin qu'il porte sa croix.
+27:33	Et étant arrivés au lieu dit Golgotha, lequel est le lieu dit le Crâne,
 27:34	ils lui donnèrent à boire du vinaigre mêlé avec du fiel<!--Le vinaigre mêlé au fiel (Ps. 69:22) : Ce breuvage, appelé « posca », était un vin amer qui se transformait en vinaigre à cause des mauvaises conditions de conservation. Allongée avec de l'eau et parfois adoucie avec de l'œuf, cette boisson bon marché et très rafraîchissante était consommée principalement par les légionnaires et les esclaves. Connue pour ses vertus antiseptiques, les soldats de l'Antiquité avaient coutume d'y ajouter des drogues comme la myrrhe et le fiel (opium) pour atténuer les souffrances. En refusant de le boire, le Seigneur Yéhoshoua ha Mashiah (Jésus-Christ) a réellement pris sur lui la plénitude du châtiment que nous méritons à cause de nos péchés.--> et, l'ayant goûté, il ne voulut pas boire.
-27:35	Et l’ayant crucifié, ils partagèrent ses vêtements, en tirant au sort, afin que fût accompli ce qui avait été annoncé par le prophète : Ils se sont partagé mes vêtements, et ils ont tiré mon habit au sort<!--Ps. 22:19.-->.
+27:35	Et l’ayant crucifié, ils partagèrent ses vêtements, en tirant au sort, afin que fût accompli ce qui avait été annoncé par le prophète : Ils se sont partagé mes vêtements, et ils ont jeté mon habit au sort<!--Ps. 22:19.-->.
 27:36	Et s'étant assis, ils le gardaient là.
-27:37	Ils mirent aussi au-dessus de sa tête un écriteau, où la cause de sa condamnation était marquée en ces mots : CELUI-CI EST YÉHOSHOUA, LE ROI DES JUIFS.
+27:37	Et ils mirent au-dessus de sa tête son accusation<!--La cause pour laquelle on mérite une punition : crime, délit, faute.-->, ayant été écrit : CELUI-CI EST YÉHOSHOUA, LE ROI DES JUIFS.
 27:38	Alors deux brigands sont crucifiés avec lui, l'un à partir des droites, l'autre à partir des gauches.
-27:39	Et les passants blasphémaient contre lui et secouaient la tête,
+27:39	Et les passants blasphémaient contre lui, secouant leurs têtes,
 27:40	et disant : Toi qui détruis le temple et qui le rebâtis en trois jours, sauve-toi toi-même ! Si tu es le Fils d'Elohîm, descends de la croix !
 27:41	Mais pareillement aussi, les principaux prêtres, avec les scribes et les anciens, se jouant de lui, disaient :
 27:42	Il a sauvé les autres et il ne peut pas se sauver lui-même ! S'il est le Roi d'Israël, qu'il descende maintenant de la croix et nous croirons en lui.
@@ -1532,10 +1532,10 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 27:44	Les brigands aussi qui étaient crucifiés avec lui, lui reprochaient la même chose.
 27:45	Mais, depuis la sixième heure jusqu'à la neuvième la ténèbre<!--Le mot est au singulier.--> survint sur toute la Terre.
 27:46	Mais vers la neuvième heure, Yéhoshoua cria d'une grande voix, en disant : Éli, Éli, lama sabachthani ? C'est-à-dire : Mon El<!--Voir le dictionnaire en annexe.-->, mon El, pourquoi m'as-tu abandonné<!--Voir Ps. 22:2.--> ?
-27:47	Quelques-uns de ceux qui étaient là présents, ayant entendu cela, disaient : Celui-ci appelle Éliyah !
-27:48	Et immédiatement, l'un d'entre eux courut prendre une éponge, et l'ayant remplie de vinaigre et fixée au bout d'un roseau, il lui donna à boire.
-27:49	Mais les autres disaient : Laisse, voyons si Éliyah viendra le sauver.
-27:50	Mais Yéhoshoua poussa de nouveau un grand cri et rendit l'esprit.
+27:47	Or certains d'entre eux, s'étant tenu là, ayant entendu cela, disaient : Celui-ci appelle Éliyah !
+27:48	Et immédiatement, l'un d'entre eux, ayant couru et ayant pris une éponge, et l'ayant remplie de vinaigre et fixée au bout d'un roseau, il lui donna à boire.
+27:49	Mais les autres disaient : Laisse, voyons si Éliyah vient le sauver.
+27:50	Mais Yéhoshoua ayant de nouveau crié d'une grande voix, rendit l'esprit.
 
 ### FIN DE LA LOI MOSAÏQUE OU DE LA PREMIÈRE ALLIANCE
 
@@ -1543,24 +1543,24 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 ### Le voile du temple déchiré
 
 27:51	Et voici, le voile du temple se déchira en deux, depuis le haut jusqu'en bas<!--C'est ici que s'achève la première alliance. Cette dernière était relative à la torah de Moshé (Moïse), c'est-à-dire, aux ordonnances liées au culte, qui reposait sur la prêtrise lévitique et les sacrifices d'animaux et au sanctuaire terrestre, à savoir le temple de Yeroushalaim (Jérusalem) (Hé. 9:1). Le Seigneur ayant offert une fois pour toutes le sacrifice parfait, les exigences de la justice divine ont été pleinement satisfaites (Hé. 9:11-12,25-26). Désormais, la première alliance n'a plus de raison d'être et peut donc disparaître (Hé. 8:13). Non seulement la déchirure du voile séparant le lieu saint du Saint des saints atteste la fin de la première alliance, mais invite aussi tout être humain à s'approcher d'Elohîm en esprit, sans intermédiaires (Lévites, prêtres, pasteurs, prophètes...) ni nécessité de se rendre dans un temple (Jn. 4:23). La nouvelle alliance est aussi un testament puisque Yéhoshoua ha Mashiah (Jésus-Christ), notre légataire, est passé par la mort (Hé. 9:16-18). Voir aussi commentaire en Ex. 19:5.--> ; et la terre trembla et les pierres se fendirent.
-27:52	Et les sépulcres s'ouvrirent, et beaucoup de corps des saints qui s’étaient endormis furent réveillés.
-27:53	Et étant sortis des sépulcres après son réveil<!--Vient de « egersis » qui signifie : un réveil, une excitation, se lever.-->, ils entrèrent dans la ville sainte et apparurent à beaucoup.
-27:54	L'officier de l'armée romaine et ceux qui étaient avec lui pour garder Yéhoshoua, ayant vu le tremblement de terre et tout ce qui venait d'arriver, furent extrêmement effrayés et dirent :  Vraiment, celui-ci était Fils d'Elohîm.
-27:55	Il y avait là aussi beaucoup de femmes qui regardaient de loin, et qui avaient suivi Yéhoshoua depuis la Galilée, pour le servir ;
+27:52	Et les sépulcres furent ouverts, et beaucoup de corps des saints ayant été endormis furent réveillés.
+27:53	Et étant sortis hors des sépulcres après son réveil<!--Vient de « egersis » qui signifie : un réveil, une excitation, se lever.-->, ils entrèrent dans la ville sainte et apparurent à beaucoup.
+27:54	L'officier de l'armée romaine et ceux qui étaient avec lui, gardant Yéhoshoua, ayant vu le tremblement de terre et les choses advenues, furent extrêmement effrayés et dirent :  Vraiment, celui-ci était Fils d'Elohîm.
+27:55	Il y avait là aussi beaucoup de femmes regardant de loin, lesquelles avaient suivi Yéhoshoua depuis la Galilée, le servant ;
 27:56	parmi lesquelles étaient Myriam, la Magdeleine, Myriam, mère de Yaacov et de Yossef, et la mère des fils de Zabdi.
 
 ### Yossef d'Arimathée se rend vers Pilate et demande le corps de Yéhoshoua<!--Mc. 15:42-47 ; Lu. 23:50-56 ; Jn. 19:38-42.-->
 
-27:57	Et le soir étant advenu, un homme riche d'Arimathée, appelé Yossef, qui était aussi disciple de Yéhoshoua,
-27:58	se rendit vers Pilate et demanda le corps de Yéhoshoua. En même temps Pilate ordonna que le corps soit rendu.
+27:57	Et le soir étant advenu, un homme riche d'Arimathée, nommé Yossef, qui était aussi disciple de Yéhoshoua,
+27:58	celui-ci s'étant approché de Pilate, demanda le corps de Yéhoshoua. Alors Pilate ordonna que le corps soit rendu.
 27:59	Et Yossef, ayant pris le corps, l'enveloppa dans un linceul pur,
-27:60	et le mit dans son sépulcre neuf qu'il avait taillé dans le rocher. Et il roula une grande pierre à l'entrée du sépulcre et il s'en alla.
+27:60	et le mit dans son sépulcre neuf qu'il avait taillé dans le rocher et, ayant roulé une grande pierre à l'entrée du sépulcre, il s'en alla.
 27:61	Myriam, la Magdeleine et l'autre Myriam étaient là, assises vis-à-vis de la tombe.
 
 ### Le sépulcre scellé et gardé
 
 27:62	Or le lendemain, qui est après la préparation<!--Le jour où les Juifs faisaient la préparation nécessaire pour célébrer un shabbat ou une fête.-->, les principaux prêtres et les pharisiens allèrent ensemble auprès de Pilate,
-27:63	et dirent : Seigneur, nous nous sommes souvenus que ce trompeur disait, étant encore en vie : Après trois jours je suis réveillé.
+27:63	disant : Seigneur, nous nous sommes souvenus que ce trompeur disait, étant encore en vie : Après trois jours je suis réveillé.
 27:64	Ordonne donc que la tombe soit mise en sécurité jusqu'au troisième jour, de peur que ses disciples ne viennent de nuit et ne volent son corps, et qu'ils ne disent au peuple : « Il est réveillé d’entre les morts », et il sera, le dernier égarement, pire que le premier.
 27:65	Et Pilate leur dit : Vous avez une garde, allez, mettez-la en sécurité comme vous savez.
 27:66	Or s'en étant allés, ils mirent en sécurité la tombe, en scellant la pierre avec la garde.
@@ -1569,7 +1569,7 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 
 ### La résurrection de Yéhoshoua ha Mashiah (Jésus-Christ) annoncée par un ange<!--Mc. 16:1-14 ; Lu. 24:1-49 ; Jn. 20:1-23.-->
 
-28:1	Mais après les shabbats<!--Il est question ici du shabbat annuel, c'est-à-dire la fête des pains sans levain. Ce shabbat n'a rien à voir avec le shabbat hebdomadaire ou le samedi.-->, à l'aube d'un des shabbats<!--Il est question ici du shabbat hebdomadaire, c'est-à-dire le septième jour ou le samedi.-->, Myriam, la Magdeleine et l'autre Myriam, allèrent voir le sépulcre.
+28:1	Mais après les shabbats<!--Il est question ici du shabbat annuel, c'est-à-dire la fête des pains sans levain. Ce shabbat n'a rien à voir avec le shabbat hebdomadaire ou le samedi.-->, à l'aube d'un des shabbats<!--Il est question ici du shabbat hebdomadaire, c'est-à-dire le septième jour ou le samedi.-->, Myriam, la Magdeleine et l'autre Myriam, allèrent voir la tombe.
 28:2	Et voici qu’un grand tremblement de terre est advenu, car un ange du Seigneur, étant descendu à partir du ciel, en s’approchant, il roula la pierre de devant la porte et s'assit dessus.
 28:3	Or son visage était comme un éclair et son vêtement blanc comme de la neige.
 28:4	Et les gardes tremblèrent de peur et devinrent comme morts.
@@ -1587,7 +1587,7 @@ Son récit exalte la royauté de Yéhoshoua et expose l'Évangile du Royaume.
 
 28:11	Mais elles, en s’en allant, voici que quelques-uns de la garde étant allés dans la ville, portèrent aux principaux prêtres la nouvelle de toutes les choses qui étaient arrivées.
 28:12	Et s'étant rassemblés avec les anciens et ayant tenu conseil, ils donnèrent une forte somme d'argent aux soldats,
-28:13	en disant : Dites que ses disciples sont venus de nuit et l'ont volé pendant que nous étions endormis.
+28:13	en disant : Dites que ses disciples étant venus de nuit, l'ont volé ; nous, étant endormis.
 28:14	Et si le gouverneur l'apprend, nous le persuaderons et nous ferons en sorte que vous soyez libérés de l'anxiété<!--Nous ferons en sorte que vous soyez sans souci.-->.
 28:15	Et eux, ayant pris l'argent, firent comme ils avaient été instruits. Et cette parole s'est répandue parmi les Juifs jusqu’à aujourd’hui.
 

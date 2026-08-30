@@ -214,7 +214,7 @@ En attendant de leur rendre visite, Paulos avait le désir de communiquer aux ch
 7:17	Mais maintenant ce n'est plus moi qui accomplis cela, mais le péché qui habite en moi.
 7:18	Car je sais qu’en moi, c’est-à-dire, en ma chair, il ne demeure rien de bon, parce que le vouloir est à ma portée, mais je ne trouve pas le moyen d'accomplir ce qui est bon.
 7:19	Car le bien que je veux, je ne le fais pas, mais le mal que je ne veux pas, je le pratique.
-7:20	Or si ce que je ne veux pas, moi, je le fais, ce n'est plus moi qui accomplis cela, mais le péché habitant en moi.
+7:20	Or si ce que je ne veux pas, moi, je le fais, ce n'est plus moi qui accomplis cela, mais le péché qui habite en moi.
 7:21	Je trouve donc cette torah au-dedans de moi : quand je veux faire ce qui est bon, c'est le mal qui est à ma portée.
 7:22	Car je prends plaisir à la torah d'Elohîm selon l'homme intérieur,
 7:23	mais je vois dans mes membres une autre torah qui lutte contre la torah de ma pensée<!--Pensée : du grec « nous », c'est-à-dire l'esprit, l'intelligence, la pensée, le bon sens, la raison.--> et qui me rend captif de la torah du péché qui est dans mes membres.
@@ -252,10 +252,10 @@ En attendant de leur rendre visite, Paulos avait le désir de communiquer aux ch
 8:27	Mais celui qui sonde les cœurs connaît quelle est la pensée de l'Esprit, parce que c'est selon Elohîm qu'il intercède en faveur des saints. 
 8:28	Mais nous savons aussi que toutes choses concourent au bien de ceux qui aiment Elohîm, de ceux qui sont appelés selon son dessein.
 8:29	Parce que ceux qu'il a connus d'avance, il les a aussi prédestinés à être conformes à l'image de son Fils, afin qu'il soit le premier-né de beaucoup de frères.
-8:30	Et ceux qu'il a prédestinés, il les a aussi appelés. Et ceux qu'il a appelés, il les a aussi justifiés, et ceux qu'il a justifiés, il les a aussi glorifiés.
+8:30	Or ceux qu'il a prédestinés, il les a aussi appelés ; et ceux qu'il a appelés, il les a aussi justifiés ; et ceux qu'il a justifiés, il les a aussi glorifiés.
 8:31	Que dirons-nous donc à ces choses ? Si l'Elohîm est en notre faveur, qui sera contre nous ?
 8:32	Lui qui n’a même pas épargné son propre Fils, mais qui l'a livré en faveur de nous tous, comment ne nous donnera-t-il pas aussi gracieusement toutes choses avec lui ?
-8:33	Qui s'avancera en accusateur contre les élus d'Elohîm ? Elohîm est celui qui justifie !
+8:33	Qui s'avancera en accusateur contre les élus d'Elohîm ? Elohîm est le justificateur !
 8:34	Qui les condamnera ? Mashiah est mort, mais bien plus, il a été aussi réveillé, il est à la droite d'Elohîm et il intercède même en notre faveur !
 8:35	Qui nous séparera de l'amour du Mashiah ? La tribulation, ou l'affreuse calamité, ou la persécution, ou la famine, ou la nudité, ou le péril, ou l'épée ?
 8:36	Selon qu'il est écrit<!--Ps. 44:23.--> : À cause de toi, nous sommes mis à mort tout le jour, nous avons été estimés comme des brebis de l'abattage.
@@ -267,7 +267,7 @@ En attendant de leur rendre visite, Paulos avait le désir de communiquer aux ch
 
 9:1	Je dis la vérité en Mashiah, je ne mens pas, ma conscience me rendant témoignage par l’Esprit Saint,
 9:2	qu'il y a une grande douleur en moi et une peine continuelle en mon cœur.
-9:3	Car moi-même je souhaiterais être anathème et séparé du Mashiah en faveur de mes frères, mes parents selon la chair,
+9:3	Car moi-même je souhaiterais être anathème et loin<!--séparation d'une chose par rapport à une autre, quand le lien entre elles est détruit.--> du Mashiah en faveur de mes frères, mes parents selon la chair,
 9:4	qui sont israélites, auxquels sont l'adoption, et la gloire, et les alliances, et la législation, et le service sacré et les promesses,
 9:5	auxquels sont les pères, et desquels est issu selon la chair le Mashiah, lui qui est au-dessus de toutes choses Elohîm béni pour les âges. Amen !
 9:6	Or ce n'est pas que la parole d'Elohîm ait échoué, car tous ceux qui sont issus d'Israël ne sont pas Israël,
@@ -278,39 +278,39 @@ En attendant de leur rendre visite, Paulos avait le désir de communiquer aux ch
 9:11	Car ils n’étaient pas encore nés et n’avaient rien pratiqué de bon ou de mauvais, afin que le dessein arrêté selon l'élection d'Elohîm demeure, non à partir des œuvres, mais à partir de celui qui appelle,
 9:12	il lui fut dit : L'aîné sera l'esclave du plus petit<!--Ge. 25:23.-->, 
 9:13	ainsi qu'il est écrit : J'ai aimé Yaacov et j'ai haï Ésav<!--Mal. 1:2-3.-->.
-9:14	Que dirons-nous donc ? Y a-t-il de l'injustice en Elohîm ? Que cela n'arrive jamais !
+9:14	Que dirons-nous donc ? Y a-t-il de l'injustice en Elohîm ? Que cela n'arrive pas !
 9:15	Car il dit à Moshé : Je ferai miséricorde à qui je fais miséricorde, et j'aurai compassion de qui j'ai compassion<!--Ex. 33:19.-->.
-9:16	Ainsi donc, ce n’est ni de celui qui veut, ni de celui qui court, mais d'Elohîm qui fait miséricorde.
-9:17	Car l'Écriture dit à pharaon : C'est pour cela même que je t'ai suscité, afin de démontrer en toi ma puissance, et afin que mon nom soit publié par toute la Terre<!--Ex. 9:16.-->.
+9:16	Ainsi donc, ce n’est ni de celui qui veut, ni de celui qui court, mais d'Elohîm miséricordieux.
+9:17	Car l'Écriture dit à pharaon : C'est pour cela même que je t'ai suscité, afin de démontrer en toi ma puissance, et afin que mon nom soit publié dans toute la Terre<!--Ex. 9:16.-->.
 9:18	Ainsi donc, il fait miséricorde à qui il veut, et il endurcit qui il veut.
 9:19	Tu me diras donc : De quoi se plaint-il encore ? Car qui a résisté à sa volonté ?
 9:20	Mais toi, ô humain, qui es-tu pour contester avec Elohîm ? Le vase de terre dira-t-il à celui qui l'a modelé : Pourquoi m'as-tu fait ainsi ?
-9:21	Le potier<!--Job. 10:8-9.--> n'a-t-il pas autorité sur l'argile, pour faire en effet de la même masse un vase pour l'honneur et un autre pour le déshonneur ?
-9:22	Mais, si en voulant montrer sa colère et faire connaître ce qu'il peut, Elohîm a supporté avec beaucoup de patience les vases de colère équipés pour la destruction,
-9:23	et ceci pour faire connaître la richesse de sa gloire sur les vases de miséricorde qu'il a préparés d'avance pour la gloire,
+9:21	Ou bien le potier<!--Job. 10:8-9.--> n'a-t-il pas autorité sur l'argile, pour faire en effet à partir de la même pâte<!--1 Co. 5:6-7 ; Ga. 5:9.--> un vase pour l'honneur et un autre pour le déshonneur ?
+9:22	Mais si l'Elohîm, en voulant montrer sa colère et faire connaître sa capacité, a supporté avec beaucoup de patience les vases de colère équipés pour la destruction,
+9:23	et afin qu'il fasse connaître la richesse de sa gloire sur les vases de miséricorde qu'il a préparés d'avance pour la gloire,
 9:24	nous aussi qu’il a appelés, non seulement hors des Juifs, mais aussi hors des nations.
 9:25	Comme il dit aussi dans Hoshea<!--Généralement traduit par « Hosée » ou « Osée ». Voir Os. 2:3 et 1:6-9.--> : « J'appellerai mon peuple celui qui n'était pas mon peuple, et aimée celle qui n'était pas aimée.»
 9:26	Et il arrivera que, dans le lieu même où il leur avait été dit : Vous n'êtes pas mon peuple ! Là ils seront appelés « fils de l'Elohîm vivant ».
 9:27	Mais Yesha`yah<!--Ésaïe.--> s'écrie en faveur d'Israël : Si le nombre des fils d'Israël est comme le sable de la mer<!--Os. 2:1.-->, le reste<!--Es. 10:21-23.--> sera sauvé.
-9:28	Car il accomplit et exécute rapidement la parole avec justice. Parce qu'il fera exécuter rapidement la parole sur la Terre.
+9:28	Car il achève et expédie brièvement une parole en justice, parce qu'une parole ayant été expédiée brièvement, le Seigneur l'exécutera sur la Terre.
 9:29	Et comme Yesha`yah avait dit auparavant : Si le Seigneur Tsevaot ne nous avait laissé une semence, nous serions devenus comme Sodome et nous aurions été semblables à Gomorrhe<!--Es. 1:9.-->.
-9:30	Que dirons-nous donc ? Que des nations qui ne courent pas après une justice ont saisi une justice, mais une justice issue de la foi,
+9:30	Que dirons-nous donc ? Que des nations, ne courant pas après une justice ont saisi une justice, mais une justice issue de la foi,
 9:31	mais Israël, courant après une torah de justice, n'est pas parvenu à cette torah.
 9:32	En raison de quoi ? Parce que ce n'est pas à partir de la foi, mais comme à partir des œuvres de la torah. Car ils se sont heurtés contre la pierre d'achoppement<!--Es. 8:13-15.-->,
-9:33	selon qu'il est écrit : Voici, je mets en Sion la pierre d'achoppement et le rocher de scandale, et quiconque croit en lui, ne sera pas confus<!--Es. 28:16.-->.
+9:33	selon qu'il est écrit : Voici, je mets en Sion une pierre d'achoppement et le rocher de scandale, et quiconque croit en lui, ne sera pas confus<!--Es. 28:16.-->.
 
 ## Chapitre 10
 
-10:1	Frères, en effet, le désir de mon cœur et ma supplication à Elohîm en faveur d'Israël est en vue du salut.
+10:1	Frères, en effet, le désir de mon cœur et ma supplication à Elohîm en faveur d'Israël est pour le salut.
 10:2	Car je leur rends témoignage qu'ils ont du zèle pour Elohîm, mais non pas selon la connaissance précise et correcte.
 10:3	Car, ne connaissant pas la justice d'Elohîm et cherchant à établir leur propre justice, ils ne se sont pas soumis à la justice d'Elohîm.
 10:4	Car Mashiah est la fin<!--Le mot « fin » vient du grec « telos » qui signifie « la limite à laquelle cesse une chose » ou encore « le but ». En effet, les lois cérémonielles avaient pour but d'amener les Israélites au sacrifice du Mashiah (Mt. 24:14 ; 1 Co. 10:11 ; 1 Ti. 1:5).--> de la torah<!--Il est question de la loi cérémonielle relative au culte mosaïque. Avant sa mort, Yéhoshoua, qui était né sous la torah (Ga. 4:4), demandait aux gens de l'appliquer. Ainsi, il demanda au lépreux qu'il avait guéri de présenter une offrande pour sa purification au temple (Mt. 8:1-4) et à ses disciples d'observer l'enseignement des scribes (Mt. 23:1-2). En effet, il fallait que les lois cérémonielles soient respectées jusqu'à sa mort. Quand Yéhoshoua a dit : « C'est accompli » (Jn. 19:30), toutes ces lois n'avaient plus aucune raison d'être (Col. 2:14-17 ; Hé. 7:11-22, 10:1-2).--> pour la justice de tout croyant.
-10:5	Car Moshé écrit à propos de la justice issue de la torah : L'être humain qui aura pratiqué ces choses vivra par elles<!--Lé. 18:5.-->.
+10:5	Car Moshé écrit à propos de la justice issue de la torah : L'être humain qui aura pratiqué ces choses vivra en elles<!--Lé. 18:5.-->.
 10:6	Mais ainsi parle la justice issue de la foi : Ne dis pas en ton cœur : Qui montera au ciel ? Cela, c’est amener vers le bas Mashiah<!--De. 30:11-14.-->.
 10:7	Ou : Qui descendra dans l'abîme ? Cela, c’est emmener ailleurs Mashiah, hors des morts<!--Décédé, parti, celui dont l'âme est dans le Hadès.-->.
 10:8	Mais que dit-elle ? La parole est près de toi, dans ta bouche et dans ton cœur. Cela, c’est la parole de foi que nous prêchons.
 10:9	Parce que si tu confesses<!--Jn. 9:22, 12:42.--> de ta bouche le Seigneur Yéhoshoua, et si tu crois dans ton cœur que l'Elohîm l'a réveillé hors des morts, tu seras sauvé.
-10:10	Car c'est du cœur que l'on croit à la justice, et c'est de la bouche que l'on fait profession pour le salut, 
+10:10	Car du cœur on croit pour la justice, et de la bouche on fait confession pour le salut, 
 10:11	car l'Écriture dit : Quiconque croit en lui ne sera pas confus<!--Es. 49:23.-->.
 10:12	Car il n'y a pas de différence entre Juif et Grec, car le même Seigneur de tous est riche pour tous ceux qui l'invoquent<!--Voir 1 Pi. 1:17.-->.
 10:13	Car quiconque invoquera le nom du Seigneur sera sauvé<!--Paulos (Paul) se réfère ici à Joë. 3:5 : « Et il arrivera que quiconque invoquera le nom de YHWH sera sauvé ». Comme à d'autres endroits, le nom propre YHWH a été remplacé par le générique « Seigneur ». Mt. 14:30. Voir commentaire en Lu. 4:18-19.-->.
@@ -318,37 +318,37 @@ En attendant de leur rendre visite, Paulos avait le désir de communiquer aux ch
 10:15	Mais comment prêchera-t-on, si l’on n’est pas envoyé ? Selon qu'il est écrit : Qu'ils sont beaux les pieds de ceux qui annoncent l’Évangile de la paix, de ceux qui annoncent l’Évangile des bonnes choses<!--Es. 52:7.--> !
 10:16	Mais tous n'ont pas obéi à l'Évangile. Car Yesha`yah dit : Seigneur, qui est-ce qui a cru à ce qu’il a entendu de nous<!--Es. 53:1.--> ?
 10:17	Ainsi la foi est issue de ce qu'on entend, et l'on entend au moyen de la parole d'Elohîm.
-10:18	Mais je dis : Ne l'ont-ils pas entendue ? Au contraire ! Leur voix est allée par toute la Terre, et leur parole jusqu'aux extrémités de la terre habitée<!--Ps. 19:5.-->.
-10:19	Mais je dis : Israël ne l'a-t-il pas su ? Moshé le premier dit : Je vous exciterai à la jalousie par une non-nation, je provoquerai votre colère par une nation sans intelligence<!--De. 32:21.-->.
+10:18	Mais je dis : Ne l'ont-ils pas entendue ? Au contraire ! Leur voix est allée dans toute la Terre, et leur parole jusqu'aux extrémités de la terre habitée<!--Ps. 19:5.-->.
+10:19	Mais je dis : Israël ne l'a-t-il pas su ? Moshé le premier dit : Moi, je vous exciterai à la jalousie par une non-nation, je provoquerai votre colère par une nation sans intelligence<!--De. 32:21.-->.
 10:20	Et Yesha`yah assume avec hardiesse et dit : J'ai été trouvé par ceux qui ne me cherchaient pas, et je me suis clairement manifesté à ceux qui ne me demandaient pas<!--Es. 65:1.-->.
 10:21	Mais à Israël il dit : Tout le jour j'ai tendu mes mains vers un peuple refusant de croire et contredisant<!--Es. 65:2.-->.
 
 ## Chapitre 11
 
-11:1	Je dis donc : Elohîm a-t-il rejeté son peuple ? Que cela n'arrive jamais ! Car je suis aussi Israélite, de la semence d'Abraham, de la tribu de Benyamin.
-11:2	Elohîm n'a pas rejeté son peuple, qu'il a connu d'avance. Ou bien ne savez-vous pas ce que l'Écriture dit par Éliyah, comment il prie Elohîm contre Israël en disant :
+11:1	Je dis donc : L'Elohîm n’a-t-il pas rejeté son peuple ? Que cela n'arrive pas ! Car moi aussi je suis Israélite, issu de la semence d'Abraham, de la tribu de Benyamin.
+11:2	L'Elohîm n'a pas rejeté son peuple qu'il a connu d'avance. Ou bien ne savez-vous pas ce que l'Écriture dit par Éliyah, comment il prie Elohîm contre Israël en disant :
 11:3	Seigneur, ils ont tué tes prophètes et ils ont démoli tes autels, moi seul, je suis laissé en reste, et ils cherchent mon âme<!--1 R. 19:10.--> ?
 11:4	Mais que lui dit la réponse divine ? Je me suis réservé 7 000 hommes qui n'ont pas fléchi le genou devant Baal<!--1 R. 19:18.-->.
-11:5	Ainsi donc, il y a aussi dans le temps présent, un reste, selon l'élection de la grâce.
+11:5	Ainsi donc, dans le temps présent, un reste, selon l'élection de la grâce a surgi<!--devenir, par exemple: entrer dans l'existence, commencer à être.-->.
 11:6	Mais si c'est par grâce, ce n'est plus à partir des œuvres, autrement la grâce ne devient plus grâce. Mais si c'est à partir des œuvres, ce n'est plus une grâce, autrement l'œuvre n'est plus une œuvre.
 11:7	Quoi donc ? Ce qu'Israël cherche, il ne l'a pas obtenu, mais les élus l'ont obtenu, tandis que les autres ont été endurcis.
-11:8	Ainsi qu'il est écrit : Elohîm leur a donné un esprit d'assoupissement, des yeux pour ne pas voir et des oreilles pour ne pas entendre<!--Es. 29:10.-->, jusqu'à ce jour. 
+11:8	Ainsi qu'il est écrit : L'Elohîm leur a donné un esprit d'assoupissement, des yeux pour ne pas voir et des oreilles pour ne pas entendre<!--Es. 29:10.-->, jusqu'à ce jour. 
 11:9	Et David dit : Que leur table devienne pour eux un filet et un piège, et une occasion de chute, et cela pour leur récompense !
 11:10	Que leurs yeux soient obscurcis pour ne pas voir<!--Ps. 69:23-24.-->, et courbe continuellement leur dos !
-11:11	Je dis donc : Ont-ils trébuché afin de tomber ? Que cela n’arrive jamais ! Mais, par leur chute<!--Le mot grec signifie aussi « tomber à côté de », « une faute » ou « une déviation par rapport à la vérité et la droiture », « un méfait ». Voir Mt. 6:14 ; Ro. 11:12.-->, il y a le salut pour les nations, pour les exciter à la jalousie.
+11:11	Je dis donc : N’ont-ils pas trébuché, afin qu’ils tombent ? Que cela n’arrive pas ! Mais, par leur chute<!--Le mot grec signifie aussi « tomber à côté de », « une faute » ou « une déviation par rapport à la vérité et la droiture », « un méfait ». Voir Mt. 6:14 ; Ro. 11:12.-->, il y a le salut pour les nations, pour les exciter à la jalousie.
 11:12	Or, si leur chute est la richesse du monde et leur amoindrissement la richesse des nations, combien plus leur plénitude !
 11:13	Car c’est à vous, nations, que je parle : pour autant que je suis, moi, en effet apôtre des nations, je glorifie mon service,
-11:14	si par n'importe quel moyen je puis exciter à la jalousie ma chair et sauver quelques-uns d’entre eux.
+11:14	si en effet, par n'importe quel moyen, je provoque à jalousie ma chair et en sauve certains d’entre eux.
 11:15	Car si leur rejet a été la réconciliation du monde, quelle sera leur réception, sinon une vie hors des morts ?
-11:16	Or si l'offrande du premier fruit<!--Voir 1 Co. 15:20-23.--> est sainte, la masse l'est aussi. Et si la racine est sainte, les branches le sont aussi.
+11:16	Or si l'offrande du premier fruit<!--Voir 1 Co. 15:20-23.--> est sainte, la pâte l'est aussi. Et si la racine est sainte, les branches le sont aussi.
 11:17	Mais si quelques-unes des branches ont été retranchées, et toi, étant un olivier sauvage, tu as été greffé parmi elles<!--Voir Ro. 11:24.--> et tu es devenu participant de la racine et de la sève de l'olivier,
 11:18	ne te glorifie pas contre ces branches. Mais si tu te glorifies, ce n'est pas toi qui portes la racine, mais c'est la racine qui te porte.
-11:19	Tu diras alors : Les branches ont été retranchées pour que moi, je sois greffé.
+11:19	Tu diras alors : Les branches ont été retranchées afin que moi, je sois greffé.
 11:20	C'est vrai. Elles ont été retranchées à cause de leur incrédulité, et tu es debout par la foi. Ne t'élève donc pas par orgueil, mais crains.
 11:21	Car si Elohîm n'a pas épargné les branches naturelles, il ne t'épargnera pas non plus.
 11:22	Considère donc la bénignité et la sévérité d'Elohîm. En effet, la sévérité envers ceux qui sont tombés et la bénignité envers toi, si tu persévères dans cette bénignité ; autrement, toi aussi tu seras coupé.
 11:23	Mais eux aussi, s'ils ne demeurent pas dans l'incrédulité, ils seront greffés, car Elohîm est puissant pour les greffer de nouveau.
-11:24	Car si toi, tu as été coupé de l'olivier sauvage selon sa nature et, greffé contre nature sur l'olivier cultivé, combien plus eux seront-ils greffés selon leur nature sur leur propre olivier.
+11:24	Car si toi, tu as été coupé loin de l'olivier sauvage selon sa nature et, greffé contre nature sur l'olivier cultivé, combien plus eux seront-ils greffés selon leur nature sur leur propre olivier.
 11:25	Car je ne veux pas, frères, que vous ignoriez ce mystère, afin que vous ne soyez pas sages à vos propres yeux : c’est qu’un endurcissement est arrivé en partie à Israël jusqu’à ce que la plénitude des nations soit entrée.
 11:26	Et ainsi tout Israël sera sauvé, selon qu'il est écrit : Le Libérateur viendra de Sion et il détournera de Yaacov les impiétés.
 11:27	Et c’est là l’alliance de ma part avec eux, lorsque j'ôterai leurs péchés<!--Es. 59:20-21.-->.
@@ -360,20 +360,20 @@ En attendant de leur rendre visite, Paulos avait le désir de communiquer aux ch
 11:33	Ô profondeur de la richesse, et de la sagesse et de la connaissance d'Elohîm ! Que ses jugements sont insondables et ses voies incompréhensibles !
 11:34	Car qui a connu la pensée du Seigneur, ou qui a été son conseiller ?
 11:35	Ou : Qui lui a donné le premier, et il lui sera rendu<!--Job. 41:3.--> ?
-11:36	Parce que c’est à partir de lui et à travers lui et pour lui que sont toutes choses. À lui soit la gloire pour les âges ! Amen !
+11:36	Parce qu'à partir de lui et à travers lui et pour lui que sont toutes choses. À lui soit la gloire pour les âges ! Amen !
 
 ## Chapitre 12
 
-12:1	Je vous exhorte donc, frères, par les compassions d'Elohîm, à présenter vos corps en sacrifice vivant, saint, agréable à Elohîm : c'est votre service sacré spirituel.
-12:2	Et ne vous conformez<!--Se conformer (c'est-à-dire son esprit et son caractère) au modèle d'un autre, (se façonner selon).--> pas à cet âge-ci, mais soyez transformés<!--Le verbe « transformer » est la traduction du terme grec « metamorphoo » qui a donné en français « transfigurer ». C'est le même terme qui a été utilisé en Mt. 17:2 pour parler de la transfiguration du Seigneur. Si Paulos (Paul) recommandait cela à des personnes déjà converties, c'est parce qu'Elohîm les appelait à aller plus loin. La transformation d'une chenille en papillon est un très bel exemple pour illustrer le changement qui doit s'opérer en nous. Pour atteindre ce stade, cet insecte passe par plusieurs étapes. La transformation nous permet de croître spirituellement. En effet, tout enfant d'Elohîm est appelé à devenir mature, à passer du stade de petit enfant à celui de jeune homme, et de celui de jeune homme à celui de père (1 Jn. 2:12-14).--> par le renouvellement<!--Le mot grec « anakainosis » traduit par renouvellement signifie aussi « renouveau », « rénovation » ou « changement complet vers le meilleur ». Voir Tit. 3:5.--> de votre pensée, afin que vous examiniez quelle est la volonté d'Elohîm, ce qui est bon, agréable et parfait.
-12:3	Car à travers la grâce qui m'a été donnée, je dis à chacun de vous qu'il ne faut pas penser plus hautement de soi qu'il n'est convenable de penser, mais de penser à se maîtriser soi-même, selon la mesure de foi qu'Elohîm a départie<!--« Diviser », « séparer en parts », « couper en morceaux », « être fendu en fractions ».--> à chacun.
+12:1	Je vous exhorte donc, frères, à travers les compassions d'Elohîm, à présenter vos corps en sacrifice vivant, saint, agréable à Elohîm : c'est votre service sacré spirituel.
+12:2	Et ne vous conformez<!--Se conformer (c'est-à-dire son esprit et son caractère) au modèle d'un autre, (se façonner selon).--> pas à cet âge-ci, mais soyez transformés<!--Le verbe « transformer » est la traduction du terme grec « metamorphoo » qui a donné en français « transfigurer ». C'est le même terme qui a été utilisé en Mt. 17:2 pour parler de la transfiguration du Seigneur. Si Paulos (Paul) recommandait cela à des personnes déjà converties, c'est parce qu'Elohîm les appelait à aller plus loin. La transformation d'une chenille en papillon est un très bel exemple pour illustrer le changement qui doit s'opérer en nous. Pour atteindre ce stade, cet insecte passe par plusieurs étapes. La transformation nous permet de croître spirituellement. En effet, tout enfant d'Elohîm est appelé à devenir mature, à passer du stade de petit enfant à celui de jeune homme, et de celui de jeune homme à celui de père (1 Jn. 2:12-14).--> par le renouvellement<!--Le mot grec « anakainosis » traduit par renouvellement signifie aussi « renouveau », « rénovation » ou « changement complet vers le meilleur ». Voir Tit. 3:5.--> de votre pensée, pour que vous examiniez quelle est la volonté d'Elohîm, ce qui est bon, agréable et parfait.
+12:3	Car je dis, à travers la grâce qui m'a été donnée, à chacun étant parmi vous, qu'il ne faut pas penser plus hautement de soi qu'il n'est convenable de penser, mais de penser à se maîtriser soi-même, selon la mesure de foi qu'Elohîm a départie<!--« Diviser », « séparer en parts », « couper en morceaux », « être fendu en fractions ».--> à chacun.
 12:4	Car, comme nous avons beaucoup de membres dans un seul corps, et que tous les membres n'ont pas la même fonction,
 12:5	ainsi nous, qui sommes nombreux, sommes un seul corps en Mashiah mais, chacun individuellement, membres<!--Voir 1 Co. 12.--> les uns des autres.
 12:6	Mais, ayant des dons de grâce différents selon la grâce qui nous a été donnée : soit la prophétie, selon la proportion de la foi,
 12:7	soit le service, dans le service, soit celui qui enseigne, dans l'enseignement,
-12:8	soit celui qui exhorte, dans l'exhortation. Que celui qui donne le fasse dans la simplicité, celui qui dirige, avec zèle, celui qui exerce la miséricorde, avec joie.
-12:9	Que l'amour soit sincère. Ayez en horreur le mal, étant collés à ce qui est bon.
-12:10	Quant à l'amour fraternel, ayez de la tendresse<!--Vient du grec « philostorgos » qui signifie « l'amour mutuel des parents et enfants, des maris et épouses », « amour affectueux, promptitude à aimer, aimer tendrement », « se dit surtout de la tendresse réciproque des parents et enfants ».--> les uns pour les autres. Quant à l'honneur, soyez les premiers à le rendre aux autres.
+12:8	soit celui qui exhorte, dans l'exhortation, celui qui donne, dans la simplicité, celui qui dirige, avec zèle, celui qui exerce la miséricorde, avec joie.
+12:9	Que l'amour soit sincère, ayant en horreur le mal, étant collés à ce qui est bon.
+12:10	Quant à l'amour fraternel, ayez de la tendresse<!--Vient du grec « philostorgos » qui signifie « l'amour mutuel des parents et enfants, des maris et épouses », « amour affectueux, promptitude à aimer, aimer tendrement », « se dit surtout de la tendresse réciproque des parents et enfants ».--> les uns pour les autres. Quant à l'honneur, étant les premiers à le rendre aux autres.
 12:11	N'étant pas paresseux, mais empressés ; bouillants de chaleur de l'esprit, étant les esclaves<!--Être un esclave, servir, faire le service.--> du Seigneur.
 12:12	Vous réjouissant dans l'espérance, patients dans la tribulation, persévérants dans la prière.
 12:13	Prenant part aux besoins des saints, poursuivant l'hospitalité.
@@ -381,7 +381,7 @@ En attendant de leur rendre visite, Paulos avait le désir de communiquer aux ch
 12:15	Réjouissez-vous avec ceux qui se réjouissent et pleurez avec ceux qui pleurent.
 12:16	Ayant une même pensée les uns envers les autres, ne pensant pas à ce qui est élevé, mais vous laissant emporter par les choses humbles. Ne soyez pas sages à votre propre jugement.
 12:17	Ne rendant à personne le mal pour le mal, recherchant les choses honnêtes devant tous les humains.
-12:18	S'il est possible, autant que cela dépend de vous, soyez en paix avec tous les humains.
+12:18	S'il est possible, issu de vous, étant en paix avec tous les humains.
 12:19	Ne vous vengeant pas vous-mêmes, mes bien-aimés, mais donnez lieu à la colère, car il est écrit : À moi la vengeance ! Moi, je rendrai, dit le Seigneur<!--De. 32:35.-->.
 12:20	Si donc ton ennemi a faim, donne-lui à manger, s'il a soif, donne-lui à boire, car en faisant cela, tu amasseras<!--Cette expression peut également être traduite par « ce sont des braises que tu enlèves de sa tête ». Cette expression est une métaphore qui tire son origine de la méthode consistant à fondre les métaux dans les anciens fours. Ces métaux étaient introduits dans un four ; ensuite, on mettait du charbon au-dessous et une couche épaisse au-dessus de leur partie supérieure. La chaleur étant augmentée, le métal fondait et se séparait des impuretés qu’il contenait. L’amas de charbons à sa partie supérieure amollissait et purifiait le minerai. Ainsi, témoigner de l’amour envers un ennemi peut l’aider à se séparer des impuretés. Voir Pr. 25:21-22.--> des charbons de feu sur sa tête.
 12:21	Ne sois pas vaincu par le mal, mais vainqueur<!--Voir Jn. 16:33 ; 1 Jn. 5:4-5, 2:13-14, 4:4, 5:4-5 ; Ap. 2:7, 2:11, 2:17, 2:26, 3:5, 3:12, 3:21, 5:5, 12:11, 15:2, 17:14, 21:7.--> du mal par le bien.

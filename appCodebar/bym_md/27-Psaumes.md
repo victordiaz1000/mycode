@@ -1510,23 +1510,23 @@ Prophétiques, certains psaumes annoncent les événements de l'achèvement des 
 
 ### L'orgueil des méchants
 
-73:1	Psaume d'Asaph. En effet, Elohîm est bon pour Israël, pour ceux qui ont le cœur pur<!--Mt. 5:8.-->.
+73:1	Psaume d'Asaph. En effet, Elohîm est bon pour Israël, pour les cœurs purs<!--Mt. 5:8.-->.
 73:2	Et quant à moi, pour un peu mes pieds allaient se détourner, il s'en est fallu d'un rien que mes pas ne glissent,
 73:3	car j'étais envieux des vantards en voyant la paix des méchants.
 73:4	Parce que rien ne les tourmente jusqu'à leur mort, et leur corps est gras,
 73:5	ils n'ont pas de part aux peines des mortels, et ils ne sont pas frappés comme les humains.
 73:6	C'est pourquoi l'orgueil leur sert de collier, et la violence les couvre comme un vêtement.
-73:7	Les yeux leur sortent dehors à force de graisse, ils dépassent les imaginations du cœur.
+73:7	Les yeux leur sortent de graisse, ils dépassent les imaginations du cœur.
 73:8	Ils sont moqueurs et parlent méchamment d'opprimer, ils parlent avec hauteur.
 73:9	Ils élèvent leur bouche jusqu'aux cieux, et leur langue parcourt la Terre.
-73:10	C'est pourquoi son peuple se tourne de leur côté, et on draine vers eux un plein d'eaux.
+73:10	C'est pourquoi son peuple reviendra ici, et on drainera vers eux un plein d'eaux.
 73:11	Ils disent : Comment El saurait-il ? Existe-t-il une connaissance chez Élyon<!--Es. 29:15 ; Ez. 8:12 ; Ps. 94:7 ; Job. 22:12-13.--> ?
-73:12	Voilà, ceux-ci sont méchants, ils prospèrent toujours dans ce monde et acquièrent de plus en plus de richesses.
+73:12	Voici, ces méchants, toujours tranquilles, ils accroissent leurs richesses.
 73:13	En effet, c'est en vain que j'ai purifié mon cœur et que j'ai lavé mes paumes dans l'innocence<!--Mal. 3:14 ; Job. 35:3.--> :
-73:14	je suis frappé tous les jours, et tous les matins mon châtiment est là.
-73:15	Si je disais : Je veux parler comme eux. Voici, je trahirais la génération de tes fils.
+73:14	je suis frappé tous les jours, et mes châtiments pour les matins.
+73:15	Si je disais : Je parlerai comme eux. Voici, je trahirais la génération de tes fils.
 73:16	Je réfléchissais pour savoir cela, ce fut à mes yeux un labeur,
-73:17	jusqu'à ce que je sois entré dans le sanctuaire de El, et que j'aie considéré la fin de telles gens.
+73:17	jusqu'à ce que je sois entré dans le sanctuaire de El, que j'aie compris leur fin.
 73:18	En effet, tu les as mis sur des voies glissantes, tu les fais tomber dans des précipices.
 73:19	Comment ! En un instant les voilà ruinés, ils sont finis, consumés par la terreur.
 73:20	Ils sont comme un rêve lorsqu'on s'est réveillé. Adonaï, tu méprises leur image à ton réveil.

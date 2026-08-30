@@ -202,7 +202,7 @@ Bien plus qu'un recueil relatant de banales manifestations, ce livre est avant t
 5:28	en disant : Ne vous avions-nous pas ordonné expressément de ne plus enseigner en ce nom-là ? Et voici, vous avez rempli Yeroushalaim de votre doctrine et vous voulez faire venir sur nous le sang de cet homme<!--Mt. 27:25.--> !
 5:29	Mais Petros et les autres apôtres répondant, dirent : Il faut obéir à Elohîm plutôt qu'aux humains.
 5:30	L'Elohîm de nos pères a réveillé Yéhoshoua, que vous avez tué de vos mains en le suspendant au bois.
-5:31	Celui-ci, Chef Conducteur et Sauveur, l'Elohîm l'a élevé par sa puissance afin de donner à Israël la repentance et le pardon des péchés.
+5:31	Celui-ci, Chef Conducteur et Sauveur, l'Elohîm l'a élevé à sa droite afin de donner à Israël la repentance et le pardon des péchés.
 5:32	Et nous sommes nous-mêmes les témoins de ce que nous vous disons, de même que le Saint-Esprit qu'Elohîm a donné à ceux qui lui obéissent.
 5:33	Mais ayant entendu cela, ils étaient sciés en deux et délibéraient de les tuer.
 5:34	Mais un pharisien du nom de Gamaliel<!--« Récompense de El ». Voir No. 1:10, 2:20.-->, docteur de la torah, honoré de tout le peuple, se leva dans le sanhédrin et ordonna de faire sortir un instant les apôtres.
@@ -264,8 +264,8 @@ Bien plus qu'un recueil relatant de banales manifestations, ce livre est avant t
 7:23	Mais comme s’accomplissait le temps de sa quarantième année, il lui monta au cœur de visiter ses frères, les fils d'Israël.
 7:24	Et en ayant vu un à qui l'on faisait du mal, il prit sa défense et vengea celui qui était opprimé, en frappant l'Égyptien.
 7:25	Or il pensait faire comprendre à ses frères que l'Elohîm leur donnait le salut à travers sa main, mais ils ne le comprirent pas.
-7:26	Le jour suivant, il parut au milieu d'eux alors qu'ils se battaient et il les exhorta à la paix, en disant : Hommes, vous êtes frères ! Pourquoi vous faites-vous du mal l'un à l'autre ?
-7:27	Mais celui qui faisait du mal à son prochain le repoussa, en disant : Qui t'a établi prince et juge sur nous<!--Ex. 2:14.--> ?
+7:26	Et le jour suivant, il apparut à ceux qui étaient entrain de se battre et il les exhorta à la paix, en disant : Hommes, vous êtes frères ! Pourquoi vous faites-vous du mal l'un à l'autre ?
+7:27	Et celui qui était entrain de blesser le voisin le repoussa, en disant : Qui t'a établi prince et juge sur nous<!--Ex. 2:14.--> ?
 7:28	Veux-tu me tuer, comme tu as tué hier l'Égyptien ?
 7:29	Et à cette parole, Moshé s’est enfui et est devenu un étranger en terre de Madian, où il engendra deux fils.
 7:30	Et 40 ans s'étant écoulés, un ange du Seigneur lui apparut dans le désert de la montagne de Sinaï, dans la flamme d'un buisson en feu.
@@ -276,7 +276,7 @@ Bien plus qu'un recueil relatant de banales manifestations, ce livre est avant t
 7:35	Ce Moshé qu'ils avaient rejeté, en disant : Qui t'a établi prince et juge<!--Ex. 2:14.--> ? C'est lui qu'Elohîm envoya comme prince et comme rédempteur par la main de l'Ange qui lui était apparu dans le buisson.
 7:36	C'est lui qui les a conduits dehors en produisant des prodiges et des signes en terre d'Égypte, à la Mer Rouge et dans le désert pendant 40 ans.
 7:37	C'est ce Moshé qui a dit aux fils d'Israël : Le Seigneur votre Elohîm vous suscitera d'entre vos frères un Prophète comme moi, vous l'écouterez<!--De. 18:15.-->.
-7:38	C'est lui, qui, lors de l'assemblée dans le désert, étant avec l'Ange qui lui parlait sur la montagne de Sinaï et avec nos pères, reçut les paroles de vie pour nous les donner.
+7:38	C'est lui, qui, dans l'assemblée dans le désert, étant apparu avec l'Ange qui lui parlait sur la montagne de Sinaï et avec nos pères, reçut les paroles de vie pour nous les donner.
 7:39	À qui nos pères ne voulurent pas obéir, mais ils le rejetèrent et ils tournèrent leur cœurs vers l'Égypte,
 7:40	en disant à Aaron<!--Ex. 32:1.--> : Fais-nous des elohîm qui marchent devant nous ! Car nous ne savons pas ce qui est arrivé à ce Moshé qui nous a conduits hors de la terre d'Égypte.
 7:41	Et, en ces jours-là, ils firent un veau, et amenèrent un sacrifice à l'idole et se réjouirent dans les œuvres de leurs mains.
@@ -321,7 +321,7 @@ Bien plus qu'un recueil relatant de banales manifestations, ce livre est avant t
 8:15	qui, y étant descendus, prièrent pour eux afin qu'ils reçoivent l'Esprit Saint.
 8:16	Car il n’était encore descendu sur aucun d’eux, mais ils avaient été seulement baptisés pour le nom du Seigneur Yéhoshoua.
 8:17	Alors ils leur imposèrent les mains et ils reçurent l'Esprit Saint.
-8:18	Mais Shim’ôn voyant que le Saint-Esprit était donné par le moyen de l'imposition des mains des apôtres, leur apporta de l'argent,
+8:18	Mais Shim’ôn voyant que le Saint-Esprit est donné par le moyen de l'imposition des mains des apôtres, leur apporta de l'argent,
 8:19	en disant : Donnez-moi aussi ce pouvoir, afin que tous ceux à qui j'imposerai les mains, reçoivent l'Esprit Saint.
 8:20	Mais Petros lui dit : Que ton argent soit avec toi pour la perdition, puisque tu as pensé acquérir le don d'Elohîm au moyen de l'argent !
 8:21	Il n'y a pour toi ni part ni lot dans cette affaire, car ton cœur n'est pas droit devant Elohîm.
@@ -330,16 +330,16 @@ Bien plus qu'un recueil relatant de banales manifestations, ce livre est avant t
 8:24	Mais répondant, Shim’ôn dit : Priez vous-mêmes le Seigneur en ma faveur, afin que ne vienne sur moi aucune des choses que vous avez dites.
 8:25	Eux donc, en effet, ayant rendu témoignage et prêché la parole du Seigneur, ils retournèrent à Yeroushalaim en évangélisant beaucoup de villages des Samaritains.
 8:26	Or un ange du Seigneur parla à Philippos, en disant : Lève-toi et va vers le midi, sur le chemin qui descend de Yeroushalaim à Gaza, celui qui est désert.
-8:27	Et s’étant levé, il s’en alla. Et voici, un homme éthiopien, un eunuque, un grand ministre de Candace<!--Candace : « qui possède », « qui se repent ». Le nom n'est pas celui d'une personne particulière, mais celui d'une dynastie de reines éthiopiennes.-->, la reine des Éthiopiens, et responsable de tous ses trésors, était venu à Yeroushalaim pour adorer,
-8:28	et il était en train de s'en retourner, étant assis sur son char et lisait le prophète Yesha`yah<!--Ésaïe.-->.
-8:29	Mais l'Esprit dit à Philippos : Avance et colle-toi à ce char !
+8:27	Et s’étant levé, il s’en alla. Et voici, un homme éthiopien, un eunuque, un grand ministre de Candace<!--Candace : « qui possède », « qui se repent ». Le nom n'est pas celui d'une personne particulière, mais celui d'une dynastie de reines éthiopiennes.-->, la reine des Éthiopiens, lequel était au-dessus de tous ses trésors, était venu à Yeroushalaim pour adorer,
+8:28	et il s’en retournait, et étant assis sur son char et lisait le prophète Yesha`yah<!--Ésaïe.-->.
+8:29	Et l'Esprit dit à Philippos : Avance et colle-toi à ce char !
 8:30	Et Philippos y étant accouru, il l’entendit lisant le prophète Yesha`yah. Et il lui dit : Comprends-tu vraiment ce que tu lis ?
-8:31	Mais il lui dit : Comment donc le pourrais-je, si personne ne me guide ? Et il pria Philippos de monter et de s'asseoir avec lui.
+8:31	Et il lui dit : Comment donc le pourrais-je, si personne ne me guide ? Et il pria Philippos de monter et de s'asseoir avec lui.
 8:32	Et le passage de l'Écriture qu'il lisait était celui-ci<!--Es. 53:7-8. Voir aussi Ps. 44:23.--> : Il a été mené comme une brebis à l'abattage et comme un agneau muet devant celui qui le tond, ainsi il n'ouvre pas sa bouche.
-8:33	Dans son humiliation, son jugement a été ôté. Mais sa génération, qui la racontera ? Car sa vie est ôtée de la Terre.
-8:34	Et l'eunuque répondant, dit à Philippos : Je te prie, de qui est-ce que le prophète dit cela ? Est-ce de lui-même, ou de quelqu'un d'autre ?
+8:33	Dans son humiliation, son jugement a été ôté. Mais sa génération, qui la racontera ? Parce que sa vie est ôtée de la Terre.
+8:34	Et l'eunuque répondant, dit à Philippos : Je te prie, au sujet de qui le prophète dit-il cela ? Au sujet de lui-même, ou au sujet de quelqu'un d'autre ?
 8:35	Et Philippos, ouvrant sa bouche, et commençant par cette Écriture, lui annonça l'Évangile de Yéhoshoua.
-8:36	Mais comme ils allaient par le chemin, ils arrivèrent à une eau, et l'eunuque dit : Voici de l'eau. Qu'est-ce qui empêche que je ne sois baptisé ?
+8:36	Mais comme ils allaient par le chemin, ils arrivèrent à une eau, et l'eunuque dit : Voici de l'eau, qu’est-ce qui m’empêche d’être baptisé ?
 8:37	Et Philippos dit : Si tu crois de tout ton cœur, c'est légal. Et répondant, il dit : Je crois que Yéhoshoua Mashiah est le Fils d'Elohîm.
 8:38	Et il ordonna d'arrêter le char. Ils descendirent tous les deux dans l’eau, Philippos et l'eunuque, et il le baptisa.
 8:39	Mais, quand ils furent remontés de l’eau, l’Esprit du Seigneur enleva Philippos, et l’eunuque ne le vit plus, car il poursuivait sa route en se réjouissant.
@@ -350,15 +350,15 @@ Bien plus qu'un recueil relatant de banales manifestations, ce livre est avant t
 ### Yéhoshoua (Jésus) se révèle à Shaoul (Saul)<!--Ac. 22:1-16, 26:9-18.-->
 
 9:1	Or Shaoul, respirant encore la menace et le carnage contre les disciples du Seigneur, alla vers le grand-prêtre
-9:2	et lui demanda des lettres pour les synagogues de Damas afin que, s'il y trouvait certains étant de la Voie<!--Vient du grec « hodos » qui signifie au sens propre « une voie, une route, un chemin ou un sentier ». Il signifie également « une manière de se conduire, de penser, de décider » ou « une doctrine (la doctrine du Seigneur) ». Voir Ac. 19:9, 22:4, 24:14,22.-->, hommes ou femmes, il les amenât liés à Yeroushalaim.
-9:3	Et comme il était entrain de poursuivre le voyage, il arriva près de Damas. Et soudainement, une lumière provenant du ciel brilla comme un éclair autour de lui.
+9:2	et lui demanda des lettres pour les synagogues de Damas afin que, s'il y trouvait certains étant de la Voie<!--Vient du grec « hodos » qui signifie au sens propre « une voie, une route, un chemin ou un sentier ». Il signifie également « une manière de se conduire, de penser, de décider » ou « une doctrine (la doctrine du Seigneur) ». Voir Ac. 19:9, 22:4, 24:14,22.-->, non seulement des hommes mais aussi des femmes, il les amenât liés à Yeroushalaim.
+9:3	Or comme il était entrain de poursuivre le voyage, il arriva près de Damas. Et soudainement, une lumière provenant du ciel brilla comme un éclair autour de lui.
 9:4	Et étant tombé par terre, il entendit une voix qui lui disait : Shaoul, Shaoul, pourquoi me persécutes-tu ?
 9:5	Il dit : Mais qui es-tu Seigneur ? Et le Seigneur lui dit : Moi, je suis Yéhoshoua que tu persécutes. Il t'est dur de regimber contre les aiguillons<!--Une piqûre comme celle des abeilles, scorpions... Ces animaux blessant et causant même la mort, dans 1 Co. 15:54-56, Paulos (Paul) compare la mort à une piqûre, une arme mortelle. Aiguillon : pièce métallique pour diriger les bœufs et autres bêtes de trait d'où le proverbe, « ruer contre les aiguillons », c'est-à-dire offrir une vaine, périlleuse et ruineuse résistance.-->.
 9:6	Alors, tremblant et effrayé, il dit : Seigneur, que veux-tu que je fasse ? Et le Seigneur lui dit : Lève-toi, entre dans la ville et on te dira ce que tu dois faire.
 9:7	Mais les hommes, ses compagnons de voyage, s'arrêtèrent, incapables de parler par terreur, entendant en effet la voix, mais ne voyant personne.
 9:8	Et Shaoul se leva de terre et, malgré ses yeux ouverts, il ne voyait rien. Et le conduisant par la main, ils le menèrent à Damas,
 9:9	et il fut trois jours, sans voir, et sans manger ni boire.
-9:10	Or il y avait à Damas, un disciple du nom de Chananyah. Et le Seigneur lui dit en vision : Chananyah ! Et il répondit : Me voici Seigneur !
+9:10	Or un certain disciple était à Damas, du nom de Chananyah. Et le Seigneur lui dit en vision : Chananyah ! Et il dit : Me voici Seigneur !
 9:11	Et le Seigneur lui dit : Lève-toi, va dans la rue appelée la droite et cherche dans la maison de Yéhouda un nommé Shaoul de Tarse, car voici qu'il prie.
 9:12	Et il a vu en vision, un homme du nom de Chananyah, entrant et lui imposant les mains, afin qu'il recouvre la vue. 
 9:13	Mais Chananyah répondit : Seigneur, j’ai entendu dire par beaucoup concernant cet homme combien de choses mauvaises il a faites à tes saints dans Yeroushalaim.
@@ -373,9 +373,9 @@ Bien plus qu'un recueil relatant de banales manifestations, ce livre est avant t
 9:22	Mais Shaoul se fortifiait de plus en plus et confondait les Juifs, les habitants de Damas, démontrant que celui-ci<!--Yéhoshoua.--> est le Mashiah.
 9:23	Mais lorsqu'un assez grand nombre de jours furent accomplis, les Juifs tinrent conseil ensemble pour le tuer.
 9:24	Et leur complot parvint à la connaissance de Shaoul. Or, ils gardaient les portes jour et nuit pour le tuer.
-9:25	Mais pendant une nuit, les disciples le prirent et le descendirent à travers la muraille, en le descendant dans une corbeille.
+9:25	Mais les disciples le prenant pendant une nuit, le descendirent à travers la muraille, en le relâchant dans une corbeille.
 9:26	Mais étant arrivé à Yeroushalaim, Shaoul essayait de se coller aux disciples, mais tous le craignaient, ne croyant pas qu'il soit un disciple.
-9:27	Mais Barnabas l'ayant pris avec lui, le conduisit vers les apôtres et leur raconta comment sur le chemin, il avait vu le Seigneur, qui lui avait parlé, et comment à Damas, il parlait avec assurance au nom de Yéhoshoua.
+9:27	Mais Barnabas l'ayant pris avec lui, le conduisit vers les apôtres et leur raconta comment sur le chemin, il avait vu le Seigneur, et qu'il lui avait parlé, et comment à Damas, il parlait avec assurance au nom de Yéhoshoua.
 9:28	Et il était avec eux à Yeroushalaim, allant et venant,
 9:29	et discourant avec assurance au nom du Seigneur Yéhoshoua, il parlait et discutait<!--Vient du grec « suzeteo » qui signifie « chercher, examiner ensemble, discuter, disputer, se demander » ou « s'interroger ».--> avec les Hellénistes, mais ceux-ci tentaient de le tuer.
 9:30	Mais les frères, l'ayant su, l'emmenèrent à Césarée et le firent partir pour Tarse.
@@ -403,7 +403,7 @@ Bien plus qu'un recueil relatant de banales manifestations, ce livre est avant t
 10:4	Et celui-ci ayant les yeux fixés sur lui et tout effrayé, dit : Qu'y a-t-il Seigneur ? Et il lui dit : Tes prières et tes aumônes sont montées devant Elohîm, et il s'en est souvenu.
 10:5	Et maintenant, envoie des hommes à Joppé et fais venir Shim’ôn, qui est surnommé Petros.
 10:6	Celui-ci loge chez un certain Shim’ôn, corroyeur, dont la maison est près de la mer. C'est lui qui te dira ce que tu dois faire.
-10:7	Et dès que l'ange qui lui parlait fut parti, Kornelios appela deux de ses domestiques et un soldat craignant Elohîm, d'entre ceux qui se tenaient<!--Adhérer à quelqu'un, être son adhérent, être dévoué ou constant à quelqu'un ou quelque chose.--> près de lui.
+10:7	Or quand l'ange parlant à Kornelios fut parti, il appela deux de ses domestiques et un soldat pieux, d'entre ceux qui se tenaient<!--Adhérer à quelqu'un, être son adhérent, être dévoué ou constant à quelqu'un ou quelque chose.--> près de lui.
 10:8	Et leur ayant tout raconté, il les envoya à Joppé.
 10:9	Or le lendemain, en voyageant, ceux-là, et en s’approchant de la ville, Petros monta sur le toit, vers la sixième heure, pour prier.
 10:10	Or il devint très affamé, et il voulut prendre de la nourriture mais, pendant qu’on la lui préparait, il tomba en extase.
@@ -428,7 +428,7 @@ Bien plus qu'un recueil relatant de banales manifestations, ce livre est avant t
 10:29	C'est pourquoi, ayant été appelé, je suis venu sans contradiction. Je m'informe donc pour quel motif vous m'avez fait venir.
 10:30	Et Kornelios lui dit : Depuis le quatrième jour, jusqu’à cette heure-ci j’étais en jeûne, et à la neuvième heure je priais dans ma maison, et voici, un homme se tint debout devant moi en habit brillant,
 10:31	et me dit : Kornelios, ta prière est exaucée, et tes aumônes ont été rappelées en mémoire devant<!--Même construction en Ap. 16:19.--> Elohîm.
-10:32	Envoie donc quelqu'un à Joppé et convoque Shim’ôn, surnommé Petros, il loge dans la maison de Shim’ôn, le corroyeur, près de la mer, lequel étant venu, te parlera.
+10:32	Envoie donc à Joppé et convoque Shim’ôn, surnommé Petros, il loge dans la maison de Shim’ôn, le corroyeur, près de la mer, lequel étant venu, te parlera.
 10:33	À l'instant donc j'ai envoyé quelqu'un vers toi, et tu as bien fait en étant survenu. Maintenant donc, nous sommes tous là en présence d'Elohîm, pour entendre toutes les choses qui t'ont été ordonnées de la part d'Elohîm.
 10:34	Mais Petros ouvrant la bouche, dit : En vérité, je saisis<!--Saisir avec l'esprit.--> qu’il n'est pas un accepteur de personnes<!--Un accepteur de personnes, qui différencie, distingue.-->, l'Elohîm,
 10:35	mais qu'en toute nation, celui qui le craint et qui pratique la justice, est accepté par lui.
@@ -505,9 +505,9 @@ Bien plus qu'un recueil relatant de banales manifestations, ce livre est avant t
 12:20	Or Hérode amenait à la guerre avec une grande animosité les Tyriens et les Sidoniens. Mais ils vinrent le trouver d'un commun accord et, ayant gagné<!--Persuader, c'est à dire faire croire à quelqu'un par des mots.--> Blastos, son chambellan, ils demandèrent la paix, parce que leur pays était alimenté par celui du roi.
 12:21	Or, au jour fixé, Hérode s’étant revêtu de ses habits royaux, et s’étant assis sur son trône, il adressait vers eux un discours public<!--S'adresser à une assemblée publique. Le mot grec « demegoreo » est composé de « demos » qui signifie « peuple » et de « agora » qui signifie « assemblée, particulièrement du peuple », « place de marché », l'endroit de l'assemblée, pour les discussions publiques, pour les élections, pour les épreuve, pour les achats et ventes (marchés) pour toute sorte de marchés d'affaires.-->.
 12:22	Or le peuple criait : Voix d'un elohîm et non d'un être humain !
-12:23	Et immédiatement, un ange du Seigneur le frappa, parce qu'il n'avait pas donné gloire à Elohîm. Et il fut mangé par les vers et expira.
+12:23	Et immédiatement, un ange du Seigneur le frappa, parce qu'il n'avait pas donné gloire à Elohîm. Et ayant été mangé par les vers, il expira.
 12:24	Mais la parole d'Elohîm croissait et se multipliait.
-12:25	Mais Barnabas et Shaoul revinrent de Yeroushalaim, après avoir accompli le service, ayant aussi pris avec eux, Yohanan surnommé Markos.
+12:25	Mais Barnabas et Shaoul revinrent depuis Yeroushalaim, ayant accompli le service, ayant aussi pris avec eux, Yohanan surnommé Markos.
 
 ## Chapitre 13
 
@@ -840,7 +840,7 @@ Bien plus qu'un recueil relatant de banales manifestations, ce livre est avant t
 20:26	C'est pourquoi je vous déclare solennellement aujourd'hui que je suis pur du sang de tous,
 20:27	car je vous ai annoncé tout le conseil d'Elohîm, sans en rien cacher.
 20:28	Prenez donc garde à vous-mêmes et à tout le troupeau parmi lequel le Saint-Esprit vous a établis surveillants<!--« Episcopos » en grec : « surveillant, gardien », généralement traduit par « évêque ». Ce terme désigne la fonction des anciens. Dans la nouvelle alliance, les surveillants (ou anciens) sont des personnes dont la mission est de veiller au bon fonctionnement des assemblées locales. Yéhoshoua ha Mashiah (Jésus-Christ) notre Elohîm, est le Surveillant par excellence (1 Pi. 2:25).-->, pour paître l'Assemblée d'Elohîm, qu'il a acquise<!--Ps. 74:2.--> au moyen de son propre sang.
-20:29	Car je sais ceci : qu'après mon départ il entrera parmi vous des loups impitoyables qui n'épargneront pas le troupeau,
+20:29	Car moi je sais ceci : qu'après mon départ entreront parmi vous des loups impitoyables qui n'épargneront pas le troupeau,
 20:30	et que, issus<!--1 Jn. 2:19.--> de vous-mêmes, s'élèveront des hommes parlant des choses perverties pour entraîner les disciples après eux.
 20:31	C'est pourquoi, veillez, vous rappelant que durant l'espace de trois ans, je n'ai cessé nuit et jour d'avertir chacun de vous avec larmes.
 20:32	Et maintenant, frères, je vous confie à Elohîm et à la parole de sa grâce, qui a le pouvoir de vous édifier et de vous donner l'héritage avec tous les sanctifiés.

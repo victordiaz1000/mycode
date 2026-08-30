@@ -32,7 +32,7 @@ Rédigée en prison, cette lettre a pour vocation d'enseigner les chrétiens d'�
 1:10	pour une gestion lors de la plénitude des temps : réunir toutes choses en Mashiah, tant celles qui sont dans les cieux, que celles qui sont sur la Terre.
 1:11	En lui, en qui aussi nous avons été faits héritiers, ayant été prédestinés selon le dessein de celui qui opère toutes choses selon le conseil de sa volonté,
 1:12	afin que nous soyons à la louange de sa gloire, nous qui d'avance avons espéré dans le Mashiah.
-1:13	En qui vous êtes aussi, après avoir entendu la parole de la vérité, l'Évangile de votre salut, en lui vous avez cru et vous avez été marqués du sceau<!--Voir 2 Co. 1:22.--> du Saint-Esprit de la promesse,
+1:13	En qui vous êtes aussi, ayant entendu la parole de la vérité, l'Évangile de votre salut, en lui aussi ayant cru, vous avez été marqués du sceau<!--Voir 2 Co. 1:22.--> du Saint-Esprit de la promesse,
 1:14	lequel est le gage<!--Vient du grec « arrhabon » qui se traduit en français par « arrhes ». Ce terme fait allusion aux monnaies données en gage d'un futur paiement, et en attendant que le solde soit payé. Voir 2 Co. 1:22, 5:5.--> de notre héritage pour la rédemption de ceux qu'il s'est acquis pour la louange de sa gloire.
 1:15	En raison de cela, ayant aussi entendu parler de la foi que vous avez en notre Seigneur Yéhoshoua, et de l'amour que vous avez envers tous les saints,
 1:16	je ne cesse de rendre grâce en votre faveur, en faisant mention de vous dans mes prières,
@@ -64,7 +64,7 @@ Rédigée en prison, cette lettre a pour vocation d'enseigner les chrétiens d'�
 2:16	et qu'il réconciliât les uns et les autres en un seul corps avec Elohîm par le moyen de la croix, ayant détruit par elle l'inimitié.
 2:17	Et étant venu, il a prêché la paix à vous qui étiez loin, et à ceux qui étaient proches,
 2:18	parce que nous avons par son moyen les uns et les autres accès auprès du Père dans un même Esprit.
-2:19	Ainsi donc, vous n'êtes plus des étrangers ni des gens sans citoyenneté<!--Un étranger, celui qui vit dans un lieu sans avoir le droit de cité, de citoyenneté. Voir 1 Pi. 2:11.-->, mais concitoyens des saints et membres de la famille d'Elohîm.
+2:19	Ainsi donc, vous n'êtes plus des étrangers ni des gens sans citoyenneté<!--Un étranger, celui qui vit dans un lieu sans avoir le droit de cité, de citoyenneté. Voir 1 Pi. 2:11.-->, mais concitoyens des saints et membres de la maison d'Elohîm.
 2:20	Ayant été édifiés sur le fondement<!--Le fondement a été posé une fois pour toutes par les apôtres et les prophètes. Et ce fondement est notre Seigneur Yéhoshoua ha Mashiah (1 Co. 3:11).--> des apôtres et prophètes, et Yéhoshoua Mashiah lui-même étant la pierre angulaire.
 2:21	En qui toute la construction, ayant ses parties bien ajustées<!--Ex. 26:11.-->, s'élève pour être un temple saint dans le Seigneur.
 2:22	C'est en lui que, vous aussi, vous êtes construits ensemble pour être une habitation d'Elohîm en Esprit.

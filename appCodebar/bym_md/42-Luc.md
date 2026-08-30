@@ -828,8 +828,8 @@ Fruit de recherches minutieuses, le récit de Loukas présente certaines similit
 12:4	Mais je vous le dis à vous mes amis : Ne craignez pas ceux qui tuent le corps, et qui après cela ne peuvent rien faire de plus.
 12:5	Mais je vous montrerai qui vous devez craindre. Craignez celui qui, après avoir tué, a le pouvoir de jeter dans la géhenne. Oui, vous dis-je, craignez celui-là.
 12:6	Ne vend-on pas cinq petits passereaux pour deux assarius<!--Voir commentaire en Mt. 10:29.--> ? Cependant, aucun d'eux n'est oublié devant Elohîm.
-12:7	Et les cheveux même de votre tête sont tous comptés. Ne craignez donc pas : vous valez plus que beaucoup de passereaux.
-12:8	Mais je vous le dis, quiconque m'aura confessé devant les humains, le Fils d'humain le confessera aussi devant les anges d'Elohîm.
+12:7	Mais même les cheveux de votre tête sont tous comptés. Ne craignez donc pas : vous valez plus que beaucoup de passereaux.
+12:8	Or je vous le dis, quiconque m'aura confessé devant les humains, le Fils d'humain le confessera aussi devant les anges d'Elohîm.
 12:9	Mais quiconque m'aura renié devant les humains sera renié devant les anges d'Elohîm.
 12:10	Et quiconque dira une parole contre le Fils d'humain, cela lui sera remis, mais à qui aura blasphémé<!--Voir le dictionnaire en annexe.--> contre le Saint Esprit, cela ne sera pas remis.
 12:11	Mais quand ils vous conduisent devant les synagogues, les magistrats et les autorités, ne vous inquiétez pas de la manière dont vous vous défendrez ni de ce que vous aurez à dire,
@@ -837,7 +837,7 @@ Fruit de recherches minutieuses, le récit de Loukas présente certaines similit
 
 ### Parabole du riche insensé
 
-12:13	Et quelqu'un de la foule lui dit : Docteur, dis à mon frère qu'il partage avec moi l'héritage !
+12:13	Et quelqu'un issu de la foule lui dit : Docteur, dis à mon frère qu'il partage avec moi l'héritage !
 12:14	Mais il lui dit : Humain ! Qui m'a établi juge ou faiseur de partages sur vous ?
 12:15	Mais il leur dit : Faites attention ! Gardez-vous de toute cupidité, car même si quelqu'un est dans l'abondance, sa vie n'est pas issue de ses biens.
 12:16	Et il leur dit une parabole, en disant : La terre d'un certain humain riche avait produit abondamment.
@@ -851,16 +851,16 @@ Fruit de recherches minutieuses, le récit de Loukas présente certaines similit
 
 12:22	Et il dit à ses disciples : En raison de cela je vous dis : Ne vous inquiétez pas pour votre âme, de ce que vous mangerez, ni pour le corps, de quoi vous serez vêtus.
 12:23	L'âme est plus que la nourriture, et le corps, plus que le vêtement.
-12:24	Observez les corbeaux, parce qu'ils ne sèment ni ne moissonnent, et ils n'ont pas de cellier, ni de grenier, et cependant Elohîm les nourrit. Combien ne valez-vous pas plus que les oiseaux ?
-12:25	Et qui de vous, par ses inquiétudes, peut ajouter une coudée à sa stature ?
+12:24	Observez les corbeaux, parce qu'ils ne sèment ni ne moissonnent, et ils n'ont pas de cellier, ni de grenier, et l'Elohîm les nourrit. Combien ne valez-vous pas plus que les oiseaux ?
+12:25	Et qui d’entre vous, par ses inquiétudes, peut ajouter une coudée à sa stature ?
 12:26	Si donc vous ne pouvez pas même la moindre chose, pourquoi êtes-vous inquiets du reste ?
 12:27	Observez comment croissent les lis, ils ne travaillent, ni ne filent, et cependant je vous dis que Shelomoh même, dans toute sa gloire, n'a pas été vêtu comme l'un d'eux.
-12:28	Mais si Elohîm revêt ainsi l'herbe qui est aujourd'hui dans les champs, et qui demain est jetée dans le four, à combien plus forte raison vous, gens de petite foi !
-12:29	Et vous, ne cherchez pas ce que vous mangerez et ce que vous boirez et ne soyez pas inquiets,
+12:28	Or si l'herbe, étant aujourd'hui dans les champs, et demain est jetée dans le four, l'Elohîm la revêt ainsi, à combien plus forte raison vous, gens de petite foi !
+12:29	Et vous, ne cherchez pas ce que vous aurez à manger ou à boire et ne soyez pas inquiets,
 12:30	car toutes ces choses, ce sont les nations du monde qui les recherchent. Mais votre Père sait que vous en avez besoin.
-12:31	Mais cherchez plutôt le Royaume d'Elohîm, et toutes ces choses vous seront ajoutées.
+12:31	Cherchez plutôt le Royaume d'Elohîm, et toutes ces choses vous seront ajoutées.
 12:32	N'aie pas peur, petit troupeau, car il a plu à votre Père de vous donner le Royaume.
-12:33	Vendez vos biens et donnez l'aumône ! Faites-vous des bourses qui ne s'usent pas, un trésor dans les cieux qui ne défaille jamais, et où le voleur n'approche pas, et où la teigne ne détruit rien.
+12:33	Vendez vos biens et donnez l'aumône ! Faites-vous des bourses qui ne vieillissent pas, un trésor inépuisable dans les cieux, où ni le voleur n’approche, ni même la teigne ne détruit.
 12:34	Car là où est votre trésor, là aussi sera votre cœur.
 
 ### Veiller en attendant le Seigneur<!--Mt. 24:36-25:30.-->
@@ -880,7 +880,7 @@ Fruit de recherches minutieuses, le récit de Loukas présente certaines similit
 12:44	Je vous le dis en vérité, il l'établira sur tous ses biens.
 12:45	Mais si cet esclave dit en son cœur : Mon seigneur tarde à venir, s'il se met à battre les serviteurs et les servantes, à manger, à boire et à s'enivrer,
 12:46	le seigneur de cet esclave viendra le jour où il ne s'y attend pas et à l'heure qu'il ne connaît pas, et il le coupera en deux parts<!--Le mot grec « dichotomeo » signifie « couper en deux parts », « couper quelqu'un en deux », « châtiant en coupant », « fléau sévère ». Certains peuples, dont les Hébreux, employaient cette méthode comme châtiment corporel.-->, et lui donnera sa part avec les incrédules.
-12:47	Or cet esclave qui, ayant connu la volonté de son seigneur, et ne s'étant pas préparé et n'ayant pas agi selon sa volonté, sera battu de beaucoup de coups.
+12:47	Or l'esclave qui, ayant connu la volonté de son seigneur, et ne s'étant pas préparé et n'ayant pas agi selon sa volonté, sera battu de beaucoup de coups.
 12:48	Mais celui qui, ne l’ayant pas connue et ayant fait des choses dignes de coups sera battu un peu. Or, à qui il a été beaucoup donné, il lui sera beaucoup demandé, et à qui on a beaucoup confié, on lui exigera davantage.
 
 ### Yéhoshoua suscite la division
@@ -891,7 +891,7 @@ Fruit de recherches minutieuses, le récit de Loukas présente certaines similit
 12:52	Car désormais, cinq dans une maison seront divisés, trois contre deux, et deux contre trois.
 12:53	Le père sera divisé contre le fils et le fils contre le père, la mère contre la fille et la fille contre la mère, la belle-mère contre sa belle-fille et la belle-fille contre sa belle-mère.
 12:54	Mais il disait aussi aux foules : Quand vous voyez une nuée se lever à l'occident, vous dites immédiatement : L'averse vient ! Et cela arrive ainsi.
-12:55	Et quand c'est le vent du midi qui souffle, vous dites qu'il fera chaud. Et cela arrive.
+12:55	Et quand c'est le vent du midi qui souffle, vous dites qu'il fera chaud, et cela arrive.
 12:56	Hypocrites ! Vous savez examiner l'aspect du ciel et de la Terre, mais comment donc n'examinez-vous pas ce temps-ci ?
 12:57	Et pourquoi ne jugez-vous pas aussi par vous-mêmes de ce qui est juste ?
 12:58	Car quand tu vas avec ton adversaire devant le magistrat, tâche de t'accorder avec lui en route, de peur qu'il ne te traîne devant le juge, et que le juge ne te livre à l'officier de justice, et que l'officier de justice ne te jette en prison.
@@ -901,10 +901,10 @@ Fruit de recherches minutieuses, le récit de Loukas présente certaines similit
 
 ### Exhortation à la repentance
 
-13:1	Et en ce même temps, quelques-uns qui se trouvaient là présents lui apportèrent des nouvelles concernant les Galiléens dont Pilate avait mêlé le sang à celui de leurs sacrifices.
+13:1	Or certains étaient présents en ce même temps, lui apportant des nouvelles au sujet des Galiléens dont Pilate avait mêlé le sang avec leurs sacrifices.
 13:2	Et Yéhoshoua répondant, leur dit : Pensez-vous que ces Galiléens étaient plus pécheurs que tous les Galiléens, parce qu'ils ont souffert de la sorte ?
 13:3	Non, vous dis-je. Mais si vous ne vous repentez pas, vous périrez tous de la même manière.
-13:4	Ou bien, ces 18 sur qui est tombée la tour de Siloé et qu'elle a tués, pensez-vous qu'ils étaient plus débiteurs que tous les humains qui habitent Yeroushalaim ?
+13:4	Ou bien, ces 18 sur lesquels est tombée la tour de Siloé et qu'elle a tués, pensez-vous qu'ils étaient plus débiteurs que tous les humains qui habitent Yeroushalaim ?
 13:5	Non, vous dis-je. Mais si vous ne vous repentez pas, vous périrez tous de la même manière.
 
 ### Parabole du figuier stérile<!--Cp. Mt. 21:18-21.-->
@@ -920,10 +920,10 @@ Fruit de recherches minutieuses, le récit de Loukas présente certaines similit
 13:11	et voici, il y avait là une femme ayant un esprit d'infirmité depuis 18 ans : elle était toute courbée et ne pouvait pas se redresser complètement.
 13:12	Mais Yéhoshoua, en la voyant, il l'appela et lui dit : Femme, tu es libérée de ton infirmité !
 13:13	Et il lui imposa les mains et, immédiatement, elle se redressa et glorifia Elohîm.
-13:14	Mais le chef de la synagogue, indigné de ce que Yéhoshoua avait guéri un jour de shabbat, répondit et dit à la foule : Il y a six jours pour travailler, venez donc vous faire guérir ces jours-là et non pas le jour du shabbat.
-13:15	Mais le Seigneur lui répondit et dit : Hypocrite ! Le shabbat, chacun de vous ne délie-t-il pas son bœuf ou son âne loin de la crèche et ne les mène-t-il pas boire ?
+13:14	Mais le chef de la synagogue, indigné de ce que Yéhoshoua avait guéri pendant le shabbat, ayant répondu, dit à la foule : Il y a six jours pendant lesquels on doit travailler, pendant ceux-ci donc, en venant, soyez guéris et non pas le jour du shabbat.
+13:15	Mais le Seigneur lui répondit et dit : Hypocrite ! Le shabbat, chacun de vous ne délie-t-il pas son bœuf ou son âne loin de la crèche et ne l’emmène-t-il pas boire ailleurs ?
 13:16	Or celle-ci étant une fille d'Abraham, qu'a liée le Satan voici 18 ans, ne fallait-il pas la délier loin de ce lien le jour du shabbat ?
-13:17	Et en parlant de ces choses, tous ses adversaires étaient confus, mais la foule entière se réjouissait de toutes les choses glorieuses qui étaient faites par lui.
+13:17	Et en parlant de ces choses, tous ses adversaires étaient confus, et toute la foule se réjouissait de toutes les choses glorieuses réalisées par lui.
 
 ### Parabole du grain de sénevé et du levain<!--Voir Mt. 13:31,33.-->
 
@@ -943,9 +943,9 @@ Fruit de recherches minutieuses, le récit de Loukas présente certaines similit
 13:28	Là sera le pleur et le grincement des dents, quand vous verrez Abraham, et Yitzhak, et Yaacov, et tous les prophètes dans le Royaume d'Elohîm, - mais vous, jetés dehors !
 13:29	Et ils viendront de l'orient et de l'occident, du nord et du sud, et ils se mettront à table dans le Royaume d'Elohîm.
 13:30	Et voici, ceux qui sont les derniers seront les premiers, et ceux qui sont les premiers seront les derniers.
-13:31	En ce même jour, quelques pharisiens s'approchèrent de lui en disant : Sors et va-t'en d'ici, parce qu'Hérode veut te tuer.
+13:31	En ce même jour, certains pharisiens s'approchèrent de lui en disant : Sors et va-t'en d'ici, parce qu'Hérode veut te tuer.
 13:32	Et il leur dit : Allez et dites à ce renard : Voici, je chasse les démons et j'accomplis des guérisons aujourd'hui et demain, et le troisième jour, je suis rendu parfait.
-13:33	Mais il me faut marcher aujourd'hui et demain, et le jour suivant, parce qu'il n’est pas admissible qu’un prophète meure hors de Yeroushalaim.
+13:33	Mais il me faut marcher aujourd'hui et demain, et le jour suivant, parce qu'il n’est pas permis à un prophète de périr hors de Yeroushalaim.
 
 ### Lamentations de Yéhoshoua sur Yeroushalaim (Jérusalem)<!--Mt. 23:37-39 ; Lu. 19:41-44 ; cp. Jé. 22:5.-->
 
@@ -1139,7 +1139,7 @@ Fruit de recherches minutieuses, le récit de Loukas présente certaines similit
 17:32	Rappelez-vous la femme de Lot<!--Voir Ge. 19:26.-->.
 17:33	Quiconque aura cherché à sauver son âme la perdra, et quiconque la perdra la préservera vivante.
 17:34	Je vous le dis : En cette nuit-là, il y en aura deux sur un seul lit : l'un sera pris et l'autre sera laissé.
-17:35	Elles seront deux en train de moudre<!--C'était la coutume d'envoyer les femmes et les esclaves féminines au moulin pour tourner la meule à main.--> ensemble : l'une sera prise et l'autre laissée.
+17:35	Elles seront deux moulant<!--C'était la coutume d'envoyer les femmes et les esclaves féminines au moulin pour tourner la meule à main.--> ensemble : l'une sera prise et l'autre laissée.
 17:36	Deux seront aux champs : l'un sera pris et l'autre sera laissé.
 17:37	Et répondant, ils lui disent : Où, Seigneur ? Et il leur dit : Là où est le corps, là aussi seront rassemblés les aigles<!--Un aigle, en tant qu'étendard de l'armée impériale romaine. Voir Job. 39:30 ; Mt. 24:28 et Ap. 19:17-21.-->.
 
@@ -1369,7 +1369,7 @@ Fruit de recherches minutieuses, le récit de Loukas présente certaines similit
 21:13	Et cela se tournera pour vous en témoignage.
 21:14	Mettez donc dans vos cœurs de ne pas préméditer votre défense.
 21:15	Car moi, je vous donnerai une bouche et une sagesse à laquelle aucun de vos adversaires ne pourra contredire ni résister.
-21:16	Mais vous serez livrés même par les parents, par les frères, par les proches et par vos amis, et ils feront mourir beaucoup d'entre vous.
+21:16	Mais vous serez livrés même par les parents, par les frères, par les proches et par vos amis, et ils mettront à mort beaucoup d'entre vous.
 21:17	Et vous serez haïs de tous à cause de mon nom.
 21:18	Et il ne se perdra jamais un cheveu depuis votre tête.
 21:19	Possédez vos âmes par votre persévérance.

@@ -246,11 +246,11 @@ L'évangile de Yohanan exprime la nécessité de la naissance d'en haut et dévo
 5:3	Dans ceux-ci étaient couchés un grand nombre de malades : des aveugles, des boiteux, des paralytiques, attendant le mouvement de l'eau.
 5:4	Car un ange descendait en un certain temps dans le réservoir et agitait l'eau, alors le premier qui y descendait après que l'eau avait été agitée devenait sain, de quelque maladie qu'il fût détenu.
 5:5	Or un certain homme était là, étant dans sa maladie depuis 38 ans.
-5:6	Yéhoshoua le voyant couché et sachant que depuis longtemps déjà il l'était, lui dit : Veux-tu être guéri ?
+5:6	Yéhoshoua le voyant couché et sachant que depuis longtemps déjà il l'était, lui dit : Veux-tu devenir sain ?
 5:7	Le malade lui répondit : Seigneur, je n'ai pas d'humain afin que quand l'eau est agitée, il me jette dans le réservoir et, pendant que j'y vais, un autre y descend avant moi.
 5:8	Yéhoshoua lui dit : Réveille-toi ! Prends ton lit de camp et marche !
 5:9	Et immédiatement l'homme devint sain. Il prit son lit de camp et marcha. Or c'était le shabbat, ce jour-là.
-5:10	Les Juifs dirent donc à celui qui avait été guéri : C'est le shabbat ! Il n'est pas légal pour toi de prendre ce lit.
+5:10	Les Juifs dirent donc à celui qui avait été guéri : C'est le shabbat ! Il n'est pas légal pour toi de prendre ce lit de camp.
 5:11	Il leur répondit : Celui qui, m'ayant rendu sain m'a dit : Prends ton lit de camp et marche !
 5:12	Alors ils lui demandèrent : Qui est celui qui t'a dit : Prends ton lit de camp et marche ?
 5:13	Mais celui qui avait été guéri ne savait pas qui c'était, car Yéhoshoua s'était échappé<!--« S'en aller au loin », « éviter une chose », « disparaître furtivement ».--> du milieu de la foule qui était en ce lieu.
@@ -280,7 +280,7 @@ L'évangile de Yohanan exprime la nécessité de la naissance d'en haut et dévo
 ### Témoignages en accord avec celui de Yéhoshoua
 
 5:30	Je ne peux, moi, rien faire de moi-même : je juge selon ce que j'entends, et mon jugement est juste, parce que je ne cherche pas ma volonté, mais la volonté du Père qui m'a envoyé.
-5:31	Si je rends témoignage au sujet de moi-même, mon témoignage n'est pas vrai.
+5:31	Si moi, je rends témoignage au sujet de moi-même, mon témoignage n'est pas vrai.
 5:32	C'est un autre qui rend témoignage à mon sujet, et je sais que le témoignage qu'il rend à mon sujet est vrai.
 
 ### Le témoignage de Yohanan le baptiseur
@@ -307,7 +307,7 @@ L'évangile de Yohanan exprime la nécessité de la naissance d'en haut et dévo
 5:43	Moi, je suis venu au nom de mon Père et vous ne me recevez pas, si un autre vient en son propre nom<!--Ap. 13:17-18.-->, celui-là, vous le recevrez.
 5:44	Comment pouvez-vous croire en recevant une gloire les uns auprès des autres, et la gloire auprès du seul Elohîm, vous ne la cherchez pas ?
 5:45	Ne pensez pas que moi, je vous accuserai devant le Père. Celui qui vous accuse, c’est Moshé, en qui vous espérez.
-5:46	Car si vous croyiez Moshé, vous me croiriez aussi, car il a écrit sur moi.
+5:46	Car si vous croyiez Moshé, vous me croiriez aussi, car lui, a écrit à mon sujet.
 5:47	Mais si vous ne croyez pas à ses écrits, comment croirez-vous à mes paroles ?
 
 ## Chapitre 6
@@ -328,7 +328,7 @@ L'évangile de Yohanan exprime la nécessité de la naissance d'en haut et dévo
 6:12	Et après qu'ils furent rassasiés, il dit à ses disciples : Rassemblez les morceaux qui restent, afin que rien ne soit perdu.
 6:13	Ils les rassemblèrent donc, et ils remplirent douze paniers des morceaux à partir des cinq pains d'orge restant de ceux qui avaient mangé.
 6:14	Les gens donc ayant vu le signe que Yéhoshoua avait produit, disaient : Celui-ci est vraiment le Prophète qui vient dans le monde.
-6:15	Mais Yéhoshoua, sachant qu'ils étaient sur le point de venir l'enlever de force pour le faire roi, se retira<!--Celui qui par crainte cherche un autre endroit ou évite la vue.--> encore, lui seul, sur la montagne.
+6:15	Mais Yéhoshoua, sachant qu'ils étaient sur le point de venir l'enlever de force afin qu'ils le fassent roi, se retira<!--Celui qui par crainte cherche un autre endroit ou évite la vue.--> encore, lui seul, sur la montagne.
 
 ### Yéhoshoua marche sur les eaux<!--Mt. 14:22-33 ; Mc. 6:45-52.-->
 
@@ -347,12 +347,12 @@ L'évangile de Yohanan exprime la nécessité de la naissance d'en haut et dévo
 6:25	Et l'ayant trouvé au-delà de la mer, ils lui dirent : Rabbi, quand es-tu arrivé ici ?
 6:26	Yéhoshoua répondit et leur dit : Amen, amen, je vous le dis : Vous me cherchez, non parce que vous avez vu des signes, mais parce que vous avez mangé des pains et avez été rassasiés.
 6:27	Travaillez, non pour la nourriture qui périt, mais pour la nourriture qui demeure pour la vie éternelle et que le Fils d'humain vous donnera. Car le Père, l'Elohîm, l'a marqué de son sceau.
-6:28	Ils lui dirent donc : Que devons-nous faire pour accomplir les œuvres d'Elohîm ?
+6:28	Ils lui dirent donc : Que devons-nous faire afin que nous accomplissions les œuvres d'Elohîm ?
 6:29	Yéhoshoua répondit et leur dit : Ceci est l'œuvre d'Elohîm, que vous croyiez en celui qu'il a envoyé.
 6:30	Alors ils lui dirent : Quel signe produis-tu donc, afin que nous le voyions et que nous croyions en toi ? Quelle œuvre fais-tu ?
 6:31	Nos pères ont mangé la manne dans le désert, selon ce qui est écrit : Il leur a donné à manger le pain issu du ciel<!--Ex. 16.-->.
 6:32	Mais Yéhoshoua leur dit : Amen, amen, je vous le dis : Moshé ne vous a pas donné le pain issu du ciel. Mais mon Père vous donne le vrai pain issu du ciel.
-6:33	Car le pain d'Elohîm est celui qui descend du ciel et qui donne la vie au monde.
+6:33	Car le pain d'Elohîm est celui qui descend à partir du ciel et qui donne la vie au monde.
 6:34	Ils lui dirent donc : Seigneur, donne-nous toujours ce pain-là.
 6:35	Et Yéhoshoua leur dit : Moi, JE SUIS le Pain de vie. Celui qui vient à moi n'aura jamais faim, et celui qui croit en moi n'aura jamais soif.
 6:36	Mais je vous ai dit que vous m'avez vu et vous ne croyez pas.
@@ -382,7 +382,7 @@ L'évangile de Yohanan exprime la nécessité de la naissance d'en haut et dévo
 6:60	Beaucoup issus de ses disciples ayant donc entendu cela, dirent : Cette parole est dure ! qui peut l'entendre ? 
 6:61	Mais Yéhoshoua, sachant en lui-même que ses disciples murmuraient à ce sujet, leur dit : Cela vous scandalise-t-il ?
 6:62	Si donc vous voyez le Fils d'humain montant où il était auparavant ?
-6:63	C'est l'Esprit qui donne la vie, la chair ne sert à rien. Les paroles que je vous ai dites sont esprit et sont vie.
+6:63	C'est l'Esprit qui donne la vie, la chair ne profite de rien. Les paroles que je vous ai dites sont esprit et sont vie.
 6:64	Mais il en est certains issus de vous qui ne croient pas. Car Yéhoshoua savait depuis le commencement qui sont ceux qui ne croient pas, et qui est celui qui le livrera.
 6:65	Et il disait : C’est à cause de cela que je vous ai dit que personne ne peut venir à moi, à moins qu'il ne lui soit donné à partir de mon Père.
 6:66	À partir de ceci, beaucoup de ses disciples s’en allèrent vers les choses qui étaient derrière et ne marchèrent plus avec lui.
@@ -390,7 +390,7 @@ L'évangile de Yohanan exprime la nécessité de la naissance d'en haut et dévo
 6:68	Alors Shim’ôn Petros lui répondit : Seigneur, vers qui irions-nous ? Tu as les paroles de la vie éternelle.
 6:69	Et nous avons cru et nous avons su que toi, tu es le Mashiah, le Fils d'Elohîm, du Vivant.
 6:70	Yéhoshoua leur répondit : N’est-ce pas moi qui vous ai choisis, vous les douze ? Et l’un d’entre vous est un diable<!--Vient du grec « diabolos » qui veut dire « calomniateur », « prompt à la calomnie », « accusant faussement ». Voir Mt. 4:1.-->.
-6:71	Or il parlait de Yéhouda, de Shim’ôn Iskariote, car c’était lui qui était sur le point de le livrer, quoiqu'il fût l'un des douze.
+6:71	Or il parlait de Yéhouda, de Shim’ôn Iskariote, car c’était lui qui était sur le point de le livrer, étant l'un des douze.
 
 ## Chapitre 7
 
@@ -399,7 +399,7 @@ L'évangile de Yohanan exprime la nécessité de la naissance d'en haut et dévo
 7:1	Et après ces choses, Yéhoshoua marchait dans la Galilée, car il ne voulait pas marcher dans la Judée, parce que les Juifs cherchaient à le tuer.
 7:2	Or la fête des Juifs, la construction d'un tabernacle<!--La fête des cabanes (ou des tabernacles) était la dernière des trois grandes fêtes annuelles auxquelles tout Israélite devait assister, dans le lieu qu'Elohîm avait choisi. Cette fête emprunta son nom à la coutume de séjourner dans des cabanes de feuillage pendant sa célébration. Cette fête se déroulait le septième mois de l'année religieuse (Tishri, soit octobre) quand les récoltes et vendanges étaient terminées. Elle devait rappeler le séjour au désert, passé sous des tentes. La fête qui commençait le 15 du mois, durait sept jours. De nombreux holocaustes étaient offerts.-->, était proche.
 7:3	Ses frères donc lui dirent : Pars d'ici et va dans la Judée, afin que tes disciples aussi voient les œuvres que tu fais.
-7:4	Car on ne fait rien en secret quand on cherche à être remarqué en faisant sa propre publicité<!--Le maintien par lequel on se met en évidence et que l'on assure sa publicité.-->. Si tu fais ces choses, montre-toi toi-même au monde.
+7:4	Car personne ne fait quelque chose en secret et ne cherche à être lui-même en assurance<!--Le maintien par lequel on se met en évidence et que l'on assure sa publicité.-->. Si tu fais ces choses, montre-toi toi-même au monde.
 7:5	Car ses frères non plus ne croyaient pas en lui.
 7:6	Yéhoshoua donc leur dit : Mon temps n'est pas encore venu, mais votre temps est toujours prêt.
 7:7	Le monde ne peut pas vous haïr, mais moi, il me hait parce que moi, je témoigne à son sujet que ses œuvres sont mauvaises.
@@ -411,9 +411,9 @@ L'évangile de Yohanan exprime la nécessité de la naissance d'en haut et dévo
 7:10	Mais lorsque ses frères furent montés, alors il y monta aussi lui-même, non pas manifestement, mais comme en secret.
 7:11	Les Juifs le cherchaient pendant la fête, et ils disaient : Où est-il ?
 7:12	Et il y avait un grand murmure à son sujet dans les foules. Les uns disaient : C'est un homme bon. Mais d'autres disaient : Non, il égare la foule.
-7:13	Toutefois personne ne parlait franchement de lui, à cause de la crainte qu'on avait des Juifs.
+7:13	Toutefois personne ne parlait franchement à son sujet, à cause de la crainte des Juifs.
 7:14	Mais, comme on était déjà au milieu de la fête, Yéhoshoua monta au temple et il enseignait.
-7:15	Et les Juifs s'étonnaient, disant : Comment celui-ci connaît-il les Lettres<!--2 Ti. 3:15.--> sans avoir été enseigné ?
+7:15	Et les Juifs s'étonnaient, disant : Comment celui-ci connaît-il les Lettres<!--2 Ti. 3:15.--> n'ayant pas été enseigné ?
 7:16	Yéhoshoua leur répondit et dit : Ma doctrine n'est pas de moi, mais de celui qui m'a envoyé.
 7:17	Si quelqu'un veut faire sa volonté, il saura si ma doctrine est issue d'Elohîm ou si, moi, je parle de moi-même.
 7:18	Celui qui parle de lui-même cherche sa propre gloire. Mais celui qui cherche la gloire de celui qui l'a envoyé est vrai, et il n'y a pas d'injustice en lui.
@@ -421,7 +421,7 @@ L'évangile de Yohanan exprime la nécessité de la naissance d'en haut et dévo
 7:20	La foule répondit : Tu as un démon ! Qui cherche à te tuer ?
 7:21	Yéhoshoua répondit et leur dit : J'ai fait une œuvre et vous en êtes tous étonnés.
 7:22	C’est en raison de cela que Moshé vous a donné la circoncision, non qu’elle soit issue de Moshé, mais elle est issue des pères et, lors du shabbat, vous circoncisez un homme.
-7:23	Si un homme reçoit la circoncision lors du shabbat, pour que la torah de Moshé ne soit pas renversée, pourquoi êtes-vous fâchés contre moi parce que j'ai entièrement rendu sain un homme lors du shabbat ?
+7:23	Si un homme reçoit la circoncision lors du shabbat, afin que la torah de Moshé ne soit pas renversée, pourquoi êtes-vous fâchés contre moi parce que j'ai entièrement rendu sain un homme lors du shabbat ?
 7:24	Ne jugez pas sur l'apparence, mais jugez d'un juste jugement.
 7:25	Alors certains issus des habitants de Yeroushalaim disaient : N'est-ce pas celui qu'ils cherchent à tuer ?
 7:26	Et voici, il parle librement, et ils ne lui disent rien ! Est-ce que vraiment les chefs auraient compris qu'il est véritablement le Mashiah ?
@@ -493,16 +493,16 @@ L'évangile de Yohanan exprime la nécessité de la naissance d'en haut et dévo
 8:28	Yéhoshoua leur dit donc : Quand vous aurez élevé le Fils d'humain, alors vous connaîtrez que moi, je suis<!--Voir commentaire en Ex. 3:14 ; Jn. 8:58, 18:5-6.--> et que je ne fais rien de moi-même, mais que je dis ces choses selon ce que mon Père m'a enseigné.
 8:29	Et celui qui m'a envoyé est avec moi. Le Père ne m'a pas laissé seul, parce que moi, je fais toujours les choses qui lui plaisent.
 8:30	Lui, en disant ces choses, beaucoup crurent en lui.
-8:31	Yéhoshoua donc disait aux Juifs qui avaient cru en lui : Si vous demeurez dans ma parole, vous êtes vraiment mes disciples.
+8:31	Yéhoshoua donc disait aux Juifs ayant cru en lui : Si vous demeurez dans ma parole, vous êtes vraiment mes disciples.
 8:32	Et vous connaîtrez la vérité et la vérité vous rendra libres<!--Voir Jn. 8:36 ; Ga. 5:1 ; Ro. 6:18, 8:2,21.-->.
-8:33	Ils lui répondirent : Nous sommes la semence d'Abraham et nous n'avons jamais été esclaves de personne, comment donc dis-tu : Vous deviendrez libres ?
+8:33	Ils lui répondirent : Nous sommes la semence d'Abraham et nous n'avons jamais été esclaves de personne, comment donc dis-tu que vous deviendrez libres ?
 8:34	Yéhoshoua leur répondit : Amen, amen, je vous dis que quiconque pratique le péché est esclave du péché.
 8:35	Or l'esclave ne demeure pas pour toujours dans la maison, le fils y demeure pour toujours.
 8:36	Si donc le Fils vous rend libres, vous serez vraiment libres<!--Voir Jn. 8:32.-->.
 8:37	Je sais que vous êtes la semence d'Abraham, mais vous cherchez à me tuer, parce que ma parole ne trouve pas d'espace en vous.
 8:38	Moi, ce que j’ai vu auprès de mon Père, je le dis et vous donc, ce que vous avez entendu de votre père, vous le faites.
 8:39	Ils répondirent et lui dirent : Notre père c'est Abraham. Yéhoshoua leur dit : Si vous étiez enfants d'Abraham, vous feriez les œuvres d'Abraham.
-8:40	Mais maintenant vous cherchez à me tuer, moi, un homme qui vous ai annoncé la vérité que j’ai entendue auprès d'Elohîm. Cela, Abraham ne l'a pas fait.
+8:40	Mais maintenant vous cherchez à me tuer, moi, un humain qui vous ai annoncé la vérité que j’ai entendue auprès d'Elohîm. Cela, Abraham ne l'a pas fait.
 8:41	Vous faites les œuvres de votre père. Alors ils lui dirent : Nous, nous ne sommes pas nés d'une relation sexuelle illicite<!--Adultère, fornication, homosexualité, lesbienne, rapports avec des animaux etc.--> ! Nous avons un seul Père, l'Elohîm.
 8:42	Yéhoshoua donc leur dit : Si l'Elohîm était votre Père, vous m'aimeriez, car moi, c'est à partir d'Elohîm que je suis sorti et que je viens. Car je ne suis pas venu de moi-même, mais c'est lui qui m'a envoyé.
 8:43	En raison de quoi ne comprenez-vous pas mon langage ? C'est parce que vous ne pouvez pas écouter ma parole.
@@ -513,7 +513,7 @@ L'évangile de Yohanan exprime la nécessité de la naissance d'en haut et dévo
 8:48	Alors les Juifs répondirent, et lui dirent : N'avons-nous pas raison de dire que tu es un Samaritain et que tu as un démon ?
 8:49	Yéhoshoua répondit : Moi, je n’ai pas de démon, mais j'honore mon Père et vous, vous me déshonorez.
 8:50	Or je ne cherche pas ma gloire. Il y en a un qui la cherche et qui juge.
-8:51	Amen, amen, je vous le dis : Si quelqu'un garde ma parole, il ne verra pas la mort, à jamais.
+8:51	Amen, amen, je vous le dis : Si quelqu'un garde la parole, la mienne, il ne verra pas la mort, à jamais.
 8:52	Les Juifs lui dirent donc : Maintenant, nous savons que tu as un démon. Abraham est mort, et les prophètes aussi, et toi tu dis : Si quelqu'un garde ma parole, il ne goûtera pas la mort, à jamais !
 8:53	Es-tu plus grand que notre père Abraham qui est mort ? Les prophètes aussi sont morts. Qui te fais-tu toi-même ?
 8:54	Yéhoshoua répondit : Si c’est moi qui me glorifie moi-même, ma gloire n'est rien. C'est mon Père qui me glorifie, lui que vous dites être votre Elohîm.
@@ -521,7 +521,7 @@ L'évangile de Yohanan exprime la nécessité de la naissance d'en haut et dévo
 8:56	Abraham, votre père, a exulté de ce qu'il verrait mon jour. Et il l'a vu et il a été réjoui.
 8:57	Les Juifs lui dirent donc : Tu n'as pas encore 50 ans et tu as vu Abraham !
 8:58	Yéhoshoua leur dit : Amen, amen, je vous le dis : Avant qu'Abraham soit venu à l'existence, moi, JE SUIS<!--L'évangile de Yohanan (Jean) rapporte plusieurs déclarations incroyables que Yéhoshoua a faites à son sujet : Je suis le Pain de vie (6:35), Je suis la Lumière du monde (8:12), Je suis le Bon Berger (10:11), Je suis la Porte (10:7), Je suis la Résurrection (11:25), Je suis la Voie, la Vérité et la Vie (14:6), Je suis la vigne, la véritable (15:1). Toutefois, dans ce verset, en déclarant être « Je suis », il s'identifie clairement au nom que YHWH avait révélé à Moshé dans Ex. 3:14. C'est précisément pour cette raison que les Juifs ont voulu le lapider.-->.
-8:59	Alors ils prirent des pierres pour les jeter contre lui, mais Yéhoshoua se cacha et sortit hors du temple, passant au milieu d'eux. Et c'est ainsi qu'il s'en alla.
+8:59	Alors ils prirent des pierres pour les jeter contre lui, mais Yéhoshoua se cacha et sortit hors du temple, passant au milieu d'eux, et ainsi il s’en alla.
 
 ## Chapitre 9
 

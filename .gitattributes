@@ -12,9 +12,16 @@
 # sur chacun d'eux — sur un artefact de checkout, pas sur un vrai écart. C'est
 # exactement la panne que l'ancienne normalisation `CRLF → LF` masquait ; elle a
 # été retirée, donc les fins de ligne se règlent ici, une fois.
-appCodebar/bym_md/*.md                text eol=lf
-bible_app/assets/bible/bym/*.json     text eol=lf
+#
+# `-text` et non `eol=lf` : **cinq fichiers amont contiennent des CRLF**
+# (44-Actes, 48-2Thessaloniciens, 49-1Corinthiens, 51-Romains, 66-Apocalypse).
+# Les normaliser changerait leur empreinte, donc `_source.json` ne décrirait plus
+# le corpus et l'application reproposerait ces livres indéfiniment. Le contrat est
+# « les octets d'amont, tels quels » : git ne doit traduire ni à l'entrée ni à la
+# sortie. Les deux convertisseurs coupent les lignes sur `\r\n` comme sur `\n`,
+# donc le JSON produit est le même de part et d'autre.
+appCodebar/bym_md/*.md                -text
+bible_app/assets/bible/bym/*.json     -text
 
-# Les deux implémentations du hachage et le convertisseur Dart doivent rester
-# alignés : leurs sources aussi sont épinglées en LF.
+# Nos propres sources : LF partout, comme ce qu'elles écrivent.
 appCodebar/*.py                       text eol=lf

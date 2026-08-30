@@ -638,7 +638,7 @@ Parmi les prophéties de Yirmeyah, figure le retour du peuple d'Israël sur la t
 23:14	Mais j'ai vu des choses horribles chez les prophètes de Yeroushalaim : ils commettent des adultères et ils marchent dans le mensonge. Ils fortifient les mains de ceux qui font le mal, afin qu'aucun ne se détourne de sa méchanceté. Eux tous sont devenus pour moi comme Sodome et ses habitants comme Gomorrhe<!--Es. 1:9.-->.
 23:15	C'est pourquoi, ainsi parle YHWH Tsevaot sur les prophètes : Voici, je vais leur faire manger de l'absinthe, et leur ferai boire des eaux empoisonnées, car c'est par les prophètes que la profanation est venue sur toute la terre.
 23:16	Ainsi parle YHWH Tsevaot : N'écoutez pas les paroles des prophètes qui vous prophétisent ! Ils vous font devenir vains<!--Ils vous remplissent des vains espoirs.-->, ils parlent des visions de leur cœur, et non pas de la bouche de YHWH.
-23:17	Ils disent, ils disent à ceux qui me méprisent : YHWH a dit : Vous aurez la paix, et ils disent à tous ceux qui marchent suivant la dureté de leur cœur : Il ne vous arrivera aucun mal<!--Ez. 13:10.-->.
+23:17	Dire, ils disent à ceux qui me méprisent : YHWH a dit : Vous aurez la paix, et à tous ceux qui marchent dans la dureté de leur cœur, ils disent : Il ne vous arrivera aucun mal<!--Ez. 13:10.-->.
 23:18	Car qui s'est trouvé au conseil secret de YHWH ? Et qui a aperçu et entendu sa parole<!--Es. 40:13 ; Job. 15:8 ; 1 Co. 2:16.--> ? Qui a été attentif à sa parole, et l'a entendue ?
 23:19	Voici la tempête de YHWH, son courroux va se montrer, et le tourbillon prêt à fondre tombera sur la tête des méchants.
 23:20	La colère de YHWH ne se détournera pas jusqu'à ce qu'il ait accompli, exécuté les desseins de son cœur. Vous le comprendrez avec discernement dans les derniers jours<!--Ge. 49:1-2.-->.
@@ -666,13 +666,13 @@ Parmi les prophéties de Yirmeyah, figure le retour du peuple d'Israël sur la t
 ## Chapitre 24
 
 24:1	YHWH me fit voir deux paniers de figues posés devant le temple de YHWH, après que Neboukadnetsar, roi de Babel, eut transporté de Yeroushalaim, Yekonyah, fils de Yehoyaqiym, roi de Yéhouda, les chefs de Yéhouda, avec les artisans et les serruriers, et les eut conduits à Babel.
-24:2	L'un des paniers avait de très bonnes figues, comme les figues de la première récolte, et l'autre panier avait de très mauvaises figues, qu'on ne pouvait manger à cause de leur mauvaise qualité.
-24:3	YHWH me dit : Que vois-tu, Yirmeyah ? Je dis : Des figues. Les bonnes figues sont très bonnes, et les mauvaises sont très mauvaises et ne peuvent être mangées à cause de leur mauvaise qualité.
+24:2	L'un des paniers avait de très bonnes figues, comme les figues de la première récolte, et l'autre panier avait de très mauvaises figues et ne seront pas mangées à cause de leur mauvaise qualité.
+24:3	YHWH me dit : Que vois-tu, Yirmeyah ? Je dis : Des figues. Les bonnes figues sont très bonnes, et les mauvaises sont très mauvaises et ne seront pas mangées à cause de leur mauvaise qualité.
 24:4	La parole de YHWH m'est apparue en disant :
 24:5	Ainsi parle YHWH, l'Elohîm d'Israël : Comme tu distingues ces bonnes figues, ainsi je distinguerai, pour leur bonheur, les captifs de Yéhouda, que j'ai envoyés hors de ce lieu en terre des Chaldéens.
 24:6	Je mettrai mes yeux sur eux pour leur bonheur et je les ramènerai sur cette terre, je les y rétablirai et je ne les détruirai plus, je les planterai et je ne les arracherai pas.
-24:7	Je leur donnerai un cœur pour qu'ils sachent que je suis YHWH. Ils seront mon peuple et je serai leur Elohîm, car ils reviendront à moi de tout leur cœur<!--De. 30:6 ; Ez. 11:19.-->.
-24:8	Et comme de mauvaises figues qu'on ne peut manger tant elles sont mauvaises, ainsi parle YHWH : C'est ainsi que je traiterai Tsidqiyah, roi de Yéhouda, ses chefs, et le reste de Yeroushalaim, ceux qui sont restés sur cette terre, et ceux qui habitent en terre d'Égypte.
+24:7	Je leur donnerai un cœur pour qu'ils sachent que c'est moi YHWH. Ils deviendront mon peuple et je deviendrai leur Elohîm, car ils reviendront à moi de tout leur cœur<!--De. 30:6 ; Ez. 11:19.-->.
+24:8	Et comme les mauvaises figues qui ne seront pas mangées à cause de leur mauvaise qualité, oui, ainsi parle YHWH : C'est ainsi que je traiterai Tsidqiyah, roi de Yéhouda, ses chefs, et le reste de Yeroushalaim, ceux qui sont restés sur cette terre, et ceux qui habitent en terre d'Égypte.
 24:9	Je ferai d'eux un objet de terreur, de malheur pour tous les royaumes de la Terre, d'insulte, de proverbe, de raillerie et de malédiction, dans tous les lieux où je les aurai bannis<!--De. 28:37.-->.
 24:10	J'enverrai sur eux l'épée, la famine et la peste, jusqu'à ce qu'ils soient exterminés du sol que j'avais donné à eux et à leurs pères.
 
@@ -682,7 +682,7 @@ Parmi les prophéties de Yirmeyah, figure le retour du peuple d'Israël sur la t
 25:2	parole que Yirmeyah, le prophète, prononça à tout le peuple de Yéhouda, et à tous les habitants de Yeroushalaim, en disant :
 25:3	Depuis la treizième année de Yoshiyah, fils d'Amon, roi de Yéhouda, jusqu'à ce jour, il y a 23 ans que la parole de YHWH est venue à moi. Je vous ai parlé, me levant dès le matin et parlant, et vous n'avez pas écouté.
 25:4	Et YHWH vous a envoyé tous ses serviteurs, les prophètes, se levant dès le matin et les envoyant, et vous ne les avez pas écoutés, vous n'avez pas prêté l'oreille pour écouter.
-25:5	Lorsqu'ils disaient : Revenez, s’il vous plaît, chaque homme de sa mauvaise voie, de la méchanceté de vos actions et vous habiterez d'éternité en éternité sur le sol que YHWH a donné à vous et à vos pères<!--2 R. 17:13 ; Jon. 3:8.-->.
+25:5	Ils vous disaient : Revenez, s’il vous plaît, chaque homme de sa mauvaise voie, de la méchanceté de vos actions et vous habiterez d'éternité en éternité sur le sol que YHWH a donné à vous et à vos pères<!--2 R. 17:13 ; Jon. 3:8.-->.
 25:6	N'allez pas après d'autres elohîm pour les servir et pour vous prosterner devant eux, ne m'irritez pas par les œuvres de vos mains, et je ne vous ferai aucun mal.
 25:7	Mais vous ne m’avez pas écouté, - déclaration de YHWH -, pour m'irriter par les œuvres de vos mains, pour votre malheur.
 25:8	C'est pourquoi ainsi parle YHWH Tsevaot : Parce que vous n'avez pas écouté mes paroles,
@@ -706,8 +706,8 @@ Parmi les prophéties de Yirmeyah, figure le retour du peuple d'Israël sur la t
 25:26	à tous les rois du nord, tant proches qu'éloignés, l'homme à son frère, et à tous les royaumes du monde qui sont sur les faces du sol. Et le roi de Sheshak boira après eux.
 25:27	Et tu leur diras : Ainsi parle YHWH Tsevaot, l'Elohîm d'Israël : Buvez et soyez enivrés, vomissez et tombez sans vous relever, face à l'épée que j'enverrai parmi vous !
 25:28	Il arrivera que, s'ils refusent de prendre la coupe de ta main pour boire, tu leur diras : Ainsi parle YHWH Tsevaot : Vous en boirez ! Vous en boirez !
-25:29	Car voici, j'envoie le malheur en commençant par la ville sur laquelle mon nom est invoqué et vous, seriez-vous exempts du châtiment ? Exempts du châtiment ? Vous ne resterez pas exempts du châtiment, car je m'en vais appeler l'épée sur tous les habitants de la Terre, - déclaration de YHWH Tsevaot<!--1 Pi. 4:17-18.-->.
-25:30	Tu prophétiseras contre eux toutes ces paroles-là, et tu leur diras : YHWH rugira d'en haut, il fera entendre sa voix de la demeure de sa sainteté ! Il rugira, il rugira contre son agréable demeure, il répondra à tous les habitants de la Terre en criant comme ceux qui foulent au pressoir<!--Joë. 4:16 ; Am. 1:2.-->.
+25:29	Car voici, j'envoie le malheur en commençant par la ville sur laquelle mon nom est appelé et vous, être exempt de châtiment, seriez-vous exempts du châtiment ? Vous ne resterez pas exempts du châtiment, car je m'en vais appeler l'épée sur tous les habitants de la Terre, - déclaration de YHWH Tsevaot<!--1 Pi. 4:17-18.-->.
+25:30	Tu prophétiseras contre eux toutes ces paroles-là, et tu leur diras : YHWH rugira d'en haut, il fera entendre sa voix de la demeure de sa sainteté ! Rugir, il rugira contre son agréable demeure, il répondra à tous les habitants de la Terre en criant comme ceux qui foulent au pressoir<!--Joë. 4:16 ; Am. 1:2.-->.
 25:31	Le vacarme en est arrivé jusqu'à l'extrémité de la Terre, car YHWH est en procès avec les nations. Il juge toute chair, il livre les méchants à l'épée, - déclaration de YHWH.
 25:32	Ainsi parle YHWH Tsevaot : Voici, le malheur sort de nation en nation, et une grande tempête se réveillera des parties extrêmes de la Terre.
 25:33	En ce jour-là, ceux qui auront été blessés mortellement par YHWH seront depuis un bout de la Terre jusqu’à l’autre bout de la Terre. Ils ne seront ni lamentés, ni recueillis, ni enterrés, mais ils deviendront du fumier sur les faces du sol.
@@ -721,10 +721,10 @@ Parmi les prophéties de Yirmeyah, figure le retour du peuple d'Israël sur la t
 
 26:1	Au commencement du règne de Yehoyaqiym, fils de Yoshiyah, roi de Yéhouda, cette parole vint à Yirmeyah par YHWH, en disant :
 26:2	Ainsi parle YHWH : Tiens-toi debout dans le parvis de la maison de YHWH, et prononce à toutes les villes de Yéhouda qui viennent pour se prosterner dans la maison de YHWH toutes les paroles que je t'ordonne de leur dire. Ne retranche pas une parole.
-26:3	Peut-être qu'ils écouteront et qu'ils se détourneront chacun de sa mauvaise voie. Alors je me repentirai du mal que j'avais pensé leur faire à cause de la méchanceté de leurs actions.
+26:3	Peut-être qu'ils écouteront et qu'ils se détourneront chaque homme de sa mauvaise voie. Et je me repentirai du mal que j'avais pensé leur faire à cause de la méchanceté de leurs actions.
 26:4	Tu leur diras : Ainsi parle YHWH : Si vous ne m'écoutez pas pour marcher selon ma torah que je vous ai proposée,
 26:5	pour obéir aux paroles des prophètes, mes serviteurs, que je vous envoie, que je vous ai envoyés de bonne heure et que vous n'avez pas écoutés,
-26:6	je mettrai cette maison dans le même état que Shiyloh, et je livrerai cette ville à la malédiction, à toutes les nations de la Terre.
+26:6	j'ai livré cette maison comme Shiyloh, et je livrerai cette ville à la malédiction, à toutes les nations de la Terre.
 26:7	Or les prêtres, les prophètes, et tout le peuple, entendirent Yirmeyah déclarer ces paroles dans la maison de YHWH.
 26:8	Il arriva qu'aussitôt que Yirmeyah eut achevé de déclarer tout ce que YHWH lui avait ordonné de dire à tout le peuple, les prêtres, les prophètes, et tout le peuple, le saisirent en disant : Mourir, tu mourras<!--Ge. 2:17.--> !
 26:9	Pourquoi as-tu prophétisé au nom de YHWH, en disant : Cette maison deviendra comme Shiyloh et cette ville sera desséchée, sans habitants ? Et tout le peuple se rassembla autour de Yirmeyah dans la maison de YHWH.
@@ -733,11 +733,11 @@ Parmi les prophéties de Yirmeyah, figure le retour du peuple d'Israël sur la t
 26:12	Yirmeyah parla à tous les chefs et à tout le peuple, en disant : YHWH m'a envoyé pour prophétiser contre cette maison et contre cette ville toutes les paroles que vous avez entendues.
 26:13	Maintenant, rendez bonnes vos voies et vos actions, écoutez la voix de YHWH, votre Elohîm, et YHWH se repentira du mal qu'il a prononcé contre vous.
 26:14	Pour moi, me voici entre vos mains : traitez-moi comme il semblera bon et juste à vos yeux.
-26:15	Mais sachez-le, sachez-le : Oui, si vous me faites mourir, oui, vous mettrez du sang innocent sur vous, sur cette ville et sur ses habitants. Oui, en vérité YHWH m'a envoyé vers vous pour prononcer à vos oreilles toutes ces paroles.
+26:15	Mais savoir, vous saurez, oui, si vous me faites mourir, oui, vous mettrez du sang innocent sur vous, sur cette ville et sur ses habitants. Oui, en vérité YHWH m'a envoyé vers vous pour prononcer à vos oreilles toutes ces paroles.
 26:16	Les chefs et tout le peuple dirent aux prêtres et aux prophètes : Pas de jugement de mort contre cet homme ! Oui, il nous a parlé au nom de YHWH, notre Elohîm.
 26:17	Quelques-uns des anciens de la terre se levèrent et parlèrent à toute l'assemblée du peuple, en disant :
-26:18	Miykayah, de Morésheth, prophétisait aux jours d'Hizqiyah, roi de Yéhouda, et il parlait à tout le peuple de Yéhouda, en disant : Ainsi parle YHWH Tsevaot : Sion sera labourée comme un champ, Yeroushalaim sera réduite en un monceau de pierres, et la montagne du temple en des hauts lieux d'une forêt<!--Mi. 1:1, 3:12.-->.
-26:19	Hizqiyah, roi de Yéhouda et tous ceux de Yéhouda l'ont-ils fait mourir, fait mourir ? Ne craignit-il pas YHWH ? Ne supplia-t-il pas les faces de YHWH ? Et YHWH se repentit du mal qu'il avait prononcé contre eux. Et nous, nous ferions un grand mal contre nos âmes<!--2 Ch. 32:26.--> !
+26:18	Miykayah, de Morésheth, prophétisait aux jours d'Hizqiyah, roi de Yéhouda, et il parlait à tout le peuple de Yéhouda, pour dire : Ainsi parle YHWH Tsevaot : Sion sera labourée comme un champ, Yeroushalaim sera réduite en un monceau de pierres, et la montagne du temple en des hauts lieux d'une forêt<!--Mi. 1:1, 3:12.-->.
+26:19	Mourir, Hizqiyah, roi de Yéhouda et tous ceux de Yéhouda l'ont-ils fait mourir ? Ne craignit-il pas YHWH ? Ne supplia-t-il pas les faces de YHWH ? Et YHWH se repentit du mal qu'il avait prononcé contre eux. Et nous, nous ferions un grand mal contre nos âmes<!--2 Ch. 32:26.--> !
 26:20	Il y eut aussi un homme qui prophétisait au nom de YHWH : Ouriyah, fils de Shema’yah, de Qiryath-Yéarim. Il prophétisa contre cette même ville et contre cette même terre, de la même manière que Yirmeyah.
 26:21	Et le roi Yehoyaqiym, tous ses vaillants hommes, et tous ses chefs entendirent ses paroles, et le roi chercha à le faire mourir. Ouriyah, qui en fut informé, eut peur, prit la fuite, et se retira en Égypte.
 26:22	Et le roi Yehoyaqiym envoya des hommes en Égypte : Elnathan, fils d'Acbor, et quelques hommes avec lui, qui allèrent en Égypte.

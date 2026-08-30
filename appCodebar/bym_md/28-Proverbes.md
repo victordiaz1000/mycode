@@ -204,7 +204,7 @@ Ce livre met en évidence l'opposition entre la voie du méchant et celle du jus
 6:13	Il fait signe de ses yeux, il parle de ses pieds, il enseigne de ses doigts.
 6:14	Il y a la perversité dans son cœur, il complote le mal en tout temps, il fait naître des querelles.
 6:15	C'est pourquoi sa calamité viendra soudainement, il sera subitement brisé, il n'y aura pas de guérison.
-6:16	Il y a six choses qu'Elohîm hait, et il y en a sept qui sont en abomination à son âme :
+6:16	Il y a six choses que YHWH hait, et il y en a sept qui sont en abomination à son âme :
 6:17	les yeux hautains<!--Ps. 101:5.-->, la langue mensongère<!--Ps. 120:2-3.-->, les mains qui répandent le sang innocent<!--Es. 1:15.-->,
 6:18	le cœur qui complote des projets méchants<!--Ps. 36:5.-->, les pieds qui se hâtent de courir au mal<!--Es. 59:7.-->,
 6:19	le faux témoin qui profère des mensonges<!--Ps. 27:12.--> et celui qui sème des querelles entre les frères<!--Jud. 1:16-19.-->.

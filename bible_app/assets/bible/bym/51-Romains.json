@@ -1160,7 +1160,7 @@
         },
         {
           "verse": "7:20",
-          "text": "Or si ce que je ne veux pas, moi, je le fais, ce n'est plus moi qui accomplis cela, mais le péché habitant en moi."
+          "text": "Or si ce que je ne veux pas, moi, je le fais, ce n'est plus moi qui accomplis cela, mais le péché qui habite en moi."
         },
         {
           "verse": "7:21",
@@ -1374,7 +1374,7 @@
         },
         {
           "verse": "8:30",
-          "text": "Et ceux qu'il a prédestinés, il les a aussi appelés. Et ceux qu'il a appelés, il les a aussi justifiés, et ceux qu'il a justifiés, il les a aussi glorifiés."
+          "text": "Or ceux qu'il a prédestinés, il les a aussi appelés ; et ceux qu'il a appelés, il les a aussi justifiés ; et ceux qu'il a justifiés, il les a aussi glorifiés."
         },
         {
           "verse": "8:31",
@@ -1386,7 +1386,7 @@
         },
         {
           "verse": "8:33",
-          "text": "Qui s'avancera en accusateur contre les élus d'Elohîm ? Elohîm est celui qui justifie !"
+          "text": "Qui s'avancera en accusateur contre les élus d'Elohîm ? Elohîm est le justificateur !"
         },
         {
           "verse": "8:34",
@@ -1435,7 +1435,15 @@
         },
         {
           "verse": "9:3",
-          "text": "Car moi-même je souhaiterais être anathème et séparé du Mashiah en faveur de mes frères, mes parents selon la chair,"
+          "text": "Car moi-même je souhaiterais être anathème et loin du Mashiah en faveur de mes frères, mes parents selon la chair,",
+          "textWithNotes": "Car moi-même je souhaiterais être anathème et loin[séparation d'une chose par rapport à une autre, quand le lien entre elles est détruit.] du Mashiah en faveur de mes frères, mes parents selon la chair,",
+          "notes": [
+            {
+              "word": "loin",
+              "position": 46,
+              "note": "séparation d'une chose par rapport à une autre, quand le lien entre elles est détruit."
+            }
+          ]
         },
         {
           "verse": "9:4",
@@ -1519,7 +1527,7 @@
         },
         {
           "verse": "9:14",
-          "text": "Que dirons-nous donc ? Y a-t-il de l'injustice en Elohîm ? Que cela n'arrive jamais !"
+          "text": "Que dirons-nous donc ? Y a-t-il de l'injustice en Elohîm ? Que cela n'arrive pas !"
         },
         {
           "verse": "9:15",
@@ -1535,16 +1543,16 @@
         },
         {
           "verse": "9:16",
-          "text": "Ainsi donc, ce n’est ni de celui qui veut, ni de celui qui court, mais d'Elohîm qui fait miséricorde."
+          "text": "Ainsi donc, ce n’est ni de celui qui veut, ni de celui qui court, mais d'Elohîm miséricordieux."
         },
         {
           "verse": "9:17",
-          "text": "Car l'Écriture dit à pharaon : C'est pour cela même que je t'ai suscité, afin de démontrer en toi ma puissance, et afin que mon nom soit publié par toute la Terre.",
-          "textWithNotes": "Car l'Écriture dit à pharaon : C'est pour cela même que je t'ai suscité, afin de démontrer en toi ma puissance, et afin que mon nom soit publié par toute la Terre[Ex. 9:16.].",
+          "text": "Car l'Écriture dit à pharaon : C'est pour cela même que je t'ai suscité, afin de démontrer en toi ma puissance, et afin que mon nom soit publié dans toute la Terre.",
+          "textWithNotes": "Car l'Écriture dit à pharaon : C'est pour cela même que je t'ai suscité, afin de démontrer en toi ma puissance, et afin que mon nom soit publié dans toute la Terre[Ex. 9:16.].",
           "notes": [
             {
               "word": "Terre",
-              "position": 157,
+              "position": 158,
               "note": "Ex. 9:16."
             }
           ]
@@ -1563,23 +1571,28 @@
         },
         {
           "verse": "9:21",
-          "text": "Le potier n'a-t-il pas autorité sur l'argile, pour faire en effet de la même masse un vase pour l'honneur et un autre pour le déshonneur ?",
-          "textWithNotes": "Le potier[Job. 10:8-9.] n'a-t-il pas autorité sur l'argile, pour faire en effet de la même masse un vase pour l'honneur et un autre pour le déshonneur ?",
+          "text": "Ou bien le potier n'a-t-il pas autorité sur l'argile, pour faire en effet à partir de la même pâte un vase pour l'honneur et un autre pour le déshonneur ?",
+          "textWithNotes": "Ou bien le potier[Job. 10:8-9.] n'a-t-il pas autorité sur l'argile, pour faire en effet à partir de la même pâte[1 Co. 5:6-7 ; Ga. 5:9.] un vase pour l'honneur et un autre pour le déshonneur ?",
           "notes": [
             {
               "word": "potier",
-              "position": 3,
+              "position": 11,
               "note": "Job. 10:8-9."
+            },
+            {
+              "word": "pâte",
+              "position": 94,
+              "note": "1 Co. 5:6-7 ; Ga. 5:9."
             }
           ]
         },
         {
           "verse": "9:22",
-          "text": "Mais, si en voulant montrer sa colère et faire connaître ce qu'il peut, Elohîm a supporté avec beaucoup de patience les vases de colère équipés pour la destruction,"
+          "text": "Mais si l'Elohîm, en voulant montrer sa colère et faire connaître sa capacité, a supporté avec beaucoup de patience les vases de colère équipés pour la destruction,"
         },
         {
           "verse": "9:23",
-          "text": "et ceci pour faire connaître la richesse de sa gloire sur les vases de miséricorde qu'il a préparés d'avance pour la gloire,"
+          "text": "et afin qu'il fasse connaître la richesse de sa gloire sur les vases de miséricorde qu'il a préparés d'avance pour la gloire,"
         },
         {
           "verse": "9:24",
@@ -1625,7 +1638,7 @@
         },
         {
           "verse": "9:28",
-          "text": "Car il accomplit et exécute rapidement la parole avec justice. Parce qu'il fera exécuter rapidement la parole sur la Terre."
+          "text": "Car il achève et expédie brièvement une parole en justice, parce qu'une parole ayant été expédiée brièvement, le Seigneur l'exécutera sur la Terre."
         },
         {
           "verse": "9:29",
@@ -1641,7 +1654,7 @@
         },
         {
           "verse": "9:30",
-          "text": "Que dirons-nous donc ? Que des nations qui ne courent pas après une justice ont saisi une justice, mais une justice issue de la foi,"
+          "text": "Que dirons-nous donc ? Que des nations, ne courant pas après une justice ont saisi une justice, mais une justice issue de la foi,"
         },
         {
           "verse": "9:31",
@@ -1661,12 +1674,12 @@
         },
         {
           "verse": "9:33",
-          "text": "selon qu'il est écrit : Voici, je mets en Sion la pierre d'achoppement et le rocher de scandale, et quiconque croit en lui, ne sera pas confus.",
-          "textWithNotes": "selon qu'il est écrit : Voici, je mets en Sion la pierre d'achoppement et le rocher de scandale, et quiconque croit en lui, ne sera pas confus[Es. 28:16.].",
+          "text": "selon qu'il est écrit : Voici, je mets en Sion une pierre d'achoppement et le rocher de scandale, et quiconque croit en lui, ne sera pas confus.",
+          "textWithNotes": "selon qu'il est écrit : Voici, je mets en Sion une pierre d'achoppement et le rocher de scandale, et quiconque croit en lui, ne sera pas confus[Es. 28:16.].",
           "notes": [
             {
               "word": "confus",
-              "position": 136,
+              "position": 137,
               "note": "Es. 28:16."
             }
           ]
@@ -1678,7 +1691,7 @@
       "verses": [
         {
           "verse": "10:1",
-          "text": "Frères, en effet, le désir de mon cœur et ma supplication à Elohîm en faveur d'Israël est en vue du salut."
+          "text": "Frères, en effet, le désir de mon cœur et ma supplication à Elohîm en faveur d'Israël est pour le salut."
         },
         {
           "verse": "10:2",
@@ -1707,12 +1720,12 @@
         },
         {
           "verse": "10:5",
-          "text": "Car Moshé écrit à propos de la justice issue de la torah : L'être humain qui aura pratiqué ces choses vivra par elles.",
-          "textWithNotes": "Car Moshé écrit à propos de la justice issue de la torah : L'être humain qui aura pratiqué ces choses vivra par elles[Lé. 18:5.].",
+          "text": "Car Moshé écrit à propos de la justice issue de la torah : L'être humain qui aura pratiqué ces choses vivra en elles.",
+          "textWithNotes": "Car Moshé écrit à propos de la justice issue de la torah : L'être humain qui aura pratiqué ces choses vivra en elles[Lé. 18:5.].",
           "notes": [
             {
               "word": "elles",
-              "position": 112,
+              "position": 111,
               "note": "Lé. 18:5."
             }
           ]
@@ -1759,7 +1772,7 @@
         },
         {
           "verse": "10:10",
-          "text": "Car c'est du cœur que l'on croit à la justice, et c'est de la bouche que l'on fait profession pour le salut,"
+          "text": "Car du cœur on croit pour la justice, et de la bouche on fait confession pour le salut,"
         },
         {
           "verse": "10:11",
@@ -1831,24 +1844,24 @@
         },
         {
           "verse": "10:18",
-          "text": "Mais je dis : Ne l'ont-ils pas entendue ? Au contraire ! Leur voix est allée par toute la Terre, et leur parole jusqu'aux extrémités de la terre habitée.",
-          "textWithNotes": "Mais je dis : Ne l'ont-ils pas entendue ? Au contraire ! Leur voix est allée par toute la Terre, et leur parole jusqu'aux extrémités de la terre habitée[Ps. 19:5.].",
+          "text": "Mais je dis : Ne l'ont-ils pas entendue ? Au contraire ! Leur voix est allée dans toute la Terre, et leur parole jusqu'aux extrémités de la terre habitée.",
+          "textWithNotes": "Mais je dis : Ne l'ont-ils pas entendue ? Au contraire ! Leur voix est allée dans toute la Terre, et leur parole jusqu'aux extrémités de la terre habitée[Ps. 19:5.].",
           "notes": [
             {
               "word": "habitée",
-              "position": 145,
+              "position": 146,
               "note": "Ps. 19:5."
             }
           ]
         },
         {
           "verse": "10:19",
-          "text": "Mais je dis : Israël ne l'a-t-il pas su ? Moshé le premier dit : Je vous exciterai à la jalousie par une non-nation, je provoquerai votre colère par une nation sans intelligence.",
-          "textWithNotes": "Mais je dis : Israël ne l'a-t-il pas su ? Moshé le premier dit : Je vous exciterai à la jalousie par une non-nation, je provoquerai votre colère par une nation sans intelligence[De. 32:21.].",
+          "text": "Mais je dis : Israël ne l'a-t-il pas su ? Moshé le premier dit : Moi, je vous exciterai à la jalousie par une non-nation, je provoquerai votre colère par une nation sans intelligence.",
+          "textWithNotes": "Mais je dis : Israël ne l'a-t-il pas su ? Moshé le premier dit : Moi, je vous exciterai à la jalousie par une non-nation, je provoquerai votre colère par une nation sans intelligence[De. 32:21.].",
           "notes": [
             {
               "word": "intelligence",
-              "position": 165,
+              "position": 170,
               "note": "De. 32:21."
             }
           ]
@@ -1884,11 +1897,11 @@
       "verses": [
         {
           "verse": "11:1",
-          "text": "Je dis donc : Elohîm a-t-il rejeté son peuple ? Que cela n'arrive jamais ! Car je suis aussi Israélite, de la semence d'Abraham, de la tribu de Benyamin."
+          "text": "Je dis donc : L'Elohîm n’a-t-il pas rejeté son peuple ? Que cela n'arrive pas ! Car moi aussi je suis Israélite, issu de la semence d'Abraham, de la tribu de Benyamin."
         },
         {
           "verse": "11:2",
-          "text": "Elohîm n'a pas rejeté son peuple, qu'il a connu d'avance. Ou bien ne savez-vous pas ce que l'Écriture dit par Éliyah, comment il prie Elohîm contre Israël en disant :"
+          "text": "L'Elohîm n'a pas rejeté son peuple qu'il a connu d'avance. Ou bien ne savez-vous pas ce que l'Écriture dit par Éliyah, comment il prie Elohîm contre Israël en disant :"
         },
         {
           "verse": "11:3",
@@ -1916,7 +1929,15 @@
         },
         {
           "verse": "11:5",
-          "text": "Ainsi donc, il y a aussi dans le temps présent, un reste, selon l'élection de la grâce."
+          "text": "Ainsi donc, dans le temps présent, un reste, selon l'élection de la grâce a surgi.",
+          "textWithNotes": "Ainsi donc, dans le temps présent, un reste, selon l'élection de la grâce a surgi[devenir, par exemple: entrer dans l'existence, commencer à être.].",
+          "notes": [
+            {
+              "word": "surgi",
+              "position": 76,
+              "note": "devenir, par exemple: entrer dans l'existence, commencer à être."
+            }
+          ]
         },
         {
           "verse": "11:6",
@@ -1928,12 +1949,12 @@
         },
         {
           "verse": "11:8",
-          "text": "Ainsi qu'il est écrit : Elohîm leur a donné un esprit d'assoupissement, des yeux pour ne pas voir et des oreilles pour ne pas entendre, jusqu'à ce jour.",
-          "textWithNotes": "Ainsi qu'il est écrit : Elohîm leur a donné un esprit d'assoupissement, des yeux pour ne pas voir et des oreilles pour ne pas entendre[Es. 29:10.], jusqu'à ce jour.",
+          "text": "Ainsi qu'il est écrit : L'Elohîm leur a donné un esprit d'assoupissement, des yeux pour ne pas voir et des oreilles pour ne pas entendre, jusqu'à ce jour.",
+          "textWithNotes": "Ainsi qu'il est écrit : L'Elohîm leur a donné un esprit d'assoupissement, des yeux pour ne pas voir et des oreilles pour ne pas entendre[Es. 29:10.], jusqu'à ce jour.",
           "notes": [
             {
               "word": "entendre",
-              "position": 126,
+              "position": 128,
               "note": "Es. 29:10."
             }
           ]
@@ -1956,12 +1977,12 @@
         },
         {
           "verse": "11:11",
-          "text": "Je dis donc : Ont-ils trébuché afin de tomber ? Que cela n’arrive jamais ! Mais, par leur chute, il y a le salut pour les nations, pour les exciter à la jalousie.",
-          "textWithNotes": "Je dis donc : Ont-ils trébuché afin de tomber ? Que cela n’arrive jamais ! Mais, par leur chute[Le mot grec signifie aussi « tomber à côté de », « une faute » ou « une déviation par rapport à la vérité et la droiture », « un méfait ». Voir Mt. 6:14 ; Ro. 11:12.], il y a le salut pour les nations, pour les exciter à la jalousie.",
+          "text": "Je dis donc : N’ont-ils pas trébuché, afin qu’ils tombent ? Que cela n’arrive pas ! Mais, par leur chute, il y a le salut pour les nations, pour les exciter à la jalousie.",
+          "textWithNotes": "Je dis donc : N’ont-ils pas trébuché, afin qu’ils tombent ? Que cela n’arrive pas ! Mais, par leur chute[Le mot grec signifie aussi « tomber à côté de », « une faute » ou « une déviation par rapport à la vérité et la droiture », « un méfait ». Voir Mt. 6:14 ; Ro. 11:12.], il y a le salut pour les nations, pour les exciter à la jalousie.",
           "notes": [
             {
               "word": "chute",
-              "position": 90,
+              "position": 99,
               "note": "Le mot grec signifie aussi « tomber à côté de », « une faute » ou « une déviation par rapport à la vérité et la droiture », « un méfait ». Voir Mt. 6:14 ; Ro. 11:12."
             }
           ]
@@ -1976,7 +1997,7 @@
         },
         {
           "verse": "11:14",
-          "text": "si par n'importe quel moyen je puis exciter à la jalousie ma chair et sauver quelques-uns d’entre eux."
+          "text": "si en effet, par n'importe quel moyen, je provoque à jalousie ma chair et en sauve certains d’entre eux."
         },
         {
           "verse": "11:15",
@@ -1984,8 +2005,8 @@
         },
         {
           "verse": "11:16",
-          "text": "Or si l'offrande du premier fruit est sainte, la masse l'est aussi. Et si la racine est sainte, les branches le sont aussi.",
-          "textWithNotes": "Or si l'offrande du premier fruit[Voir 1 Co. 15:20-23.] est sainte, la masse l'est aussi. Et si la racine est sainte, les branches le sont aussi.",
+          "text": "Or si l'offrande du premier fruit est sainte, la pâte l'est aussi. Et si la racine est sainte, les branches le sont aussi.",
+          "textWithNotes": "Or si l'offrande du premier fruit[Voir 1 Co. 15:20-23.] est sainte, la pâte l'est aussi. Et si la racine est sainte, les branches le sont aussi.",
           "notes": [
             {
               "word": "fruit",
@@ -2012,7 +2033,7 @@
         },
         {
           "verse": "11:19",
-          "text": "Tu diras alors : Les branches ont été retranchées pour que moi, je sois greffé."
+          "text": "Tu diras alors : Les branches ont été retranchées afin que moi, je sois greffé."
         },
         {
           "verse": "11:20",
@@ -2032,7 +2053,7 @@
         },
         {
           "verse": "11:24",
-          "text": "Car si toi, tu as été coupé de l'olivier sauvage selon sa nature et, greffé contre nature sur l'olivier cultivé, combien plus eux seront-ils greffés selon leur nature sur leur propre olivier."
+          "text": "Car si toi, tu as été coupé loin de l'olivier sauvage selon sa nature et, greffé contre nature sur l'olivier cultivé, combien plus eux seront-ils greffés selon leur nature sur leur propre olivier."
         },
         {
           "verse": "11:25",
@@ -2096,7 +2117,7 @@
         },
         {
           "verse": "11:36",
-          "text": "Parce que c’est à partir de lui et à travers lui et pour lui que sont toutes choses. À lui soit la gloire pour les âges ! Amen !"
+          "text": "Parce qu'à partir de lui et à travers lui et pour lui que sont toutes choses. À lui soit la gloire pour les âges ! Amen !"
         }
       ]
     },
@@ -2105,12 +2126,12 @@
       "verses": [
         {
           "verse": "12:1",
-          "text": "Je vous exhorte donc, frères, par les compassions d'Elohîm, à présenter vos corps en sacrifice vivant, saint, agréable à Elohîm : c'est votre service sacré spirituel."
+          "text": "Je vous exhorte donc, frères, à travers les compassions d'Elohîm, à présenter vos corps en sacrifice vivant, saint, agréable à Elohîm : c'est votre service sacré spirituel."
         },
         {
           "verse": "12:2",
-          "text": "Et ne vous conformez pas à cet âge-ci, mais soyez transformés par le renouvellement de votre pensée, afin que vous examiniez quelle est la volonté d'Elohîm, ce qui est bon, agréable et parfait.",
-          "textWithNotes": "Et ne vous conformez[Se conformer (c'est-à-dire son esprit et son caractère) au modèle d'un autre, (se façonner selon).] pas à cet âge-ci, mais soyez transformés[Le verbe « transformer » est la traduction du terme grec « metamorphoo » qui a donné en français « transfigurer ». C'est le même terme qui a été utilisé en Mt. 17:2 pour parler de la transfiguration du Seigneur. Si Paulos (Paul) recommandait cela à des personnes déjà converties, c'est parce qu'Elohîm les appelait à aller plus loin. La transformation d'une chenille en papillon est un très bel exemple pour illustrer le changement qui doit s'opérer en nous. Pour atteindre ce stade, cet insecte passe par plusieurs étapes. La transformation nous permet de croître spirituellement. En effet, tout enfant d'Elohîm est appelé à devenir mature, à passer du stade de petit enfant à celui de jeune homme, et de celui de jeune homme à celui de père (1 Jn. 2:12-14).] par le renouvellement[Le mot grec « anakainosis » traduit par renouvellement signifie aussi « renouveau », « rénovation » ou « changement complet vers le meilleur ». Voir Tit. 3:5.] de votre pensée, afin que vous examiniez quelle est la volonté d'Elohîm, ce qui est bon, agréable et parfait.",
+          "text": "Et ne vous conformez pas à cet âge-ci, mais soyez transformés par le renouvellement de votre pensée, pour que vous examiniez quelle est la volonté d'Elohîm, ce qui est bon, agréable et parfait.",
+          "textWithNotes": "Et ne vous conformez[Se conformer (c'est-à-dire son esprit et son caractère) au modèle d'un autre, (se façonner selon).] pas à cet âge-ci, mais soyez transformés[Le verbe « transformer » est la traduction du terme grec « metamorphoo » qui a donné en français « transfigurer ». C'est le même terme qui a été utilisé en Mt. 17:2 pour parler de la transfiguration du Seigneur. Si Paulos (Paul) recommandait cela à des personnes déjà converties, c'est parce qu'Elohîm les appelait à aller plus loin. La transformation d'une chenille en papillon est un très bel exemple pour illustrer le changement qui doit s'opérer en nous. Pour atteindre ce stade, cet insecte passe par plusieurs étapes. La transformation nous permet de croître spirituellement. En effet, tout enfant d'Elohîm est appelé à devenir mature, à passer du stade de petit enfant à celui de jeune homme, et de celui de jeune homme à celui de père (1 Jn. 2:12-14).] par le renouvellement[Le mot grec « anakainosis » traduit par renouvellement signifie aussi « renouveau », « rénovation » ou « changement complet vers le meilleur ». Voir Tit. 3:5.] de votre pensée, pour que vous examiniez quelle est la volonté d'Elohîm, ce qui est bon, agréable et parfait.",
           "notes": [
             {
               "word": "conformez",
@@ -2131,12 +2152,12 @@
         },
         {
           "verse": "12:3",
-          "text": "Car à travers la grâce qui m'a été donnée, je dis à chacun de vous qu'il ne faut pas penser plus hautement de soi qu'il n'est convenable de penser, mais de penser à se maîtriser soi-même, selon la mesure de foi qu'Elohîm a départie à chacun.",
-          "textWithNotes": "Car à travers la grâce qui m'a été donnée, je dis à chacun de vous qu'il ne faut pas penser plus hautement de soi qu'il n'est convenable de penser, mais de penser à se maîtriser soi-même, selon la mesure de foi qu'Elohîm a départie[« Diviser », « séparer en parts », « couper en morceaux », « être fendu en fractions ».] à chacun.",
+          "text": "Car je dis, à travers la grâce qui m'a été donnée, à chacun étant parmi vous, qu'il ne faut pas penser plus hautement de soi qu'il n'est convenable de penser, mais de penser à se maîtriser soi-même, selon la mesure de foi qu'Elohîm a départie à chacun.",
+          "textWithNotes": "Car je dis, à travers la grâce qui m'a été donnée, à chacun étant parmi vous, qu'il ne faut pas penser plus hautement de soi qu'il n'est convenable de penser, mais de penser à se maîtriser soi-même, selon la mesure de foi qu'Elohîm a départie[« Diviser », « séparer en parts », « couper en morceaux », « être fendu en fractions ».] à chacun.",
           "notes": [
             {
               "word": "départie",
-              "position": 223,
+              "position": 234,
               "note": "« Diviser », « séparer en parts », « couper en morceaux », « être fendu en fractions »."
             }
           ]
@@ -2167,16 +2188,16 @@
         },
         {
           "verse": "12:8",
-          "text": "soit celui qui exhorte, dans l'exhortation. Que celui qui donne le fasse dans la simplicité, celui qui dirige, avec zèle, celui qui exerce la miséricorde, avec joie."
+          "text": "soit celui qui exhorte, dans l'exhortation, celui qui donne, dans la simplicité, celui qui dirige, avec zèle, celui qui exerce la miséricorde, avec joie."
         },
         {
           "verse": "12:9",
-          "text": "Que l'amour soit sincère. Ayez en horreur le mal, étant collés à ce qui est bon."
+          "text": "Que l'amour soit sincère, ayant en horreur le mal, étant collés à ce qui est bon."
         },
         {
           "verse": "12:10",
-          "text": "Quant à l'amour fraternel, ayez de la tendresse les uns pour les autres. Quant à l'honneur, soyez les premiers à le rendre aux autres.",
-          "textWithNotes": "Quant à l'amour fraternel, ayez de la tendresse[Vient du grec « philostorgos » qui signifie « l'amour mutuel des parents et enfants, des maris et épouses », « amour affectueux, promptitude à aimer, aimer tendrement », « se dit surtout de la tendresse réciproque des parents et enfants ».] les uns pour les autres. Quant à l'honneur, soyez les premiers à le rendre aux autres.",
+          "text": "Quant à l'amour fraternel, ayez de la tendresse les uns pour les autres. Quant à l'honneur, étant les premiers à le rendre aux autres.",
+          "textWithNotes": "Quant à l'amour fraternel, ayez de la tendresse[Vient du grec « philostorgos » qui signifie « l'amour mutuel des parents et enfants, des maris et épouses », « amour affectueux, promptitude à aimer, aimer tendrement », « se dit surtout de la tendresse réciproque des parents et enfants ».] les uns pour les autres. Quant à l'honneur, étant les premiers à le rendre aux autres.",
           "notes": [
             {
               "word": "tendresse",
@@ -2223,7 +2244,7 @@
         },
         {
           "verse": "12:18",
-          "text": "S'il est possible, autant que cela dépend de vous, soyez en paix avec tous les humains."
+          "text": "S'il est possible, issu de vous, étant en paix avec tous les humains."
         },
         {
           "verse": "12:19",

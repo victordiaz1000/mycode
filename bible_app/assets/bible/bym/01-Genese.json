@@ -5336,7 +5336,7 @@
         },
         {
           "verse": "34:11",
-          "text": "Shekem dit au père et aux frères de la fille : Que je trouve grâce à vos yeux, et je donnerai tout ce que vous me direz."
+          "text": "Shekem dit à son père et à ses frères : Que je trouve grâce à vos yeux, et je donnerai tout ce que vous me direz."
         },
         {
           "verse": "34:12",
@@ -5583,7 +5583,7 @@
         },
         {
           "verse": "35:28",
-          "text": "Les jours de Yitzhak furent de 180 ans."
+          "text": "Les jours de Yitzhak furent de 100 ans et 80 ans."
         },
         {
           "verse": "35:29",
@@ -7671,7 +7671,15 @@
         },
         {
           "verse": "49:24",
-          "text": "Mais son arc reste ferme, ses bras et ses mains sont rendus agiles, par les mains du Puissant de Yaacov. De là est le berger, la pierre d’Israël -"
+          "text": "Mais son arc reste ferme, ses bras et ses mains sont rendus agiles, par les mains de Gibbor de Yaacov. De là est le berger, la pierre d’Israël -",
+          "textWithNotes": "Mais son arc reste ferme, ses bras et ses mains sont rendus agiles, par les mains de Gibbor[Puissant.] de Yaacov. De là est le berger, la pierre d’Israël -",
+          "notes": [
+            {
+              "word": "Gibbor",
+              "position": 85,
+              "note": "Puissant."
+            }
+          ]
         },
         {
           "verse": "49:25",

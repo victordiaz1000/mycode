@@ -269,12 +269,12 @@ Paulos (Paul) arriva à Corinthe en 51 ap. J.-C., sous le règne de l'empereur r
 10:22	Ou bien, excitons-nous la jalousie du Seigneur ? Nous ne sommes pas plus forts que lui.
 10:23	Toutes choses sont légales pour moi, mais toutes ne sont pas utiles ; toutes choses sont légales pour moi, mais toutes n'édifient pas.
 10:24	Que personne ne cherche son propre intérêt, mais celui d’autrui.
-10:25	Mangez de tout ce qui se vend au marché de la viande sans faire des recherches à cause de la conscience<!--1 Ti. 4:3-5.-->,
+10:25	Tout ce qu’on vend au marché de la viande, mangez-le, en examinant rien à cause de la conscience<!--1 Ti. 4:3-5.-->,
 10:26	car c'est au Seigneur qu'est la Terre et sa plénitude<!--Ps. 24:1, 50:12.-->.
-10:27	Mais si quelqu'un des incrédules vous invite et que vous vouliez aller, mangez de tout ce qui sera mis devant vous sans faire des recherches à cause de la conscience.
-10:28	Mais si quelqu'un vous dit : Ceci est sacrifié aux idoles ! N'en mangez pas, à cause de celui qui l'a révélé et à cause de la conscience, c'est au Seigneur qu'est la Terre et sa plénitude.
-10:29	Or je dis : la conscience, non la tienne, mais celle de l’autre. Car pourquoi ma liberté est-elle jugée par la conscience d'un autre ?
-10:30	Et si par la grâce j'en suis participant, pourquoi suis-je blâmé pour ce dont je rends grâce ?
+10:27	Mais si quelqu'un des incrédules vous invite et que vous vouliez aller, tout ce qui est mis devant vous, mangez-le, en examinant rien à cause de la conscience.
+10:28	Mais si quelqu'un vous dit : Ceci est sacrifié aux idoles ! N'en mangez pas, à cause de celui qui l'a révélé et de la conscience, c'est au Seigneur qu'est la Terre et sa plénitude.
+10:29	Et la conscience, dis-je, non pas la tienne, mais celle d’un autre. Car pourquoi ma liberté est-elle jugée par la conscience d'un autre ?
+10:30	Or si moi, par grâce je participe, pourquoi suis-je blâmé pour ce dont moi, je rends grâce ?
 10:31	Soit donc que vous mangiez, soit que vous buviez, soit que vous fassiez quelque autre chose, faites tout pour la gloire d'Elohîm.
 10:32	Ne devenez une cause d’achoppement ni aux Juifs, ni aux Grecs, ni à l'Assemblée d'Elohîm,
 10:33	comme moi aussi, je m'efforce de plaire à tous en toutes choses, ne cherchant pas mon propre intérêt, mais celui de plusieurs, afin qu'ils soient sauvés.
@@ -285,7 +285,7 @@ Paulos (Paul) arriva à Corinthe en 51 ap. J.-C., sous le règne de l'empereur r
 11:2	Or je vous loue frères, de ce qu'en toutes choses vous vous souvenez de moi, et de ce que vous retenez les traditions telles que je vous les ai transmises.
 11:3	Mais je veux que vous sachiez que le Mashiah est la tête<!--Le mot « tête » vient du grec « kephale » qui signifie aussi « chef ». Yéhoshoua Mashiah (Jésus-Christ) est la seule tête et l'unique chef de l'Assemblée (Ep. 1:22-23 ; Col. 1:18). Toute personne qui se proclame tête de l'Assemblée devient naturellement anti-mashiah (antichrist).--> de tout homme<!--Vient du grec « aner » qui signifie : « mâle », « époux ».-->, que l'homme est la tête de la femme, et qu'Elohîm est la tête du Mashiah.
 11:4	Tout homme qui prie ou qui prophétise ayant quelque chose sur la tête déshonore sa tête.
-11:5	Mais toute femme qui prie ou qui prophétise la tête non couverte déshonore sa tête à elle. Car c'est la même chose que si elle était rasée.
+11:5	Mais toute femme qui prie ou qui prophétise la tête non couverte déshonore sa tête à elle. Car c'est une seule et même chose que la rasé.
 11:6	Car si une femme n'est pas couverte, qu'on lui coupe aussi les cheveux. Or s'il est honteux pour une femme d'avoir les cheveux coupés, ou d'être rasée, qu'elle se voile !
 11:7	Car l'homme ne doit pas se couvrir la tête en effet : il est l'image et la gloire d'Elohîm, mais la femme est la gloire de l'homme.
 11:8	Car l'homme n'est pas issu de la femme, mais la femme est issue de l'homme.
@@ -304,7 +304,7 @@ Paulos (Paul) arriva à Corinthe en 51 ap. J.-C., sous le règne de l'empereur r
 11:21	car lorsqu'on mange, chacun prend d'avance son propre souper, et l'un a faim en effet, mais l'autre est ivre.
 11:22	Car n'avez-vous pas de maisons pour manger et pour boire ? Ou méprisez-vous l'Assemblée d'Elohîm et faites-vous honte à ceux qui n'ont rien ? Que vous dirai-je ? Vous louerai-je ? Je ne vous loue pas en cela.
 11:23	Car j'ai reçu du Seigneur ce que je vous ai donné. C'est que le Seigneur Yéhoshoua, la nuit où il fut livré, prit du pain,
-11:24	et après avoir rendu grâce, le rompit, et dit : Prenez, mangez. Ceci est mon corps qui est rompu en votre faveur. Faites ceci en mémoire de moi.
+11:24	et ayant rendu grâce, le rompit, et dit : Prenez, mangez. Ceci est mon corps qui est rompu en votre faveur. Faites ceci en mémoire de moi.
 11:25	De même aussi la coupe, après le souper, en disant : Cette coupe est la nouvelle alliance en mon sang. Faites ceci toutes les fois que vous en boirez, en mémoire de moi<!--Mt. 26:26-28 ; Mc. 14:22-24 ; Lu. 22:19-20.-->.
 11:26	Car toutes les fois que vous mangez ce pain et que vous buvez cette coupe, vous annoncez la mort du Seigneur jusqu'à ce qu'il vienne.
 11:27	C'est pourquoi quiconque mange le pain ou boit la coupe du Seigneur indignement sera coupable envers le corps et le sang du Seigneur.
@@ -321,15 +321,15 @@ Paulos (Paul) arriva à Corinthe en 51 ap. J.-C., sous le règne de l'empereur r
 12:1	Mais pour ce qui concerne les choses spirituelles, je ne veux pas, frères, que vous soyez ignorants.
 12:2	Vous savez que, nations, vous étiez conduits vers les idoles muettes, selon que vous étiez menés.
 12:3	C'est pourquoi je vous fais connaître que personne parlant par l'Esprit d'Elohîm, ne dit : Yéhoshoua est anathème<!--Le mot « anathème » signifie « chose offerte et laissée sur place, par exemple offrande résultant d'un vœu, et pendue au mur ou sur une colonne du temple, ou encore une chose dévouée à Elohîm, sans espoir de rachat, ou un animal destiné à être tué ; donc personne ou chose vouée à la destruction, dévouement par interdit ».--> ! Et personne ne peut dire : Seigneur Yéhoshoua ! sinon par le Saint-Esprit.
-12:4	Or il y a différents dons de grâce, mais c'est le même Esprit.
-12:5	Il y a aussi différents services, mais c'est le même Seigneur.
-12:6	Il y a aussi différentes opérations, mais c'est le même Elohîm qui opère toutes choses en tous.
+12:4	Or il y a différents dons de grâce, mais le même Esprit.
+12:5	Et il y a différents services, et le même Seigneur.
+12:6	Et il y a différentes opérations, mais c'est le même Elohîm qui opère toutes choses en tous.
 12:7	Or à chacun est donnée la manifestation de l'Esprit pour être utile<!--1 Co. 6:12, 10:23 ; 2 Co. 12:1.-->.
 12:8	Car à l'un est donnée en effet par le moyen de l'Esprit la parole de sagesse, mais à un autre, la parole de connaissance, selon le même Esprit,
-12:9	mais à un autre, la foi par le même Esprit, mais à un autre, les dons de guérisons par le même Esprit,
+12:9	mais à un autre, la foi dans le même Esprit, mais à un autre, les dons de guérisons dans le même Esprit,
 12:10	mais à un autre, les opérations des miracles, mais à un autre, la prophétie, mais à un autre, les discernements d'esprits, mais à un autre, diverses langues, mais à un autre, l'interprétation de langues.
 12:11	Mais un seul et même Esprit opère toutes ces choses, les distribuant à chacun en particulier comme il le veut.
-12:12	Car, comme le corps est un et qu'il a beaucoup de membres, et que tous les membres de ce corps qui est un, bien qu'il y en ait beaucoup, sont un seul corps, de même en est-il du Mashiah.
+12:12	Car, comme le corps est un et a beaucoup de membres, et tous les membres du corps qui est un, bien qu'étant beaucoup, sont un seul corps, ainsi en est-il aussi du Mashiah.
 12:13	Car nous avons tous été baptisés dans un seul Esprit<!--Les signes du baptême du Saint-Esprit (la conversion) se manifestent par le fruit de l'Esprit qui est évoqué de manière non exhaustive en Ga. 5:22. Les Écritures ne stipulent à aucun endroit que le parler en langues, qui est un don gratuit (Mt. 7:16-20), est en soi le signe du baptême du Saint-Esprit. Ainsi, il nous est dit que chaque croyant au Mashiah a le Saint-Esprit (1 Co. 12:13 ; Ro. 8:9 ; Ep. 1:13-14) mais que tous les croyants ne parlent pas forcément en langues (1 Co. 12:29-31).--> pour être un seul corps, soit Juifs, soit Grecs, soit esclaves, soit libres, et nous avons tous été abreuvés pour être un seul esprit<!--Ep. 4:4.-->.
 12:14	Car le corps n'est pas en effet un seul membre, mais beaucoup.
 12:15	Si le pied disait : Parce que je ne suis pas la main, ne suis-je pas hors du corps ? Il n’est pas pour autant hors du corps !

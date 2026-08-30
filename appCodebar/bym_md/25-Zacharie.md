@@ -167,7 +167,7 @@ Zekaryah, contemporain de Chaggay (Aggée), exerça son service en Yéhouda (Jud
 9:6	Un bâtard habitera dans Asdod, et j'abattrai l'orgueil des Philistins.
 9:7	J'ôterai son sang de sa bouche et ses abominations d’entre ses dents. Lui aussi restera pour notre Elohîm, il sera comme un chef en Yéhouda, et Ékron sera comme le Yebousien.
 9:8	Je camperai comme une garde autour de ma maison contre une armée, contre ceux qui passent et ceux qui reviennent, et aucun oppresseur ne passera plus chez eux, car maintenant je la vois de mes yeux.
-9:9	Exulte beaucoup, fille de Sion ! Crie, fille de Yeroushalaim ! Voici, ton roi vient à toi, juste, sauveur, humble, monté sur un âne, sur un âne, le fils d'une ânesse<!--Cette prophétie s'est accomplie 500 ans après. Effectivement, Yéhoshoua (Jésus) est entré à Yeroushalaim (Jérusalem) monté sur un âne (Mt. 21:1-11 ; Lu. 19:28-40 ; Jn. 12:12-19).-->.
+9:9	Exulte beaucoup, fille de Sion ! Crie, fille de Yeroushalaim ! Voici, ton Roi vient à toi, juste, sauveur, humble, monté sur un âne, sur un âne, le fils d'une ânesse<!--Cette prophétie s'est accomplie 500 ans après. Effectivement, Yéhoshoua (Jésus) est entré à Yeroushalaim (Jérusalem) monté sur un âne (Mt. 21:1-11 ; Lu. 19:28-40 ; Jn. 12:12-19).-->.
 9:10	Je retrancherai d'Éphraïm les chars et de Yeroushalaim les chevaux, et les arcs de guerre seront aussi retranchés. Il parlera de paix aux nations, et sa domination ira de la mer à la mer, du fleuve aux extrémités de la Terre<!--Es. 57:19 ; Ps. 2:8, 72:8.-->.
 9:11	Quant à toi, à cause de ton alliance scellée par le sang, je retirerai tes captifs de la fosse où il n'y a pas d'eau.
 9:12	Retournez à la forteresse, captifs pleins d'espérance ! Aujourd'hui même je le déclare, je te rendrai le double.

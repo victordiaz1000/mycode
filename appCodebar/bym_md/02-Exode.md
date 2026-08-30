@@ -473,7 +473,7 @@ Ce livre retrace la sortie d'Égypte, et le début de la traversée du désert, 
 15:23	Ils vinrent à Marah, mais ne purent boire l'eau de Marah parce qu'elle était amère. C'est pourquoi son nom fut appelé Marah.
 15:24	Le peuple murmura contre Moshé en disant : Que boirons-nous ?
 15:25	Il cria à YHWH, et YHWH lui montra<!--« Montra » de l'hébreu « yarah » qui veut également dire « enseigner », « signaler », « lancer », « instruire », « informer », « montrer », « jeter » etc.--> un arbre, qu’il jeta dans l’eau, et l’eau devint douce. C'est là qu'il lui fixa une ordonnance et un jugement. C'est là qu'il l'éprouva.
-15:26	Il dit : Si tu écoutes, si tu écoutes la voix de YHWH, ton Elohîm, si tu fais ce qui est droit à ses yeux, si tu prêtes l'oreille à ses commandements, si tu gardes toutes ses ordonnances, je ne mettrai sur toi aucune des maladies que j’ai mises sur l'Égypte, car je suis YHWH-Rapha<!--YHWH qui te guérit. De. 7:12-15.-->.
+15:26	Il dit : Écouter, si tu écoutes la voix de YHWH, ton Elohîm, si tu fais ce qui est droit à ses yeux, si tu prêtes l'oreille à ses commandements, si tu gardes toutes ses ordonnances, je ne mettrai sur toi aucune des maladies que j’ai mises sur l'Égypte, car je suis YHWH-Rapha<!--YHWH qui te guérit. De. 7:12-15.-->.
 15:27	Ils vinrent à Élim où il y avait 12 sources d'eau et 70 palmiers. Ils campèrent là, près de l'eau.
 
 ## Chapitre 16

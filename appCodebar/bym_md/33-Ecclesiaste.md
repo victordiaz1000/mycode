@@ -111,10 +111,10 @@ La problématique centrale du livre est de savoir si la vie vaut la peine d'êtr
 
 ### Un monde injuste
 
-4:1	Je me retournai et je vis toutes les oppressions qui se font sous le soleil. Voici les larmes des opprimés, ils n'ont personne pour les consoler ! La force est en main de ceux qui les oppriment, et personne ne les console !
+4:1	Et moi, je me retournai et je vis toutes les oppressions qui se font sous le soleil. Voici les larmes des opprimés, ils n'ont personne pour les consoler ! La force est en main de ceux qui les oppriment, et personne ne les console !
 4:2	Moi, j'ai loué les morts qui sont déjà morts, plutôt que les vivants qui sont encore vivants<!--Ec. 7:1.-->.
 4:3	Et, mieux que les deux, celui qui n'a pas encore existé, celui qui n'a pas vu les mauvaises actions qui se commettent sous le soleil.
-4:4	J'ai vu que tout labeur et tout succès dans le travail n'est que jalousie de l’homme contre son compagnon. Cela aussi est vanité et lutte d'esprit.
+4:4	Et moi, j'ai vu que tout labeur et tout succès dans le travail n'est que jalousie de l’homme contre son compagnon. Cela aussi est vanité et lutte d'esprit.
 4:5	L'insensé se croise les mains et dévore sa propre chair<!--Pr. 6:10, 19:24, 24:33, 26:15.-->.
 4:6	Mieux vaut une paume pleine de repos, que les deux poignées pleines de labeur et de lutte d'esprit<!--Ps. 37:16 ; Pr. 15:16-17, 16:8.-->.
 4:7	Moi, je suis retourné pour voir la vanité sous le soleil :
@@ -152,7 +152,7 @@ La problématique centrale du livre est de savoir si la vie vaut la peine d'êtr
 5:13	Cette richesse se perd à cause d’une mauvaise occupation, et s'il a engendré un fils, il n'aura rien entre les mains.
 5:14	Comme il est sorti du ventre de sa mère, il s'en retournera nu, s'en allant comme il était venu, et il n'emportera rien de son labeur, qui s’en est allé de sa main<!--1 Ti. 6:7.-->.
 5:15	C'est aussi un malheur affligeant : tout comme il était venu, ainsi s’en va-t-il. Quel avantage a-t-il d'avoir travaillé pour du vent ?
-5:16	De plus, durant tous ses jours il mange dans les ténèbres, et il a beaucoup de chagrin, de colère et de maladie.
+5:16	Même pendant tous ses jours il mange dans les ténèbres, et il a beaucoup de chagrin, de colère et de maladie.
 5:17	Voici ce que j'ai vu : c'est une chose bonne et belle de manger, de boire et de voir le bonheur dans tout son travail qu'il fait sous le soleil, pendant le nombre des jours de vie qu'Elohîm lui a donnés, car c'est là sa part.
 5:18	En effet, si Elohîm a donné à un être humain, quel qu'il soit, des richesses et des biens, le faisant maître d’en manger, d’en prendre sa part et de se réjouir dans son labeur, c’est là un don d'Elohîm.
 5:19	Car il ne se souviendra pas beaucoup des jours de sa vie, parce qu'Elohîm l'occupe avec la joie de son cœur.
@@ -163,7 +163,7 @@ La problématique centrale du livre est de savoir si la vie vaut la peine d'êtr
 
 6:1	Il existe un mal que j'ai vu sous le soleil et qui est grand pour les humains :
 6:2	Il y a tel homme à qui Elohîm a donné richesses, biens et gloire, à qui rien ne manque de tout ce qu'il désire, mais Elohîm ne le laisse pas maître de s’en nourrir. Car c'est un homme étranger qui s'en nourrira. Cela est une vanité et une maladie mauvaise.
-6:3	Si un homme engendrait 100 fils et vivait un grand nombre d'années, aussi nombreux que soient les jours de sa vie, si son âme ne s'est pas rassasiée de bonheur et si, de plus, il n'a pas de sépulture, je dis qu'un avorton est plus heureux que lui.
+6:3	Si un homme engendrait 100 enfants et vivait de nombreuses années, aussi nombreux que soient les jours de sa vie, si son âme ne s'est pas rassasiée de bonheur et si, de plus, il n'a pas de sépulture, je dis qu'un avorton est plus heureux que lui.
 6:4	Car il est venu en vain et s'en va dans les ténèbres, et son nom est couvert de ténèbres.
 6:5	Il n’a même pas vu ni connu le soleil. Celui-ci a plus de repos que celui-là<!--Job. 3:16.-->.
 6:6	Et s'il vivait deux fois 1 000 ans sans voir le bonheur, tous ne vont-ils pas dans un même lieu<!--Ps. 89:48 ; Job. 3:13-19, 30:23 ; Ec. 3:20 ; Hé. 9:27.--> ?
@@ -191,7 +191,7 @@ La problématique centrale du livre est de savoir si la vie vaut la peine d'êtr
 7:11	La sagesse est bonne avec un héritage, elle est un avantage pour ceux qui voient le soleil.
 7:12	Oui, à l’ombre de la sagesse, à l’ombre de l’argent, mais l’avantage de la connaissance, c’est que la sagesse fait vivre ses possesseurs.
 7:13	Regarde l'œuvre d'Elohîm : car qui pourra redresser ce qu'il a courbé ?
-7:14	Au jour du bonheur, sois heureux, et au jour du malheur, regarde : en effet, Elohîm a fait celui-ci exactement comme celui-là, afin que l'être humain ne trouve rien après lui.
+7:14	Au jour du bonheur, sois dans le bonheur, et au jour du malheur, regarde : en effet, Elohîm a fait celui-ci exactement comme celui-là, afin que l'être humain ne trouve rien après lui.
 7:15	J’ai tout vu pendant mes jours de vanité. Il y a tel juste qui périt dans sa justice et il y a tel méchant qui prolonge ses jours dans sa méchanceté<!--Job. 21:7-8 ; Ec. 8:14.-->.
 7:16	Ne deviens pas juste à l'excès<!--« Être ou devenir grand », « être ou devenir nombreux », « se multiplier ».--> et ne te montre pas sage outre mesure : pourquoi te ruinerais-tu<!--Pr. 3:7 ; Ro. 12:16.--> ?
 7:17	Ne sois pas trop méchant, et ne deviens pas insensé : pourquoi mourrais-tu avant ton temps<!--Job. 22:17 ; Ec. 9:16.--> ?

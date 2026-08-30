@@ -276,7 +276,7 @@ Ce livre est un rappel de la torah de YHWH. Après 40 années d'errance dans le 
 7:10	et qui rend la pareille en face à ceux qui le haïssent et les fait périr. Il ne diffère pas envers celui qui le hait, il lui rend la pareille en face.
 7:11	Garde les commandements, les lois, et les ordonnances que je t'ordonne aujourd'hui, et mets-les en pratique.
 7:12	Il arrivera que si vous écoutez ces ordonnances, si vous les gardez et les mettez en pratique, YHWH, ton Elohîm, gardera l'alliance et la bonté qu'il a jurées à tes pères.
-7:13	Il t'aimera, te bénira et te multipliera. Il bénira le fruit de ton ventre, le fruit du sol, ton blé, ton vin nouveau, ton huile, la portée de tes bœufs et des troupeaux de tes brebis, sur le sol qu'il a juré de donner à tes pères.
+7:13	Et il t'a aimé, t'a béni et t'a multiplié. Il a béni le fruit de ton ventre, le fruit du sol, ton blé, ton vin nouveau, ton huile, la portée de tes bœufs et l'accroissement de tes brebis, sur le sol qu'il a juré de donner à tes pères.
 7:14	Tu seras béni plus que tous les peuples. Il n'y aura chez toi et parmi tes bêtes ni mâle ni femelle stérile<!--Ex. 23:26.-->.
 7:15	YHWH détournera de toi toute maladie. Il ne t'enverra aucune de ces mauvaises maladies d'Égypte qui te sont connues, mais il les fera venir sur tous ceux qui te haïssent.
 7:16	Tu dévoreras tous les peuples que YHWH, ton Elohîm, va te livrer, ton œil n'aura pas de pitié, et tu ne serviras pas leurs elohîm, car c’est un piège pour toi.
@@ -944,33 +944,33 @@ Ce livre est un rappel de la torah de YHWH. Après 40 années d'errance dans le 
 
 ### Les bénédictions accompagnent l'obéissance
 
-28:1	Et il arrivera que si tu écoutes, si tu écoutes la voix de YHWH, ton Elohîm, et que tu prennes garde de pratiquer tous ses commandements que je t'ordonne aujourd'hui, YHWH, ton Elohîm, te donnera la supériorité sur toutes les nations de la Terre.
+28:1	Et il arrivera qu'écouter, si tu écoutes la voix de YHWH, ton Elohîm, et que tu prennes garde de pratiquer tous ses commandements que je t'ordonne aujourd'hui, YHWH, ton Elohîm, te donnera la supériorité sur toutes les nations de la Terre.
 28:2	Voici toutes les bénédictions qui viendront sur toi, et qui t'atteindront, quand tu obéiras à la voix de YHWH, ton Elohîm :
-28:3	tu seras béni dans la ville et tu seras béni dans les champs.
-28:4	Le fruit de tes entrailles, le fruit du sol, le fruit de tes troupeaux, les portées de ton gros et de ton petit bétail seront bénis.
-28:5	Ta corbeille et ta cuve de pétrissage seront bénies.
-28:6	Tu seras béni en entrant, et tu seras béni en sortant.
+28:3	Béni sois-tu dans la ville et béni sois-tu dans les champs.
+28:4	Bénis soient le fruit de tes entrailles, le fruit de ton sol et le fruit de ton bétail, les portées de tes bœufs et l’accroissement de tes brebis.
+28:5	Bénis soient ta corbeille et ta cuve de pétrissage.
+28:6	Béni sois-tu en entrant, et béni sois-tu en sortant.
 28:7	YHWH te donnera tes ennemis qui se lèveront contre toi. Ils seront battus en face de toi. Ils sortiront contre toi par un chemin, et ils s’enfuiront en face de toi par sept chemins.
 28:8	YHWH ordonnera à la bénédiction d'être avec toi dans tes greniers et dans tout ce à quoi tu mettras ta main ; il te bénira sur la terre que YHWH, ton Elohîm, te donne.
 28:9	YHWH t'établira pour être son peuple saint, comme il te l'a juré, quand tu garderas les commandements de YHWH, ton Elohîm, et que tu marcheras dans ses voies.
 28:10	Tous les peuples de la Terre verront que tu es appelé du nom de YHWH, et ils te craindront.
-28:11	YHWH te fera abonder de biens dans le fruit de tes entrailles, le fruit de tes troupeaux, et le fruit de ton sol, sur le sol que YHWH a juré à tes pères de te donner.
+28:11	YHWH t'a fait demeurer dans un bon fruit de tes entrailles, le fruit de tes troupeaux, et le fruit de ton sol, sur le sol que YHWH a juré à tes pères de te donner.
 28:12	YHWH t'ouvrira son bon trésor, les cieux, pour donner à ta terre la pluie en son temps et pour bénir tout le travail de tes mains. Tu prêteras à beaucoup de nations et tu n'emprunteras pas.
-28:13	YHWH te mettra à la tête et non à la queue, tu seras toujours en haut et tu ne seras jamais en bas, quand tu obéiras aux commandements de YHWH, ton Elohîm, que je t'ordonne aujourd'hui, d’observer et de pratiquer,
+28:13	YHWH t'a donné pour être la tête et non à la queue, tu seras toujours en haut et tu ne seras jamais en bas, quand tu obéiras aux commandements de YHWH, ton Elohîm, que je t'ordonne aujourd'hui, d’observer et de pratiquer,
 28:14	et que tu ne te détourneras, ni à droite ni à gauche, d’aucune des paroles que je vous ordonne aujourd’hui, pour aller après d’autres elohîm, pour les servir.
 
 ### Les malédictions accompagnent la désobéissance
 
 28:15	S’il arrive que tu n'écoutes pas la voix de YHWH, ton Elohîm, pour garder et pratiquer tous ses commandements et ses statuts que je t'ordonne aujourd'hui, voici toutes les malédictions qui viendront sur toi, et qui t'atteindront :
-28:16	tu seras maudit dans la ville, et tu seras maudit dans les champs.
-28:17	Ta corbeille et ta cuve de pétrissage seront maudites.
-28:18	Le fruit de tes entrailles, le fruit de ton sol, les portées de ton gros et de ton petit bétail seront maudits.
-28:19	Tu seras maudit à ton entrée, et tu seras maudit à ta sortie.
+28:16	maudit sois-tu dans la ville, et maudit sois-tu dans les champs.
+28:17	Maudites soient ta corbeille et ta cuve de pétrissage.
+28:18	Maudit soit le fruit de tes entrailles, le fruit de ton sol, la portée de tes bœufs et l'accroissement de tes brebis.
+28:19	Maudit sois-tu à ton entrée, et maudit sois-tu à ta sortie.
 28:20	YHWH enverra sur toi la malédiction, la confusion, et la ruine dans tout ce à quoi tu mettras ta main et que tu feras, jusqu'à ce que tu sois détruit, et que tu périsses promptement, face à la méchanceté de tes pratiques, par lesquelles tu m'auras abandonné.
-28:21	YHWH te fera attraper la peste jusqu'à ce qu'elle te consume du sol où tu entres pour en prendre possession.
-28:22	YHWH te frappera de maladie infectieuse<!--Une maladie des poumons.-->, de fièvre, d'inflammation, de chaleur extrême, de l'épée, de flétrissure et de rouille, qui te poursuivront jusqu'à ce que tu périsses.
+28:21	YHWH te fera attraper la peste jusqu'à te consumer de dessus le sol où tu entres pour en prendre possession.
+28:22	YHWH te frappera de maladie infectieuse<!--Une maladie des poumons.-->, de fièvre, d'inflammation, de chaleur extrême, de l'épée, de flétrissure et de rouille, qui te poursuivront jusqu'à te faire périr.
 28:23	Les cieux sur ta tête seront de cuivre, et la terre sous toi sera de fer.
-28:24	YHWH te donnera pour pluie à ta terre de la poussière et de la poudre. Elles descendront des cieux sur toi jusqu'à ce que tu sois détruit.
+28:24	YHWH donnera pour pluie à ta terre de la poussière et de la poudre. Elles descendront des cieux sur toi jusqu'à te détruire.
 28:25	YHWH te donnera à tes ennemis. Tu seras battu en face d'eux. Tu sortiras par un chemin contre eux, et tu t'enfuiras en face d'eux par sept chemins. Tu deviendras un objet de terreur pour tous les royaumes de la Terre.
 28:26	Ton cadavre deviendra la nourriture de toutes les créatures volantes des cieux et des bêtes de la terre, et il n'y aura personne pour les effrayer.
 28:27	YHWH te frappera de l'ulcère d'Égypte, d'hémorroïdes, de gale et de démangeaison, dont tu ne pourras guérir.
@@ -991,17 +991,17 @@ Ce livre est un rappel de la torah de YHWH. Après 40 années d'errance dans le 
 28:42	Les insectes prendront possession de tous tes arbres et du fruit de ton sol.
 28:43	L'étranger qui sera au milieu de toi montera toujours plus au-dessus de toi, et toi, tu descendras toujours plus bas.
 28:44	Il te prêtera, et tu ne lui prêteras pas. Il sera à la tête, et tu seras à la queue.
-28:45	Toutes ces malédictions viendront sur toi, elles te poursuivront et t'atteindront jusqu'à ce que tu sois détruit, parce que tu n'auras pas obéi à la voix de YHWH, ton Elohîm, pour garder ses commandements et ses statuts qu'il t'a ordonnés.
-28:46	Ces choses deviendront pour toi et pour ta semence des signes et des prodiges, à perpétuité.
+28:45	Toutes ces malédictions viendront sur toi, elles te poursuivront et t'atteindront jusqu'à te détruire, parce que tu n'auras pas obéi à la voix de YHWH, ton Elohîm, pour garder ses commandements et ses statuts qu'il t'a ordonnés.
+28:46	Ces choses deviendront pour toi et pour ta semence des signes et des prodiges, jusqu'à l'éternité.
 28:47	Et parce que tu n'auras pas servi YHWH, ton Elohîm, avec joie, et de bon cœur, malgré l'abondance de toutes choses,
-28:48	tu serviras, dans la faim, dans la soif, dans la nudité, et dans la disette de toutes choses, ton ennemi que YHWH enverra contre toi. Il mettra un joug de fer sur ton cou, jusqu'à ce qu'il t'ait détruit.
+28:48	tu serviras, dans la faim, dans la soif, dans la nudité, et dans la disette de toutes choses, ton ennemi que YHWH enverra contre toi. Il mettra un joug de fer sur ton cou, jusqu'à te détruire.
 
 ### Prophétie sur l'invasion babylonienne et la dispersion d'Israël<!--2 R. 24-25.-->
 
 28:49	YHWH fera lever de loin, des extrémités de la Terre, une nation qui volera comme l'aigle, une nation dont tu ne comprendras pas la langue,
 28:50	une nation aux faces féroces, qui ne portera pas les faces du vieux et n'aura pas pitié pour le jeune homme<!--Cette prophétie s'est accomplie en 587 av. J.-C. Voir 2 R. 24-25.-->.
-28:51	Elle mangera le fruit de tes troupeaux et les fruits de ton sol jusqu'à ce que tu sois détruit. Elle n'épargnera ni blé, ni vin nouveau, ni huile, ni portée de ton gros et de ton petit bétail jusqu'à ce qu'elle t'ait fait périr.
-28:52	Et elle t'assiégera<!--2 R. 24:10, 25:1-3. Le siège de Yeroushalaim s'est déroulé en 587 et 586 av. J.-C.--> dans toutes tes portes, jusqu'à ce que tombent ces hautes et fortes murailles dans lesquelles tu auras mis ta confiance dans toute ta terre. Elle t'assiégera dans toutes tes portes, sur toute la terre que YHWH, ton Elohîm, te donne.
+28:51	Elle mangera le fruit de tes troupeaux et les fruits de ton sol jusqu'à te détruire. Elle n'épargnera ni blé, ni vin nouveau, ni huile, ni portée de tes bœufs, ni l'accroissement de tes brebis, jusqu'à te faire périr.
+28:52	Et elle t'assiégera<!--2 R. 24:10, 25:1-3. Le siège de Yeroushalaim s'est déroulé en 587 et 586 av. J.-C.--> dans toutes tes portes, jusqu'à faire descendre ces hautes et fortes murailles dans lesquelles tu auras mis ta confiance dans toute ta terre. Elle t'assiégera dans toutes tes portes, sur toute la terre que YHWH, ton Elohîm, te donne.
 28:53	Tu mangeras le fruit de tes entrailles, la chair de tes fils et de tes filles<!--2 R. 6:29 ; La. 4:10.--> que YHWH, ton Elohîm, t'aura donnés, durant le siège et la détresse dont ton ennemi te serrera.
 28:54	L'homme le plus tendre et le plus délicat d'entre vous regardera d'un mauvais œil son frère, sa femme bien-aimée, et le reste de ses fils qu'il a épargnés,
 28:55	pour ne donner à aucun d'eux de la chair de ses fils, qu'il mangera, parce qu'il ne lui restera rien du tout, à cause du siège et de la détresse dont ton ennemi te serrera dans toutes tes portes.
@@ -1010,13 +1010,13 @@ Ce livre est un rappel de la torah de YHWH. Après 40 années d'errance dans le 
 28:58	Si tu ne prends pas garde d'observer toutes les paroles de cette torah, qui sont écrites dans ce livre, en craignant le nom glorieux et redoutable de YHWH, ton Elohîm,
 28:59	YHWH rendra extraordinaires tes plaies et les plaies de ta semence, des plaies grandes et persistantes, des maladies mauvaises et persistantes.
 28:60	Et il fera retourner sur toi toutes les maladies d'Égypte, devant lesquelles tu avais peur et elles s'attacheront à toi.
-28:61	Même YHWH fera venir sur toi toutes maladies et toutes plaies, qui ne sont pas écrites dans le livre de cette torah, jusqu'à ce que tu sois détruit.
-28:62	Et vous resterez en petit nombre, après avoir été aussi nombreux que les étoiles des cieux, parce que tu n'auras pas obéi à la voix de YHWH, ton Elohîm.
+28:61	Même YHWH fera venir sur toi toutes maladies et toutes plaies, qui ne sont pas écrites dans le livre de cette torah, jusqu'à te détruire.
+28:62	Et vous resterez un petit nombre d’hommes, vous qui étiez devenus aussi nombreux que les étoiles des cieux, parce que tu n'auras pas obéi à la voix de YHWH, ton Elohîm.
 28:63	Et il arrivera que comme YHWH se réjouissait à votre égard, en vous faisant du bien et en vous multipliant, de même YHWH se réjouira à votre égard en vous faisant périr et en vous détruisant. Vous serez arrachés<!--Lé. 26:33.--> du sol dont vous allez entrer en possession.
 28:64	YHWH te dispersera<!--Lé. 26:33 ; 2 R. 24 et 25.--> parmi tous les peuples, d’une extrémité de la Terre à l’autre extrémité de la Terre. Là, tu serviras d'autres elohîm que ni toi ni tes pères n'avez connus, le bois et la pierre.
 28:65	Parmi ces nations<!--Ps. 137.-->, tu ne seras pas tranquille et la plante de ton pied n’aura pas de repos. Et là, YHWH te donnera le tremblement du cœur, l'anéantissement des yeux et une âme languissante.
 28:66	Il arrivera que ta vie sera en suspens en face de toi, tu trembleras la nuit et le jour, et tu ne croiras plus en ta vie.
-28:67	Tu diras le matin : « Qui donnera le soir ? » Le soir tu diras: « Qui donnera le matin ? » À cause de la terreur dont tremblera ton cœur et de la vision de tes yeux, que tu verras.
+28:67	Le matin tu diras : « Qui donnera le soir ? » Le soir tu diras : « Qui donnera le matin ? » À cause de la terreur dont tremblera ton cœur et de la vision de tes yeux, que tu verras.
 28:68	Et YHWH te fera retourner en Égypte sur des navires, pour faire le chemin dont je t'ai dit : Tu ne le verras plus ! Et là, vous vous vendrez à vos ennemis, comme esclaves et servantes et il n'y aura personne pour vous acheter.
 28:69	Voici les paroles de l'alliance que YHWH ordonna à Moshé de traiter avec les fils d'Israël en terre de Moab, outre l'alliance qu'il avait traitée avec eux à Horeb.
 

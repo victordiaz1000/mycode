@@ -1028,7 +1028,7 @@
         },
         {
           "verse": "5:6",
-          "text": "Yéhoshoua le voyant couché et sachant que depuis longtemps déjà il l'était, lui dit : Veux-tu être guéri ?"
+          "text": "Yéhoshoua le voyant couché et sachant que depuis longtemps déjà il l'était, lui dit : Veux-tu devenir sain ?"
         },
         {
           "verse": "5:7",
@@ -1044,7 +1044,7 @@
         },
         {
           "verse": "5:10",
-          "text": "Les Juifs dirent donc à celui qui avait été guéri : C'est le shabbat ! Il n'est pas légal pour toi de prendre ce lit."
+          "text": "Les Juifs dirent donc à celui qui avait été guéri : C'est le shabbat ! Il n'est pas légal pour toi de prendre ce lit de camp."
         },
         {
           "verse": "5:11",
@@ -1147,7 +1147,7 @@
         },
         {
           "verse": "5:31",
-          "text": "Si je rends témoignage au sujet de moi-même, mon témoignage n'est pas vrai."
+          "text": "Si moi, je rends témoignage au sujet de moi-même, mon témoignage n'est pas vrai."
         },
         {
           "verse": "5:32",
@@ -1227,7 +1227,7 @@
         },
         {
           "verse": "5:46",
-          "text": "Car si vous croyiez Moshé, vous me croiriez aussi, car il a écrit sur moi."
+          "text": "Car si vous croyiez Moshé, vous me croiriez aussi, car lui, a écrit à mon sujet."
         },
         {
           "verse": "5:47",
@@ -1297,12 +1297,12 @@
         },
         {
           "verse": "6:15",
-          "text": "Mais Yéhoshoua, sachant qu'ils étaient sur le point de venir l'enlever de force pour le faire roi, se retira encore, lui seul, sur la montagne.",
-          "textWithNotes": "Mais Yéhoshoua, sachant qu'ils étaient sur le point de venir l'enlever de force pour le faire roi, se retira[Celui qui par crainte cherche un autre endroit ou évite la vue.] encore, lui seul, sur la montagne.",
+          "text": "Mais Yéhoshoua, sachant qu'ils étaient sur le point de venir l'enlever de force afin qu'ils le fassent roi, se retira encore, lui seul, sur la montagne.",
+          "textWithNotes": "Mais Yéhoshoua, sachant qu'ils étaient sur le point de venir l'enlever de force afin qu'ils le fassent roi, se retira[Celui qui par crainte cherche un autre endroit ou évite la vue.] encore, lui seul, sur la montagne.",
           "notes": [
             {
               "word": "retira",
-              "position": 102,
+              "position": 111,
               "note": "Celui qui par crainte cherche un autre endroit ou évite la vue."
             }
           ]
@@ -1367,7 +1367,7 @@
         },
         {
           "verse": "6:28",
-          "text": "Ils lui dirent donc : Que devons-nous faire pour accomplir les œuvres d'Elohîm ?"
+          "text": "Ils lui dirent donc : Que devons-nous faire afin que nous accomplissions les œuvres d'Elohîm ?"
         },
         {
           "verse": "6:29",
@@ -1395,7 +1395,7 @@
         },
         {
           "verse": "6:33",
-          "text": "Car le pain d'Elohîm est celui qui descend du ciel et qui donne la vie au monde."
+          "text": "Car le pain d'Elohîm est celui qui descend à partir du ciel et qui donne la vie au monde."
         },
         {
           "verse": "6:34",
@@ -1531,7 +1531,7 @@
         },
         {
           "verse": "6:63",
-          "text": "C'est l'Esprit qui donne la vie, la chair ne sert à rien. Les paroles que je vous ai dites sont esprit et sont vie."
+          "text": "C'est l'Esprit qui donne la vie, la chair ne profite de rien. Les paroles que je vous ai dites sont esprit et sont vie."
         },
         {
           "verse": "6:64",
@@ -1571,7 +1571,7 @@
         },
         {
           "verse": "6:71",
-          "text": "Or il parlait de Yéhouda, de Shim’ôn Iskariote, car c’était lui qui était sur le point de le livrer, quoiqu'il fût l'un des douze."
+          "text": "Or il parlait de Yéhouda, de Shim’ôn Iskariote, car c’était lui qui était sur le point de le livrer, étant l'un des douze."
         }
       ]
     },
@@ -1601,12 +1601,12 @@
         },
         {
           "verse": "7:4",
-          "text": "Car on ne fait rien en secret quand on cherche à être remarqué en faisant sa propre publicité. Si tu fais ces choses, montre-toi toi-même au monde.",
-          "textWithNotes": "Car on ne fait rien en secret quand on cherche à être remarqué en faisant sa propre publicité[Le maintien par lequel on se met en évidence et que l'on assure sa publicité.]. Si tu fais ces choses, montre-toi toi-même au monde.",
+          "text": "Car personne ne fait quelque chose en secret et ne cherche à être lui-même en assurance. Si tu fais ces choses, montre-toi toi-même au monde.",
+          "textWithNotes": "Car personne ne fait quelque chose en secret et ne cherche à être lui-même en assurance[Le maintien par lequel on se met en évidence et que l'on assure sa publicité.]. Si tu fais ces choses, montre-toi toi-même au monde.",
           "notes": [
             {
-              "word": "publicité",
-              "position": 84,
+              "word": "assurance",
+              "position": 78,
               "note": "Le maintien par lequel on se met en évidence et que l'on assure sa publicité."
             }
           ]
@@ -1646,7 +1646,7 @@
         },
         {
           "verse": "7:13",
-          "text": "Toutefois personne ne parlait franchement de lui, à cause de la crainte qu'on avait des Juifs."
+          "text": "Toutefois personne ne parlait franchement à son sujet, à cause de la crainte des Juifs."
         },
         {
           "verse": "7:14",
@@ -1654,8 +1654,8 @@
         },
         {
           "verse": "7:15",
-          "text": "Et les Juifs s'étonnaient, disant : Comment celui-ci connaît-il les Lettres sans avoir été enseigné ?",
-          "textWithNotes": "Et les Juifs s'étonnaient, disant : Comment celui-ci connaît-il les Lettres[2 Ti. 3:15.] sans avoir été enseigné ?",
+          "text": "Et les Juifs s'étonnaient, disant : Comment celui-ci connaît-il les Lettres n'ayant pas été enseigné ?",
+          "textWithNotes": "Et les Juifs s'étonnaient, disant : Comment celui-ci connaît-il les Lettres[2 Ti. 3:15.] n'ayant pas été enseigné ?",
           "notes": [
             {
               "word": "Lettres",
@@ -1694,7 +1694,7 @@
         },
         {
           "verse": "7:23",
-          "text": "Si un homme reçoit la circoncision lors du shabbat, pour que la torah de Moshé ne soit pas renversée, pourquoi êtes-vous fâchés contre moi parce que j'ai entièrement rendu sain un homme lors du shabbat ?"
+          "text": "Si un homme reçoit la circoncision lors du shabbat, afin que la torah de Moshé ne soit pas renversée, pourquoi êtes-vous fâchés contre moi parce que j'ai entièrement rendu sain un homme lors du shabbat ?"
         },
         {
           "verse": "7:24",
@@ -2002,7 +2002,7 @@
         },
         {
           "verse": "8:31",
-          "text": "Yéhoshoua donc disait aux Juifs qui avaient cru en lui : Si vous demeurez dans ma parole, vous êtes vraiment mes disciples."
+          "text": "Yéhoshoua donc disait aux Juifs ayant cru en lui : Si vous demeurez dans ma parole, vous êtes vraiment mes disciples."
         },
         {
           "verse": "8:32",
@@ -2018,7 +2018,7 @@
         },
         {
           "verse": "8:33",
-          "text": "Ils lui répondirent : Nous sommes la semence d'Abraham et nous n'avons jamais été esclaves de personne, comment donc dis-tu : Vous deviendrez libres ?"
+          "text": "Ils lui répondirent : Nous sommes la semence d'Abraham et nous n'avons jamais été esclaves de personne, comment donc dis-tu que vous deviendrez libres ?"
         },
         {
           "verse": "8:34",
@@ -2054,7 +2054,7 @@
         },
         {
           "verse": "8:40",
-          "text": "Mais maintenant vous cherchez à me tuer, moi, un homme qui vous ai annoncé la vérité que j’ai entendue auprès d'Elohîm. Cela, Abraham ne l'a pas fait."
+          "text": "Mais maintenant vous cherchez à me tuer, moi, un humain qui vous ai annoncé la vérité que j’ai entendue auprès d'Elohîm. Cela, Abraham ne l'a pas fait."
         },
         {
           "verse": "8:41",
@@ -2106,7 +2106,7 @@
         },
         {
           "verse": "8:51",
-          "text": "Amen, amen, je vous le dis : Si quelqu'un garde ma parole, il ne verra pas la mort, à jamais."
+          "text": "Amen, amen, je vous le dis : Si quelqu'un garde la parole, la mienne, il ne verra pas la mort, à jamais."
         },
         {
           "verse": "8:52",
@@ -2146,7 +2146,7 @@
         },
         {
           "verse": "8:59",
-          "text": "Alors ils prirent des pierres pour les jeter contre lui, mais Yéhoshoua se cacha et sortit hors du temple, passant au milieu d'eux. Et c'est ainsi qu'il s'en alla."
+          "text": "Alors ils prirent des pierres pour les jeter contre lui, mais Yéhoshoua se cacha et sortit hors du temple, passant au milieu d'eux, et ainsi il s’en alla."
         }
       ]
     },

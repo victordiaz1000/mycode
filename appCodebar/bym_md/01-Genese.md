@@ -1136,7 +1136,7 @@ Ce livre présente aussi l'élection d'Abraham, originaire d'Our en Chaldée (M�
 34:8	Hamor parla avec eux, en disant : L'âme de Shekem, mon fils, s'est attachée à votre fille. S’il vous plaît, donnez-la-lui pour femme.
 34:9	Alliez-vous par mariage avec nous ! Vous nous donnerez vos filles et vous prendrez pour vous nos filles.
 34:10	Vous habiterez avec nous, la terre sera en face de vous. Demeurez-y, faites-y du commerce et acquérez-y des possessions.
-34:11	Shekem dit au père et aux frères de la fille : Que je trouve grâce à vos yeux, et je donnerai tout ce que vous me direz.
+34:11	Shekem dit à son père et à ses frères : Que je trouve grâce à vos yeux, et je donnerai tout ce que vous me direz.
 34:12	Exigez de moi une forte dot et beaucoup de présents, et je donnerai ce que vous me direz, mais donnez-moi la jeune fille pour femme.
 34:13	Les fils de Yaacov répondirent avec ruse à Shekem et à Hamor, son père. Ils parlèrent ainsi parce que Shekem avait souillé Diynah, leur sœur.
 34:14	Ils leur dirent : C'est une chose que nous ne pouvons pas faire, que de donner notre sœur à un homme incirconcis, car ce serait une insulte pour nous.
@@ -1187,7 +1187,7 @@ Ce livre présente aussi l'élection d'Abraham, originaire d'Our en Chaldée (M�
 35:25	Les fils de Bilhah, servante de Rachel : Dan et Nephthali.
 35:26	Les fils de Zilpah, servante de Léah : Gad et Asher. Ce sont là les fils de Yaacov qui lui naquirent à Paddan-Aram.
 35:27	Yaacov arriva auprès de Yitzhak, son père, à Mamré, à Qiryath-Arba qui est Hébron, où Abraham et Yitzhak avaient séjourné.
-35:28	Les jours de Yitzhak furent de 180 ans.
+35:28	Les jours de Yitzhak furent de 100 ans et 80 ans.
 35:29	Yitzhak expira et mourut. Il fut recueilli auprès de son peuple, vieux et rassasié de jours, et Ésav et Yaacov ses fils l'enterrèrent.
 
 ## Chapitre 36
@@ -1687,7 +1687,7 @@ Ce livre présente aussi l'élection d'Abraham, originaire d'Our en Chaldée (M�
 49:21	Nephtali est une biche en liberté. Il donne des paroles de bonté.
 49:22	Yossef est le fils qui porte du fruit<!--Voir Jn. 15:1-6.-->, le fils qui porte du fruit près de la source<!--Es. 12:3, 55:1 ; Jé. 2:13, 17:13 ; Ps. 1:3, 87:7 ; Jn. 7:37 ; Ap. 21:6, 22:17.-->. Les filles enjambent le mur<!--Ou encore : les filles courent sur le mur pour voir Yossef.-->.
 49:23	Ils le rendent amer et lui tirent dessus, ils le haïssent, les maîtres des flèches.
-49:24	Mais son arc reste ferme, ses bras et ses mains sont rendus agiles, par les mains du Puissant de Yaacov. De là est le berger, la pierre d’Israël -
+49:24	Mais son arc reste ferme, ses bras et ses mains sont rendus agiles, par les mains de Gibbor<!--Puissant.--> de Yaacov. De là est le berger, la pierre d’Israël -
 49:25	par le El de ton père qui t'aidera, avec Shaddaï qui te bénira des bénédictions des cieux en haut, des bénédictions de l'abîme qui repose en bas, des bénédictions des seins et de la matrice !
 49:26	Les bénédictions de ton père sont plus fortes que les bénédictions de ceux qui m'ont engendré, jusqu'à la cime des antiques collines. Elles seront sur la tête de Yossef et sur le sommet de la tête du Nazaréen d'entre ses frères.
 49:27	Benyamin est un loup qui déchirera. Le matin il dévorera la proie et sur le soir il partagera le butin.

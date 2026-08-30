@@ -770,11 +770,11 @@ Adressé aux nations, cet évangile contient peu de références à la première
 13:5	Et Yéhoshoua leur répondant, se mit à dire : discernez, que personne ne vous égare.
 13:6	Car beaucoup viendront en mon nom, disant : Moi, je suis. Et ils en égareront beaucoup.
 13:7	Et quand vous entendrez parler de guerres et de bruits de guerres, ne soyez pas troublés, parce qu'il faut que ces choses arrivent. Mais ce ne sera pas encore la fin.
-13:8	Car nation se réveillera contre nation, et royaume contre royaume, et il y aura des tremblements de terre en divers lieux, et il y aura des famines et des troubles. Ces choses ne seront que les premières douleurs.
+13:8	Car nation se réveillera contre nation, et royaume contre royaume, et il y aura des tremblements de terre en divers lieux, et il y aura des famines et des troubles. Ces choses sont les commencements des douleurs de l'accouchement.
 13:9	Mais vous, discernez vous-mêmes ! Car ils vous livreront aux sanhédrins et aux synagogues, vous serez battus de verges et vous serez présentés devant les gouverneurs et les rois, à cause de moi, en témoignage pour eux.
 13:10	Mais il faut premièrement que l'Évangile soit prêché à toutes les nations.
 13:11	Mais quand ils vous mèneront pour vous livrer, ne vous inquiétez pas d’avance de ce que vous direz et ne le préméditez pas non plus, mais selon ce qui vous sera donné en cette heure-là, dites-le. Car ce ne sera pas vous qui parlerez, mais l'Esprit, le Saint.
-13:12	Mais le frère livrera son frère à la mort, et le père son enfant : et les enfants se soulèveront contre leurs parents et les feront mourir.
+13:12	Mais le frère livrera son frère à la mort, et le père son enfant : et les enfants se soulèveront contre leurs parents et les mettront à mort.
 13:13	Et vous serez haïs de tous à cause de mon nom, mais celui qui supportera bravement et calmement les mauvais traitements<!--Vient d'une racine qui signifie : rester le même, ne pas devenir un autre ou différent.--> jusqu'à la fin, celui-là sera sauvé.
 
 ### L'abomination de la désolation<!--Ps. 2:5 ; Mt. 24:15-28 ; Lu. 21:20-24 ; Ap. 7:14.-->
@@ -904,7 +904,7 @@ Adressé aux nations, cet évangile contient peu de références à la première
 
 14:53	Et ils emmenèrent Yéhoshoua chez le grand-prêtre, où s'assemblèrent tous les principaux prêtres, les anciens et les scribes.
 14:54	Et Petros le suivait de loin jusque dans la cour du grand-prêtre. Et il était assis avec les serviteurs et se chauffait près du feu.
-14:55	Mais les principaux prêtres et tout le sanhédrin cherchaient quelque témoignage contre Yéhoshoua pour le faire mourir, mais ils n'en trouvaient pas.
+14:55	Mais les principaux prêtres et tout le sanhédrin cherchaient quelque témoignage contre Yéhoshoua pour le mettre à mort, mais ils n'en trouvaient pas.
 14:56	Car beaucoup rendaient de faux témoignages contre lui, mais les témoignages n’étaient pas égaux.
 14:57	Et quelques-uns s'élevèrent, et portèrent de faux témoignages contre lui, disant :
 14:58	Nous l'avons entendu disant : Moi, je détruirai ce temple fait par la main de l'homme, et en trois jours, j'en rebâtirai un autre qui ne sera pas fait avec la main.

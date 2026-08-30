@@ -101,80 +101,80 @@ La lettre de Paulos (Paul) aux Galates est la seule épître dont le début ne c
 4:2	Mais il est sous des tuteurs et des gestionnaires jusqu'au temps fixé à l'avance du Père.
 4:3	Ainsi, nous aussi, quand nous étions enfants, nous étions sous les rudiments du monde, ayant été réduits à l'esclavage.
 4:4	Mais quand la plénitude<!--Vient du grec « pleroma » qui signifie « ce qui est ( a été) rempli ». Les choses dont un bateau est rempli : fret et marchandise, marins, rameurs et soldats.--> du temps est venue, l'Elohîm a envoyé son Fils, étant advenu à partir d'une femme, étant advenu sous la torah,
-4:5	afin qu'il rachète ceux qui étaient sous la torah, afin que nous recevions l'adoption.
+4:5	afin qu'il rachète ceux qui étaient sous la torah, afin que nous recevions l'adoption comme fils.
 4:6	Mais parce que vous êtes fils, Elohîm a envoyé l'Esprit de son Fils dans vos cœurs, criant : Abba ! Père !
-4:7	Maintenant donc tu n'es plus esclave, mais fils. Or si tu es fils, tu es aussi héritier d'Elohîm par le moyen du Mashiah.
-4:8	Mais alors, ne connaissant pas Elohîm en effet, vous étiez esclaves de ceux qui, par leur nature, n'étant pas elohîm.
-4:9	Mais maintenant ayant connu Elohîm, ou plutôt ayant été connus d'Elohîm, comment retournez-vous de nouveau à ces faibles et pauvres rudiments, auxquels vous voulez de nouveau servir depuis le début ?
+4:7	De sorte que tu n'es plus esclave, mais fils, or, si fils, héritier aussi d'Elohîm par le moyen du Mashiah.
+4:8	Mais alors, n'ayant pas connu Elohîm en effet, vous étiez esclaves de ceux qui, par nature, n'étant pas elohîm.
+4:9	Mais maintenant ayant connu Elohîm, ou plutôt ayant été connus par Elohîm, comment retournez-vous de nouveau vers les faibles et pauvres rudiments, auxquels vous voulez de nouveau servir depuis le début ?
 4:10	Vous observez attentivement les jours, et les mois, et les temps, et les années.
-4:11	Je crains pour vous que peut-être je n’aie travaillé en vain pour vous.
+4:11	Je crains pour vous que peut-être j’ai travaillé en vain pour vous.
 4:12	Devenez comme moi, puisque moi aussi je suis comme vous, frères, je vous en supplie. Vous ne m'avez fait aucun tort.
-4:13	Mais vous savez que c'est à cause d'une infirmité de la chair<!--Les Écritures ne donnent pas de précisions au sujet de l'infirmité de la chair dont souffrait Paulos (Paul). On suppose toutefois qu'il avait un handicap au niveau de ses yeux. Quatre arguments viennent renforcer cette hypothèse. Tout d'abord, l'allusion de Paulos aux Galates qui étaient prêts à « s'arracher les yeux » pour les lui donner (Ga. 4:15) et le fait qu'il ait lui-même écrit cette épître avec de « grandes lettres » (Ga. 6:11). Ensuite, lors de sa comparution devant le sanhédrin à Yeroushalaim (Jérusalem), Paulos n'a pas reconnu le grand-prêtre pourtant facilement identifiable par sa tenue vestimentaire (Ac. 23:5). Enfin, l'apôtre avait l'habitude de dicter ses lettres, ce qui constitue un argument majeur. L'épître aux Galates était une exception parce qu'il n'avait sans doute pas de scribe à disposition.--> que je vous évangélisai la première fois.
+4:13	Mais vous savez que c'est à cause d'une infirmité de la chair<!--Les Écritures ne donnent pas de précisions au sujet de l'infirmité de la chair dont souffrait Paulos (Paul). On suppose toutefois qu'il avait un handicap au niveau de ses yeux. Quatre arguments viennent renforcer cette hypothèse. Tout d'abord, l'allusion de Paulos aux Galates qui étaient prêts à « s'arracher les yeux » pour les lui donner (Ga. 4:15) et le fait qu'il ait lui-même écrit cette épître avec de « grandes lettres » (Ga. 6:11). Ensuite, lors de sa comparution devant le sanhédrin à Yeroushalaim (Jérusalem), Paulos n'a pas reconnu le grand-prêtre pourtant facilement identifiable par sa tenue vestimentaire (Ac. 23:5). Enfin, l'apôtre avait l'habitude de dicter ses lettres, ce qui constitue un argument majeur. L'épître aux Galates était une exception parce qu'il n'avait sans doute pas de scribe à disposition.--> que je vous ai évangélisé la première fois.
 4:14	Et ma tentation, dans ma chair, vous ne l'avez ni méprisé complètement, ni rejeté. Mais comme un ange d'Elohîm vous m'avez reçu, comme Mashiah Yéhoshoua.
 4:15	Quelle était donc votre déclaration de bénédiction ? Car je vous rends témoignage que, s’il eût été possible, ayant arraché vos yeux, vous me les auriez donnés.
 4:16	Suis-je donc devenu votre ennemi en vous disant la vérité ?
-4:17	Ils sont zélés pour vous, mais pas convenablement ; ils veulent empêcher l'approche de quelqu'un afin que vous soyez zélés pour eux.
-4:18	Mais il est bon d'être toujours zélé pour ce qui est bon, et non pas seulement pendant je suis présent parmi vous.
+4:17	Ils sont zélés pour vous, mais pas convenablement ; ils veulent vous empêcher l'approche de quelqu'un afin que vous soyez zélés pour eux.
+4:18	Mais il est bon d'être toujours zélé pour ce qui est bon, et non pas seulement dans le fait d’être présent, moi auprès de vous.
 4:19	Mes petits enfants, pour qui je ressens de nouveau les douleurs de l'enfantement, jusqu'à ce que Mashiah soit formé en vous,
-4:20	mais je voudrais être maintenant près de vous et changer mon langage, parce que je suis perplexe<!--Voir 2 Co. 4:8.--> à votre sujet.
+4:20	mais je voudrais être présent auprès de vous maintenant et changer ma voix, parce que je suis perplexe<!--Voir 2 Co. 4:8.--> avec vous.
 4:21	Dites-moi, vous qui voulez être sous la torah, n’entendez-vous pas la torah ?
 4:22	Car il est écrit qu'Abraham eut deux fils, un issu de la servante, et un issu de la libre.
 4:23	Mais celui issu de la servante fut engendré en effet selon la chair, et celui issu de la libre au moyen de la promesse.
-4:24	Ces choses sont allégoriques, car ce sont les deux alliances. En effet, l'une du Mont Sinaï, engendrant pour l'esclavage, c'est Agar.
+4:24	Ces choses sont parlées allégoriquement, car celles-ci sont les deux alliances. En effet, l'une de la montagne de Sinaï, engendrant pour l'esclavage, laquelle est Agar.
 4:25	Car Agar est la montagne de Sinaï en Arabie, et correspondant à la Yeroushalaim d'à présent. Or elle est esclave avec ses enfants.
-4:26	Mais la Yeroushalaim d'en haut est libre, elle est la mère de nous tous.
-4:27	Car il a été écrit<!--Es. 54:1.--> : Réjouis-toi, stérile, toi qui n'enfantes pas ! Éclate et pousse des cris, toi qui ne ressens pas les douleurs de l'enfantement, parce qu’il y a beaucoup plus d’enfants de la délaissée que de celle ayant un époux.
+4:26	Mais la Yeroushalaim d'en haut est libre, laquelle est la mère de nous tous.
+4:27	Car il a été écrit<!--Es. 54:1.--> : Sois réjouie, stérile n’enfantant pas ! Éclate et pousse des cris, ne ressentant pas les douleurs de l’enfantement, parce que plus nombreux sont les enfants de la délaissée que de celle ayant un époux.
 4:28	Or pour nous, frères, selon Yitzhak, nous sommes enfants de la promesse.
-4:29	Mais de même qu’alors celui ayant été engendré selon la chair persécutait celui selon l'Esprit, il en est de même maintenant.
-4:30	Mais que dit l'Écriture ? Chasse la servante et son fils, car le fils de la servante n'héritera pas avec le fils de la libre<!--Ge. 21:10.-->.
-4:31	C'est pourquoi, frères, nous ne sommes pas enfants de la servante, mais de la libre.
+4:29	Mais de même qu’alors celui ayant été engendré selon la chair persécutait celui selon l'Esprit, ainsi en est-il aussi maintenant.
+4:30	Mais que dit l'Écriture ? Chasse la servante et son fils, car le fils de la servante n'héritera jamais avec le fils de la libre<!--Ge. 21:10.-->.
+4:31	Ainsi, frères, nous ne sommes pas enfants de la servante, mais de la libre.
 
 ## Chapitre 5
 
-5:1	C'est pour la liberté que Mashiah nous a rendus libres<!--Voir Jn. 8:32,36 ; Ro. 6:18,22, 8:2,21.-->. Demeurez donc fermes, et ne soyez pas de nouveau retenus sous un joug de l'esclavage.
-5:2	Voici, moi, Paulos, je vous dis que si vous êtes circoncis, Mashiah ne vous servira à rien.
-5:3	Et je déclare solennellement encore une fois à tout humain étant circoncis qu'il est obligé de pratiquer la torah tout entière.
-5:4	Vous êtes séparés loin du Mashiah, vous tous qui êtes justifiés par la torah, vous êtes déchus<!--Tomber, chuter, échouer, déchoir d'un endroit duquel on ne peut pas se maintenir, tomber depuis une position, perdre le pouvoir, tomber à terre, être sans effet, de la promesse divine du salut.--> de la grâce.
+5:1	Demeurez donc fermes dans la liberté par laquelle Mashiah nous a rendus libres<!--Voir Jn. 8:32,36 ; Ro. 6:18,22, 8:2,21.-->, et ne soyez pas de nouveau tenus dans un joug d'esclavage.
+5:2	Voici, moi, Paulos, je vous dis que si vous êtes circoncis, Mashiah ne vous profitera en rien.
+5:3	Et je déclare solennellement de nouveau à tout humain étant circoncis qu'il est obligé de pratiquer toute la torah.
+5:4	Vous avez été séparés loin du Mashiah, vous qui êtes justifiés par la torah, vous êtes déchus<!--Tomber, chuter, échouer, déchoir d'un endroit duquel on ne peut pas se maintenir, tomber depuis une position, perdre le pouvoir, tomber à terre, être sans effet, de la promesse divine du salut.--> de la grâce.
 5:5	Car nous, par l'Esprit, à partir de la foi, nous attendons assidûment et patiemment l'espérance de la justice.
-5:6	Car, en Mashiah Yéhoshoua, ce n'est ni la circoncision qui a une quelconque force, ni le prépuce<!--Voir le commentaire en 1 Co. 7:18.-->, mais la foi qui opère par le moyen de l'amour.
-5:7	Vous couriez bien. Qui vous a arrêtés pour ne plus être persuadés<!--Vient du grec « peitho ». Voir Mt. 27:20 ; Hé. 13:17, etc.--> par la vérité ?
+5:6	Car, en Mashiah Yéhoshoua, ni la circoncision n’a une quelconque force, ni le prépuce<!--Voir le commentaire en 1 Co. 7:18.-->, mais la foi qui opère par le moyen de l'amour.
+5:7	Vous couriez bien. Qui vous a empêchés d’obéir<!--Vient du grec « peitho » : persuader, c'est à dire faire croire à quelqu'un par des mots. Voir Mt. 27:20 ; Hé. 13:17, etc.--> à la vérité ?
 5:8	La persuasion trompeuse n'est pas issue de celui qui vous appelle.
 5:9	Un peu de levain fait lever toute la pâte<!--1 Co. 5:6.-->.
-5:10	Moi, je suis persuadé pour vous dans le Seigneur que vous n'aurez pas d'autre pensée. Mais celui qui vous trouble, quel qu'il soit, en portera la condamnation.
-5:11	Mais moi, frères, si je prêche encore la circoncision, pourquoi suis-je encore persécuté ? Le scandale de la croix est donc aboli.
+5:10	Moi, je suis persuadé pour vous dans le Seigneur que vous n'aurez pas d'autre pensée. Mais celui qui vous trouble, portera la condamnation, quel qu’il soit.
+5:11	Mais moi, frères, si je prêche encore la circoncision, pourquoi suis-je encore persécuté ? Donc, le scandale de la croix a été aboli.
 5:12	Si seulement aussi ceux qui vous agitent<!--Renverser, déranger, les esprits en propageant des erreurs religieuses.--> étaient retranchés !
 5:13	Car vous, frères, vous avez été appelés à la liberté. Seulement, que cette liberté ne soit pas une occasion pour la chair. Mais, par le moyen de l'amour, soyez esclaves les uns des autres.
 5:14	Car toute la torah est accomplie en une seule parole, en celle-ci : Tu aimeras ton prochain comme toi-même<!--Lé. 19:18 ; Mt. 22:39 ; Ga. 5:14 ; Ro. 13:9.-->.
-5:15	Mais si vous vous mordez et vous vous dévorez les uns les autres, regardez, que vous ne soyez détruits les uns par les autres.
-5:16	Mais je dis : Marchez selon l'Esprit et vous n'accomplirez jamais le désir de la chair.
-5:17	Car la chair désire le contraire de l'Esprit et l'Esprit le contraire de la chair, et ces choses sont opposées l'une à l'autre, afin que vous ne fassiez pas les choses que vous voudriez.
+5:15	Mais si vous mordez et vous dévorez les uns les autres, regardez, de peur que vous ne soyez détruits les uns par les autres.
+5:16	Mais je dis : marchez dans l’Esprit et vous n'accomplirez jamais le désir de la chair.
+5:17	Car la chair désire contre l’Esprit et l’Esprit contre la chair, et ces choses s’opposent les unes aux autres, afin que vous ne fassiez pas les choses que vous vouliez.
 5:18	Or si vous êtes conduits par l'Esprit, vous n'êtes pas sous la torah.
-5:19	Mais les œuvres de la chair sont évidentes : ce sont : adultère, relation sexuelle illicite, impureté, luxure sans bride,
-5:20	idolâtrie, sorcellerie<!--La sorcellerie : du grec « pharmakeia » : « usage ou administration de drogues », « empoisonnement », « sorcellerie », « arts magiques », souvent trouvés en liaison avec l'idolâtrie et nourrie par celle-ci.-->, inimitiés, querelles, jalousies, animosités, esprits partisans<!--Voir Ph. 2:3.-->, divisions, sectes,
-5:21	envies, meurtres, ivrogneries, orgies<!--Le mot grec fait allusion à une procession nocturne et rituelle de gens à moitié ivres, à l'esprit folâtre après un souper, paradant dans les rues avec torches et musique en l'honneur de Bacchus ou quelque autre divinité, et chantant et jouant devant les maisons de leurs amis, hommes ou femmes. Le mot est généralement utilisé pour les fêtes et beuveries prolongées tard dans la nuit, et se terminant en orgies.-->, et les choses semblables à celles-là, au sujet desquelles je vous prédis, comme je vous l'ai déjà dit, que ceux qui commettent de telles choses n'hériteront pas le Royaume d'Elohîm.
+5:19	Mais les œuvres de la chair sont manifestes : ce sont : adultère, relation sexuelle illicite, impureté, luxure sans bride,
+5:20	idolâtrie, sorcellerie<!--La sorcellerie : du grec « pharmakeia » : « usage ou administration de drogues », « empoisonnement », « sorcellerie », « arts magiques », souvent trouvés en liaison avec l'idolâtrie et nourrie par celle-ci.-->, inimitiés, querelles, jalousies, colères, esprits partisans<!--Voir Ph. 2:3.-->, divisions, sectes,
+5:21	envies, meurtres, ivrogneries, orgies<!--Le mot grec fait allusion à une procession nocturne et rituelle de gens à moitié ivres, à l'esprit folâtre après un souper, paradant dans les rues avec torches et musique en l'honneur de Bacchus ou quelque autre divinité, et chantant et jouant devant les maisons de leurs amis, hommes ou femmes. Le mot est généralement utilisé pour les fêtes et beuveries prolongées tard dans la nuit, et se terminant en orgies.-->, et les choses semblables à celles-là, au sujet desquelles je vous prédis, comme aussi je l’ai dit auparavant, que ceux qui commettent de telles choses n'hériteront pas le Royaume d'Elohîm.
 5:22	Mais le fruit de l'Esprit est : amour<!--Il est question ici de l'amour « agape » : l'amour fraternel, l'amour désintéressé.-->, joie, paix, patience, bonté, bénignité<!--Vient d'un mot grec qui signifie aussi « intégrité », « bonté morale ».-->, foi<!--Fidélité.-->, 
 5:23	douceur, contrôle de soi : contre de telles choses, il n’y a pas de torah.
 5:24	Mais ceux qui sont au Mashiah ont crucifié la chair avec les passions et les désirs.
-5:25	Si nous vivons par l'Esprit, marchons aussi par l'Esprit.
-5:26	Ne devenons pas avides d'une vaine gloire, nous provoquant les uns les autres, nous enviant les uns les autres.
+5:25	Si nous vivons par l’Esprit, que nous marchions aussi par l’Esprit,
+5:26	que nous ne devenions pas avides d'une vaine gloire, nous provoquant les uns les autres, nous enviant les uns aux autre.
 
 ## Chapitre 6
 
-6:1	Frères, même si un humain a été surpris en quelque faute, vous, les spirituels, perfectionnez-le<!--Vient du grec « katartizo » qui signifie « raccommoder (ce qui a été cassé ou abîmé) », « ajuster », « compléter », « réparer », « équiper », « mettre en ordre », « arranger ». Voir Mt. 4:21 ; Lu. 6:40.--> dans un esprit de douceur. Prends garde à toi-même, de peur que tu ne sois aussi tenté.
-6:2	Portez les fardeaux les uns des autres, et vous accomplirez ainsi la torah du Mashiah.
+6:1	Frères, même si un humain a été surpris en quelque faute, vous, les spirituels, perfectionnez<!--Vient du grec « katartizo » qui signifie « raccommoder (ce qui a été cassé ou abîmé) », « ajuster », « compléter », « réparer », « équiper », « mettre en ordre », « arranger ». Voir Mt. 4:21 ; Lu. 6:40.--> un tel dans un esprit de douceur, prenant garde à toi-même, de peur que tu ne sois aussi tenté.
+6:2	Portez les fardeaux les uns des autres, et ainsi accomplissez la torah du Mashiah.
 6:3	Car si quelqu'un pense être quelque chose, étant rien, il se trompe lui-même.
-6:4	Mais que chacun examine<!--Voir 1 Ti. 3:10.--> son œuvre propre, et alors il aura de quoi se glorifier en lui-même seulement, et non en un autre.
+6:4	Mais que chacun examine<!--Voir 1 Ti. 3:10.--> sa propre œuvre, et alors en lui-même seul il aura de quoi se glorifier, et non en un autre.
 6:5	Car chacun portera son propre fardeau.
-6:6	Or que celui à qui l'on enseigne la parole entre en communion avec celui qui l'enseigne en toutes bonnes choses<!--Le mot « bon » vient du grec « agathos » qui donne en français : « de bonne constitution ou nature », « utile », « salutaire », « bon », « agréable », « plaisant », « joyeux », « heureux », « excellent », « distingué », « droit », « honorable ». Ce terme n'a rien à voir avec les biens matériels (Voir Ga. 6:10). Ce verset ne doit en aucun cas servir de prétexte à ceux qui enseignent la parole d'Elohîm pour exiger l'argent et les biens matériels des chrétiens. Ces derniers doivent donner sans contrainte, s'ils le veulent et comme ils le veulent (2 Co. 9:7). Le salaire de l'ouvrier du Seigneur, c'est avant tout le gîte et le couvert (Mt. 10:10 ; Lu. 10:8 ; 1 Ti. 6:8). Ainsi, malgré le droit qu'il avait de moissonner les biens matériels pour avoir semé des biens spirituels (1 Co. 9:11-12), Paulos (Paul) « n'a désiré ni l'or ni l'argent » mais a travaillé de ses propres mains afin de pourvoir à ses besoins et de n'être à la charge de personne (Ac. 20:33-35 ; 1 Th. 2:9 ; 2 Th. 3:8 ; 2 Co. 12:14).-->.
-6:7	Ne vous égarez pas : on ne se moque pas d'Elohîm. Car ce qu'un être humain sème, il le moissonnera aussi.
-6:8	Parce que celui qui sème pour sa chair moissonnera à partir de la chair la corruption, mais celui qui sème pour l'Esprit moissonnera à partir de l'Esprit la vie éternelle.
-6:9	Et ne nous lassons pas en pratiquant ce qui est bon, car nous moissonnerons au temps convenable, en n'étant pas découragés.
-6:10	Ainsi donc, pendant que nous en avons le temps, pratiquons ce qui est bon envers tous, mais surtout envers ceux de la famille de la foi.
-6:11	Voyez comme sont grandes les lettres : je vous ai écrit de ma main !
+6:6	Mais celui qui est enseigné dans la parole entre en communion avec celui qui enseigne en toutes bonnes choses<!--Le mot « bon » vient du grec « agathos » qui donne en français : « de bonne constitution ou nature », « utile », « salutaire », « bon », « agréable », « plaisant », « joyeux », « heureux », « excellent », « distingué », « droit », « honorable ». Ce terme n'a rien à voir avec les biens matériels (Voir Ga. 6:10). Ce verset ne doit en aucun cas servir de prétexte à ceux qui enseignent la parole d'Elohîm pour exiger l'argent et les biens matériels des chrétiens. Ces derniers doivent donner sans contrainte, s'ils le veulent et comme ils le veulent (2 Co. 9:7). Le salaire de l'ouvrier du Seigneur, c'est avant tout le gîte et le couvert (Mt. 10:10 ; Lu. 10:8 ; 1 Ti. 6:8). Ainsi, malgré le droit qu'il avait de moissonner les biens matériels pour avoir semé des biens spirituels (1 Co. 9:11-12), Paulos (Paul) « n'a désiré ni l'or ni l'argent » mais a travaillé de ses propres mains afin de pourvoir à ses besoins et de n'être à la charge de personne (Ac. 20:33-35 ; 1 Th. 2:9 ; 2 Th. 3:8 ; 2 Co. 12:14).-->.
+6:7	Ne soyez pas égarés : Elohîm n’est pas moqué. Car tout ce qu’un être humain sème, cela aussi il le moissonnera.
+6:8	Parce que celui qui sème pour sa chair, à partir de la chair moissonnera une corruption, mais celui qui sème pour l’Esprit, à partir de l’Esprit moissonnera une vie éternelle.
+6:9	Et en faisant le bien, que nous ne nous lassions pas, car au temps propre nous moissonnerons, en n'étant pas découragés.
+6:10	Ainsi donc, comme nous avons le temps, que nous fassions le bien envers tous, mais surtout envers ceux de la maison de la foi.
+6:11	Voyez comme sont grandes les lettres que je vous ai écrit de ma main !
 6:12	Tous ceux qui veulent avoir un bel aspect<!--Faire bonne présentation.--> dans la chair, ceux-là vous forcent à vous faire circoncire, seulement afin qu'ils ne soient pas persécutés à cause de la croix du Mashiah.
-6:13	Car ceux-là même qui sont circoncis n'observent pas la torah, mais ils veulent vous circoncire, afin qu’ils se glorifient dans votre chair.
-6:14	Mais qu’il ne m’arrive pas à moi de me glorifier, si ce n’est en la croix de notre Seigneur Yéhoshoua Mashiah, par le moyen de laquelle le monde est crucifié pour moi et moi pour le monde !
-6:15	Car en Mashiah Yéhoshoua ce n'est ni la circoncision, ni l'incirconcision qui peuvent quelque chose, mais la nouvelle création.
-6:16	Et quant à tous ceux qui marcheront selon cette règle<!--Voir Ez. 40:3 ; Ph. 3:16.-->, paix et miséricorde sur eux et sur l'Israël d'Elohîm !
-6:17	Dorénavant que personne ne me cause d’ennuis, car moi, je porte sur mon corps les stigmates<!--Marque que l’on imprimait, le plus souvent au fer rouge, sur le corps d’une personne pour signifier son infamie.--> du Seigneur Yéhoshoua.
+6:13	Car eux-mêmes, étant circoncis, n'observent pas la torah, mais ils veulent vous circoncire, afin qu’ils se glorifient dans votre chair.
+6:14	Mais qu’il ne m’arrive pas à moi de me glorifier, si ce n’est dans la croix de notre Seigneur Yéhoshoua Mashiah, par le moyen de laquelle le monde a été crucifié pour moi, et moi pour le monde !
+6:15	Car en Mashiah Yéhoshoua, ni une circoncision ne peut quelque chose, ni une incirconcision, mais la nouvelle création.
+6:16	Et tous ceux qui marcheront selon cette règle<!--Voir Ez. 40:3 ; Ph. 3:16.-->, paix sur eux et miséricorde, et sur l'Israël d'Elohîm !
+6:17	Dorénavant, que personne ne me cause d’ennuis, car moi, je porte les stigmates<!--Marque que l’on imprimait, le plus souvent au fer rouge, sur le corps d’une personne pour signifier son infamie.--> du Seigneur Yéhoshoua dans mon corps.
 6:18	La grâce de notre Seigneur Yéhoshoua Mashiah avec votre esprit, frères. Amen !

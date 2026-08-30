@@ -102,7 +102,7 @@ Cette lettre fut rédigée après la première captivité de Paulos à Rome. Alo
 5:5	Mais celle qui est vraiment veuve et abandonnée, a mis son espérance en Elohîm et persévère nuit et jour dans les supplications et les prières.
 5:6	Mais celle qui vit dans un grand luxe est morte en vivant.
 5:7	Ordonne aussi ces choses, afin qu'elles soient irréprochables.
-5:8	Mais si quelqu'un ne prend pas soin des siens, et principalement de ceux de sa famille, il a renié la foi et il est pire qu'un incrédule.
+5:8	Mais si quelqu'un ne prend pas soin des siens, et principalement de ceux de sa maison, il a renié la foi et il est pire qu'un incrédule.
 5:9	Qu'on inscrive<!--Expression qui s'apparente à l'enrôlement des soldats. Il est question des veuves ayant une certaine responsabilité sur le reste des femmes, des veuves et des orphelins.--> une veuve qui n'ait pas moins de 60 ans, femme d'un seul mari,
 5:10	ayant le témoignage de ses bonnes œuvres : si elle a bien élevé ses enfants, si elle a exercé l'hospitalité, si elle a lavé les pieds des saints, si elle a porté assistance aux oppressés, si elle a accompagné toutes sortes de bonnes œuvres.
 5:11	Mais refuse les veuves qui sont plus jeunes, car dès qu'elles ressentent les pulsions du désir sexuel qui les dressent contre le Mashiah, elles veulent se marier,

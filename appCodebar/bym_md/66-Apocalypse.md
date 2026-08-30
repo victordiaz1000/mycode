@@ -65,7 +65,7 @@ Ce livre, qui arrive en conclusion des Écritures, annonce les événements qui 
 2:14	Mais j'ai contre toi quelque peu de choses, parce que tu en as là qui retiennent la doctrine de Balaam, qui enseignait à Balak à tendre un piège<!--Vient du grec « skandalon » qui signifie aussi « scandale ».--> devant les fils d'Israël, afin qu'ils mangent des viandes sacrifiées aux idoles et qu'ils se prostituent<!--No. 25:1-2, 31:16.-->.
 2:15	De même, tu en as, toi aussi, qui retiennent la doctrine des Nicolaïtes, ce que je hais !
 2:16	Repens-toi donc, autrement je viens à toi promptement et je les combattrai avec la grande épée de ma bouche.
-2:17	Que celui qui a une oreille entende ce que l'Esprit dit aux assemblées ! Le victorieux, je lui donnerai à manger de la manne cachée, je lui donnerai aussi un caillou<!--Le terme grec « psephos » désigne « une petite pierre usée et lisse », « un vote, un suffrage (du fait de l'utilisation de cailloux pour voter) ». En effet, dans les anciennes cours de justice, l'accusé était condamné par des cailloux noirs ou acquitté par des cailloux blancs.--> blanc, et sur le caillou, un nouveau nom<!--Es. 62:2.--> écrit, que personne ne connaît, excepté celui qui le reçoit.
+2:17	Que celui qui a une oreille entende ce que l'Esprit dit aux assemblées ! Le victorieux, je lui donnerai à manger de la manne cachée, je lui donnerai aussi un caillou<!--Le terme grec « psephos » désigne « une petite pierre usée et lisse », « un vote, un suffrage (du fait de l'utilisation de cailloux pour voter) ». En effet, dans les anciennes cours de justice, l'accusé était condamné par des cailloux noirs ou acquitté par des cailloux blancs.--> blanc, et sur le caillou, un nouveau nom<!--Es. 62:2.--> écrit, que personne ne connaît, si ce n’est celui qui le reçoit.
 
 ### Thyatire : L'assemblée en période d'idolâtrie
 
@@ -244,7 +244,7 @@ Ce livre, qui arrive en conclusion des Écritures, annonce les événements qui 
 
 ### Cinquième trompette : Ouverture du puits de l'abîme
 
-9:1	Et le cinquième ange sonna de la trompette, et je vis une étoile qui tomba du ciel sur la Terre, et la clé du puits de l'abîme lui fut donnée.
+9:1	Et le cinquième ange sonna de la trompette, et je vis une étoile qui tomba à partir du ciel sur la Terre, et la clé du puits de l'abîme lui fut donnée.
 9:2	Et elle ouvrit le puits de l'abîme, et il monta une fumée à partir du puits comme la fumée d'une grande fournaise. Et le soleil et l'air furent obscurcis à partir de la fumée du puits.
 9:3	Et à partir de la fumée sortirent des sauterelles sur la Terre, et il leur fut donné un pouvoir comme le pouvoir qu'ont les scorpions de la Terre.
 9:4	Et il leur fut dit de ne pas faire de mal à l'herbe de la Terre, ni à aucune verdure, ni à aucun arbre, mais seulement aux humains qui n'avaient pas la marque d'Elohîm sur leurs fronts.
