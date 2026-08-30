@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'data/bym_update_service.dart';
+import 'data/bym_update_store.dart';
 import 'data/tab_manager.dart';
 import 'screens/home_screen.dart';
 import 'screens/library_screen.dart';
@@ -31,6 +33,15 @@ class _BymAppState extends State<BymApp> {
   void initState() {
     super.initState();
     AppPreferences.load();
+    // Le registre des livres mis à jour d'abord : `LocalRepository.loadBook`
+    // interroge `BymUpdateStore.hasUpdate` de façon **synchrone**, donc
+    // l'ensemble doit être garni avant le premier livre ouvert — sinon le
+    // premier chapitre affiché serait celui de l'APK malgré la correction.
+    //
+    // La vérification qui suit ne télécharge que le manifest (2 Ko) et ne lève
+    // jamais : hors ligne, le démarrage reste silencieux. Aucun livre n'arrive
+    // sans un appui de l'utilisateur dans Réglages.
+    BymUpdateStore.load().then((_) => BymUpdateChecker.maybeCheck());
   }
 
   @override
@@ -255,6 +266,9 @@ class _HomeShellState extends State<HomeShell> {
       ),
       BymDestination.bibliotheque => LibraryScreen(
         onOpenVerse: (b, c, v) => _openReading(b, c, verse: v),
+        // La pastille « MàJ » de la tuile BYM n'installe rien : elle conduit à
+        // la section de Réglages, seul endroit qui décide d'un téléchargement.
+        onOpenSettings: () => _selectDestination(BymDestination.reglages),
       ),
       BymDestination.reglages => const SettingsScreen(),
     };

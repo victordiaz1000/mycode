@@ -36,6 +36,12 @@ dependencies:
   cupertino_icons: ^1.0.8
   http: ^1.2.0
   dio: ^5.7.0
+  # Vérification des mises à jour du texte BYM : chaque `.md` téléchargé est
+  # comparé à l'empreinte de blob git — sha1("blob <len>\0" + octets) — que
+  # GitLab publie dans l'arbre du dépôt. Sans cela on ne pourrait que
+  # réenregistrer ce que le serveur affirme, ce qui ne vérifie rien.
+  # Paquet officiel de l'équipe Dart, pur Dart, sans dépendance native.
+  crypto: ^3.0.5
   path_provider: ^2.1.4
   shared_preferences: ^2.3.2
   provider: ^6.1.2
