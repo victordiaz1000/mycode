@@ -34,7 +34,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageFilter
+from PIL import Image
 
 RACINE = Path(__file__).resolve().parent.parent
 SOURCE_DEFAUT = RACINE / "logoBym" / "splash_logo_hd.png"
@@ -54,17 +54,23 @@ DIAGONALE_CIBLE = 0.60
 # à une vignette au centre du canevas.
 SEUIL_FOND = 32
 
-# Le recadrage se décide sur un masque **médian 5×5**, pas sur l'alpha brut : la
-# source porte des pixels clairs isolés (poussière de compression) jusque dans
-# ses coins, et un simple `getbbox()` sur l'alpha renvoie alors 94 % du cadre.
-# Le médian efface ces points sans ronger les traits, là où une érosion
-# supprimait aussi le sous-titre en traits fins.
-SEUIL_CADRE = 48
-MEDIAN_CADRE = 5
+# Le recadrage se décide sur la **masse d'encre par ligne et par colonne**, pas
+# sur un seuil de pixel : la source porte des taches grises isolées (poussière de
+# compression) jusque dans ses coins, et une décision au pixel les prend pour du
+# contenu. Deux d'entre elles, invisibles à l'œil, collaient au bord droit et
+# ajoutaient 22 % de vide — la marque partait alors visiblement à gauche une fois
+# le bitmap centré. Une colonne n'est retenue que si sa masse atteint cette
+# fraction de la colonne la plus chargée ; les taches pèsent 0,1 %, le plus fin
+# des traits du sous-titre pèse 1 % et plus. Le balayage part des bords vers
+# l'intérieur, donc un creux entre deux lettres ne coupe rien.
+SEUIL_MASSE = 0.005
 
-# Marge rendue au cadre détecté, pour compenser ce que le médian a pu ronger sur
-# le pourtour des traits les plus fins.
-MARGE_CADRE = 4
+# Marge rendue au cadre détecté, pour ne pas raboter l'antialiasing du pourtour.
+MARGE_CADRE = 2
+
+# Écart toléré entre le centre du cadre et le centre de masse de l'encre, en
+# pourcentage du côté concerné. Le vide non rogné se voyait ici à -13,6 %.
+ECART_ALERTE = 8.0
 
 # Couleur d'encre appliquée à la marque, son alpha étant conservé tel quel. La
 # source est blanche sur noir ; l'encrer en noir sert un fond clair, et c'est le
@@ -111,31 +117,44 @@ def detourer(source: Path) -> Image.Image:
         print(f"  ! {sature} pixels colorés ({pct:.2f} %) : le logo n'est pas")
         print(f"    strictement monochrome, vérifie le rendu des parties teintées.")
 
-    boite = cadre_utile(im)
+    boite = cadre_utile(sortie.getchannel("A"))
     return sortie.crop(boite)
 
 
-def cadre_utile(im: Image.Image) -> tuple[int, int, int, int]:
-    """Cadre de la marque, les pixels clairs isolés de la source étant écartés."""
-    largeur, hauteur = im.size
-    masque = (
-        im.convert("L")
-        .filter(ImageFilter.MedianFilter(MEDIAN_CADRE))
-        .point(lambda v: 255 if v > SEUIL_CADRE else 0)
-    )
-    boite = masque.getbbox()
-    if boite is None:
+def cadre_utile(alpha: Image.Image) -> tuple[int, int, int, int]:
+    """Cadre de la marque, les taches isolées de la source étant écartées.
+
+    Le recadrage porte sur l'alpha déjà calculé, et non sur la source : c'est
+    exactement la matière qui sera composée, donc le cadre trouvé ici est aussi
+    celui qui décidera du centrage.
+    """
+    largeur, hauteur = alpha.size
+    px = alpha.load()
+
+    colonnes = [sum(px[x, y] for y in range(hauteur)) for x in range(largeur)]
+    lignes = [sum(px[x, y] for x in range(largeur)) for y in range(hauteur)]
+    if not any(colonnes):
         raise SystemExit(
             "ERREUR : aucune marque détectée. La source est-elle bien une marque "
             "claire sur fond sombre ?"
         )
-    g, h_, d, b = boite
+
+    g, d = bornes(colonnes)
+    h_, b = bornes(lignes)
     return (
         max(0, g - MARGE_CADRE),
         max(0, h_ - MARGE_CADRE),
-        min(largeur, d + MARGE_CADRE),
-        min(hauteur, b + MARGE_CADRE),
+        min(largeur, d + 1 + MARGE_CADRE),
+        min(hauteur, b + 1 + MARGE_CADRE),
     )
+
+
+def bornes(masses: list[int]) -> tuple[int, int]:
+    """Premier et dernier indice dont la masse compte, bords vers l'intérieur."""
+    seuil = max(masses) * SEUIL_MASSE
+    debut = next(i for i, v in enumerate(masses) if v > seuil)
+    fin = next(i for i in range(len(masses) - 1, -1, -1) if masses[i] > seuil)
+    return debut, fin
 
 
 def encrer(marque: Image.Image, rgb: tuple[int, int, int]) -> Image.Image:
@@ -161,6 +180,33 @@ def composer(marque: Image.Image, cote: int) -> Image.Image:
     canevas = Image.new("RGBA", (cote, cote), (0, 0, 0, 0))
     canevas.paste(redim, ((cote - taille[0]) // 2, (cote - taille[1]) // 2))
     return canevas
+
+
+def controler_centrage(marque: Image.Image) -> None:
+    """Signale un cadre qui ne serait pas centré sur l'encre qu'il contient.
+
+    La composition centre le *cadre*, pas la matière : si le cadre garde du vide
+    d'un côté, la marque paraît décalée à l'écran alors que le calcul est juste.
+    Un écart de quelques pour cent est normal pour un logotype (les lettres ne
+    pèsent pas toutes pareil) ; au-delà de ECART_ALERTE, c'est que le recadrage
+    a mordu sur du vide, et c'est là qu'il faut chercher.
+    """
+    largeur, hauteur = marque.size
+    px = marque.getchannel("A").load()
+    colonnes = [sum(px[x, y] for y in range(hauteur)) for x in range(largeur)]
+    lignes = [sum(px[x, y] for x in range(largeur)) for y in range(hauteur)]
+    total = sum(colonnes)
+
+    ecarts = []
+    for masses, taille, nom in ((colonnes, largeur, "horizontal"), (lignes, hauteur, "vertical")):
+        centre = sum(i * v for i, v in enumerate(masses)) / total
+        ecart = 100 * (centre - taille / 2) / taille
+        ecarts.append(ecart)
+        print(f"  centre de masse {nom} : {ecart:+.1f} % du centre du cadre")
+
+    if max(abs(e) for e in ecarts) > ECART_ALERTE:
+        print(f"  ! écart supérieur à {ECART_ALERTE:.0f} % : le cadre contient")
+        print("    probablement du vide, vérifie les taches isolées de la source.")
 
 
 def main(argv: list[str]) -> int:
@@ -194,6 +240,7 @@ def main(argv: list[str]) -> int:
     marque = encrer(detourer(source), ENCRES[encre])
     lm, hm = marque.size
     print(f"  marque détourée : {lm} x {hm} px (rapport {lm / hm:.2f}:1)")
+    controler_centrage(marque)
 
     for densite, facteur in DENSITES.items():
         cote = round(BASE_DP * facteur)
