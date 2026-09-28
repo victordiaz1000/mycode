@@ -207,6 +207,35 @@ void main() {
       }
     });
 
+    test('the two HTML corpora keep their host and their copyright', () {
+      // CHO and KJF come from the same archives (`CHO.zip`, `KJF.zip`) and the
+      // same converter (`appCodebar/html_verses_to_json.py`), served like OST
+      // and NCL: one JSON per book on the GitHub host, standard numbering.
+      // The copyright line is the condition on which a text under rights is
+      // published at all — it is asserted, not hoped for.
+      for (final code in ['CHO', 'KJF']) {
+        final version = versionByCode(code)!;
+        expect(version.availability, VersionAvailability.downloadable,
+            reason: '$code must be offerable in the Bibliothèque');
+        expect(version.fetchable, isTrue, reason: code);
+        expect(
+          version.urlTemplate,
+          'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/main/'
+          '${code == 'CHO' ? 'chouraqui' : 'kjf'}/{book}.json',
+        );
+        expect(version.rights, contains('©'), reason: '$code names its author');
+      }
+      expect(versionByCode('CHO')!.rights, contains('Desclée de Brouwer'));
+      expect(versionByCode('KJF')!.rights, contains('Stratford'));
+      // Both are French, and neither carries notes or Strong: getbible schema.
+      for (final code in ['CHO', 'KJF']) {
+        final version = versionByCode(code)!;
+        expect(version.languageCode, 'FR', reason: code);
+        expect(version.carriesNotes, isFalse, reason: code);
+        expect(version.hasStrong, isFalse, reason: code);
+      }
+    });
+
     test('an unknown code falls on the poorer schema', () {
       // The default matters: a code absent from the catalogue must not be read
       // as BYM-format, which would look for metadata that is not there.

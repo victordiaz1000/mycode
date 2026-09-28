@@ -121,12 +121,18 @@ class VersionGroup {
 /// are real:
 /// - **embedded** : BYM, the default reading version (décision 3), and **LSGS**,
 ///   the embedded Segond 1910 text with Strong codes (décision 10) ;
-/// - **downloadable** : the public-domain translations we can actually serve —
-///   LSG (ls1910), Darby, Martin, KJV via getbible.net (décision 9), and
-///   Ostervald + néo-Crampon Libre via a direct GitHub host
-///   ([VersionEntry.urlTemplate]) ;
+/// - **downloadable** : the translations we can actually serve — LSG (ls1910),
+///   Darby, Martin, KJV via getbible.net (décision 9), and Ostervald,
+///   néo-Crampon Libre, Chouraqui + King James Française via a direct GitHub
+///   host ([VersionEntry.urlTemplate], produced by
+///   `appCodebar/ostervald_to_json.py` and `appCodebar/html_verses_to_json.py`) ;
 /// - **unavailable** : copyright / sourceless versions shown greyed for parity
-///   with the maquette (NBS, NEG79, NVS78P, S21, INT, KJF).
+///   with the maquette (NBS, NEG79, NVS78P, S21, INT).
+///
+/// **A version under rights carries its copyright on the card.** CHO and KJF
+/// are served because their corpus is published, not because they are free :
+/// the `rights` line is the condition, and it is never shortened to look
+/// tidier.
 ///
 /// « Segond 1910 with Strong » (LSGS) is embedded because a Strong-tagged
 /// French text could not be served from getbible.net (its ls1910 JSON does not
@@ -186,9 +192,29 @@ const List<VersionGroup> versionCatalog = [
       rights: '©',
     ),
     VersionEntry(
+      code: 'CHO',
+      name: 'Bible Chouraqui',
+      // Le copyright est porté sur la carte : c'est une traduction sous droits,
+      // servie parce que son corpus est publié — la mention est la condition.
+      rights: '© 1987 Desclée de Brouwer · André Chouraqui',
+      availability: VersionAvailability.downloadable,
+      // Même hébergement que OST / NCL : un JSON par livre, numérotation
+      // standard 1=Genèse … 66=Apocalypse, produit par
+      // `appCodebar/html_verses_to_json.py`. Canon ramené aux 66 livres
+      // (Tobie, Judith, Maccabées… retirés, Daniel 14 ch. → 12).
+      urlTemplate:
+          'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/main/chouraqui/{book}.json',
+    ),
+    VersionEntry(
       code: 'KJF',
       name: 'King James Française',
-      rights: '© 1611 · Bible des réformateurs 2006',
+      // Même chaîne que CHO : corpus HTML, converti par
+      // `appCodebar/html_verses_to_json.py`. Le copyright vient de l'index du
+      // corpus source (Nadine L. Stratford, 2006).
+      rights: '© 2006 Nadine L. Stratford · Bible des réformateurs',
+      availability: VersionAvailability.downloadable,
+      urlTemplate:
+          'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/main/kjf/{book}.json',
     ),
     VersionEntry(
       code: 'DBY',

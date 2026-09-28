@@ -6,9 +6,9 @@ import 'package:bible_app/data/app_preferences.dart';
 import 'package:bible_app/data/library_store.dart';
 import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/screens/reader_screen.dart';
+import 'package:bible_app/screens/settings_screen.dart';
 import 'package:bible_app/widgets/bible_theme_scope.dart';
 import 'package:bible_app/widgets/chapter_reader.dart';
-import 'package:bible_app/widgets/fiche_text_settings.dart';
 import 'package:bible_app/widgets/premium_style.dart';
 import 'package:bible_app/widgets/reader_actions_bar.dart';
 import 'package:bible_app/widgets/verse_tile.dart';
@@ -53,6 +53,18 @@ void main() {
     await tester.pumpAndSettle();
   }
 
+  /// The display preferences (notes, aération, colour, opacity…) live in the
+  /// Settings screen since they left the reader's ⋯ sheet. Its LECTURE card is
+  /// long, so the surface is enlarged: a `find` below the fold of a phone-sized
+  /// viewport returns 0 without anything being broken.
+  Future<void> pumpSettings(WidgetTester tester) async {
+    tester.view.physicalSize = const Size(1200, 3000);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(const MaterialApp(home: SettingsScreen()));
+    await tester.pumpAndSettle();
+  }
+
   /// A reader on [book]/[chapter] that records every navigation as `book:ch`
   /// instead of touching a tab manager.
   Future<void> pumpReaderReporting(
@@ -82,8 +94,9 @@ void main() {
     await pumpReader(tester);
 
     expect(find.byType(ReaderActionsBar), findsOneWidget);
-    // « Genèse 1 » : short French name of book 1 + chapter.
-    expect(inBar('Genèse 1'), findsOneWidget);
+    // « Bereshit 1 » : on the BYM the pill carries the book's own name,
+    // which is also how the reader knows which text is on screen.
+    expect(inBar('Bereshit 1'), findsOneWidget);
     expect(inBar('BYM'), findsOneWidget);
     expect(find.byIcon(Icons.keyboard_double_arrow_down), findsOneWidget);
   });
@@ -116,10 +129,49 @@ void main() {
       reason: '1 Corinthiens must not overflow the action bar',
     );
     expect(
-      inBar('1 Cor. 1'),
+      inBar('1 Kor. 1'),
       findsOneWidget,
       reason: 'the bar uses the compact name for long books',
     );
+
+    // The pill has ONE width, and the Hebrew names are not the French ones
+    // shortened: `Divrei Hayamim 1` is the widest of them, so the BYM — the
+    // version the app opens on — is the one that must not overflow.
+    const pires = [(38, '1 Hay. d. 1'), (30, 'Shir Hash. 1'), (66, 'Apokalupsis 1')];
+    for (final (bymIndex, expected) in pires) {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: ChapterReader(bookIndex: bymIndex, chapter: 1),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(
+        tester.takeException(),
+        isNull,
+        reason: 'livre $bymIndex en BYM ne doit pas déborder la barre',
+      );
+      expect(inBar(expected), findsOneWidget, reason: 'livre $bymIndex');
+    }
+
+    // And the same bar in French, on a downloaded translation.
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: ReaderActionsBar(
+            bookIndex: 49,
+            chapter: 1,
+            versionCode: 'DBY',
+            onOpenChapter: (_, _) {},
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    expect(inBar('1 Cor. 1'), findsOneWidget,
+        reason: 'une traduction se lit en français');
   });
 
   testWidgets(
@@ -127,7 +179,7 @@ void main() {
     (tester) async {
       await pumpReader(tester);
 
-      await tester.tap(inBar('Genèse 1'));
+      await tester.tap(inBar('Bereshit 1'));
       await tester.pumpAndSettle();
 
       expect(find.text('Livres'), findsOneWidget);
@@ -173,7 +225,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(inBar('Genèse 1'));
+    await tester.tap(inBar('Bereshit 1'));
     await tester.pumpAndSettle();
     await tester.tap(gridTile('2'));
     await tester.pumpAndSettle();
@@ -211,7 +263,7 @@ void main() {
 
     expect(find.text('Bibliothèque'), findsOneWidget);
     // 14 catalogue entries, BYM and LSGS being the only readable ones here.
-    expect(find.text('12 autres versions à télécharger'), findsOneWidget);
+    expect(find.text('13 autres versions à télécharger'), findsOneWidget);
   });
 
   testWidgets('a listed version no longer carries an audio glyph', (
@@ -392,31 +444,57 @@ void main() {
     expect(verses.last, greaterThan(1));
   });
 
-  testWidgets('the ⋯ menu carries the text display options', (tester) async {
+  testWidgets('the ⋯ sheet turns the notes on and the reader follows', (
+    tester,
+  ) async {
     await pumpReader(tester);
+    expect(find.textContaining('Note de test', findRichText: true), findsNothing);
 
     await tester.tap(find.byIcon(Icons.more_vert));
     await tester.pumpAndSettle();
 
-    expect(find.text('Texte seul'), findsOneWidget);
-    expect(find.text('Texte + notes'), findsOneWidget);
-    // The disposition chips are meaningless while notes are off.
-    expect(find.text('Notes à la suite'), findsNothing);
-    expect(find.text('Notes sous le verset'), findsNothing);
-
-    // The checkmark offsets the label's centre; the tap still lands on the menu
-    // item, so silence the known spurious hit-test warning.
+    // The checkmark offsets the label's centre; the tap still lands on the chip.
     await tester.tap(find.text('Texte + notes'), warnIfMissed: false);
     await tester.pumpAndSettle();
-    // Notes are on: both dispositions appear, the reader reconstructs the
-    // annotated verse from text + notes (NoteAwareVerseText), so the note body
-    // now shows. It lives in a RichText span, hence findRichText.
+
+    // Both dispositions appear, the reader reconstructs the annotated verse from
+    // text + notes (NoteAwareVerseText), so the note body now shows. It lives in
+    // a RichText span, hence findRichText.
     expect(find.text('Notes à la suite'), findsOneWidget);
     expect(find.text('Notes sous le verset'), findsOneWidget);
     expect(
       find.textContaining('Note de test', findRichText: true),
       findsWidgets,
     );
+  });
+
+  testWidgets('the continuous flow offers only « à la suite »', (tester) async {
+    // The disposition is a tiles-only choice: the flow weaves the notes into
+    // the sentence, so offering « sous le verset » there would be a control that
+    // changes nothing. The reader also ignores the stored disposition there
+    // rather than rewriting it — see `_effectiveShowNotes`.
+    await pumpReader(tester);
+    await tester.tap(find.byIcon(Icons.more_vert));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Texte + notes'), warnIfMissed: false);
+    await tester.pumpAndSettle();
+    expect(find.text('Notes à la suite'), findsOneWidget);
+    expect(find.text('Notes sous le verset'), findsOneWidget);
+
+    await tester.tap(find.text('Texte continu'), warnIfMissed: false);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Notes à la suite'), findsOneWidget);
+    expect(
+      find.text('Notes sous le verset'),
+      findsNothing,
+      reason: 'in the flow the notes are woven in, the option does not apply',
+    );
+
+    // And the stored disposition survives the round trip to the tiles layout.
+    await tester.tap(find.text('Versets séparés'), warnIfMissed: false);
+    await tester.pumpAndSettle();
+    expect(find.text('Notes sous le verset'), findsOneWidget);
   });
 
   testWidgets('the ⋯ sheet follows the canonical section order', (tester) async {
@@ -429,17 +507,16 @@ void main() {
     // the ones below the fold, so their vertical order is directly readable.
     // DisplaySectionLabel uppercases its text; plain Text rows do not.
     double y(String label) => tester.getTopLeft(find.text(label)).dy;
+    // What one reaches for while reading — the layout, the size, the notes and
+    // the panel behind the verses — then the way out to the rest (police,
+    // graisse, aération, couleur, thème, données).
     final sections = [
       'Mode immersion',
-      'OPACITÉ DU PANNEAU',
       'DISPOSITION DU TEXTE',
-      'NOTES',
       'TAILLE DU TEXTE',
-      'COULEUR DU TEXTE',
-      'ALIGNEMENT',
-      'GRAISSE DU TEXTE',
-      'AÉRATION DU TEXTE',
-      'POLICE',
+      'NOTES',
+      'OPACITÉ DU PANNEAU',
+      'Tous les réglages',
       'Lecture parallèle — deux versions',
     ];
     for (var i = 0; i < sections.length - 1; i++) {
@@ -482,7 +559,7 @@ void main() {
     expect(
       arrow(tester, Icons.chevron_left).onPressed,
       isNull,
-      reason: 'Genèse 1 is the very beginning',
+      reason: 'Bereshit 1 is the very beginning',
     );
     expect(arrow(tester, Icons.chevron_right).onPressed, isNotNull);
 
@@ -605,7 +682,7 @@ void main() {
     expect(find.byIcon(Icons.more_vert), findsOneWidget);
   });
 
-  testWidgets('the ⋯ menu changes the aération and remembers it', (
+  testWidgets('the Settings screen changes the aération and the reader follows', (
     tester,
   ) async {
     double? verseHeight(WidgetTester tester) =>
@@ -614,45 +691,28 @@ void main() {
     await pumpReader(tester);
     final before = verseHeight(tester)!;
 
-    await tester.tap(find.byIcon(Icons.more_vert));
-    await tester.pumpAndSettle();
-    expect(find.text('AÉRATION DU TEXTE'), findsOneWidget);
-    // « Normal » exists twice (Graisse + Aération): scope to the section.
-    final spacingSection = find.byType(DisplaySpacingSection);
-    Finder chip(String label) =>
-        find.descendant(of: spacingSection, matching: find.text(label));
-    expect(chip('Serré'), findsOneWidget);
-    expect(chip('Normal'), findsOneWidget);
-    expect(chip('Aéré'), findsOneWidget);
+    // The aération row moved to the Settings screen. « Normal » appears twice
+    // there (Graisse + Aération), so the tap is scoped to the row.
+    Future<void> choisir(String label) async {
+      await pumpSettings(tester);
+      final range = find.descendant(
+        of: find.ancestor(
+          of: find.text('Aération du texte'),
+          matching: find.byType(InkWell),
+        ),
+        matching: find.text(label),
+      );
+      await tester.tap(range);
+      await tester.pumpAndSettle();
+    }
 
-    // The sheet outgrew the test surface with the aération row: scroll the
-    // chip into view first, then tap it.
-    final sheetScrollable = find.descendant(
-      of: find.byType(DisplaySettingsSheetLayout),
-      matching: find.byType(Scrollable),
-    );
-    await tester.scrollUntilVisible(find.text('Aéré'), 120,
-        scrollable: sheetScrollable);
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Aéré'));
-    await tester.pumpAndSettle();
-    expect(verseHeight(tester), greaterThan(before));
-
-    // Dismiss via the barrier (the ✕ can sit off-screen after scrolling),
-    // then remount: the choice is read back from shared_preferences.
-    await tester.tapAt(const Offset(10, 10));
-    await tester.pumpAndSettle();
+    await choisir('Aéré');
     await pumpReader(tester);
     expect(verseHeight(tester), greaterThan(before));
 
     // And « serré » tightens below the default leading again.
-    await tester.tap(find.byIcon(Icons.more_vert));
-    await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(find.text('Serré'), 120,
-        scrollable: sheetScrollable);
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Serré'));
-    await tester.pumpAndSettle();
+    await choisir('Serré');
+    await pumpReader(tester);
     expect(verseHeight(tester), lessThan(before));
   });
 
@@ -675,7 +735,7 @@ void main() {
     final expected = premiumPalette(
       tester.element(find.byType(ReaderActionsBar)),
     ).surface;
-    await tester.tap(inBar('Genèse 1'));
+    await tester.tap(inBar('Bereshit 1'));
     await tester.pumpAndSettle();
     final bookTiles = tester.widgetList<Material>(
       find.descendant(of: find.byType(Wrap), matching: find.byType(Material)),

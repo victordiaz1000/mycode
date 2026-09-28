@@ -1,10 +1,13 @@
 ﻿import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:bible_app/data/library_store.dart';
 import 'package:bible_app/data/local_repository.dart';
+import 'package:bible_app/data/share_text.dart';
 import 'package:bible_app/data/version_repository.dart';
+import 'package:bible_app/screens/settings_screen.dart';
 import 'package:bible_app/widgets/chapter_reader.dart';
 import 'package:bible_app/widgets/reader_actions_bar.dart';
 
@@ -106,6 +109,64 @@ void main() {
     await tester.pumpAndSettle();
   }
 
+  testWidgets('a downloaded version names itself in what is copied and shared',
+      (tester) async {
+    // A Darby verse pasted into a note with no mention of Darby is a claim the
+    // BYM did not make. Both surfaces must say whose words these are — and
+    // neither string may be written by hand at its call site, or they drift
+    // (they had: the sheet's copy named no version, the selection bar's did).
+    final previous = shareText;
+    var shared = '';
+    shareText = (message, {origin}) async => shared = message;
+    addTearDown(() => shareText = previous);
+
+    String? copied;
+    tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+      SystemChannels.platform,
+      (message) async {
+        if (message.method == 'Clipboard.setData') {
+          copied =
+              (message.arguments as Map<Object?, Object?>)['text'] as String?;
+        }
+        return null;
+      },
+    );
+    addTearDown(() => tester.binding.defaultBinaryMessenger
+        .setMockMethodCallHandler(SystemChannels.platform, null));
+
+    await pumpReader(tester, store: darbyGenesisOnly());
+    await openVersionSheet(tester, 'BYM');
+    await tapVersionRow(tester, 'DBY');
+
+    // Share from the selection bar: the badge rides the attribution line.
+    // Done *before* the copy, whose confirmation snackbar would sit on top of
+    // the verse and swallow the long press.
+    await tester.longPress(find.text('Texte téléchargé 1:1.'));
+    await tester.pumpAndSettle();
+    expect(find.byTooltip('Partager les versets'), findsOneWidget,
+        reason: 'la sélection doit être ouverte');
+    await tester.tap(find.byTooltip('Partager les versets'));
+    await tester.pumpAndSettle();
+    expect(shared.trim(), endsWith('— Genèse 1:1 (DBY)'),
+        reason: 'le partage nomme la version téléchargée');
+
+    // Copy from the study sheet: the badge sits after the reference.
+    await tester.tap(find.byTooltip('Terminer la sélection'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Texte téléchargé 1:1.'));
+    await tester.pumpAndSettle();
+    await tester.dragUntilVisible(
+      find.text('Copier'),
+      find.byType(ListView).last,
+      const Offset(0, -80),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Copier'));
+    await tester.pumpAndSettle();
+    expect(copied, 'Genèse 1:1 (DBY) Texte téléchargé 1:1.',
+        reason: 'la copie nomme la version téléchargée');
+  });
+
   testWidgets('the bar announces BYM, and the BYM text is on screen',
       (tester) async {
     await pumpReader(tester, store: FakeStore({}));
@@ -200,7 +261,7 @@ void main() {
     expect(find.text('Bible Darby'), findsNothing);
     expect(find.text('Bible de Yehoshoua Ha Mashiah'), findsOneWidget,
         reason: 'the embedded version is always there');
-    expect(find.text('12 autres versions à télécharger'), findsOneWidget);
+    expect(find.text('13 autres versions à télécharger'), findsOneWidget);
   });
 
   testWidgets('the footer leads to the Bibliothèque', (tester) async {
@@ -368,31 +429,44 @@ void main() {
     });
   });
 
-  group('the notes menu', () {
-    /// Opens the ⋯ menu of the reading bar.
-    Future<void> openDisplayMenu(WidgetTester tester) async {
-      await tester.tap(find.byIcon(Icons.more_vert));
+  group('the notes setting', () {
+    /// The notes rows moved to the Settings screen with the rest of the display
+    /// preferences. Its LECTURE card is long, so the surface is enlarged: a
+    /// `find` below the fold of a phone-sized viewport returns 0 without
+    /// anything being broken.
+    Future<void> openSettings(WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1200, 3000);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.reset);
+      await tester.pumpWidget(const MaterialApp(home: SettingsScreen()));
       await tester.pumpAndSettle();
     }
 
-    testWidgets('a downloaded version drops the note entries', (tester) async {
+    testWidgets('a downloaded version says the notes are BYM-only', (
+      tester,
+    ) async {
       // `bookFromGetbible` copies the bare text into `textWithNotes` and leaves
       // `notes` empty, so « Texte + notes » toggled between two identical
-      // renderings and the two dispositions governed nothing.
+      // renderings and the two dispositions governed nothing. The switch stays
+      // usable — the preference is global — but the row says it changes nothing
+      // here, which beats a control with no visible effect.
       SharedPreferences.setMockInitialValues({'reading.versionCode': 'DBY'});
       await pumpReader(tester, store: darbyGenesisOnly());
+      await openSettings(tester);
 
-      await openDisplayMenu(tester);
+      expect(find.text('Notes'), findsOneWidget);
+      expect(find.text('Texte seul — notes du texte BYM'), findsOneWidget);
+      // No disposition row while the notes are off: it would govern nothing.
+      expect(find.text('Disposition des notes'), findsNothing);
 
-      expect(find.text('Texte seul'), findsNothing);
-      expect(find.text('Texte + notes'), findsNothing);
-      expect(find.text('Notes à la suite'), findsNothing);
-      expect(find.text('Notes sous le verset'), findsNothing);
-      // One card that says why, rather than four dead entries.
-      expect(find.text('NOTES'), findsOneWidget);
-      expect(find.text('BYM uniquement'), findsOneWidget);
       // The size ladder still applies — it is not about notes.
-      expect(find.text('TAILLE DU TEXTE'), findsOneWidget);
+      expect(find.text('Taille du texte'), findsOneWidget);
+    });
+
+    testWidgets('the embedded text keeps the plain wording', (tester) async {
+      await openSettings(tester);
+      expect(find.text('Texte seul'), findsOneWidget);
+      expect(find.textContaining('notes du texte BYM'), findsNothing);
     });
 
     testWidgets('a stored « notes on » does not follow onto a download',
@@ -428,8 +502,9 @@ void main() {
       expect(find.textContaining('Note de test', findRichText: true),
           findsWidgets,
           reason: 'the preference was never overwritten');
-      await openDisplayMenu(tester);
+      await openSettings(tester);
       expect(find.text('Texte + notes'), findsOneWidget);
+      expect(find.text('Disposition des notes'), findsOneWidget);
     });
   });
 }
