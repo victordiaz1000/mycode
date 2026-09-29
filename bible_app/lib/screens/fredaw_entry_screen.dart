@@ -49,6 +49,20 @@ class FredawEntryScreen extends StatelessWidget {
             elevation: 0,
             foregroundColor: p.textDark,
             centerTitle: true,
+            // Pas de titre : « Westphal 1932 » est déjà le badge du corps, et
+            // un test le compte à l'unité. Le voile d'accent suffit.
+            flexibleSpace: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.center,
+                  colors: [
+                    p.primary.withValues(alpha: .12),
+                    p.primary.withValues(alpha: 0),
+                  ],
+                ),
+              ),
+            ),
             actions: const [FicheDisplayMenuButton()],
           ),
           body: SafeArea(

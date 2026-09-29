@@ -110,16 +110,7 @@ class _DictionaryArticleViewState extends State<DictionaryArticleView> {
         Container(
           width: double.infinity,
           padding: const EdgeInsets.all(24),
-          decoration: BoxDecoration(
-            color: p.surface,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: premiumShadow(
-              accent,
-              opacity: 0.06,
-              blur: 16,
-              offset: const Offset(0, 8),
-            ),
-          ),
+          decoration: premiumSurface(context, radius: 20, depth: 1.1),
           child: Column(
             children: [
               _Badge(widget.badge, accent),
@@ -135,7 +126,22 @@ class _DictionaryArticleViewState extends State<DictionaryArticleView> {
                   spacing: 1.5,
                 ),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: 10),
+              // Filet d'accent centré sous le terme : la tête d'article a son
+              // propre repère, comme les cartes de l'étude du verset.
+              Center(
+                child: Container(
+                  width: 56,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(2),
+                    gradient: LinearGradient(
+                      colors: [accent, accent.withValues(alpha: 0)],
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
               Text(
                 widget.subtitle,
                 textAlign: TextAlign.center,
@@ -156,16 +162,7 @@ class _DictionaryArticleViewState extends State<DictionaryArticleView> {
         Container(
           width: double.infinity,
           padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: p.surface,
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: premiumShadow(
-              accent,
-              opacity: 0.05,
-              blur: 12,
-              offset: const Offset(0, 4),
-            ),
-          ),
+          decoration: premiumSurface(context, radius: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -231,6 +228,7 @@ class _Badge extends StatelessWidget {
       decoration: BoxDecoration(
         color: color.withValues(alpha: .14),
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: color.withValues(alpha: .30)),
       ),
       child: Text(
         text,
@@ -262,6 +260,7 @@ class _SectionTitle extends StatelessWidget {
           decoration: BoxDecoration(
             color: p.primarySoft,
             borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: color.withValues(alpha: .28)),
           ),
           alignment: Alignment.center,
           child: Icon(icon, size: 18, color: color),

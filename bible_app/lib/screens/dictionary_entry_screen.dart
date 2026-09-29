@@ -55,6 +55,20 @@ class DictionaryEntryScreen extends StatelessWidget {
             elevation: 0,
             foregroundColor: p.textDark,
             centerTitle: true,
+            // Pas de titre : le nom du dictionnaire vit dans le badge du corps
+            // — le voile d'accent suffit à ancrer la barre.
+            flexibleSpace: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.center,
+                  colors: [
+                    p.primary.withValues(alpha: .12),
+                    p.primary.withValues(alpha: 0),
+                  ],
+                ),
+              ),
+            ),
             actions: const [FicheDisplayMenuButton()],
           ),
           body: SafeArea(
