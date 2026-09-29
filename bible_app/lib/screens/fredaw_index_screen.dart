@@ -88,6 +88,18 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
         elevation: 0,
         foregroundColor: p.textDark,
         centerTitle: true,
+        flexibleSpace: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.center,
+              colors: [
+                p.primary.withValues(alpha: .12),
+                p.primary.withValues(alpha: 0),
+              ],
+            ),
+          ),
+        ),
         title: Text(
           'Westphal 1932',
           style: premiumText(context, 18, FontWeight.w800, p.textDark),
@@ -100,7 +112,11 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildSearchField(context),
+              LexiconSearchField(
+                hint: 'Rechercher dans ce dictionnaire…',
+                controller: _controller,
+                onChanged: (v) => setState(() => _query = v),
+              ),
               const SizedBox(height: 12),
               SizedBox(
                 height: 40,
@@ -140,55 +156,6 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
     );
   }
 
-  Widget _buildSearchField(BuildContext context) {
-    final p = premiumPalette(context);
-    return Container(
-      decoration: BoxDecoration(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: premiumShadow(
-          p.primaryDark,
-          opacity: 0.06,
-          blur: 14,
-          offset: const Offset(0, 4),
-        ),
-      ),
-      child: Row(
-        children: [
-          const SizedBox(width: 14),
-          Icon(Icons.search_rounded, color: p.primary),
-          const SizedBox(width: 10),
-          Expanded(
-            child: TextField(
-              controller: _controller,
-              onChanged: (v) => setState(() => _query = v),
-              decoration: InputDecoration(
-                hintText: 'Rechercher dans ce dictionnaire…',
-                hintStyle: premiumText(
-                  context,
-                  14,
-                  FontWeight.w500,
-                  p.textGrey,
-                ),
-                border: InputBorder.none,
-                isCollapsed: true,
-              ),
-            ),
-          ),
-          if (_query.isNotEmpty)
-            IconButton(
-              tooltip: 'Effacer',
-              icon: const Icon(Icons.clear_rounded, size: 20),
-              onPressed: () {
-                _controller.clear();
-                setState(() => _query = '');
-              },
-            ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildList(BuildContext context) {
     final p = premiumPalette(context);
     final filtered = _filtered;
@@ -196,19 +163,7 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
       return const ListLoadingSkeleton();
     }
     if (filtered.isEmpty) {
-      return Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.search_off_rounded, size: 48, color: p.textGrey),
-            const SizedBox(height: 8),
-            Text(
-              'Aucune entrée trouvée',
-              style: premiumText(context, 14, FontWeight.w600, p.textGrey),
-            ),
-          ],
-        ),
-      );
+      return const LexiconEmptyState();
     }
 
     final grouped = <String, List<FreDawEntry>>{};
@@ -238,7 +193,19 @@ class _FredawIndexScreenState extends State<FredawIndexScreen> {
                 ),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: Divider(color: p.textGrey.withValues(alpha: .25)),
+                  // Filet d'accent qui se perd vers la droite : la lettre de
+                  // groupe porte la division, pas un trait gris.
+                  child: Container(
+                    height: 1,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          p.primary.withValues(alpha: .45),
+                          p.primary.withValues(alpha: 0),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

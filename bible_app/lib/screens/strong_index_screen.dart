@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/strong_lexicon.dart';
+import '../widgets/lexicon_index_widgets.dart';
 import '../widgets/premium_style.dart';
 import '../widgets/loading_skeleton.dart';
 import 'strong_detail_screen.dart';
@@ -77,6 +78,18 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
         elevation: 0,
         foregroundColor: p.textDark,
         centerTitle: true,
+        flexibleSpace: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.center,
+              colors: [
+                p.primary.withValues(alpha: .12),
+                p.primary.withValues(alpha: 0),
+              ],
+            ),
+          ),
+        ),
         title: Text(
           'Dictionnaire Strong',
           style: premiumText(context, 18, FontWeight.w800, p.textDark),
@@ -89,7 +102,11 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildSearchField(context),
+              LexiconSearchField(
+                hint: 'Numéro, mot, translittération…',
+                controller: _controller,
+                onChanged: (v) => setState(() => _query = v),
+              ),
               const SizedBox(height: 14),
               Row(
                 children: [
@@ -106,49 +123,6 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildSearchField(BuildContext context) {
-    final p = premiumPalette(context);
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      decoration: BoxDecoration(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: premiumShadow(
-          p.primaryDark,
-          opacity: 0.05,
-          blur: 10,
-          offset: const Offset(0, 4),
-        ),
-      ),
-      child: Row(
-        children: [
-          Icon(Icons.search_rounded, color: p.primary),
-          const SizedBox(width: 10),
-          Expanded(
-            child: TextField(
-              controller: _controller,
-              onChanged: (v) => setState(() => _query = v),
-              decoration: const InputDecoration(
-                hintText: 'Numéro, mot, translittération…',
-                border: InputBorder.none,
-                isCollapsed: true,
-              ),
-            ),
-          ),
-          if (_query.isNotEmpty)
-            IconButton(
-              tooltip: 'Effacer',
-              icon: const Icon(Icons.clear_rounded, size: 20),
-              onPressed: () {
-                _controller.clear();
-                setState(() => _query = '');
-              },
-            ),
-        ],
       ),
     );
   }
@@ -200,19 +174,7 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
       return const ListLoadingSkeleton();
     }
     if (filtered.isEmpty) {
-      return Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.search_off_rounded, size: 48, color: p.textGrey),
-            const SizedBox(height: 8),
-            Text(
-              'Aucune entrée trouvée',
-              style: premiumText(context, 14, FontWeight.w600, p.textGrey),
-            ),
-          ],
-        ),
-      );
+      return const LexiconEmptyState();
     }
     return ListView(
       children: [
@@ -272,21 +234,10 @@ class _EntryCard extends StatelessWidget {
     final p = premiumPalette(context);
     final couleurLangue = isGreek ? p.greek : p.hebrew;
     return Material(
-      color: p.surface,
-      borderRadius: BorderRadius.circular(20),
+      color: Colors.transparent,
       elevation: 0,
-      shadowColor: Colors.transparent,
       child: Ink(
-        decoration: BoxDecoration(
-          color: p.surface,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: premiumShadow(
-            p.primaryDark,
-            opacity: 0.07,
-            blur: 16,
-            offset: const Offset(0, 6),
-          ),
-        ),
+        decoration: premiumSurface(context, radius: 20, depth: 0.9),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
           onTap: () => Navigator.of(context).push(
@@ -307,6 +258,9 @@ class _EntryCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: couleurLangue.withValues(alpha: .12),
                     borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: couleurLangue.withValues(alpha: .30),
+                    ),
                   ),
                   child: Text(
                     entry.strong,

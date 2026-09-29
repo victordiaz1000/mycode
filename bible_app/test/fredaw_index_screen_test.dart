@@ -56,6 +56,42 @@ void main() {
           reason: 'chip « V » then group « V »');
     });
 
+    testWidgets('the search field lights its border when it takes the focus',
+        (tester) async {
+      await pumpIndex(tester);
+
+      // Le champ des index est le seul `AnimatedContainer` ancêtre du champ de
+      // saisie : les puces sont des frères, pas des parents.
+      BoxDecoration? decor() {
+        final candidats = tester.widgetList<AnimatedContainer>(
+          find.ancestor(
+            of: find.byType(TextField),
+            matching: find.byType(AnimatedContainer),
+          ),
+        );
+        for (final champ in candidats) {
+          final box = champ.decoration;
+          if (box is BoxDecoration && box.gradient != null) return box;
+        }
+        return null;
+      }
+
+      final repos = decor();
+      expect(repos, isNotNull,
+          reason: 'le champ porte le voile de surface des index');
+      expect(repos!.border!.top.color.a, lessThan(.3),
+          reason: 'au repos, le liseré reste discret');
+
+      await tester.tap(find.byType(TextField));
+      await tester.pumpAndSettle();
+
+      final actif = decor();
+      expect(actif!.border!.top.color.a, greaterThan(.5),
+          reason: 'le focus éclaircit le liseré');
+      expect(actif.boxShadow!.first.color.a, greaterThan(.1),
+          reason: "et fait monter la lueur d'accent");
+    });
+
     testWidgets('the letter chips filter the list', (tester) async {
       await pumpIndex(tester);
 
