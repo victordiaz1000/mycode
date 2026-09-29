@@ -35,7 +35,9 @@
 - **Étape 3a** : télécharger les 2 ZIP dans `appCodebar/sword_modules/`.
 - **Étape 3b** : convertir en JSON français via un script Python.
 - **Étape 3c** : copier les JSON dans `bible_app/assets/lexicon/`.
-- Créer `lib/data/strong_lexicon.dart` : `lookup(String strongNumber)`. Il accepte aussi le schéma structuré v2 (lemme, translittération, prononciation, catégorie, origine et sens).
+- **Glossaire récupéré (Étape 3d)** : la source écrit avant chaque liste de sens la ligne qui nomme le mot (« Abiel = Dieu est mon père », « Paul ou Paulus = petit »). Elle n'était pas un `<item>` et partait à l'export — `sword_zld_to_json.py` la range désormais dans `signification` (3 251 entrées sur 14 195), affichée sur la fiche en section « Signification », juste après « Origine ».
+- **Définition complète en arborescence (Étape 3e)** : la source numérote déjà ses sens — stems `(Qal)`, `(Hifil)`, `(Piel)`… et échelles `1a)`, `1a1)`, `1a2)`, `2b1)`. L'exporteur lisait tout en `.findall(".//item")`, ce qui écrasait la hiérarchie **et** recopiait dans le parent le détail de ses enfants (H1285 : « entre hommes 1a1) traité… 1a2) constitution… »). `sword_zld_to_json.py` émet désormais `outline`, une liste de nœuds `{level, kind, text[, label]}` (`sense` / `number` / `header` / `label`), calculée en marchant les `<list>` et les codes numérotés — **1 765 entrées** sur 14 195, les autres gardant leurs puces. La fiche « Définition complète » l'affiche en arbre indenté (16 px par cran, 4 crans au plus) : le stem en en-tête accentué, le code numéroté mis en couleur, le sens ordinaire avec son puce. `senses` recolle au même texte, sans doublon et sans fichier creux.
+- Créer `lib/data/strong_lexicon.dart` : `lookup(String strongNumber)`. Il accepte aussi le schéma structuré v2 (lemme, translittération, prononciation, catégorie, origine, signification, sens et arborescence `outline`).
 
 ### Phase 4 — Rendu cliquable + recherche Strong ✅
 **Objectif** : aller au-delà du simple affichage et rendre le lexique réellement exploitable.
