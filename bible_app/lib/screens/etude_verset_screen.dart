@@ -8,6 +8,8 @@ import '../models/lsgs.dart';
 import '../widgets/fiche_text_settings.dart';
 import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
+import '../widgets/strong_lemma.dart';
+import '../widgets/strong_senses.dart';
 import 'fredaw_entry_screen.dart';
 import 'strong_detail_screen.dart';
 
@@ -214,11 +216,19 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
         segments.add(SegmentVerset.plain(token.text));
         continue;
       }
-      var index = indexByStrong[strong];
-      if (index == null) {
-        final definition = await StrongLexicon.instance.lookup(strong);
-        index = entries.length;
-        indexByStrong[strong] = index;
+      // Un mot du corpus peut porter deux codes Strong d'un coup (« G3588
+      // G4674 » en Jean 18.35) : chacun a sa fiche et son entrée, le segment
+      // du mot se rattache au premier.
+      var index = -1;
+      for (final code in StrongLexicon.codesOf(strong)) {
+        final known = indexByStrong[code];
+        if (known != null) {
+          if (index < 0) index = known;
+          continue;
+        }
+        final definition = await StrongLexicon.instance.lookup(code);
+        final fresh = entries.length;
+        indexByStrong[code] = fresh;
         entries.add(
           EntreeLexique(
             texte: token.text.trim(),
@@ -232,6 +242,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
             fiche: definition,
           ),
         );
+        if (index < 0) index = fresh;
       }
       segments.add(SegmentVerset.mot(token.text.trim(), index));
     }
@@ -382,6 +393,20 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
+        // L'AppBar est transparente : ce voile d'accent la rattache au fond
+        // sans coûter une ligne de hauteur.
+        flexibleSpace: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.center,
+              colors: [
+                accent.withValues(alpha: .12),
+                accent.withValues(alpha: 0),
+              ],
+            ),
+          ),
+        ),
         actions: const [FicheDisplayMenuButton(group: DisplayGroup.etude)],
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -416,16 +441,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(20.0),
-                decoration: BoxDecoration(
-                  color: p.surface,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: premiumShadow(
-                    p.primaryDark,
-                    opacity: 0.04,
-                    blur: 12,
-                    offset: const Offset(0, 6),
-                  ),
-                ),
+                decoration: premiumSurface(context, radius: 20, depth: 1.2),
                 child: Column(
                   children: [
                     Row(
@@ -433,15 +449,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(top: 2),
-                          child: Text(
-                            '$_verseNumber',
-                            style: premiumText(
-                              context,
-                              12,
-                              FontWeight.w500,
-                              p.textGrey,
-                            ),
-                          ),
+                          child: premiumBadge(context, '$_verseNumber'),
                         ),
                         const SizedBox(width: 10),
                         Expanded(
@@ -554,16 +562,17 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
     bool droite,
     Color accent,
   ) {
-    final p = premiumPalette(context);
     return GestureDetector(
       onTap: () =>
           _navigateTo(widget.verseNumbers![_verseIndex + (droite ? 1 : -1)]),
       child: Row(
         children: [
           if (!droite) ...[Icon(icon, color: accent), const SizedBox(width: 6)],
+          // Couleur de l'action, pas du texte courant : ces deux libellés
+          // annoncent un déplacement.
           Text(
             label,
-            style: premiumText(context, 14, FontWeight.w600, p.textGrey),
+            style: premiumText(context, 14, FontWeight.w600, accent),
           ),
           if (droite) ...[const SizedBox(width: 6), Icon(icon, color: accent)],
         ],
@@ -578,16 +587,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
       padding: const EdgeInsets.all(18.0),
-      decoration: BoxDecoration(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: premiumShadow(
-          p.primaryDark,
-          opacity: 0.05,
-          blur: 10,
-          offset: const Offset(0, 4),
-        ),
-      ),
+      decoration: premiumSurface(context, radius: 16),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -622,6 +622,10 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                 ),
                 IconButton(
                   tooltip: 'Fiche Strong complète',
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(p.primarySoft),
+                    shape: const WidgetStatePropertyAll(CircleBorder()),
+                  ),
                   icon: Icon(
                     Icons.open_in_full_rounded,
                     color: accent,
@@ -639,44 +643,51 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
               ],
             ),
             const SizedBox(height: 8),
-            Directionality(
-              textDirection: e.fiche.language == 'hebrew'
-                  ? TextDirection.rtl
-                  : TextDirection.ltr,
-              child: Text(
-                e.original,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w700,
-                  color: p.textDark,
-                  fontFamily: 'serif',
-                ),
-              ),
+            StrongLemma(
+              lemma: e.original,
+              strong: e.strongId,
+              language: e.fiche.language,
             ),
             const SizedBox(height: 10),
-            Container(width: 40, height: 3, color: accent),
-            const SizedBox(height: 14),
-            Text(
-              'Définition - ${e.strongId}',
-              style: premiumText(context, 14, FontWeight.w500, p.textGrey),
-            ),
-            const SizedBox(height: 8),
-            for (int i = 0; i < e.definitions.length; i++)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 6),
-                child: Text(
-                  '${i + 1}) ${e.definitions[i]}',
-                  textAlign: style.align,
-                  style: premiumText(
-                    context,
-                    style.fontSize,
-                    FontWeight.w500,
-                    p.textDark,
-                    height: 1.5,
-                  ).copyWith(fontFamily: style.fontFamily),
+            // Filet d'accent qui se perd vers la droite, plutôt que le pavé
+            // uni : la carte garde son repère, la ligne reste légère.
+            Container(
+              width: 56,
+              height: 4,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(2),
+                gradient: LinearGradient(
+                  colors: [accent, accent.withValues(alpha: 0)],
                 ),
               ),
+            ),
+            const SizedBox(height: 14),
+            premiumBadge(context, 'Définition - ${e.strongId}'),
+            const SizedBox(height: 8),
+            StrongSenses(
+              outline: e.fiche.outline,
+              senses: e.definitions,
+              accent: accent,
+              textStyle: premiumText(
+                context,
+                style.fontSize,
+                FontWeight.w500,
+                p.textDark,
+                height: 1.5,
+              ).copyWith(fontFamily: style.fontFamily),
+              markerStyle: premiumText(
+                context,
+                style.fontSize,
+                FontWeight.w700,
+                accent,
+                height: 1.5,
+              ).copyWith(fontFamily: style.fontFamily),
+              align: style.align,
+              // The card has always numbered its senses itself; the source's
+              // own codes take over as soon as there is an outline to show.
+              numbered: true,
+              rowGap: 6,
+            ),
             const SizedBox(height: 12),
             Align(
               alignment: Alignment.centerLeft,
@@ -689,9 +700,19 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                     ),
                   ),
                 ),
-                child: Text(
-                  'Ouvrir la fiche Strong complète →',
-                  style: premiumText(context, 14, FontWeight.w700, accent),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 7,
+                  ),
+                  decoration: BoxDecoration(
+                    color: p.primarySoft,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    'Ouvrir la fiche Strong complète →',
+                    style: premiumText(context, 14, FontWeight.w700, accent),
+                  ),
                 ),
               ),
             ),
@@ -708,16 +729,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
       padding: const EdgeInsets.all(18.0),
-      decoration: BoxDecoration(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: premiumShadow(
-          p.primaryDark,
-          opacity: 0.05,
-          blur: 10,
-          offset: const Offset(0, 4),
-        ),
-      ),
+      decoration: premiumSurface(context, radius: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -731,13 +743,26 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
               ),
               IconButton(
                 tooltip: 'Fiche complète du dictionnaire',
+                style: ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(p.primarySoft),
+                  shape: const WidgetStatePropertyAll(CircleBorder()),
+                ),
                 icon: Icon(Icons.open_in_full_rounded, color: accent, size: 18),
                 onPressed: () => _openFicheComplett(e),
               ),
             ],
           ),
           const SizedBox(height: 10),
-          Container(width: 40, height: 3, color: accent),
+          Container(
+            width: 56,
+            height: 4,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(2),
+              gradient: LinearGradient(
+                colors: [accent, accent.withValues(alpha: 0)],
+              ),
+            ),
+          ),
           const SizedBox(height: 12),
           Expanded(
             child: SingleChildScrollView(
@@ -774,9 +799,22 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
           const SizedBox(height: 12),
           GestureDetector(
             onTap: () => _openFicheComplett(e),
-            child: Text(
-              'Ouvrir la fiche complète →',
-              style: premiumText(context, 14, FontWeight.w700, accent),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 7,
+                ),
+                decoration: BoxDecoration(
+                  color: p.primarySoft,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  'Ouvrir la fiche complète →',
+                  style: premiumText(context, 14, FontWeight.w700, accent),
+                ),
+              ),
             ),
           ),
         ],
@@ -839,35 +877,33 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
       return SizedBox(
         height: 430,
         child: Center(
-          child: Card(
-            elevation: 0,
-            color: p.surface,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: premiumShadow(
-                  p.primaryDark,
-                  opacity: 0.05,
-                  blur: 10,
-                  offset: const Offset(0, 4),
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            decoration: premiumSurface(context, radius: 16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  _mode == ModeEtude.lexique
+                      ? Icons.translate_rounded
+                      : Icons.menu_book_rounded,
+                  size: 34,
+                  color: accent.withValues(alpha: .55),
                 ),
-              ),
-              child: Text(
-                message,
-                textAlign: TextAlign.center,
-                style: premiumText(
-                  context,
-                  14,
-                  FontWeight.w500,
-                  p.textGrey,
-                  italic: FontStyle.italic,
-                  height: 1.5,
+                const SizedBox(height: 10),
+                Text(
+                  message,
+                  textAlign: TextAlign.center,
+                  style: premiumText(
+                    context,
+                    14,
+                    FontWeight.w500,
+                    p.textGrey,
+                    italic: FontStyle.italic,
+                    height: 1.5,
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         ),
@@ -897,20 +933,10 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
 
   // --- Barre du bas : bascule Lexique / Dictionnaire ---
   Widget _buildBottomBar(BuildContext context, Color accent) {
-    final p = premiumPalette(context);
     return Container(
       margin: const EdgeInsets.all(12),
       padding: const EdgeInsets.symmetric(vertical: 10),
-      decoration: BoxDecoration(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: premiumShadow(
-          p.primaryDark,
-          opacity: 0.08,
-          blur: 12,
-          offset: const Offset(0, 4),
-        ),
-      ),
+      decoration: premiumSurface(context, radius: 24, depth: 1.4),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -969,10 +995,18 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
         onTap: onTap,
         child: Tooltip(
           message: label,
-          child: Padding(
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 220),
+            curve: Curves.easeOut,
+            // Mêmes mesures que le Padding précédent : seul l'état actif
+            // change, la barre ne bouge pas d'un pixel.
             padding: EdgeInsets.symmetric(
               horizontal: 2,
               vertical: iconsOnly ? 5 : 0,
+            ),
+            decoration: BoxDecoration(
+              color: actif ? accent.withValues(alpha: .14) : null,
+              borderRadius: BorderRadius.circular(14),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,

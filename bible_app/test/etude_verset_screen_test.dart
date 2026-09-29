@@ -66,6 +66,114 @@ void main() {
     expect(find.textContaining('Définition test de H0430'), findsWidgets);
   });
 
+  testWidgets('the card lays the source outline out as an indented tree',
+      (tester) async {
+    // The card used to flatten every sense into its own « 1) », « 2) » line.
+    StrongLexicon.useBundle(FakeStrongLexiconBundle({
+      'H7225': {
+        'strong': 'H7225',
+        'language': 'hebrew',
+        'lemma': 'רֵאשִׁית',
+        'definition': 'Définition test de H7225.',
+        'senses': ['commencement'],
+        'outline': [
+          {'level': 0, 'kind': 'sense', 'text': 'commencement'},
+          {'level': 0, 'kind': 'header', 'label': 'Qal', 'text': ''},
+          {'level': 1, 'kind': 'number', 'text': '1a1) commencement du monde'},
+        ],
+      },
+      'H0430': 'Définition test de H0430.',
+    }));
+    addTearDown(StrongLexicon.useRootBundle);
+
+    await pumpScreen(tester);
+
+    expect(find.text('Définition - H7225'), findsOneWidget);
+    expect(find.text('(Qal)', findRichText: true), findsOneWidget);
+    expect(find.text('1a1) commencement du monde', findRichText: true),
+        findsOneWidget);
+    // The source's own codes have taken the card's numbering over.
+    expect(find.text('1) commencement', findRichText: true), findsNothing);
+
+    final stem = tester.getTopLeft(find.text('(Qal)', findRichText: true));
+    final rung = tester
+        .getTopLeft(find.text('1a1) commencement du monde', findRichText: true));
+    expect(rung.dx, greaterThan(stem.dx),
+        reason: '« 1a1) » s’indente d’un cran sous « (Qal) »');
+    expect(rung.dy, greaterThan(stem.dy),
+        reason: 'le rung est sous son stem, pas à côté');
+  });
+
+  testWidgets('a word carrying two Strong codes shows a card for each',
+      (tester) async {
+    // Jean 18.35 : le même mot du corpus porte « G3588 G4674 ». Les deux
+    // codes avaient pour adresse la chaîne entière — introuvable — et la
+    // carte affichait « non disponible dans le lexique embarqué ».
+    StrongLexicon.useBundle(FakeStrongLexiconBundle({
+      'G3588': {
+        'strong': 'G3588',
+        'language': 'greek',
+        'lemma': 'ὁ, ἡ, τό',
+        'definition': 'Définition test de G3588.',
+      },
+      'G4674': {
+        'strong': 'G4674',
+        'language': 'greek',
+        'lemma': 'σός, σή, σόν',
+        'definition': 'Définition test de G4674.',
+      },
+      'G1484': 'Définition test de G1484.',
+    }));
+    addTearDown(StrongLexicon.useRootBundle);
+
+    await pumpScreen(
+      tester,
+      tokens: const [
+        LsgsToken(text: 'τὰ ', strong: 'G3588 G4674'),
+        LsgsToken(text: 'nation ', strong: 'G1484'),
+      ],
+    );
+
+    expect(find.textContaining('non disponible'), findsNothing);
+    expect(find.text('Définition - G3588'), findsOneWidget);
+    expect(find.text('Définition - G4674'), findsOneWidget);
+  });
+
+  testWidgets('the card writes the Hebrew word in its own serif',
+      (tester) async {
+    StrongLexicon.useBundle(FakeStrongLexiconBundle({
+      'H7225': {
+        'strong': 'H7225',
+        'language': 'hebrew',
+        'lemma': 'רֵאשִׁית',
+        'definition': 'Définition test de H7225.',
+      },
+      'H0430': 'Définition test de H0430.',
+    }));
+    addTearDown(StrongLexicon.useRootBundle);
+
+    await pumpScreen(tester);
+
+    // La carte est la référence que la fiche suit : serif de la plateforme,
+    // 26 pt, gras, sans espacement, mot hébreu lu de droite à gauche.
+    final mot = tester.widget<Text>(find.text('רֵאשִׁית'));
+    expect(mot.style?.fontFamily, 'serif');
+    expect(mot.style?.fontWeight, FontWeight.w700);
+    expect(mot.style?.fontSize, 26);
+    expect(mot.style?.letterSpacing, isNull);
+    expect(mot.textAlign, TextAlign.left);
+    expect(_directionsOf(tester, find.text('רֵאשִׁית')),
+        contains(TextDirection.rtl));
+
+    // Le mot court sur toute la largeur de la carte, calé à gauche.
+    final rect = tester.getRect(find.text('רֵאשִׁית'));
+    final carte = tester.getRect(find.byKey(const Key('etude-card-0')));
+    expect(rect.width, greaterThan(carte.width - 60),
+        reason: 'le mot court sur toute la largeur de la carte');
+    expect(rect.left, lessThan(carte.center.dx),
+        reason: 'le mot reste calé à gauche, comme ses lignes');
+  });
+
   testWidgets('dictionnaire mode links dictionary terms of the verse',
       (tester) async {
     await pumpScreen(tester);
@@ -226,4 +334,45 @@ void main() {
               'grandit, les colonnes doivent suivre.');
     }
   });
+
+  testWidgets('la barre du bas marque le mode en cours', (tester) async {
+    await pumpScreen(tester);
+
+    // La pastille d'un onglet : le seul état qui change est sa couleur, ses
+    // mesures sont celles du Padding qu'elle a remplacé.
+    BoxDecoration decor(String libelle) {
+      // La pastille est sous l'infobulle (`find.byTooltip` rend le
+      // `RawTooltip` interne, pas le `Tooltip` de la barre) : on descend.
+      final pastille = find
+          .descendant(
+            of: find.byTooltip(libelle),
+            matching: find.byType(AnimatedContainer),
+          )
+          .first;
+      return tester
+          .widget<AnimatedContainer>(pastille)
+          .decoration! as BoxDecoration;
+    }
+
+    expect(decor('Lexique').color, isNotNull,
+        reason: 'le mode ouvert est surligné dans la barre');
+    expect(decor('Dictionnaire').color, isNull,
+        reason: 'les autres modes restent en retrait');
+
+    await tester.tap(find.text('Dictionnaire'));
+    await tester.pumpAndSettle();
+
+    expect(decor('Lexique').color, isNull);
+    expect(decor('Dictionnaire').color, isNotNull,
+        reason: 'le surlignage suit la bascule de mode');
+  });
 }
+
+/// Sens de lecture imposés au mot par les `Directionality` de ses ancêtres :
+/// le mot hébreu doit en porter au moins un en RTL.
+List<TextDirection> _directionsOf(WidgetTester tester, Finder of) => tester
+    .widgetList<Directionality>(
+      find.ancestor(of: of, matching: find.byType(Directionality)),
+    )
+    .map((directionality) => directionality.textDirection)
+    .toList();

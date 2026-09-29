@@ -11,6 +11,7 @@ import 'package:bible_app/data/strong_occurrences.dart';
 import 'package:bible_app/screens/strong_detail_screen.dart';
 import 'package:bible_app/screens/strong_index_screen.dart';
 import 'package:bible_app/widgets/strong_code_text.dart';
+import 'package:bible_app/widgets/strong_senses.dart';
 
 import 'support/fake_lsgs_bundle.dart';
 import 'support/fake_strong_lexicon_bundle.dart';
@@ -121,7 +122,11 @@ void main() {
       await tester.pumpAndSettle();
 
       // H7225 appears in the fake LSGS corpus: open its fiche, then its
-      // occurrence, and the callback answers with the verse.
+      // occurrence, and the callback answers with the verse. The search
+      // field above the list grew to its real height, so the second card
+      // needs bringing into view first.
+      await tester.ensureVisible(find.text('H7225'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('H7225'));
       await tester.pumpAndSettle();
       await tester.scrollUntilVisible(find.text('Genèse 1:1'), 120);
@@ -261,6 +266,89 @@ void main() {
       expect(find.textContaining('Voir plus'), findsNothing);
     });
 
+    testWidgets('the definition card wears the shared premium surface',
+        (tester) async {
+      LsgsRepositoryDummy.install();
+      addTearDown(LsgsRepositoryDummy.restore);
+
+      final definition = await StrongLexicon.instance.lookup('G2316');
+      await tester.pumpWidget(MaterialApp(
+        home: StrongDetailScreen(strong: definition),
+      ));
+      await tester.pumpAndSettle();
+
+      // La carte de « Définition complète » est l'unique conteneur ancêtre de
+      // `StrongSenses` : c'est elle qui doit porter la surface partagée avec
+      // l'étude du verset et la recherche — voile, liseré, deux ombres.
+      final decor = tester
+          .widgetList<Container>(
+            find.ancestor(
+              of: find.byType(StrongSenses),
+              matching: find.byType(Container),
+            ),
+          )
+          .map((c) => c.decoration)
+          .whereType<BoxDecoration>()
+          .firstWhere(
+            (box) => box.gradient != null,
+            orElse: () => const BoxDecoration(),
+          );
+      expect(decor.gradient, isNotNull,
+          reason: 'la carte de définition partage le voile des autres écrans');
+      expect(decor.border, isNotNull,
+          reason: 'et son liseré net');
+      expect(decor.boxShadow, hasLength(2),
+          reason: 'et ses deux ombres, ambiante puis de contact');
+    });
+
+    testWidgets('the fiche writes the Hebrew word as the study card does',
+        (tester) async {
+      LsgsRepositoryDummy.install();
+      addTearDown(LsgsRepositoryDummy.restore);
+      StrongLexicon.useBundle(FakeStrongLexiconBundle({
+        'H0001': {
+          'strong': 'H0001',
+          'language': 'hebrew',
+          'lemma': 'אָב',
+          'transliteration': "'ab",
+          'partOfSpeech': 'Nom masculin',
+          'pronunciation': '(awb)',
+          'definition': 'Définition test de H0001 — père, chef de famille.',
+        },
+        'H7225': 'Définition test de H7225.',
+      }));
+
+      final definition = await StrongLexicon.instance.lookup('H0001');
+      await tester.pumpWidget(MaterialApp(
+        home: StrongDetailScreen(strong: definition),
+      ));
+      await tester.pumpAndSettle();
+
+      // La fiche suit l'écriture de la carte d'étude du verset : la même
+      // serif, le même graisse — un peu plus grand, pour lire chaque lettre.
+      final mot = tester.widget<Text>(find.text('אָב'));
+      expect(mot.style?.fontFamily, 'serif');
+      expect(mot.style?.fontWeight, FontWeight.w700);
+      expect(mot.style?.fontSize, 34);
+      expect(mot.style?.letterSpacing, isNull);
+      expect(
+        tester
+            .widgetList<Directionality>(
+              find.ancestor(
+                of: find.text('אָב'),
+                matching: find.byType(Directionality),
+              ),
+            )
+            .map((directionality) => directionality.textDirection),
+        contains(TextDirection.rtl),
+        reason: 'l’hébreu se lit de droite à gauche, comme dans la carte',
+      );
+
+      // L'alignement, lui, reste celui de l'en-tête : c'est de la mise en
+      // page, pas de l'écriture.
+      expect(mot.textAlign, TextAlign.center);
+    });
+
     testWidgets('the fiche shows the Origine section when the entry carries it',
         (tester) async {
       LsgsRepositoryDummy.install();
@@ -281,6 +369,105 @@ void main() {
           reason: 'the etymology is a rich text once it carries a Strong code');
       expect(find.text('H7225'), findsNothing,
           reason: 'the code is a span inside the etymology, not a Text widget');
+    });
+
+    testWidgets('the fiche shows Signification right after Origine',
+        (tester) async {
+      LsgsRepositoryDummy.install();
+      addTearDown(LsgsRepositoryDummy.restore);
+      StrongLexicon.useBundle(FakeStrongLexiconBundle({
+        'H0001': {
+          'strong': 'H0001',
+          'language': 'hebrew',
+          'lemma': '??',
+          'transliteration': "'ab",
+          'partOfSpeech': 'Nom masculin',
+          'pronunciation': '(awb)',
+          'etymology': 'Une racine primitive, le même que H7225.',
+          'signification': 'Ab = père, chef de famille',
+          'definition': 'Définition test de H0001 — père, chef de famille.',
+        },
+        'H7225': 'Définition test de H7225.',
+      }));
+
+      final definition = await StrongLexicon.instance.lookup('H0001');
+      await tester.pumpWidget(MaterialApp(
+        home: StrongDetailScreen(strong: definition),
+      ));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Origine'), findsOneWidget);
+      expect(find.text('Signification'), findsOneWidget);
+      expect(find.text('Ab = père, chef de famille'), findsOneWidget);
+
+      final origine = tester.getTopLeft(find.text('Origine')).dy;
+      final signification =
+          tester.getTopLeft(find.text('Signification')).dy;
+      expect(signification, greaterThan(origine),
+          reason: 'la section « Signification » suit « Origine »');
+    });
+
+    testWidgets('no Signification section when the entry carries no gloss',
+        (tester) async {
+      LsgsRepositoryDummy.install();
+      addTearDown(LsgsRepositoryDummy.restore);
+
+      // The default fake entry has an etymology but no signification.
+      final definition = await StrongLexicon.instance.lookup('H0001');
+      await tester.pumpWidget(MaterialApp(
+        home: StrongDetailScreen(strong: definition),
+      ));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Origine'), findsOneWidget);
+      expect(find.text('Signification'), findsNothing);
+    });
+
+    testWidgets('the fiche indents the rungs of the source outline',
+        (tester) async {
+      LsgsRepositoryDummy.install();
+      addTearDown(LsgsRepositoryDummy.restore);
+      StrongLexicon.useBundle(FakeStrongLexiconBundle({
+        'H0001': {
+          'strong': 'H0001',
+          'language': 'hebrew',
+          'lemma': 'אָב',
+          'transliteration': "'ab",
+          'definition': 'Définition test de H0001.',
+          'senses': ['être, divinité'],
+          'outline': [
+            {'level': 0, 'kind': 'sense', 'text': 'un dieu, une divinité'},
+            {'level': 0, 'kind': 'header', 'label': 'Qal', 'text': ''},
+            {'level': 1, 'kind': 'number', 'text': '1a1) sens spirituel'},
+          ],
+        },
+        'H7225': 'Définition test de H7225.',
+      }));
+
+      final definition = await StrongLexicon.instance.lookup('H0001');
+      await tester.pumpWidget(MaterialApp(
+        home: StrongDetailScreen(strong: definition),
+      ));
+      await tester.pumpAndSettle();
+
+      expect(find.text('un dieu, une divinité', findRichText: true),
+          findsOneWidget);
+      expect(find.text('(Qal)', findRichText: true), findsOneWidget);
+      expect(find.text('1a1) sens spirituel', findRichText: true),
+          findsOneWidget);
+
+      final sense =
+          tester.getTopLeft(find.text('un dieu, une divinité', findRichText: true));
+      final stem = tester.getTopLeft(find.text('(Qal)', findRichText: true));
+      final rung =
+          tester.getTopLeft(find.text('1a1) sens spirituel', findRichText: true));
+
+      expect(stem.dx, sense.dx,
+          reason: 'le stem est au même niveau que les sens de tête');
+      expect(rung.dx, greaterThan(stem.dx),
+          reason: '« 1a1) » s’indente d’un cran sous « (Qal) »');
+      expect(rung.dy, greaterThan(stem.dy),
+          reason: 'le rung est sous son stem, pas à côté');
     });
 
     testWidgets('a Strong code in the Origine opens its own fiche',

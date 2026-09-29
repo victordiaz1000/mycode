@@ -36,22 +36,14 @@ class StrongOccurrenceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
+    // Coquille sans forme côté Material : la lisière et l'ombre de la carte
+    // sont peintes par l'`Ink`, qui serait rogné au contour arrondi d'un
+    // Material « façonné ».
     return Material(
-      color: p.surface,
-      borderRadius: BorderRadius.circular(20),
+      color: Colors.transparent,
       elevation: 0,
-      shadowColor: Colors.transparent,
       child: Ink(
-        decoration: BoxDecoration(
-          color: p.surface,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: premiumShadow(
-            p.primaryDark,
-            opacity: 0.07,
-            blur: 16,
-            offset: const Offset(0, 6),
-          ),
-        ),
+        decoration: premiumSurface(context, radius: 20),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
           onTap: onTap,

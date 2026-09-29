@@ -8,6 +8,8 @@ import '../widgets/fiche_text_settings.dart';
 import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
 import '../widgets/strong_code_text.dart';
+import '../widgets/strong_lemma.dart';
+import '../widgets/strong_senses.dart';
 import 'strong_occurrences_screen.dart';
 
 /// The Strong fiche (maquette `ecran_detail_fiche_strong.dart`): the word in
@@ -116,9 +118,23 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
         elevation: 0,
         foregroundColor: p.textDark,
         centerTitle: true,
+        // AppBar transparente : le voile d'accent la rattache au fond sans
+        // coûter une ligne de hauteur.
+        flexibleSpace: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.center,
+              colors: [
+                accent.withValues(alpha: .12),
+                accent.withValues(alpha: 0),
+              ],
+            ),
+          ),
+        ),
         title: Text(
           'Détail du mot',
-          style: premiumText(context, 16, FontWeight.w600, p.textGrey),
+          style: premiumText(context, 16, FontWeight.w800, p.textDark),
         ),
         actions: const [FicheDisplayMenuButton(group: DisplayGroup.etude)],
       ),
@@ -160,6 +176,18 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
                       ),
                       const SizedBox(height: 12),
                       _buildEtymologyCard(context, accent, style),
+                    ],
+                    if (widget.strong.signification != null &&
+                        widget.strong.signification!.isNotEmpty) ...[
+                      const SizedBox(height: 24),
+                      _buildSectionTitle(
+                        context,
+                        'Signification',
+                        Icons.lightbulb_outline_rounded,
+                        accent,
+                      ),
+                      const SizedBox(height: 12),
+                      _buildSignificationCard(context, accent, style),
                     ],
                     const SizedBox(height: 24),
                     _buildSectionTitle(
@@ -219,16 +247,7 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: premiumShadow(
-          p.primaryDark,
-          opacity: 0.04,
-          blur: 12,
-          offset: const Offset(0, 6),
-        ),
-      ),
+      decoration: premiumSurface(context, radius: 20, depth: 1.2),
       child: Column(
         children: [
           Row(
@@ -242,39 +261,14 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
             ],
           ),
           const SizedBox(height: 16),
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final maxWidth = constraints.maxWidth;
-              final lemma = strong.lemma != null && strong.lemma!.isNotEmpty
-                  ? strong.lemma!
-                  : strong.strong;
-              final baseStyle = premiumText(
-                context,
-                36,
-                FontWeight.w800,
-                p.textDark,
-                spacing: 1.2,
-              );
-              // Un lemme grec/hébreu est souvent un mot unique sans espace :
-              // à 36 pt il déborderait la carte. On réduit la taille au plus
-              // grand mot, sans toucher aux lemmes qui tiennent.
-              var widest = 0.0;
-              for (final token in lemma.split(RegExp(r'\s+'))) {
-                final tp = TextPainter(
-                  text: TextSpan(text: token, style: baseStyle),
-                  textDirection: TextDirection.ltr,
-                )..layout();
-                if (tp.width > widest) widest = tp.width;
-              }
-              final size = widest > maxWidth
-                  ? (36 * maxWidth / widest).clamp(18.0, 36.0).toDouble()
-                  : 36.0;
-              return Text(
-                lemma,
-                textAlign: TextAlign.center,
-                style: baseStyle.copyWith(fontSize: size),
-              );
-            },
+          StrongLemma(
+            lemma: strong.lemma,
+            strong: strong.strong,
+            language: strong.language,
+            // L'en-tête a la place — et le souhait — d'écrire le mot plus
+            // grand que la carte d'étude : chaque lettre reste lisible.
+            size: 34,
+            align: TextAlign.center,
           ),
           const SizedBox(height: 8),
           Text(
@@ -291,7 +285,22 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
             ),
           ),
           const SizedBox(height: 20),
-          Divider(color: p.textGrey.withValues(alpha: .2), height: 1),
+          // Filet qui se perd vers les bords plutôt que le trait plein : la
+          // carte garde sa ligne de partage sans se couper en deux.
+          Container(
+            width: double.infinity,
+            height: 1,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  p.textGrey.withValues(alpha: 0),
+                  p.textGrey.withValues(alpha: .35),
+                  p.textGrey.withValues(alpha: 0),
+                ],
+                stops: const [0, .5, 1],
+              ),
+            ),
+          ),
           const SizedBox(height: 16),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -369,7 +378,13 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
       decoration: BoxDecoration(
         color: accent.withValues(alpha: .06),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: accent.withValues(alpha: .25)),
+        border: Border.all(color: accent.withValues(alpha: .30)),
+        boxShadow: premiumShadow(
+          accent,
+          opacity: 0.10,
+          blur: 14,
+          offset: const Offset(0, 5),
+        ),
       ),
       child: Text(
         _breve,
@@ -389,55 +404,32 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
   Widget _buildCompleteCard(
       BuildContext context, Color accent, FicheTextStyle style) {
     final p = premiumPalette(context);
-    final senses = _senses;
+    // The source's own outline when it numbers its senses, the flat bullets
+    // when it does not: the same card either way, one level deeper or not.
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: premiumShadow(
-          p.primaryDark,
-          opacity: 0.03,
-          blur: 8,
-          offset: const Offset(0, 4),
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          for (var i = 0; i < senses.length; i++) ...[
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 6),
-                  width: 6,
-                  height: 6,
-                  decoration: BoxDecoration(
-                    color: accent,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Text(
-                    senses[i],
-                    textAlign: style.align,
-                    style: premiumText(
-                      context,
-                      style.fontSize,
-                      FontWeight.w500,
-                      p.textDark,
-                      height: 1.6,
-                    ).copyWith(fontFamily: style.fontFamily),
-                  ),
-                ),
-              ],
-            ),
-            if (i < senses.length - 1) const SizedBox(height: 16),
-          ],
-        ],
+      decoration: premiumSurface(context, radius: 16),
+      child: StrongSenses(
+        outline: widget.strong.outline,
+        senses: _senses,
+        accent: accent,
+        textStyle: premiumText(
+          context,
+          style.fontSize,
+          FontWeight.w500,
+          p.textDark,
+          height: 1.6,
+        ).copyWith(fontFamily: style.fontFamily),
+        markerStyle: premiumText(
+          context,
+          style.fontSize,
+          FontWeight.w700,
+          accent,
+          height: 1.6,
+        ).copyWith(fontFamily: style.fontFamily),
+        align: style.align,
+        rowGap: 16,
       ),
     );
   }
@@ -451,7 +443,13 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
       decoration: BoxDecoration(
         color: accent.withValues(alpha: .06),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: accent.withValues(alpha: .25)),
+        border: Border.all(color: accent.withValues(alpha: .30)),
+        boxShadow: premiumShadow(
+          accent,
+          opacity: 0.10,
+          blur: 14,
+          offset: const Offset(0, 5),
+        ),
       ),
       child: StrongCodeText(
         text: widget.strong.etymology!,
@@ -464,6 +462,31 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
           italic: FontStyle.italic,
         ).copyWith(fontFamily: style.fontFamily),
         linkBareNumbers: true,
+        onStrongTap: _openStrongFiche,
+      ),
+    );
+  }
+
+  /// The gloss the source writes before its list of senses (« Paul ou Paulus
+  /// = petit »), shown apart from them: it names the word, the senses list
+  /// its uses. An explicit code in it stays tappable — the line often
+  /// points at the root (« Vient de H168 »).
+  Widget _buildSignificationCard(
+      BuildContext context, Color accent, FicheTextStyle style) {
+    final p = premiumPalette(context);
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: premiumSurface(context, radius: 16),
+      child: StrongCodeText(
+        text: widget.strong.signification!,
+        style: premiumText(
+          context,
+          style.fontSize,
+          FontWeight.w600,
+          p.textDark,
+          height: 1.6,
+        ).copyWith(fontFamily: style.fontFamily),
         onStrongTap: _openStrongFiche,
       ),
     );
@@ -511,16 +534,7 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(14),
-        boxShadow: premiumShadow(
-          p.primaryDark,
-          opacity: 0.05,
-          blur: 10,
-          offset: const Offset(0, 4),
-        ),
-      ),
+      decoration: premiumSurface(context, radius: 14),
       child: Text(
         'Aucune occurrence dans la LSGS embarquée.',
         style: premiumText(
@@ -588,8 +602,19 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
     final p = premiumPalette(context);
     return Row(
       children: [
-        Icon(icon, size: 20, color: color),
-        const SizedBox(width: 8),
+        // L'icône de section prend la même pastille que sur les fiches de
+        // dictionnaire : les deux familles de fiche se lisent d'un seul œil.
+        Container(
+          width: 30,
+          height: 30,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: color.withValues(alpha: .14),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Icon(icon, size: 17, color: color),
+        ),
+        const SizedBox(width: 10),
         Flexible(
           child: Text(
             title,
@@ -615,6 +640,7 @@ class _Badge extends StatelessWidget {
       decoration: BoxDecoration(
         color: color.withValues(alpha: .12),
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: color.withValues(alpha: .28)),
       ),
       child: Text(
         text,
