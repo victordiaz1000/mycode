@@ -177,4 +177,53 @@ void main() {
               'sous les boutons Android (à partir de 740).');
     }
   });
+
+  /// Une seule carte étirée sur toute la largeur n'est pas une mise en page :
+  /// dès que l'écran s'ouvre — paysage de téléphone puis tablette — la bande
+  /// doit tenir plusieurs cartes à la fois. L'échelle est celle des Thèmes,
+  /// 600 / 900 / 1200 ; le portrait de téléphone garde, lui, la carte presque
+  /// pleine largeur avec l'arête de la suivante qui invite au glissement.
+  testWidgets('les cartes se multiplient quand la largeur grandit',
+      (tester) async {
+    const quatre = <LsgsToken>[
+      LsgsToken(text: 'commencement ', strong: 'H7225'),
+      LsgsToken(text: 'Dieu ', strong: 'H0430'),
+      LsgsToken(text: 'fils ', strong: 'G2316'),
+      LsgsToken(text: 'principe ', strong: 'G0001'),
+    ];
+    // largeur → cartes attendues, tenues en entier dans la largeur
+    const attentes = <int, int>{412: 1, 800: 2, 1000: 3, 1300: 4};
+
+    addTearDown(tester.view.reset);
+    for (final cas in attentes.entries) {
+      tester.view.physicalSize = Size(cas.key.toDouble(), 640);
+      tester.view.devicePixelRatio = 1;
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: EtudeVersetScreen(
+            bookIndex: 1,
+            chapter: 1,
+            verseNumber: 1,
+            tokens: quatre,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final tenues = <int>[];
+      for (var i = 0; i < quatre.length; i++) {
+        final carte = find.byKey(Key('etude-card-$i'));
+        if (carte.evaluate().isEmpty) break;
+        final box = tester.renderObject<RenderBox>(carte);
+        final rect = box.localToGlobal(Offset.zero) & box.size;
+        if (rect.left >= 0 && rect.right <= cas.key) tenues.add(i);
+      }
+      expect(tenues, hasLength(cas.value),
+          reason: 'À ${cas.key} px, ${tenues.length} carte(s) '
+              '(${tenues.map((i) => 'n°$i').join(', ')}) tiennent en entier '
+              'dans la largeur, ${cas.value} attendue(s) : la largeur '
+              'grandit, les colonnes doivent suivre.');
+    }
+  });
 }

@@ -117,7 +117,16 @@ class EtudeVersetScreen extends StatefulWidget {
 }
 
 class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
-  final PageController _pageController = PageController(viewportFraction: 0.9);
+  /// Colonnes en vigueur — voir [_colonnesPour]. Démarre à 1, ce qui correspond
+  /// au contrôleur alloué juste en dessous.
+  int _colonnes = 1;
+
+  /// Une carte par page : c'est le `viewportFraction` de ce contrôleur qui
+  /// décide combien de cartes tiennent côte à côte. Un `PageController` ne
+  /// change pas de fraction après sa création — c'est pourquoi un changement
+  /// de [_colonnes] en alloue un neuf ([didChangeDependencies]).
+  PageController _pageController = PageController(viewportFraction: 0.9);
+
   ModeEtude _mode = ModeEtude.lexique;
   int _entreeCourante = 0;
 
@@ -148,6 +157,42 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
     _tokens = widget.tokens;
     _buildLexique();
     _buildDico();
+  }
+
+  /// Nombre de cartes affichées côte à côte selon la largeur de l'écran.
+  ///
+  /// Portrait de téléphone : **1**, la carte garde 90 % de la largeur et laisse
+  /// voir le bord de la suivante — c'est cette arête qui invite au glissement.
+  /// Dès 600 px (paysage de téléphone comme petite tablette) une seule carte
+  /// étirée sur toute la largeur vide les côtés : **2**, puis **3** à 900 et
+  /// **4** à 1200, au pas de grille des Thèmes. La marge de 6 px de chaque
+  /// carte devient la gouttière entre colonnes.
+  static int _colonnesPour(double width) =>
+      width >= 1200 ? 4 : width >= 900 ? 3 : width >= 600 ? 2 : 1;
+
+  /// Fraction de viewport d'une carte pour [colonnes] colonnes. En colonne
+  /// unique, 0.9 comme toujours : carte centrée, arête de la suivante visible.
+  static double _fraction(int colonnes) => colonnes == 1 ? 0.9 : 1 / colonnes;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Seul endroit où l'on a le droit de lire `MediaQuery` — et donc celui où
+    // la rotation de l'écran est vue. Le contrôleur est réalloué en gardant la
+    // carte affichée ; l'ancien n'est libéré qu'après la frame, parce que le
+    // `PageView` ne se rattache au neuf qu'au moment de sa reconstruction.
+    final colonnes = _colonnesPour(MediaQuery.sizeOf(context).width);
+    if (colonnes == _colonnes) return;
+    final page = _pageController.hasClients
+        ? _pageController.page?.round() ?? 0
+        : 0;
+    final retire = _pageController;
+    _colonnes = colonnes;
+    _pageController = PageController(
+      viewportFraction: _fraction(colonnes),
+      initialPage: page,
+    );
+    WidgetsBinding.instance.addPostFrameCallback((_) => retire.dispose());
   }
 
   @override
@@ -832,11 +877,20 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
       height: 430,
       child: PageView.builder(
         controller: _pageController,
+        // `padEnds` centre la première et la dernière carte dans le viewport :
+        // juste en colonne unique (le comportement d'origine), mais en colonnes
+        // multiples il laisserait un vide d'un demi-écran avant la première.
+        padEnds: _colonnes == 1,
         onPageChanged: (i) => _selectEntree(i, scroll: false),
         itemCount: _nbEntrees,
-        itemBuilder: (context, i) => _mode == ModeEtude.lexique
-            ? _buildCarteLexique(context, _entreesLexique[i], style)
-            : _buildCarteDico(context, _entreesDico[i], style),
+        // Clé stable par carte : c'est elle qui laisse au test le comptage des
+        // cartes réellement tenues par la largeur, colonne par colonne.
+        itemBuilder: (context, i) => KeyedSubtree(
+          key: Key('etude-card-$i'),
+          child: _mode == ModeEtude.lexique
+              ? _buildCarteLexique(context, _entreesLexique[i], style)
+              : _buildCarteDico(context, _entreesDico[i], style),
+        ),
       ),
     );
   }

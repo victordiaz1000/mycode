@@ -1,6 +1,6 @@
 # AGENTS.md — Projet BYM (App de Bible Flutter)
 
-> **État vérifié le 2026-09-29.** `flutter analyze` : **No issues found** (9 s). `flutter test` : **713 tests verts** en **~2 min 40**. 75 fichiers de test + 4 faux bundles dans `test/support/`. 88 fichiers Dart dans `lib/` (8 models · 34 data · 22 screens · 21 widgets · 2 utils · `main.dart`). Dépôt sous git à la racine `bym3/` (`build/`, `.dart_tool/`, `android/.gradle` exclus).
+> **État vérifié le 2026-09-29.** `flutter analyze` : **No issues found** (9 s). `flutter test` : **714 tests verts** en **~2 min 40**. 75 fichiers de test + 4 faux bundles dans `test/support/`. 88 fichiers Dart dans `lib/` (8 models · 34 data · 22 screens · 21 widgets · 2 utils · `main.dart`). Dépôt sous git à la racine `bym3/` (`build/`, `.dart_tool/`, `android/.gradle` exclus).
 >
 > **Ce document décrit l'état courant, pas une chronologie.** Il est réorganisé par domaine : une décision est écrite une fois, à sa place, avec sa raison. Les journaux d'itération (« étape 1, étape 2, c'est fait ») ont été retirés — ils sont la raison pour laquelle ce fichier était en retard. **Ne pas y ajouter de récit : ajouter ou corriger une règle.**
 
@@ -179,6 +179,8 @@ bible_app/
   - **Règle** : la version se nomme **partout**, copier comprise. Coller un texte de la Darby dans une note sans dire d'où il vient est une affirmation que le BYM n'a pas faite. Aucun de ces appels ne doit réécrire sa chaîne à la main.
   - **Deux coutures** : `shareText(String, {Rect? origin})` et `shareTextFile(path, {String? subject})` (export `.txt` des notes, seul appelant : `NotesScreen`). `origin` est passé depuis `_originOf(context)` — sans ancrage, `share_plus` n'a rien contre quoi poser la feuille, la cause classique du partage mal placé ou débordant sur tablette.
   - **Le partage d'image n'existe pas** — `image_picker` ne sert qu'au fond de thème, et ni capture ni `RepaintBoundary` n'existent (§ 7).
+- **Étude du verset : les cartes se comptent en colonnes, pas en pixels.** La bande des cartes swipables (`etude_verset_screen.dart`) tient **1** carte en portrait de téléphone (viewport à 0.9, l'arête de la suivante servant d'invite au glissement), **2** dès 600 px — paysage de téléphone comme petite tablette —, **3** dès 900 et **4** dès 1200, le pas des Thèmes. Une carte étirée sur toute la largeur vide les côtés et n'est pas une mise en page. Deux pièges, tous deux vérifiés : un `PageController` **ne change pas** de `viewportFraction` après coup (il faut en réallouer un dans `didChangeDependencies`, seul endroit où `MediaQuery` est lisible, et libérer l'ancien après la frame) ; et `PageView.padEnds`, **vrai par défaut**, centre la première et la dernière carte — juste en colonne unique, mais un demi-écran de vide avant la première dès deux colonnes.
+  - **Règle** : la largeur grandit, les colonnes suivent. Ancrage : « les cartes se multiplient quand la largeur grandit » (`etude_verset_screen_test.dart`) — il échoue sur la version à colonne unique.
 - `AppDatabase.notesRevision` existe mais **personne ne l'écoute** : `NotesScreen` et `FavorisScreen` ne chargent qu'en `initState` et renvoient périmés depuis l'`IndexedStack` (§ 7).
 
 ### 4.6 Recherche
