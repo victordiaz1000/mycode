@@ -62,19 +62,6 @@ _Pal _pal(BuildContext context) {
   );
 }
 
-List<BoxShadow> _softShadow(
-  Color color, {
-  double opacity = 0.08,
-  double blur = 18,
-  Offset offset = const Offset(0, 8),
-}) => [
-  BoxShadow(
-    color: color.withValues(alpha: opacity),
-    blurRadius: blur,
-    offset: offset,
-  ),
-];
-
 /// Raccourci local vers [premiumText] : l'Accueil l'appelle 40 fois, d'où le nom
 /// court. Il redéfinissait auparavant le style à l'identique via google_fonts,
 /// ce qui dupliquait la typographie de l'interface à deux endroits.
@@ -396,10 +383,32 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Halos décoratifs en arrière-plan
   Widget _backgroundDecor(BuildContext context) {
+    final p = premiumPalette(context);
     return IgnorePointer(
       ignoring: true,
       child: Stack(
         children: [
+          // Voile d'accent en haut de page : l'Accueil n'a pas d'AppBar, ce
+          // voile fait le travail de celui des autres écrans — il rattache le
+          // haut de page au fond, tiré de la palette du thème actif.
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 210,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    p.primary.withValues(alpha: 0.10),
+                    p.primary.withValues(alpha: 0.0),
+                  ],
+                ),
+              ),
+            ),
+          ),
           Positioned(
             top: -90,
             right: -70,
@@ -506,7 +515,7 @@ class _HomeScreenState extends State<HomeScreen> {
             decoration: BoxDecoration(
               gradient: p.heroGradient,
               borderRadius: BorderRadius.circular(14),
-              boxShadow: _softShadow(
+              boxShadow: premiumShadow(
                 p.primary,
                 opacity: 0.35,
                 blur: 12,
@@ -532,12 +541,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       width: 44,
       height: 44,
-      decoration: BoxDecoration(
-        color: premiumPalette(context).surface,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: p.primary.withValues(alpha: 0.10)),
-        boxShadow: _softShadow(p.primaryDark),
-      ),
+      // Voile + liseré neutre : l'accent ne borde jamais une carte, il reste
+      // réservé à l'icône.
+      decoration: premiumSurface(context, radius: 14, depth: 0.6),
       child: Icon(icon, size: 22, color: p.primary),
     );
   }
@@ -551,12 +557,10 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Container(
         height: 62,
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        decoration: BoxDecoration(
-          color: premiumPalette(context).surface,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: p.primary.withValues(alpha: 0.12)),
-          boxShadow: _softShadow(p.primaryDark, opacity: 0.11, blur: 22),
-        ),
+        // Même geste que les cartes : voile vertical, liseré neutre, deux
+        // ombres. Le bord d'accent partait en liseré coloré sur les palettes
+        // chaudes.
+        decoration: premiumSurface(context, radius: 20, depth: 1),
         child: Row(
           children: [
             Container(
@@ -591,7 +595,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: BoxDecoration(
                   gradient: p.heroGradient,
                   borderRadius: BorderRadius.circular(12),
-                  boxShadow: _softShadow(
+                  boxShadow: premiumShadow(
                     p.primary,
                     opacity: 0.30,
                     blur: 10,
@@ -667,11 +671,7 @@ class _HomeScreenState extends State<HomeScreen> {
       label: a.label,
       child: Container(
         width: 96,
-        decoration: BoxDecoration(
-          color: premiumPalette(context).surface,
-          borderRadius: BorderRadius.circular(22),
-          boxShadow: _softShadow(p.primaryDark, opacity: 0.07),
-        ),
+        decoration: premiumSurface(context, radius: 22, depth: 0.7),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -717,7 +717,7 @@ class _HomeScreenState extends State<HomeScreen> {
         decoration: BoxDecoration(
           gradient: p.heroGradient,
           borderRadius: BorderRadius.circular(28),
-          boxShadow: _softShadow(
+          boxShadow: premiumShadow(
             p.primaryDark,
             opacity: 0.35,
             blur: 26,
@@ -781,7 +781,7 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
         gradient: p.heroGradient,
         borderRadius: BorderRadius.circular(28),
-        boxShadow: _softShadow(
+        boxShadow: premiumShadow(
           p.primaryDark,
           opacity: 0.35,
           blur: 26,
@@ -931,7 +931,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             shape: BoxShape.circle,
-                            boxShadow: _softShadow(
+                            boxShadow: premiumShadow(
                               Colors.black,
                               opacity: 0.18,
                               blur: 12,
@@ -1019,11 +1019,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        decoration: BoxDecoration(
-          color: premiumPalette(context).surface,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: _softShadow(p.primaryDark, opacity: 0.06),
-        ),
+        decoration: premiumSurface(context, radius: 20, depth: 0.8),
         child: Row(
           children: [
             Container(
@@ -1075,9 +1071,12 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         _badge(context, 'ALPHABETS'),
         const SizedBox(height: 12),
-        Text(
-          'Découvrez les alphabets hébraïque, grec et leurs significations',
-          style: _t(context, 20, FontWeight.w800, p.textDark, height: 1.3),
+        _sectionTitle(
+          context,
+          Text(
+            'Découvrez les alphabets hébraïque, grec et leurs significations',
+            style: _t(context, 20, FontWeight.w800, p.textDark, height: 1.3),
+          ),
         ),
         const SizedBox(height: 16),
         Row(
@@ -1098,11 +1097,7 @@ class _HomeScreenState extends State<HomeScreen> {
       onTap: () => _soon('Alphabets'),
       child: Container(
         padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: premiumPalette(context).surface,
-          borderRadius: BorderRadius.circular(24),
-          boxShadow: _softShadow(p.primaryDark, opacity: 0.07),
-        ),
+        decoration: premiumSurface(context, radius: 24, depth: 0.9),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -1162,9 +1157,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "La Bible et l'histoire",
-          style: _t(context, 20, FontWeight.w800, p.textDark),
+        _sectionTitle(
+          context,
+          Text(
+            "La Bible et l'histoire",
+            style: _t(context, 20, FontWeight.w800, p.textDark),
+          ),
         ),
         const SizedBox(height: 14),
         Wrap(
@@ -1184,12 +1182,9 @@ class _HomeScreenState extends State<HomeScreen> {
       onTap: () => _soon(label),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        decoration: BoxDecoration(
-          color: premiumPalette(context).surface,
-          borderRadius: BorderRadius.circular(24),
-          border: Border.all(color: p.primary.withValues(alpha: 0.35)),
-          boxShadow: _softShadow(p.primaryDark, opacity: 0.05),
-        ),
+        // Le bord d'accent (0.35) devenait un cerne coloré : le liseré neutre
+        // du voile premium le remplace, le libellé garde la couleur d'accent.
+        decoration: premiumSurface(context, radius: 24, depth: 0.5),
         child: Text(
           label,
           style: _t(context, 13.5, FontWeight.w700, p.primary),
@@ -1208,10 +1203,14 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         _badge(context, m.badge),
         const SizedBox(height: 12),
-        Text(
-          m.title,
-          textAlign: m.alignRight ? TextAlign.right : TextAlign.left,
-          style: _t(context, 20, FontWeight.w800, p.textDark, height: 1.3),
+        _sectionTitle(
+          context,
+          Text(
+            m.title,
+            textAlign: m.alignRight ? TextAlign.right : TextAlign.left,
+            style: _t(context, 20, FontWeight.w800, p.textDark, height: 1.3),
+          ),
+          alignRight: m.alignRight,
         ),
         const SizedBox(height: 16),
         _Pressable(
@@ -1247,7 +1246,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
-                        boxShadow: _softShadow(
+                        boxShadow: premiumShadow(
                           p.primaryDark,
                           opacity: 0.15,
                           blur: 16,
@@ -1290,9 +1289,12 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         _badge(context, 'DÉNOMINATIONS'),
         const SizedBox(height: 12),
-        Text(
-          'Les dénominations à travers les siècles',
-          style: _t(context, 20, FontWeight.w800, p.textDark, height: 1.3),
+        _sectionTitle(
+          context,
+          Text(
+            'Les dénominations à travers les siècles',
+            style: _t(context, 20, FontWeight.w800, p.textDark, height: 1.3),
+          ),
         ),
         const SizedBox(height: 12),
         _Pressable(
@@ -1335,7 +1337,7 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
         gradient: p.heroGradient,
         borderRadius: BorderRadius.circular(26),
-        boxShadow: _softShadow(
+        boxShadow: premiumShadow(
           p.primary,
           opacity: 0.35,
           blur: 14,
@@ -1406,7 +1408,7 @@ class _HomeScreenState extends State<HomeScreen> {
         decoration: BoxDecoration(
           gradient: p.heroGradient,
           borderRadius: BorderRadius.circular(24),
-          boxShadow: _softShadow(
+          boxShadow: premiumShadow(
             p.primaryDark,
             opacity: 0.35,
             blur: 22,
@@ -1448,9 +1450,12 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         _badge(context, 'EMPEREURS ANTI-MASHIAH'),
         const SizedBox(height: 12),
-        Text(
-          'Les premiers et les principaux empereurs antimashiah',
-          style: _t(context, 20, FontWeight.w800, p.textDark, height: 1.3),
+        _sectionTitle(
+          context,
+          Text(
+            'Les premiers et les principaux empereurs antimashiah',
+            style: _t(context, 20, FontWeight.w800, p.textDark, height: 1.3),
+          ),
         ),
         const SizedBox(height: 16),
         _Pressable(
@@ -1567,10 +1572,14 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         _badge(context, 'FAUSSES DIVINITÉS'),
         const SizedBox(height: 12),
-        Text(
-          'Fausses divinités',
-          textAlign: TextAlign.right,
-          style: _t(context, 20, FontWeight.w800, p.textDark),
+        _sectionTitle(
+          context,
+          Text(
+            'Fausses divinités',
+            textAlign: TextAlign.right,
+            style: _t(context, 20, FontWeight.w800, p.textDark),
+          ),
+          alignRight: true,
         ),
         const SizedBox(height: 8),
         Text(
@@ -1612,11 +1621,7 @@ class _HomeScreenState extends State<HomeScreen> {
       onTap: () => _soon(t.title),
       child: Container(
         padding: const EdgeInsets.all(14),
-        decoration: BoxDecoration(
-          color: premiumPalette(context).surface,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: _softShadow(p.primaryDark, opacity: 0.06),
-        ),
+        decoration: premiumSurface(context, radius: 20, depth: 0.8),
         child: Row(
           children: [
             Container(
@@ -1625,7 +1630,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                 gradient: p.heroGradient,
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: _softShadow(
+                boxShadow: premiumShadow(
                   p.primary,
                   opacity: 0.3,
                   blur: 10,
@@ -1683,9 +1688,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         const SizedBox(height: 18),
-        Text(
-          'Saviez-vous ceci concernant les romains ?',
-          style: _t(context, 20, FontWeight.w800, p.textDark, height: 1.3),
+        _sectionTitle(
+          context,
+          Text(
+            'Saviez-vous ceci concernant les romains ?',
+            style: _t(context, 20, FontWeight.w800, p.textDark, height: 1.3),
+          ),
         ),
         const SizedBox(height: 10),
         Text(
@@ -1782,6 +1790,33 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  /// Titre de section « premium affirmé » : le texte d'origine intact, posé
+  /// sur un filet d'accent court tiré du dégradé du thème. Le filet suit
+  /// l'alignement de sa section (mesures et fausses divinités à droite).
+  Widget _sectionTitle(
+    BuildContext context,
+    Widget title, {
+    bool alignRight = false,
+  }) {
+    final p = _pal(context);
+    return Column(
+      crossAxisAlignment:
+          alignRight ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      children: [
+        title,
+        const SizedBox(height: 8),
+        Container(
+          width: 34,
+          height: 3,
+          decoration: BoxDecoration(
+            gradient: p.heroGradient,
+            borderRadius: BorderRadius.circular(2),
+          ),
+        ),
+      ],
+    );
+  }
+
   // Puce de section réutilisable
   Widget _badge(BuildContext context, String label) {
     final p = _pal(context);
@@ -1790,7 +1825,7 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
         color: p.primarySoft,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: p.primary.withValues(alpha: 0.16)),
+        border: Border.all(color: premiumCardBorder(context, opacity: 0.16)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

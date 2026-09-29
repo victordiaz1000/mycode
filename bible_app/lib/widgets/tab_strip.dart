@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/tab_manager.dart';
 import 'bible_theme_scope.dart';
+import 'premium_style.dart';
 import 'tab_context_menu.dart';
 
 /// Compact Chrome-style tab strip (maquette v1.1):
@@ -68,11 +69,13 @@ class _TabStripState extends State<TabStrip> {
   Widget build(BuildContext context) {
     final manager = widget.manager;
     final bibleTheme = BibleThemeScope.of(context);
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     return SizedBox(
       height: 56,
       child: Container(
-        color: theme.colorScheme.surfaceContainerHighest.withAlpha(102),
+        // Bandeau dérivé de la palette premium : la teinte M3 `surface…` ne
+        // suivait ni le thème biblique ni le fond crème des écrans.
+        color: p.surface.withValues(alpha: .60),
         child: Row(
           children: [
             // Plus → new home tab
@@ -147,7 +150,7 @@ class _TabChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final tab = manager.tabs[index];
     final active = manager.activeIndex == index;
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     final bibleTheme = BibleThemeScope.of(context);
     final group = manager.groupById(tab.groupId);
     return Padding(
@@ -173,6 +176,16 @@ class _TabChip extends StatelessWidget {
                     color: bibleTheme.accentColor.withValues(alpha: .12),
                     borderRadius:
                         const BorderRadius.vertical(top: Radius.circular(11)),
+                    // Marqueur d'état : le filet d'accent du dessus est doublé
+                    // d'un halo discret pour que l'onglet courant se lise même
+                    // sur les palettes où l'or se confond avec le crème.
+                    boxShadow: [
+                      BoxShadow(
+                        color: bibleTheme.accentColor.withValues(alpha: .18),
+                        blurRadius: 8,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
                     border: Border(
                       top: BorderSide(
                         color: bibleTheme.accentColor,
@@ -182,9 +195,9 @@ class _TabChip extends StatelessWidget {
                   )
                 : BoxDecoration(
                     // Inactive tabs stay visible as tabs: a soft fill,
-                    // without a border.
-                    color: theme.colorScheme.surfaceContainerHighest
-                        .withValues(alpha: .45),
+                    // without a border — dérivée de la même palette que le
+                    // bandeau, pour que l'onglet repose dessus.
+                    color: p.surface.withValues(alpha: .95),
                     borderRadius:
                         const BorderRadius.vertical(top: Radius.circular(11)),
                   ),
@@ -206,7 +219,7 @@ class _TabChip extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                       color: active
                           ? bibleTheme.titleColor
-                          : theme.colorScheme.onSurfaceVariant,
+                          : p.onSurfaceMuted,
                     ),
                   ),
                 ),
@@ -228,7 +241,7 @@ class _TabChip extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: Icon(Icons.close,
-                        size: 14, color: theme.colorScheme.onSurfaceVariant),
+                        size: 14, color: p.textGrey),
                   ),
                 ),
               ],

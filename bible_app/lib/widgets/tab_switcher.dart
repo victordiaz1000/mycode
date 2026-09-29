@@ -306,28 +306,27 @@ class _SwitcherCard extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Container(
-            decoration: BoxDecoration(
-              color: p.surface,
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: active ? bibleTheme.highlightRef : Colors.transparent,
-                width: active ? 2 : 1,
-              ),
-              boxShadow: active
-                  ? [
+            decoration: active
+                // Onglet courant : le bord d'accent est assumé — c'est un
+                // marqueur d'état, verrouillé par le test « gold border » —
+                // doublé d'un halo.
+                ? BoxDecoration(
+                    color: p.surface,
+                    borderRadius: BorderRadius.circular(20),
+                    border:
+                        Border.all(color: bibleTheme.highlightRef, width: 2),
+                    boxShadow: [
                       BoxShadow(
-                        color: bibleTheme.highlightRef.withValues(alpha: 0.38),
+                        color:
+                            bibleTheme.highlightRef.withValues(alpha: 0.38),
                         blurRadius: 14,
                         offset: const Offset(0, 6),
                       ),
-                    ]
-                  : premiumShadow(
-                      p.primaryDark,
-                      opacity: 0.07,
-                      blur: 16,
-                      offset: const Offset(0, 6),
-                    ),
-            ),
+                    ],
+                  )
+                // Les autres onglets : surface premium, liseré neutre, deux
+                // ombres (la grande ambiante, la serrée du contact).
+                : premiumSurface(context, radius: 20, depth: 0.9),
             clipBehavior: Clip.antiAlias,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -524,16 +523,7 @@ class _Recently extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(bottom: 8),
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              decoration: BoxDecoration(
-                color: p.surface,
-                borderRadius: BorderRadius.circular(14),
-                boxShadow: premiumShadow(
-                  p.primaryDark,
-                  opacity: 0.05,
-                  blur: 10,
-                  offset: const Offset(0, 4),
-                ),
-              ),
+              decoration: premiumSurface(context, radius: 14, depth: 0.6),
               child: Row(
                 children: [
                   Text('❧', style: TextStyle(color: p.primary, fontSize: 13)),
@@ -599,21 +589,10 @@ class _RoundAction extends StatelessWidget {
     return Tooltip(
       message: tooltip,
       child: Material(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(16),
+        color: Colors.transparent,
         elevation: 0,
-        shadowColor: Colors.transparent,
         child: Ink(
-          decoration: BoxDecoration(
-            color: p.surface,
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: premiumShadow(
-              p.primaryDark,
-              opacity: 0.06,
-              blur: 12,
-              offset: const Offset(0, 5),
-            ),
-          ),
+          decoration: premiumSurface(context, radius: 16, depth: 0.6),
           child: InkWell(
             borderRadius: BorderRadius.circular(16),
             onTap: onTap,

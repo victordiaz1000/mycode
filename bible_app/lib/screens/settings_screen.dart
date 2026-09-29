@@ -208,53 +208,59 @@ class _SettingsScreenState extends State<SettingsScreen> {
       backgroundColor: premiumBackground(context),
       builder: (context) => SafeArea(
         top: false,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
-              child: Text(
-                'Version de lecture par défaut',
-                style: premiumText(context, 16, FontWeight.w800, p.textDark),
+        // Panneau « premium affirmé » : voile vertical `surface → surfaceAlt`,
+        // liseré net et deux ombres (ambiante large + serrée de contact), sous
+        // la poignée de traction que la feuille dessine déjà.
+        child: Container(
+          decoration: premiumSurface(context, radius: 24, depth: 1.3),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                child: Text(
+                  'Version de lecture par défaut',
+                  style: premiumText(context, 16, FontWeight.w800, p.textDark),
+                ),
               ),
-            ),
-            Flexible(
-              child: ListView(
-                shrinkWrap: true,
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                children: [
-                  for (final group in groups) ...[
-                    Padding(
-                      padding: const EdgeInsets.only(top: 6, bottom: 6),
-                      child: Text(
-                        group.title,
-                        style: premiumText(
-                          context,
-                          11,
-                          FontWeight.w800,
-                          p.textGrey,
-                          spacing: 1,
+              Flexible(
+                child: ListView(
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                  children: [
+                    for (final group in groups) ...[
+                      Padding(
+                        padding: const EdgeInsets.only(top: 6, bottom: 6),
+                        child: Text(
+                          group.title,
+                          style: premiumText(
+                            context,
+                            11,
+                            FontWeight.w800,
+                            p.textGrey,
+                            spacing: 1,
+                          ),
                         ),
                       ),
-                    ),
-                    for (final version in group.versions)
-                      _VersionOption(
-                        version: version,
-                        selected: version.code == prefs.versionCode,
-                        installedLine: _installedLine(version),
-                        onTap: () {
-                          Navigator.of(context).pop();
-                          setState(() => prefs.versionCode = version.code);
-                          _save();
-                          _snack('Version par défaut : ${version.name}.');
-                        },
-                      ),
+                      for (final version in group.versions)
+                        _VersionOption(
+                          version: version,
+                          selected: version.code == prefs.versionCode,
+                          installedLine: _installedLine(version),
+                          onTap: () {
+                            Navigator.of(context).pop();
+                            setState(() => prefs.versionCode = version.code);
+                            _save();
+                            _snack('Version par défaut : ${version.name}.');
+                          },
+                        ),
+                    ],
                   ],
-                ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -273,82 +279,92 @@ class _SettingsScreenState extends State<SettingsScreen> {
         padding: EdgeInsets.only(
           bottom: MediaQuery.viewPaddingOf(context).bottom,
         ),
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 18),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(4, 0, 4, 12),
-                  child: Text(
-                    'Police de lecture',
-                    style: premiumText(
-                      context,
-                      17,
-                      FontWeight.w800,
-                      p.textDark,
+        // Panneau « premium affirmé » : même voile, liseré et double ombre
+        // que la feuille des versions, sous la poignée de traction.
+        child: Container(
+          decoration: premiumSurface(context, radius: 24, depth: 1.3),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 18),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(4, 0, 4, 12),
+                    child: Text(
+                      'Police de lecture',
+                      style: premiumText(
+                        context,
+                        17,
+                        FontWeight.w800,
+                        p.textDark,
+                      ),
                     ),
                   ),
-                ),
-                for (final font in ReadingFont.values)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: Material(
-                      color: font == prefs.readingFont
-                          ? p.primarySoft
-                          : p.surface,
-                      borderRadius: BorderRadius.circular(8),
-                      child: InkWell(
+                  for (final font in ReadingFont.values)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Material(
+                        color: font == prefs.readingFont
+                            ? p.primarySoft
+                            : p.surface,
                         borderRadius: BorderRadius.circular(8),
-                        onTap: () {
-                          Navigator.of(context).pop();
-                          setState(() => prefs.readingFont = font);
-                          _save();
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(14),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      font.label,
-                                      style: TextStyle(
-                                        fontFamily: font.fontFamily,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700,
-                                        color: p.textDark,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(8),
+                          onTap: () {
+                            Navigator.of(context).pop();
+                            setState(() => prefs.readingFont = font);
+                            _save();
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(14),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        font.label,
+                                        // L'aperçu doit peindre la police
+                                        // choisie, pas l'UI : la famille est
+                                        // le seul repli sur `premiumText`.
+                                        style: premiumText(
+                                          context,
+                                          16,
+                                          FontWeight.w700,
+                                          p.textDark,
+                                        ).copyWith(fontFamily: font.fontFamily),
                                       ),
-                                    ),
-                                    const SizedBox(height: 5),
-                                    Text(
-                                      'Au commencement Élohîm créa les cieux et la Terre.',
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        fontFamily: font.fontFamily,
-                                        fontSize: 15,
-                                        height: 1.35,
-                                        color: p.textDark,
+                                      const SizedBox(height: 5),
+                                      Text(
+                                        'Au commencement Élohîm créa les cieux et la Terre.',
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: premiumText(
+                                          context,
+                                          15,
+                                          FontWeight.w400,
+                                          p.textDark,
+                                          height: 1.35,
+                                        ).copyWith(fontFamily: font.fontFamily),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(width: 10),
-                              if (font == prefs.readingFont)
-                                Icon(Icons.check_circle, color: p.primary),
-                            ],
+                                const SizedBox(width: 10),
+                                if (font == prefs.readingFont)
+                                  Icon(Icons.check_circle, color: p.primary),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -373,9 +389,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _clearHistory() async {
+    final p = premiumPalette(context);
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
+        backgroundColor: p.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: premiumCardBorder(context, opacity: .18)),
+        ),
         title: const Text('Effacer l’historique ?'),
         content: const Text(
           'Les chapitres récemment ouverts seront oubliés. Vos notes, '
@@ -453,9 +475,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _revertToEmbedded() async {
+    final p = premiumPalette(context);
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
+        backgroundColor: p.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: premiumCardBorder(context, opacity: .18)),
+        ),
         title: const Text('Revenir au texte embarqué ?'),
         content: const Text(
           'Les livres corrigés téléchargés seront supprimés et le texte livré '
@@ -625,6 +653,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
         elevation: 0,
         foregroundColor: p.textDark,
         centerTitle: true,
+        flexibleSpace: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.center,
+              colors: [
+                p.primary.withValues(alpha: .12),
+                p.primary.withValues(alpha: 0),
+              ],
+            ),
+          ),
+        ),
         title: Text(
           'Réglages',
           style: premiumText(context, 18, FontWeight.w800, p.textDark),
@@ -983,15 +1023,33 @@ class _SectionBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
-    return Text(
-      label,
-      style: premiumText(
-        context,
-        11,
-        FontWeight.w800,
-        p.textGrey,
-        spacing: 1.2,
-      ),
+    // Filet d'accent + libellé exact : la section se lit comme un intertitre,
+    // pas comme une ligne de liste.
+    return Row(
+      children: [
+        Container(
+          width: 4,
+          height: 13,
+          decoration: BoxDecoration(
+            color: p.primary,
+            borderRadius: BorderRadius.circular(2),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Text(
+            label,
+            overflow: TextOverflow.ellipsis,
+            style: premiumText(
+              context,
+              11,
+              FontWeight.w800,
+              p.textGrey,
+              spacing: 1.2,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -1003,19 +1061,15 @@ class _SettingsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = premiumPalette(context);
-    return Container(
-      decoration: BoxDecoration(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: premiumShadow(
-          p.primaryDark,
-          opacity: 0.06,
-          blur: 14,
-          offset: const Offset(0, 6),
-        ),
+    // Coquille sans forme côté Material : la lisière et les deux ombres sont
+    // peintes par l'`Ink`, qu'un Material « façonné » rognerait — et les
+    // ondulations des rangées passent alors au-dessus du voile.
+    return Material(
+      color: Colors.transparent,
+      child: Ink(
+        decoration: premiumSurface(context, radius: 16),
+        child: Column(children: children),
       ),
-      child: Column(children: children),
     );
   }
 }
@@ -1061,6 +1115,9 @@ class _SettingsRow extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: p.primarySoft,
                     borderRadius: BorderRadius.circular(11),
+                    border: Border.all(
+                      color: premiumCardBorder(context, opacity: .14),
+                    ),
                   ),
                   alignment: Alignment.center,
                   child: Icon(icon, size: 20, color: p.primary),
@@ -1114,9 +1171,23 @@ class _SettingsRow extends StatelessWidget {
 class _Divider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Filet teinté du texte qui se perd vers la droite : même tirage que le
+    // liseré des cartes, sans noir codé en dur.
     return Padding(
       padding: const EdgeInsets.only(left: 66),
-      child: Divider(height: 1, color: Colors.black.withValues(alpha: .06)),
+      child: SizedBox(
+        height: 1,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                premiumCardBorder(context, opacity: .16),
+                premiumCardBorder(context, opacity: 0),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

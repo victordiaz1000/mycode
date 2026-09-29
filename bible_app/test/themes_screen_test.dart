@@ -156,6 +156,42 @@ void main() {
     expect(find.text('Thème enregistré'), findsOneWidget);
   });
 
+  testWidgets('the chosen theme card throws an accent halo, the others do not',
+      (tester) async {
+    await pump(tester, const Size(600, 2400));
+
+    // Le halo vit dans le décor de l'`AnimatedContainer` qui entoure la carte
+    // (le liseré, lui, reste neutre : l'accent n'est jamais un bord).
+    BoxShadow? haloDe(String nom) {
+      final candidats = tester.widgetList<AnimatedContainer>(
+        find.ancestor(
+          of: find.text(nom),
+          matching: find.byType(AnimatedContainer),
+        ),
+      );
+      for (final carte in candidats) {
+        final box = carte.decoration;
+        if (box is BoxDecoration && (box.boxShadow?.isNotEmpty ?? false)) {
+          return box.boxShadow!.first;
+        }
+      }
+      return null;
+    }
+
+    final actif = AppPreferences.themeNotifier.value;
+    final cible = bibleThemes.firstWhere((t) => t.id != actif);
+
+    expect(haloDe(cible.name), isNull,
+        reason: 'une carte non choisie ne dégage rien');
+
+    await tester.tap(find.text(cible.name));
+    await tester.pumpAndSettle();
+
+    final halo = haloDe(cible.name);
+    expect(halo, isNotNull, reason: 'la carte choisie dégage un halo');
+    expect(halo!.color.a, greaterThan(.2));
+  });
+
   testWidgets('choosing a NEW theme resets the panel opacity to the default', (
     tester,
   ) async {

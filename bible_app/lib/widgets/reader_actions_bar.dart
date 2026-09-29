@@ -153,7 +153,22 @@ class ReaderActionsBar extends StatelessWidget {
               ],
             ),
           ),
-          Container(height: 1, color: p.primary.withValues(alpha: .10)),
+          // Filet d'accent : un dégradé horizontal (transparent → accent →
+          // transparent) plutôt qu'un trait plein — le trait pleine largeur
+          // coupait la barre d'un trait monotone, le dégradé la fait s'éteindre
+          // vers les bords.
+          Container(
+            height: 1,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  p.primary.withValues(alpha: 0),
+                  p.primary.withValues(alpha: .22),
+                  p.primary.withValues(alpha: 0),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -165,8 +180,10 @@ enum _PillSide { left, right }
 /// One half of the joined pill group: fully rounded on its outer edge, barely
 /// rounded on the edge facing the other half.
 ///
-/// The reference half is a white card with an accent border; the version half
-/// is filled with the theme gradient so the two read as one segmented control.
+/// The reference half is a surface card with the **neutral** liseré of the
+/// premium cards (an accent border here read as a coloured outline on every
+/// warm palette); the version half is filled with the theme gradient so the
+/// two read as one segmented control.
 class _Pill extends StatelessWidget {
   final String label;
   final _PillSide side;
@@ -198,7 +215,9 @@ class _Pill extends StatelessWidget {
           borderRadius: radius,
           border: filled
               ? null
-              : Border.all(color: p.primary.withValues(alpha: .28)),
+              : Border.all(
+                  color: premiumCardBorder(context, opacity: .28),
+                ),
         ),
         child: InkWell(
           onTap: onTap,
@@ -285,12 +304,18 @@ Future<void> showBooksSheet(
       padding: EdgeInsets.only(
         bottom: MediaQuery.viewPaddingOf(sheetContext).bottom,
       ),
-      child: SizedBox(
-        height: MediaQuery.sizeOf(sheetContext).height * .85,
-        child: _BooksSheet(
-          currentBook: currentBook,
-          currentChapter: currentChapter,
-          onSelect: onSelect,
+      // Panneau « premium affirmé » : voile vertical `surface → surfaceAlt`,
+      // liseré net et deux ombres (ambiante large + serrée de contact), sous
+      // la poignée de traction que la feuille dessine déjà.
+      child: Container(
+        decoration: premiumSurface(sheetContext, radius: 24, depth: 1.3),
+        child: SizedBox(
+          height: MediaQuery.sizeOf(sheetContext).height * .85,
+          child: _BooksSheet(
+            currentBook: currentBook,
+            currentChapter: currentChapter,
+            onSelect: onSelect,
+          ),
         ),
       ),
     ),
@@ -617,56 +642,61 @@ Future<void> showVersionSheet(
       padding: EdgeInsets.only(
         bottom: MediaQuery.viewPaddingOf(sheetContext).bottom,
       ),
-      child: SizedBox(
-        height: MediaQuery.sizeOf(sheetContext).height * .8,
-        child: Column(
-          children: [
-            const _SheetHeader(title: 'Version'),
-            Expanded(
-              child: ListView(
-                key: const Key('versionSheetList'),
-                padding: const EdgeInsets.only(bottom: 24),
-                children: [
-                  for (final group in groups) ...[
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 6),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            group.title,
-                            style: premiumText(
-                              sheetContext,
-                              13,
-                              FontWeight.w800,
-                              premiumPalette(sheetContext).textGrey,
-                              spacing: .4,
+      // Même panneau que la feuille « Livres » : voile, liseré net, deux
+      // ombres — les trois feuilles du lecteur parlent le même langage.
+      child: Container(
+        decoration: premiumSurface(sheetContext, radius: 24, depth: 1.3),
+        child: SizedBox(
+          height: MediaQuery.sizeOf(sheetContext).height * .8,
+          child: Column(
+            children: [
+              const _SheetHeader(title: 'Version'),
+              Expanded(
+                child: ListView(
+                  key: const Key('versionSheetList'),
+                  padding: const EdgeInsets.only(bottom: 24),
+                  children: [
+                    for (final group in groups) ...[
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 20, 20, 6),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text(
+                              group.title,
+                              style: premiumText(
+                                sheetContext,
+                                13,
+                                FontWeight.w800,
+                                premiumPalette(sheetContext).textGrey,
+                                spacing: .4,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 8),
-                          Container(
-                            height: 1,
-                            color: premiumPalette(
-                              sheetContext,
-                            ).primary.withValues(alpha: .12),
-                          ),
-                        ],
+                            const SizedBox(height: 8),
+                            Container(
+                              height: 1,
+                              color: premiumPalette(
+                                sheetContext,
+                              ).primary.withValues(alpha: .12),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    for (final version in group.versions)
-                      _VersionRow(
-                        version: version,
-                        active: version.code == activeCode,
-                        state: installed[version.code],
-                        onSelect: onSelect,
-                      ),
+                      for (final version in group.versions)
+                        _VersionRow(
+                          version: version,
+                          active: version.code == activeCode,
+                          state: installed[version.code],
+                          onSelect: onSelect,
+                        ),
+                    ],
+                    if (elsewhere > 0)
+                      _LibraryFooter(count: elsewhere, onOpen: onOpenLibrary),
                   ],
-                  if (elsewhere > 0)
-                    _LibraryFooter(count: elsewhere, onOpen: onOpenLibrary),
-                ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     ),
@@ -903,24 +933,27 @@ Future<void> showVersePickerSheet(
     showDragHandle: true,
     backgroundColor: premiumBackground(context),
     builder: (sheetContext) => SafeArea(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const _SheetHeader(title: 'Aller au verset'),
-          Flexible(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-              child: Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: [
-                  for (var i = 0; i < chapter.verses.length; i++)
-                    _verseTile(sheetContext, chapter, i, currentVerse),
-                ],
+      child: Container(
+        decoration: premiumSurface(sheetContext, radius: 24, depth: 1.3),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const _SheetHeader(title: 'Aller au verset'),
+            Flexible(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+                child: Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    for (var i = 0; i < chapter.verses.length; i++)
+                      _verseTile(sheetContext, chapter, i, currentVerse),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );

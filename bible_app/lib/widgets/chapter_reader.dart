@@ -795,6 +795,10 @@ class _ChapterReaderState extends State<ChapterReader> {
       context: context,
       showDragHandle: true,
       isScrollControlled: true,
+      // Fond crème comme les autres feuilles du lecteur : par défaut la
+      // feuille prenait le blanc du thème, seule surface encore étrangère au
+      // langage premium.
+      backgroundColor: premiumBackground(context),
       builder: (sheetContext) => StatefulBuilder(
         builder: (sheetContext, setSheet) {
           return DisplaySettingsSheetLayout(
@@ -1163,13 +1167,20 @@ class _ChapterReaderState extends State<ChapterReader> {
                     p.textGrey,
                   ),
                   isDense: true,
+                  // Le champ prend la surface des cartes premium, cerclé d'un
+                  // liseré **neutre** : l'or reste à l'icône de recherche, qui
+                  // nomme la fonction.
+                  filled: true,
+                  fillColor: p.surface,
                   contentPadding: const EdgeInsets.symmetric(
                     horizontal: 12,
                     vertical: 10,
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(24),
-                    borderSide: BorderSide(color: p.primary.withValues(alpha: .3)),
+                    borderSide: BorderSide(
+                      color: premiumCardBorder(context, opacity: .34),
+                    ),
                   ),
                   prefixIcon: Icon(Icons.search, size: 20, color: p.primary),
                 ),
@@ -1851,16 +1862,9 @@ class _MissingBookPanel extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 24),
         child: Container(
           padding: const EdgeInsets.fromLTRB(24, 28, 24, 24),
-          decoration: BoxDecoration(
-            color: p.surface,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: premiumShadow(
-              p.primaryDark,
-              opacity: 0.08,
-              blur: 20,
-              offset: const Offset(0, 10),
-            ),
-          ),
+          // Voile vertical + liseré net + deux ombres : le panneau rejoint la
+          // langue des cartes premium au lieu d'un aplat à ombre unique.
+          decoration: premiumSurface(context, radius: 20, depth: 1.2),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -1939,7 +1943,9 @@ class _AllSettingsRow extends StatelessWidget {
       decoration: BoxDecoration(
         color: p.surfaceAlt,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: p.primary.withValues(alpha: .14)),
+        // Liseré neutre : l'accent ne borde jamais une carte (voir
+        // [premiumCardBorder]) — il reste aux filets, pastilles et icônes.
+        border: Border.all(color: premiumCardBorder(context, opacity: .14)),
       ),
       child: ListTile(
         // Absent outside the shell (isolated reader, tests): the row then names
@@ -2079,7 +2085,9 @@ class _ContinueChapterTile extends StatelessWidget {
           OutlinedButton.icon(
             onPressed: onTap,
             style: OutlinedButton.styleFrom(
-              side: BorderSide(color: theme.accentColor, width: 1.5),
+              // Liseré neutre plutôt que la tranche d'accent : le libellé et
+              // l'icône gardent l'or, le contour rejoint les cartes premium.
+              side: BorderSide(color: premiumCardBorder(context, opacity: .45)),
               foregroundColor: theme.accentColor,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             ),
@@ -2121,7 +2129,12 @@ class _BookHeaderState extends State<_BookHeader> {
     final accent = readingTheme.accentColor;
     final dark = readingTheme.textColor;
     return Card(
-      elevation: 0,
+      // Halo d'accent discret sous la carte (l'accent reste autorisé en halo),
+      // et voile de surface neutralisé pour que le panneau du thème de lecture
+      // ne soit pas teinté par l'élévation Material.
+      elevation: 2,
+      shadowColor: accent.withValues(alpha: .16),
+      surfaceTintColor: readingTheme.panelColor.withValues(alpha: 0),
       color: readingTheme.panelColor,
       margin: const EdgeInsets.only(bottom: 16),
       shape: RoundedRectangleBorder(

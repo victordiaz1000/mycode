@@ -132,9 +132,15 @@ class _ThemesScreenState extends State<ThemesScreen> {
   }
 
   Future<void> _deleteCustomPhoto() async {
+    final p = premiumPalette(context);
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
+        backgroundColor: p.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: premiumCardBorder(context, opacity: .18)),
+        ),
         title: const Text('Supprimer le fond personnalisé ?'),
         content: const Text(
           'La photo est retirée de l\'application. Le thème courant '
@@ -187,6 +193,18 @@ class _ThemesScreenState extends State<ThemesScreen> {
         elevation: 0,
         foregroundColor: p.textDark,
         centerTitle: true,
+        flexibleSpace: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.center,
+              colors: [
+                p.primary.withValues(alpha: .12),
+                p.primary.withValues(alpha: 0),
+              ],
+            ),
+          ),
+        ),
         title: Text(
           'Thèmes',
           style: premiumText(context, 18, FontWeight.w800, p.textDark),
@@ -202,16 +220,7 @@ class _ThemesScreenState extends State<ThemesScreen> {
               style: premiumText(context, 15, FontWeight.w600, p.textDark),
             ),
             const SizedBox(height: 18),
-            Text(
-              'THÈMES NOMMÉS',
-              style: premiumText(
-                context,
-                11,
-                FontWeight.w800,
-                p.textGrey,
-                spacing: 1.1,
-              ),
-            ),
+            _SectionLabel('THÈMES NOMMÉS'),
             const SizedBox(height: 12),
             GridView(
               shrinkWrap: true,
@@ -245,16 +254,7 @@ class _ThemesScreenState extends State<ThemesScreen> {
               ),
             ),
             const SizedBox(height: 18),
-            Text(
-              'FOND PERSONNALISÉ',
-              style: premiumText(
-                context,
-                11,
-                FontWeight.w800,
-                p.textGrey,
-                spacing: 1.1,
-              ),
-            ),
+            _SectionLabel('FOND PERSONNALISÉ'),
             const SizedBox(height: 12),
             _CustomBackgroundCard(
               theme: custom,
@@ -306,101 +306,143 @@ class _ThemeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
-    return Material(
-      color: Colors.transparent,
-      child: Ink(
-        decoration: BoxDecoration(
-          color: p.surface,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: selected ? p.primary : Colors.transparent,
-            width: 1.5,
-          ),
-          boxShadow: premiumShadow(
-            p.primaryDark,
-            opacity: 0.06,
-            blur: 14,
-            offset: const Offset(0, 6),
-          ),
-        ),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(16),
-          onTap: onTap,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // Bandeau aperçu = mini-lecture — s'étire sur la hauteur restante.
-              Expanded(
-                child: Stack(
-                  children: [
-                    Positioned.fill(
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          image: theme.decorationImage(),
-                          borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(16),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Center(
-                      child: _MiniReadingPanel(
-                        theme: theme,
-                        panelOpacity: panelOpacity,
-                      ),
-                    ),
-                    if (selected)
-                      Positioned(
-                        top: 8,
-                        right: 8,
-                        child: Container(
-                          width: 24,
-                          height: 24,
+    // Halo d'accent qui pousse autour de la carte choisie : la sélection se
+    // lit de loin, sans jamais devenir un cerne coloré sur le liseré.
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeOut,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: selected
+            ? premiumShadow(
+                p.primary,
+                opacity: 0.30,
+                blur: 14,
+                offset: const Offset(0, 5),
+              )
+            : const <BoxShadow>[],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: Ink(
+          decoration: premiumSurface(context, radius: 16),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(16),
+            onTap: onTap,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                // Bandeau aperçu = mini-lecture — s'étire sur la hauteur restante.
+                Expanded(
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: DecoratedBox(
                           decoration: BoxDecoration(
-                            color: p.surface,
-                            shape: BoxShape.circle,
+                            image: theme.decorationImage(),
+                            borderRadius: const BorderRadius.vertical(
+                              top: Radius.circular(16),
+                            ),
                           ),
-                          alignment: Alignment.center,
-                          child: Icon(Icons.check, size: 16, color: p.primary),
                         ),
                       ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(12, 10, 12, 12),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 10,
-                      height: 10,
-                      decoration: BoxDecoration(
-                        color: theme.accentColor,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        theme.name,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: premiumText(
-                          context,
-                          13.5,
-                          FontWeight.w700,
-                          selected ? p.primary : p.textDark,
-                          height: 1.15,
+                      Center(
+                        child: _MiniReadingPanel(
+                          theme: theme,
+                          panelOpacity: panelOpacity,
                         ),
                       ),
-                    ),
-                  ],
+                      if (selected)
+                        Positioned(
+                          top: 8,
+                          right: 8,
+                          child: Container(
+                            width: 24,
+                            height: 24,
+                            decoration: BoxDecoration(
+                              color: p.surface,
+                              shape: BoxShape.circle,
+                            ),
+                            alignment: Alignment.center,
+                            child: Icon(Icons.check, size: 16, color: p.primary),
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 10, 12, 12),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 10,
+                        height: 10,
+                        decoration: BoxDecoration(
+                          color: theme.accentColor,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          theme.name,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: premiumText(
+                            context,
+                            13.5,
+                            FontWeight.w700,
+                            selected ? p.primary : p.textDark,
+                            height: 1.15,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
+    );
+  }
+}
+
+/// Intertitre de section : un filet d'accent, puis le libellé exact tel quel.
+class _SectionLabel extends StatelessWidget {
+  final String label;
+
+  const _SectionLabel(this.label);
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    return Row(
+      children: [
+        Container(
+          width: 4,
+          height: 13,
+          decoration: BoxDecoration(
+            color: p.primary,
+            borderRadius: BorderRadius.circular(2),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Text(
+            label,
+            overflow: TextOverflow.ellipsis,
+            style: premiumText(
+              context,
+              11,
+              FontWeight.w800,
+              p.textGrey,
+              spacing: 1.1,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -468,24 +510,27 @@ class _CustomBackgroundCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
     final t = theme;
-    return Material(
-      color: Colors.transparent,
-      child: Ink(
-        decoration: BoxDecoration(
-          color: p.surface,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: selected ? p.primary : p.primary.withValues(alpha: .25),
-            width: 1.5,
-          ),
-          boxShadow: premiumShadow(
-            p.primaryDark,
-            opacity: 0.06,
-            blur: 14,
-            offset: const Offset(0, 6),
-          ),
-        ),
-        child: InkWell(
+    // Même registre que la carte de thème : surface premium, liseré neutre et
+    // halo d'accent animé pour l'état choisi (jamais de bord coloré).
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeOut,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: selected
+            ? premiumShadow(
+                p.primary,
+                opacity: 0.30,
+                blur: 14,
+                offset: const Offset(0, 5),
+              )
+            : const <BoxShadow>[],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: Ink(
+          decoration: premiumSurface(context, radius: 16),
+          child: InkWell(
           borderRadius: BorderRadius.circular(16),
           onTap: t == null ? onPick : onSelect,
           child: t == null
@@ -501,8 +546,23 @@ class _CustomBackgroundCard extends StatelessWidget {
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
                       else
-                        Icon(Icons.add_photo_alternate_outlined,
-                            size: 22, color: p.primary),
+                        Container(
+                          width: 40,
+                          height: 40,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: p.primarySoft,
+                            borderRadius: BorderRadius.circular(13),
+                            border: Border.all(
+                              color: premiumCardBorder(context, opacity: .16),
+                            ),
+                          ),
+                          child: Icon(
+                            Icons.add_photo_alternate_outlined,
+                            size: 22,
+                            color: p.primary,
+                          ),
+                        ),
                       const SizedBox(width: 10),
                       Text(
                         busy ? 'Chargement de la photo…' : 'Choisir une photo',
@@ -584,11 +644,16 @@ class _CustomBackgroundCard extends StatelessWidget {
                         tooltip: 'Supprimer le fond personnalisé',
                         icon: const Icon(Icons.delete_outline),
                         color: p.textGrey,
+                        style: IconButton.styleFrom(
+                          backgroundColor: p.surfaceAlt,
+                          shape: const CircleBorder(),
+                        ),
                         onPressed: onDelete,
                       ),
                     const SizedBox(width: 6),
                   ],
                 ),
+          ),
         ),
       ),
     );

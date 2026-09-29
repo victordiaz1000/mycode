@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/premium_style.dart';
+
 /// What the note editor reports when it closes.
 enum NoteDialogResultKind { cancelled, saved, deleted }
 
@@ -72,7 +74,13 @@ class _NoteDialogState extends State<NoteDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final p = premiumPalette(context);
     return AlertDialog(
+      backgroundColor: p.surface,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: BorderSide(color: premiumCardBorder(context, opacity: .18)),
+      ),
       title: Text(widget.title),
       content: TextField(
         controller: _controller,

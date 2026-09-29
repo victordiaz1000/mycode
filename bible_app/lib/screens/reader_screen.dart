@@ -453,11 +453,19 @@ class _ResumeCard extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 28),
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 24),
-        elevation: 0,
+        // « Premium affirmé » : le liseré **neutre** de la carte, jamais
+        // l'accent — un contour doré posé sur le crème tournait au cerne
+        // coloré (voir [premiumCardBorder]). Deux ombres : l'ambiante qui
+        // décolle la carte, la serrée qui la pose. `surfaceTintColor` = la
+        // surface elle-même : le voile Material 3 se fond dans le fond au
+        // lieu de le teinter.
+        elevation: 1,
+        shadowColor: p.primaryDark.withValues(alpha: .14),
+        surfaceTintColor: p.surface,
         color: p.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
-          side: BorderSide(color: p.primary.withValues(alpha: .25)),
+          side: BorderSide(color: premiumCardBorder(context, opacity: .25)),
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(16),
@@ -519,6 +527,18 @@ class _EmptyReadingHint extends StatelessWidget {
               decoration: BoxDecoration(
                 color: p.primarySoft,
                 shape: BoxShape.circle,
+                // Le disque teinté garde son aplat d'accent ; on lui ajoute un
+                // liseré net et un halo d'accent pour qu'il se détache du fond
+                // crème au lieu de fondre dedans.
+                border: Border.all(
+                  color: premiumCardBorder(context, opacity: .28),
+                ),
+                boxShadow: premiumShadow(
+                  p.primary,
+                  opacity: .18,
+                  blur: 20,
+                  offset: const Offset(0, 8),
+                ),
               ),
               alignment: Alignment.center,
               child: Icon(Icons.menu_book_outlined, size: 40, color: p.primary),

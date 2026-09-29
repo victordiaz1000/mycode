@@ -68,6 +68,11 @@ Future<Object?> showVerseNotesPicker({
     context: context,
     showDragHandle: true,
     isScrollControlled: true,
+    backgroundColor: premiumPalette(context).surface,
+    shape: RoundedRectangleBorder(
+      borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+      side: BorderSide(color: premiumCardBorder(context, opacity: .18)),
+    ),
     builder: (sheetContext) {
       final p = premiumPalette(sheetContext);
       return SafeArea(
@@ -205,6 +210,11 @@ Future<NoteEditorOutcome?> showNoteEditorSheet({
     context: context,
     showDragHandle: true,
     isScrollControlled: true,
+    backgroundColor: premiumPalette(context).surface,
+    shape: RoundedRectangleBorder(
+      borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+      side: BorderSide(color: premiumCardBorder(context, opacity: .18)),
+    ),
     builder: (sheetContext) => Padding(
       padding:
           EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(sheetContext).bottom),
@@ -293,9 +303,15 @@ class _NoteEditorSheetState extends State<NoteEditorSheet> {
       );
 
   Future<void> _confirmDelete() async {
+    final p = premiumPalette(context);
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
+        backgroundColor: p.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: premiumCardBorder(context, opacity: .18)),
+        ),
         title: const Text('Supprimer cette note ?'),
         content: const Text('Cette action est définitive.'),
         actions: [
@@ -375,7 +391,7 @@ class _NoteEditorSheetState extends State<NoteEditorSheet> {
                         color: p.surfaceAlt,
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
-                            color: p.primary.withValues(alpha: .10)),
+                            color: premiumCardBorder(context, opacity: .16)),
                       ),
                       child: Text(
                         '« ${widget.verseText} »',

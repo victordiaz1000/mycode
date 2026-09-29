@@ -20,8 +20,9 @@ Future<void> showTabContextMenu(
   return showModalBottomSheet(
     context: context,
     backgroundColor: p.surface,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
+    shape: RoundedRectangleBorder(
+      borderRadius: const BorderRadius.vertical(top: Radius.circular(22)),
+      side: BorderSide(color: premiumCardBorder(context, opacity: .18)),
     ),
     builder: (sheetContext) => SafeArea(
       child: Column(
@@ -71,7 +72,7 @@ Future<void> showTabContextMenu(
               showGroupPicker(context, manager, tabIndex);
             },
           ),
-          Divider(height: 10, thickness: 1, color: p.textGrey.withValues(alpha: .18)),
+          Divider(height: 10, thickness: 1, color: premiumCardBorder(context, opacity: .18)),
           _MenuItem(
             icon: Icons.close,
             label: "Fermer l'onglet",
@@ -99,8 +100,9 @@ Future<void> showGroupPicker(
   return showModalBottomSheet(
     context: context,
     backgroundColor: premiumPalette(context).surface,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
+    shape: RoundedRectangleBorder(
+      borderRadius: const BorderRadius.vertical(top: Radius.circular(22)),
+      side: BorderSide(color: premiumCardBorder(context, opacity: .18)),
     ),
     builder: (sheetContext) => ListenableBuilder(
       listenable: manager,
@@ -145,7 +147,7 @@ Future<void> showGroupPicker(
                   ),
                 ),
               Divider(
-                  height: 10, thickness: 1, color: p.textGrey.withValues(alpha: .18)),
+                  height: 10, thickness: 1, color: premiumCardBorder(context, opacity: .18)),
               if (tab.groupId != null)
                 _MenuItem(
                   icon: Icons.folder_off_outlined,
@@ -193,8 +195,10 @@ Future<void> showGroupEditor(
     builder: (dialogContext) => StatefulBuilder(
       builder: (dialogContext, setDialogState) => AlertDialog(
         backgroundColor: p.surface,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: premiumCardBorder(context, opacity: .18)),
+        ),
         title: Text(group == null ? 'NOUVEAU GROUPE' : 'MODIFIER LE GROUPE',
             style: premiumText(dialogContext, 11.5, FontWeight.w800, p.primary,
                 spacing: .2)),

@@ -169,6 +169,10 @@ Future<void> showFicheDisplaySheet(
     context: context,
     showDragHandle: true,
     isScrollControlled: true,
+    // Fond crème du langage premium, comme les feuilles du lecteur : la
+    // feuille prenait par défaut le blanc du thème, seule surface étrangère
+    // au reste de l'application.
+    backgroundColor: premiumBackground(context),
     builder: (_) => _FicheDisplaySheet(initial: initial, group: group),
   );
 }
@@ -285,19 +289,29 @@ class DisplaySettingsSheetLayout extends StatelessWidget {
         padding: EdgeInsets.only(
           bottom: MediaQuery.viewPaddingOf(context).bottom,
         ),
-        // Scrollable rather than a bare Column: on a small phone (or the
-        // reader's sheet, which also carries the notes rows) the sections
-        // together can outgrow the surface.
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              header,
-              const SizedBox(height: 12),
-              ...children,
-              const SizedBox(height: 16),
-            ],
+        // Panneau « premium affirmé » : voile vertical `surface → surfaceAlt`,
+        // liseré net et deux ombres, sous la poignée de traction des feuilles
+        // qui en portent une. Les cartes de section gardent leur propre fond
+        // et leur liseré : elles restent lisibles sur toute la hauteur du
+        // voile. Marge horizontale seule — la hauteur disponible, elle, ne
+        // bouge pas.
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 6),
+          decoration: premiumSurface(context, radius: 24, depth: 1.3),
+          // Scrollable rather than a bare Column: on a small phone (or the
+          // reader's sheet, which also carries the notes rows) the sections
+          // together can outgrow the surface.
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                header,
+                const SizedBox(height: 12),
+                ...children,
+                const SizedBox(height: 16),
+              ],
+            ),
           ),
         ),
       ),
@@ -946,7 +960,9 @@ class DisplayCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: p.surfaceAlt,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: p.primary.withValues(alpha: .14)),
+        // Liseré neutre : l'accent ne borde jamais une carte (voir
+        // [premiumCardBorder]), il reste aux icônes et aux marqueurs d'état.
+        border: Border.all(color: premiumCardBorder(context, opacity: .20)),
         boxShadow: premiumShadow(
           p.primaryDark,
           opacity: .05,
@@ -1008,7 +1024,9 @@ class DisplayToggleCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: p.surfaceAlt,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: p.primary.withValues(alpha: .14)),
+        // Même liseré neutre que la carte de réglage : pas de contour d'accent
+        // autour d'une carte (voir [premiumCardBorder]).
+        border: Border.all(color: premiumCardBorder(context, opacity: .20)),
         boxShadow: premiumShadow(
           p.primaryDark,
           opacity: .05,
