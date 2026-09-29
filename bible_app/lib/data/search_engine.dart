@@ -6,7 +6,6 @@ import 'dictionary_catalog.dart';
 import 'dictionary_reader.dart';
 import 'dictionary_store.dart';
 import 'fulltext_index.dart';
-import 'lexicon_index.dart' as lexicon;
 import 'local_repository.dart';
 import 'reading_history.dart';
 import 'reference_parser.dart';
@@ -153,12 +152,6 @@ class SearchHit {
   /// through [FreDawLexicon] instead of the generic [DictionaryReader].
   final String? dictionaryCode;
 
-  /// The full BYM lexicon entry when this row comes from the embedded lexicon
-  /// built over the BYM notes. Null on Westphal and downloaded rows: only the
-  /// BYM fiche needs the occurrences count, which the scalars above don't
-  /// carry.
-  final lexicon.DictionaryEntry? bymLexiconEntry;
-
   /// Where tapping the row leads. Null on a row that cannot be opened.
   final int? bookIndex;
   final int? chapter;
@@ -175,7 +168,6 @@ class SearchHit {
     this.transliteration,
     this.badge,
     this.dictionaryCode,
-    this.bymLexiconEntry,
     this.bookIndex,
     this.chapter,
     this.verse,
@@ -617,61 +609,78 @@ class SearchEngine {
   /// badge, so a "père" query shows Westphal and Bailly side by side.
   Future<SearchGroup?> _dictionnaire(String query, bool expanded) async {
     try {
-      final hits = <SearchHit>[];
-
+      // Le lexique « Notes BYM Lexique » est débranché de la recherche
+      // (demande utilisateur) : la famille Dictionnaire garde Westphal et les
+      // dictionnaires téléchargés.
+      //
+      // Chaque source garde **ses** lignes : c'est ce que [_spread] entrelace
+      // pour que le dictionnaire téléchargé ait sa place sur la première page
+      // même quand le Westphal répond à la même question par cinquante
+      // articles.
       final freDawEntries =
           await _freDawLexicon.search(query, limit: sourceLimit);
-      hits.addAll([
-        for (final e in freDawEntries)
-          SearchHit(
-            category: SearchCategory.dictionnaire,
-            title: e.term,
-            subtitle: e.definition,
-            badge: 'Westphal 1932',
-          ),
-      ]);
+      final sources = <List<SearchHit>>[
+        [
+          for (final e in freDawEntries)
+            SearchHit(
+              category: SearchCategory.dictionnaire,
+              title: e.term,
+              subtitle: e.definition,
+              badge: 'Westphal 1932',
+            ),
+        ],
+        ...await _downloadedEntries(query),
+      ];
 
-      // The embedded BYM lexicon, built over the anchored notes of the 66
-      // books. Its own badge distinguishes it from Westphal and the
-      // downloaded dictionaries in the same family.
-      final bymLexiconEntries =
-          await lexicon.LexiconIndex.instance.search(query, limit: sourceLimit);
-      hits.addAll([
-        for (final e in bymLexiconEntries)
-          SearchHit(
-            category: SearchCategory.dictionnaire,
-            title: e.word,
-            subtitle: e.definition,
-            badge: 'Notes BYM Lexique',
-            bymLexiconEntry: e,
-          ),
-      ]);
-
-      final downloaded = await _downloadedEntries(query);
-      hits.addAll(downloaded);
-
+      final hits = [for (final source in sources) ...source];
       if (hits.isEmpty) return null;
 
-      final shown = expanded ? hits : hits.take(pageSize);
+      final shown = expanded ? hits : _spread(sources, pageSize);
       return SearchGroup(
         category: SearchCategory.dictionnaire,
         total: hits.length,
-        hits: shown.toList(),
+        hits: shown,
       );
     } catch (_) {
       return null;
     }
   }
 
-  /// Every downloaded dictionary on the device, searched. Each row carries its
-  /// [SearchHit.dictionaryCode] so the screen can open the right fiche.
+  /// One row per source in turn, up to [limit].
+  ///
+  /// Taking the rows in flat order would fill the first page with whichever
+  /// source answers most — in practice the embedded Westphal, whose entry
+  /// count dwarfs a glossary — and push a freshly downloaded dictionary behind
+  /// « Voir plus », where nobody looks. Round-robin keeps every source on the
+  /// first screen without disturbing the order inside one.
+  static List<SearchHit> _spread(List<List<SearchHit>> sources, int limit) {
+    final rows = <SearchHit>[];
+    var index = 0;
+    while (rows.length < limit) {
+      var added = false;
+      for (final source in sources) {
+        if (index >= source.length) continue;
+        rows.add(source[index]);
+        added = true;
+        if (rows.length == limit) break;
+      }
+      if (!added) break;
+      index++;
+    }
+    return rows;
+  }
+
+  /// Every downloaded dictionary on the device, searched — **one list of rows
+  /// per dictionary**, so [_spread] can give each of them a slot on the first
+  /// page. Each row carries its [SearchHit.dictionaryCode] so the screen can
+  /// open the right fiche.
   ///
   /// Parsed readers are cached per code: a downloaded dictionary is one file
   /// of thousands of entries (Bailly: 50 493), and a search is debounced but
   /// re-fired on every keystroke. The cache drops when the registry changes
   /// ([DictionaryStore.revision]), so a freshly downloaded or deleted
   /// dictionary is picked up on the next search without a stale reader.
-  Future<List<SearchHit>> _downloadedEntries(String query) async {
+  Future<List<List<SearchHit>>> _downloadedEntries(String query) async {
     final store = _dictionaries;
     Set<String> installed;
     try {
@@ -686,7 +695,7 @@ class SearchEngine {
       _readerCache.clear();
     }
 
-    final hits = <SearchHit>[];
+    final perDictionary = <List<SearchHit>>[];
     for (final code in installed) {
       final entry = dictionaryByCode(code);
       if (entry == null) continue;
@@ -697,7 +706,7 @@ class SearchEngine {
           if (reader != null) _readerCache[code] = reader;
         }
         if (reader == null || reader.size == 0) continue;
-        hits.addAll([
+        final rows = [
           for (final article in reader.search(query, limit: sourceLimit))
             SearchHit(
               category: SearchCategory.dictionnaire,
@@ -706,12 +715,13 @@ class SearchEngine {
               badge: entry.name,
               dictionaryCode: code,
             ),
-        ]);
+        ];
+        if (rows.isNotEmpty) perDictionary.add(rows);
       } catch (_) {
         continue; // a corrupted file skips its dictionary, not the search
       }
     }
-    return hits;
+    return perDictionary;
   }
 
   /// Reads one dictionary file into a reader, or null when it is absent or

@@ -11,15 +11,11 @@ import 'package:bible_app/data/dictionary_download_service.dart';
 import 'package:bible_app/data/dictionary_store.dart';
 import 'package:bible_app/data/download_service.dart';
 import 'package:bible_app/data/fredaw_lexicon.dart';
-import 'package:bible_app/data/lexicon_index.dart' hide DictionaryEntry;
 import 'package:bible_app/data/library_store.dart';
-import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/data/strong_lexicon.dart';
 import 'package:bible_app/data/version_catalog.dart';
-import 'package:bible_app/screens/bym_lexicon_index_screen.dart';
 import 'package:bible_app/screens/library_screen.dart';
 
-import 'support/fake_bible_bundle.dart';
 import 'support/fake_fredaw_bundle.dart';
 import 'support/fake_strong_lexicon_bundle.dart';
 
@@ -227,6 +223,41 @@ void main() {
               'boutons Android (à partir de 740).');
     });
 
+    testWidgets('le téléchargement se détache sur une pastille d\'action',
+        (tester) async {
+      await pumpLibrary(
+        tester,
+        store: FakeStore(),
+        service: FakeService(FakeStore()),
+      );
+
+      // La rangée « à télécharger » est le geste de l'écran : son bouton garde
+      // son gabarit (un TextButton, clé et type compris) mais se peint d'un
+      // fond d'accent.
+      final download = tester.widget<TextButton>(
+        find.byKey(const Key('download-DBY')),
+      );
+      final fond = download.style?.backgroundColor?.resolve(const <WidgetState>{});
+      expect(fond, isNotNull,
+          reason: 'l\'action de téléchargement doit se détacher du fond de '
+              'la carte');
+      expect(download.onPressed, isNotNull);
+
+      // Les cartes des deux onglets partagent la surface premium : voile
+      // vertical, liseré net et les deux ombres (ambiante + de contact). La
+      // coquille les peint par un `Ink` — elle est faite pour rester sous le
+      // frisson de l'appui.
+      final surfaces = tester.widgetList<Ink>(find.byType(Ink)).where((ink) {
+        final box = ink.decoration;
+        return box is BoxDecoration &&
+            box.gradient != null &&
+            box.border != null &&
+            (box.boxShadow?.length ?? 0) == 2;
+      });
+      expect(surfaces, isNotEmpty,
+          reason: 'chaque tuile porte la surface premium partagée');
+    });
+
     testWidgets('opens on Bibles and offers a Dictionnaires tab',
         (tester) async {
       final store = FakeStore();
@@ -240,7 +271,8 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byKey(const Key('libraryDictionaries')), findsOneWidget);
-      expect(find.text('Notes BYM Lexique'), findsOneWidget);
+      // Le lexique « Notes BYM Lexique » a été débranché du catalogue.
+      expect(find.text('Notes BYM Lexique'), findsNothing);
       expect(find.text('Strong FR'), findsOneWidget);
       expect(find.text('Westphal 1932'), findsOneWidget);
       // Nave reste sans source : elle s'affiche « Bientôt disponible ».
@@ -271,28 +303,8 @@ void main() {
       expect(find.text('Verset'), findsOneWidget);
     });
 
-    testWidgets('tapping Notes BYM Lexique opens the BYM index, not a stub',
-        (tester) async {
-      final store = FakeStore();
-      await pumpLibrary(tester, store: store, service: FakeService(store));
-
-      LocalRepository.useBundle(FakeBibleBundle());
-      LexiconIndex.instance.clearIndex();
-      addTearDown(() {
-        LocalRepository.useRootBundle();
-        LexiconIndex.instance.clearIndex();
-      });
-
-      await tester.tap(find.text('Dictionnaires'));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('Notes BYM Lexique'));
-      await tester.pumpAndSettle();
-
-      expect(find.byType(BymLexiconIndexScreen), findsOneWidget);
-      // The fake bundle notes only « Verset » across its 66 books.
-      expect(find.text('1 entrée'), findsOneWidget);
-      expect(find.text('Verset'), findsOneWidget);
-    });
+    // « Notes BYM Lexique » n'est plus dans le catalogue : il n'y a plus de
+    // rangée à ouvrir (verrouillé par le test de liste ci-dessus).
 
     testWidgets('tapping Strong FR opens the Strong index, not a stub',
         (tester) async {

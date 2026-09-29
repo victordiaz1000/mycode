@@ -287,23 +287,61 @@ void main() {
       expect(gbm.subtitle, contains('hébreu'));
     });
 
-    test('the BYM lexicon answers with its own badge beside Westphal', () async {
+    test('a crowded Westphal cannot push the glossary behind « Voir plus »',
+        () async {
+      // Le vrai Westphal répond à un mot courant par des dizaines
+      // d'articles : à page plate, le dictionnaire téléchargé ne serait
+      // jamais visible avant « Voir plus ».
+      FreDawLexicon.useBundle(FakeFreDawBundle({
+        for (var i = 0; i < 8; i++)
+          'VERSET$i': {
+            'term': 'Verset $i',
+            'definition': 'Définition $i du Westphal.',
+          },
+      }));
+      final store = FakeDictionaryStore({
+        'GBM': {
+          'entries': {
+            'VERSET': {'term': 'Verset', 'definition': 'Portion de chapitre.'},
+          },
+        },
+      });
+
+      final outcome = await SearchEngine(
+        history: ReadingHistory(),
+        dictionaries: store,
+      ).search('verset', categories: {SearchCategory.dictionnaire});
+
+      final group = outcome.groups
+          .firstWhere((g) => g.category == SearchCategory.dictionnaire);
+
+      // Le Westphal remplit la page tout seul…
+      expect(group.total, greaterThan(SearchEngine.pageSize));
+      expect(group.hits.length, SearchEngine.pageSize);
+      // …et la première page contient pourtant une ligne du glossaire.
+      expect(
+        group.hits.any((h) => h.dictionaryCode == 'GBM'),
+        isTrue,
+        reason: 'le dictionnaire téléchargé doit rester sur l\'écran, pas derrière « Voir plus »',
+      );
+    });
+
+    // Le lexique « Notes BYM Lexique » est débranché de la recherche : la
+    // famille Dictionnaire ne répond plus qu'avec Westphal et les
+    // dictionnaires téléchargés.
+    test('the BYM lexicon no longer answers in the dictionary family',
+        () async {
       final outcome = await SearchEngine(
         history: ReadingHistory(),
         dictionaries: FakeDictionaryStore({}),
       ).search('verset', categories: {SearchCategory.dictionnaire});
 
-      final group =
-          outcome.groups.firstWhere((g) => g.category == SearchCategory.dictionnaire);
+      final group = outcome.groups
+          .firstWhere((g) => g.category == SearchCategory.dictionnaire);
 
-      // The fake bundle notes anchor « Verset » across the 66 books.
-      final bym = group.hits.firstWhere((h) => h.bymLexiconEntry != null);
-      expect(bym.title, 'Verset');
-      expect(bym.badge, 'Notes BYM Lexique');
-      expect(bym.bymLexiconEntry!.occurrences, 132);
-      expect(bym.canOpen, isTrue);
+      expect(group.hits.any((h) => h.badge == 'Notes BYM Lexique'), isFalse);
 
-      // The Westphal row keeps its own badge next to it.
+      // The Westphal row still answers on its own badge.
       final westphal =
           group.hits.firstWhere((h) => h.badge == 'Westphal 1932');
       expect(westphal.title, 'Verset');

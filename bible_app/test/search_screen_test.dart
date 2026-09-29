@@ -5,6 +5,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:bible_app/data/bible_sections.dart';
 import 'package:bible_app/data/dictionary_catalog.dart';
 import 'package:bible_app/data/dictionary_store.dart';
 import 'package:bible_app/data/fredaw_lexicon.dart';
@@ -16,7 +17,6 @@ import 'package:bible_app/data/search_engine.dart';
 import 'package:bible_app/data/strong_lexicon.dart';
 import 'package:bible_app/data/strong_occurrences.dart';
 import 'package:bible_app/screens/search_screen.dart';
-import 'package:bible_app/screens/bym_lexicon_entry_screen.dart';
 import 'package:bible_app/screens/strong_detail_screen.dart';
 
 import 'support/fake_bible_bundle.dart';
@@ -145,6 +145,37 @@ void main() {
     expect(find.text('Ordre'), findsOneWidget);
     expect(find.text('Ordre biblique'), findsOneWidget);
     // Section and Livre both read « Tout ».
+    expect(find.text('Tout'), findsNWidgets(2));
+  });
+
+  testWidgets('choosing a section then « Tout » gives the default back',
+      (tester) async {
+    await tester.pumpWidget(app());
+
+    /// A row inside the open popup menu — scoped so the filter bar's own
+    /// « Tout » (Livre) is never the target. `byType(PopupMenuItem)` would
+    /// look for `PopupMenuItem<dynamic>`, which an item of our `int` menu is
+    /// not, hence the predicate.
+    Finder menuItem(String label) => find.descendant(
+          of: find.byWidgetPredicate((w) => w is PopupMenuItem),
+          matching: find.text(label),
+        );
+
+    Future<void> pick(String option) async {
+      await tester.tap(find.text('Section'));
+      await tester.pumpAndSettle();
+      // The menu really is open: its rows exist, and the bar's « Tout » (Livre)
+      // is not one of them.
+      expect(menuItem('Tout'), findsOneWidget);
+      await tester.tap(menuItem(option));
+      await tester.pumpAndSettle();
+    }
+
+    await pick(bibleSections[0].name);
+    expect(find.text(bibleSections[0].name), findsOneWidget);
+    expect(find.text('Tout'), findsOneWidget);
+
+    await pick('Tout');
     expect(find.text('Tout'), findsNWidgets(2));
   });
 
@@ -457,6 +488,31 @@ void main() {
     expect(find.text('Action de racheter.'), findsOneWidget);
   });
 
+  testWidgets('a dictionary downloaded while the screen is open joins the results',
+      (tester) async {
+    final store = FakeDictionaryStore({});
+    await tester.pumpWidget(app(dictionaryStore: store));
+
+    await type(tester, 'verset');
+    await tapChip(tester, 'Dictionnaire');
+    await tester.pumpAndSettle();
+
+    // Rien encore : le Glossaire Martin n'est pas sur l'appareil.
+    expect(find.text(dictionaryByCode('GBM')!.name), findsNothing);
+
+    // La Bibliothèque vient de finir le téléchargement, la requête est déjà
+    // posée : elle doit repartir sans que l'utilisateur retape son mot.
+    store._data['GBM'] = {
+      'entries': {
+        'VERSET': {'term': 'Verset', 'definition': 'Portion de chapitre.'},
+      },
+    };
+    DictionaryStore.revision.value++;
+    await tester.pumpAndSettle();
+
+    expect(find.text(dictionaryByCode('GBM')!.name), findsOneWidget);
+  });
+
   testWidgets('a Westphal result still opens the embedded FreDAW fiche',
       (tester) async {
     // No downloaded dictionary on the device: the Dictionnaire category answers
@@ -474,31 +530,17 @@ void main() {
     expect(find.text('Westphal 1932'), findsWidgets);
   });
 
-  testWidgets('tapping a BYM lexicon result opens its own fiche',
+  testWidgets('the dictionary family no longer offers a BYM lexicon row',
       (tester) async {
-    final opened = <(int, int, int)>[];
-    await tester.pumpWidget(app(
-      onOpen: (book, chapter, {verse}) => opened.add((book, chapter, verse!)),
-    ));
+    await tester.pumpWidget(app());
+
     await type(tester, 'verset');
     await tapChip(tester, 'Dictionnaire');
     await tester.pumpAndSettle();
 
-    // The BYM row carries its own badge, distinct from Westphal's.
-    expect(find.text('Notes BYM Lexique'), findsOneWidget);
-
-    await tester.tap(find.text('Notes BYM Lexique'));
-    await tester.pumpAndSettle();
-
-    // The embedded BYM fiche: word, reference with occurrences, and the
-    // « Ouvrir le verset » button wired to the reading tab.
-    expect(find.byType(BymLexiconEntryScreen), findsOneWidget);
-    expect(find.text('Verset'), findsWidgets);
-    expect(find.textContaining('132 occurrences'), findsOneWidget);
-
-    await tester.tap(find.text('Ouvrir le verset'));
-    await tester.pumpAndSettle();
-    expect(opened, [(1, 1, 1)]);
+    // Le lexique « Notes BYM Lexique » est débranché de la recherche.
+    expect(find.text('Notes BYM Lexique'), findsNothing);
+    expect(find.text('Westphal 1932'), findsWidgets);
   });
 
   testWidgets('« Voir plus » unfolds a truncated group', (tester) async {
@@ -590,6 +632,69 @@ void main() {
 
     expect(find.text('Que cherchez-vous ?'), findsOneWidget);
     expect(find.textContaining('Ge. 1:1'), findsNothing);
+  });
+
+  testWidgets('the query field lights its border when it takes the focus',
+      (tester) async {
+    await tester.pumpWidget(app());
+
+    // The field dresses its own shell: reading it back is the only way to see
+    // the liseré without a golden.
+    final shell = find
+        .ancestor(
+          of: find.byType(TextField),
+          matching: find.byType(AnimatedContainer),
+        )
+        .first;
+    BoxDecoration decoration() =>
+        tester.widget<AnimatedContainer>(shell).decoration! as BoxDecoration;
+
+    final resting = decoration().border!.top.color;
+    expect(resting.a, lessThan(.3),
+        reason: 'au repos le liseré du champ reste discret');
+
+    await tester.tap(find.byType(TextField));
+    await tester.pumpAndSettle();
+
+    final lit = decoration().border!.top.color;
+    expect(lit.a, greaterThan(resting.a),
+        reason: 'la focus doit allumer le liseré : le champ écoute');
+    expect(decoration().boxShadow!.first.color.a, greaterThan(.1),
+        reason: 'et l\'ombre suit, à la couleur d\'accent du thème');
+  });
+
+  testWidgets('a group header is keyed by a bar of its section colour',
+      (tester) async {
+    await tester.pumpWidget(app());
+    await type(tester, 'H0430');
+    await tapChip(tester, 'Strong');
+    await tester.pumpAndSettle();
+
+    final title = find.descendant(
+      of: find.byKey(resultListKey),
+      matching: find.text('Strong'),
+    );
+    expect(title, findsOneWidget, reason: 'l\'en-tête de groupe');
+
+    // A 4 × 18 bar of solid colour sits before the title — the count badge
+    // and the tiles only carry tints of it.
+    final bar = find.descendant(
+      of: find.byKey(resultListKey),
+      matching: find.byWidgetPredicate(
+        (w) =>
+            w is Container &&
+            w.constraints?.maxWidth == 4 &&
+            w.constraints?.maxHeight == 18,
+      ),
+    );
+    final decoration = tester.widget<Container>(bar).decoration! as BoxDecoration;
+    expect(decoration.color, isNotNull);
+    expect(decoration.color!.a, greaterThan(.5),
+        reason: 'un filet plein, pas une lueur');
+
+    // Long section names must not push the count badge out of the row.
+    final titleWidget = tester.widget<Text>(title);
+    expect(titleWidget.overflow, TextOverflow.ellipsis);
   });
 }
 

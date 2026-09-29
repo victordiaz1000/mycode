@@ -12,7 +12,6 @@ import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
 import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
-import 'bym_lexicon_index_screen.dart';
 import 'dictionary_browse_screen.dart';
 import 'fredaw_index_screen.dart';
 import 'strong_index_screen.dart';
@@ -218,6 +217,20 @@ class _LibraryScreenState extends State<LibraryScreen> {
           elevation: 0,
           foregroundColor: p.textDark,
           centerTitle: true,
+          // AppBar transparente : un voile d'accent l'ancre au fond, sous les
+          // onglets comme sous le titre.
+          flexibleSpace: DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.center,
+                colors: [
+                  p.primary.withValues(alpha: .12),
+                  p.primary.withValues(alpha: 0),
+                ],
+              ),
+            ),
+          ),
           title: Text(
             'Bibliothèque',
             style: premiumText(context, 18, FontWeight.w800, p.textDark),
@@ -227,7 +240,8 @@ class _LibraryScreenState extends State<LibraryScreen> {
             labelColor: p.primary,
             unselectedLabelColor: p.textGrey,
             indicatorColor: p.primary,
-            indicatorWeight: 2,
+            indicatorWeight: 3,
+            splashBorderRadius: BorderRadius.circular(12),
             labelStyle: premiumText(context, 13, FontWeight.w700, p.primary),
             unselectedLabelStyle: premiumText(
               context,
@@ -352,15 +366,33 @@ class _GroupHeader extends StatelessWidget {
     final p = premiumPalette(context);
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 18, 16, 6),
-      child: Text(
-        title.toUpperCase(),
-        style: premiumText(
-          context,
-          11,
-          FontWeight.w800,
-          p.textGrey,
-          spacing: 1.1,
-        ),
+      child: Row(
+        children: [
+          // Filet de la couleur d'accent : les intertitres de groupe se
+          // repèrent sans avoir à les lire.
+          Container(
+            width: 4,
+            height: 13,
+            decoration: BoxDecoration(
+              color: p.primary,
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              title.toUpperCase(),
+              overflow: TextOverflow.ellipsis,
+              style: premiumText(
+                context,
+                11,
+                FontWeight.w800,
+                p.textGrey,
+                spacing: 1.1,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -383,6 +415,13 @@ class _DeviceSummary extends StatelessWidget {
         decoration: BoxDecoration(
           color: p.primarySoft,
           borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: p.primary.withValues(alpha: .25)),
+          boxShadow: premiumShadow(
+            p.primaryDark,
+            opacity: 0.05,
+            blur: 8,
+            offset: const Offset(0, 3),
+          ),
         ),
         child: Row(
           children: [
@@ -417,20 +456,11 @@ class _LibraryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final p = premiumPalette(context);
+    // Coquille sans forme côté Material, comme la carte d'occurrence : la
+    // lisière et les deux ombres sont peintes par l'`Ink`, qu'un Material
+    // « façonné » rognerait au contour arrondi.
     final card = Ink(
-      decoration: BoxDecoration(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: dimmed
-            ? null
-            : premiumShadow(
-                p.primaryDark,
-                opacity: 0.06,
-                blur: 14,
-                offset: const Offset(0, 6),
-              ),
-      ),
+      decoration: premiumSurface(context, radius: 16, depth: dimmed ? 0.4 : 1),
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
         onTap: onTap,
@@ -633,6 +663,10 @@ class _VersionTile extends StatelessWidget {
         key: Key('delete-${version.code}'),
         tooltip: 'Supprimer de l\'appareil',
         onPressed: onDelete,
+        style: IconButton.styleFrom(
+          backgroundColor: p.surfaceAlt,
+          shape: const CircleBorder(),
+        ),
         icon: const Icon(Icons.delete_outline),
       );
     }
@@ -649,6 +683,10 @@ class _VersionTile extends StatelessWidget {
             key: Key('download-${version.code}'),
             tooltip: state.isPartial ? 'Reprendre' : 'Télécharger',
             onPressed: otherBusy ? null : onDownload,
+            style: IconButton.styleFrom(
+              backgroundColor: p.primarySoft,
+              shape: const CircleBorder(),
+            ),
             icon: Icon(
               state.isPartial ? Icons.refresh : Icons.download_outlined,
               size: 20,
@@ -660,6 +698,10 @@ class _VersionTile extends StatelessWidget {
               key: Key('delete-${version.code}'),
               tooltip: 'Supprimer de l\'appareil',
               onPressed: onDelete,
+              style: IconButton.styleFrom(
+                backgroundColor: p.surfaceAlt,
+                shape: const CircleBorder(),
+              ),
               icon: const Icon(Icons.delete_outline),
             ),
         ],
@@ -671,6 +713,15 @@ class _VersionTile extends StatelessWidget {
         TextButton.icon(
           key: Key('download-${version.code}'),
           onPressed: otherBusy ? null : onDownload,
+          // Pastille d'action : la rangée « à télécharger » se voit sans
+          // changer de gabarit (même padding, même largeur).
+          style: TextButton.styleFrom(
+            foregroundColor: p.primary,
+            backgroundColor: p.primarySoft,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
           icon: Icon(
             state.isPartial ? Icons.refresh : Icons.download_outlined,
             size: 18,
@@ -715,6 +766,12 @@ class _UpdatePill extends StatelessWidget {
           decoration: BoxDecoration(
             color: p.primary,
             borderRadius: BorderRadius.circular(20),
+            boxShadow: premiumShadow(
+              p.primary,
+              opacity: 0.30,
+              blur: 8,
+              offset: const Offset(0, 3),
+            ),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -749,6 +806,11 @@ class _CodeBadge extends StatelessWidget {
       decoration: BoxDecoration(
         color: dimmed ? p.surfaceAlt : p.primarySoft,
         borderRadius: BorderRadius.circular(7),
+        border: Border.all(
+          color: (dimmed ? p.textGrey : p.primary).withValues(
+            alpha: dimmed ? .18 : .28,
+          ),
+        ),
       ),
       child: Text(
         code,
@@ -905,7 +967,8 @@ class _DictionariesTabState extends State<_DictionariesTab> {
             widget.onOpenVerse!(book, chapter, verse);
           };
     return switch (entry.code) {
-      'BYM' => BymLexiconIndexScreen(onOpenVerse: onOpenVerse),
+      // 'BYM' (Notes BYM Lexique) a été retiré du catalogue comme de la
+      // navigation : le lexique n'est plus exposé par la Bibliothèque.
       'FREDAW' => FredawIndexScreen(onOpenVerse: onOpenVerse),
       'STRONG_FR' => StrongIndexScreen(onOpenVerse: onOpenVerse),
       _ => _DictionaryDetailScreen(entry: entry),
@@ -1246,6 +1309,10 @@ class _DictionaryTile extends StatelessWidget {
         key: Key('dict-delete-${entry.code}'),
         tooltip: 'Supprimer de l\'appareil',
         onPressed: onDelete,
+        style: IconButton.styleFrom(
+          backgroundColor: p.surfaceAlt,
+          shape: const CircleBorder(),
+        ),
         icon: const Icon(Icons.delete_outline),
       );
     }
@@ -1255,12 +1322,23 @@ class _DictionaryTile extends StatelessWidget {
         key: Key('dict-download-${entry.code}'),
         tooltip: 'Télécharger',
         onPressed: otherBusy ? null : onDownload,
+        style: IconButton.styleFrom(
+          backgroundColor: p.primarySoft,
+          shape: const CircleBorder(),
+        ),
         icon: Icon(Icons.download_outlined, size: 20, color: otherBusy ? null : p.primary),
       );
     }
     return TextButton.icon(
       key: Key('dict-download-${entry.code}'),
       onPressed: otherBusy ? null : onDownload,
+      style: TextButton.styleFrom(
+        foregroundColor: p.primary,
+        backgroundColor: p.primarySoft,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
       icon: const Icon(Icons.download_outlined, size: 18),
       label: const Text('Télécharger'),
     );
@@ -1281,8 +1359,19 @@ class _DictionaryIcon extends StatelessWidget {
       width: 44,
       height: 44,
       decoration: BoxDecoration(
-        color: color.withValues(alpha: dimmed ? .08 : .16),
+        gradient: dimmed
+            ? null
+            : LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  p.primary.withValues(alpha: .20),
+                  p.primary.withValues(alpha: .08),
+                ],
+              ),
+        color: dimmed ? color.withValues(alpha: .08) : null,
         borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: color.withValues(alpha: .28)),
       ),
       alignment: Alignment.center,
       child: Icon(

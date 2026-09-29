@@ -54,18 +54,12 @@ class DictionaryEntry {
 
 /// The dictionaries of the Bibliothèque.
 ///
-/// Four are embedded (BYM, Strong FR, Westphal 1932 + the SWORD source note).
-/// Nave has no source yet (« À venir »). The downloadable entries appear when
-/// their [DictionaryEntry.url] is filled in — the mechanism is wired, the
-/// hosting is manual (décision 8).
+/// Three are embedded (Strong FR, Westphal 1932 + the SWORD source note) :
+/// le lexique « Notes BYM Lexique » a été débranché du catalogue comme de la
+/// recherche (demande utilisateur). Nave has no source yet (« À venir »). The
+/// downloadable entries appear when their [DictionaryEntry.url] is filled in —
+/// the mechanism is wired, the hosting is manual (décision 8).
 const List<DictionaryEntry> dictionaryCatalog = [
-  DictionaryEntry(
-    code: 'BYM',
-    name: 'Notes BYM Lexique',
-    rights: 'Notes internes de la BYM',
-    description: 'Dictionnaire intégré construit à partir des notes de la BYM.',
-    availability: DictionaryAvailability.embedded,
-  ),
   DictionaryEntry(
     code: 'STRONG_FR',
     name: 'Strong FR',

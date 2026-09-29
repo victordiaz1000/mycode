@@ -19,7 +19,6 @@ import '../widgets/premium_style.dart';
 import '../widgets/loading_skeleton.dart';
 import 'dictionary_entry_screen.dart';
 import 'fredaw_entry_screen.dart';
-import 'bym_lexicon_entry_screen.dart';
 import 'strong_detail_screen.dart';
 
 /// Icon and accent colour of a search category — the coloured glyphs of the
@@ -153,6 +152,10 @@ class _SearchScreenState extends State<SearchScreen> {
     super.initState();
     _loadInstalled();
     LibraryStore.revision.addListener(_onLibraryChanged);
+    // Un dictionnaire peut atterrir pendant que l'écran est monté (le shell
+    // garde la page dans un IndexedStack) : sans cet abonnement, la requête en
+    // cours continuerait de répondre sans lui.
+    DictionaryStore.revision.addListener(_onDictionariesChanged);
     // Requête déjà posée avant la première construction (le shell écrit la
     // valeur puis crée la page) : consommée ici, hors setState — le champ et
     // l'état se remplissent en silence, la recherche part à la frame suivante.
@@ -182,6 +185,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   void dispose() {
     LibraryStore.revision.removeListener(_onLibraryChanged);
+    DictionaryStore.revision.removeListener(_onDictionariesChanged);
     _debounce?.cancel();
     _controller.dispose();
     super.dispose();
@@ -191,6 +195,15 @@ class _SearchScreenState extends State<SearchScreen> {
   /// shell's `IndexedStack`, so without this the « Version » menu would keep
   /// showing whatever the registry held when the tab was first opened.
   void _onLibraryChanged() => _loadInstalled();
+
+  /// Un dictionnaire vient d'atterrir ou d'être supprimé depuis la
+  /// Bibliothèque : les résultats affichés ont été construits sans lui, donc
+  /// la requête en cours repart — sinon il faudrait retaper le mot pour le
+  /// voir apparaître.
+  void _onDictionariesChanged() {
+    if (_query.trim().isEmpty) return;
+    _rerun();
+  }
 
   /// Re-reads the registry into [_installed].
   Future<void> _loadInstalled() async {
@@ -302,26 +315,9 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Future<void> _openHit(SearchHit hit) async {
     if (hit.category == SearchCategory.dictionnaire) {
-      // A BYM lexicon row opens the embedded fiche of its own entry; a row
-      // from a downloaded dictionary opens in the generic fiche of its own
-      // dictionary; a Westphal row opens the embedded FreDAW fiche.
-      final bymLexiconEntry = hit.bymLexiconEntry;
-      if (bymLexiconEntry != null) {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (_) => BymLexiconEntryScreen(
-              entry: bymLexiconEntry,
-              onOpenVerse: (bookIndex, chapter, verse) {
-                // Same contract as the Strong fiche: clear the stacked fiche
-                // chain before switching to the reading tab.
-                Navigator.of(context).popUntil((route) => route.isFirst);
-                widget.onOpenReading(bookIndex, chapter, verse: verse);
-              },
-            ),
-          ),
-        );
-        return;
-      }
+      // A row from a downloaded dictionary opens in the generic fiche of its
+      // own dictionary; a Westphal row opens the embedded FreDAW fiche. (Le
+      // lexique « Notes BYM Lexique » est débranché de la recherche.)
       final code = hit.dictionaryCode;
       if (code != null) {
         await _openDownloadedDictionary(hit, code);
@@ -422,6 +418,22 @@ class _SearchScreenState extends State<SearchScreen> {
                       bibleTheme.titleColor,
                     ),
                   ),
+                  const SizedBox(height: 6),
+                  // Filet d'accent sous le titre : la page a un point de
+                  // départ net avant le champ.
+                  Container(
+                    width: 44,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(2),
+                      gradient: LinearGradient(
+                        colors: [
+                          bibleTheme.accentColor,
+                          bibleTheme.accentColor.withValues(alpha: 0),
+                        ],
+                      ),
+                    ),
+                  ),
                   const SizedBox(height: 12),
                   _SearchField(
                     controller: _controller,
@@ -512,8 +524,9 @@ class _SearchScreenState extends State<SearchScreen> {
 }
 
 /// The rounded, filled query field of the maquette, carte blanche à ombre
-/// douce.
-class _SearchField extends StatelessWidget {
+/// douce — le liseré s'allume à la focus, l'ombre prend la couleur de
+/// l'accent : le champ dit qu'il écoute.
+class _SearchField extends StatefulWidget {
   final TextEditingController controller;
   final ValueChanged<String> onChanged;
   final VoidCallback onClear;
@@ -529,23 +542,55 @@ class _SearchField extends StatelessWidget {
   });
 
   @override
+  State<_SearchField> createState() => _SearchFieldState();
+}
+
+class _SearchFieldState extends State<_SearchField> {
+  final FocusNode _focus = FocusNode();
+  bool _focused = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _focus.addListener(() {
+      if (mounted) setState(() => _focused = _focus.hasFocus);
+    });
+  }
+
+  @override
+  void dispose() {
+    _focus.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final bibleTheme = BibleThemeScope.of(context);
-    return Container(
+    final accent = bibleTheme.accentColor;
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeOut,
       decoration: BoxDecoration(
         color: bibleTheme.panelColor,
         borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: _focused
+              ? accent.withValues(alpha: .55)
+              : premiumCardBorder(context, opacity: .22),
+          width: _focused ? 1.4 : 1,
+        ),
         boxShadow: premiumShadow(
-          bibleTheme.accentColor,
-          opacity: 0.06,
-          blur: 10,
-          offset: const Offset(0, 4),
+          _focused ? accent : bibleTheme.accentColor,
+          opacity: _focused ? 0.22 : 0.06,
+          blur: _focused ? 18 : 10,
+          offset: Offset(0, _focused ? 6 : 4),
         ),
       ),
       child: TextField(
-        controller: controller,
-        onChanged: onChanged,
-        onSubmitted: (_) => onSubmitted(),
+        controller: widget.controller,
+        focusNode: _focus,
+        onChanged: widget.onChanged,
+        onSubmitted: (_) => widget.onSubmitted(),
         textInputAction: TextInputAction.search,
         style: premiumText(context, 16, FontWeight.w500, bibleTheme.textColor),
         decoration: InputDecoration(
@@ -558,14 +603,14 @@ class _SearchField extends StatelessWidget {
           ),
           prefixIcon: Icon(
             Icons.search,
-            color: bibleTheme.accentColor,
+            color: _focused ? accent : bibleTheme.accentColor,
             size: 24,
           ),
-          suffixIcon: hasText
+          suffixIcon: widget.hasText
               ? IconButton(
                   tooltip: 'Effacer',
                   icon: Icon(Icons.close, color: bibleTheme.textColor),
-                  onPressed: onClear,
+                  onPressed: widget.onClear,
                 )
               : null,
           border: OutlineInputBorder(
@@ -661,19 +706,32 @@ class _CategoryChip extends StatelessWidget {
             borderRadius: BorderRadius.circular(14),
             boxShadow: premiumShadow(
               style.color,
-              opacity: 0.08,
-              blur: 8,
+              opacity: active ? 0.16 : 0.06,
+              blur: active ? 12 : 8,
               offset: const Offset(0, 4),
             ),
           ),
           child: InkWell(
             onTap: onTap,
             borderRadius: BorderRadius.circular(14),
-            child: Container(
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              curve: Curves.easeOut,
               padding: const EdgeInsets.symmetric(horizontal: 14),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(14),
-                color: active ? style.color.withValues(alpha: .14) : null,
+                // La sélection se peint en dégradé léger plutôt qu'en aplat :
+                // la pastille garde sa lisibilité sur toutes les palettes.
+                gradient: active
+                    ? LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          style.color.withValues(alpha: .20),
+                          style.color.withValues(alpha: .08),
+                        ],
+                      )
+                    : null,
                 border: Border.all(
                   color: active
                       ? style.color
@@ -739,6 +797,15 @@ class _CountBadge extends StatelessWidget {
     );
   }
 }
+
+/// The « Tout » choice of the « Section » menu, as a non-null sentinel.
+///
+/// [PopupMenuButton] cannot express it with a null item value: the menu route
+/// pops with null, which the button reads as a dismissal — [PopupMenuButton.onSelected]
+/// is then never called and the filter never goes back to « Tout ». Every
+/// option therefore carries a real value, and this one stands outside
+/// [bibleSections]' own range (0..4).
+const _allSections = -1;
 
 /// The « Version · Section · Livre · Ordre » row under the chips.
 class _FilterBar extends StatelessWidget {
@@ -811,12 +878,12 @@ class _FilterBar extends StatelessWidget {
                 onChanged(filters.copyWith(versionCode: code)),
           ),
           const SizedBox(width: 22),
-          _FilterMenu<int?>(
+          _FilterMenu<int>(
             label: 'Section',
-            value: filters.sectionIndex,
+            value: filters.sectionIndex ?? _allSections,
             valueLabel: filters.sectionLabel,
             options: [
-              const _FilterOption(value: null, label: 'Tout'),
+              const _FilterOption(value: _allSections, label: 'Tout'),
               for (var i = 0; i < bibleSections.length; i++)
                 _FilterOption(
                   value: i,
@@ -826,7 +893,7 @@ class _FilterBar extends StatelessWidget {
             ],
             // Picking a section releases the single-book restriction.
             onSelected: (index) => onChanged(
-              index == null
+              index == _allSections
                   ? filters.copyWith(clearSection: true, clearBook: true)
                   : filters.copyWith(sectionIndex: index, clearBook: true),
             ),
@@ -1156,10 +1223,30 @@ class _EmptyState extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 24, 16, 32),
       children: [
-        Icon(
-          Icons.search,
-          size: 110,
-          color: bibleTheme.titleColor.withValues(alpha: .35),
+        // Le grand magnifier du maquette posé dans un halo de la couleur
+        // d'accent : l'état vide a un centre, pas seulement un vide.
+        Center(
+          child: Container(
+            width: 156,
+            height: 156,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: RadialGradient(
+                colors: [
+                  bibleTheme.accentColor.withValues(alpha: .16),
+                  bibleTheme.accentColor.withValues(alpha: .03),
+                ],
+              ),
+              border: Border.all(
+                color: bibleTheme.accentColor.withValues(alpha: .22),
+              ),
+            ),
+            child: Icon(
+              Icons.search,
+              size: 64,
+              color: bibleTheme.accentColor,
+            ),
+          ),
         ),
         const SizedBox(height: 12),
         Center(
@@ -1202,9 +1289,11 @@ class _EmptyState extends StatelessWidget {
                   ),
                   onPressed: () => onPick(query),
                   backgroundColor: bibleTheme.accentColor.withValues(
-                    alpha: .35,
+                    alpha: .30,
                   ),
-                  side: BorderSide.none,
+                  side: BorderSide(
+                    color: bibleTheme.accentColor.withValues(alpha: .50),
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
@@ -1230,10 +1319,28 @@ class _NoResults extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(28, 60, 28, 24),
       children: [
-        Icon(
-          Icons.search_off,
-          size: 76,
-          color: bibleTheme.titleColor.withValues(alpha: .35),
+        Center(
+          child: Container(
+            width: 116,
+            height: 116,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: RadialGradient(
+                colors: [
+                  bibleTheme.accentColor.withValues(alpha: .14),
+                  bibleTheme.accentColor.withValues(alpha: .03),
+                ],
+              ),
+              border: Border.all(
+                color: bibleTheme.accentColor.withValues(alpha: .20),
+              ),
+            ),
+            child: Icon(
+              Icons.search_off,
+              size: 52,
+              color: bibleTheme.accentColor,
+            ),
+          ),
         ),
         const SizedBox(height: 16),
         Text(
@@ -1342,7 +1449,12 @@ class _Results extends StatelessWidget {
                         context,
                         group.category,
                       ).color.withValues(alpha: .14),
-                      side: BorderSide.none,
+                      side: BorderSide(
+                        color: _styleOf(
+                          context,
+                          group.category,
+                        ).color.withValues(alpha: .40),
+                      ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -1353,11 +1465,18 @@ class _Results extends StatelessWidget {
           ],
         ),
         if (searching)
-          const Positioned(
+          Positioned(
             top: 0,
             left: 0,
             right: 0,
-            child: LinearProgressIndicator(minHeight: 2),
+            child: LinearProgressIndicator(
+              minHeight: 2,
+              backgroundColor: BibleThemeScope.of(context).accentColor
+                  .withValues(alpha: .12),
+              valueColor: AlwaysStoppedAnimation<Color>(
+                BibleThemeScope.of(context).accentColor,
+              ),
+            ),
           ),
       ],
     );
@@ -1380,6 +1499,9 @@ class _CoverageNote extends StatelessWidget {
       decoration: BoxDecoration(
         color: bibleTheme.accentColor.withValues(alpha: .18),
         borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: bibleTheme.accentColor.withValues(alpha: .30),
+        ),
       ),
       child: Row(
         children: [
@@ -1425,13 +1547,27 @@ class _GroupHeader extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(16, 20, 16, 10),
       child: Row(
         children: [
-          Text(
-            title,
-            style: premiumText(
-              context,
-              16,
-              FontWeight.w800,
-              bibleTheme.textColor.withValues(alpha: .82),
+          // Un filet de la couleur de la section titille l'intitulé : les
+          // groupes se lisent d'un coup d'œil, même en filet.
+          Container(
+            width: 4,
+            height: 18,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              title,
+              overflow: TextOverflow.ellipsis,
+              style: premiumText(
+                context,
+                16,
+                FontWeight.w800,
+                bibleTheme.titleColor,
+              ),
             ),
           ),
           const SizedBox(width: 8),
@@ -1459,14 +1595,32 @@ class _ReferenceCard extends StatelessWidget {
       shadowColor: Colors.transparent,
       child: Ink(
         decoration: BoxDecoration(
-          color: bibleTheme.panelColor,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: premiumShadow(
-            bibleTheme.accentColor,
-            opacity: 0.07,
-            blur: 16,
-            offset: const Offset(0, 6),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              bibleTheme.panelColor,
+              bibleTheme.panelColor.withValues(
+                alpha: bibleTheme.panelColor.a * .80,
+              ),
+            ],
           ),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: premiumCardBorder(context, opacity: .18)),
+          boxShadow: [
+            ...premiumShadow(
+              bibleTheme.accentColor,
+              opacity: 0.07,
+              blur: 16,
+              offset: const Offset(0, 6),
+            ),
+            ...premiumShadow(
+              bibleTheme.accentColor,
+              opacity: 0.05,
+              blur: 3,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
@@ -1531,14 +1685,32 @@ class _HitTile extends StatelessWidget {
       shadowColor: Colors.transparent,
       child: Ink(
         decoration: BoxDecoration(
-          color: bibleTheme.panelColor,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: premiumShadow(
-            style.color,
-            opacity: 0.06,
-            blur: 12,
-            offset: const Offset(0, 5),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              bibleTheme.panelColor,
+              bibleTheme.panelColor.withValues(
+                alpha: bibleTheme.panelColor.a * .80,
+              ),
+            ],
           ),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: premiumCardBorder(context, opacity: .16)),
+          boxShadow: [
+            ...premiumShadow(
+              style.color,
+              opacity: 0.07,
+              blur: 14,
+              offset: const Offset(0, 6),
+            ),
+            ...premiumShadow(
+              bibleTheme.accentColor,
+              opacity: 0.05,
+              blur: 3,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
@@ -1554,8 +1726,18 @@ class _HitTile extends StatelessWidget {
                   width: 42,
                   height: 42,
                   decoration: BoxDecoration(
-                    color: style.color.withValues(alpha: .14),
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        style.color.withValues(alpha: .20),
+                        style.color.withValues(alpha: .08),
+                      ],
+                    ),
                     borderRadius: BorderRadius.circular(11),
+                    border: Border.all(
+                      color: style.color.withValues(alpha: .28),
+                    ),
                   ),
                   child: Icon(style.icon, size: 21, color: style.color),
                 ),
