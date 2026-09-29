@@ -30,6 +30,68 @@ void main() {
     expect(g2316.definition, contains('Dieu'));
   });
 
+  test('the gloss the exporter used to drop is back as a signification',
+      () async {
+    final lexicon = StrongLexicon.instance;
+
+    // The source line sits before the list of senses (« Paul ou Paulus =
+    // petit ») and was read away with the <item>s it introduces.
+    final g3972 = await lexicon.lookup('G3972');
+    expect(g3972.signification, 'Paul ou Paulus = petit');
+
+    // An entry the source gives no gloss to keeps the field away.
+    final g2316 = await lexicon.lookup('G2316');
+    expect(g2316.signification, isNull);
+  });
+
+  test('a Hebrew verb keeps its stems and its numbering as a tree', () async {
+    final lexicon = StrongLexicon.instance;
+
+    // H7200 (ra’ah) : (Qal) puis 1a1)…1a6), (Nifal) puis 1b1)…1b3).
+    final h7200 = await lexicon.lookup('H7200');
+    expect(h7200.outline, isNotEmpty);
+
+    final qal = h7200.outline.firstWhere((node) => node.label == 'Qal');
+    expect(qal.kind, StrongOutlineKind.header);
+    expect(qal.level, 0);
+
+    final nifal = h7200.outline.firstWhere((node) => node.label == 'Nifal');
+    expect(nifal.level, qal.level,
+        reason: 'les stems restent tous au même niveau');
+
+    final rung =
+        h7200.outline.firstWhere((node) => node.text.startsWith('1a1)'));
+    expect(rung.kind, StrongOutlineKind.number);
+    expect(rung.level, greaterThan(qal.level),
+        reason: '« 1a1) voir » s’indente sous « (Qal) »');
+
+    // A name the source never numbers keeps its plain list of bullets.
+    expect((await lexicon.lookup('G3972')).outline, isEmpty);
+  });
+
+  test('a parent sense no longer folds its children into itself', () async {
+    final lexicon = StrongLexicon.instance;
+
+    // H1285 : <item>entre hommes</item> porte une <list> de 1a1) à 1a5). Le
+    // texte du parent recopiait ses enfants, puis les reprenait un à un.
+    final h1285 = await lexicon.lookup('H1285');
+    expect(h1285.senses.first, 'entre hommes');
+    expect(h1285.senses, contains('1a1) traité, alliance, ligue'));
+    expect(
+      h1285.senses.where(
+          (sense) => sense.startsWith('entre') && sense.contains('1a1)')),
+      isEmpty,
+      reason: 'le parent ne recopie plus le détail de ses enfants',
+    );
+
+    // The outline says the same thing, level by level.
+    expect(h1285.outline.first.text, 'entre hommes');
+    expect(h1285.outline[1].text, '1a1) traité, alliance, ligue');
+    expect(h1285.outline[1].level, greaterThan(h1285.outline.first.level));
+    // …and the label the source puts between its two lists is kept.
+    expect(h1285.outline.any((node) => node.text == '(phrases)'), isTrue);
+  });
+
   test('the lexicon is complete enough to cover both testaments', () async {
     final lexicon = StrongLexicon.instance;
     await lexicon.lookup('H0001');
@@ -44,6 +106,21 @@ void main() {
     final result = await StrongLexicon.instance.lookup('H99999');
     expect(result.strong, 'H99999');
     expect(result.definition, contains('non disponible'));
+  });
+
+  test('a token carrying two Strong codes answers the first one known',
+      () async {
+    final lexicon = StrongLexicon.instance;
+
+    // Un mot du corpus porte parfois deux codes à la fois (Jean 18.35).
+    expect(StrongLexicon.codesOf(' G3588 G4674 '), ['G3588', 'G4674']);
+    expect(StrongLexicon.codesOf('H0001'), ['H0001']);
+    expect((await lexicon.lookup('G3588 G4674')).strong, 'G3588');
+
+    // Chaque code reste cherchable pour lui-même.
+    expect((await lexicon.lookup('G4674')).strong, 'G4674');
+    expect(await lexicon.contains('G3588 G4674'), isTrue);
+    expect(await lexicon.contains('H99999 G4674'), isTrue);
   });
 
   test('search ranks an exact code first', () async {

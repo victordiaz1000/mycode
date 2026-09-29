@@ -15,7 +15,16 @@ class StrongDefinition {
   final String? pronunciation;
   final String? partOfSpeech;
   final String? etymology;
+
+  /// The gloss the source places before its list of senses — « Abiel = Dieu
+  /// est mon père », « Paul ou Paulus = petit ». Null when the entry has none.
+  final String? signification;
   final List<String> senses;
+
+  /// The senses as the source numbers them — stems (« Qal », « Hifil ») and
+  /// rungs (« 1a1) », « 2b1) ») included, each with the indent it asks for.
+  /// Empty when the entry is a flat list of bullets.
+  final List<StrongOutlineNode> outline;
 
   const StrongDefinition({
     required this.strong,
@@ -26,7 +35,9 @@ class StrongDefinition {
     this.pronunciation,
     this.partOfSpeech,
     this.etymology,
+    this.signification,
     this.senses = const [],
+    this.outline = const [],
   });
 
   factory StrongDefinition.fromJson(String key, dynamic value) {
@@ -42,6 +53,10 @@ class StrongDefinition {
         .map((item) => item.toString().trim())
         .where((item) => item.isNotEmpty)
         .toList(growable: false);
+    final outline = (rawMap['outline'] as List<dynamic>? ?? const [])
+        .map(StrongOutlineNode.fromJson)
+        .where((node) => node.text.isNotEmpty || node.label != null)
+        .toList(growable: false);
     return StrongDefinition(
       strong: field('strong')?.toUpperCase() ?? key,
       definition: field('definition') ?? 'Définition non disponible.',
@@ -51,7 +66,9 @@ class StrongDefinition {
       pronunciation: field('pronunciation'),
       partOfSpeech: field('partOfSpeech'),
       etymology: field('etymology'),
+      signification: field('signification'),
       senses: senses,
+      outline: outline,
     );
   }
 
@@ -65,8 +82,63 @@ class StrongDefinition {
         pronunciation,
         partOfSpeech,
         etymology,
+        signification,
         ...senses,
       ].whereType<String>().join(' ');
+}
+
+/// What a line of the source's own outline means on the fiche.
+enum StrongOutlineKind {
+  /// A plain sense, shown with the usual bullet.
+  sense,
+
+  /// A numbered rung — « 1a1) voir » — whose code is set apart.
+  number,
+
+  /// A group the source opens: a stem (« Qal »), a label (« (phrases) »).
+  header,
+}
+
+/// One line of a [`StrongDefinition.outline`], at the indent the source asks.
+class StrongOutlineNode {
+  /// Rung of the line: 0 for the entry's own level, one more per step down.
+  final int level;
+  final StrongOutlineKind kind;
+
+  /// The line's text. For a [StrongOutlineKind.header] this is what follows
+  /// the label, spacing included: `label` + `text` reads as the source does.
+  final String text;
+
+  /// A header's label, without its parentheses — « Qal », « Pual ». Null for
+  /// a label the source already wrote in full — « (phrases) ».
+  final String? label;
+
+  const StrongOutlineNode({
+    required this.level,
+    required this.kind,
+    required this.text,
+    this.label,
+  });
+
+  factory StrongOutlineNode.fromJson(dynamic value) {
+    final map = value is Map ? value : const {};
+    final kind = map['kind'];
+    final rawLabel = map['label']?.toString().trim();
+    return StrongOutlineNode(
+      level: int.tryParse(map['level']?.toString() ?? '') ?? 0,
+      kind: kind == 'number'
+          ? StrongOutlineKind.number
+          : (kind == 'header' || kind == 'label')
+              ? StrongOutlineKind.header
+              : StrongOutlineKind.sense,
+      // Not trimmed: a header keeps the spacing the source gave it.
+      text: map['text']?.toString() ?? '',
+      label: rawLabel == null || rawLabel.isEmpty ? null : rawLabel,
+    );
+  }
+
+  /// « (Qal) » — the header as the source wrote it, label included.
+  String get asWritten => label == null ? text : '($label)$text';
 }
 
 /// In-memory French Strong lexicon, loaded lazily from `assets/lexicon/`.
@@ -122,10 +194,25 @@ class StrongLexicon {
     }
   }
 
+  /// The Strong codes written in [strong], in order. A corpus token may carry
+  /// two of them for a single word — « G3588 G4674 » for Jean 18.35 — and the
+  /// lexicon holds one entry per code.
+  static List<String> codesOf(String strong) => [
+        for (final part in strong.split(RegExp(r'\s+')))
+          if (part.trim().isNotEmpty) part.trim().toUpperCase(),
+      ];
+
   Future<StrongDefinition> lookup(String strong) async {
-    final key = strong.trim().toUpperCase();
     await _ensureLoaded();
-    return _definitions[key] ?? StrongDefinition(
+    // Several codes in one string: answer with the first one the lexicon
+    // holds. Each code still has its own fiche — a caller that wants them
+    // all asks for them one by one through [codesOf].
+    for (final code in codesOf(strong)) {
+      final found = _definitions[code];
+      if (found != null) return found;
+    }
+    final key = strong.trim().toUpperCase();
+    return StrongDefinition(
       strong: key,
       definition: 'Définition Strong non disponible pour $key dans le lexique embarqué.',
     );
@@ -133,7 +220,7 @@ class StrongLexicon {
 
   Future<bool> contains(String strong) async {
     await _ensureLoaded();
-    return _definitions.containsKey(strong.trim().toUpperCase());
+    return codesOf(strong).any(_definitions.containsKey);
   }
 
   Future<List<StrongDefinition>> all() async {

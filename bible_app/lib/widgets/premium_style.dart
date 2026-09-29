@@ -128,6 +128,45 @@ List<BoxShadow> premiumShadow(
   ),
 ];
 
+/// La surface habillée d'une carte : un voile vertical, le liseré **net** de
+/// [premiumCardBorder] et deux ombres — l'ambiante large qui décolle la carte,
+/// la serrée qui la pose sur la page.
+///
+/// C'est le registre « premium affirmé » des écrans d'étude du verset et de
+/// recherche : la même syntaxe pour tous les panneaux, sur toutes les
+/// palettes. [depth] pousse les deux ombres pour les grandes surfaces (une
+/// carte de verset) et les laisse au calme pour les rangées serrées.
+BoxDecoration premiumSurface(
+  BuildContext context, {
+  double radius = 16,
+  double depth = 1,
+}) {
+  final p = premiumPalette(context);
+  return BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [p.surface, p.surfaceAlt],
+    ),
+    borderRadius: BorderRadius.circular(radius),
+    border: Border.all(color: premiumCardBorder(context, opacity: .18)),
+    boxShadow: [
+      ...premiumShadow(
+        p.primaryDark,
+        opacity: .08 * depth,
+        blur: 20,
+        offset: const Offset(0, 10),
+      ),
+      ...premiumShadow(
+        p.primaryDark,
+        opacity: .10 * depth,
+        blur: 3,
+        offset: const Offset(0, 2),
+      ),
+    ],
+  );
+}
+
 TextStyle premiumText(
   BuildContext context,
   double size,
