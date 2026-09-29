@@ -453,8 +453,8 @@ void main() {
     await tester.tap(find.byIcon(Icons.more_vert));
     await tester.pumpAndSettle();
 
-    // The checkmark offsets the label's centre; the tap still lands on the chip.
-    await tester.tap(find.text('Texte + notes'), warnIfMissed: false);
+    // A segment of a bar is a full-width target: no checkmark to dodge.
+    await tester.tap(find.text('Texte + notes'));
     await tester.pumpAndSettle();
 
     // Both dispositions appear, the reader reconstructs the annotated verse from
@@ -468,6 +468,31 @@ void main() {
     );
   });
 
+  testWidgets('the notes read as one bar per decision, never as loose chips', (
+    tester,
+  ) async {
+    await pumpReader(tester);
+    await tester.tap(find.byIcon(Icons.more_vert));
+    await tester.pumpAndSettle();
+
+    // One carrier per decision: the mode, then — only once there are notes to
+    // place — the disposition. Their old face was a loose chip per option,
+    // which stacked two or three deep on a narrow screen.
+    Finder barOf(Type optionType) => find.byWidgetPredicate(
+      (widget) => widget.runtimeType.toString() == 'ReadingChoiceBar<$optionType>',
+    );
+
+    expect(barOf(bool), findsOneWidget);
+    expect(barOf(NoteDisposition), findsNothing);
+    expect(find.byType(FilterChip), findsNothing);
+
+    await tester.tap(find.text('Texte + notes'));
+    await tester.pumpAndSettle();
+
+    expect(barOf(NoteDisposition), findsOneWidget);
+    expect(find.text('Notes sous le verset'), findsOneWidget);
+  });
+
   testWidgets('the continuous flow offers only « à la suite »', (tester) async {
     // The disposition is a tiles-only choice: the flow weaves the notes into
     // the sentence, so offering « sous le verset » there would be a control that
@@ -476,12 +501,12 @@ void main() {
     await pumpReader(tester);
     await tester.tap(find.byIcon(Icons.more_vert));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Texte + notes'), warnIfMissed: false);
+    await tester.tap(find.text('Texte + notes'));
     await tester.pumpAndSettle();
     expect(find.text('Notes à la suite'), findsOneWidget);
     expect(find.text('Notes sous le verset'), findsOneWidget);
 
-    await tester.tap(find.text('Texte continu'), warnIfMissed: false);
+    await tester.tap(find.text('Texte continu'));
     await tester.pumpAndSettle();
 
     expect(find.text('Notes à la suite'), findsOneWidget);
@@ -492,7 +517,7 @@ void main() {
     );
 
     // And the stored disposition survives the round trip to the tiles layout.
-    await tester.tap(find.text('Versets séparés'), warnIfMissed: false);
+    await tester.tap(find.text('Versets séparés'));
     await tester.pumpAndSettle();
     expect(find.text('Notes sous le verset'), findsOneWidget);
   });

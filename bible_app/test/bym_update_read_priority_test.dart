@@ -5,8 +5,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:bible_app/data/book_catalog.dart';
+import 'package:bible_app/data/bym_update_service.dart';
 import 'package:bible_app/data/bym_update_store.dart';
 import 'package:bible_app/data/local_repository.dart';
+import 'package:bible_app/models/bible_book.dart';
 
 import 'support/fake_bible_bundle.dart';
 
@@ -136,4 +138,42 @@ void main() {
 
     expect((await LocalRepository().loadBook(1)).book, catalogEntry(1).name);
   });
+
+  test(
+    'quand textRevision prévient, une relecture donne déjà le texte corrigé',
+    () async {
+      // L'écran de lecture se rafraîchit sur cette notification
+      // (`chapter_reader.dart:_onTextRevisionChanged`). Tout l'intérêt est
+      // l'ordre : le cache doit être vide *avant* que la notification parte,
+      // sinon la relecture ressort le livre d'avant — exactement celui que la
+      // mise à jour vient de remplacer. C'est la raison d'être de
+      // `textRevision` plutôt que de `BymUpdateStore.revision`, qui prévient au
+      // moment de l'écriture du registre, donc trop tôt.
+
+      // Le cache tient le texte embarqué, comme un onglet resté ouvert.
+      expect((await LocalRepository().loadBook(1)).book, catalogEntry(1).name);
+
+      await install(jsonEncode({
+        'book': 'Bereshit (Genèse) corrigé',
+        'chapters': [
+          {
+            'chapter': 1,
+            'verses': [
+              {'verse': '1:1', 'text': 'Corrigé.'},
+            ],
+          },
+        ],
+      }));
+
+      Future<BibleBook>? reread;
+      void listener() => reread = LocalRepository().loadBook(1);
+      BymUpdateService.textRevision.addListener(listener);
+      addTearDown(() => BymUpdateService.textRevision.removeListener(listener));
+
+      BymUpdateService.invalidateCaches();
+
+      expect(reread, isNotNull, reason: 'la notification n\'est pas partie');
+      expect((await reread!).book, 'Bereshit (Genèse) corrigé');
+    },
+  );
 }

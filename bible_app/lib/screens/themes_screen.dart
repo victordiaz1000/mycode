@@ -10,20 +10,30 @@ import '../widgets/premium_style.dart';
 /// beiges, bruns) sont intercalées pour qu'aucun voisin — côte à côte ou juste
 /// au-dessus — ne soit de la même famille. `bibleThemes` reste l'ordre canonique
 /// (son premier élément est le thème de secours) ; seul l'affichage est réordonné.
+///
+/// Les trois fonds sombres (azur, veillée, nuit) sont posés aux rangs 1, 6 et 11
+/// : ils tombent ainsi en diagonale que la grille ait 2, 3 ou 4 colonnes, au lieu
+/// de se regrouper en un bloc noir dans un coin.
+///
+/// ⚠️ Un thème absent de cette liste n'apparaît **nulle part** dans
+/// l'application — le test `themes_screen_test.dart` vérifie que la liste couvre
+/// tout le catalogue.
 List<BibleTheme> _displayThemes() {
   const order = [
     'azur',
     'forest',
     'minimal',
     'sepia',
+    'lin',
+    'veillee',
     'oliveraie',
     'metal',
     'parchemin',
     'vitrail',
+    'nuit',
     'desert',
     'papyrus',
     'sinai',
-    'nuit',
   ];
   return [for (final id in order) themeById(id)];
 }

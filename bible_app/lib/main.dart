@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/bym_update_service.dart';
 import 'data/bym_update_store.dart';
+import 'data/share_text.dart';
 import 'data/tab_manager.dart';
 import 'screens/home_screen.dart';
 import 'screens/library_screen.dart';
@@ -28,7 +29,13 @@ class BymApp extends StatefulWidget {
   State<BymApp> createState() => _BymAppState();
 }
 
-class _BymAppState extends State<BymApp> {
+class _BymAppState extends State<BymApp> with WidgetsBindingObserver {
+  /// Chargement du registre, gardé pour que la vérification au retour au premier
+  /// plan ne puisse pas le devancer : `referenceIndex()` lit
+  /// `BymUpdateStore.installedBlobs`, garni par `load()`, et une comparaison
+  /// faite trop tôt reproposerait des livres déjà installés.
+  late final Future<void> _storeReady;
+
   @override
   void initState() {
     super.initState();
@@ -41,7 +48,33 @@ class _BymAppState extends State<BymApp> {
     // La vérification qui suit ne télécharge que le manifest (2 Ko) et ne lève
     // jamais : hors ligne, le démarrage reste silencieux. Aucun livre n'arrive
     // sans un appui de l'utilisateur dans Réglages.
-    BymUpdateStore.load().then((_) => BymUpdateChecker.maybeCheck());
+    _storeReady = BymUpdateStore.load();
+    _storeReady.then((_) => BymUpdateChecker.maybeCheck());
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  /// Seconde occasion de vérifier, et la seule qui rende les 24 h effectives.
+  ///
+  /// `initState` ne s'exécute qu'au **démarrage à froid** du processus. Android
+  /// garde volontiers une application en mémoire pendant des jours : sans ce
+  /// crochet, un lecteur qui ne ferme jamais BYM ne verrait jamais une
+  /// correction, quel que soit l'intervalle réglé.
+  ///
+  /// Le plafond d'une vérification par [BymUpdateService.checkInterval] reste
+  /// dans `maybeCheck`, donc revenir dix fois dans la journée ne coûte que dix
+  /// lectures de préférence : ce crochet ajoute des *occasions* de constater que
+  /// le délai est écoulé, pas des requêtes.
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    if (state != AppLifecycleState.resumed) return;
+    _storeReady.then((_) => BymUpdateChecker.maybeCheck());
   }
 
   @override
@@ -128,7 +161,7 @@ class _BymAppState extends State<BymApp> {
             systemNavigationBarContrastEnforced: false,
           ),
           child: MaterialApp(
-            title: 'BYM — Bible de Yehoshoua Ha Mashiah',
+            title: appName,
             debugShowCheckedModeBanner: false,
             theme: theme,
             builder: (context, child) {
@@ -258,6 +291,9 @@ class _HomeShellState extends State<HomeShell> {
         jumpToVerse: _jumpToVerse,
         onOpenLibrary: () => _selectDestination(BymDestination.bibliotheque),
         onOpenVerse: (b, c, v) => _openReading(b, c, verse: v),
+        // Le bandeau défilant de la lecture n'installe rien non plus : comme la
+        // pastille de la Bibliothèque, il conduit à Réglages.
+        onOpenSettings: () => _selectDestination(BymDestination.reglages),
       ),
       BymDestination.recherche => SearchScreen(
         onOpenReading: _openReading,

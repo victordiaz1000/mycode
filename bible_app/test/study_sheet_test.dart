@@ -253,6 +253,81 @@ void main() {
     },
   );
 
+  /// Désactivé ne suffit pas : il faut que ça **se voie**. Le bouton gardait son
+  /// liseré doré, son fond doré et son libellé doré en gras — seule l'icône
+  /// grisait — donc il avait exactement l'air d'un bouton actif qui ne répond
+  /// pas. Trois causes, toutes vérifiées ici parce qu'aucune ne se corrige en
+  /// touchant `onPressed` :
+  ///
+  /// * `styleFrom(side:)` passe par `allOrNull` — un seul liseré pour tous les
+  ///   états, désactivé compris ;
+  /// * la couleur explicite du libellé l'emporte sur le `foregroundColor` du
+  ///   bouton, donc le texte ignorait l'état ;
+  /// * `disabledBackgroundColor` laissé nul retombe sur le défaut du thème.
+  testWidgets('désactivé, le bouton Lexique se voit désactivé', (tester) async {
+    const label = 'Lexique & Dictionnaire — version BYM';
+    await pumpSheet(tester, lexiqueEnabled: false, lexiqueLabel: label);
+    final p = paletteOf(tester);
+
+    final style = tester
+        .widget<OutlinedButton>(find.widgetWithText(OutlinedButton, label))
+        .style!;
+    const off = <WidgetState>{WidgetState.disabled};
+
+    expect(
+      style.side!.resolve(off)!.color,
+      isNot(p.primary),
+      reason: 'le liseré doré est le signal d’un bouton actif',
+    );
+    expect(
+      style.foregroundColor!.resolve(off),
+      p.textGrey,
+      reason: 'l’icône doit grisonner avec le reste, pas selon Material',
+    );
+    expect(
+      style.backgroundColor!.resolve(off),
+      Colors.transparent,
+      reason: 'pas de fond teinté d’accent sur une action indisponible',
+    );
+
+    final text = tester.widget<Text>(find.text(label));
+    expect(
+      text.style!.color,
+      p.textGrey,
+      reason: 'le libellé porte sa couleur en dur : c’est lui qui trahissait',
+    );
+
+    // Et la raison, écrite : gris seul, le lecteur voit que c'est fermé sans
+    // savoir pourquoi ni comment l'ouvrir.
+    expect(find.text('Disponible depuis le texte BYM.'), findsOneWidget);
+  });
+
+  testWidgets('actif, il garde l’accent doré et ne s’excuse pas', (
+    tester,
+  ) async {
+    await pumpSheet(tester);
+    final p = paletteOf(tester);
+
+    final style = tester
+        .widget<OutlinedButton>(
+          find.widgetWithText(
+            OutlinedButton,
+            'Lexique & Dictionnaire — verset mot à mot',
+          ),
+        )
+        .style!;
+
+    expect(style.side!.resolve(const <WidgetState>{})!.color, p.primary);
+    expect(
+      tester
+          .widget<Text>(find.text('Lexique & Dictionnaire — verset mot à mot'))
+          .style!
+          .color,
+      p.primary,
+    );
+    expect(find.text('Disponible depuis le texte BYM.'), findsNothing);
+  });
+
   testWidgets('the Lexique button carries a precise name when enabled', (
     tester,
   ) async {

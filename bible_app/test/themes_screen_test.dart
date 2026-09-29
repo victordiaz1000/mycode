@@ -16,7 +16,8 @@ const Set<String> _coverThemes = {'vitrail', 'parchemin'};
 
 /// The only dark palettes: their light text is what flips the whole app to
 /// dark surfaces (`usesLightText`), so it must stay in sync with the catalog.
-const Set<String> _lightTextThemes = {'azur', 'nuit'};
+/// Azur is a vivid blue, nuit a blue-black, veillée a warm brown-black.
+const Set<String> _lightTextThemes = {'azur', 'nuit', 'veillee'};
 
 void main() {
   setUp(() => SharedPreferences.setMockInitialValues({}));
@@ -78,6 +79,29 @@ void main() {
         reason: '${theme.id} must ${_lightTextThemes.contains(theme.id) ? "keep" : "drop"} light text',
       );
     }
+  });
+
+  testWidgets('la grille montre tout le catalogue, sans doublon', (
+    tester,
+  ) async {
+    // `_displayThemes()` réordonne le catalogue à la main pour éviter deux
+    // voisins de la même famille. Un thème oublié dans cette liste n'apparaît
+    // **nulle part** dans l'application : il est dans le catalogue, il se
+    // persiste, il ne se choisit pas. C'est arrivé, d'où ce test.
+    //
+    // Écran très haut : la `GridView` est en `shrinkWrap`, donc elle construit
+    // toutes ses cellules, mais la `ListView` qui la porte est paresseuse.
+    await pump(tester, const Size(900, 4000));
+    for (final theme in bibleThemes) {
+      expect(
+        find.text(theme.name),
+        findsOneWidget,
+        reason:
+            '« ${theme.name} » (${theme.id}) absent de la grille — '
+            'manque-t-il dans la liste `order` de _displayThemes() ?',
+      );
+    }
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('cards preview the real background the way the reader paints it',

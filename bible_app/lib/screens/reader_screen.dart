@@ -7,6 +7,7 @@ import '../data/reading_history.dart';
 import '../data/tab_manager.dart';
 import '../data/version_repository.dart';
 import '../models/study_tab.dart';
+import '../widgets/bym_update_banner.dart';
 import '../widgets/chapter_reader.dart';
 import '../widgets/premium_style.dart';
 import '../widgets/reader_actions_bar.dart';
@@ -33,12 +34,18 @@ class ReaderScreen extends StatefulWidget {
   /// fallback (open the chapter, verse lost) for standalone use.
   final void Function(int bookIndex, int chapter, int verse)? onOpenVerse;
 
+  /// Où conduit le bandeau « Mettre à jour le texte BYM » : la section de
+  /// Réglages, seul endroit qui décide d'un téléchargement. Null en usage isolé
+  /// (tests) — le bandeau reste alors une annonce à lire.
+  final VoidCallback? onOpenSettings;
+
   const ReaderScreen({
     super.key,
     this.initialManager,
     this.jumpToVerse,
     this.onOpenLibrary,
     this.onOpenVerse,
+    this.onOpenSettings,
   });
 
   @override
@@ -80,6 +87,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
             return _NewTabHome(
               manager: _manager,
               onOpenLibrary: widget.onOpenLibrary,
+              onOpenSettings: widget.onOpenSettings,
             );
           }
           final activeIndex = _manager.activeIndex < 0
@@ -98,6 +106,12 @@ class _ReaderScreenState extends State<ReaderScreen> {
                       manager: _manager,
                       onOpenSwitcher: () => TabSwitcher.show(context, _manager),
                     ),
+                  // Sous les onglets, au-dessus du texte : le bandeau annonce la
+                  // correction disponible là où le lecteur se trouve. Il ne
+                  // s'affiche que si une mise à jour attend, et l'immersion
+                  // l'emporte sur lui comme sur le reste du décor.
+                  if (!immersive)
+                    BymUpdateBanner(onOpenSettings: widget.onOpenSettings),
                   Expanded(
                     child: IndexedStack(
                       index: activeIndex,
@@ -132,6 +146,10 @@ class _ReaderScreenState extends State<ReaderScreen> {
       onVerseChanged: (verse) => _manager.updateTabVerse(tab.id, verse),
       jumpToVerse: widget.jumpToVerse,
       onOpenLibrary: widget.onOpenLibrary,
+      // The ⋯ sheet's « Tous les réglages » row. Same destination switch as the
+      // update banner's: the reading tab stays alive in the shell's IndexedStack,
+      // so leaving for Réglages costs no position.
+      onOpenSettings: widget.onOpenSettings,
       onVersionChanged: (code) => _manager.updateTabVersion(tab.id, code),
       // Navigating from inside a tab (« Livres » pill, ‹ › arrows) moves *this*
       // tab instead of spawning one — only the strip's ＋ adds a tab. Opening
@@ -209,7 +227,12 @@ class _HomeTab extends StatelessWidget {
 class _NewTabHome extends StatefulWidget {
   final TabManager manager;
   final VoidCallback? onOpenLibrary;
-  const _NewTabHome({required this.manager, this.onOpenLibrary});
+  final VoidCallback? onOpenSettings;
+  const _NewTabHome({
+    required this.manager,
+    this.onOpenLibrary,
+    this.onOpenSettings,
+  });
 
   @override
   State<_NewTabHome> createState() => _NewTabHomeState();
@@ -275,6 +298,10 @@ class _NewTabHomeState extends State<_NewTabHome> {
               onOpenSwitcher: () =>
                   TabSwitcher.show(context, widget.manager),
             ),
+            // Même annonce que dans un onglet ouvert : la page sans onglet est
+            // aussi la page de lecture, et c'est souvent la première vue au
+            // lancement — donc celle qui doit le dire.
+            BymUpdateBanner(onOpenSettings: widget.onOpenSettings),
             _HomeActionsBar(
               versionCode: _versionCode,
               onSelectVersion: _selectVersion,

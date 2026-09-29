@@ -25,7 +25,11 @@ void main() {
       (tester) async {
     final previous = shareText;
     var shared = '';
-    shareText = (message) async => shared = message;
+    Rect? anchor;
+    shareText = (message, {Rect? origin}) async {
+      shared = message;
+      anchor = origin;
+    };
     addTearDown(() => shareText = previous);
 
     await tester.pumpWidget(MaterialApp(
@@ -55,7 +59,15 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(shared, contains('Verset de test Ge. 1:1.'));
-    expect(shared, contains('Genèse 1:1'));
+    expect(shared, contains('Bereshit 1:1'));
+    expect(
+      shared.split('\n').first,
+      appName,
+      reason: 'le partage s\'ouvre sur le nom de l\'app',
+    );
+    // The sheet is given an anchor: without one `share_plus` has nothing to
+    // position against, which is the classic tablet misplacement.
+    expect(anchor, isNotNull, reason: 'la feuille doit avoir une origine');
   });
 
   testWidgets('Copier carries the reference too', (tester) async {
@@ -100,7 +112,9 @@ void main() {
     await tester.tap(find.text('Copier'));
     await tester.pumpAndSettle();
 
-    expect(copied, contains('Genèse 1:1'));
-    expect(copied, contains('Verset de test Ge. 1:1.'));
+    // Exact, not `contains`: the shape *is* the contract, and a loose matcher
+    // let the inline format drift back in unnoticed.
+    expect(copied, '$appName\nBereshit 1:1 Verset de test Ge. 1:1.',
+        reason: 'le nom de l\'app ouvre la copie, puis la référence en tête');
   });
 }

@@ -338,6 +338,23 @@ void main() {
       chapter: 3,
       verse: 16,
     ),
+    // Hors BYM la feuille porte une ligne de plus sous le bouton Lexique grisé
+    // (« Disponible depuis le texte BYM. ») : c'est une variante de hauteur, donc
+    // elle repasse ici, à x2 et sur les écrans les plus courts.
+    'feuille d\'étude — lexique grisé': (context) => showStudySheet(
+      context,
+      reference: 'Jn. 3:16',
+      excerpt:
+          'Car Dieu a tant aimé le monde qu\'il a donné son Fils unique, afin '
+          'que quiconque croit en lui ne périsse point, mais qu\'il ait la vie '
+          'éternelle.',
+      isFavorite: false,
+      currentHighlight: null,
+      lexiqueEnabled: false,
+      lexiqueLabel: 'Lexique & Dictionnaire — verset mot à mot',
+      onHighlight: (_) async {},
+      onFavorite: (_) async {},
+    ),
   };
 
   for (final sheet in sheets.entries) {

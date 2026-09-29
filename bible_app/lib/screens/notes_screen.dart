@@ -195,7 +195,7 @@ class _NotesScreenState extends State<NotesScreen> {
       final dir = await getTemporaryDirectory();
       final file = File(p.join(dir.path, 'bym-notes.txt'));
       await file.writeAsString(
-        '$content\n\n—\nExporté depuis BYM — Bible de Yehoshoua Ha Mashiah',
+        '$content\n\n—\nExporté depuis $appName',
         flush: true,
       );
       await shareTextFile(file.path, subject: 'Mes notes BYM');

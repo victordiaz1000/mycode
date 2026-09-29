@@ -21,7 +21,7 @@ Finder tabCounter(String n) =>
 /// action bar. The bar's books sheet (an accordion) replaced the old
 /// full-screen sections listing on the home / no-tab pages. [pill] is the label
 /// the pill currently carries: « Livres » with no chapter open, the reference
-/// (`Genèse 1`) inside a reading tab.
+  /// (`Bereshit 1`) inside a reading tab.
 Future<void> openChapterViaLivres(
   WidgetTester tester,
   String book,
@@ -172,7 +172,7 @@ void main() {
 
     final id = m.active!.id;
     // Inside a reading tab the pill carries the current reference.
-    await openChapterViaLivres(tester, 'Shemot (Exode)', '2', pill: 'Genèse 1');
+    await openChapterViaLivres(tester, 'Shemot (Exode)', '2', pill: 'Bereshit 1');
 
     expect(m.count, 1, reason: 'the pill moves the tab, it does not add one');
     expect(m.active!.title, 'Ex. 2');

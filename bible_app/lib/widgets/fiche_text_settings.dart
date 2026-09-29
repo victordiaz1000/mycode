@@ -1,6 +1,7 @@
 ﻿import 'package:flutter/material.dart';
 
 import '../data/app_preferences.dart';
+import 'bible_theme_scope.dart';
 import 'premium_style.dart';
 
 /// The text display — size, typeface, alignment — of the fiche screens
@@ -304,9 +305,361 @@ class DisplaySettingsSheetLayout extends StatelessWidget {
   }
 }
 
-/// The size ladder as one row of preview chips — an « A » drawn at the size it
-/// selects (capped so « géant » fits). [sizes] lets the reader offer only its
-/// large-print steps while the fiches list them all.
+// ─────────────────────────────────────────────────────────────────────────────
+// Contrôles sans cadre
+//
+// Un contrôle ne sait pas dans quoi il vit. La feuille d'affichage l'habille d'un
+// [DisplayCard] ; l'écran Réglages l'habille d'une rangée à icône. C'est ce qui
+// permet aux deux surfaces d'afficher la même préférence **sans jamais pouvoir
+// en diverger** : il n'y a qu'une mise en page des pastilles, donc la modifier ici
+// la change partout, et un réglage ne peut pas avoir deux implémentations.
+//
+// Ce découpage n'a de sens que parce que les cadres sont réellement différents —
+// un libellé en capitales dans une carte teintée, ou une rangée d'icône dans une
+// liste. Partager le cadre aurait imposé à l'un des deux écrans la langue visuelle
+// de l'autre.
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// Une préférence, un contrôle : ses valeurs tiennent dans **une** barre, à
+/// segments égaux, posée dans une même gouttière.
+///
+/// Choisir entre deux ou trois options est une décision, pas une collection de
+/// boutons indépendants — la gouttière le dit, et la valeur courante prend
+/// l'accent. Les segments égaux sont aussi ce qui rend la barre valable à toute
+/// largeur : un téléphone de 320 px et une tablette montrent la même rangée,
+/// seulement plus longue, là où des pastilles libres s'emballaient en 4 + 2 et
+/// des boutons pleine largeur s'empilaient sur trois écrans.
+///
+/// Le piège que ce widget évite : un [Container] avec un `alignment` posé dans
+/// un `Wrap` reçoit la largeur **maximale** du wrap — chaque pastille devient
+/// large comme la carte et le `Wrap` les empile. Ici la largeur est partagée par
+/// `Expanded`, jamais laissée au hasard.
+///
+/// [segmentOf] dessine le contenu lorsqu'un libellé n'est pas un mot —
+/// l'échelle de tailles y dessine un « A » à la taille qu'il choisit.
+/// [tooltipOf] parle pour un segment quand la rangée affiche une forme
+/// raccourcie de son libellé. [enabledOf] garde une option qui ne s'applique
+/// pas **visible et inerte**, jamais masquée.
+class ReadingChoiceBar<T> extends StatelessWidget {
+  final List<T> options;
+  final String Function(T) labelOf;
+  final T selected;
+  final ValueChanged<T> onChanged;
+
+  /// Ce que le segment annonce quand il est raccourci à l'écran.
+  final String Function(T)? tooltipOf;
+
+  /// False pour une option qui existe mais ne s'applique pas maintenant.
+  final bool Function(T)? enabledOf;
+
+  /// Contenu du segment, à la place du libellé.
+  final Widget Function(BuildContext, T, bool selected)? segmentOf;
+
+  /// Une barre qui traverse toute la carte d'une tablette cesse de se lire
+  /// comme un contrôle pour se lire comme un curseur : le plafond lui garde la
+  /// taille d'un contrôle, quelle que soit la surface.
+  final double maxWidth;
+
+  const ReadingChoiceBar({
+    super.key,
+    required this.options,
+    required this.labelOf,
+    required this.selected,
+    required this.onChanged,
+    this.tooltipOf,
+    this.enabledOf,
+    this.segmentOf,
+    this.maxWidth = 460,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxWidth: maxWidth),
+      child: Container(
+        padding: const EdgeInsets.all(3),
+        decoration: BoxDecoration(
+          color: p.textGrey.withValues(alpha: .10),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: p.textGrey.withValues(alpha: .16)),
+        ),
+        child: Row(
+          children: [
+            for (final option in options)
+              Expanded(child: _segment(context, option, p)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _segment(BuildContext context, T option, PremiumPalette p) {
+    final enabled = enabledOf?.call(option) ?? true;
+    final current = option == selected && enabled;
+    final Widget content = segmentOf?.call(context, option, current) ??
+        Text(
+          labelOf(option),
+          maxLines: 1,
+          style: premiumText(
+            context,
+            13,
+            current ? FontWeight.w700 : FontWeight.w500,
+            current ? p.onPrimary : p.textDark,
+          ),
+        );
+    final Widget plate = Container(
+      height: 36,
+      alignment: Alignment.center,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(
+        color: current ? p.primary : null,
+        borderRadius: BorderRadius.circular(9),
+      ),
+      // L'échelle système est plafonnée à 1.18, mais elle est à 1.18 : « Versets
+      // séparés » dans la moitié d'une barre doit rétrécir, pas saigner dans le
+      // segment voisin.
+      child: FittedBox(fit: BoxFit.scaleDown, child: content),
+    );
+    final Widget segment = InkWell(
+      onTap: enabled ? () => onChanged(option) : null,
+      borderRadius: BorderRadius.circular(9),
+      // Une option qui ne se prend pas tout de suite lit délavée plutôt que
+      // disparue : il faut voir qu'elle existe et ce qui bloque.
+      child: enabled ? plate : Opacity(opacity: .45, child: plate),
+    );
+    final tooltip = tooltipOf?.call(option);
+    return tooltip == null
+        ? segment
+        : Tooltip(message: tooltip, child: segment);
+  }
+}
+
+/// The size ladder as a bar of « A » drawn at the size they select, capped so
+/// « géant » fits. [sizes] lets a caller offer only its large-print steps.
+class ReadingSizeChips extends StatelessWidget {
+  final double fontSize;
+  final List<ReadingTextSize> sizes;
+  final ValueChanged<double> onChanged;
+
+  const ReadingSizeChips({
+    super.key,
+    required this.fontSize,
+    required this.onChanged,
+    this.sizes = ReadingTextSize.values,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    return ReadingChoiceBar<ReadingTextSize>(
+      options: sizes,
+      labelOf: (size) => size.label,
+      selected: ReadingTextSize.nearest(fontSize),
+      onChanged: (size) => onChanged(size.fontSize),
+      tooltipOf: (size) => 'Taille du texte ${size.label}',
+      segmentOf: (context, size, selected) => Text(
+        'A',
+        style: TextStyle(
+          fontSize: size.fontSize > 24 ? 24 : size.fontSize,
+          fontWeight: FontWeight.w700,
+          color: selected ? p.onPrimary : p.textDark,
+        ),
+      ),
+    );
+  }
+}
+
+/// The four alignments as a bar of icon segments: they share whatever width
+/// the row gives them, four equal cells rather than four loose buttons that
+/// wrapped on a 320-px phone.
+class ReadingAlignChips extends StatelessWidget {
+  final ReadingTextAlign align;
+  final ValueChanged<ReadingTextAlign> onChanged;
+
+  const ReadingAlignChips({
+    super.key,
+    required this.align,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    return ReadingChoiceBar<ReadingTextAlign>(
+      options: ReadingTextAlign.values,
+      labelOf: (option) => option.label,
+      selected: align,
+      onChanged: onChanged,
+      tooltipOf: (option) => 'Aligner ${option.label}',
+      segmentOf: (context, option, selected) => Icon(
+        _alignIcon(option),
+        size: 18,
+        // L'`IconButton` teintait l'icône au bleu du `colorScheme`, qui n'est
+        // pas celui de la palette : la rangée sortait du thème chaud.
+        color: selected ? p.onPrimary : p.textDark,
+      ),
+    );
+  }
+}
+
+IconData _alignIcon(ReadingTextAlign option) => switch (option) {
+      ReadingTextAlign.left => Icons.format_align_left,
+      ReadingTextAlign.center => Icons.format_align_center,
+      ReadingTextAlign.right => Icons.format_align_right,
+      ReadingTextAlign.justify => Icons.format_align_justify,
+    };
+
+/// The typefaces as bare choice chips, each previewed in its own family.
+class ReadingFontChips extends StatelessWidget {
+  final ReadingFont font;
+  final ValueChanged<ReadingFont> onChanged;
+
+  const ReadingFontChips({
+    super.key,
+    required this.font,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: [
+        for (final candidate in ReadingFont.values)
+          _FontChip(
+            font: candidate,
+            selected: candidate == font,
+            onTap: () => onChanged(candidate),
+          ),
+      ],
+    );
+  }
+}
+
+/// The three chip-shaped preferences (disposition, graisse, aération) as one
+/// [ReadingChoiceBar] — the frameless control, dressed by the caller's surface.
+class ReadingOptionBar<T> extends StatelessWidget {
+  final List<T> options;
+  final String Function(T) labelOf;
+  final T selected;
+  final ValueChanged<T> onChanged;
+  final String Function(T)? tooltipOf;
+  final bool Function(T)? enabledOf;
+
+  const ReadingOptionBar({
+    super.key,
+    required this.options,
+    required this.labelOf,
+    required this.selected,
+    required this.onChanged,
+    this.tooltipOf,
+    this.enabledOf,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ReadingChoiceBar<T>(
+      options: options,
+      labelOf: labelOf,
+      selected: selected,
+      onChanged: onChanged,
+      tooltipOf: tooltipOf,
+      enabledOf: enabledOf,
+    );
+  }
+}
+
+/// How much of the theme's background shows through behind the verses.
+class ReadingOpacitySlider extends StatelessWidget {
+  final double value;
+  final ValueChanged<double> onChanged;
+
+  /// Fired on release: dragging rebuilds the reader on every tick, which would
+  /// write the preferences a dozen times per gesture.
+  final ValueChanged<double>? onChangeEnd;
+
+  const ReadingOpacitySlider({
+    super.key,
+    required this.value,
+    required this.onChanged,
+    this.onChangeEnd,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Align(
+          alignment: Alignment.centerRight,
+          child: Text(
+            '${(value * 100).round()} %',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ),
+        Slider(
+          value: value,
+          min: 0.0,
+          max: 1.0,
+          divisions: 20,
+          label: '${(value * 100).round()} %',
+          onChanged: onChanged,
+          onChangeEnd: onChangeEnd,
+        ),
+      ],
+    );
+  }
+}
+
+/// The « Couleur du texte » presets: null first (follow the theme), then a
+/// handful of deep hues plus one light — on a light theme the light choice
+/// flips the reading panels dark instead of becoming invisible.
+const List<int?> readingTextColorChoices = [
+  null,
+  0xFF1B1B1F, // noir doux
+  0xFF3B2312, // brun profond
+  0xFF1E2A44, // bleu nuit
+  0xFF24331F, // vert olive
+  0xFF4A1F24, // bordeaux
+  0xFFEDF3FC, // blanc glacé
+];
+
+/// The bare colour swatches. [selected] holds the stored ARGB **as a string**,
+/// because that is how the preference keeps it (`reading.textColor`).
+class ReadingTextColorSwatches extends StatelessWidget {
+  final String? selectedArgb;
+  final ValueChanged<int?> onChanged;
+
+  const ReadingTextColorSwatches({
+    super.key,
+    required this.selectedArgb,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 10,
+      runSpacing: 10,
+      children: [
+        for (final choice in readingTextColorChoices)
+          _TextColorSwatch(
+            argb: choice,
+            selected: selectedArgb == choice?.toString(),
+            onTap: () => onChanged(choice),
+          ),
+      ],
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Sections cadrées — la langue des feuilles
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// The size ladder as one row of preview chips, in a [DisplayCard].
 class DisplaySizeSection extends StatelessWidget {
   final double fontSize;
 
@@ -323,29 +676,15 @@ class DisplaySizeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final current = ReadingTextSize.nearest(fontSize);
     return DisplayCard(
       label: 'Taille du texte',
       icon: Icons.format_size,
-      child: Row(
-        mainAxisAlignment:
-            sizes.length > 4 ? MainAxisAlignment.spaceBetween : MainAxisAlignment.start,
-        children: [
-          for (final size in sizes) ...[
-            if (sizes.length <= 4) const SizedBox(width: 6),
-            _SizeChip(
-              size: size,
-              selected: current == size,
-              onTap: () => onChanged(size.fontSize),
-            ),
-          ],
-        ],
-      ),
+      child: ReadingSizeChips(fontSize: fontSize, sizes: sizes, onChanged: onChanged),
     );
   }
 }
 
-/// The four alignments as icon chips.
+/// The four alignments as icon chips, in a [DisplayCard].
 class DisplayAlignSection extends StatelessWidget {
   final ReadingTextAlign align;
   final ValueChanged<ReadingTextAlign> onChanged;
@@ -361,22 +700,12 @@ class DisplayAlignSection extends StatelessWidget {
     return DisplayCard(
       label: 'Alignement',
       icon: Icons.format_align_left,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          for (final option in ReadingTextAlign.values)
-            _AlignChip(
-              option: option,
-              selected: option == align,
-              onTap: () => onChanged(option),
-            ),
-        ],
-      ),
+      child: ReadingAlignChips(align: align, onChanged: onChanged),
     );
   }
 }
 
-/// The typefaces as choice chips, each previewed in its own family.
+/// The typefaces as choice chips, in a [DisplayCard].
 class DisplayFontSection extends StatelessWidget {
   final ReadingFont font;
   final ValueChanged<ReadingFont> onChanged;
@@ -392,16 +721,200 @@ class DisplayFontSection extends StatelessWidget {
     return DisplayCard(
       label: 'Police',
       icon: Icons.font_download,
-      child: Wrap(
-        spacing: 8,
-        runSpacing: 8,
+      child: ReadingFontChips(font: font, onChanged: onChanged),
+    );
+  }
+}
+
+/// « Versets séparés » or a continuous printed-Bible flow.
+class DisplayLayoutSection extends StatelessWidget {
+  final ReadingLayout layout;
+  final ValueChanged<ReadingLayout> onChanged;
+
+  const DisplayLayoutSection({
+    super.key,
+    required this.layout,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DisplayCard(
+      label: 'Disposition du texte',
+      icon: Icons.segment,
+      child: ReadingOptionBar<ReadingLayout>(
+        options: ReadingLayout.values,
+        labelOf: (option) => option.label,
+        selected: layout,
+        onChanged: onChanged,
+      ),
+    );
+  }
+}
+
+/// Léger / Normal / Foncé. Some screens render w400 visibly darker than others
+/// — this lets the reader dial the stroke to taste, identically in both layouts.
+class DisplayWeightSection extends StatelessWidget {
+  final ReadingFontWeight weight;
+  final ValueChanged<ReadingFontWeight> onChanged;
+
+  const DisplayWeightSection({
+    super.key,
+    required this.weight,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DisplayCard(
+      label: 'Graisse du texte',
+      icon: Icons.format_bold,
+      child: ReadingOptionBar<ReadingFontWeight>(
+        options: ReadingFontWeight.values,
+        labelOf: (option) => option.label,
+        selected: weight,
+        onChanged: onChanged,
+      ),
+    );
+  }
+}
+
+/// Serré / Normal / Aéré. The vertical rhythm already scales with the font size
+/// (see `ReadingRhythm`) so big type keeps its breathing room; this tightens or
+/// loosens it to taste.
+class DisplaySpacingSection extends StatelessWidget {
+  final ReadingSpacing spacing;
+  final ValueChanged<ReadingSpacing> onChanged;
+
+  const DisplaySpacingSection({
+    super.key,
+    required this.spacing,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DisplayCard(
+      label: 'Aération du texte',
+      icon: Icons.format_line_spacing,
+      child: ReadingOptionBar<ReadingSpacing>(
+        options: ReadingSpacing.values,
+        labelOf: (option) => option.label,
+        selected: spacing,
+        onChanged: onChanged,
+      ),
+    );
+  }
+}
+
+/// The body text colour: « suivre le thème » by default, then a handful of
+/// presets. A light colour flips the panels dark via `withTextColor`, so every
+/// swatch stays readable.
+class DisplayTextColorSection extends StatelessWidget {
+  final String? selectedArgb;
+  final ValueChanged<int?> onChanged;
+
+  const DisplayTextColorSection({
+    super.key,
+    required this.selectedArgb,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DisplayCard(
+      label: 'Couleur du texte',
+      icon: Icons.format_color_text,
+      child: ReadingTextColorSwatches(
+        selectedArgb: selectedArgb,
+        onChanged: onChanged,
+      ),
+    );
+  }
+}
+
+/// How much of the theme's background shows through behind the verses.
+class DisplayOpacitySection extends StatelessWidget {
+  final double value;
+  final ValueChanged<double> onChanged;
+  final ValueChanged<double>? onChangeEnd;
+
+  const DisplayOpacitySection({
+    super.key,
+    required this.value,
+    required this.onChanged,
+    this.onChangeEnd,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DisplayCard(
+      label: 'Opacité du panneau',
+      icon: Icons.texture,
+      child: ReadingOpacitySlider(
+        value: value,
+        onChanged: onChanged,
+        onChangeEnd: onChangeEnd,
+      ),
+    );
+  }
+}
+
+/// Texte seul / texte + notes, then how the notes sit — two bars, the second
+/// one appearing only once there are notes to place. The mode and the
+/// disposition stay two separate rows rather than one: « sans notes » must
+/// remain reachable, and hiding a chosen disposition is what made readers
+/// think it had been forgotten.
+class DisplayNotesSection extends StatelessWidget {
+  final bool notesMode;
+  final NoteDisposition disposition;
+
+  /// Whether « sous le verset » is renderable. False in the continuous layout,
+  /// where note cards would chop the printed-text feel: the bar then offers the
+  /// single disposition that applies, and the stored one falls back to
+  /// « à la suite ».
+  final bool belowAvailable;
+  final ValueChanged<bool> onNotesMode;
+  final ValueChanged<NoteDisposition> onDisposition;
+
+  const DisplayNotesSection({
+    super.key,
+    required this.notesMode,
+    required this.disposition,
+    required this.belowAvailable,
+    required this.onNotesMode,
+    required this.onDisposition,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DisplayCard(
+      label: 'Notes',
+      icon: Icons.note_alt,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          for (final candidate in ReadingFont.values)
-            _FontChip(
-              font: candidate,
-              selected: candidate == font,
-              onTap: () => onChanged(candidate),
+          ReadingChoiceBar<bool>(
+            options: const [false, true],
+            labelOf: (on) => on ? 'Texte + notes' : 'Texte seul',
+            selected: notesMode,
+            onChanged: onNotesMode,
+          ),
+          if (notesMode) ...[
+            const SizedBox(height: 8),
+            ReadingChoiceBar<NoteDisposition>(
+              options: belowAvailable
+                  ? const [NoteDisposition.inline, NoteDisposition.below]
+                  : const [NoteDisposition.inline],
+              labelOf: (option) => option == NoteDisposition.below
+                  ? 'Notes sous le verset'
+                  : 'Notes à la suite',
+              selected: disposition == NoteDisposition.below && belowAvailable
+                  ? NoteDisposition.below
+                  : NoteDisposition.inline,
+              onChanged: onDisposition,
             ),
+          ],
         ],
       ),
     );
@@ -557,89 +1070,73 @@ class DisplayToggleCard extends StatelessWidget {
   }
 }
 
-class _SizeChip extends StatelessWidget {
-  final ReadingTextSize size;
+/// A round swatch of [readingTextColorChoices]; the first (null) draws the
+/// « suivre le thème » marker instead of a flat colour.
+class _TextColorSwatch extends StatelessWidget {
+  final int? argb;
   final bool selected;
   final VoidCallback onTap;
 
-  const _SizeChip({
-    required this.size,
+  const _TextColorSwatch({
+    required this.argb,
     required this.selected,
     required this.onTap,
   });
 
-  @override
-  Widget build(BuildContext context) {
-    final p = premiumPalette(context);
-    // Drawn at the size it selects, capped so « géant » fits the row.
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(10),
-      child: Container(
-        width: 44,
-        height: 40,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: selected ? p.primary.withValues(alpha: .14) : null,
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: selected ? p.primary : p.textGrey.withValues(alpha: .35),
-            width: selected ? 1.6 : 1,
-          ),
-        ),
-        child: Tooltip(
-          message: 'Taille du texte ${size.label}',
-          child: Text(
-            'A',
-            style: TextStyle(
-              fontSize: size.fontSize > 24 ? 24 : size.fontSize,
-              fontWeight: FontWeight.w700,
-              color: selected ? p.primary : p.textDark,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _AlignChip extends StatelessWidget {
-  final ReadingTextAlign option;
-  final bool selected;
-  final VoidCallback onTap;
-
-  const _AlignChip({
-    required this.option,
-    required this.selected,
-    required this.onTap,
-  });
-
-  IconData get _icon => switch (option) {
-        ReadingTextAlign.left => Icons.format_align_left,
-        ReadingTextAlign.center => Icons.format_align_center,
-        ReadingTextAlign.right => Icons.format_align_right,
-        ReadingTextAlign.justify => Icons.format_align_justify,
+  String get _tooltip => switch (argb) {
+        null => 'Suivre le thème',
+        0xFF1B1B1F => 'Noir',
+        0xFF3B2312 => 'Brun',
+        0xFF1E2A44 => 'Bleu nuit',
+        0xFF24331F => 'Vert',
+        0xFF4A1F24 => 'Bordeaux',
+        _ => 'Blanc',
       };
 
   @override
   Widget build(BuildContext context) {
-    final p = premiumPalette(context);
-    return IconButton(
-      tooltip: 'Aligner ${option.label}',
-      isSelected: selected,
-      icon: Icon(_icon),
-      selectedIcon: Icon(_icon),
-      onPressed: onTap,
-      style: IconButton.styleFrom(
-        backgroundColor:
-            selected ? p.primary.withValues(alpha: .14) : Colors.transparent,
+    final theme = BibleThemeScope.of(context);
+    final fill = argb == null ? null : Color(argb!);
+    return Tooltip(
+      message: _tooltip,
+      child: InkWell(
+        onTap: onTap,
+        customBorder: const CircleBorder(),
+        child: Container(
+          width: 36,
+          height: 36,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            // « Suivre le thème » : la couleur courante du corps de texte.
+            color: fill ?? theme.textColor,
+            border: Border.all(
+              color: selected ? theme.accentColor : theme.panelBorderColor,
+              width: selected ? 2.5 : 1,
+            ),
+          ),
+          child: fill == null
+              ? Icon(
+                  Icons.palette_outlined,
+                  size: 16,
+                  // Contrasté sur la couleur du thème elle-même.
+                  color: theme.usesLightText ? Colors.black54 : Colors.white70,
+                )
+              : selected
+                  ? Icon(
+                      Icons.check,
+                      size: 16,
+                      color: fill.computeLuminance() > .5
+                          ? Colors.black
+                          : Colors.white,
+                    )
+                  : null,
+        ),
       ),
     );
   }
 }
 
-class _FontChip extends StatelessWidget {
-  final ReadingFont font;
+class _FontChip extends StatelessWidget {  final ReadingFont font;
   final bool selected;
   final VoidCallback onTap;
 

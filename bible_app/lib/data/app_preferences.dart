@@ -78,7 +78,7 @@ class AppPreferences {
     this.immersion = false,
     double? fontSize,
     this.textAlign = ReadingTextAlign.left,
-    this.readingFont = ReadingFont.literata,
+    this.readingFont = ReadingFont.crimson,
     this.spacing = ReadingSpacing.normal,
     this.layout = ReadingLayout.tiles,
     this.fontWeight = ReadingFontWeight.normal,
@@ -119,11 +119,11 @@ class AppPreferences {
           : NoteDisposition.below,
       fontSize: sp.getDouble(_kFontSize),
       textAlign: ReadingTextAlign.nearest(sp.getString(_kTextAlign)),
-      // Literata : police par défaut de l'écran lecture — la valeur stockée
+      // Crimson Pro : police par défaut de l'écran lecture — la valeur stockée
       // gagne dès que le lecteur a choisi autre chose.
       readingFont: ReadingFont.nearest(
         sp.getString(_kFontFamily),
-        fallback: ReadingFont.literata,
+        fallback: ReadingFont.crimson,
       ),
       spacing: ReadingSpacing.nearest(sp.getString(_kSpacing)),
       layout: ReadingLayout.nearest(sp.getString(_kLayout)),
@@ -301,7 +301,11 @@ enum ReadingFont {
   literata('Literata', 'Literata'),
   spectral('Spectral', 'Spectral'),
   alegreya('Alegreya', 'Alegreya'),
-  gentium('Gentium Plus', 'Gentium Plus');
+  gentium('Gentium Plus', 'Gentium Plus'),
+  // Les noms de l'énumération sont **persistés** (`values.asNameMap()` dans
+  // [nearest]) : les renommer ferait retomber le choix du lecteur sur le repli.
+  cardo('Cardo · hébreu & grec', 'Cardo'),
+  newsreader('Newsreader', 'Newsreader');
 
   const ReadingFont(this.label, this.fontFamily);
 
@@ -320,7 +324,7 @@ enum ReadingFont {
     ReadingFont fallback = ReadingFont.jakarta,
   }) {
     // La migration passe avant le repli du caller : celui de la lecture est
-    // Literata, une serif — un lecteur qui avait choisi « Moderne » y perdrait
+    // Crimson Pro, une serif — un lecteur qui avait choisi « Moderne » y perdrait
     // le sans serif qu'il voulait.
     if (name == _ancienNomModerne) return ReadingFont.jakarta;
     return values.asNameMap()[name] ?? fallback;

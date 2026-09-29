@@ -446,7 +446,7 @@ class ChapterVerseList extends StatefulWidget {
     this.searchMatches,
     this.footer,
     this.fontSize = 16,
-    this.readingFont = ReadingFont.literata,
+    this.readingFont = ReadingFont.crimson,
     this.textAlign = TextAlign.left,
     this.controller,
     this.layout = ReadingLayout.tiles,

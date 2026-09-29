@@ -133,13 +133,19 @@ void main() {
       // button stays off rather than open a screen the reader already sees.
       final lexiqueButton = find.widgetWithText(
         OutlinedButton,
-        'Lexique & Dictionnaire — version BYM',
+        'Lexique & Dictionnaire — verset mot à mot',
       );
       await tester.ensureVisible(lexiqueButton);
       await tester.pumpAndSettle();
       final button = tester.widget<OutlinedButton>(lexiqueButton);
       expect(button.onPressed, isNull);
       expect(find.byType(EtudeVersetScreen), findsNothing);
+
+      // Et il le *montre* : hors BYM le bouton n'est pas seulement sourd, il est
+      // grisé et dit où le mot à mot s'ouvre. Vérifié depuis le lecteur, donc en
+      // passant par le vrai garde-fou (`carriesNotes`) et pas par un drapeau
+      // posé à la main comme dans `study_sheet_test.dart`.
+      expect(find.text('Disponible depuis le texte BYM.'), findsOneWidget);
     },
   );
 
@@ -152,7 +158,7 @@ void main() {
     final button = tester.widget<OutlinedButton>(
       find.widgetWithText(
         OutlinedButton,
-        'Lexique & Dictionnaire — version BYM',
+        'Lexique & Dictionnaire — verset mot à mot',
       ),
     );
     expect(button.onPressed, isNull,

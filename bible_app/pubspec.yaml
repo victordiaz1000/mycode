@@ -55,6 +55,14 @@ dev_dependencies:
     sdk: flutter
   sqflite_common_ffi: ^2.3.4
 
+  # Uniquement pour `test/reading_fonts_test.dart`, qui relit ce fichier pour
+  # vérifier que chaque police proposée au lecteur y est bien déclarée et que
+  # chaque fichier déclaré existe. Un parseur maison sur le bloc `fonts:`
+  # tiendrait en vingt lignes mais mentirait au premier changement de forme du
+  # YAML — et un test qui se trompe sur la déclaration ne garde rien.
+  # Dev-only : rien n'entre dans l'archive.
+  yaml: ^3.1.2
+
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -191,4 +199,27 @@ flutter:
           weight: 700
         - asset: assets/fonts/GentiumPlus-BoldItalic.ttf
           weight: 700
+          style: italic
+    # Cardo — la SEULE famille embarquée qui couvre l'hébreu (aleph, bet, guimel,
+    # shin, et les points-voyelles du corpus) ; elle porte aussi le grec
+    # polytonique. Vérifié en lisant la table `cmap` des douze familles : les
+    # autres rendraient les lemmes hébreux des fiches Strong en carrés vides.
+    # Trois coupes statiques, pas de fichier variable pour cette famille.
+    - family: Cardo
+      fonts:
+        - asset: assets/fonts/Cardo-Regular.ttf
+        - asset: assets/fonts/Cardo-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Cardo-Bold.ttf
+          weight: 700
+    # Newsreader — serif d'écran contemporain (hauteur d'x généreuse, italique
+    # franchement dessinée), là où les huit autres serifs sont des romains de
+    # livre. Fichiers variables : `wght` 200→800 et `opsz` 6→72.
+    #
+    # Le romain n'a pas de `weight:`, même raison que Plus Jakarta Sans : son
+    # instance par défaut EST le 400. Lui en donner un le figerait à ce poids.
+    - family: Newsreader
+      fonts:
+        - asset: assets/fonts/Newsreader.ttf
+        - asset: assets/fonts/Newsreader-Italic.ttf
           style: italic

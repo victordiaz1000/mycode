@@ -163,8 +163,10 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Copier'));
     await tester.pumpAndSettle();
-    expect(copied, 'Genèse 1:1 (DBY) Texte téléchargé 1:1.',
-        reason: 'la copie nomme la version téléchargée');
+    expect(copied, '$appName\nGenèse 1:1 (DBY) Texte téléchargé 1:1.',
+        reason: 'la copie nomme la version téléchargée, après le nom de l\'app');
+    expect(shared.split('\n').first, appName,
+        reason: 'le partage aussi s\'ouvre sur le nom de l\'app');
   });
 
   testWidgets('the bar announces BYM, and the BYM text is on screen',

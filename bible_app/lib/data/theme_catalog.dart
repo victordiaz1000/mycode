@@ -109,8 +109,9 @@ class BibleTheme {
   );
 }
 
-/// The 12 named themes — 10 fonds historiques + Sinaï (ocre chaud, 0% gris)
-/// + Nuit étoilée (second fond sombre, texture étoilée générée).
+/// The 14 named themes — 10 fonds historiques + Sinaï (ocre chaud, 0% gris)
+/// + Nuit étoilée (second fond sombre, texture étoilée générée) + Lin blanc et
+/// Veillée (textures calculées par `appCodebar/generate_theme_textures.py`).
 ///
 /// ⚠️ Les **ids** sont les noms des maquettes d'origine et ne disent plus rien
 /// du fond affiché : plusieurs thèmes ont été rebaptisés (ou re-pointés vers un
@@ -130,6 +131,13 @@ class BibleTheme {
 /// | azur             | Azur profond     |
 /// | nuit             | Nuit étoilée     |
 /// | sinai            | Sinaï            |
+/// | lin              | Lin blanc        |
+/// | veillee          | Veillée          |
+///
+/// ⚠️ `backgroundTone` doit valoir la **moyenne** de la texture : c'est de lui
+/// que dérivent toutes les surfaces opaques (fond premium, cartes, panneau de
+/// lecture). S'il s'en écarte, les cartes jurent avec le fond qu'on voit entre
+/// elles. Pour les deux fonds calculés, le script imprime la moyenne obtenue.
 ///
 /// Les ids NE DOIVENT PAS être renommés à la légère : `themeId` est persisté
 /// dans les préférences et une clé orpheline retomberait silencieusement sur
@@ -281,6 +289,37 @@ const List<BibleTheme> bibleThemes = [
     verseNumColor: Color(0xFF9E5A2E),
     accentColor: Color(0xFFB85C2A),
     highlightRef: Color(0xFFD18A1F),
+  ),
+  // Nouveau — Lin blanc : le seul thème **clair à accent bleu**. Les neuf autres
+  // palettes claires tirent toutes leur accent du brun, de l'ocre ou d'un gris
+  // bleuté ; celle-ci pose une encre marine sur un ivoire de lin et réserve l'or
+  // au liseré des notes. Fond tissé calculé (voir generate_theme_textures.py) :
+  // contraste très faible, pour que la toile se sente sans concurrencer le texte.
+  BibleTheme(
+    id: 'lin',
+    name: 'Lin blanc',
+    backgroundAsset: 'assets/themes/lin.png',
+    backgroundTone: Color(0xFFF5EFE2),
+    textColor: Color(0xFF1E2A38),
+    titleColor: Color(0xFF274264),
+    verseNumColor: Color(0xFF5C7796),
+    accentColor: Color(0xFF2F5C8A),
+    highlightRef: Color(0xFFB8860B),
+  ),
+  // Nouveau — Veillée : le seul fond **sombre et chaud**. Les deux autres fonds
+  // sombres sont bleus (azur vif, nuit bleu-noir) ; celui-ci est un cuir de
+  // reliure brun-noir lu à la lampe — crème et ambre. Même mécanique que l'azur
+  // et la nuit : `usesLightText` fait basculer toute l'app en surfaces sombres.
+  BibleTheme(
+    id: 'veillee',
+    name: 'Veillée',
+    backgroundAsset: 'assets/themes/veillee.png',
+    backgroundTone: Color(0xFF1A130E),
+    textColor: Color(0xFFF2E6D4),
+    titleColor: Color(0xFFE5AE55),
+    verseNumColor: Color(0xFFB5906A),
+    accentColor: Color(0xFFC8853A),
+    highlightRef: Color(0xFFE6BE55),
   ),
 ];
 

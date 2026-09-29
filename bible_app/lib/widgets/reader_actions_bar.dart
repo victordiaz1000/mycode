@@ -5,6 +5,7 @@ import '../data/book_catalog.dart';
 import '../data/library_store.dart';
 import '../data/local_repository.dart';
 import '../data/version_catalog.dart';
+import '../data/version_repository.dart';
 import '../models/chapter.dart';
 import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
@@ -59,7 +60,7 @@ class ReaderActionsBar extends StatelessWidget {
     super.key,
     this.bookIndex,
     this.chapter,
-    this.versionCode = 'BYM',
+    this.versionCode = VersionRepository.embeddedCode,
     this.installedVersions = const {},
     this.onSelectVersion,
     this.onOpenLibrary,
@@ -70,14 +71,15 @@ class ReaderActionsBar extends StatelessWidget {
     this.trailing,
   });
 
-  /// Pill label: `Genèse 1`, or « Livres » with no open chapter. Uses the
-  /// compact [BookEntry.barLabel] so a long name (« 1 Thessaloniciens ») never
-  /// overflows the bar.
+  /// Pill label: `Bereshit 1` on the BYM, `Genèse 1` on any translation, or
+  /// « Livres » with no open chapter. Uses the compact form so a long name never
+  /// overflows the bar — and takes the *reader's* version, because that pill is
+  /// where « which text am I in? » is answered without asking.
   String get reference {
     final book = bookIndex;
     final number = chapter;
     if (book == null || number == null) return 'Livres';
-    return '${catalogEntry(book).barLabel} $number';
+    return '${bookDisplayLabel(book, code: versionCode, embeddedCode: VersionRepository.embeddedCode)} $number';
   }
 
   @override

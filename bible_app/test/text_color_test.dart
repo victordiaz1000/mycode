@@ -5,9 +5,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:bible_app/data/app_preferences.dart';
 import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/data/theme_catalog.dart';
-import 'package:bible_app/widgets/chapter_reader.dart';
+import 'package:bible_app/screens/settings_screen.dart';
 import 'package:bible_app/widgets/bible_theme_scope.dart';
-import 'package:bible_app/widgets/fiche_text_settings.dart';
+import 'package:bible_app/widgets/chapter_reader.dart';
 
 import 'support/fake_bible_bundle.dart';
 
@@ -39,23 +39,26 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  /// Opens the ⋯ sheet (unless it is already open — a second tap would hit
-  /// the modal barrier and dismiss it) and scrolls [target] into view: the
-  /// colour section sits at the bottom of the scrollable sheet, off-screen
-  /// in the test surface.
-  Future<void> openSheet(WidgetTester tester, Finder target) async {
-    if (find.byType(DisplaySettingsSheetLayout).evaluate().isEmpty) {
-      await tester.tap(find.byIcon(Icons.more_vert));
-      await tester.pumpAndSettle();
-    }
-    await tester.scrollUntilVisible(
-      target,
-      80,
-      scrollable: find.descendant(
-        of: find.byType(DisplaySettingsSheetLayout),
-        matching: find.byType(Scrollable),
-      ),
+  /// The swatches moved to the Settings screen with the rest of the display
+  /// preferences. Each test therefore changes the colour there and **re-opens the
+  /// reader**: the reader listens to `AppPreferences.revision`, and a setting
+  /// written on another surface is worth nothing if the reader ignores it. That
+  /// propagation is the thing worth pinning now.
+  Future<void> pumpSettings(WidgetTester tester) async {
+    tester.view.physicalSize = const Size(1200, 3000);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      const BibleThemeScope(child: MaterialApp(home: SettingsScreen())),
     );
+    await tester.pumpAndSettle();
+  }
+
+  Future<void> tapSwatch(WidgetTester tester, String tooltip) async {
+    await pumpSettings(tester);
+    await tester.scrollUntilVisible(find.byTooltip(tooltip), 80);
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip(tooltip));
     await tester.pumpAndSettle();
   }
 
@@ -67,18 +70,15 @@ void main() {
     expect(verseColor(tester), themeById('forest').textColor);
   });
 
-  testWidgets('the ⋯ sheet offers the swatches and applies one live', (
+  testWidgets('the Settings row offers the swatches and applies one live', (
     tester,
   ) async {
-    await pumpReader(tester);
-
-    await openSheet(tester, find.text('COULEUR DU TEXTE'));
-    expect(find.text('COULEUR DU TEXTE'), findsOneWidget);
+    await pumpSettings(tester);
+    expect(find.text('Couleur du texte'), findsOneWidget);
     expect(find.byTooltip('Suivre le thème'), findsOneWidget);
 
-    await openSheet(tester, find.byTooltip('Bleu nuit'));
-    await tester.tap(find.byTooltip('Bleu nuit'));
-    await tester.pumpAndSettle();
+    await tapSwatch(tester, 'Bleu nuit');
+    await pumpReader(tester);
 
     expect(verseColor(tester), const Color(0xFF1E2A44));
     final stored = (await SharedPreferences.getInstance()).getString(
@@ -97,9 +97,8 @@ void main() {
     await pumpReader(tester);
     expect(verseColor(tester), const Color(0xFF1E2A44));
 
-    await openSheet(tester, find.byTooltip('Suivre le thème'));
-    await tester.tap(find.byTooltip('Suivre le thème'));
-    await tester.pumpAndSettle();
+    await tapSwatch(tester, 'Suivre le thème');
+    await pumpReader(tester);
 
     expect(verseColor(tester), themeById('forest').textColor);
     expect(

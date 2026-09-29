@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:bible_app/data/app_preferences.dart';
 import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/data/reference_parser.dart';
+import 'package:bible_app/data/share_text.dart';
 import 'package:bible_app/data/tab_manager.dart';
 import 'package:bible_app/screens/reader_screen.dart';
 import 'package:bible_app/widgets/chapter_reader.dart';
@@ -96,6 +97,90 @@ void main() {
       expect(find.text('Surligner'), findsNothing);
     });
 
+    testWidgets('la sélection se partage comme le verset, et ne se ferme pas', (
+      tester,
+    ) async {
+      final previous = shareText;
+      var shared = '';
+      shareText = (message, {origin}) async => shared = message;
+      addTearDown(() => shareText = previous);
+
+      String? copied;
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        SystemChannels.platform,
+        (message) async {
+          if (message.method == 'Clipboard.setData') {
+            copied =
+                (message.arguments as Map<Object?, Object?>)['text'] as String?;
+          }
+          return null;
+        },
+      );
+      addTearDown(() => tester.binding.defaultBinaryMessenger
+          .setMockMethodCallHandler(SystemChannels.platform, null));
+
+      await pumpReader(tester);
+      // A long press opens the selection; a second verse joins it.
+      await tester.longPress(verseText('Verset de test Ge. 1:1.'));
+      await tester.pumpAndSettle();
+      await tester.tap(verseText('Verset de test Ge. 1:2.'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byTooltip('Partager les versets'));
+      await tester.pumpAndSettle();
+
+      expect(shared, contains('« Verset de test Ge. 1:1.'));
+      expect(shared, contains('« Verset de test Ge. 1:2.'));
+      // A contiguous selection is attributed as a range.
+      expect(shared.trim(), endsWith('— Bereshit 1:1-2'));
+      expect(shared.split('\n').first, appName,
+          reason: 'la sélection partagée s\'ouvre sur le nom de l\'app');
+      // Sharing is not terminal: the sheet is its own visible feedback, and the
+      // reader may have more to do with these verses.
+      expect(find.byTooltip('Partager les versets'), findsOneWidget);
+
+      // Copy says the same thing: the app's name first, then one
+      // reference-first line per verse.
+      await tester.tap(find.byTooltip('Copier les versets'));
+      await tester.pumpAndSettle();
+      expect(copied, contains('Bereshit 1:1 Verset de test Ge. 1:1.'));
+      expect(copied, contains('Bereshit 1:2 Verset de test Ge. 1:2.'));
+      expect(copied!.split('\n').first, appName,
+          reason: 'le nom de l\'app n\'apparaît qu\'une fois, en tête');
+    });
+
+    testWidgets('the bar stays inside a 320 px screen with five actions', (
+      tester,
+    ) async {
+      await pumpReader(tester);
+      // Narrowed *after* pumping: [pumpReader] installs its own tall surface.
+      tester.view.physicalSize = const Size(320, 640);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.longPress(verseText('Verset de test Ge. 1:1.'));
+      await tester.pumpAndSettle();
+
+      expect(tester.takeException(), isNull,
+          reason: 'the selection bar must not overflow the narrowest phone');
+      for (final tooltip in [
+        'Surligner la sélection',
+        'Favoris sur la sélection',
+        'Copier les versets',
+        'Partager les versets',
+        'Terminer la sélection',
+      ]) {
+        final bouton = find.byTooltip(tooltip);
+        expect(bouton, findsOneWidget, reason: '« $tooltip » doit être là');
+        expect(
+          tester.getRect(bouton).right,
+          lessThanOrEqualTo(320),
+          reason: '« $tooltip » déborde de l\'écran',
+        );
+      }
+    });
+
     testWidgets('the bar stays inside a 360 px screen — icons only', (
       tester,
     ) async {
@@ -130,11 +215,11 @@ void main() {
       await tester.tap(find.byIcon(Icons.copy_all));
       await tester.pumpAndSettle();
 
-      expect(clipboardText, contains('Genèse 1:1 Verset de test Ge. 1:1.'));
-      expect(clipboardText, contains('Genèse 1:2 Verset de test Ge. 1:2.'));
+      expect(clipboardText, contains('Bereshit 1:1 Verset de test Ge. 1:1.'));
+      expect(clipboardText, contains('Bereshit 1:2 Verset de test Ge. 1:2.'));
       expect(
-        clipboardText!.indexOf('Genèse 1:1'),
-        lessThan(clipboardText!.indexOf('Genèse 1:2')),
+        clipboardText!.indexOf('Bereshit 1:1'),
+        lessThan(clipboardText!.indexOf('Bereshit 1:2')),
         reason: 'verses are copied in reading order',
       );
       // Copying is terminal: the selection bar is gone.
@@ -224,8 +309,10 @@ void main() {
       final opened = <String>[];
       await pumpReader(tester, onOpenChapter: (b, c) => opened.add('$b:$c'));
 
-      expect(find.text('Continuer — Genèse 2'), findsOneWidget);
-      await tester.tap(find.text('Continuer — Genèse 2'));
+      // Same book, next chapter — and the BYM's own name for it, like the pill
+      // above.
+      expect(find.text('Continuer — Bereshit 2'), findsOneWidget);
+      await tester.tap(find.text('Continuer — Bereshit 2'));
       await tester.pumpAndSettle();
 
       expect(opened, ['1:2']);

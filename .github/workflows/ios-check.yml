@@ -5,6 +5,12 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Les minutes macOS sont facturées dix fois le tarif Linux. Un push qui en
+# supplante un autre n'a pas à payer deux fois le même build.
+concurrency:
+  group: ios-check-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   ios:
     runs-on: macos-latest
@@ -13,11 +19,93 @@ jobs:
         working-directory: bible_app
     steps:
       - uses: actions/checkout@v4
+
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.44.1'
           channel: stable
           cache: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
       - run: flutter pub get
       - run: flutter analyze
-      - run: flutter build ios --release --no-codesign
+
+      # App Store Connect refuse toute icône portant un canal alpha — mais le
+      # refus n'arrive qu'après l'upload, une fois les 99 $ payés et le build
+      # signé. Le lire ici dans l'en-tête PNG coûte une seconde et n'utilise
+      # que la bibliothèque standard : Pillow n'est pas garanti sur le runner.
+      - name: Vérifier que les icônes sont opaques et carrées
+        run: |
+          python3 - <<'PY'
+          import glob, os, struct, sys
+
+          ICONS = 'ios/Runner/Assets.xcassets/AppIcon.appiconset/*.png'
+          # Types PNG 4 (gris+alpha) et 6 (RVB+alpha) portent un canal alpha ;
+          # un tRNS en ajoute un à une palette (type 3).
+          ALPHA_TYPES = (4, 6)
+          bad = []
+
+          for f in sorted(glob.glob(ICONS)):
+              raw = open(f, 'rb').read()
+              name = os.path.basename(f)
+
+              if raw[:8] != b'\x89PNG\r\n\x1a\n':
+                  bad.append(f'{name} : ce n\'est pas un PNG')
+                  continue
+
+              width, height = struct.unpack('>II', raw[16:24])
+              ctype = raw[25]
+              alpha = ctype in ALPHA_TYPES or b'tRNS' in raw
+
+              print(f'{name:30s} {width}x{height}  type={ctype}  '
+                    f'{"ALPHA" if alpha else "opaque"}')
+
+              if alpha:
+                  bad.append(f'{name} : canal alpha')
+              if width != height:
+                  bad.append(f'{name} : {width}x{height}, non carré')
+
+          if bad:
+              print('\nEchec :')
+              for b in bad:
+                  print('  -', b)
+              sys.exit(1)
+
+          print('\nOK : aucune icone avec canal alpha, toutes carrees.')
+          PY
+
+      - name: Compiler l'app iOS
+        run: flutter build ios --release --no-codesign
+
+      # `flutter build ipa` exige une identité de signature, qu'on n'a pas.
+      # On emballe donc l'app bundle à la main : l'IPA obtenu s'inspecte
+      # (taille réelle, icône, Info.plist) mais ne s'installe sur aucun
+      # appareil — c'est précisément ce qu'on veut vérifier ici.
+      - name: Emballer l'IPA non signé
+        run: |
+          APP=build/ios/iphoneos/Runner.app
+          rm -rf /tmp/Payload
+          mkdir -p /tmp/Payload
+          cp -R "$APP" /tmp/Payload/
+          ( cd /tmp && zip -qry Runner-unsigned.ipa Payload )
+
+          {
+            echo '### Taille du build iOS'
+            echo
+            echo '| élément | taille |'
+            echo '|---|---|'
+            echo "| Assets embarqués | $(du -sh assets | cut -f1) |"
+            echo "| Runner.app | $(du -sh "$APP" | cut -f1) |"
+            echo "| Runner-unsigned.ipa | $(du -sh /tmp/Runner-unsigned.ipa | cut -f1) |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          echo "IPA non signe : $(du -sh /tmp/Runner-unsigned.ipa | cut -f1)"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Runner-unsigned-ipa
+          path: /tmp/Runner-unsigned.ipa
+          retention-days: 14

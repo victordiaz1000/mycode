@@ -649,7 +649,23 @@ class BymUpdateService {
     invalidateCaches();
   }
 
-  /// Oublie tout texte BYM tenu en mémoire.
+  /// Prévient qu'un **autre texte est désormais servi** : une mise à jour vient
+  /// d'être installée, ou le lecteur est revenu à l'embarqué. Les écrans déjà
+  /// ouverts s'y branchent pour relire ce qu'ils affichent — sans cela, une
+  /// correction n'apparaît qu'au prochain montage de l'onglet, alors que le
+  /// lecteur vient tout juste de l'accepter.
+  ///
+  /// C'est ce notificateur, et **non** `BymUpdateStore.revision`, qu'il faut
+  /// écouter pour cela : le magasin prévient à l'instant où il écrit son
+  /// registre, donc *avant* [invalidateCaches]. Un écran branché là relirait le
+  /// livre encore en cache — l'ancien, précisément celui qu'on voulait remplacer.
+  /// Ici la notification part **après** le vidage, ce qui rend la relecture
+  /// juste par construction (vérifié dans
+  /// `test/bym_update_read_priority_test.dart`).
+  static final ValueNotifier<int> textRevision = ValueNotifier<int>(0);
+
+  /// Oublie tout texte BYM tenu en mémoire, puis prévient les écrans ouverts via
+  /// [textRevision].
   ///
   /// Les quatre caches sont nécessaires, et le dernier est le moins évident :
   /// [LexiconIndex] est bâti sur les **notes** des livres BYM
@@ -661,6 +677,9 @@ class BymUpdateService {
     VersionRepository.forget(VersionRepository.embeddedCode);
     FulltextIndex.forget(VersionRepository.embeddedCode);
     LexiconIndex.instance.clearIndex();
+    // Dernier, et l'ordre est le contrat : quiconque relit sur cette
+    // notification trouve les caches vides, donc le texte neuf.
+    textRevision.value++;
   }
 
   /// Un livre : téléchargement, empreinte, conversion, structure, transit.
@@ -777,6 +796,15 @@ class BymUpdateChecker {
 
   static bool _running = false;
 
+  /// Fabrique du service employée quand l'appelant n'en fournit pas.
+  ///
+  /// Le crochet de cycle de vie de `main.dart` appelle `maybeCheck()` sans
+  /// argument — c'est tout l'intérêt, il ne connaît rien du service. Ce point
+  /// d'injection est donc le seul moyen de lui donner un client simulé, et il
+  /// n'existe que pour ça : la production le laisse null.
+  @visibleForTesting
+  static BymUpdateService Function()? debugServiceFactory;
+
   /// Vérifie au plus une fois par [BymUpdateService.checkInterval].
   ///
   /// Ne lève jamais et n'attend rien : hors ligne, le démarrage est simplement
@@ -789,7 +817,7 @@ class BymUpdateChecker {
     if (_running) return;
     _running = true;
     final owned = service == null;
-    final svc = service ?? BymUpdateService();
+    final svc = service ?? debugServiceFactory?.call() ?? BymUpdateService();
     try {
       final st = store ?? BymUpdateStore();
       if (!force) {

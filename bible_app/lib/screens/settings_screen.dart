@@ -7,9 +7,11 @@ import '../data/fulltext_index.dart';
 import '../data/library_store.dart';
 import '../data/local_repository.dart';
 import '../data/reading_history.dart';
+import '../data/share_text.dart';
 import '../data/theme_catalog.dart';
 import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
+import '../widgets/fiche_text_settings.dart';
 import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
 import 'themes_screen.dart';
@@ -42,6 +44,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
   AppPreferences? _prefs;
   Map<String, InstalledVersion> _installed = const {};
   Map<String, int> _sizes = {};
+
+  /// Whether the active version carries notes at all. A downloaded version
+  /// copies the bare text into `textWithNotes` and leaves `notes` empty, so
+  /// « texte + notes » would toggle between two identical renderings.
+  bool get _carriesNotes =>
+      versionByCode(_prefs?.versionCode ?? '')?.carriesNotes ?? false;
+
+  /// « Notes sous le verset » is a tiles-only choice: the continuous flow weaves
+  /// the notes into the sentence. Gated on display, never by rewriting the
+  /// stored disposition — which is what keeps it intact for the tiles layout.
+  bool get _belowAvailable => _prefs?.layout != ReadingLayout.paragraph;
 
   /// Mise à jour du texte BYM. Le service ne crée son client HTTP qu'au premier
   /// appel : le tenir en champ ne coûte donc rien tant qu'on ne vérifie pas.
@@ -77,17 +90,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
     // voir dans la section, y compris quand elle vient d'ailleurs (un JSON abîmé
     // que `LocalRepository` a effacé, par exemple).
     BymUpdateStore.revision.addListener(_onLibraryChanged);
+    // Même raison pour les préférences, et c'est plus large que le seul thème :
+    // le lecteur change la taille, la police, les notes et l'opacité depuis sa
+    // feuille ⋯, et l'accueil pousse l'écran des thèmes. Sans cette écoute, les
+    // lignes d'ici affichent des valeurs périmées — le nom du thème en tête.
+    AppPreferences.revision.addListener(_onPreferencesChanged);
   }
 
   @override
   void dispose() {
     LibraryStore.revision.removeListener(_onLibraryChanged);
     BymUpdateStore.revision.removeListener(_onLibraryChanged);
+    AppPreferences.revision.removeListener(_onPreferencesChanged);
     if (widget.updateService == null) _updates.close();
     super.dispose();
   }
 
   Future<void> _onLibraryChanged() => _load();
+
+  /// Deliberately narrower than [_load]: a preference change must refresh the
+  /// displayed values, and re-reading the installed versions would walk the disk
+  /// for every letter the reader touches.
+  Future<void> _onPreferencesChanged() async {
+    final prefs = await AppPreferences.load();
+    if (!mounted) return;
+    setState(() => _prefs = prefs);
+  }
 
   Future<void> _load() async {
     final prefs = await AppPreferences.load();
@@ -147,9 +175,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     await prefs.save();
   }
 
-  void _snack(String message) {
+  void _snack(String message, {Duration duration = const Duration(seconds: 2)}) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), duration: const Duration(seconds: 2)),
+      SnackBar(content: Text(message), duration: duration),
     );
   }
 
@@ -411,6 +439,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
       _updateProgress = null;
       _updateMessage = outcome.message;
     });
+    if (outcome.applied) {
+      // La ligne sous la rangée dit déjà *ce qui* a été installé ; ce message dit
+      // ce qu'elle ne peut pas dire — que l'onglet de lecture resté ouvert
+      // derrière porte déjà la correction, donc qu'il n'y a rien à refermer ni à
+      // rouvrir. Quatre secondes : c'est une phrase, pas un accusé de réception.
+      _snack(
+        '${outcome.message} La lecture est déjà à jour.',
+        duration: const Duration(seconds: 4),
+      );
+    }
     await _load();
   }
 
@@ -619,10 +657,82 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       _SettingsRow(
                         icon: Icons.format_size,
                         title: 'Taille du texte',
-                        below: _SizePicker(
-                          current: ReadingTextSize.nearest(_p.fontSize),
-                          onChanged: (size) {
-                            setState(() => _p.fontSize = size.fontSize);
+                        // La rangée dit, comme les trois suivantes, quel choix
+                        // est en cours — l'échelle de « A » seule ne le dit pas
+                        // à qui ne la regarde pas attentivement.
+                        subtitle: _sizeLabel(_p.fontSize),
+                        below: ReadingSizeChips(
+                          fontSize: _p.fontSize,
+                          onChanged: (value) {
+                            setState(() => _p.fontSize = value);
+                            _save();
+                          },
+                        ),
+                      ),
+                      _Divider(),
+                      _SettingsRow(
+                        icon: Icons.segment,
+                        title: 'Disposition du texte',
+                        subtitle: _p.layout.label,
+                        // Below, not trailing: the `trailing` slot is not
+                        // bounded, and a bar of segments would swallow the
+                        // title whole on a 320-px phone.
+                        below: ReadingOptionBar<ReadingLayout>(
+                          options: ReadingLayout.values,
+                          // La barre n'a pas la place pour « Versets séparés »
+                          // à l'échelle système maximale : le segment
+                          // raccourcit, la version complète reste au survol.
+                          labelOf: (option) =>
+                              option == ReadingLayout.tiles ? 'Séparés' : 'Continu',
+                          tooltipOf: (option) => option.label,
+                          selected: _p.layout,
+                          onChanged: (value) {
+                            setState(() => _p.layout = value);
+                            _save();
+                          },
+                        ),
+                      ),
+                      _Divider(),
+                      _SettingsRow(
+                        icon: Icons.format_bold,
+                        title: 'Graisse du texte',
+                        subtitle: _p.fontWeight.label,
+                        below: ReadingOptionBar<ReadingFontWeight>(
+                          options: ReadingFontWeight.values,
+                          labelOf: (option) => option.label,
+                          selected: _p.fontWeight,
+                          onChanged: (value) {
+                            setState(() => _p.fontWeight = value);
+                            _save();
+                          },
+                        ),
+                      ),
+                      _Divider(),
+                      _SettingsRow(
+                        icon: Icons.format_line_spacing,
+                        title: 'Aération du texte',
+                        subtitle: _p.spacing.label,
+                        below: ReadingOptionBar<ReadingSpacing>(
+                          options: ReadingSpacing.values,
+                          labelOf: (option) => option.label,
+                          selected: _p.spacing,
+                          onChanged: (value) {
+                            setState(() => _p.spacing = value);
+                            _save();
+                          },
+                        ),
+                      ),
+                      _Divider(),
+                      _SettingsRow(
+                        icon: Icons.format_align_justify,
+                        title: 'Alignement',
+                        // Below, not trailing: four icon buttons are 192 px, and
+                        // the trailing slot is narrower than that on a small
+                        // phone.
+                        below: ReadingAlignChips(
+                          align: _p.textAlign,
+                          onChanged: (align) {
+                            setState(() => _p.textAlign = align);
                             _save();
                           },
                         ),
@@ -637,12 +747,36 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                       _Divider(),
                       _SettingsRow(
-                        icon: Icons.format_align_justify,
-                        title: 'Alignement',
-                        trailing: _AlignPicker(
-                          current: _p.textAlign,
-                          onChanged: (align) {
-                            setState(() => _p.textAlign = align);
+                        icon: Icons.format_color_text,
+                        title: 'Couleur du texte',
+                        subtitle: _p.textColorOverride == null
+                            ? 'Suivre le thème'
+                            : 'Personnalisée',
+                        below: ReadingTextColorSwatches(
+                          selectedArgb: _p.textColorOverride,
+                          onChanged: (value) {
+                            setState(() =>
+                                _p.textColorOverride = value?.toString());
+                            _save();
+                          },
+                        ),
+                      ),
+                      _Divider(),
+                      _SettingsRow(
+                        icon: Icons.texture,
+                        title: 'Opacité du panneau',
+                        // No subtitle: the slider carries its own readout, and
+                        // printing « 80 % » twice in one row is noise.
+                        below: ReadingOpacitySlider(
+                          value: _p.panelOpacity,
+                          onChanged: (value) {
+                            setState(() => _p.panelOpacity = value);
+                          },
+                          // Persisted on release: rebuilding the reader and
+                          // writing on every tick would hammer the
+                          // preferences a dozen times per gesture.
+                          onChangeEnd: (value) {
+                            setState(() => _p.panelOpacity = value);
                             _save();
                           },
                         ),
@@ -651,7 +785,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       _SettingsRow(
                         icon: Icons.note_alt_outlined,
                         title: 'Notes',
-                        subtitle: _p.notesMode ? 'Texte + notes' : 'Texte seul',
+                        // The switch is never disabled: the preference is global
+                        // and applies whenever a BYM-format version is read. But
+                        // while the active version carries no notes, saying so is
+                        // better than offering a control with no visible effect.
+                        subtitle: _carriesNotes
+                            ? (_p.notesMode ? 'Texte + notes' : 'Texte seul')
+                            : 'Texte seul — notes du texte BYM',
                         trailing: Switch(
                           value: _p.notesMode,
                           onChanged: (value) {
@@ -665,8 +805,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         _SettingsRow(
                           icon: Icons.view_headline,
                           title: 'Disposition des notes',
-                          trailing: _DispositionPicker(
+                          // The continuous flow weaves the notes into the
+                          // sentence, so « sous le verset » does not apply there.
+                          // The chip stays **visible but disabled** rather than
+                          // hidden: hiding it would let the row look like a
+                          // two-way choice that had lost an option, and a
+                          // disabled chip cannot be tapped into overwriting a
+                          // preference the reader wants back in the tiles layout.
+                          subtitle: _belowAvailable
+                              ? null
+                              : 'Le texte continu montre les notes à la suite',
+                          // Below, comme les quatre autres sélecteurs de cette
+                          // carte : dans le `trailing`, la barre pousserait le
+                          // titre hors de la rangée.
+                          below: _DispositionPicker(
                             current: _p.disposition,
+                            belowAvailable: _belowAvailable,
                             onChanged: (value) {
                               setState(() => _p.disposition = value);
                               _save();
@@ -681,6 +835,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   const SizedBox(height: 10),
                   _SettingsCard(
                     children: [
+                      // Pas de ligne « Mode immersion » ici : c'est une action
+                      // de lecture, et la feuille ⋯ du lecteur la porte déjà —
+                      // avec sa sortie, qu'elle referme en s'activant. Une
+                      // préférence, une adresse.
                       _SettingsRow(
                         icon: Icons.palette_outlined,
                         title: 'Thème de lecture',
@@ -756,7 +914,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     children: [
                       _SettingsRow(
                         icon: Icons.menu_book,
-                        title: 'BYM — Bible de Yehoshoua Ha Mashiah',
+                        title: appName,
                         // Version de l'application, pas du texte : les deux
                         // évoluent séparément, et c'est tout l'intérêt du
                         // système de mise à jour. La section ci-dessus dit la
@@ -795,6 +953,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
   String _versionLabel(String code) {
     final entry = versionByCode(code);
     return entry?.name ?? code;
+  }
+
+  /// « Très grand » — l'adjectif de l'échelle, mis en forme pour la
+  /// sous-ligne d'une rangée (l'enum le stocke en minuscules).
+  String _sizeLabel(double fontSize) {
+    final label = ReadingTextSize.nearest(fontSize).label;
+    if (label.isEmpty) return label;
+    return label[0].toUpperCase() + label.substring(1);
   }
 }
 
@@ -955,139 +1121,42 @@ class _Divider extends StatelessWidget {
   }
 }
 
-/// One of the six reading sizes, as a compact selectable chip.
-class _SizePicker extends StatelessWidget {
-  final ReadingTextSize current;
-  final ValueChanged<ReadingTextSize> onChanged;
-
-  const _SizePicker({required this.current, required this.onChanged});
-
-  @override
-  Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 6,
-      runSpacing: 6,
-      children: [
-        for (final size in ReadingTextSize.values)
-          _OptionChip(
-            label: 'A',
-            selected: size == current,
-            tooltip: 'Texte ${size.label}',
-            fontSize: size.fontSize > 24 ? 24 : size.fontSize,
-            onTap: () => onChanged(size),
-          ),
-      ],
-    );
-  }
-}
-
-/// The four text alignments, as selectable chips.
-class _AlignPicker extends StatelessWidget {
-  final ReadingTextAlign current;
-  final ValueChanged<ReadingTextAlign> onChanged;
-
-  const _AlignPicker({required this.current, required this.onChanged});
-
-  @override
-  Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 6,
-      runSpacing: 6,
-      children: [
-        for (final align in ReadingTextAlign.values)
-          _OptionChip(
-            label: _alignIcon(align),
-            selected: align == current,
-            tooltip: 'Aligner ${align.label}',
-            onTap: () => onChanged(align),
-          ),
-      ],
-    );
-  }
-
-  String _alignIcon(ReadingTextAlign align) => switch (align) {
-    ReadingTextAlign.left => '⇤',
-    ReadingTextAlign.center => '≡',
-    ReadingTextAlign.right => '⇥',
-    ReadingTextAlign.justify => '☰',
-  };
-}
-
-/// The two note dispositions, as selectable chips.
+/// The two note dispositions, as one bar of segments.
+///
+/// [belowAvailable] is false in the continuous layout, where the notes are woven
+/// into the sentence. « Sous » then stays visible and inert rather than
+/// disappearing: an inert segment cannot be tapped into overwriting a preference
+/// the reader will want back in the tiles layout — and its tooltip says why.
 class _DispositionPicker extends StatelessWidget {
   final NoteDisposition current;
+  final bool belowAvailable;
   final ValueChanged<NoteDisposition> onChanged;
 
-  const _DispositionPicker({required this.current, required this.onChanged});
-
-  @override
-  Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 6,
-      runSpacing: 6,
-      children: [
-        _OptionChip(
-          label: 'Suite',
-          selected: current == NoteDisposition.inline,
-          tooltip: 'Notes à la suite',
-          onTap: () => onChanged(NoteDisposition.inline),
-        ),
-        _OptionChip(
-          label: 'Sous',
-          selected: current == NoteDisposition.below,
-          tooltip: 'Notes sous le verset',
-          onTap: () => onChanged(NoteDisposition.below),
-        ),
-      ],
-    );
-  }
-}
-
-class _OptionChip extends StatelessWidget {
-  final String label;
-  final bool selected;
-  final String tooltip;
-  final double? fontSize;
-  final VoidCallback onTap;
-
-  const _OptionChip({
-    required this.label,
-    required this.selected,
-    required this.tooltip,
-    required this.onTap,
-    this.fontSize,
+  const _DispositionPicker({
+    required this.current,
+    required this.belowAvailable,
+    required this.onChanged,
   });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final accent = theme.colorScheme.primary;
-    return Tooltip(
-      message: tooltip,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(8),
-        child: Container(
-          width: 34,
-          height: 34,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: selected ? accent.withValues(alpha: .15) : null,
-            border: Border.all(
-              color: selected ? accent : theme.colorScheme.outlineVariant,
-            ),
-          ),
-          child: Text(
-            label,
-            style: TextStyle(
-              fontSize: fontSize ?? 13,
-              color: selected ? accent : theme.colorScheme.onSurface,
-              fontWeight: selected ? FontWeight.bold : null,
-            ),
-          ),
-        ),
-      ),
+    final below = current == NoteDisposition.below;
+    return ReadingOptionBar<NoteDisposition>(
+      options: const [NoteDisposition.inline, NoteDisposition.below],
+      // In the flow, what is rendered is « à la suite » even when `below` is
+      // stored — so the segment must not claim to be the current choice.
+      selected: below && belowAvailable
+          ? NoteDisposition.below
+          : NoteDisposition.inline,
+      labelOf: (option) => option == NoteDisposition.below ? 'Sous' : 'Suite',
+      tooltipOf: (option) => option == NoteDisposition.below
+          ? (belowAvailable
+              ? 'Notes sous le verset'
+              : 'Indisponible en texte continu')
+          : 'Notes à la suite',
+      enabledOf: (option) =>
+          option != NoteDisposition.below || belowAvailable,
+      onChanged: onChanged,
     );
   }
 }

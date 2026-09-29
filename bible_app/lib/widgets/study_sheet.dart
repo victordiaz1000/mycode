@@ -237,6 +237,17 @@ class _StudySheetState extends State<_StudySheet> {
           // ---- Actions ----
           _sectionLabel(context, Icons.bolt_rounded, 'Actions'),
           const SizedBox(height: 10),
+          // Le lexique mot à mot n'existe que pour le texte au format BYM (voir
+          // le garde-fou côté `chapter_reader`) : sur les autres versions le
+          // bouton doit **se voir** fermé, pas seulement rester sourd.
+          //
+          // Les trois couleurs sont décidées ici état par état, parce qu'aucune
+          // ne grisonne d'elle-même : `styleFrom(side:)` passe par `allOrNull`
+          // (un seul liseré pour tous les états), la couleur en dur du libellé
+          // l'emporte sur le `foregroundColor` du bouton, et un
+          // `disabledBackgroundColor` nul retombe sur le défaut du thème. Le
+          // bouton gardait donc liseré, fond et texte dorés, avec pour seul
+          // indice une icône grise — il avait l'air actif et cassé.
           SizedBox(
             width: double.infinity,
             child: OutlinedButton.icon(
@@ -244,9 +255,21 @@ class _StudySheetState extends State<_StudySheet> {
                   ? () => Navigator.of(context).pop(StudyAction.lexicon)
                   : null,
               style: OutlinedButton.styleFrom(
-                side: BorderSide(color: p.primary, width: 1.8),
+                side: BorderSide(
+                  color: widget.lexiqueEnabled
+                      ? p.primary
+                      // Le liseré neutre des cartes, pas l'accent : le même
+                      // langage que les pastilles de couleur non choisies.
+                      : premiumCardBorder(context, opacity: .34),
+                  width: widget.lexiqueEnabled ? 1.8 : 1.2,
+                ),
                 foregroundColor: p.primary,
+                // Porte l'icône, qui n'a pas de couleur explicite : sans elle
+                // Material la peindrait en `onSurface` à 38 %, un gris étranger
+                // à la palette et différent de celui du libellé.
+                disabledForegroundColor: p.textGrey,
                 backgroundColor: p.primarySoft.withValues(alpha: .45),
+                disabledBackgroundColor: Colors.transparent,
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14),
@@ -256,10 +279,27 @@ class _StudySheetState extends State<_StudySheet> {
               label: Text(
                 widget.lexiqueLabel,
                 textAlign: TextAlign.center,
-                style: premiumText(context, 13.5, FontWeight.w800, p.primary),
+                style: premiumText(
+                  context,
+                  13.5,
+                  FontWeight.w800,
+                  widget.lexiqueEnabled ? p.primary : p.textGrey,
+                ),
               ),
             ),
           ),
+          if (!widget.lexiqueEnabled) ...[
+            const SizedBox(height: 6),
+            // Grisé seul, le lecteur voit que c'est fermé sans savoir pourquoi
+            // ni comment l'ouvrir. Le libellé au-dessus nomme la fonction dans
+            // les deux états ; cette ligne dit la seule chose qu'il ne dit pas —
+            // d'où elle s'ouvre.
+            Text(
+              'Disponible depuis le texte BYM.',
+              textAlign: TextAlign.center,
+              style: premiumText(context, 11.5, FontWeight.w600, p.textGrey),
+            ),
+          ],
           const SizedBox(height: 10),
           GridView.count(
             crossAxisCount: 3,

@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import '../data/app_database.dart';
 import '../data/app_preferences.dart';
 import '../data/book_catalog.dart';
+import '../data/bym_update_service.dart';
 import '../data/library_store.dart';
 import '../data/note_reference_linker.dart';
 import '../data/reference_parser.dart';
@@ -91,6 +92,11 @@ class ChapterReader extends StatefulWidget {
   /// falls back to naming the Bibliothèque without offering to go there.
   final VoidCallback? onOpenLibrary;
 
+  /// Opens the Réglages destination, where the display settings the ⋯ sheet does
+  /// not carry are listed. Same null contract as [onOpenLibrary]: the row then
+  /// names the destination instead of being an inert button.
+  final VoidCallback? onOpenSettings;
+
   /// Where downloaded versions are read from. Injectable so a test can serve
   /// them from memory: a real read goes through `dart:io`, which never
   /// completes inside the `testWidgets` fake-async zone.
@@ -108,6 +114,7 @@ class ChapterReader extends StatefulWidget {
     this.onOpenChapter,
     this.onReferenceTap,
     this.onOpenLibrary,
+    this.onOpenSettings,
     this.store,
   });
 
@@ -214,6 +221,7 @@ class _ChapterReaderState extends State<ChapterReader> {
     _onJumpChanged(); // covers a chapter opened fresh with the target preset
     LibraryStore.revision.addListener(_onLibraryChanged);
     AppPreferences.revision.addListener(_onPreferencesChanged);
+    BymUpdateService.textRevision.addListener(_onTextRevisionChanged);
   }
 
   @override
@@ -225,6 +233,7 @@ class _ChapterReaderState extends State<ChapterReader> {
     widget.jumpToVerse?.removeListener(_onJumpChanged);
     LibraryStore.revision.removeListener(_onLibraryChanged);
     AppPreferences.revision.removeListener(_onPreferencesChanged);
+    BymUpdateService.textRevision.removeListener(_onTextRevisionChanged);
     _flashTimer?.cancel();
     _verseScroll.removeListener(_onScrollChanged);
     _verseScroll.dispose();
@@ -285,6 +294,32 @@ class _ChapterReaderState extends State<ChapterReader> {
         _bookFuture = _versions.loadBook(reading, widget.bookIndex);
       });
     }
+  }
+
+  /// Le texte servi vient de changer sous le lecteur : une mise à jour installée
+  /// depuis Réglages, ou le retour au texte embarqué. Les caches sont déjà vides
+  /// — c'est la garantie d'ordre de [BymUpdateService.textRevision] — donc il
+  /// suffit de redemander le livre pour que la correction apparaisse sans que
+  /// l'onglet soit refermé puis rouvert.
+  ///
+  /// Seule la version embarquée est concernée : une traduction téléchargée ne
+  /// bouge pas quand le texte BYM change.
+  ///
+  /// Remplacer le `Future` ne fait pas clignoter la page : `FutureBuilder` garde
+  /// la donnée du snapshot précédent pendant l'attente (`inState` la conserve),
+  /// donc le texte affiché et la position de lecture tiennent jusqu'à ce que le
+  /// livre corrigé soit prêt, puis la page bascule d'un coup — pas de squelette
+  /// de chargement, pas de remontage.
+  ///
+  /// Les voisins ne sont volontairement pas rechargés : un verset corrigé ne
+  /// change pas le nombre de chapitres, et ce serait deux livres re-analysés
+  /// pour rien.
+  void _onTextRevisionChanged() {
+    if (!mounted) return;
+    if (_versionCode != VersionRepository.embeddedCode) return;
+    setState(() {
+      _bookFuture = _versions.loadBook(_versionCode, widget.bookIndex);
+    });
   }
 
   void _onJumpChanged() {
@@ -689,6 +724,23 @@ class _ChapterReaderState extends State<ChapterReader> {
     await _prefs.save();
   }
 
+  /// Layout, size, notes and the panel opacity are the preferences reachable
+  /// from the ⋯ sheet; the rest (police, alignement, graisse, aération, couleur)
+  /// are written by the Settings screen, which bumps [AppPreferences.revision] —
+  /// the same signal this widget listens to. One writer per preference, so the
+  /// two surfaces cannot disagree.
+  Future<void> _setLayout(ReadingLayout value) async {
+    if (_prefs.layout == value) return;
+    setState(() => _prefs.layout = value);
+    await _savePrefs();
+  }
+
+  Future<void> _setFontSize(double value) async {
+    if (_prefs.fontSize == value) return;
+    setState(() => _prefs.fontSize = value);
+    await _savePrefs();
+  }
+
   Future<void> _setNotesMode(bool value) async {
     if (_prefs.notesMode == value) return;
     setState(() => _prefs.notesMode = value);
@@ -701,44 +753,8 @@ class _ChapterReaderState extends State<ChapterReader> {
     await _savePrefs();
   }
 
-  Future<void> _setLayout(ReadingLayout value) async {
-    if (_prefs.layout == value) return;
-    setState(() => _prefs.layout = value);
-    await _savePrefs();
-  }
-
-  Future<void> _setFontWeight(ReadingFontWeight value) async {
-    if (_prefs.fontWeight == value) return;
-    setState(() => _prefs.fontWeight = value);
-    await _savePrefs();
-  }
-
-  Future<void> _setSpacing(ReadingSpacing value) async {
-    if (_prefs.spacing == value) return;
-    setState(() => _prefs.spacing = value);
-    await _savePrefs();
-  }
-
-  Future<void> _setFontSize(double value) async {
-    if (_prefs.fontSize == value) return;
-    setState(() => _prefs.fontSize = value);
-    await _savePrefs();
-  }
-
-  Future<void> _setTextAlign(ReadingTextAlign value) async {
-    if (_prefs.textAlign == value) return;
-    setState(() => _prefs.textAlign = value);
-    await _savePrefs();
-  }
-
-  Future<void> _setReadingFont(ReadingFont value) async {
-    if (_prefs.readingFont == value) return;
-    setState(() => _prefs.readingFont = value);
-    await _savePrefs();
-  }
-
-  /// Live dial from the ⋯ sheet's slider: the reader rebuilds behind the
-  /// open sheet so the panel fades while the thumb moves; [_savePanelOpacity]
+  /// Live dial from the ⋯ sheet's slider: the reader rebuilds behind the open
+  /// sheet so the panel fades while the thumb moves; [_savePanelOpacity]
   /// persists once the drag ends — writing every tick would hammer the
   /// preferences a dozen times per gesture.
   void _setPanelOpacity(double value) {
@@ -761,16 +777,19 @@ class _ChapterReaderState extends State<ChapterReader> {
     return value == null ? theme : theme.withTextColor(Color(value));
   }
 
-  /// Persists the text-colour override; null returns to the theme's colour.
-  Future<void> _setTextColorOverride(int? argb) async {
-    _prefs.textColorOverride = argb?.toString();
-    setState(() {});
-    await _savePrefs();
-  }
-
-  /// The ⋯ sheet of the reading bar: the notes toggle and disposition on top,
-  /// then the same size / alignment / typeface sections as the fiches' display
-  /// sheet — one shared look. Every change lands live, behind the open sheet.
+  /// The reader's ⋯ sheet: **what one reaches for while reading**, and one link
+  /// to the rest.
+  ///
+  /// The split is deliberate and is not a division of labour between two teams of
+  /// settings — it is a shortcut. Réglages holds the *complete* list (this sheet
+  /// used to hold six settings that appeared nowhere else, which is how a reader
+  /// hunting for « graisse » concluded the app had no such setting). What stays
+  /// here is what changes mid-read: the layout, the size, the notes, the
+  /// opacity and the parallel reading — plus immersion, which is an action
+  /// rather than a preference and therefore has no row in Réglages: this sheet
+  /// is its only address, and it closes the sheet when it turns on. The dials
+  /// the two surfaces do share use the very same controls in both, so they
+  /// cannot drift apart — changing one changes both.
   Future<void> _showDisplaySheet() async {
     await showModalBottomSheet<void>(
       context: context,
@@ -796,38 +815,6 @@ class _ChapterReaderState extends State<ChapterReader> {
                 },
               ),
               const SizedBox(height: 12),
-              // The reading panel's transparency: how much of the theme's
-              // background shows through behind the verses. Live on drag,
-              // persisted on release.
-              DisplayCard(
-                label: 'Opacité du panneau',
-                icon: Icons.texture,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        '${(_prefs.panelOpacity * 100).round()} %',
-                        style: Theme.of(sheetContext).textTheme.bodySmall,
-                      ),
-                    ),
-                    Slider(
-                      value: _prefs.panelOpacity,
-                      min: 0.0,
-                      max: 1.0,
-                      divisions: 20,
-                      label: '${(_prefs.panelOpacity * 100).round()} %',
-                      onChanged: (value) {
-                        _setPanelOpacity(value);
-                        setSheet(() {});
-                      },
-                      onChangeEnd: (value) => _savePanelOpacity(),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 12),
               DisplayLayoutSection(
                 layout: _prefs.layout,
                 onChanged: (value) async {
@@ -836,6 +823,22 @@ class _ChapterReaderState extends State<ChapterReader> {
                 },
               ),
               const SizedBox(height: 12),
+              DisplaySizeSection(
+                fontSize: _prefs.fontSize,
+                // L'échelle complète : « petit » à « géant ». La restriction
+                // aux trois derniers crans faisait perdre le choix fin aux
+                // lecteurs qui n'ont pas besoin du très grand.
+                sizes: ReadingTextSize.values,
+                onChanged: (value) async {
+                  await _setFontSize(value);
+                  setSheet(() {});
+                },
+              ),
+              const SizedBox(height: 12),
+              // Notes, with their disposition. The continuous flow weaves the
+              // notes into the sentence, so the bar then offers the single
+              // disposition that applies: there is no room under a verse whose
+              // notes are already inside it.
               if (_supportsNotes)
                 DisplayNotesSection(
                   notesMode: _prefs.notesMode,
@@ -851,81 +854,49 @@ class _ChapterReaderState extends State<ChapterReader> {
                   },
                 )
               else
-                const DisplayCard(
+                // A version that carries no notes: one card that says why,
+                // rather than a switch toggling between two identical renderings.
+                DisplayCard(
                   label: 'Notes',
                   icon: Icons.note_alt,
-                  child: Text(
-                    'BYM uniquement',
-                    style: TextStyle(color: Colors.grey),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Texte BYM uniquement',
+                          style: premiumText(context, 12.5, FontWeight.w500,
+                              premiumPalette(context).textGrey),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               const SizedBox(height: 12),
-              DisplaySizeSection(
-                fontSize: _prefs.fontSize,
-                // L'échelle complète : « petit » à « géant ». La restriction
-                // aux trois derniers crans faisait perdre le choix fin aux
-                // lecteurs qui n'ont pas besoin du très grand.
-                sizes: ReadingTextSize.values,
-                onChanged: (value) async {
-                  await _setFontSize(value);
+              // How much of the theme's background shows through behind the
+              // verses — a per-reading comfort, worth a dial two taps away.
+              DisplayOpacitySection(
+                value: _prefs.panelOpacity,
+                // The reader's `setState` alone is not enough here: the sheet is
+                // its own subtree behind its own route, so it is not rebuilt by
+                // it. Without this the panel faded while the thumb and the « 80 % »
+                // label stayed put — the dial looked dead, and a later
+                // `setSheet` from any other control snapped it back.
+                onChanged: (value) {
+                  _setPanelOpacity(value);
                   setSheet(() {});
                 },
+                onChangeEnd: (_) => _savePanelOpacity(),
               ),
               const SizedBox(height: 12),
-              // The body text colour: « suivre le thème » by default, then a
-              // handful of presets. A light colour flips the panels dark via
-              // `withTextColor`, so every swatch stays readable.
-              DisplayCard(
-                label: 'Couleur du texte',
-                icon: Icons.format_color_text,
-                child: Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: [
-                    for (final choice in _textColorChoices)
-                      _TextColorSwatch(
-                        argb: choice,
-                        selected:
-                            _prefs.textColorOverride == choice?.toString(),
-                        onTap: () async {
-                          await _setTextColorOverride(choice);
-                          setSheet(() {});
-                        },
-                      ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 12),
-              DisplayAlignSection(
-                align: _prefs.textAlign,
-                onChanged: (value) async {
-                  await _setTextAlign(value);
-                  setSheet(() {});
-                },
-              ),
-              const SizedBox(height: 12),
-              DisplayWeightSection(
-                weight: _prefs.fontWeight,
-                onChanged: (value) async {
-                  await _setFontWeight(value);
-                  setSheet(() {});
-                },
-              ),
-              const SizedBox(height: 12),
-              DisplaySpacingSection(
-                spacing: _prefs.spacing,
-                onChanged: (value) async {
-                  await _setSpacing(value);
-                  setSheet(() {});
-                },
-              ),
-              const SizedBox(height: 12),
-              DisplayFontSection(
-                font: _prefs.readingFont,
-                onChanged: (value) async {
-                  await _setReadingFont(value);
-                  setSheet(() {});
-                },
+              // The rest of the display lives in one place, and this says so
+              // rather than leaving the reader to wonder where « graisse » went.
+              _AllSettingsRow(
+                onTap: widget.onOpenSettings == null
+                    ? null
+                    : () {
+                        Navigator.of(sheetContext).pop();
+                        widget.onOpenSettings!();
+                      },
               ),
               const SizedBox(height: 12),
               // The two-versions side-by-side reading: a mode, not a display
@@ -1134,6 +1105,7 @@ class _ChapterReaderState extends State<ChapterReader> {
                 onHighlight: _showSelectionColors,
                 onFavorite: _bulkFavorite,
                 onCopy: _copySelection,
+                onShare: _shareSelection,
                 onDone: () => setState(() => _selected.clear()),
               ),
           ],
@@ -1160,7 +1132,7 @@ class _ChapterReaderState extends State<ChapterReader> {
     final next = _next;
     if (next == null) return null;
     return _ContinueChapterTile(
-      label: '${catalogEntry(next.$1).barLabel} ${next.$2}',
+      label: '${bookDisplayLabel(next.$1, code: _versionCode, embeddedCode: VersionRepository.embeddedCode)} ${next.$2}',
       onTap: () => _openChapter(next.$1, next.$2),
     );
   }
@@ -1254,9 +1226,12 @@ class _ChapterReaderState extends State<ChapterReader> {
       isFavorite: _favorites.contains(vn),
       currentHighlight: _highlights[vn],
       lexiqueEnabled: lexiqueEnabled,
-      lexiqueLabel: lexiqueEnabled
-          ? 'Lexique & Dictionnaire — verset mot à mot'
-          : 'Lexique & Dictionnaire — version BYM',
+      // Le même libellé dans les deux états : il nomme la *fonction*, et la
+      // feuille dit la disponibilité — grisé, plus une ligne « Disponible depuis
+      // le texte BYM. ». Le libellé désactivé disait « — version BYM », ce qui
+      // répétait cette ligne et laissait le lecteur sans savoir ce que le bouton
+      // ouvre.
+      lexiqueLabel: 'Lexique & Dictionnaire — verset mot à mot',
       onHighlight: (color) => _applyHighlight(vn, color),
       onFavorite: (value) => _applyFavorite(vn, value),
     );
@@ -1270,8 +1245,15 @@ class _ChapterReaderState extends State<ChapterReader> {
         await _editNote(verse);
         break;
       case StudyAction.copy:
+        // The same formatter as the multi-verse copy, so a single verse and a
+        // selection cannot drift apart — and both name a downloaded version.
         await Clipboard.setData(
-          ClipboardData(text: '${_referenceLabel(verse)} ${verse.text}'),
+          ClipboardData(
+            text: formatCitation(
+              _passageOf(verse),
+              tag: versionTag(_versionCode, VersionRepository.embeddedCode),
+            ),
+          ),
         );
         _snack('Verset copié.');
         break;
@@ -1282,22 +1264,56 @@ class _ChapterReaderState extends State<ChapterReader> {
         await _showVerseReferences(verse);
         break;
       case StudyAction.share:
-        // A downloaded version is named, so the reader knows whose words they
-        // are passing on; the embedded BYM needs no badge.
-        final versionTag = _versionCode == VersionRepository.embeddedCode
-            ? ''
-            : ' ($_versionCode)';
         await shareText(
-          '« ${verse.text} »\n'
-          '— ${_referenceLabel(verse)}$versionTag',
+          formatPassage(
+            _passageOf(verse),
+            tag: versionTag(_versionCode, VersionRepository.embeddedCode),
+          ),
+          origin: _originOf(context),
         );
         break;
     }
   }
 
-  /// « Genèse 1:1 » — the label carried by the copied and shared verse.
+  /// The rectangle of the tapped surface, so the share sheet has something to
+  /// anchor to. Null is acceptable — `share_plus` falls back to the centre of the
+  /// screen — but passing it is what keeps a tablet from positioning the sheet
+  /// off-screen.
+  Rect? _originOf(BuildContext source) {
+    final box = source.findRenderObject();
+    if (box is! RenderBox || !box.hasSize) return null;
+    return box.localToGlobal(Offset.zero) & box.size;
+  }
+
+  /// The verse as the copy/share layer needs it: reference already resolved.
+  PassageRef _passageOf(Verse verse) => PassageRef(
+        reference: _referenceLabel(verse),
+        verse: verse.number,
+        text: verse.text,
+      );
+
+  /// The current selection in **reading order** — not selection order: a share
+  /// must read top to bottom.
+  List<PassageRef> _selectedPassages() {
+    final chapter = _chapterData;
+    if (chapter == null || _selected.isEmpty) return const [];
+    final wanted = Set<int>.from(_selected);
+    final out = <PassageRef>[];
+    for (var i = 0; i < chapter.verses.length; i++) {
+      final v = chapter.verses[i];
+      final vn = v.number == 0 ? i + 1 : v.number;
+      if (wanted.remove(vn)) out.add(_passageOf(v));
+      if (wanted.isEmpty) break;
+    }
+    return out;
+  }
+
+  /// « Genèse 1:1 » on a translation, « Bereshit 1:1 » on the BYM — the label
+  /// carried by the copied and shared verse. It follows the version being read,
+  /// because a reference that named the wrong text would send the reader to a
+  /// chapter that does not say what they just copied.
   String _referenceLabel(Verse verse) =>
-      '${catalogEntry(widget.bookIndex).shortName} ${verse.verse}';
+      '${bookDisplayName(widget.bookIndex, code: _versionCode, embeddedCode: VersionRepository.embeddedCode)} ${verse.verse}';
 
   /// Applies a colour picked in the study sheet, or clears it when null.
   ///
@@ -1383,24 +1399,38 @@ class _ChapterReaderState extends State<ChapterReader> {
     _snack(add ? 'Ajouté aux favoris.' : 'Retiré des favoris.');
   }
 
-  /// Copies the selection as one block, verses in reading order:
-  /// « Ge. 1:1 texte » / « Ge. 1:2 texte ». Exits selection mode afterwards —
-  /// copying is terminal, unlike coloring which invites more.
+  /// Copies the selection as one block, verses in reading order. Exits selection
+  /// mode afterwards — copying is terminal, unlike colouring which invites more.
   Future<void> _copySelection() async {
-    final chapter = _chapterData;
-    if (chapter == null || _selected.isEmpty) return;
-    final wanted = Set<int>.from(_selected);
-    final lines = <String>[];
-    for (var i = 0; i < chapter.verses.length; i++) {
-      final v = chapter.verses[i];
-      final vn = v.number == 0 ? i + 1 : v.number;
-      if (wanted.remove(vn)) lines.add('${_referenceLabel(v)} ${v.text}');
-      if (wanted.isEmpty) break;
-    }
-    await Clipboard.setData(ClipboardData(text: lines.join('\n')));
+    final passages = _selectedPassages();
+    if (passages.isEmpty) return;
+    final tag = versionTag(_versionCode, VersionRepository.embeddedCode);
+    // Le nom de l'app en tête, une fois, puis une ligne par verset : la mise en
+    // forme de la sélection est dans `share_text.dart` comme toutes les autres,
+    // et non recopiée ici.
+    await Clipboard.setData(
+      ClipboardData(text: formatCitations(passages, tag: tag)),
+    );
     if (!mounted) return;
     setState(_selected.clear);
-    _snack('${lines.length} verset${lines.length > 1 ? 's' : ''} copié${lines.length > 1 ? 's' : ''}.');
+    _snack('${passages.length} verset${passages.length > 1 ? 's' : ''} copié${passages.length > 1 ? 's' : ''}.');
+  }
+
+  /// Hands the selection to the system share sheet, in the same reading order
+  /// and the same conventions as the single-verse share.
+  ///
+  /// The selection **stays**: the share sheet is its own visible feedback, and
+  /// unlike the clipboard the reader may well have more to do with these verses.
+  Future<void> _shareSelection() async {
+    final passages = _selectedPassages();
+    if (passages.isEmpty) return;
+    await shareText(
+      formatSelection(
+        passages,
+        tag: versionTag(_versionCode, VersionRepository.embeddedCode),
+      ),
+      origin: _originOf(context),
+    );
   }
 
   /// The color row of the selection bar: same palette as the study sheet,
@@ -1893,205 +1923,44 @@ class _MissingBookPanel extends StatelessWidget {
   }
 }
 
-/// The notes part of the reader's display sheet: the « Texte seul /
-/// Texte + notes » toggle and the disposition, as chip rows — the same look
-/// as the shared size / alignment / typeface sections below them.
-class DisplayNotesSection extends StatelessWidget {
-  final bool notesMode;
-  final NoteDisposition disposition;
+/// « Tous les réglages » — the way out of the ⋯ sheet toward the complete
+/// display list. It is a **row, not a button**, and it says what it leads to:
+/// a bare chevron at the bottom of a settings sheet reads as « and then? ».
+class _AllSettingsRow extends StatelessWidget {
+  final VoidCallback? onTap;
 
-  /// Whether « sous le verset » is renderable. False in the continuous
-  /// layout, where note cards would chop the printed-text feel: the chip
-  /// disappears and the disposition row keeps only « à la suite ».
-  final bool belowAvailable;
-  final Future<void> Function(bool) onNotesMode;
-  final Future<void> Function(NoteDisposition) onDisposition;
-
-  const DisplayNotesSection({
-    super.key,
-    required this.notesMode,
-    required this.disposition,
-    required this.belowAvailable,
-    required this.onNotesMode,
-    required this.onDisposition,
-  });
+  const _AllSettingsRow({required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return DisplayCard(
-      label: 'Notes',
-      icon: Icons.note_alt,
-      child: Wrap(
-        spacing: 8,
-        runSpacing: 8,
-        children: [
-          displayFilterChip(
-            context,
-            'Texte seul',
-            !notesMode,
-            () => onNotesMode(false),
-          ),
-          displayFilterChip(
-            context,
-            'Texte + notes',
-            notesMode,
-            () => onNotesMode(true),
-          ),
-          if (notesMode) ...[
-            displayFilterChip(
-              context,
-              'Notes à la suite',
-              notesMode &&
-                  (disposition == NoteDisposition.inline || !belowAvailable),
-              () => onDisposition(NoteDisposition.inline),
-            ),
-            if (belowAvailable)
-              displayFilterChip(
-                context,
-                'Notes sous le verset',
-                notesMode && disposition == NoteDisposition.below,
-                () => onDisposition(NoteDisposition.below),
-              ),
-          ],
-        ],
+    final p = premiumPalette(context);
+    return Container(
+      margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+      decoration: BoxDecoration(
+        color: p.surfaceAlt,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: p.primary.withValues(alpha: .14)),
+      ),
+      child: ListTile(
+        // Absent outside the shell (isolated reader, tests): the row then names
+        // the destination instead of pretending to be a button.
+        onTap: onTap,
+        enabled: onTap != null,
+        leading: Icon(Icons.tune, size: 20, color: p.primary),
+        title: Text(
+          'Tous les réglages',
+          style: premiumText(context, 14, FontWeight.w700, p.textDark),
+        ),
+        subtitle: Text(
+          'Police, alignement, graisse, aération, couleur, notes, thème…',
+          style: premiumText(context, 11.5, FontWeight.w500, p.textGrey,
+              height: 1.3),
+        ),
+        trailing: Icon(Icons.chevron_right, color: p.textGrey),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
     );
   }
-}
-/// The « Disposition du texte » part of the reader's display sheet: verses as
-/// separate tiles, or a continuous printed-Bible flow. Same chip look as the
-/// notes section above it.
-class DisplayLayoutSection extends StatelessWidget {
-  final ReadingLayout layout;
-  final Future<void> Function(ReadingLayout) onChanged;
-
-  const DisplayLayoutSection({
-    super.key,
-    required this.layout,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return DisplayCard(
-      label: 'Disposition du texte',
-      icon: Icons.segment,
-      child: Wrap(
-        spacing: 8,
-        runSpacing: 8,
-        children: [
-          for (final option in ReadingLayout.values)
-            displayFilterChip(
-              context,
-              option.label,
-              layout == option,
-              () => onChanged(option),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-/// The « Graisse » part of the reader's display sheet: Léger / Normal /
-/// Foncé. Some screens render w400 visibly darker than others — this lets the
-/// reader dial the stroke to taste, identically in both layouts.
-class DisplayWeightSection extends StatelessWidget {
-  final ReadingFontWeight weight;
-  final Future<void> Function(ReadingFontWeight) onChanged;
-
-  const DisplayWeightSection({
-    super.key,
-    required this.weight,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return DisplayCard(
-      label: 'Graisse du texte',
-      icon: Icons.format_bold,
-      child: Wrap(
-        spacing: 8,
-        runSpacing: 8,
-        children: [
-          for (final option in ReadingFontWeight.values)
-            displayFilterChip(
-              context,
-              option.label,
-              weight == option,
-              () => onChanged(option),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-/// The « Aération » part of the reader's display sheet: Serré / Normal /
-/// Aéré. The vertical rhythm already scales with the font size (see
-/// [ReadingRhythm]) so big type keeps its breathing room; this lets the
-/// reader tighten or loosen that rhythm to taste, identically in both
-/// layouts.
-class DisplaySpacingSection extends StatelessWidget {
-  final ReadingSpacing spacing;
-  final Future<void> Function(ReadingSpacing) onChanged;
-
-  const DisplaySpacingSection({
-    super.key,
-    required this.spacing,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return DisplayCard(
-      label: 'Aération du texte',
-      icon: Icons.format_line_spacing,
-      child: Wrap(
-        spacing: 8,
-        runSpacing: 8,
-        children: [
-          for (final option in ReadingSpacing.values)
-            displayFilterChip(
-              context,
-              option.label,
-              spacing == option,
-              () => onChanged(option),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-/// The FilterChip look shared by every display-sheet section: selected chips
-/// tint with the accent, unselected ones stay outlined. One builder for the
-/// four sections, which each used to carry an identical local closure.
-Widget displayFilterChip(
-  BuildContext context,
-  String label,
-  bool selected,
-  VoidCallback onTap,
-) {
-  final p = premiumPalette(context);
-  return FilterChip(
-    label: Text(
-      label,
-      style: TextStyle(
-        color: selected ? p.primary : p.textDark,
-        fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
-      ),
-    ),
-    selected: selected,
-    onSelected: (_) => onTap(),
-    showCheckmark: false,
-    side: BorderSide(
-      color: selected ? p.primary : p.textGrey.withValues(alpha: .35),
-    ),
-    backgroundColor: Colors.transparent,
-    selectedColor: p.primary.withValues(alpha: .14),
-  );
 }
 
 class _SelectionBar extends StatelessWidget {
@@ -2099,6 +1968,7 @@ class _SelectionBar extends StatelessWidget {
   final VoidCallback onHighlight;
   final VoidCallback onFavorite;
   final VoidCallback onCopy;
+  final VoidCallback onShare;
   final VoidCallback onDone;
 
   const _SelectionBar({
@@ -2107,15 +1977,21 @@ class _SelectionBar extends StatelessWidget {
     required this.onHighlight,
     required this.onFavorite,
     required this.onCopy,
+    required this.onShare,
     required this.onDone,
   });
 
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
-    // Icons only: a labelled « Terminer » button next to three actions pushed
-    // the row 42 px past a 360 px screen. The bare count keeps the « combien »
-    // without its sentence; closing is the ✕ at the end like everywhere else.
+    // Icons only: a labelled « Terminer » button next to the actions pushed the
+    // row 42 px past a 360 px screen. The bare count keeps the « combien » without
+    // its sentence; closing is the ✕ at the end like everywhere else.
+    //
+    // Five actions now, and the row still has to fit a 320-px phone: the
+    // buttons take a compact density and share the width evenly, so the *count*
+    // gives way rather than the actions. 40 px is the floor — not 48, but not
+    // smaller either, and the row is already only 40 px tall.
     return Material(
       elevation: 8,
       color: p.surface,
@@ -2125,7 +2001,7 @@ class _SelectionBar extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           child: Row(
             children: [
-              Icon(Icons.check_circle, color: p.primary),
+              Icon(Icons.check_circle, color: p.primary, size: 20),
               const SizedBox(width: 6),
               Text(
                 '$count',
@@ -2137,26 +2013,13 @@ class _SelectionBar extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    IconButton(
-                      tooltip: 'Surligner la sélection',
-                      onPressed: onHighlight,
-                      icon: const Icon(Icons.format_color_fill),
-                    ),
-                    IconButton(
-                      tooltip: 'Favoris sur la sélection',
-                      onPressed: onFavorite,
-                      icon: const Icon(Icons.star_border),
-                    ),
-                    IconButton(
-                      tooltip: 'Copier les versets',
-                      onPressed: onCopy,
-                      icon: const Icon(Icons.copy_all),
-                    ),
-                    IconButton(
-                      tooltip: 'Terminer la sélection',
-                      onPressed: onDone,
-                      icon: const Icon(Icons.close),
-                    ),
+                    _action(Icons.format_color_fill,
+                        'Surligner la sélection', onHighlight),
+                    _action(
+                        Icons.star_border, 'Favoris sur la sélection', onFavorite),
+                    _action(Icons.copy_all, 'Copier les versets', onCopy),
+                    _action(Icons.ios_share, 'Partager les versets', onShare),
+                    _action(Icons.close, 'Terminer la sélection', onDone),
                   ],
                 ),
               ),
@@ -2164,6 +2027,19 @@ class _SelectionBar extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _action(IconData icon, String tooltip, VoidCallback onPressed) {
+    return IconButton(
+      tooltip: tooltip,
+      onPressed: onPressed,
+      icon: Icon(icon),
+      // At the default 48 px the five buttons ask for 240 px and overflow a
+      // 320-px screen.
+      constraints: const BoxConstraints(minWidth: 40, minHeight: 40),
+      padding: EdgeInsets.zero,
+      visualDensity: VisualDensity.compact,
     );
   }
 }
@@ -2369,85 +2245,3 @@ class _BookHeaderState extends State<_BookHeader> {
   }
 }
 
-/// The « Couleur du texte » presets: null first (follow the theme), then a
-/// handful of deep hues plus one light — on a light theme the light choice
-/// flips the reading panels dark instead of becoming invisible.
-const List<int?> _textColorChoices = [
-  null,
-  0xFF1B1B1F, // noir doux
-  0xFF3B2312, // brun profond
-  0xFF1E2A44, // bleu nuit
-  0xFF24331F, // vert olive
-  0xFF4A1F24, // bordeaux
-  0xFFEDF3FC, // blanc glacé
-];
-
-/// A round swatch of [_textColorChoices]; the first (null) draws the
-/// « suivre le thème » marker instead of a flat colour.
-class _TextColorSwatch extends StatelessWidget {
-  final int? argb;
-  final bool selected;
-  final VoidCallback onTap;
-
-  const _TextColorSwatch({
-    required this.argb,
-    required this.selected,
-    required this.onTap,
-  });
-
-  String get _tooltip => switch (argb) {
-    null => 'Suivre le thème',
-    0xFF1B1B1F => 'Noir',
-    0xFF3B2312 => 'Brun',
-    0xFF1E2A44 => 'Bleu nuit',
-    0xFF24331F => 'Vert',
-    0xFF4A1F24 => 'Bordeaux',
-    _ => 'Blanc',
-  };
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = BibleThemeScope.of(context);
-    final fill = argb == null ? null : Color(argb!);
-    return Tooltip(
-      message: _tooltip,
-      child: InkWell(
-        onTap: onTap,
-        customBorder: const CircleBorder(),
-        child: Container(
-          width: 36,
-          height: 36,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            // « Suivre le thème » : la couleur courante du corps de texte.
-            color: fill ?? theme.textColor,
-            border: Border.all(
-              color: selected
-                  ? theme.accentColor
-                  : theme.panelBorderColor,
-              width: selected ? 2.5 : 1,
-            ),
-          ),
-          child: fill == null
-              ? Icon(
-                  Icons.palette_outlined,
-                  size: 16,
-                  // Contrasté sur la couleur du thème elle-même.
-                  color: theme.usesLightText
-                      ? Colors.black54
-                      : Colors.white70,
-                )
-              : selected
-              ? Icon(
-                  Icons.check,
-                  size: 16,
-                  color: fill.computeLuminance() > .5
-                      ? Colors.black
-                      : Colors.white,
-                )
-              : null,
-        ),
-      ),
-    );
-  }
-}

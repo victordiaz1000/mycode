@@ -146,9 +146,12 @@ raccourci « même commit » la réduit à une seule requête de 671 octets les 
 | `lib/data/bym_update_service.dart` | `checkForUpdate()`, `apply()`, `revertToEmbedded()`, `gitBlobId()`, `BymUpdateChecker` |
 | `lib/data/bym_update_store.dart` | fichiers `<documents>/bym_updates/`, registre en préférences, zone de transit |
 | `lib/data/local_repository.dart` | `loadBook` — priorité mise à jour > asset |
-| `lib/screens/settings_screen.dart` | section `MISE À JOUR DU TEXTE` (date du texte, compte de livres, taille) |
+| `lib/screens/settings_screen.dart` | section `MISE À JOUR DU TEXTE` (date du texte, compte de livres, taille) + message de confirmation |
 | `lib/screens/library_screen.dart` | pastille `MàJ · 21 livres` sur la tuile BYM |
-| `lib/main.dart` | `BymUpdateStore.load()` puis `BymUpdateChecker.maybeCheck()` au démarrage |
+| `lib/widgets/bym_update_banner.dart` | bandeau défilant de la lecture, `Mettre à jour le texte BYM dans les Réglages · 21 livres` |
+| `lib/screens/reader_screen.dart` | pose le bandeau sous les onglets ; masqué en immersion |
+| `lib/widgets/chapter_reader.dart` | `_onTextRevisionChanged` — relit le livre affiché après une mise à jour |
+| `lib/main.dart` | `BymUpdateStore.load()` puis `BymUpdateChecker.maybeCheck()` au démarrage **et à chaque retour au premier plan** |
 
 Trois garanties, dans l'ordre où elles comptent :
 
@@ -164,6 +167,31 @@ Trois garanties, dans l'ordre où elles comptent :
 3. **Aucune donnée sans accord.** Le démarrage lit un commit et un arbre (10 Ko), au plus une fois
    par 24 h, et jamais bruyamment : hors ligne, il est silencieux. `apply()` n'est appelé que
    depuis Réglages, sur appui.
+
+### Quand la vérification a réellement lieu
+
+`BymUpdateService.checkInterval` (24 h) est un **plafond** : `maybeCheck` refuse de repartir si la
+dernière vérification réussie date de moins de ça. Le plancher, lui, dépend d'où on l'appelle — et
+c'est là que le premier jet se trompait.
+
+`initState` de `BymApp` ne s'exécute qu'au **démarrage à froid du processus**. Android garde
+volontiers une application en mémoire pendant des jours : un lecteur qui ne ferme jamais BYM
+n'aurait jamais revérifié, quel que soit l'intervalle. « Au plus une fois par jour » était vrai,
+« au moins une fois par jour » ne l'était pas.
+
+D'où le second appel, sur `didChangeAppLifecycleState(resumed)` (`_BymAppState`, observateur posé
+en `initState` et retiré en `dispose`). Il n'ajoute **pas** de requêtes : le verrou des 24 h est
+dans `maybeCheck`, donc revenir dix fois dans la journée ne coûte que dix lectures de préférence.
+Il ajoute des *occasions* de constater que le délai est écoulé.
+
+Deux détails qui ont leur raison d'être :
+
+- L'appel passe par `_storeReady` (le `Future` de `BymUpdateStore.load()`), et pas directement.
+  `referenceIndex()` lit `BymUpdateStore.installedBlobs` : une comparaison faite avant la fin du
+  chargement reproposerait des livres déjà installés.
+- `BymUpdateChecker.debugServiceFactory` existe uniquement pour ce chemin. Le crochet appelle
+  `maybeCheck()` sans argument — c'est tout son intérêt, il ne connaît rien du service —, donc
+  c'est le seul point d'injection possible pour un client simulé. La production le laisse null.
 
 ### Les cinq règles d'échec fermé
 
@@ -197,6 +225,63 @@ Après la bascule, `BymUpdateService.invalidateCaches()` vide `LocalRepository`,
 `VersionRepository`, `FulltextIndex` et **`LexiconIndex`**. Le dernier est le moins évident : il
 est bâti sur les *notes* des livres BYM, donc il servirait l'ancien texte sans qu'on y pense.
 
+### Trois surfaces d'annonce, une seule source
+
+La pastille de la Bibliothèque, la section de Réglages et le bandeau défilant de la lecture
+écoutent tous `BymUpdateChecker.available` : elles ne peuvent donc pas se contredire, et **aucune
+n'installe quoi que ce soit** — les trois conduisent à Réglages, seul endroit qui décide d'un
+téléchargement. Elles s'effacent ensemble : `BymUpdateChecker.clear()` remet le notificateur à
+null après une installation ou un retour au texte embarqué.
+
+Le bandeau (`bym_update_banner.dart`) ne rend **rien** — pas un `SizedBox` de quelques pixels —
+quand aucune mise à jour n'attend. C'est ce qui garantit qu'aucune animation ne tourne dans le cas
+ordinaire, donc que les tests widget des écrans hôtes continuent de se stabiliser : un défilement
+en boucle programme des frames sans fin et `pumpAndSettle` attendrait pour toujours. Un test **du
+bandeau** pompe donc des durées explicites (`test/bym_update_banner_test.dart`).
+
+Le défilement a lieu sur **toutes** les largeurs, téléphone comme tablette. Un premier jet ne le
+déclenchait que si la phrase débordait de la place offerte — un texte qui glisse alors qu'on peut
+le lire d'un coup ressemble à un défaut. À l'usage la décision s'est inversée : c'est le mouvement
+qui fait remarquer l'annonce, et une tablette n'a pas moins besoin qu'on la voie. Plus de
+`LayoutBuilder`, donc, et plus de démarrage reporté après la mise en page : le ticker part dès la
+mesure du texte (`didChangeDependencies`). En test il faut quand même une frame d'amorce — un
+`Ticker` relève son origine de temps à sa première frame sans rien rapporter.
+
+Seule l'option système « réduire les animations » arrête le défilement : là, une boucle perpétuelle
+qu'on ne peut pas interrompre est exactement ce que le réglage demande d'éviter, et la phrase reste
+lisible, tronquée.
+
+### Ce que le lecteur voit une fois la mise à jour posée
+
+Trois choses, et chacune dit ce que les autres ne peuvent pas :
+
+- la ligne d'état de Réglages passe à « Texte du … · 21 livres corrigés · 2,4 Mo » ;
+- le sous-titre de la rangée porte `outcome.message` — « Texte BYM mis à jour — 21 livres. » ;
+- un message glissant ajoute « La lecture est déjà à jour. » pendant quatre secondes. C'est le seul
+  des trois qui puisse dire que l'onglet de lecture resté ouvert derrière porte déjà la correction,
+  donc qu'il n'y a rien à refermer ni à rouvrir. Il n'apparaît que si `outcome.applied`, jamais sur
+  un échec — un échec a déjà sa ligne, et un message vert sur une panne serait un mensonge.
+
+`test/settings_screen_test.dart` le vérifie en remplaçant `apply()` par une installation qui
+réussit sans toucher au disque : `path_provider` ne répond pas dans la zone fake-async d'un
+`testWidgets`, et ce test porte sur ce que l'écran **dit**, pas sur ce que le service fait.
+
+### L'écran de lecture se rafraîchit, et l'ordre est le contrat
+
+`BymUpdateService.textRevision` est incrémenté **en dernier** dans `invalidateCaches()`, après le
+vidage des quatre caches. C'est ce notificateur — et non `BymUpdateStore.revision` — que
+`ChapterReader` écoute : le magasin prévient à l'instant où il écrit son registre, donc *avant*
+`invalidateCaches()`, et un écran branché là relirait le livre encore en cache, exactement celui
+que la mise à jour vient de remplacer. `test/bym_update_read_priority_test.dart` vérifie l'ordre
+en relisant depuis le listener.
+
+`_onTextRevisionChanged` remplace simplement le `Future` du livre, et seulement pour la version
+embarquée. La page ne clignote pas : `FutureBuilder` conserve la donnée du snapshot précédent
+pendant l'attente, donc le texte affiché et la position de lecture tiennent jusqu'à ce que le
+livre corrigé soit prêt (`test/reader_text_refresh_test.dart` le vérifie sur une seule frame, et
+vérifie aussi que l'onglet n'est pas remonté). Les chapitres voisins ne sont pas rechargés : une
+correction ne change pas le nombre de chapitres.
+
 ### Le registre hérité est purgé
 
 `BymUpdateStore.load()` efface les clés `bym.update.version` / `bym.update.files` de l'ancien
@@ -215,7 +300,7 @@ flutter analyze
 flutter test
 ```
 
-Quatre fichiers couvrent ce système, et aucun n'a besoin du réseau :
+Sept fichiers couvrent ce système, et aucun n'a besoin du réseau :
 
 - `test/bym_markdown_converter_golden_test.dart` — **le test qui porte tout** : les 66 `.md` de
   `appCodebar/bym_md/` convertis en Dart et comparés **octet pour octet** aux 66 JSON embarqués,
@@ -236,7 +321,21 @@ Quatre fichiers couvrent ce système, et aucun n'a besoin du réseau :
   d'un livre annoncé mais absent, cumul de deux mises à jour, purge des clés héritées,
   `clear()` synchrone en mémoire.
 - `test/bym_update_read_priority_test.dart` — le livre mis à jour l'emporte, un JSON abîmé retombe
-  sur l'asset **et** désinstalle la mise à jour.
+  sur l'asset **et** désinstalle la mise à jour, et — c'est le cas d'ordre — une relecture
+  déclenchée *depuis* le listener de `textRevision` donne déjà le texte corrigé.
+- `test/bym_update_banner_test.dart` — rien à l'écran sans mise à jour (et l'écran se stabilise) ;
+  la phrase et le compte de livres ; le défilement avance vers la gauche ; **sur une largeur de
+  tablette il défile aussi** ; apparition puis effacement au rythme de
+  `BymUpdateChecker` ; l'appui conduit à Réglages, et sans route vers Réglages `onTap` est null au
+  lieu d'un faux bouton ; « réduire les animations » rend un texte tronqué immobile.
+- `test/reader_text_refresh_test.dart` — le verset corrigé apparaît sans rouvrir l'onglet, le
+  `State` du lecteur est le même (donc la position tient), et aucun squelette de chargement ne
+  passe pendant la relecture.
+- `test/bym_update_lifecycle_test.dart` — un retour au premier plan fait partir une requête (sans
+  le crochet, une application jamais fermée ne revérifierait jamais), et trois allers-retours
+  d'affilée après une vérification récente n'en font partir aucune. L'assertion porte sur les
+  **requêtes sorties**, pas sur les appels à `maybeCheck` : ce dernier compte monterait aussi quand
+  le verrou retient, ce qui est exactement la distinction à tenir.
 
 ### À la main, après une synchronisation
 
@@ -245,13 +344,17 @@ Quatre fichiers couvrent ce système, et aucun n'a besoin du réseau :
 2. Puis sans `--dry-run` → 66 livres / 31 169 versets, `_source.json` écrit, `git diff` limité aux
    `.md` et JSON attendus.
 3. Sur un build **antérieur** (donc `_source.json` en retard) : redémarrer → pastille dans la
-   Bibliothèque → `Réglages > MISE À JOUR DU TEXTE > Vérifier les mises à jour` → « Mettre à jour
-   (N livres) ».
-4. Ouvrir un verset corrigé dans la lecture, **puis le chercher dans la recherche**. C'est le
+   Bibliothèque **et** bandeau défilant en haut de la lecture → `Réglages > MISE À JOUR DU TEXTE >
+   Vérifier les mises à jour` → « Mettre à jour (N livres) ». À la fin, un message doit annoncer
+   « Texte BYM mis à jour — N livres. La lecture est déjà à jour. »
+4. Revenir à la lecture **sans refermer l'onglet** : le verset corrigé doit être là, à la position
+   qu'on avait quittée, et le bandeau doit avoir disparu de lui-même.
+5. Ouvrir un verset corrigé dans la lecture, **puis le chercher dans la recherche**. C'est le
    second point qui prouve l'invalidation des index — la lecture seule peut réussir alors que la
    recherche sert encore l'ancien texte.
-5. `Réglages > Revenir au texte embarqué` → l'ancien texte revient, notes et favoris intacts.
-6. Mode avion → `Vérifier` → message hors ligne, aucun plantage.
+6. `Réglages > Revenir au texte embarqué` → l'ancien texte revient, notes et favoris intacts, et
+   l'onglet ouvert repasse à l'embarqué sans être refermé.
+7. Mode avion → `Vérifier` → message hors ligne, aucun plantage.
 
 ### Il n'y a pas de champ d'URL dans l'application
 
