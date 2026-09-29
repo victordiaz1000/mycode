@@ -127,4 +127,54 @@ void main() {
     expect(find.textContaining('aucun mot associé à un numéro Strong'),
         findsOneWidget);
   });
+
+  /// Paysage : Android empile ses boutons de navigation sur un côté (la
+  /// droite, ici 60 px logiques) et l'écran passe dessous.
+  ///
+  /// L'`AppBar` écoute déjà `MediaQuery.padding` — d'où la flèche et le⋮
+  /// toujours visibles sur les captures — mais le corps, lui, n'est dans
+  /// aucun `SafeArea` et file jusqu'au bord de l'écran. Chaque zone scrollable
+  /// doit donc tenir entre les deux insets, à droite comme à gauche.
+  testWidgets('en paysage, le corps reste dans la zone sûre', (tester) async {
+    tester.view.physicalSize = const Size(800, 360);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      MediaQuery(
+        data: const MediaQueryData(
+          size: Size(800, 360),
+          devicePixelRatio: 1,
+          padding: EdgeInsets.only(left: 44, right: 60, top: 24),
+        ),
+        child: MaterialApp(
+          home: EtudeVersetScreen(
+            bookIndex: 1,
+            chapter: 1,
+            verseNumber: 1,
+            tokens: const [
+              LsgsToken(text: 'commencement ', strong: 'H7225'),
+            ],
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final scrollables = find.byType(SingleChildScrollView);
+    expect(scrollables, findsWidgets,
+        reason: 'La zone scrollable du corps a disparu du widget tree.');
+
+    for (var i = 0; i < scrollables.evaluate().length; i++) {
+      final box = tester.renderObject<RenderBox>(scrollables.at(i));
+      final rect = box.localToGlobal(Offset.zero) & box.size;
+      expect(rect.left, greaterThanOrEqualTo(44),
+          reason: 'Zone scrollable $i commence à ${rect.left} : elle passe '
+              'sous l\'encoche de gauche (44 px), comme sous les boutons '
+              'Android à droite.');
+      expect(rect.right, lessThanOrEqualTo(800 - 60),
+          reason: 'Zone scrollable $i finit à ${rect.right} : elle passe '
+              'sous les boutons Android (à partir de 740).');
+    }
+  });
 }

@@ -241,24 +241,30 @@ class _LibraryScreenState extends State<LibraryScreen> {
             ],
           ),
         ),
-        body: TabBarView(
-          children: [
-            if (_loading)
-              // Même façonnage que les tuiles qui arrivent : pastille + nom +
-              // action. Le spinner nu n'annonçait rien.
-              const ListLoadingSkeleton(
-                itemCount: 7,
-                padding: EdgeInsets.fromLTRB(16, 16, 16, 24),
-              )
-            else
-              _bibles(context),
-            _DictionariesTab(
-              store: _dictStore,
-              service: _dictService,
-              catalog: widget.dictionaryCatalog ?? dictionaryCatalog,
-              onOpenVerse: widget.onOpenVerse,
-            ),
-          ],
+        // Même règle que l'étude du verset : les boutons Android empilés à
+        // droite en paysage sont dans `MediaQuery.padding`, et ce n'est qu'ici
+        // qu'on les écoute — l'onglet court alors jusqu'au bord, sous les
+        // boutons, alors que l'AppBar au-dessus les contourne déjà.
+        body: SafeArea(
+          child: TabBarView(
+            children: [
+              if (_loading)
+                // Même façonnage que les tuiles qui arrivent : pastille + nom +
+                // action. Le spinner nu n'annonçait rien.
+                const ListLoadingSkeleton(
+                  itemCount: 7,
+                  padding: EdgeInsets.fromLTRB(16, 16, 16, 24),
+                )
+              else
+                _bibles(context),
+              _DictionariesTab(
+                store: _dictStore,
+                service: _dictService,
+                catalog: widget.dictionaryCatalog ?? dictionaryCatalog,
+                onOpenVerse: widget.onOpenVerse,
+              ),
+            ],
+          ),
         ),
       ),
     );

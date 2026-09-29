@@ -186,6 +186,47 @@ void main() {
   );
 
   group('LibraryScreen', () {
+    /// Paysage : Android empile ses boutons de navigation sur un côté (la
+    /// droite, 60 px logiques ici) et l'écran passe dessous. Ces insets sont
+    /// dans `MediaQuery.padding` : l'`AppBar` les applique déjà — d'où le
+    /// titre toujours lisible sur les captures — mais l'onglet, lui, n'était
+    /// dans aucun `SafeArea` et courait jusqu'au bord, sous les boutons.
+    testWidgets('en paysage, l\'onglet reste dans la zone sûre',
+        (tester) async {
+      tester.view.physicalSize = const Size(800, 360);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.reset);
+
+      await tester.pumpWidget(
+        MediaQuery(
+          data: const MediaQueryData(
+            size: Size(800, 360),
+            devicePixelRatio: 1,
+            padding: EdgeInsets.only(left: 44, right: 60, top: 24),
+          ),
+          child: MaterialApp(
+            home: LibraryScreen(
+              store: FakeStore(),
+              service: FakeService(FakeStore()),
+              dictionaryStore: FakeDictionaryStore(),
+              dictionaryService: FakeDictionaryService(),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final box = tester.renderObject<RenderBox>(find.byType(TabBarView));
+      final rect = box.localToGlobal(Offset.zero) & box.size;
+      expect(rect.left, greaterThanOrEqualTo(44),
+          reason: 'L\'onglet commence à ${rect.left} : il passe sous '
+              'l\'encoche de gauche (44 px), comme sous les boutons Android '
+              'à droite.');
+      expect(rect.right, lessThanOrEqualTo(800 - 60),
+          reason: 'L\'onglet finit à ${rect.right} : il passe sous les '
+              'boutons Android (à partir de 740).');
+    });
+
     testWidgets('opens on Bibles and offers a Dictionnaires tab',
         (tester) async {
       final store = FakeStore();

@@ -358,78 +358,86 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
         top: false,
         child: _buildBottomBar(context, accent),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            // ============ 1. CARTE DU VERSET ============
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(20.0),
-              decoration: BoxDecoration(
-                color: p.surface,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: premiumShadow(
-                  p.primaryDark,
-                  opacity: 0.04,
-                  blur: 12,
-                  offset: const Offset(0, 6),
+      // Les boutons Android empilés à droite en paysage vivent dans
+      // `MediaQuery.padding` : sans ce `SafeArea`, le corps file jusqu'au bord
+      // de l'écran et passe dessous. L'`AppBar` les applique déjà — d'où le
+      // titre toujours visible quand le contenu, lui, disparaissait.
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              // ============ 1. CARTE DU VERSET ============
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(20.0),
+                decoration: BoxDecoration(
+                  color: p.surface,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: premiumShadow(
+                    p.primaryDark,
+                    opacity: 0.04,
+                    blur: 12,
+                    offset: const Offset(0, 6),
+                  ),
                 ),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 2),
-                        child: Text(
-                          '$_verseNumber',
-                          style: premiumText(
-                            context,
-                            12,
-                            FontWeight.w500,
-                            p.textGrey,
+                child: Column(
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 2),
+                          child: Text(
+                            '$_verseNumber',
+                            style: premiumText(
+                              context,
+                              12,
+                              FontWeight.w500,
+                              p.textGrey,
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(child: _buildVersetRich(context, accent, style)),
-                    ],
-                  ),
-                  if (_hasNav) ...[
-                    const SizedBox(height: 20),
-                    Row(
-                      children: [
-                        if (_verseIndex > 0)
-                          _buildNavVerset(
-                            context,
-                            'Verset précédent',
-                            Icons.arrow_circle_left_outlined,
-                            false,
-                            accent,
-                          ),
-                        const Spacer(),
-                        if (_verseIndex < (widget.verseNumbers!.length - 1))
-                          _buildNavVerset(
-                            context,
-                            'Verset suivant',
-                            Icons.arrow_circle_right_outlined,
-                            true,
-                            accent,
-                          ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: _buildVersetRich(context, accent, style),
+                        ),
                       ],
                     ),
+                    if (_hasNav) ...[
+                      const SizedBox(height: 20),
+                      Row(
+                        children: [
+                          if (_verseIndex > 0)
+                            _buildNavVerset(
+                              context,
+                              'Verset précédent',
+                              Icons.arrow_circle_left_outlined,
+                              false,
+                              accent,
+                            ),
+                          const Spacer(),
+                          if (_verseIndex < (widget.verseNumbers!.length - 1))
+                            _buildNavVerset(
+                              context,
+                              'Verset suivant',
+                              Icons.arrow_circle_right_outlined,
+                              true,
+                              accent,
+                            ),
+                        ],
+                      ),
+                    ],
                   ],
-                ],
+                ),
               ),
-            ),
 
-            const SizedBox(height: 20),
+              const SizedBox(height: 20),
 
-            // ============ 2. CARTES SWIPABLES (selon le mode) ============
-            _buildCardsArea(context, accent, style),
-          ],
+              // ============ 2. CARTES SWIPABLES (selon le mode) ============
+              _buildCardsArea(context, accent, style),
+            ],
+          ),
         ),
       ),
     );

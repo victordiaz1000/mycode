@@ -1,6 +1,6 @@
 # AGENTS.md — Projet BYM (App de Bible Flutter)
 
-> **État vérifié le 2026-09-28.** `flutter analyze` : **No issues found** (79 s). `flutter test` : **710 tests verts** en **~3 min 50**. 75 fichiers de test + 4 faux bundles dans `test/support/`. 88 fichiers Dart dans `lib/` (8 models · 34 data · 22 screens · 21 widgets · 2 utils · `main.dart`). Dépôt sous git à la racine `bym3/` (`build/`, `.dart_tool/`, `android/.gradle` exclus).
+> **État vérifié le 2026-09-29.** `flutter analyze` : **No issues found** (9 s). `flutter test` : **713 tests verts** en **~2 min 40**. 75 fichiers de test + 4 faux bundles dans `test/support/`. 88 fichiers Dart dans `lib/` (8 models · 34 data · 22 screens · 21 widgets · 2 utils · `main.dart`). Dépôt sous git à la racine `bym3/` (`build/`, `.dart_tool/`, `android/.gradle` exclus).
 >
 > **Ce document décrit l'état courant, pas une chronologie.** Il est réorganisé par domaine : une décision est écrite une fois, à sa place, avec sa raison. Les journaux d'itération (« étape 1, étape 2, c'est fait ») ont été retirés — ils sont la raison pour laquelle ce fichier était en retard. **Ne pas y ajouter de récit : ajouter ou corriger une règle.**
 
@@ -240,6 +240,7 @@ bible_app/
 10. **Réduire une entrée de menu n'est jamais cosmosétique.** Six entrées pleine hauteur avaient été essayées : la plus grande taille sortait de l'écran, précisément pour ceux qui la cherchaient. D'où la rangée compacte de pastilles.
 11. **`flutter analyze` à zéro, `flutter test` vert.** Dans cet ordre, en global. Ne pas lancer fichier par fichier.
 12. **Ne jamais embarquer de secret** ni laisser une URL distante rediriger l'application : hôtes et chemins sont des constantes compilées.
+13. **En paysage, la barre Android vit sur le côté : c'est le corps de l'écran qui doit l'écouter.** Les insets sont dans `MediaQuery.padding`, et l'`AppBar` les applique déjà — d'où le titre et le⋮ toujours lisibles pendant que le contenu, lui, passait sous les boutons. Un corps nu (`TabBarView`, `SingleChildScrollView`) les ignore et file jusqu'au bord : c'est ce qui coupait la Bibliothèque et l'étude du verset, les deux seuls écrans sans `SafeArea` (les onglets de la lecture sont eux enveloppés par la coquille, `reader_screen`). Règle : **tout corps d'écran passe par `SafeArea`**. Ancrage : « en paysage, le corps reste dans la zone sûre » (`library_screen_test`, `etude_verset_screen_test`).
 
 ---
 
