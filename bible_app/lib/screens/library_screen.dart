@@ -161,6 +161,11 @@ class _LibraryScreenState extends State<LibraryScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
+        backgroundColor: premiumPalette(context).surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: premiumCardBorder(context, opacity: .18)),
+        ),
         title: Text('Supprimer ${entry.name} ?'),
         content: Text(
           'Les livres téléchargés${size > 0 ? ' (${_formatSize(size)})' : ''} '
@@ -923,6 +928,11 @@ class _DictionariesTabState extends State<_DictionariesTab> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
+        backgroundColor: premiumPalette(context).surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: premiumCardBorder(context, opacity: .18)),
+        ),
         title: Text('Supprimer ${entry.name} ?'),
         content: Text(
           'Le dictionnaire téléchargé${size > 0 ? ' (${_formatSize(size)})' : ''} '

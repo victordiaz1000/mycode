@@ -416,6 +416,11 @@ class _NoteEditorSheetState extends State<NoteEditorSheet> {
                       hintStyle: premiumText(
                           context, 14, FontWeight.w600, p.textGrey),
                       isDense: true,
+                      // Le thème global met `filled: true` + `panelColor` :
+                      // sans ce drapeau un aplat **carré** de cette couleur
+                      // se peindrait derrière le titre, sur la feuille
+                      // `p.surface` — voir `notes_screen._buildSearchField`.
+                      filled: false,
                       border: InputBorder.none,
                     ),
                   ),
@@ -433,6 +438,8 @@ class _NoteEditorSheetState extends State<NoteEditorSheet> {
                       hintText: 'Écrire une note…',
                       hintStyle: premiumText(
                           context, 14, FontWeight.w500, p.textGrey),
+                      // Même aplat carré hérité du thème que le champ titre.
+                      filled: false,
                       border: InputBorder.none,
                     ),
                   ),

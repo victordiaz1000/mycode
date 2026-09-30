@@ -46,15 +46,22 @@ Future<StudyAction?> showStudySheet(
       padding: EdgeInsets.only(
         bottom: MediaQuery.viewPaddingOf(context).bottom,
       ),
-      child: _StudySheet(
-        reference: reference,
-        verse: excerpt,
-        isFavorite: isFavorite,
-        currentHighlight: currentHighlight,
-        lexiqueEnabled: lexiqueEnabled,
-        lexiqueLabel: lexiqueLabel,
-        onHighlight: onHighlight,
-        onFavorite: onFavorite,
+      // Panneau « premium affirmé » : voile vertical `surface → surfaceAlt`,
+      // liseré net et deux ombres — le même fond que les trois autres feuilles
+      // du lecteur. Les cartes de la feuille portent le même dégradé : c'est
+      // leur liseré, tenu par le test de contraste, qui les détache du voile.
+      child: Container(
+        decoration: premiumSurface(context, radius: 24, depth: 1.3),
+        child: _StudySheet(
+          reference: reference,
+          verse: excerpt,
+          isFavorite: isFavorite,
+          currentHighlight: currentHighlight,
+          lexiqueEnabled: lexiqueEnabled,
+          lexiqueLabel: lexiqueLabel,
+          onHighlight: onHighlight,
+          onFavorite: onFavorite,
+        ),
       ),
     ),
   );
@@ -179,19 +186,12 @@ class _StudySheetState extends State<_StudySheet> {
           const SizedBox(height: 10),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-            decoration: BoxDecoration(
-              color: p.surface,
-              borderRadius: BorderRadius.circular(16),
-              // Un liseré, pas seulement une ombre : c'est la plus grande carte
-              // de la feuille et, sur les thèmes clairs et chauds, son fond ne
-              // se distingue de celui de la feuille que de quelques pourcents
-              // (voir [premiumCardBorder]). Elle n'avait pour contour qu'un flou
-              // de 12 px à 5 % — un bord fait de flou.
-              border: Border.all(
-                color: premiumCardBorder(context, opacity: .2),
-              ),
-              boxShadow: premiumShadow(p.primaryDark, opacity: .05, blur: 12),
-            ),
+            // Un liseré, pas seulement une ombre : c'est la plus grande carte
+            // de la feuille et, sur les thèmes clairs et chauds, son fond ne
+            // se distingue de celui du voile que de quelques pourcents (voir
+            // [premiumCardBorder]). Ce qui la détache n'est donc pas son flou
+            // — un bord fait de flou — mais le liseré net du registre premium.
+            decoration: premiumSurface(context, radius: 16, depth: .9),
             child: Row(
               children: [
                 Expanded(
@@ -357,8 +357,9 @@ class _StudySheetState extends State<_StudySheet> {
   }
 }
 
-/// Intitulé de section : pastille d'icône + libellé capitulé espacé, le même
-/// langage que les intertitres des autres feuilles.
+/// Intitulé de section : pastille d'icône en dégradé + libellé capitulé
+/// espacé, puis un filet d'accent qui se perd vers la droite — le même langage
+/// que les intertitres des autres écrans, ici en version « séparateur ».
 Widget _sectionLabel(BuildContext context, IconData icon, String label) {
   final p = premiumPalette(context);
   return Row(
@@ -367,11 +368,12 @@ Widget _sectionLabel(BuildContext context, IconData icon, String label) {
         width: 26,
         height: 26,
         decoration: BoxDecoration(
-          color: p.primarySoft,
+          gradient: p.heroGradient,
           borderRadius: BorderRadius.circular(8),
+          boxShadow: premiumShadow(p.primary, opacity: .25, blur: 10),
         ),
         alignment: Alignment.center,
-        child: Icon(icon, size: 15, color: p.primary),
+        child: Icon(icon, size: 15, color: p.onPrimary),
       ),
       const SizedBox(width: 8),
       Text(
@@ -382,6 +384,25 @@ Widget _sectionLabel(BuildContext context, IconData icon, String label) {
           FontWeight.w800,
           p.primary,
           spacing: 1.2,
+        ),
+      ),
+      const SizedBox(width: 10),
+      // Le filet n'est pas un `Divider` : il part de l'intertitre et s'efface
+      // vers la droite, assez pour séparer sans fermer la rangée.
+      Expanded(
+        child: Container(
+          height: 2,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                p.primary.withValues(alpha: .45),
+                p.primary.withValues(alpha: 0),
+              ],
+            ),
+            borderRadius: BorderRadius.circular(1),
+          ),
         ),
       ),
     ],
@@ -476,47 +497,61 @@ class _ActionTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
+    // Coquille sans forme côté Material : le voile, la lisière et les ombres
+    // sont peintes par l'`Ink`, qu'un Material « façonné » rognerait. Le ripple,
+    // lui, se découpe tout seul via `InkWell(borderRadius:)`.
     return Material(
-      color: tint ? p.primarySoft : p.surface,
-      borderRadius: BorderRadius.circular(16),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(16),
-        onTap: onTap,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-              color: tint
-                  ? p.primary.withValues(alpha: .5)
-                  : premiumCardBorder(context),
-            ),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(icon, size: 22, color: iconColor ?? p.primary),
-              const SizedBox(height: 6),
-              // `Flexible` : la cellule de la grille tient sa hauteur d'un
-              // `childAspectRatio`, donc elle ne grandit pas avec la police,
-              // alors que l'icône + le libellé si. Sans lui la `Column` déborde
-              // dès que la ligne de texte dépasse ~21 px (police de repli, ou
-              // réglage système poussé sur un écran étroit). Avec lui elle plie
-              // au lieu de rompre : aucun effet quand la place est là.
-              Flexible(
-                child: Text(
-                  label,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: premiumText(
-                    context,
-                    12,
-                    FontWeight.w700,
-                    tint ? p.primary : p.textDark,
+      color: Colors.transparent,
+      child: Ink(
+        decoration: tint
+            // Le favori étoilé garde sa teinte : un marqueur d'état, jamais un
+            // liseré d'accent — l'accent ne borde pas une carte (règle 2).
+            ? BoxDecoration(
+                color: p.primarySoft,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(
+                  color: premiumCardBorder(context, opacity: .34),
+                ),
+                boxShadow: premiumShadow(
+                  p.primary,
+                  opacity: .30,
+                  blur: 10,
+                  offset: const Offset(0, 4),
+                ),
+              )
+            : premiumSurface(context, radius: 16, depth: .5),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(16),
+          onTap: onTap,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(icon, size: 22, color: iconColor ?? p.primary),
+                const SizedBox(height: 6),
+                // `Flexible` : la cellule de la grille tient sa hauteur d'un
+                // `childAspectRatio`, donc elle ne grandit pas avec la police,
+                // alors que l'icône + le libellé si. Sans lui la `Column`
+                // déborde dès que la ligne de texte dépasse ~21 px (police de
+                // repli, ou réglage système poussé sur un écran étroit). Avec
+                // lui elle plie au lieu de rompre : aucun effet quand la place
+                // est là.
+                Flexible(
+                  child: Text(
+                    label,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: premiumText(
+                      context,
+                      12,
+                      FontWeight.w700,
+                      tint ? p.primary : p.textDark,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

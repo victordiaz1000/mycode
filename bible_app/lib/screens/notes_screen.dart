@@ -43,17 +43,28 @@ class _NotesScreenState extends State<NotesScreen> {
   String _query = '';
   _NoteSort _sort = _NoteSort.recent;
   final TextEditingController _searchController = TextEditingController();
+  final FocusNode _searchFocus = FocusNode();
+  bool _searchFocused = false;
 
   @override
   void initState() {
     super.initState();
+    _searchFocus.addListener(_onSearchFocusChange);
     _load();
   }
 
   @override
   void dispose() {
+    _searchFocus.removeListener(_onSearchFocusChange);
+    _searchFocus.dispose();
     _searchController.dispose();
     super.dispose();
+  }
+
+  void _onSearchFocusChange() {
+    if (mounted && _searchFocused != _searchFocus.hasFocus) {
+      setState(() => _searchFocused = _searchFocus.hasFocus);
+    }
   }
 
   Future<void> _load() async {
@@ -218,6 +229,20 @@ class _NotesScreenState extends State<NotesScreen> {
         elevation: 0,
         foregroundColor: p.textDark,
         centerTitle: true,
+        // AppBar transparente : le même voile d'accent que les autres écrans
+        // poussés depuis l'accueil.
+        flexibleSpace: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.center,
+              colors: [
+                p.primary.withValues(alpha: .12),
+                p.primary.withValues(alpha: 0),
+              ],
+            ),
+          ),
+        ),
         title: Text(
           'Mes notes',
           style: premiumText(context, 18, FontWeight.w800, p.textDark),
@@ -268,10 +293,8 @@ class _NotesScreenState extends State<NotesScreen> {
                           ],
                         ),
                         const SizedBox(height: 12),
-                        Text(
+                        _SectionLabel(
                           '${filtered.length} note${filtered.length > 1 ? 's' : ''}',
-                          style: premiumText(
-                              context, 13, FontWeight.w500, p.textGrey),
                         ),
                         const SizedBox(height: 12),
                         Expanded(
@@ -322,29 +345,70 @@ class _NotesScreenState extends State<NotesScreen> {
 
   Widget _buildSearchField(BuildContext context) {
     final p = premiumPalette(context);
-    return Container(
-      decoration: BoxDecoration(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: premiumShadow(p.primaryDark),
-      ),
+    // Un champ ne se comporte pas comme une carte : au repos il pose son voile
+    // sans faire de bruit (ombre à peine perceptible), au focus il s'allume —
+    // liseré qui durcit, halo d'accent dessous, icône qui prend la couleur de
+    // l'accent. Même protocole que le champ de l'index lexique et que la barre
+    // du moteur de recherche. Sans ça le champ ne répondait jamais : on le
+    // touchait et il se passait visiblement rien.
+    //
+    // Le liseré reste **neutre** dans les deux états ([premiumCardBorder]) :
+    // l'accent ne borde pas une surface (règle 2), il la marque ici par le halo
+    // et l'icône.
+    final actif = _searchFocused;
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 180),
+      curve: Curves.easeOut,
+      decoration: actif
+          ? premiumSurface(context, radius: 20, depth: 0.9).copyWith(
+              border: Border.all(
+                color: premiumCardBorder(context, opacity: .55),
+                width: 1.4,
+              ),
+              boxShadow: [
+                ...premiumShadow(
+                  p.primaryDark,
+                  opacity: .10,
+                  blur: 22,
+                  offset: const Offset(0, 9),
+                ),
+                ...premiumShadow(
+                  p.primary,
+                  opacity: .26,
+                  blur: 16,
+                  offset: const Offset(0, 6),
+                ),
+              ],
+            )
+          : premiumSurface(context, radius: 20, depth: 0.35),
       child: TextField(
         controller: _searchController,
+        focusNode: _searchFocus,
         onChanged: (v) => setState(() => _query = v),
         style: premiumText(context, 14, FontWeight.w500, p.textDark),
         decoration: InputDecoration(
           hintText: 'Rechercher dans vos notes…',
           hintStyle: premiumText(context, 14, FontWeight.w500, p.textGrey),
-          prefixIcon: Icon(Icons.search_rounded, color: p.textGrey),
+          prefixIcon: Icon(
+            Icons.search_rounded,
+            color: actif ? p.primary : p.textGrey,
+          ),
           suffixIcon: _query.isEmpty
               ? null
               : IconButton(
+                  tooltip: 'Effacer',
                   icon: const Icon(Icons.close_rounded, size: 18),
                   onPressed: () {
                     _searchController.clear();
                     setState(() => _query = '');
                   },
                 ),
+          // Le thème global (main.dart) pose `filled: true` + `panelColor` :
+          // sans ce drapeau l'`InputDecorator` hérite de la valeur et peint un
+          // fond **carré** par-dessus le voile arrondi de l'`AnimatedContainer`
+          // — « deux bordures, une ronde et une carrée », les coins du carré
+          // dépassant là où le rond a été rogné.
+          filled: false,
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(vertical: 14),
         ),
@@ -385,18 +449,13 @@ class _NotesScreenState extends State<NotesScreen> {
 
   Widget _buildCard(BuildContext context, _NoteEntry e) {
     final p = premiumPalette(context);
+    // Coquille sans forme côté Material : la lisière [premiumCardBorder] et les
+    // deux ombres sont peintes par l'`Ink`, qu'un Material « façonné »
+    // rognerait au contour arrondi.
     return Material(
-      color: p.surface,
-      borderRadius: BorderRadius.circular(20),
-      elevation: 0,
-      shadowColor: Colors.transparent,
+      color: Colors.transparent,
       child: Ink(
-        decoration: BoxDecoration(
-          color: p.surface,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: premiumShadow(p.primaryDark,
-              opacity: 0.07, blur: 16, offset: const Offset(0, 6)),
-        ),
+        decoration: premiumSurface(context, radius: 20, depth: 0.9),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
           onTap: widget.onOpenVerse == null ? null : () => _open(e),
@@ -460,8 +519,10 @@ class _NotesScreenState extends State<NotesScreen> {
                   decoration: BoxDecoration(
                     color: p.surfaceAlt,
                     borderRadius: BorderRadius.circular(12),
+                    // Liseré neutre, pas d'accent : un encart dans la carte se
+                    // lit comme un encart, pas comme une carte sélectionnée.
                     border:
-                        Border.all(color: p.primary.withValues(alpha: .10)),
+                        Border.all(color: premiumCardBorder(context)),
                   ),
                   child: Text(
                     e.note.text,
@@ -506,4 +567,44 @@ class _NoteEntry {
   final String verseText;
   const _NoteEntry(
       {required this.note, required this.reference, required this.verseText});
+}
+
+/// Intertitre de section : un filet d'accent, puis le libellé exact tel quel.
+/// Même façonnage que `_SectionLabel` (Favoris, Thèmes) : « 3 notes » se lit
+/// comme un intertitre, pas comme une ligne de liste.
+class _SectionLabel extends StatelessWidget {
+  final String label;
+
+  const _SectionLabel(this.label);
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    return Row(
+      children: [
+        Container(
+          width: 4,
+          height: 13,
+          decoration: BoxDecoration(
+            color: p.primary,
+            borderRadius: BorderRadius.circular(2),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Text(
+            label,
+            overflow: TextOverflow.ellipsis,
+            style: premiumText(
+              context,
+              11,
+              FontWeight.w800,
+              p.textGrey,
+              spacing: 1.1,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }

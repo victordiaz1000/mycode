@@ -98,6 +98,10 @@ class _ReaderScreenState extends State<ReaderScreen> {
           // that asked to be alone.
           final immersive = AppPreferences.immersionNotifier.value;
           return Scaffold(
+            // Même fond crème que les deux pages « sans onglet » ci-dessous :
+            // le bandeau de la barre d'onglets est translucide (`.60`), il se
+            // posait donc sur le blanc du thème, pas sur le crème premium.
+            backgroundColor: premiumBackground(context),
             body: SafeArea(
               child: Column(
                 children: [
@@ -451,54 +455,61 @@ class _ResumeCard extends StatelessWidget {
     final p = premiumPalette(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 28),
-      child: Card(
+      child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 24),
-        // « Premium affirmé » : le liseré **neutre** de la carte, jamais
-        // l'accent — un contour doré posé sur le crème tournait au cerne
-        // coloré (voir [premiumCardBorder]). Deux ombres : l'ambiante qui
-        // décolle la carte, la serrée qui la pose. `surfaceTintColor` = la
-        // surface elle-même : le voile Material 3 se fond dans le fond au
-        // lieu de le teinter.
-        elevation: 1,
-        shadowColor: p.primaryDark.withValues(alpha: .14),
-        surfaceTintColor: p.surface,
-        color: p.surface,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: BorderSide(color: premiumCardBorder(context, opacity: .25)),
-        ),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(16),
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-            child: Row(
-              children: [
-                Icon(Icons.history_edu, color: p.primary),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Reprendre ${entry.label}',
-                        style: premiumText(
-                          context,
-                          15,
-                          FontWeight.w800,
-                          p.textDark,
-                        ),
-                      ),
-                      const SizedBox(height: 2),
-                      Text(
-                        entry.bookName,
-                        style: premiumText(context, 12, FontWeight.w500, p.textGrey),
-                      ),
-                    ],
-                  ),
+        // Coquille sans forme côté Material : la lisière [premiumCardBorder] et
+        // les deux ombres sont peintes par l'`Ink`, qu'un `Card` « façonné »
+        // rognerait au contour arrondi. Le voile `premiumSurface` remplace
+        // l'aplat `p.surface` doublé avec `elevation: 1` et `surfaceTintColor`
+        // : même syntaxe que toutes les cartes de l'app, et le liseré reste
+        // **neutre** — un contour doré posé sur le crème tournait au cerne
+        // coloré.
+        child: Material(
+          color: Colors.transparent,
+          child: Ink(
+            decoration: premiumSurface(context, radius: 16, depth: 0.9),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(16),
+              onTap: onTap,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 14,
                 ),
-                Icon(Icons.chevron_right, color: p.primary),
-              ],
+                child: Row(
+                  children: [
+                    Icon(Icons.history_edu, color: p.primary),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Reprendre ${entry.label}',
+                            style: premiumText(
+                              context,
+                              15,
+                              FontWeight.w800,
+                              p.textDark,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            entry.bookName,
+                            style: premiumText(
+                              context,
+                              12,
+                              FontWeight.w500,
+                              p.textGrey,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Icon(Icons.chevron_right, color: p.primary),
+                  ],
+                ),
+              ),
             ),
           ),
         ),

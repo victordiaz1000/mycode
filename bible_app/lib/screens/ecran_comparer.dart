@@ -7,6 +7,7 @@ import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
 import '../models/verse.dart';
 import '../widgets/loading_skeleton.dart';
+import '../widgets/premium_style.dart';
 
 /// Une traduction du verset comparé : le texte qu'une version donne pour cette
 /// référence.
@@ -73,11 +74,6 @@ class _ComparerScreenState extends State<ComparerScreen> {
       ReadingTextSize.nearest(_prefs?.fontSize ?? ReadingTextSize.extraLarge.fontSize)
           .fontSize *
       .68;
-
-  /// Serif accent of the chrome. It used to ask for `'Georgia'`, which ships on
-  /// no Android device and is not in `pubspec.yaml` either — the intent fell
-  /// back to the platform sans-serif everywhere but iOS.
-  static final String _serif = ReadingFont.classic.fontFamily;
 
   @override
   void initState() {
@@ -161,25 +157,35 @@ class _ComparerScreenState extends State<ComparerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final p = premiumPalette(context);
     final affichees = _versionsDisponibles
         .where((v) => _actives.contains(v.code))
         .toList();
 
     return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
+      backgroundColor: premiumBackground(context),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        foregroundColor: p.textDark,
         centerTitle: true,
+        // AppBar transparente : le voile d'accent du libellé, comme sur les
+        // autres écrans poussés depuis l'accueil.
+        flexibleSpace: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.center,
+              colors: [
+                p.primary.withValues(alpha: .12),
+                p.primary.withValues(alpha: 0),
+              ],
+            ),
+          ),
+        ),
         title: Text(
           'Comparer',
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            fontFamily: _serif,
-            color: theme.colorScheme.onSurface,
-          ),
+          style: premiumText(context, 18, FontWeight.w800, p.textDark),
         ),
       ),
       body: SafeArea(
@@ -192,9 +198,9 @@ class _ComparerScreenState extends State<ComparerScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildEnTete(theme),
+                    _buildEnTete(context),
                     const SizedBox(height: 24),
-                    _buildSelection(theme, affichees),
+                    _buildSelection(context, affichees),
                     const SizedBox(height: 16),
                     if (affichees.isEmpty)
                       Padding(
@@ -202,15 +208,17 @@ class _ComparerScreenState extends State<ComparerScreen> {
                         child: Center(
                           child: Text(
                             'Sélectionnez au moins une version à comparer.',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: theme.colorScheme.onSurfaceVariant,
+                            style: premiumText(
+                              context,
+                              14,
+                              FontWeight.w500,
+                              p.onSurfaceMuted,
                             ),
                           ),
                         ),
                       ),
                     for (final v in affichees) ...[
-                      _buildCarteVersion(theme, v),
+                      _buildCarteVersion(context, v),
                       const SizedBox(height: 14),
                     ],
                     const SizedBox(height: 20),
@@ -222,39 +230,22 @@ class _ComparerScreenState extends State<ComparerScreen> {
   }
 
   // --- 1. EN-TÊTE DU VERSET ---
-  Widget _buildEnTete(ThemeData theme) {
+  Widget _buildEnTete(BuildContext context) {
+    final p = premiumPalette(context);
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20.0),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
-            blurRadius: 12,
-            offset: const Offset(0, 6),
-          ),
-        ],
-      ),
+      decoration: premiumSurface(context, radius: 20, depth: 1.2),
       child: Column(
         children: [
           Text(
             _reference,
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: theme.colorScheme.onSurface,
-              fontFamily: _serif,
-            ),
+            style: premiumText(context, 24, FontWeight.w800, p.textDark),
           ),
           const SizedBox(height: 6),
           Text(
             'Comparez les traductions de ce verset',
-            style: TextStyle(
-              fontSize: 13,
-              color: theme.colorScheme.onSurfaceVariant,
-            ),
+            style: premiumText(context, 13, FontWeight.w500, p.textGrey),
           ),
         ],
       ),
@@ -262,14 +253,23 @@ class _ComparerScreenState extends State<ComparerScreen> {
   }
 
   // --- 2. SÉLECTION DES VERSIONS ---
-  Widget _buildSelection(ThemeData theme, List<VersionBible> affichees) {
-    final accent = theme.colorScheme.primary;
+  Widget _buildSelection(BuildContext context, List<VersionBible> affichees) {
+    final p = premiumPalette(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           children: [
-            Icon(Icons.compare_arrows_rounded, size: 20, color: accent),
+            // Filet d'accent : « Versions affichées » se lit comme un
+            // intertitre, comme les sections des autres écrans.
+            Container(
+              width: 4,
+              height: 13,
+              decoration: BoxDecoration(
+                color: p.primary,
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
             const SizedBox(width: 8),
             // `Flexible` et non `Text` nu : un enfant non-flex d'une `Row` est
             // mesuré sous une largeur infinie, donc ce titre ne se replie
@@ -277,10 +277,11 @@ class _ComparerScreenState extends State<ComparerScreen> {
             Flexible(
               child: Text(
                 'Versions affichées',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: theme.colorScheme.onSurface,
+                style: premiumText(
+                  context,
+                  16,
+                  FontWeight.w800,
+                  p.textDark,
                 ),
               ),
             ),
@@ -291,25 +292,22 @@ class _ComparerScreenState extends State<ComparerScreen> {
           spacing: 8,
           runSpacing: 8,
           children: [
-            for (final v in _versionsDisponibles) _buildVersionChip(theme, v),
+            for (final v in _versionsDisponibles) _buildVersionChip(context, v),
           ],
         ),
         const SizedBox(height: 8),
         Text(
           '${affichees.length} version${affichees.length > 1 ? 's' : ''} '
           'affichée${affichees.length > 1 ? 's' : ''}',
-          style: TextStyle(
-            fontSize: 13,
-            color: theme.colorScheme.onSurfaceVariant,
-          ),
+          style: premiumText(context, 13, FontWeight.w500, p.textGrey),
         ),
       ],
     );
   }
 
   // --- Pastille de version (afficher / masquer) ---
-  Widget _buildVersionChip(ThemeData theme, VersionBible v) {
-    final accent = theme.colorScheme.primary;
+  Widget _buildVersionChip(BuildContext context, VersionBible v) {
+    final p = premiumPalette(context);
     final actif = _actives.contains(v.code);
     return GestureDetector(
       onTap: () {
@@ -321,22 +319,32 @@ class _ComparerScreenState extends State<ComparerScreen> {
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
-          color: actif ? accent : theme.colorScheme.surface,
+          // La pastille active porte l'accent en dégradé (comme les puces de
+          // filtre des autres écrans) ; la inactive tombe sur la surface.
+          gradient: actif ? p.heroGradient : null,
+          color: actif ? null : p.surface,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: actif
-                ? accent
-                : theme.colorScheme.outline.withValues(alpha: .5),
+                ? Colors.transparent
+                : premiumCardBorder(context, opacity: .3),
           ),
+          boxShadow: actif
+              ? premiumShadow(
+                  p.primary,
+                  opacity: 0.3,
+                  blur: 12,
+                  offset: const Offset(0, 5),
+                )
+              : null,
         ),
         child: Text(
           v.code,
-          style: TextStyle(
-            color: actif
-                ? theme.colorScheme.onPrimary
-                : theme.colorScheme.onSurface,
-            fontSize: 13,
-            fontWeight: FontWeight.w600,
+          style: premiumText(
+            context,
+            13,
+            FontWeight.w700,
+            actif ? p.onPrimary : p.textDark,
           ),
         ),
       ),
@@ -344,22 +352,12 @@ class _ComparerScreenState extends State<ComparerScreen> {
   }
 
   // --- Carte d'une traduction ---
-  Widget _buildCarteVersion(ThemeData theme, VersionBible v) {
-    final accent = theme.colorScheme.primary;
+  Widget _buildCarteVersion(BuildContext context, VersionBible v) {
+    final p = premiumPalette(context);
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(18.0),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.03),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
+      decoration: premiumSurface(context, radius: 16, depth: 0.9),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -371,41 +369,40 @@ class _ComparerScreenState extends State<ComparerScreen> {
                   vertical: 5,
                 ),
                 decoration: BoxDecoration(
-                  color: accent.withValues(alpha: 0.1),
+                  color: p.primarySoft,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
                   v.code,
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: accent,
-                  ),
+                  style: premiumText(context, 12, FontWeight.w800, p.primary),
                 ),
               ),
               const SizedBox(width: 10),
               Expanded(
                 child: Text(
                   v.nom,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: theme.colorScheme.onSurface,
+                  style: premiumText(
+                    context,
+                    14,
+                    FontWeight.w700,
+                    p.textDark,
                   ),
                 ),
               ),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
-                  color: theme.colorScheme.surfaceContainerHighest,
+                  color: p.surfaceAlt,
                   borderRadius: BorderRadius.circular(6),
+                  border: Border.all(color: premiumCardBorder(context)),
                 ),
                 child: Text(
                   v.langue,
-                  style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.bold,
-                    color: theme.colorScheme.onSurfaceVariant,
+                  style: premiumText(
+                    context,
+                    11,
+                    FontWeight.w800,
+                    p.textGrey,
                   ),
                 ),
               ),
@@ -419,7 +416,7 @@ class _ComparerScreenState extends State<ComparerScreen> {
               height: 1.7,
               fontFamily: _prefs?.readingFont.fontFamily,
               fontWeight: _prefs?.fontWeight.weight,
-              color: theme.colorScheme.onSurface,
+              color: p.onSurface,
             ),
             textAlign: TextAlign.justify,
           ),

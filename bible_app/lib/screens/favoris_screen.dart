@@ -198,6 +198,20 @@ class _FavorisScreenState extends State<FavorisScreen> {
         elevation: 0,
         foregroundColor: p.textDark,
         centerTitle: true,
+        // AppBar transparente : un voile d'accent l'ancre au fond, comme sur
+        // la Bibliothèque et les index de lexique.
+        flexibleSpace: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.center,
+              colors: [
+                p.primary.withValues(alpha: .12),
+                p.primary.withValues(alpha: 0),
+              ],
+            ),
+          ),
+        ),
         title: Text(
           'Favoris',
           style: premiumText(context, 18, FontWeight.w800, p.textDark),
@@ -223,15 +237,7 @@ class _FavorisScreenState extends State<FavorisScreen> {
                       ],
                     ),
                     const SizedBox(height: 12),
-                    Text(
-                      '${filtres.length} favori${filtres.length > 1 ? 's' : ''}',
-                      style: premiumText(
-                        context,
-                        13,
-                        FontWeight.w500,
-                        p.textGrey,
-                      ),
-                    ),
+                    _SectionLabel('${filtres.length} favori${filtres.length > 1 ? 's' : ''}'),
                     const SizedBox(height: 12),
 
                     // ============ LISTE OU ÉTAT VIDE ============
@@ -365,22 +371,14 @@ class _FavorisScreenState extends State<FavorisScreen> {
   // --- Carte de favori cliquable ---
   Widget _buildCarteFavori(BuildContext context, Favori f) {
     final p = premiumPalette(context);
+    // Coquille sans forme côté Material : la lisière [premiumCardBorder] et les
+    // deux ombres sont peintes par l'`Ink`, qu'un Material « façonné »
+    // rognerait au contour arrondi — et l'ondulation du `InkWell` passe
+    // alors au-dessus du voile.
     return Material(
-      color: p.surface,
-      borderRadius: BorderRadius.circular(20),
-      elevation: 0,
-      shadowColor: Colors.transparent,
+      color: Colors.transparent,
       child: Ink(
-        decoration: BoxDecoration(
-          color: p.surface,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: premiumShadow(
-            p.primaryDark,
-            opacity: 0.07,
-            blur: 16,
-            offset: const Offset(0, 6),
-          ),
-        ),
+        decoration: premiumSurface(context, radius: 20, depth: 0.9),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
           onTap: f.book == null ? null : () => _open(f),
@@ -471,6 +469,46 @@ class _FavorisScreenState extends State<FavorisScreen> {
         shape: BoxShape.circle,
       ),
       child: Icon(icone, size: 18, color: couleur),
+    );
+  }
+}
+
+/// Intertitre de section : un filet d'accent, puis le libellé exact tel quel.
+/// Même façonnage que `_SectionLabel` (Thèmes) et `_SectionBadge` (Réglages) :
+/// « 2 favoris » se lit comme un intertitre, pas comme une ligne de liste.
+class _SectionLabel extends StatelessWidget {
+  final String label;
+
+  const _SectionLabel(this.label);
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    return Row(
+      children: [
+        Container(
+          width: 4,
+          height: 13,
+          decoration: BoxDecoration(
+            color: p.primary,
+            borderRadius: BorderRadius.circular(2),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Text(
+            label,
+            overflow: TextOverflow.ellipsis,
+            style: premiumText(
+              context,
+              11,
+              FontWeight.w800,
+              p.textGrey,
+              spacing: 1.1,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

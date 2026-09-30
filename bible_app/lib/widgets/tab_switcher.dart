@@ -42,6 +42,21 @@ class TabSwitcher extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         foregroundColor: p.textDark,
+        // Velours d'accent : le même voile qui ancre les AppBars de Favoris,
+        // Notes et Historique. L'écran passe de « page nue » à surface
+        // habillée sans que rien ne bouge.
+        flexibleSpace: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.center,
+              colors: [
+                p.primary.withValues(alpha: .12),
+                p.primary.withValues(alpha: 0),
+              ],
+            ),
+          ),
+        ),
         title: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -67,6 +82,16 @@ class TabSwitcher extends StatelessWidget {
             padding: const EdgeInsets.only(right: 8),
             child: TextButton(
               onPressed: () => Navigator.of(context).pop(),
+              style: TextButton.styleFrom(
+                backgroundColor: p.primarySoft,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 6,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(99),
+                ),
+              ),
               child: Text(
                 'Terminé',
                 style: premiumText(context, 13, FontWeight.w800, p.primary),
@@ -98,34 +123,70 @@ class TabSwitcher extends StatelessWidget {
           );
         },
       ),
+      // Barre d'action en « dock » : la rangée flottait à nu sur le crème,
+      // elle prend une coque premium et son filet d'accroche — le même
+      // registre que le panneau de la feuille d'étude.
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 6, 16, 14),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _RoundAction(
-                icon: Icons.home_outlined,
-                tooltip: 'Accueil',
-                onTap: () {
-                  manager.openHome();
-                  Navigator.of(context).pop();
-                },
-              ),
-              _GoldPlus(
-                onTap: () {
-                  manager.openHome();
-                  Navigator.of(context).pop();
-                },
-              ),
-              _RoundAction(
-                icon: Icons.clear_all,
-                tooltip: 'Tout fermer',
-                onTap: () {
-                  manager.closeAll();
-                },
-              ),
-            ],
+          child: DecoratedBox(
+            // `DecoratedBox` et non `Container` : la coque n'est pas une
+            // carte, elle ne doit pas entrer dans le repérage « gold border ».
+            decoration: premiumSurface(context, radius: 24, depth: 1.0),
+            child: Stack(
+              children: [
+                Positioned(
+                  top: 0,
+                  left: 34,
+                  right: 34,
+                  child: Container(
+                    height: 2,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          p.primary.withValues(alpha: 0),
+                          p.primary.withValues(alpha: 0.6),
+                          p.primary.withValues(alpha: 0),
+                        ],
+                      ),
+                      borderRadius: BorderRadius.circular(1),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 8,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _RoundAction(
+                        icon: Icons.home_outlined,
+                        tooltip: 'Accueil',
+                        onTap: () {
+                          manager.openHome();
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                      _GoldPlus(
+                        onTap: () {
+                          manager.openHome();
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                      _RoundAction(
+                        icon: Icons.clear_all,
+                        tooltip: 'Tout fermer',
+                        onTap: () {
+                          manager.closeAll();
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -164,10 +225,34 @@ class _GroupSection extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(top: group == null ? 8 : 14, bottom: 2),
           child: group == null
-              ? Text(
-                  'Sans groupe',
-                  style: premiumText(context, 9.5, FontWeight.w800, p.textGrey,
-                      spacing: .22),
+              // Intertitre de section : le filet d'accent des autres écrans,
+              // puis le libellé exact tel quel (« Sans groupe »).
+              ? Row(
+                  children: [
+                    Container(
+                      width: 4,
+                      height: 13,
+                      decoration: BoxDecoration(
+                        color: p.primary,
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        'Sans groupe',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: premiumText(
+                          context,
+                          9.5,
+                          FontWeight.w800,
+                          p.textGrey,
+                          spacing: .22,
+                        ),
+                      ),
+                    ),
+                  ],
                 )
               : _GroupHeader(manager: manager, group: group),
         ),
@@ -213,12 +298,14 @@ class _GroupHeader extends StatelessWidget {
         ),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+          // Pastille d'accent (et non un gris de texte) : le compteur devient
+          // un repère de section, comme les puces de l'Accueil.
           decoration: BoxDecoration(
-            color: p.textDark.withValues(alpha: .08),
+            color: p.primarySoft,
             borderRadius: BorderRadius.circular(99),
           ),
           child: Text('$memberCount',
-              style: premiumText(context, 10, FontWeight.w800, p.textDark)),
+              style: premiumText(context, 10, FontWeight.w800, p.primary)),
         ),
         IconButton(
           visualDensity: VisualDensity.compact,
@@ -309,18 +396,23 @@ class _SwitcherCard extends StatelessWidget {
             decoration: active
                 // Onglet courant : le bord d'accent est assumé — c'est un
                 // marqueur d'état, verrouillé par le test « gold border » —
-                // doublé d'un halo.
-                ? BoxDecoration(
-                    color: p.surface,
-                    borderRadius: BorderRadius.circular(20),
-                    border:
-                        Border.all(color: bibleTheme.highlightRef, width: 2),
+                // doublé d'un halo. Le fond passe de l'aplat `p.surface` au
+                // voile `premiumSurface` + une ombre large : l'onglet courant
+                // se détache comme une carte surélevée, pas comme un cadre.
+                ? premiumSurface(context, radius: 20, depth: 1.1).copyWith(
+                    border: Border.all(color: bibleTheme.highlightRef, width: 2),
                     boxShadow: [
                       BoxShadow(
                         color:
                             bibleTheme.highlightRef.withValues(alpha: 0.38),
                         blurRadius: 14,
                         offset: const Offset(0, 6),
+                      ),
+                      ...premiumShadow(
+                        p.primaryDark,
+                        opacity: 0.12,
+                        blur: 24,
+                        offset: const Offset(0, 12),
                       ),
                     ],
                   )
@@ -377,8 +469,24 @@ class _SwitcherCard extends StatelessWidget {
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
-                      color: tab.isHome ? p.primarySoft : p.surfaceAlt,
+                      // Vignette « page » : lavage d'accent sur l'accueil,
+                      // ton creusé sur les lectures, le tout pris dans un
+                      // liseré net — l'applat devient une surface habillée.
+                      gradient: tab.isHome
+                          ? LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                p.primarySoft,
+                                p.primary.withValues(alpha: .05),
+                              ],
+                            )
+                          : null,
+                      color: tab.isHome ? null : p.surfaceAlt,
                       borderRadius: BorderRadius.circular(14),
+                      border: Border.all(
+                        color: premiumCardBorder(context, opacity: .14),
+                      ),
                     ),
                     child: Center(
                       child: tab.isHome
@@ -413,10 +521,17 @@ class _SwitcherCard extends StatelessWidget {
                                       height: 4,
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color:
-                                            p.primary.withValues(alpha: 0.35),
+                                        // Filet d'accent en dégradé, comme la
+                                        // règle de section des écrans d'étude.
+                                        gradient: p.heroGradient,
                                         borderRadius:
                                             BorderRadius.circular(2),
+                                        boxShadow: premiumShadow(
+                                          p.primary,
+                                          opacity: 0.25,
+                                          blur: 6,
+                                          offset: const Offset(0, 2),
+                                        ),
                                       ),
                                     ),
                                 ],
@@ -466,8 +581,10 @@ class _SwitcherCard extends StatelessWidget {
                 Icons.push_pin,
                 size: 12,
                 color: p.primary,
-                shadows: const [
-                  Shadow(color: Colors.white, blurRadius: 4),
+                // Halo de lisibilité tiré de la palette (plus de blanc codé
+                // en dur) : la punaise reste lisible sur le dégradé de carte.
+                shadows: [
+                  Shadow(color: p.surface, blurRadius: 4),
                 ],
               ),
             ),
@@ -490,7 +607,7 @@ class _Recently extends StatelessWidget {
       padding: const EdgeInsets.only(top: 14),
       decoration: BoxDecoration(
         border: Border(
-          top: BorderSide(color: Colors.black.withValues(alpha: 0.06)),
+          top: BorderSide(color: premiumCardBorder(context, opacity: .35)),
         ),
       ),
       child: Column(
@@ -499,15 +616,29 @@ class _Recently extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Fermés récemment',
-                style: premiumText(
-                  context,
-                  11.5,
-                  FontWeight.w800,
-                  p.textDark,
-                  spacing: .22,
-                ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: 4,
+                    height: 13,
+                    decoration: BoxDecoration(
+                      color: p.primary,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    'Fermés récemment',
+                    style: premiumText(
+                      context,
+                      11.5,
+                      FontWeight.w800,
+                      p.textDark,
+                      spacing: .22,
+                    ),
+                  ),
+                ],
               ),
               TextButton(
                 onPressed: () => manager.clearRecentlyClosed(),
@@ -549,9 +680,17 @@ class _Recently extends StatelessWidget {
                         horizontal: 13,
                         vertical: 5,
                       ),
+                      // Pastille en dégradé + halo : « Rouvrir » rejoint la
+                      // même famille que le « + » doré du bas.
                       decoration: BoxDecoration(
-                        color: p.primary,
+                        gradient: p.heroGradient,
                         borderRadius: BorderRadius.circular(9),
+                        boxShadow: premiumShadow(
+                          p.primary,
+                          opacity: 0.30,
+                          blur: 10,
+                          offset: const Offset(0, 4),
+                        ),
                       ),
                       child: Text(
                         'Rouvrir',

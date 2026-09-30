@@ -19,8 +19,9 @@ import 'package:bible_app/widgets/study_sheet.dart';
 /// line: every expectation below is checked **before** the sheet closes.
 ///
 /// The last three hold a different line — that the sheet stays **legible** on
-/// the pale and warm palettes, where card and page are within a few percent of
-/// each other and an edge made of blur alone reads as a smudge.
+/// the pale and warm palettes, where a card on the sheet's own voile is within
+/// a few percent of its backdrop and an edge made of blur alone reads as a
+/// smudge.
 void main() {
   tearDown(() {
     AppPreferences.themeNotifier.value = AppPreferences.defaultThemeId;
@@ -55,22 +56,29 @@ void main() {
   PremiumPalette paletteOf(WidgetTester tester) =>
       premiumPalette(tester.element(find.byTooltip('Effacer le surlignage')));
 
-  /// La décoration de la grande carte « Surligner » : seule surface de la
-  /// feuille à porter à la fois le fond des cartes et un rayon de 16 (les tuiles
-  /// d'action tiennent leur fond d'un `Material`, pas d'une décoration).
-  BoxDecoration highlightCard(WidgetTester tester, Color surface) =>
-      tester
-              .widget<Container>(
-                find.byWidgetPredicate((w) {
-                  if (w is! Container) return false;
-                  final d = w.decoration;
-                  return d is BoxDecoration &&
-                      d.color == surface &&
-                      d.borderRadius == BorderRadius.circular(16);
-                }),
-              )
-              .decoration!
-          as BoxDecoration;
+  /// La décoration de la grande carte « Surligner » : la seule `Container` de
+  /// la feuille qui porte à la fois un dégradé et un rayon de 16 — les tuiles
+  /// d'action tiennent leur voile d'un `Ink`, pas d'une décoration, et le
+  /// panneau de la feuille est en rayon 24.
+  ///
+  /// Retrouvée par sa place dans l'arbre, pas par sa couleur : le fond est
+  /// désormais un dégradé `premiumSurface`, il n'y a plus de `color` à
+  /// comparer. L'ancienne variante cherchait `d.color == p.surface`, ce qui
+  /// ne pouvait plus matcher.
+  BoxDecoration highlightCard(WidgetTester tester) => tester
+      .widget<Container>(
+        find.ancestor(
+          of: find.byTooltip('Effacer le surlignage'),
+          matching: find.byWidgetPredicate((w) {
+            if (w is! Container) return false;
+            final d = w.decoration;
+            return d is BoxDecoration &&
+                d.gradient != null &&
+                d.borderRadius == BorderRadius.circular(16);
+          }),
+        ),
+      )
+      .decoration! as BoxDecoration;
 
   /// Opens the sheet over a bare screen, recording everything it reports.
   /// Returns the log of highlight calls, of favourite calls, and a one-slot
@@ -351,28 +359,50 @@ void main() {
   testWidgets('la carte Surligner est délimitée par un liseré, sur chaque thème', (
     tester,
   ) async {
-    // La carte prend `p.surface` sur une feuille en [premiumBackground] : deux
-    // lerps du même ton de fond (58 % et 72 % de blanc). Sur les thèmes clairs
-    // et chauds l'écart tombe à quelques pourcents — 1,5 % sur Brume, 2 % sur
-    // Oliveraie, 8 % sur Sinaï — et son seul contour était une ombre de 12 px à
-    // 5 % : un bord fait de flou, la carte se lisait comme une tache. Le liseré
-    // est donc exigé sur les douze palettes, pas seulement celles qui gênaient.
+    // La carte porte le voile `premiumSurface` sur une feuille elle-même
+    // habillée en `premiumSurface` : deux fois le même dégradé
+    // `surface → surfaceAlt`, et à une même hauteur l'écart de teinte tombe à
+    // quelques pourcents sur les thèmes clairs et chauds. Ce qui détache la
+    // carte n'est donc plus son fond mais son liseré — exigé sur les douze
+    // palettes, pas seulement celles qui gênaient.
     for (final theme in bibleThemes) {
       await pumpSheet(tester, themeId: theme.id);
       final p = paletteOf(tester);
-      final deco = highlightCard(tester, p.surface);
+      final deco = highlightCard(tester);
 
       expect(
-        deco.border,
+        deco.gradient,
         isNotNull,
-        reason: 'aucun bord sur « ${theme.name} »',
+        reason: 'aucun voile sur « ${theme.name} »',
       );
+      expect(deco.border, isNotNull, reason: 'aucun bord sur « ${theme.name} »');
+      final fond = (deco.gradient! as LinearGradient).colors.first;
+      expect(fond, p.surface, reason: 'le voile part de la surface de la carte');
       final edge = (deco.border! as Border).top.color;
       expect(
-        contrast(Color.alphaBlend(edge, p.surface), p.surface),
+        contrast(Color.alphaBlend(edge, fond), fond),
         greaterThan(1.2),
         reason: 'liseré indistinct du fond de la carte sur « ${theme.name} »',
       );
+    }
+  });
+
+  /// Le motif d'encrage (règle 5) : le voile et la lisière sont peints par
+  /// l'`Ink`, jamais par un `Material` façonné — un tel Material rognerait le
+  /// dégradé, la lisière et surtout les deux ombres de `premiumSurface`.
+  testWidgets('les six actions portent leur voile dans un Ink', (tester) async {
+    await pumpSheet(tester);
+
+    final voiles = tester.widgetList<Ink>(find.byType(Ink)).where((ink) {
+      final d = ink.decoration;
+      return d is BoxDecoration && d.borderRadius == BorderRadius.circular(16);
+    });
+
+    expect(voiles, hasLength(6), reason: 'les six cellules de la grille');
+    for (final ink in voiles) {
+      final d = ink.decoration! as BoxDecoration;
+      expect(d.gradient, isNotNull, reason: 'voile premium sur chaque tuile');
+      expect(d.border, isNotNull, reason: 'liseré net sur chaque tuile');
     }
   });
 

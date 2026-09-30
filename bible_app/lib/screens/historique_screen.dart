@@ -35,17 +35,28 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
   String _filtre = 'Tous';
   String _requete = '';
   final TextEditingController _searchController = TextEditingController();
+  final FocusNode _searchFocus = FocusNode();
+  bool _searchFocused = false;
 
   @override
   void initState() {
     super.initState();
+    _searchFocus.addListener(_onSearchFocusChange);
     _load();
   }
 
   @override
   void dispose() {
+    _searchFocus.removeListener(_onSearchFocusChange);
+    _searchFocus.dispose();
     _searchController.dispose();
     super.dispose();
+  }
+
+  void _onSearchFocusChange() {
+    if (mounted && _searchFocused != _searchFocus.hasFocus) {
+      setState(() => _searchFocused = _searchFocus.hasFocus);
+    }
   }
 
   Future<void> _load() async {
@@ -92,6 +103,20 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
         elevation: 0,
         foregroundColor: p.textDark,
         centerTitle: true,
+        // AppBar transparente : un voile d'accent l'ancre au fond, comme sur
+        // Favoris, Notes et la Bibliothèque.
+        flexibleSpace: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.center,
+              colors: [
+                p.primary.withValues(alpha: .12),
+                p.primary.withValues(alpha: 0),
+              ],
+            ),
+          ),
+        ),
         title: Text(
           'Historique',
           style: premiumText(context, 18, FontWeight.w800, p.textDark),
@@ -109,14 +134,8 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
                     const SizedBox(height: 12),
                     _buildSectionChips(context),
                     const SizedBox(height: 12),
-                    Text(
+                    _SectionLabel(
                       '${filtered.length} lecture${filtered.length > 1 ? 's' : ''}',
-                      style: premiumText(
-                        context,
-                        13,
-                        FontWeight.w500,
-                        p.textGrey,
-                      ),
                     ),
                     const SizedBox(height: 12),
                     Expanded(
@@ -140,29 +159,65 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
   // --- Champ de recherche ---
   Widget _buildSearchField(BuildContext context) {
     final p = premiumPalette(context);
-    return Container(
-      decoration: BoxDecoration(
-        color: p.surface,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: premiumShadow(p.primaryDark),
-      ),
+    // Même protocole que la barre de Notes : au repos le voile se pose sans
+    // faire de bruit, au focus il s'allume — liseré qui durcit, halo d'accent,
+    // icône qui prend la couleur de l'accent. Le liseré reste **neutre** dans
+    // les deux états : l'accent ne borde pas une surface (règle 2), il la
+    // marque ici par le halo et l'icône.
+    final actif = _searchFocused;
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 180),
+      curve: Curves.easeOut,
+      decoration: actif
+          ? premiumSurface(context, radius: 20, depth: 0.9).copyWith(
+              border: Border.all(
+                color: premiumCardBorder(context, opacity: .55),
+                width: 1.4,
+              ),
+              boxShadow: [
+                ...premiumShadow(
+                  p.primaryDark,
+                  opacity: .10,
+                  blur: 22,
+                  offset: const Offset(0, 9),
+                ),
+                ...premiumShadow(
+                  p.primary,
+                  opacity: .26,
+                  blur: 16,
+                  offset: const Offset(0, 6),
+                ),
+              ],
+            )
+          : premiumSurface(context, radius: 20, depth: 0.35),
       child: TextField(
         controller: _searchController,
+        focusNode: _searchFocus,
         onChanged: (value) => setState(() => _requete = value),
         style: premiumText(context, 14, FontWeight.w500, p.textDark),
         decoration: InputDecoration(
           hintText: 'Rechercher un livre…',
           hintStyle: premiumText(context, 14, FontWeight.w500, p.textGrey),
-          prefixIcon: Icon(Icons.search_rounded, color: p.textGrey),
+          prefixIcon: Icon(
+            Icons.search_rounded,
+            color: actif ? p.primary : p.textGrey,
+          ),
           suffixIcon: _requete.isEmpty
               ? null
               : IconButton(
+                  tooltip: 'Effacer',
                   icon: const Icon(Icons.close_rounded, size: 18),
                   onPressed: () {
                     _searchController.clear();
                     setState(() => _requete = '');
                   },
                 ),
+          // Le thème global (main.dart) pose `filled: true` + `panelColor` :
+          // sans ce drapeau l'`InputDecorator` hérite de la valeur et peint un
+          // fond **carré** par-dessus le voile arrondi de l'`AnimatedContainer`
+          // — « deux bordures, une ronde et une carrée », les coins du carré
+          // dépassant là où le rond a été rogné.
+          filled: false,
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(vertical: 14),
         ),
@@ -283,22 +338,16 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
   // --- Carte de lecture ---
   Widget _buildCarte(BuildContext context, ReadingEntry e) {
     final p = premiumPalette(context);
+    // Coquille sans forme côté Material : la lisière [premiumCardBorder] et les
+    // deux ombres sont peintes par l'`Ink`, qu'un Material « façonné »
+    // rognerait au contour arrondi. Le fond n'était pas non plus un aplat — le
+    // même `p.surface` porté à la fois par le Material et par l'`Ink`, sans
+    // liseré : il passe au voile `premiumSurface`, comme les cartes de Favoris
+    // et de Notes.
     return Material(
-      color: p.surface,
-      borderRadius: BorderRadius.circular(20),
-      elevation: 0,
-      shadowColor: Colors.transparent,
+      color: Colors.transparent,
       child: Ink(
-        decoration: BoxDecoration(
-          color: p.surface,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: premiumShadow(
-            p.primaryDark,
-            opacity: 0.07,
-            blur: 16,
-            offset: const Offset(0, 6),
-          ),
-        ),
+        decoration: premiumSurface(context, radius: 20, depth: 0.9),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
           onTap: widget.onOpenReading == null ? null : () => _open(e),
@@ -356,6 +405,47 @@ class _HistoriqueScreenState extends State<HistoriqueScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// Intertitre de section : un filet d'accent, puis le libellé exact tel quel.
+/// Même façonnage que `_SectionLabel` (Favoris, Notes, Thèmes) et
+/// `_SectionBadge` (Réglages) : « 3 lectures » se lit comme un intertitre,
+/// pas comme une ligne de liste.
+class _SectionLabel extends StatelessWidget {
+  final String label;
+
+  const _SectionLabel(this.label);
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    return Row(
+      children: [
+        Container(
+          width: 4,
+          height: 13,
+          decoration: BoxDecoration(
+            color: p.primary,
+            borderRadius: BorderRadius.circular(2),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Text(
+            label,
+            overflow: TextOverflow.ellipsis,
+            style: premiumText(
+              context,
+              11,
+              FontWeight.w800,
+              p.textGrey,
+              spacing: 1.1,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

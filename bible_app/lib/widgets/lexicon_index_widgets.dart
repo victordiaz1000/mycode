@@ -157,6 +157,11 @@ class _LexiconSearchFieldState extends State<LexiconSearchField> {
               decoration: InputDecoration(
                 hintText: widget.hint,
                 hintStyle: premiumText(context, 14, FontWeight.w500, p.textGrey),
+                // Le thème global pose `filled: true` + `panelColor` : sans ce
+                // drapeau l'`InputDecorator` hérite de la valeur et peint un
+                // fond **carré** à l'intérieur du conteneur arrondi — « deux
+                // bordures, une ronde et une carrée ».
+                filled: false,
                 border: InputBorder.none,
                 isCollapsed: true,
               ),
