@@ -1,6 +1,6 @@
 # AGENTS.md — Projet BYM (App de Bible Flutter)
 
-> **État vérifié le 2026-09-29.** `flutter analyze` : **No issues found** (29 s). `flutter test` : **739 tests verts** en **~3 min 40**. 76 fichiers de test + 4 faux bundles dans `test/support/`. 90 fichiers Dart dans `lib/` (8 models · 34 data · 22 screens · 23 widgets · 2 utils · `main.dart`). Dépôt sous git à la racine `bym3/` (`build/`, `.dart_tool/`, `android/.gradle` exclus). Le lot du 29/09 est en 7 commits (`250b39b`…`ce1fd9c`) ; ce qui reste du registre premium est listé dans `TODO.md`.
+> **État vérifié le 2026-09-30.** `flutter analyze` : **No issues found** (21 s). `flutter test` : **740 tests verts** en **~3 min 45**. 76 fichiers de test + 4 faux bundles dans `test/support/`. 90 fichiers Dart dans `lib/` (8 models · 34 data · 22 screens · 23 widgets · 2 utils · `main.dart`). Dépôt sous git à la racine `bym3/` (`build/`, `.dart_tool/`, `android/.gradle` exclus). Le lot du 29/09 est en 7 commits (`250b39b`…`ce1fd9c`) ; le registre premium s'est achevé le 30/09 avec `f38bf5f` — `TODO.md` ne garde plus que **les règles** du restyle et les pièges de tests déjà payés.
 >
 > **Ce document décrit l'état courant, pas une chronologie.** Il est réorganisé par domaine : une décision est écrite une fois, à sa place, avec sa raison. Les journaux d'itération (« étape 1, étape 2, c'est fait ») ont été retirés — ils sont la raison pour laquelle ce fichier était en retard. **Ne pas y ajouter de récit : ajouter ou corriger une règle.**
 
@@ -13,7 +13,7 @@
 | `abbreviations.txt` | Source de vérité des abréviations **des notes** (≠ `book_catalog.dart`) | Avant de toucher au parseur de références |
 | `appCodebar/CLAUDE.md` | Grammaire markdown BYM + chaîne des corpus hébergés (CHO, KJF) | Avant de toucher à `md_to_json.py`, `bym_markdown_converter.dart` ou `html_verses_to_json.py` |
 | `bible_app/plan-strong-fr.md` | Origine du lexique Strong FR | ⚠️ **partiellement périmé** (cite des écrans supprimés) |
-| `TODO.md` | Ce qui reste du registre premium (Favoris, Notes, Comparer, feuille d'étude) et les tests qui le verrouillent | Avant de reprendre le restyle |
+| `TODO.md` | Les sept règles du restyle premium, l'état du registre (achevé le 30/09) et les pièges de tests déjà payés | Avant de retoucher un écran au vocabulaire premium |
 
 ## Vue d'ensemble
 
@@ -98,9 +98,9 @@ bible_app/
                           translation, user_data
     data/          (34)  dépôts, registres, index, catalogues, convertisseurs
     screens/       (22)  destinations + écrans poussés
-    widgets/       (21)  chrome partagé, feuilles, tuiles
+    widgets/       (23)  chrome partagé, feuilles, tuiles
     utils/         (2)   hex_color, date_format
-  test/            (74 fichiers) + test/support/ (4 faux AssetBundle)
+  test/            (76 fichiers) + test/support/ (4 faux AssetBundle)
 ```
 
 **`lib/data` est le cœur du projet** (34 fichiers) : c'est là que vivent les coutures de test (`useBundle`, `useRoot`, `useRepository`, `debugServiceFactory`, `ambientDatabase: false`). Presque tout écran qui lit des données ou le disque a un point d'injection.
@@ -205,6 +205,7 @@ bible_app/
 
 - **La couleur du thème est `BibleTheme`** (`data/theme_catalog.dart`) et rien d'autre. La chaîne : `AppPreferences.themeNotifier` → `BibleThemeScope` (posé dans **`MaterialApp.builder`**, donc autour du **Navigator entier** — une route poussée est une sœur de `home`) → `premiumPalette(context)` dérive 14 rôles (`primary`, `surface`, `heroGradient`, `greek`, `hebrew`…) → `ThemeData` dans `main.dart`.
 - `premiumCardBorder` est un liseré **`textGrey`**, pas d'accent : mesuré, un liseré d'accent tourne au cerne coloré sur les thèmes chauds (rapports 1,015 à 1,084).
+- **Un `TextField` logé dans une surface arrondie écrit `filled: false`.** `main.dart` pose `inputDecorationTheme(filled: true, fillColor: panelColor)` et tout `InputDecoration` qui ne redéfinit pas `filled` **hérite de la valeur** : avec `border: InputBorder.none`, l'`InputDecorator` peint alors un aplat **carré** par-dessus le voile rond de l'appelant. Les deux formes couvrent le même rectangle, donc le carré ne dépasse qu'aux quatre coins — « il a deux bordures, une ronde et une carrée ». Corrigé le 30/09 sur les cinq champs de Notes, Historique, index du lexique et éditeur de note. `note_dialog` est laissé tel quel (aucun conteneur arrondi, l'applat y lit comme une zone de saisie) ; hors cause un `OutlineInputBorder` arrondi, dont le remplissage suit la forme — recherche, `chapter_reader`, menu contextuel.
 - **14 thèmes** : Bas-relief · Oliveraie · Papier clair · Mosaïque grise · **Bois doré (`forest`, défaut)** · Cacao · Brume · Acier · Sable minéral · Azur profond · Nuit étoilée · Sinaï · Lin blanc · Veillée. `usesLightText` est vrai pour exactement 3 : `azur`, `nuit`, `veillee`.
   - Les **ids sont persistés et ne disent plus rien du fond affiché** : ne pas les renommer (une clé orpheline retomberait en silence sur le premier thème).
   - `backgroundTone` doit valoir **la moyenne de la texture** : toutes les surfaces opaques en dérivent, sinon les cartes « jurent » avec le fond.
@@ -256,7 +257,7 @@ bible_app/
 
 ## 6. Règles de test
 
-> `flutter analyze` puis `flutter test`. 739 tests, ~3 min 40. Les tests qui lisent les assets réels doivent être des `test()` purs, **jamais** des `testWidgets`.
+> `flutter analyze` puis `flutter test`. 740 tests, ~3 min 45. Les tests qui lisent les assets réels doivent être des `test()` purs, **jamais** des `testWidgets`.
 
 1. **`rootBundle` et `path_provider` ne répondent pas dans la zone fake-async de `testWidgets`.** I/O réel ⇒ `pumpAndSettle` attend pour toujours. Le symptôme est trompeur : le timeout est signalé sur le `pumpAndSettle`, pas sur la lecture.
    - `LocalRepository.useBundle(...)` / `useRootBundle()` — `test/support/fake_bible_bundle.dart` sert n'importe lequel des 66 fichiers.
@@ -276,6 +277,7 @@ bible_app/
 10. **Le compte de notes du corpus (5 753) est un invariant, pas un plancher.** Le remplacer par `greaterThan` rendrait vert un bug qui viderait toutes les notes.
 11. **Un test d'ancrage doit mordre, et viser le bon chemin.** Écrire « la version se nomme au site d'appel » ne prouve rien tant que le test reste vert quand on rend la chaîne en dur. Vérifié cette fois en réintroduisant la faute : le test que j'avais écrit **passait**, parce qu'il tapait le bouton *copier de la barre de sélection* — déjà corrigé — au lieu du bouton *copier de la feuille d'étude*, qui ne l'était pas. Reintroduire la faute, voir le test échouer, puis remettre.
 12. **Un `snackBar` avale le geste suivant.** « 1 verset copié. » reste ~4 s au-dessus du bas de l'écran : un appui long ou un tap qui suit dans le même test atterrit sur lui, et l'action demandée n'arrive jamais — le test échoue alors sur l'assertion d'après, à un endroit qui ne raconte pas la cause. Faire le partage **avant** la copie, ou vider la file, ou fermer la sélection d'abord.
+13. **Quand un test verrouille une couleur, il défend une règle — pas un aplat.** `study_sheet_test` exigeait `d.color == p.surface` sur la carte « Surligner » : la passer en `premiumSurface` fait tomber l'assertion, et la bonne réponse est de **réécrire le test** — finder structurel (ancêtre de l'`InkWell`, `Container` + dégradé + rayon), contraste mesuré sur `gradient.colors.first` au même seuil — jamais de contourner le style pour le satisfaire. Relecture du test **avant** tout contournement.
 
 ---
 
@@ -296,7 +298,8 @@ bible_app/
 - [ ] **Les 12 noms BYM que l'amont ne donne pas** (Actes · Galates · Thessaloniciens ×2 · Corinthiens ×2 · Romains · Éphésiens · Philippiens · Colossiens · Philémon · Hébreux) sont translittérés de la Septante dans `book_catalog.dart`, pas tirés de `bym_md/*.md`. Marqués dans le fichier. À reprendre depuis `bjc-source` s'il les nomme.
 - [ ] **Aucun test** ne couvre `SWORD` ni `_DictionaryDetailScreen`, ni un téléchargement `urlTemplate` de bout en bout depuis l'écran Bibliothèque.
 - [ ] **Nettoyage** : retirer `dio` et `provider` de `pubspec.yaml` (importés nulle part) ; corriger le commentaire périmé de la ligne `GBM` dans `dictionary_catalog.dart`.
-- [ ] **Restyle premium restant** — `TODO.md` à la racine : les trois écrans ouverts depuis l'accueil (Favoris, Notes, Comparer) et la feuille d'étude du lecteur, avec leurs pièges de tests. En particulier `study_sheet_test` mesure `d.color == p.surface` sur la carte « Surligner » : **réécrire le test**, pas contourner le style.
+- [x] **Restyle premium** — clos le 30/09 (`f38bf5f`) : les trois écrans de l'accueil, Historique, la feuille d'étude, l'écran Lecture, la Bibliothèque et le sélecteur d'onglets. `study_sheet_test` a été **réécrit** plutôt que le style contourné (§ 6, règle 13). Les règles et les pièges payés sont conservés dans `TODO.md`.
+- [ ] **`_TabChip` rogne peut-être son halo** — `widgets/tab_strip.dart` enveloppe la puce active d'un `Material(borderRadius:, clipBehavior: Clip.antiAlias)` alors que la décoration (liseré + halo d'accent) vit dans un `Container` enfant : le clip rognerait l'ombre au contour arrondi, ce que la règle 5 interdit. Corriger demande de déplacer la décoration dans un `Ink` **et** de réécrire `tab_strip_test`, qui verrouille `Container(constraints: BoxConstraints(maxWidth: 116))`. **Non constaté à l'œil** — confirmer avant de s'y attaquer.
 - [ ] **Signature release** : `android/app/build.gradle.kts` signe encore le `buildType.release` avec la **clé debug** (TODO du template). Keystore à câbler avant toute distribution — et le passage debug → release impose une désinstallation de l'app installée.
 
 ### Périmés — ne pas réintroduire

@@ -1,55 +1,64 @@
-# TODO — suite du restyle « Premium affirmé »
+# TODO — restyle « Premium affirmé » : traité
 
-Lot en attente, mis de côté volontairement (demande du 29/09) : les autres écrans
-sont traités et la suite complète est verte (**739 tests**, `flutter analyze`
-zéro issue, depuis `bible_app/`).
+Le lot est **clos** (commit `f38bf5f`, 2026-09-30). `flutter analyze` sans
+remarque, **740 tests verts** depuis `bible_app/`.
 
----
-
-## 1. Les trois interfaces ouvertes depuis l'accueil
-
-### Favoris — `bible_app/lib/screens/favoris_screen.dart`
-- **Déjà là** : `premiumBackground` sur le Scaffold, `premiumShadow` (×2).
-- **Manque** : les cartes de favoris sont en aplat — elles passent par
-  `premiumSurface(context, radius: …, depth: …)` avec le liseré
-  `premiumCardBorder`, plus le velours d'AppBar et le filet de section comme
-  sur les écrans déjà traités.
-
-### Notes — `bible_app/lib/screens/notes_screen.dart`
-- **Déjà là** : `premiumBackground`, `premiumShadow(p.primaryDark)` (×2).
-- **Manque** : mêmes cartes en `premiumSurface`, listes de notes et en-tête
-  remontés au vocabulaire premium.
-
-### Comparer — `bible_app/lib/screens/ecran_comparer.dart`
-- **Aucun** import `premium_style` : `theme.scaffoldBackgroundColor`,
-  `Colors.black.withValues(alpha: .03/.04)` sur les fonds de cartes.
-- **Travail complet** : fond `premiumBackground`, cartes `premiumSurface`,
-  liserés `premiumCardBorder`, ombres `premiumShadow`, AppBar voilée — et
-  sortie des `Colors.*` au profit des tokens.
-
-> À confirmer : `historique_screen.dart` (aussi ouvert depuis l'accueil, via
-> « Tout voir ») est dans le même état que Favoris/Notes — fond + ombres, pas
-> de `premiumSurface`. Non listé dans les 3, donc non touché.
+Ce fichier ne contient plus de travail en attente : il garde **les règles du
+restyle** — elles restent valables pour tout écran qu'on reprendra — et les
+pièges de tests qu'on a déjà payés, pour ne pas les redécouvrir.
 
 ---
 
-## 2. La feuille d'étude de l'écran Lecture — `bible_app/lib/widgets/study_sheet.dart`
+## Ce qui a été traité
 
-- Importe déjà `premium_style` mais a été **laissé tel quel au round 3** :
-  un test mesure sa couleur actuelle (voir ci-dessous).
-- **Manque** : fond des feuilles, cartes d'action (Surligner, Note, Copier…)
-  en `premiumSurface`, pastilles d'icônes et séparateurs en dégradé, dialogues
-  de suppression façonnés au `premiumCardBorder`.
+### Les écrans ouverts depuis l'accueil
+- **Favoris · Notes · Comparer** — le lot d'origine : cartes en
+  `premiumSurface`, velours d'AppBar, filets d'intertitre.
+- **Historique** (« Tout voir ») — non listé au départ, mais dans le même état
+  que les trois (fond + ombres, pas de `premiumSurface`) ; rejoint le lot.
+- **Bibliothèque** — ses deux dialogues de suppression (versions et
+  dictionnaires) façonnés au `premiumCardBorder`.
 
-### Point de vigilance — ce qui bloque aujourd'hui
-- `test/study_sheet_test.dart` exige `d.color == p.surface` sur la carte
-  « Surligner » et que les tuiles d'action restent adossées à un `Material`
-  (les ripples en dépendent). Passer la carte en dégradé `premiumSurface`
-  fait échouer cette assertion : il faut alors **réécrire le test**, pas
-  contourner le style — c'est une décision d'aujourd'hui, pas une loi.
-- `test/responsive_pushed_screens_test.dart` pompe la feuille en ×1.0 et
-  ×2.0 (« feuille d'étude » et « feuille d'étude — lexique grisé ») :
-  l'ajustement du fond ne doit rien faire déborder.
+### L'écran Lecture et ses annexes
+- **`study_sheet.dart`** — panneau et cartes en `premiumSurface`, tuiles
+  d'action au motif d'encrage (règle 5), pilule d'intertitre en dégradé.
+- **`reader_screen.dart`** — `Scaffold` externe sur `premiumBackground` (le
+  bandeau d'onglets est translucide à `.60`, il se posait sur le blanc du
+  thème) et la carte « Reprendre » sortie du `Card` en aplat.
+- **`tab_switcher.dart`** — dock d'actions en coque premium, velours d'AppBar,
+  pastilles d'accent, vignette d'aperçu habillée, « Rouvrir » en dégradé.
+
+### La barre de recherche (Notes, Historique)
+- États de focus : `FocusNode` + `AnimatedContainer(180 ms)`, voile `.35` au
+  repos → `.9` + liseré `.55`/1,4 px + halo d'accent + icône en accent au
+  focus. `tooltip: 'Effacer'` sur le bouton ✕.
+- **`filled: false`** : voir la règle 7 plus bas, et son origine dans
+  `AGENTS.off.md` § 4.7.
+
+---
+
+## Pièges de tests — déjà payés, ne pas les redécouvrir
+
+- **`study_sheet_test.dart`** exigeait `d.color == p.surface` sur la carte
+  « Surligner » et des tuiles adossées à un `Material`. Réécrit : finder
+  **structurel** (ancêtre de `find.byTooltip('Effacer le surlignage')`,
+  `Container` + dégradé + `BorderRadius.circular(16)`), contraste mesuré sur
+  `gradient.colors.first` (vérifié `== p.surface`) au seuil **> 1.2**, plus une
+  vérification des six voiles d'icône posés dans un `Ink`.
+  **Réécrire le test, pas contourner le style.**
+- **`tab_switcher_test`** prend le **premier** `Container` dont la décoration
+  porte un `Border` et attend l'or de la carte courante : la coque du dock du
+  bas est donc un `DecoratedBox`, sinon elle vole cette première place.
+- **`tab_strip_test`** verrouille la structure interne d'une puce
+  (`Container` + `constraints: BoxConstraints(maxWidth: 116)`) : ne pas la
+  réécrire en `Ink` sans réécrire le test.
+- **`find.text` ne matche pas le message d'un `Tooltip`** (aucun `Text` n'est
+  rendu tant qu'on ne le montre pas) : ajouter un `tooltip:` ne touche aucun
+  verrou.
+- `find.text('ACTIONS')` (×2), `find.byIcon(Icons.format_color_fill)`,
+  `'2 favoris'`, `'2 versions affichées'`, `'BYM').first`, `'3 lectures'`,
+  `'Sans groupe'` : libellés inchangés par le restyle — c'est le contrat de la
+  règle 3.
 
 ---
 
@@ -69,4 +78,13 @@ zéro issue, depuis `bible_app/`).
    + `Ink(decoration)` pour que les ombres ne soient pas rognées ;
    `InkWell(borderRadius:)` découpe bien son propre ripple.
 6. **Vérification obligatoire** : `flutter analyze` puis `flutter test`
-   (739 tests ≈ 2 min 45) depuis `bible_app/`.
+   (**740 tests ≈ 3 min 45**) depuis `bible_app/`.
+7. **Un `TextField` logé dans une surface arrondie écrit `filled: false`.**
+   `main.dart` pose `inputDecorationTheme(filled: true, fillColor: panelColor)`
+   et tout `InputDecoration` qui ne redéfinit pas `filled` hérite de la valeur :
+   l'`InputDecorator` peint alors un aplat **carré** par-dessus le voile rond de
+   l'appelant. Les deux formes ont le même rectangle, donc le carré ne dépasse
+   qu'aux quatre coins — « il a deux bordures, une ronde et une carrée ».
+   Corrigé sur les cinq champs de Notes, Historique, index du lexique et
+   éditeur de note ; `note_dialog` est laissé tel quel (pas de conteneur
+   arrondi, l'applat y lit comme une zone de saisie).
