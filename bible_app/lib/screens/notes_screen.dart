@@ -50,11 +50,17 @@ class _NotesScreenState extends State<NotesScreen> {
   void initState() {
     super.initState();
     _searchFocus.addListener(_onSearchFocusChange);
+    // `home_screen._openNotes` annonce « Live via AppDatabase.notesRevision —
+    // pas de rechargement explicite » : c'est cet écouteur qui rend vrai ce
+    // contrat. Sans lui, une note écrite pendant que l'écran est ouvert ne
+    // s'y montre jamais.
+    AppDatabase.notesRevision.addListener(_load);
     _load();
   }
 
   @override
   void dispose() {
+    AppDatabase.notesRevision.removeListener(_load);
     _searchFocus.removeListener(_onSearchFocusChange);
     _searchFocus.dispose();
     _searchController.dispose();

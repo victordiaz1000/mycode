@@ -23,6 +23,14 @@ class AppDatabase {
   /// L'Accueil écoute ce notifier pour rester live sans `setState` manuel.
   static final ValueNotifier<int> notesRevision = ValueNotifier<int>(0);
 
+  /// Incrémenté à chaque bascule de favori, ajout **et** retrait.
+  ///
+  /// Exact symétrique de [notesRevision] : [setFavorite] est écrit par le cœur
+  /// d'un verset dans la lecture autant que par l'écran Favoris, et un écran
+  /// qui ne fait que `_load()` en `initState` n'apprend jamais une écriture
+  /// faite ailleurs. Sans écouteur, un notifier ne rafraîchit rien.
+  static final ValueNotifier<int> favoritesRevision = ValueNotifier<int>(0);
+
   DatabaseFactory get _effectiveFactory =>
       _factory ?? databaseFactory;
 
@@ -242,13 +250,16 @@ class AppDatabase {
       await db.delete('favorites',
           where: 'book=? AND chapter=? AND verse=?',
           whereArgs: [book, chapter, verse]);
-      return;
+    } else {
+      await db.insert(
+        'favorites',
+        UserFavorite(bookIndex: book, chapter: chapter, verse: verse).toMap(),
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
     }
-    await db.insert(
-      'favorites',
-      UserFavorite(bookIndex: book, chapter: chapter, verse: verse).toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+    // Les deux sens notifient : retrait depuis l'écran comme ajout depuis la
+    // lecture, l'écran Favoris doit se relancer dans les deux cas.
+    favoritesRevision.value++;
   }
 
   Future<bool> isFavorite(int book, int chapter, int verse) async {

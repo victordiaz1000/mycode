@@ -36,6 +36,10 @@ class _FakeDb extends AppDatabase {
     } else {
       _favs.remove((book, chapter, verse));
     }
+    // Contrat de `AppDatabase.setFavorite` (vérifié sur la vraie base par
+    // `database_test`) : toute bascule notifie. C'est ce que l'écoute de
+    // l'écran attend, et sans elle le test ci-dessous reste sur l'état vide.
+    AppDatabase.favoritesRevision.value++;
   }
 
   @override
@@ -139,5 +143,24 @@ void main() {
 
     expect(opened, [(1, 1, 2)],
         reason: 'the card navigates to the exact verse');
+  });
+
+  testWidgets('a favorite written while the screen is open appears by itself',
+      (tester) async {
+    final db = _FakeDb();
+    await pumpFavoris(tester, db: db);
+
+    expect(find.text('Aucun favori ici'), findsOneWidget);
+    expect(find.text('0 favori'), findsOneWidget);
+
+    // Une écriture de `setFavorite` — le cœur d'un verset dans la lecture —
+    // pendant que l'écran est ouvert : sans écouteur, la carte attend un
+    // nouveau lancement.
+    await db.setFavorite(1, 1, 2, true);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Genèse 1:2'), findsOneWidget,
+        reason: 'le notifier recharge l’écran, aucun rebuild n’a eu lieu');
+    expect(find.text('1 favori'), findsOneWidget);
   });
 }

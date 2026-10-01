@@ -129,6 +129,42 @@ void main() {
     expect(await db.isFavorite(1, 1, 27), isFalse);
   });
 
+  test('every write bumps the revision the live screens listen to', () async {
+    // Ces deux notifiers sont les seules sources de rafraîchissement hors
+    // rebuild : un écran ne se recharge pas tout seul quand ailleurs on écrit.
+    // On pose ici le contrat sur la vraie base ; les tests d'écran ne prouvent
+    // que l'écoute.
+    final favBefore = AppDatabase.favoritesRevision.value;
+    await db.setFavorite(1, 1, 27, true);
+    expect(AppDatabase.favoritesRevision.value, favBefore + 1,
+        reason: 'un favori ajouté depuis la lecture réveille Favoris');
+    await db.setFavorite(1, 1, 27, false);
+    expect(AppDatabase.favoritesRevision.value, favBefore + 2,
+        reason: 'le retrait notifie aussi : le cœur retire depuis l’écran');
+
+    final noteBefore = AppDatabase.notesRevision.value;
+    final id = await db.upsertNote(
+      UserNote(
+        bookIndex: 1,
+        chapter: 6,
+        verse: 14,
+        text: 'première version',
+        updatedAt: 1,
+      ),
+    );
+    expect(AppDatabase.notesRevision.value, noteBefore + 1,
+        reason: 'une note créée depuis la lecture réveille Mes notes');
+
+    await db.upsertNote(
+      (await db.notesForVerse(1, 6, 14)).single.copyWith(text: 'corrigé'),
+    );
+    expect(AppDatabase.notesRevision.value, noteBefore + 2);
+
+    await db.deleteNoteById(id);
+    expect(AppDatabase.notesRevision.value, noteBefore + 3,
+        reason: 'une note supprimée vide la liste sans lancement');
+  });
+
   test('prefs get/set', () async {
     await db.setPref('reading.disposition', 'inline');
     expect(await db.getPref('reading.disposition'), 'inline');

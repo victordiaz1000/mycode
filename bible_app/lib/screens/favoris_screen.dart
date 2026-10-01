@@ -75,7 +75,17 @@ class _FavorisScreenState extends State<FavorisScreen> {
   @override
   void initState() {
     super.initState();
+    // `setFavorite` est écrit par le cœur de la lecture autant que par cet
+    // écran : sans écouteur, une écriture faite ailleurs ne s'y montre qu'au
+    // prochain lancement. L'exact symétrique de `notesRevision` côté notes.
+    AppDatabase.favoritesRevision.addListener(_load);
     _load();
+  }
+
+  @override
+  void dispose() {
+    AppDatabase.favoritesRevision.removeListener(_load);
+    super.dispose();
   }
 
   Future<void> _load() async {

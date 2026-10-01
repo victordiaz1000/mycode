@@ -1,7 +1,7 @@
 # TODO — restyle « Premium affirmé » : traité
 
 Le lot est **clos** (commit `f38bf5f`, 2026-09-30). `flutter analyze` sans
-remarque, **740 tests verts** depuis `bible_app/`.
+remarque, **744 tests verts** depuis `bible_app/`.
 
 Ce fichier ne contient plus de travail en attente : il garde **les règles du
 restyle** — elles restent valables pour tout écran qu'on reprendra — et les
@@ -78,7 +78,7 @@ pièges de tests qu'on a déjà payés, pour ne pas les redécouvrir.
    + `Ink(decoration)` pour que les ombres ne soient pas rognées ;
    `InkWell(borderRadius:)` découpe bien son propre ripple.
 6. **Vérification obligatoire** : `flutter analyze` puis `flutter test`
-   (**740 tests ≈ 3 min 45**) depuis `bible_app/`.
+   (**744 tests, 3 à 5 min**) depuis `bible_app/`.
 7. **Un `TextField` logé dans une surface arrondie écrit `filled: false`.**
    `main.dart` pose `inputDecorationTheme(filled: true, fillColor: panelColor)`
    et tout `InputDecoration` qui ne redéfinit pas `filled` hérite de la valeur :
