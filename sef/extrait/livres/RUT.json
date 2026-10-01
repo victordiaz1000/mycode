@@ -1,0 +1,732 @@
+{
+ "code": "RUT",
+ "book": "Ruth",
+ "fichiersToc": [
+  "RUT/001.html",
+  "RUT/002.html",
+  "RUT/003.html",
+  "RUT/004.html"
+ ],
+ "chapitres": [
+  {
+   "chapitre": 1,
+   "libelle": "1",
+   "fichierToc": "RUT/001.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐγένετο ἐν τῷ κρίνειν τοὺς κριτὰς καὶ ἐγένετο λιμὸς ἐν τῇ γῇ καὶ ἐπορεύθη ἀνὴρ ἀπὸ Βαιθλεεμ τῆς Ιουδα τοῦ παροικῆσαι ἐν ἀγρῷ Μωαβ αὐτὸς καὶ ἡ γυνὴ αὐτοῦ καὶ οἱ υἱοὶ αὐτοῦ.",
+     "giguet": "Du temps des juges, il y eut une famine sur la terre&nbsp;; et un homme partit de Bethléem en Juda, pour aller aux champs de Moab, lui, et sa femme et ses fils.",
+     "alexandrie": "Et il advint, quand jugeaient les Juges&nbsp;: et il advint une famine dans le pays, et un homme partit de Bethléem de Juda pour séjourner dans le Champ de Moab, lui, sa femme et ses fils.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ὄνομα τῷ ἀνδρὶ Αβιμελεχ καὶ ὄνομα τῇ γυναικὶ αὐτοῦ Νωεμιν καὶ ὄνομα τοῖς δυσὶν υἱοῖς αὐτοῦ Μααλων καὶ Χελαιων Εφραθαῖοι ἐκ Βαιθλεεμ τῆς Ιουδα καὶ ἤλθοσαν εἰς ἀγρὸν Μωαβ καὶ ἦσαν ἐκεῖ.",
+     "giguet": "Le nom de l'homme était Elimélech, et le nom de sa femme Noémi, et les noms de ses deux fils, Maalon et Chélaïon, Éphrathéens de Bethléem en Juda. Ainsi, ils allèrent aux champs de Moab et ils demeurèrent.",
+     "alexandrie": "Et le nom de l’homme était Abimélekh et le nom de sa femme Noémin et le nom de ses deux fils Maalôn et Khélaiôn, des Ephratéens de Bethléem de Juda&nbsp;; et ils allèrent dans le Champ de Moab et ils étaient là-bas.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἀπέθανεν Αβιμελεχ ὁ ἀνὴρ τῆς Νωεμιν καὶ κατελείφθη αὐτὴ καὶ οἱ δύο υἱοὶ αὐτῆς.",
+     "giguet": "Or, Elimélech, le mari de Noémi, mourut, et elle resta veuve avec deux fils.",
+     "alexandrie": "Et Abimélekh, le mari de Noémin, mourut et elle fut laissée, elle et ses deux fils.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἐλάβοσαν ἑαυτοῖς γυναῖκας Μωαβίτιδας ὄνομα τῇ μιᾷ Ορφα καὶ ὄνομα τῇ δευτέρᾳ Ρουθ καὶ κατῴκησαν ἐκεῖ ὡς δέκα ἔτη.",
+     "giguet": "Et ils épousèrent des femmes moabites&nbsp;: l'une se nommait Orpha, la seconde se nommait Ruth, et ils passèrent là dix années.",
+     "alexandrie": "Et ils prirent pour eux des femmes moabites, le nom de la première était Orpah, et le nom de la seconde, Ruth&nbsp;; et ils habitèrent là-bas environ dix années.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἀπέθανον καί γε ἀμφότεροι Μααλων καὶ Χελαιων καὶ κατελείφθη ἡ γυνὴ ἀπὸ τοῦ ἀνδρὸς αὐτῆς καὶ ἀπὸ τῶν δύο υἱῶν αὐτῆς.",
+     "giguet": "Et tous les deux moururent aussi&nbsp;: Maalon et Chélaïon, la femme resta ainsi privée de son mari et de ses deux fils.",
+     "alexandrie": "Et ils moururent eux aussi l’un et l’autre, Maalôn et Khélaiôn, et la femme fut laissée sans son mari et sans ses deux fils.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἀνέστη αὐτὴ καὶ αἱ δύο νύμφαι αὐτῆς καὶ ἀπέστρεψαν ἐξ ἀγροῦ Μωαβ ὅτι ἤκουσαν ἐν ἀγρῷ Μωαβ ὅτι ἐπέσκεπται κύριος τὸν λαὸν αὐτοῦ δοῦναι αὐτοῖς ἄρτους.",
+     "giguet": "Alors, elle se leva avec ses deux brus, et elles s'en allèrent des champs de Moab, parce qu'elles y avaient appris, dans les champs de Moab, que le Seigneur avait visité son peuple pour lui donner du pain.",
+     "alexandrie": "Et elle se leva, elle et ses deux belles-filles, et elles retournèrent du Champ de Moab parce qu’elles avaient entendu dans le Champ de Moab que Seigneur avait visité son peuple pour lui donner de la nourriture.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἐξῆλθεν ἐκ τοῦ τόπου οὗ ἦν ἐκεῖ καὶ αἱ δύο νύμφαι αὐτῆς μετ' αὐτῆς καὶ ἐπορεύοντο ἐν τῇ ὁδῷ τοῦ ἐπιστρέψαι εἰς τὴν γῆν Ιουδα.",
+     "giguet": "Elle quitta donc le lieu où elle était, et ses deux brus avec elle&nbsp;; elles se mirent en route pour retourner en la terre de Juda.",
+     "alexandrie": "Et elle quitta le lieu où elle était, là-bas, et ses deux belles-filles avec elle&nbsp;; et elles partirent sur la route pour rentrer au pays de Juda.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ εἶπεν Νωεμιν ταῖς νύμφαις αὐτῆς πορεύεσθε δὴ ἀποστράφητε ἑκάστη εἰς οἶκον μητρὸς αὐτῆς ποιήσαι κύριος μεθ' ὑμῶν ἔλεος καθὼς ἐποιήσατε μετὰ τῶν τεθνηκότων καὶ μετ' ἐμοῦ.",
+     "giguet": "Et Noémi dit à ses deux brus&nbsp;: Allez, retournez chacune en la maison de votre mère&nbsp;; que le Seigneur soit miséricordieux envers vous comme vous l'avez été pour nos morts et pour moi.",
+     "alexandrie": "Et Noémin dit à ses belles-filles&nbsp;: «&nbsp;Partez donc&nbsp;! Retournez, chacune vers la maison de sa mère&nbsp;! Puisse Seigneur faire acte de pitié avec vous, comme vous l’avez fait avec les morts et avec moi&nbsp;!",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "δῴη κύριος ὑμῖν καὶ εὕροιτε ἀνάπαυσιν ἑκάστη ἐν οἴκῳ ἀνδρὸς αὐτῆς καὶ κατεφίλησεν αὐτάς καὶ ἐπῆραν τὴν φωνὴν αὐτῶν καὶ ἔκλαυσαν.",
+     "giguet": "Que le Seigneur vous l'accorde, et puissiez-vous trouver du repos l'une et l'autre la maison d'un époux. Puis, elle les embrassa, et elles élevèrent la voix, et elles se prirent à pleurer.",
+     "alexandrie": "Puisse Seigneur vous donner et puissiez-vous trouver le repos, chacune dans la maison de son mari&nbsp;!&nbsp;» Et elle les embrassa et elles élevèrent la voix et pleurèrent.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ εἶπαν αὐτῇ μετὰ σοῦ ἐπιστρέφομεν εἰς τὸν λαόν σου.",
+     "giguet": "Et elles lui dirent&nbsp;: Nous irons avec toi chez ton peuple.",
+     "alexandrie": "Et elles lui dirent&nbsp;: «&nbsp;Avec toi nous rentrons vers ton peuple&nbsp;!&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ εἶπεν Νωεμιν ἐπιστράφητε δή θυγατέρες μου καὶ ἵνα τί πορεύεσθε μετ' ἐμοῦ μὴ ἔτι μοι υἱοὶ ἐν τῇ κοιλίᾳ μου καὶ ἔσονται ὑμῖν εἰς ἄνδρας.",
+     "giguet": "Mais Noémi dit&nbsp;: Allez-vous-en, mes filles. Pourquoi viendriez-vous avec moi&nbsp;? Ai-je encore en mes entrailles des fils qui puissent être vos époux&nbsp;?",
+     "alexandrie": "Et Noémin dit&nbsp;: «&nbsp;Rentrez donc, mes filles&nbsp;; et dans quel but partez-vous avec moi&nbsp;? Aurai-je encore des fils dans mon ventre et ils seront pour vous des maris&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἐπιστράφητε δή θυγατέρες μου διότι γεγήρακα τοῦ μὴ εἶναι ἀνδρί ὅτι εἶπα ὅτι ἔστιν μοι ὑπόστασις τοῦ γενηθῆναί με ἀνδρὶ καὶ τέξομαι υἱούς.",
+     "giguet": "Allez-vous-en, mes filles, parce que je suis trop vieille pour être avec un mari, et que du reste j'ai dit&nbsp;: Quand même je pourrais prendre un mari et enfanter des fils,",
+     "alexandrie": "Rentrez donc, mes filles, parce que je suis trop vieille pour être à un mari&nbsp;! Parce que j’aurai dit qu’il existe pour moi une assurance d’appartenir à un mari et que j’enfanterai des fils,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "μὴ αὐτοὺς προσδέξεσθε ἕως οὗ ἁδρυνθῶσιν ἢ αὐτοῖς κατασχεθήσεσθε τοῦ μὴ γενέσθαι ἀνδρί μὴ δή θυγατέρες μου ὅτι ἐπικράνθη μοι ὑπὲρ ὑμᾶς ὅτι ἐξῆλθεν ἐν ἐμοὶ χεὶρ κυρίου.",
+     "giguet": "Les attendriez-vous jusqu'à qu'ils soient devenus hommes&nbsp;; et, poux eux, vous abstiendriez-vous d'être avec des maris&nbsp;? Ne venez point, mes filles&nbsp;; car j'ai bien de la peine à votre sujet, parce que la main du Seigneur s'est appesantie sur moi.",
+     "alexandrie": "les attendrez-vous jusqu’à ce qu’ils aient mûri&nbsp;? Est-ce que pour eux vous serez empêchées d’appartenir à un mari&nbsp;? Oh, non, mes filles, parce que pour moi, il y a eu amertume à propos de vous&nbsp;: la main de Seigneur s’est dressée contre moi&nbsp;!&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐπῆραν τὴν φωνὴν αὐτῶν καὶ ἔκλαυσαν ἔτι καὶ κατεφίλησεν Ορφα τὴν πενθερὰν αὐτῆς καὶ ἐπέστρεψεν εἰς τὸν λαὸν αὐτῆς Ρουθ δὲ ἠκολούθησεν αὐτῇ.",
+     "giguet": "Et elles élevèrent la voix et elles pleurèrent encore&nbsp;; Orpha embrassa sa belle-mère, et elle s'en retourna chez son peuple&nbsp;; mais Ruth suivit Noémi.",
+     "alexandrie": "Et elles élevèrent la voix et pleurèrent encore&nbsp;; et Orpah embrassa sa belle-mère et rentra vers son peuple, mais Ruth la suivit.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ εἶπεν Νωεμιν πρὸς Ρουθ ἰδοὺ ἀνέστρεψεν ἡ σύννυμφός σου πρὸς λαὸν αὐτῆς καὶ πρὸς τοὺς θεοὺς αὐτῆς ἐπιστράφητι δὴ καὶ σὺ ὀπίσω τῆς συννύμφου σου.",
+     "giguet": "Et Noémi dit à Ruth&nbsp;: Vois, ta sœur retourne à son peuple et à ses dieux&nbsp;; fais comme elle, et accompagne ta sœur.",
+     "alexandrie": "Et Noémin dit à Ruth&nbsp;: «&nbsp;Voici que ta belle-sœur s’en est retournée auprès de son peuple et auprès de ses dieux&nbsp;; rentre donc, toi aussi, derrière ta belle-sœur&nbsp;!&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "εἶπεν δὲ Ρουθ μὴ ἀπαντήσαι ἐμοὶ τοῦ καταλιπεῖν σε ἢ ἀποστρέψαι ὄπισθέν σου ὅτι σὺ ὅπου ἐὰν πορευθῇς πορεύσομαι καὶ οὗ ἐὰν αὐλισθῇς αὐλισθήσομαι ὁ λαός σου λαός μου καὶ ὁ θεός σου θεός μου.",
+     "giguet": "Et Ruth dit&nbsp;: Ne me parle plus de m'éloigner de toi et de t'abandonner, parce qu'où tu iras, j'irai&nbsp;; où tu demeureras, je demeurerai&nbsp;; ton peuple est mon peuple, ton Dieu est mon Dieu&nbsp;;",
+     "alexandrie": "Mais Ruth dit&nbsp;: «&nbsp;Puisse-t-il ne pas m’arriver de te laisser ou de me détourner de derrière toi&nbsp;! Parce que, où tu partiras, toi, je partirai, et où tu passeras la nuit, je passerai la nuit&nbsp;; ton peuple sera mon peuple, et ton Dieu mon Dieu&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ οὗ ἐὰν ἀποθάνῃς ἀποθανοῦμαι κἀκεῖ ταφήσομαι τάδε ποιήσαι μοι κύριος καὶ τάδε προσθείη ὅτι θάνατος διαστελεῖ ἀνὰ μέσον ἐμοῦ καὶ σοῦ.",
+     "giguet": "Où tu mourras, je mourrai, et c'est là que je serai ensevelie&nbsp;; qu'ainsi me fasse le Seigneur, et qu'il y ajoute encore, si je te quitte, car la mort seule nous séparera.",
+     "alexandrie": "et là où tu mourras, je mourrai, et là je serai enterrée&nbsp;; puisse Seigneur me faire ceci et ajouter ceci, parce que c’est la mort qui mettra une séparation entre toi et moi&nbsp;!&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἰδοῦσα δὲ Νωεμιν ὅτι κραταιοῦται αὐτὴ τοῦ πορεύεσθαι μετ' αὐτῆς ἐκόπασεν τοῦ λαλῆσαι πρὸς αὐτὴν ἔτι.",
+     "giguet": "Voyant donc sa ferme volonté de partir avec elle, Noémi cessa de lui parler.",
+     "alexandrie": "Or, Noémin, ayant vu qu’elle était fortifiée pour partir avec elle, se fatigua de lui parler encore.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ἐπορεύθησαν δὲ ἀμφότεραι ἕως τοῦ παραγενέσθαι αὐτὰς εἰς Βαιθλεεμ καὶ ἤχησεν πᾶσα ἡ πόλις ἐπ' αὐταῖς καὶ εἶπον αὕτη ἐστὶν Νωεμιν.",
+     "giguet": "Elles marchèrent toutes deux jusqu'à ce qu'elles arrivassent à Bethléem&nbsp;; et, dès qu'elles furent entrées à Bethléem, toute la ville fut en rumeur à leur sujet, et les femmes dirent&nbsp;: N'est-ce point Noémi&nbsp;?",
+     "alexandrie": "Alors, elles partirent toutes les deux, jusqu’à ce qu’elles parviennent à Bethléem. Et la cité tout entière retentit d’elles, et elles dirent&nbsp;: «&nbsp;C’est Noémin&nbsp;?&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ εἶπεν πρὸς αὐτάς μὴ δὴ καλεῖτέ με Νωεμιν καλέσατέ με Πικράν ὅτι ἐπικράνθη ἐν ἐμοὶ ὁ ἱκανὸς σφόδρα.",
+     "giguet": "Et elle leur dit&nbsp;: Ne m'appelez point Noémi (belle)&nbsp;; appelez-moi Mara (amère), parce que le Tout-Puissant m'a remplie, d'amertume.",
+     "alexandrie": "Et elle leur dit&nbsp;: «&nbsp;Ne me donnez donc pas le nom de Noémin, nommez-moi “Amère”, parce que le Puissant a été amer envers moi, fortement&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "ἐγὼ πλήρης ἐπορεύθην καὶ κενὴν ἀπέστρεψέν με ὁ κύριος καὶ ἵνα τί καλεῖτέ με Νωεμιν καὶ κύριος ἐταπείνωσέν με καὶ ὁ ἱκανὸς ἐκάκωσέν με.",
+     "giguet": "Pleine je suis partie, et vide me renvoie le Seigneur. Pourquoi m'appelleriez-vous Noémi, puisque le Seigneur m'a humiliée et que le Tout-Puissant m'a accablée de maux&nbsp;?",
+     "alexandrie": "moi, j’étais partie remplie, et Seigneur m’a fait retourner vide&nbsp;; et pourquoi me nommez-vous Noémin&nbsp;? Et Seigneur m’a humiliée, et le Puissant m’a maltraitée.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ ἐπέστρεψεν Νωεμιν καὶ Ρουθ ἡ Μωαβῖτις ἡ νύμφη αὐτῆς ἐπιστρέφουσα ἐξ ἀγροῦ Μωαβ αὐταὶ δὲ παρεγενήθησαν εἰς Βαιθλεεμ ἐν ἀρχῇ θερισμοῦ κριθῶν.",
+     "giguet": "Noémi et sa bru Ruth la Moabite étaient donc revenues des champs de Moab, et elles étaient entrées à Bethléem comme on commençait à moissonner les orges.",
+     "alexandrie": "Et Noémin rentra, et Ruth la Moabite, sa belle-fille, rentrant du Champ de Moab&nbsp;; or, elles parvinrent à Bethléem au commencement de la moisson de l’orge.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 2,
+   "libelle": "2",
+   "fichierToc": "RUT/002.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ τῇ Νωεμιν ἀνὴρ γνώριμος τῷ ἀνδρὶ αὐτῆς ὁ δὲ ἀνὴρ δυνατὸς ἰσχύι ἐκ τῆς συγγενείας Αβιμελεχ καὶ ὄνομα αὐτῷ Βοος.",
+     "giguet": "Il y avait un homme connu de Noémi et de son époux&nbsp;; cet homme, parent d'Elimélech, était important et il se nommait Booz.",
+     "alexandrie": "Et il y avait pour Noémin un homme qui était une connaissance de son mari&nbsp;; or, l’homme, valeureux par sa force, était de la famille d’Abimélekh et son nom était Boos.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ εἶπεν Ρουθ ἡ Μωαβῖτις πρὸς Νωεμιν πορευθῶ δὴ εἰς ἀγρὸν καὶ συνάξω ἐν τοῖς στάχυσιν κατόπισθεν οὗ ἐὰν εὕρω χάριν ἐν ὀφθαλμοῖς αὐτοῦ εἶπεν δὲ αὐτῇ πορεύου θύγατερ.",
+     "giguet": "Et Ruth la Moabite dit à Noémi&nbsp;: Je m'en vais aux champs, et je ramasserai des épis à la suite des moissonneurs, chez celui aux yeux de qui je trouverai grâce&nbsp;; et Noémi répondit&nbsp;: Va, ma fille.",
+     "alexandrie": "Et Ruth la Moabite dit à Noémin&nbsp;: «&nbsp;Allons&nbsp;! Je veux partir dans un champ et je récolterai dans les épis, derrière celui aux yeux de qui j’aurai trouvé grâce.&nbsp;» Or, elle lui dit&nbsp;: «&nbsp;Pars, fille&nbsp;!&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἐπορεύθη καὶ συνέλεξεν ἐν τῷ ἀγρῷ κατόπισθεν τῶν θεριζόντων καὶ περιέπεσεν περιπτώματι τῇ μερίδι τοῦ ἀγροῦ Βοος τοῦ ἐκ συγγενείας Αβιμελεχ.",
+     "giguet": "Elle partit donc, et, étant arrivée, elle glana dans un champ, derrière les moissonneurs&nbsp;; elle était, tombée par aventure sur un endroit du champ de Booz, le parent d'Elimélech.",
+     "alexandrie": "Et elle partit et elle glana dans le champ derrière les moissonneurs&nbsp;; et elle tomba par hasard sur la partie du champ de Boos, celui qui était de la famille d’Abimélekh.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἰδοὺ Βοος ἦλθεν ἐκ Βαιθλεεμ καὶ εἶπεν τοῖς θερίζουσιν κύριος μεθ' ὑμῶν καὶ εἶπον αὐτῷ εὐλογήσαι σε κύριος.",
+     "giguet": "Et voilà que Booz vint de Bethléem, et il dit aux moissonneurs&nbsp;: Le Seigneur soit avec vous, et ils lui dirent&nbsp;: Que le Seigneur te bénisse.",
+     "alexandrie": "Et voici que Boos vint de Bethléem, et il dit aux moissonneurs&nbsp;: «&nbsp;Seigneur avec vous&nbsp;!&nbsp;» Et ils lui dirent&nbsp;: «&nbsp;Puisse Seigneur te bénir&nbsp;!&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ εἶπεν Βοος τῷ παιδαρίῳ αὐτοῦ τῷ ἐφεστῶτι ἐπὶ τοὺς θερίζοντας τίνος ἡ νεᾶνις αὕτη.",
+     "giguet": "Et Booz dit à son serviteur, qui était placé au-dessus des moissonneurs&nbsp;: Qui est cette jeune fille&nbsp;?",
+     "alexandrie": "Et Boos dit à son garçon préposé aux moissonneurs&nbsp;: «&nbsp;A qui est cette jeune personne&nbsp;?&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἀπεκρίθη τὸ παιδάριον τὸ ἐφεστὸς ἐπὶ τοὺς θερίζοντας καὶ εἶπεν ἡ παῖς ἡ Μωαβῖτίς ἐστιν ἡ ἀποστραφεῖσα μετὰ Νωεμιν ἐξ ἀγροῦ Μωαβ.",
+     "giguet": "Son serviteur, qui était placé au-dessus des moissonneurs, répondit&nbsp;: C'est la jeune Moabite, qui est revenue avec Noémi du champ de Moab.",
+     "alexandrie": "Et le garçon préposé aux moissonneurs répondit et dit&nbsp;: «&nbsp;L’enfant est la Moabite qui est retournée avec Noémin du Champ de Moab",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ εἶπεν συλλέξω δὴ καὶ συνάξω ἐν τοῖς δράγμασιν ὄπισθεν τῶν θεριζόντων καὶ ἦλθεν καὶ ἔστη ἀπὸ πρωίθεν καὶ ἕως ἑσπέρας οὐ κατέπαυσεν ἐν τῷ ἀγρῷ μικρόν.",
+     "giguet": "Elle m'a dit&nbsp;: Je glanerai et j'ajouterai aux gerbes derrière les moissonneurs&nbsp;; et elle a glané depuis le matin jusqu'au soir, et elle n'a pas pris dans le champ un moment de repos.",
+     "alexandrie": "et elle a dit&nbsp;: “Allons&nbsp;! Je vais glaner et je vais récolter dans les gerbes derrière les moissonneurs”&nbsp;; et elle est venue et elle est restée debout depuis le matin, et jusqu’au soir elle ne s’est pas reposée dans le champ, un peu.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ εἶπεν Βοος πρὸς Ρουθ οὐκ ἤκουσας θύγατερ μὴ πορευθῇς ἐν ἀγρῷ συλλέξαι ἑτέρῳ καὶ σὺ οὐ πορεύσῃ ἐντεῦθεν ὧδε κολλήθητι μετὰ τῶν κορασίων μου.",
+     "giguet": "Alors, Booz dit à Ruth&nbsp;: N'as-tu pas entendu, ma fille&nbsp;? Ne va pas glaner dans un autre champ&nbsp;; ne t'éloigne pas d'ici, et attache-toi aux pas de mes filles.",
+     "alexandrie": "Et Boos dit à Ruth&nbsp;: «&nbsp;Tu n’as pas entendu, fille&nbsp;? Ne pars pas glaner dans le champ d’un autre, et toi, tu ne partiras pas d’ici&nbsp;; attache-toi ici à mes jeunes filles&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "οἱ ὀφθαλμοί σου εἰς τὸν ἀγρόν οὗ ἐὰν θερίζωσιν καὶ πορεύσῃ κατόπισθεν αὐτῶν ἰδοὺ ἐνετειλάμην τοῖς παιδαρίοις τοῦ μὴ ἅψασθαί σου καὶ ὅ τι διψήσεις καὶ πορευθήσῃ εἰς τὰ σκεύη καὶ πίεσαι ὅθεν ἂν ὑδρεύωνται τὰ παιδάρια.",
+     "giguet": "Les yeux fixés sur le champ où elles moissonnent, tu iras après elles&nbsp;; voilà que j'ai commandé à mes serviteurs de te respecter. Et quand tu auras soif, tu iras aux vaisseaux, et tu boiras où boivent mes serviteurs.",
+     "alexandrie": "tes yeux, en direction du champ, là où ils moissonnent&nbsp;! et tu partiras derrière eux&nbsp;; voici que j’ai commandé aux garçons de ne pas te toucher. Et si tu as soif, tu iras aux jarres, et bois, là où les garçons puisent.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ ἔπεσεν ἐπὶ πρόσωπον αὐτῆς καὶ προσεκύνησεν ἐπὶ τὴν γῆν καὶ εἶπεν πρὸς αὐτόν τί ὅτι εὗρον χάριν ἐν ὀφθαλμοῖς σου τοῦ ἐπιγνῶναί με καὶ ἐγώ εἰμι ξένη.",
+     "giguet": "Et, pour témoigner son respect, elle tomba la face contre terre, et elle lui dit&nbsp;: Comment ai-je trouvé grâce devant tes yeux pour que tu prêtes attention à moi, qui suis une étrangère&nbsp;?",
+     "alexandrie": "Et elle tomba sur sa face et se prosterna à terre et elle lui dit&nbsp;: «&nbsp;Quoi&nbsp;! J’ai trouvé grâce à tes yeux pour que tu me reconnaisses&nbsp;? Même moi qui suis une étrangère&nbsp;!&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἀπεκρίθη Βοος καὶ εἶπεν αὐτῇ ἀπαγγελίᾳ ἀπηγγέλη μοι ὅσα πεποίηκας μετὰ τῆς πενθερᾶς σου μετὰ τὸ ἀποθανεῖν τὸν ἄνδρα σου καὶ πῶς κατέλιπες τὸν πατέρα σου καὶ τὴν μητέρα σου καὶ τὴν γῆν γενέσεώς σου καὶ ἐπορεύθης πρὸς λαὸν ὃν οὐκ ᾔδεις ἐχθὲς καὶ τρίτης.",
+     "giguet": "Et il répondit&nbsp;: On m'a raconté tout ce que tu as fait pour ta belle mère après la mort de son mari, et comment tu as quitté ton père et ta mère et le lieu de ta naissance, et comment tu es venue chez un peuple qu'auparavant tu ne connaissais ni d'hier ni d'aujourd'hui.",
+     "alexandrie": "Et Boos répondit et lui dit&nbsp;: «&nbsp;On m’a fait le rapport de tout ce que tu as fait avec ta belle-mère après que ton mari est mort, et comment tu as laissé ton père et ta mère et le pays de ta naissance, et tu es partie auprès d’un peuple que tu ne connaissais pas hier ni le jour d’avant&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἀποτείσαι κύριος τὴν ἐργασίαν σου καὶ γένοιτο ὁ μισθός σου πλήρης παρὰ κυρίου θεοῦ Ισραηλ πρὸς ὃν ἦλθες πεποιθέναι ὑπὸ τὰς πτέρυγας αὐτοῦ.",
+     "giguet": "Que le Seigneur rémunère ta bonne action&nbsp;; que le Seigneur Dieu d'Israël, à qui tu es venue pour t'abriter sous ses ailes, t'accorde un salaire abondant.",
+     "alexandrie": "puisse Seigneur payer en retour ton œuvre et puisse ton salaire être plein, de la part de Seigneur, Dieu d’Israël, auprès de qui tu es venue pour être en confiance sous ses ailes&nbsp;!&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἡ δὲ εἶπεν εὕροιμι χάριν ἐν ὀφθαλμοῖς σου κύριε ὅτι παρεκάλεσάς με καὶ ὅτι ἐλάλησας ἐπὶ καρδίαν τῆς δούλης σου καὶ ἰδοὺ ἐγὼ ἔσομαι ὡς μία τῶν παιδισκῶν σου.",
+     "giguet": "Et elle reprit&nbsp;: Que je trouve, seigneur, grâce devant tes yeux, puisque tu m'as consolée, et que tu as parlé au cœur de ta servante, et je serai comme l'une de tes servantes.",
+     "alexandrie": "Or, elle lui dit&nbsp;: «&nbsp;Puisse-je trouver grâce à tes yeux, seigneur, parce que tu m'as consolée et parce que tu as parlé au cœur de ta servante, et voici que moi, je serai comme une de tes esclaves&nbsp;!&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ εἶπεν αὐτῇ Βοος ἤδη ὥρᾳ τοῦ φαγεῖν πρόσελθε ὧδε καὶ φάγεσαι τῶν ἄρτων καὶ βάψεις τὸν ψωμόν σου ἐν τῷ ὄξει καὶ ἐκάθισεν Ρουθ ἐκ πλαγίων τῶν θεριζόντων καὶ ἐβούνισεν αὐτῇ Βοος ἄλφιτον καὶ ἔφαγεν καὶ ἐνεπλήσθη καὶ κατέλιπεν.",
+     "giguet": "Et Booz lui dit&nbsp;: Voici le moment de manger, viens ici&nbsp;; tu mangeras du pain et tu tremperas la bouchée dans le vinaigre. Ruth s'assit donc auprès des moissonneurs, et Booz lui présenta des gâteaux de farine&nbsp;; elle mangea et elle fut rassasiée, et il lui en resta.",
+     "alexandrie": "Et Boos lui dit&nbsp;: «&nbsp;Maintenant, à l’heure de manger, approche-toi, ici, et tu mangeras du pain et tu tremperas ton morceau dans le vinaigre.&nbsp;» Et Ruth s’assit aux côtés des moissonneurs, et Boos entassa du gruau d’orge pour elle, et elle mangea et elle fut rassasiée et elle en laissa.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἀνέστη τοῦ συλλέγειν καὶ ἐνετείλατο Βοος τοῖς παιδαρίοις αὐτοῦ λέγων καί γε ἀνὰ μέσον τῶν δραγμάτων συλλεγέτω καὶ μὴ καταισχύνητε αὐτήν.",
+     "giguet": "Ensuite, elle se leva, pour glaner, et Booz donna ses ordres à ses serviteurs, disant&nbsp;: Laissez-la glaner au milieu des javelles et gardez-vous de la molester.",
+     "alexandrie": "Et elle se leva pour glaner, et Boos commanda à ses garçons en disant&nbsp;: «&nbsp;Et qu’elle glane même entre les gerbes, et ne la couvrez pas de honte&nbsp;!",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ βαστάζοντες βαστάξατε αὐτῇ καί γε παραβάλλοντες παραβαλεῖτε αὐτῇ ἐκ τῶν βεβουνισμένων καὶ ἄφετε καὶ συλλέξει καὶ οὐκ ἐπιτιμήσετε αὐτῇ.",
+     "giguet": "En apportant les épis, apportez-en pour elle, et en les jetant à terre, jetez pour elle une part de ce que vous recueillez&nbsp;; elle glanera, elle mangera, et vous ne lui ferez aucun reproche.",
+     "alexandrie": "Et prélevez, prélevez pour elle, et même vous jetterez, vous jetterez pour elle de ce qui aura été entassé, et laissez-en tomber et elle glanera, et vous ne lui ferez pas de reproches.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ συνέλεξεν ἐν τῷ ἀγρῷ ἕως ἑσπέρας καὶ ἐρράβδισεν ἃ συνέλεξεν καὶ ἐγενήθη ὡς οιφι κριθῶν.",
+     "giguet": "Et elle glana jusqu'à la nuit, puis elle battit les épis qu'elle avait ramassés, et elle en tira près d'une mesure d'orge.",
+     "alexandrie": "Et elle glana dans le champ jusqu’au soir&nbsp;; et elle battit ce qu’elle avait glané, et il y eut environ un oiphi d’orge.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ ἦρεν καὶ εἰσῆλθεν εἰς τὴν πόλιν καὶ εἶδεν ἡ πενθερὰ αὐτῆς ἃ συνέλεξεν καὶ ἐξενέγκασα Ρουθ ἔδωκεν αὐτῇ ἃ κατέλιπεν ἐξ ὧν ἐνεπλήσθη.",
+     "giguet": "Elle l'emporta et elle rentra dans la ville&nbsp;; sa belle-mère vit ce qu'elle avait recueilli, et Ruth lui donna les restes qu'elle avait rapportés des mets dont elle s'était rassasiée.",
+     "alexandrie": "Et elle l’emporta et elle entra dans la cité, et sa belle-mère vit ce qu’elle avait glané, et Ruth montra et lui donna ce qu’elle avait laissé de ce dont elle s’était rassasiée.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ εἶπεν αὐτῇ ἡ πενθερὰ αὐτῆς ποῦ συνέλεξας σήμερον καὶ ποῦ ἐποίησας εἴη ὁ ἐπιγνούς σε εὐλογημένος καὶ ἀπήγγειλεν Ρουθ τῇ πενθερᾷ αὐτῆς ποῦ ἐποίησεν καὶ εἶπεν τὸ ὄνομα τοῦ ἀνδρός μεθ' οὗ ἐποίησα σήμερον Βοος.",
+     "giguet": "Et sa belle-mère lui dit&nbsp;: Où as-tu glané aujourd'hui, où as-tu travaillé&nbsp;? Béni soit celui qui t'a accueillie. Et Ruth apprit à sa belle-mère où elle avait travaillé, et elle lui dit&nbsp;: L'homme chez qui j'ai glané aujourd'hui se nomme Booz.",
+     "alexandrie": "Et sa belle-mère lui dit&nbsp;: «&nbsp;Où as-tu glané aujourd’hui et où as-tu travaillé&nbsp;? Puisse celui qui t’a reconnue être béni&nbsp;!&nbsp;» Et Ruth raconta à sa belle-mère où elle avait travaillé et elle dit&nbsp;: «&nbsp;Le nom de l’homme avec lequel j’ai travaillé aujourd’hui est Boos.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ εἶπεν Νωεμιν τῇ νύμφῃ αὐτῆς εὐλογητός ἐστιν τῷ κυρίῳ ὅτι οὐκ ἐγκατέλιπεν τὸ ἔλεος αὐτοῦ μετὰ τῶν ζώντων καὶ μετὰ τῶν τεθνηκότων καὶ εἶπεν αὐτῇ Νωεμιν ἐγγίζει ἡμῖν ὁ ἀνὴρ ἐκ τῶν ἀγχιστευόντων ἡμᾶς ἐστιν.",
+     "giguet": "Et Noémi dit à sa bru&nbsp;: Béni soit-il, au nom du Seigneur, parce que sa miséricorde n'a manqué ni aux vivants, ni aux morts. Et Noémi ajouta&nbsp;: L'homme nous est proche, c'est un de nos parents.",
+     "alexandrie": "Et Noémin dit à sa belle-fille&nbsp;: «&nbsp;Il est digne d’être béni de Seigneur, parce qu’il n’a pas délaissé sa pitié avec les vivants et avec les morts&nbsp;!&nbsp;» Et Noémin lui dit&nbsp;: «&nbsp;L’homme est proche de nous, il est l’un de ceux qui exercent sur nous le droit de proche parent.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ εἶπεν Ρουθ πρὸς τὴν πενθερὰν αὐτῆς καί γε ὅτι εἶπεν πρός με μετὰ τῶν παιδαρίων μου προσκολλήθητι ἕως ἂν τελέσωσιν ὅλον τὸν ἀμητόν ὃς ὑπάρχει μοι.",
+     "giguet": "Et Ruth reprit&nbsp;: C'est sans doute pour cela qu'il m'a dit&nbsp;: Attache-toi aux pas de mes filles jusqu'à ce qu'elles aient achevé toute la moisson de ce qui m'appartient.",
+     "alexandrie": "Et Ruth dit à sa belle-mère&nbsp;: «&nbsp;Et il m’a même dit&nbsp;: “Attache-toi de près à mes garçons jusqu’à ce qu’ils aient accompli toute la moisson qui m’appartient.”&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ εἶπεν Νωεμιν πρὸς Ρουθ τὴν νύμφην αὐτῆς ἀγαθόν θύγατερ ὅτι ἐπορεύθης μετὰ τῶν κορασίων αὐτοῦ καὶ οὐκ ἀπαντήσονταί σοι ἐν ἀγρῷ ἑτέρῳ.",
+     "giguet": "Et Noémi dit à Ruth, sa bru&nbsp;: C'est bien, mon enfant, si tu marches avec ses filles, on ne te contrariera pas dans un autre champ.",
+     "alexandrie": "Et Noémin dit à Ruth, sa belle-fille&nbsp;: «&nbsp;C’est bien, fille&nbsp;: tu es partie avec ses jeunes filles, et on ne s’avancera pas à ta rencontre dans le champ d’un autre.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "καὶ προσεκολλήθη Ρουθ τοῖς κορασίοις Βοος συλλέγειν ἕως οὗ συνετέλεσεν τὸν θερισμὸν τῶν κριθῶν καὶ τῶν πυρῶν καὶ ἐκάθισεν μετὰ τῆς πενθερᾶς αὐτῆς.",
+     "giguet": "Ruth s'attacha donc aux pas des filles de Booz pour glaner jusqu'à la fin de la moisson des orges et des froments. Et elle demeura avec sa belle-mère.",
+     "alexandrie": "Et Ruth s’attacha de près aux jeunes filles de Boos pour glaner jusqu’à ce qu’elles aient complètement achevé la moisson de l’orge et du blé. Et elle demeura avec sa belle-mère.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 3,
+   "libelle": "3",
+   "fichierToc": "RUT/003.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "εἶπεν δὲ αὐτῇ Νωεμιν ἡ πενθερὰ αὐτῆς θύγατερ οὐ μὴ ζητήσω σοι ἀνάπαυσιν ἵνα εὖ γένηταί σοι.",
+     "giguet": "Or, comme elle était assise auprès de sa belle-mère, Noémi sa belle-mère lui dit&nbsp;: Fille, ne chercherai-je point pour toi le repos afin que tu sois heureuse&nbsp;?",
+     "alexandrie": "Or, Noémin, sa belle-mère, lui dit&nbsp;: «&nbsp;Fille, pour toi je ne chercherai pas du repos afin que tu sois heureuse&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ νῦν οὐχὶ Βοος γνώριμος ἡμῶν οὗ ἦς μετὰ τῶν κορασίων αὐτοῦ ἰδοὺ αὐτὸς λικμᾷ τὸν ἅλωνα τῶν κριθῶν ταύτῃ τῇ νυκτί.",
+     "giguet": "Maintenant, Booz, dont tu as fréquenté les filles, ne nous est-il pas connu&nbsp;? Écoute&nbsp;: Il doit vanner cette nuit de l'orge dans son aire.",
+     "alexandrie": "Et maintenant, Boos n’est-il pas une de nos connaissances, lui avec les jeunes filles duquel tu étais&nbsp;? Voici que lui-même vanne Faire d’orge cette nuit.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "σὺ δὲ λούσῃ καὶ ἀλείψῃ καὶ περιθήσεις τὸν ἱματισμόν σου ἐπὶ σεαυτῇ καὶ ἀναβήσῃ ἐπὶ τὸν ἅλω μὴ γνωρισθῇς τῷ ἀνδρὶ ἕως οὗ συντελέσαι αὐτὸν πιεῖν καὶ φαγεῖν.",
+     "giguet": "Lave-toi donc et te parfume, revêts-toi de ton bel habillement et monte à son aire. Ne te montre pas à l'homme qu'il n'ait fini de manger et de boire.",
+     "alexandrie": "Quant à toi, tu te laveras et tu te parfumeras et tu t’envelopperas de ton vêtement, et tu retourneras vers l’aire&nbsp;; ne te fais pas connaître de l’homme jusqu’à ce qu’il ait achevé de boire et de manger&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἔσται ἐν τῷ κοιμηθῆναι αὐτόν καὶ γνώσῃ τὸν τόπον ὅπου κοιμᾶται ἐκεῖ καὶ ἐλεύσῃ καὶ ἀποκαλύψεις τὰ πρὸς ποδῶν αὐτοῦ καὶ κοιμηθήσῃ καὶ αὐτὸς ἀπαγγελεῖ σοι ἃ ποιήσεις.",
+     "giguet": "Lorsqu'il sera couché, et que tu sauras le lieu où il sera couché, tu iras, tu lèveras ce qui couvre ses pieds, tu te coucheras, et lui-même t'apprendra ce que tu auras à faire.",
+     "alexandrie": "et ce sera le moment où il se couchera, et tu connaîtras l’endroit où il se couche, et tu iras et tu découvriras ce qui est à ses pieds et tu te coucheras, et il t’indiquera ce que tu feras.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "εἶπεν δὲ Ρουθ πρὸς αὐτήν πάντα ὅσα ἐὰν εἴπῃς ποιήσω.",
+     "giguet": "Et Ruth répondit&nbsp;: Je ferai tout ce que tu viens de dire.",
+     "alexandrie": "Alors, Ruth lui dit&nbsp;: «&nbsp;Tout ce que tu diras, je le ferai.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ κατέβη εἰς τὸν ἅλω καὶ ἐποίησεν κατὰ πάντα ὅσα ἐνετείλατο αὐτῇ ἡ πενθερὰ αὐτῆς.",
+     "giguet": "Et elle se rendit à l'aire, et elle fit tout ce que sa belle-mère lui avait recommandé.",
+     "alexandrie": "Et elle descendit sur l’aire et elle fit selon tout ce que sa belle-mère lui avait commandé.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἔφαγεν Βοος καὶ ἠγαθύνθη ἡ καρδία αὐτοῦ καὶ ἦλθεν κοιμηθῆναι ἐν μερίδι τῆς στοιβῆς ἡ δὲ ἦλθεν κρυφῇ καὶ ἀπεκάλυψεν τὰ πρὸς ποδῶν αὐτοῦ.",
+     "giguet": "Et Booz mangea et il but&nbsp;; son cœur fut réjoui et il alla se coucher au coin du tas de blé&nbsp;; elle le suivit en cachette, et elle leva ce qui couvrait ses pieds.",
+     "alexandrie": "Et Boos mangea, et son cœur fut bien, et il alla se coucher dans une partie du gerbier&nbsp;; alors, celle-ci alla en cachette et elle découvrit ce qui était à ses pieds.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἐγένετο δὲ ἐν τῷ μεσονυκτίῳ καὶ ἐξέστη ὁ ἀνὴρ καὶ ἐταράχθη καὶ ἰδοὺ γυνὴ κοιμᾶται πρὸς ποδῶν αὐτοῦ.",
+     "giguet": "Or, à minuit l'homme s'éveilla, et il fut saisi d'étonnement et de trouble en voyant une femme couchée à ses pieds.",
+     "alexandrie": "Or, il advint au milieu de la nuit que l’homme fut saisi de stupeur et se troubla&nbsp;: voici qu’une femme est couchée à ses pieds.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "εἶπεν δέ τίς εἶ σύ ἡ δὲ εἶπεν ἐγώ εἰμι Ρουθ ἡ δούλη σου καὶ περιβαλεῖς τὸ πτερύγιόν σου ἐπὶ τὴν δούλην σου ὅτι ἀγχιστεὺς εἶ σύ.",
+     "giguet": "Et il dit&nbsp;? Qui es-tu&nbsp;? Elle répondit&nbsp;: Je suis Ruth ta servante, et tu étendras, ton aile sur ta servante, parce que tu es un proche parent.",
+     "alexandrie": "Et il dit&nbsp;: «&nbsp;Qui es-tu, toi&nbsp;?&nbsp;» Et elle dit&nbsp;: «&nbsp;Moi, je suis Ruth, ta servante, et tu jetteras ton pan sur ta servante, parce que toi, tu es le proche parent.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ εἶπεν Βοος εὐλογημένη σὺ τῷ κυρίῳ θεῷ θύγατερ ὅτι ἠγάθυνας τὸ ἔλεός σου τὸ ἔσχατον ὑπὲρ τὸ πρῶτον τὸ μὴ πορευθῆναί σε ὀπίσω νεανιῶν εἴτοι πτωχὸς εἴτοι πλούσιος.",
+     "giguet": "Et Booz reprit&nbsp;: Bénie sois-tu au nom du Seigneur, ma fille, parce que tu as été bonne et miséricordieuse à la fin plus encore qu'au commencement, et que tu n'as pas recherché les jeunes gens pauvres ou riches.",
+     "alexandrie": "Et Boos dit&nbsp;: «&nbsp;Bénie sois-tu de Dieu Seigneur, toi, fille, parce que tu as bien agi dans ton geste de pitié, dans le dernier plus que dans le premier, en ne partant pas derrière des jeunes gens, mendiant ou riche&nbsp;!",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ νῦν θύγατερ μὴ φοβοῦ πάντα ὅσα ἐὰν εἴπῃς ποιήσω σοι οἶδεν γὰρ πᾶσα φυλὴ λαοῦ μου ὅτι γυνὴ δυνάμεως εἶ σύ.",
+     "giguet": "Maintenant, ma fille, n'aie point de crainte&nbsp;: tout ce que tu demanderas, je te l'accorderai&nbsp;; car toute la tribu de mon peuple sait que tu es une femme forte.",
+     "alexandrie": "Et maintenant, fille, n’aie pas peur&nbsp;: tout ce que tu diras, je le ferai pour toi&nbsp;; car chaque tribu de mon peuple sait que tu es une femme de valeur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ὅτι ἀληθῶς ἀγχιστεὺς ἐγώ εἰμι καί γε ἔστιν ἀγχιστεὺς ἐγγίων ὑπὲρ ἐμέ.",
+     "giguet": "Il est vrai que je suis ton parent, mais il en est un plus proche que moi.",
+     "alexandrie": "et que moi, je suis véritablement un proche parent, et il y a aussi un proche parent plus proche, plus que moi.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "αὐλίσθητι τὴν νύκτα καὶ ἔσται τὸ πρωί ἐὰν ἀγχιστεύσῃ σε ἀγαθόν ἀγχιστευέτω ἐὰν δὲ μὴ βούληται ἀγχιστεῦσαί σε ἀγχιστεύσω σε ἐγώ ζῇ κύριος κοιμήθητι ἕως πρωί.",
+     "giguet": "Demeure ici la nuit et demain&nbsp;: sil veut t'épouser, qu'il t'épouse&nbsp;; mais s'il ne veut pas t'épouser, je t'épouserai moi, le Seigneur est vivant&nbsp;! Couche-toi donc, jusqu'à l'aurore.",
+     "alexandrie": "Passe la nuit dehors, et ce sera le matin&nbsp;: s’il exerce son droit de proche parent sur toi, c’est bien, qu’il l’exerce&nbsp;; mais s’il ne veut pas exercer son droit de proche parent sur toi, moi je l’exercerai sur toi, vive Seigneur&nbsp;! Couche-toi jusqu’au matin.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐκοιμήθη πρὸς ποδῶν αὐτοῦ ἕως πρωί ἡ δὲ ἀνέστη πρὸ τοῦ ἐπιγνῶναι ἄνδρα τὸν πλησίον αὐτοῦ καὶ εἶπεν Βοος μὴ γνωσθήτω ὅτι ἦλθεν γυνὴ εἰς τὸν ἅλωνα.",
+     "giguet": "Elle resta couchée à ses pieds jusqu'au lendemain&nbsp;; puis elle se leva avant que l'on pût se reconnaître de près, et Booz lui dit&nbsp;: Que personne ne sache qu'une femme est venue à mon aire.",
+     "alexandrie": "Et elle se coucha à ses pieds jusqu’au matin. Alors, elle se leva avant qu’un homme reconnaisse son voisin&nbsp;; et Boos dit&nbsp;: «&nbsp;Qu’on ne connaisse pas qu’une femme est venue sur l’aire&nbsp;!&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ εἶπεν αὐτῇ φέρε τὸ περίζωμα τὸ ἐπάνω σου καὶ ἐκράτησεν αὐτό καὶ ἐμέτρησεν ἓξ κριθῶν καὶ ἐπέθηκεν ἐπ' αὐτήν καὶ εἰσῆλθεν εἰς τὴν πόλιν.",
+     "giguet": "Il ajouta&nbsp;: Soulève le manteau que tu portes&nbsp;; elle le soutint, et il y versa six mesures d'orge&nbsp;; il l'en chargea, et elle rentra dans la ville.",
+     "alexandrie": "Et il lui dit&nbsp;: «&nbsp;Apporte le châle qui est sur toi.&nbsp;» Et il le saisit et il mesura six mesures d’orge et les chargea sur elle&nbsp;; et il alla vers la cité.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ Ρουθ εἰσῆλθεν πρὸς τὴν πενθερὰν αὐτῆς ἡ δὲ εἶπεν τίς εἶ θύγατερ καὶ εἶπεν αὐτῇ πάντα ὅσα ἐποίησεν αὐτῇ ὁ ἀνήρ.",
+     "giguet": "Et Ruth alla retrouver sa belle-mère, et celle-ci lui dit&nbsp;: Qu'en est-il ma fille&nbsp;? et l'autre, lui raconta tout ce que l'homme avait fait pour elle.",
+     "alexandrie": "Et Ruth alla auprès de sa belle-mère&nbsp;; alors, celle-ci dit&nbsp;: «&nbsp;Comment vas-tu, fille&nbsp;?»&nbsp;; et elle lui dit tout ce que l’homme avait fait pour elle.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ εἶπεν αὐτῇ τὰ ἓξ τῶν κριθῶν ταῦτα ἔδωκέν μοι ὅτι εἶπεν πρός με μὴ εἰσέλθῃς κενὴ πρὸς τὴν πενθεράν σου.",
+     "giguet": "Elle ajouta&nbsp;: Il m'a donné ces dix mesures d'orge, et il m'a dit&nbsp;: Tu ne rentreras pas les mains vides chez ta belle-mère.",
+     "alexandrie": "Et elle lui dit&nbsp;: «&nbsp;Il m’a donné ces six mesures d'orge, parce qu’il m’a dit&nbsp;: “Ne va pas vide auprès de ta belle-mère.”&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἡ δὲ εἶπεν κάθου θύγατερ ἕως τοῦ ἐπιγνῶναί σε πῶς οὐ πεσεῖται ῥῆμα οὐ γὰρ μὴ ἡσυχάσῃ ὁ ἀνήρ ἕως ἂν τελέσῃ τὸ ῥῆμα σήμερον.",
+     "giguet": "Or, celle-ci dit&nbsp;: Ne bouge pas, fille, jusqu'à ce que tu apprennes que la chose a réussi, car l'homme n'aura pas de repos qu'il ne l'ait terminée aujourd'hui même.",
+     "alexandrie": "Alors, elle dit&nbsp;: «&nbsp;Assieds-toi, fille, jusqu’à ce que tu reconnaisses comment une parole ne retombera pas&nbsp;; car assurément l’homme n’aura pas de repos qu’il n’ait accompli la parole aujourd’hui.&nbsp;»",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 4,
+   "libelle": "4",
+   "fichierToc": "RUT/004.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ Βοος ἀνέβη ἐπὶ τὴν πύλην καὶ ἐκάθισεν ἐκεῖ καὶ ἰδοὺ ὁ ἀγχιστευτὴς παρεπορεύετο ὃν εἶπεν Βοος καὶ εἶπεν πρὸς αὐτὸν Βοος ἐκκλίνας κάθισον ὧδε κρύφιε καὶ ἐξέκλινεν καὶ ἐκάθισεν.",
+     "giguet": "Booz alla vers la porte de la ville, et après s'y être assis, il vit venir le parent dont il avait parlé&nbsp;; et Booz lui dit&nbsp;: Approche, assieds-toi ici, homme dissimulé. Et l'autre approcha et il s'assit.",
+     "alexandrie": "Et Boos monta à la porte et il s’assit là, et voici que celui qui avait le rang de proche parent passait, celui dont Boos avait parlé. Et Boos lui dit&nbsp;: «&nbsp;Fais un détour et assieds-toi ici, le caché&nbsp;!&nbsp;» Et il fit un détour et s’assit.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ἔλαβεν Βοος δέκα ἄνδρας ἀπὸ τῶν πρεσβυτέρων τῆς πόλεως καὶ εἶπεν καθίσατε ὧδε καὶ ἐκάθισαν.",
+     "giguet": "Et Booz prit dix des anciens de la ville, et il leur dit&nbsp;: Asseyez-vous là. Et ils s'assirent.",
+     "alexandrie": "Et Boos prit dix hommes parmi les Anciens de la cité et il dit&nbsp;: «&nbsp;Asseyez-vous ici&nbsp;!»&nbsp;; et ils s’assirent.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ εἶπεν Βοος τῷ ἀγχιστεῖ τὴν μερίδα τοῦ ἀγροῦ ἥ ἐστιν τοῦ ἀδελφοῦ ἡμῶν τοῦ Αβιμελεχ ἣ δέδοται Νωεμιν τῇ ἐπιστρεφούσῃ ἐξ ἀγροῦ Μωαβ.",
+     "giguet": "Et Booz dit au parent le plus proche. Il y a un champ de notre frère Elimélech qui a été donné à Noémi, laquelle est revenue de Moab.",
+     "alexandrie": "Et Boos dit au proche parent&nbsp;: «&nbsp;La part du champ, celle qui est à notre frère Abimélekh et qui a été donnée à Noémin qui rentre du Champ de Moab,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "κἀγὼ εἶπα ἀποκαλύψω τὸ οὖς σου λέγων κτῆσαι ἐναντίον τῶν καθημένων καὶ ἐναντίον τῶν πρεσβυτέρων τοῦ λαοῦ μου εἰ ἀγχιστεύεις ἀγχίστευε εἰ δὲ μὴ ἀγχιστεύεις ἀνάγγειλόν μοι καὶ γνώσομαι ὅτι οὐκ ἔστιν πάρεξ σοῦ τοῦ ἀγχιστεῦσαι κἀγώ εἰμι μετὰ σέ ὁ δὲ εἶπεν ἐγώ εἰμι ἀγχιστεύσω.",
+     "giguet": "Et moi j'ai dit que je t'en informerai et te dirai&nbsp;: Prends-en possession devant ceux qui sont assis, tous anciens de notre peuple. Si tu veut racheter, rachète&nbsp;; si tu ne le veux, déclare-le-moi, je saurai qu'il n'y a plus personne qui doive racheter, et je viens après toi. Et l'autre répondit&nbsp;: Je rachèterai.",
+     "alexandrie": "-&nbsp;et moi, j’ai dit&nbsp;: “Je découvrirai ton oreille en le disant” -, fais-en l’acquisition devant ceux qui sont assis et devant les Anciens de mon peuple&nbsp;; si tu exerces ton droit de proche parent, exerce-le&nbsp;; mais si tu n’exerces pas ton droit de proche parent, annonce-le-moi et je le saurai&nbsp;; parce qu’il n’y a personne en dehors de toi pour exercer le droit de proche parent, et moi je suis après toi.&nbsp;» Alors l’autre dit&nbsp;: «&nbsp;C’est moi qui exercerai mon droit de proche parent.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ εἶπεν Βοος ἐν ἡμέρᾳ τοῦ κτήσασθαί σε τὸν ἀγρὸν ἐκ χειρὸς Νωεμιν καὶ παρὰ Ρουθ τῆς Μωαβίτιδος γυναικὸς τοῦ τεθνηκότος καὶ αὐτὴν κτήσασθαί σε δεῖ ὥστε ἀναστῆσαι τὸ ὄνομα τοῦ τεθνηκότος ἐπὶ τῆς κληρονομίας αὐτοῦ.",
+     "giguet": "Et Booz lui dit&nbsp;: Le jour où tu acquerras le champ des mains de Noémi, et du consentement de Ruth la Moabite, femme du défunt, il faudra que tu la prennes aussi afin de faire revivre le nom de son mari sur son héritage.",
+     "alexandrie": "Et Boos dit&nbsp;: «&nbsp;Au jour où tu auras acquis le champ de la main de Noémin et de la part de Ruth la Moabite, la femme du mort, elle aussi, il faut que tu l’acquières, de façon à relever le nom du mort sur son héritage.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ εἶπεν ὁ ἀγχιστεύς οὐ δυνήσομαι ἀγχιστεῦσαι ἐμαυτῷ μήποτε διαφθείρω τὴν κληρονομίαν μου ἀγχίστευσον σεαυτῷ τὴν ἀγχιστείαν μου ὅτι οὐ δυνήσομαι ἀγχιστεῦσαι.",
+     "giguet": "Et le parent le plus proche dit&nbsp;: Je ne suis point capable de le racheter pour moi-même, sinon au détriment de mon propre héritage&nbsp;; rachète pour toi-même ce que j'ai le droit de racheter, parce que je ne puis le racheter.",
+     "alexandrie": "Et le proche parent dit&nbsp;: «Je ne pourrai pas exercer le droit de proche parent pour moi-même de peur de détruire un jour mon héritage&nbsp;; exerce pour toi-même mon droit de proche parenté, parce que je ne pourrai pas exercer ce droit.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ τοῦτο τὸ δικαίωμα ἔμπροσθεν ἐν τῷ Ισραηλ ἐπὶ τὴν ἀγχιστείαν καὶ ἐπὶ τὸ ἀντάλλαγμα τοῦ στῆσαι πᾶν λόγον καὶ ὑπελύετο ὁ ἀνὴρ τὸ ὑπόδημα αὐτοῦ καὶ ἐδίδου τῷ πλησίον αὐτοῦ τῷ ἀγχιστεύοντι τὴν ἀγχιστείαν αὐτοῦ καὶ τοῦτο ἦν μαρτύριον ἐν Ισραηλ.",
+     "giguet": "Or, dès longtemps en Israël cette règle existait concernant les rachats, et les marchés&nbsp;: pour confirmer toute parole, l'homme, détachait sa chaussure et la donnait à son proche, qui reprenait son droit de rachat. Tel était le témoignage en Israël.",
+     "alexandrie": "Et c’était auparavant la juridiction en Israël pour le droit de proche parenté et pour l’échange, afin d’établir toute parole, et l’homme déliait sa sandale et la donnait à son voisin qui exerçait son droit de proche parenté, et c’était un témoignage en Israël.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ εἶπεν ὁ ἀγχιστεὺς τῷ Βοος κτῆσαι σεαυτῷ τὴν ἀγχιστείαν μου καὶ ὑπελύσατο τὸ ὑπόδημα αὐτοῦ καὶ ἔδωκεν αὐτῷ.",
+     "giguet": "Le parent le plus proche dit donc à Booz&nbsp;: Acquiers pour toi tous, mes droits de rachat. Et il dénoua sa chaussure, et il la lui donna.",
+     "alexandrie": "Et le proche parent dit à Boos&nbsp;: «&nbsp;Fais l’acquisition pour toi-même de mon droit de proche parenté&nbsp;»&nbsp;; et il délia sa sandale et la lui donna.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ εἶπεν Βοος τοῖς πρεσβυτέροις καὶ παντὶ τῷ λαῷ μάρτυρες ὑμεῖς σήμερον ὅτι κέκτημαι πάντα τὰ τοῦ Αβιμελεχ καὶ πάντα ὅσα ὑπάρχει τῷ Χελαιων καὶ τῷ Μααλων ἐκ χειρὸς Νωεμιν.",
+     "giguet": "Et Booz dit aux anciens et à tout le peuple&nbsp;: Vous êtes témoins aujourd'hui que j'ai acheté de Noémi tous les biens d'Elimélech et tout ce qui appartenait à Chélaïon et à Maalon",
+     "alexandrie": "Et Boos dit aux Anciens et au peuple tout entier&nbsp;: «&nbsp;Vous, vous êtes témoins aujourd’hui de ce que j’ai fait l’acquisition de tous les biens d’Abimélekh et de tout ce qui appartient à Khélaiôn et à Maalôn, de la main de Noémin&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καί γε Ρουθ τὴν Μωαβῖτιν τὴν γυναῖκα Μααλων κέκτημαι ἐμαυτῷ εἰς γυναῖκα τοῦ ἀναστῆσαι τὸ ὄνομα τοῦ τεθνηκότος ἐπὶ τῆς κληρονομίας αὐτοῦ καὶ οὐκ ἐξολεθρευθήσεται τὸ ὄνομα τοῦ τεθνηκότος ἐκ τῶν ἀδελφῶν αὐτοῦ καὶ ἐκ τῆς φυλῆς λαοῦ αὐτοῦ μάρτυρες ὑμεῖς σήμερον.",
+     "giguet": "Et que de plus, je prends pour ma femme Ruth la Moabite, femme de Maalon, afin de faire revivre le nom du défunt sur son héritage&nbsp;; et le nom du défunt ne sera effacé ni parmi ses frères, ni dans sa tribu. Vous en êtes témoins aujourd'hui.",
+     "alexandrie": "et j’ai aussi fait l’acquisition pour moi, comme femme, de Ruth la Moabite, la femme de Maalôn, pour relever le nom du mort sur son héritage, et le nom du mort ne sera pas exterminé de ses frères et de la tribu de son peuple&nbsp;; vous, vous êtes témoins aujourd’hui.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ εἴποσαν πᾶς ὁ λαὸς οἱ ἐν τῇ πύλῃ μάρτυρες καὶ οἱ πρεσβύτεροι εἴποσαν δῴη κύριος τὴν γυναῖκά σου τὴν εἰσπορευομένην εἰς τὸν οἶκόν σου ὡς Ραχηλ καὶ ὡς Λειαν αἳ ᾠκοδόμησαν ἀμφότεραι τὸν οἶκον Ισραηλ καὶ ἐποίησαν δύναμιν ἐν Εφραθα καὶ ἔσται ὄνομα ἐν Βαιθλεεμ.",
+     "giguet": "Et tout le peuple qui était près de la porte s'écria&nbsp;: Témoins&nbsp;! Et les anciens dirent&nbsp;: Fasse le Seigneur que la femme qui entre dans ta maison soit comme Rachel et comme Léa, qui l'une et l'autre ont fondé la maison d'Israël, et ont été des femmes fortes en Ephratha&nbsp;; que son nom demeure en Bethléem.",
+     "alexandrie": "Et tout le peuple, ceux qui étaient à la porte, dit&nbsp;: «&nbsp;Témoins&nbsp;!&nbsp;» et les Anciens dirent&nbsp;: «&nbsp;Puisse Seigneur rendre ta femme, qui entre dans ta maison, comme Rachel et comme Léia qui toutes les deux ont construit la maison d’Israël, et crée de la valeur en Ephratha, et il y aura un nom dans Bethléem&nbsp;!",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ γένοιτο ὁ οἶκός σου ὡς ὁ οἶκος Φαρες ὃν ἔτεκεν Θαμαρ τῷ Ιουδα ἐκ τοῦ σπέρματος οὗ δώσει κύριός σοι ἐκ τῆς παιδίσκης ταύτης.",
+     "giguet": "Et que ta maison ressemble à la maison de Pharès que Thamar enfanta à Juda, par la postérité que le Seigneur fera naître pour toi de cette jeune servante.",
+     "alexandrie": "Et puisse ta maison devenir comme la maison de Pharès que Thamar enfanta à Juda, de la semence que Seigneur te donnera de cette esclave&nbsp;!&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ἔλαβεν Βοος τὴν Ρουθ καὶ ἐγενήθη αὐτῷ εἰς γυναῖκα καὶ εἰσῆλθεν πρὸς αὐτήν καὶ ἔδωκεν αὐτῇ κύριος κύησιν καὶ ἔτεκεν υἱόν.",
+     "giguet": "Booz prit donc Ruth pour sa femme et il eut commerce avec elle&nbsp;; le Seigneur lui accorda de concevoir, et elle enfanta un fils.",
+     "alexandrie": "Et Boos prit Ruth, et elle devint sa femme, et il alla vers elle, et Seigneur lui donna une grossesse, et elle enfanta un fils.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ εἶπαν αἱ γυναῖκες πρὸς Νωεμιν εὐλογητὸς κύριος ὃς οὐ κατέλυσέ σοι σήμερον τὸν ἀγχιστέα καὶ καλέσαι τὸ ὄνομά σου ἐν Ισραηλ.",
+     "giguet": "Et les femmes dirent à Noémi&nbsp;: Béni soit le Seigneur qui ne t'a point laissé manquer d'un proche parent, et qui veut aujourd'hui que ton nom vive en Israël.",
+     "alexandrie": "Et les femmes dirent à Noémin&nbsp;: «&nbsp;Seigneur est digne d’être béni, lui qui n’a pas supprimé pour toi aujourd’hui le proche parent, et puisse-t-il appeler ton nom en Israël,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἔσται σοι εἰς ἐπιστρέφοντα ψυχὴν καὶ τοῦ διαθρέψαι τὴν πολιάν σου ὅτι ἡ νύμφη σου ἡ ἀγαπήσασά σε ἔτεκεν αὐτόν ἥ ἐστιν ἀγαθή σοι ὑπὲρ ἑπτὰ υἱούς.",
+     "giguet": "Tu auras un soutien qui ranimera ton âme, qui nourrira tes cheveux gris&nbsp;: ta belle-fille qui t'aime, et qui vaut mieux pour toi que sept fils, l'a enfanté.",
+     "alexandrie": "et il sera pour toi celui qui fait revenir ton âme et pour nourrir ta vieillesse, parce que ta belle-fille qui t’a chérie l’a enfanté, elle qui est bonne pour toi plus que sept fils&nbsp;!&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ ἔλαβεν Νωεμιν τὸ παιδίον καὶ ἔθηκεν εἰς τὸν κόλπον αὐτῆς καὶ ἐγενήθη αὐτῷ εἰς τιθηνόν.",
+     "giguet": "Et Noémi prit l'enfant et elle le mit dans son sein, et elle fut pour Iui comme une nourrice.",
+     "alexandrie": "Et Noémin prit le nouveau-né et le mit sur son sein et elle fut pour lui une nourrice.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ἐκάλεσαν αὐτοῦ αἱ γείτονες ὄνομα λέγουσαι ἐτέχθη υἱὸς τῇ Νωεμιν καὶ ἐκάλεσαν τὸ ὄνομα αὐτοῦ Ωβηδ οὗτος πατὴρ Ιεσσαι πατρὸς Δαυιδ.",
+     "giguet": "Et les voisins lui donnèrent un nom, disant&nbsp;: Un fils est né à Noémi, et ils le nommèrent Obed&nbsp;; c'est lui qui fut le père de Jessé, père de David.",
+     "alexandrie": "Et les voisines lui donnèrent un nom en disant&nbsp;: «&nbsp;Un fils a été enfanté pour Noémin&nbsp;!&nbsp;» Et elles lui donnèrent le nom d’Obed&nbsp;; ce fut le père de Jessé, père de David.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ αὗται αἱ γενέσεις Φαρες Φαρες ἐγέννησεν τὸν Εσρων.",
+     "giguet": "Et voici la postérité de Pharès&nbsp;: Pharès engendra Esron&nbsp;;",
+     "alexandrie": "Et voici les engendrements de Pharès&nbsp;: Pharès engendra Hesrôn,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "Εσρων δὲ ἐγέννησεν τὸν Αρραν καὶ Αρραν ἐγέννησεν τὸν Αμιναδαβ.",
+     "giguet": "Et Esron engendra Aram, et Aram engendra Aminadab&nbsp;;",
+     "alexandrie": "Hesrôn engendra Arran, Arran engendra Aminadab,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ Αμιναδαβ ἐγέννησεν τὸν Ναασσων καὶ Ναασσων ἐγέννησεν τὸν Σαλμαν.",
+     "giguet": "Et Aminadab engendra Naasson, et Naasson engendra Salmon&nbsp;;",
+     "alexandrie": "et Aminadab engendra Naassôn, et Naassôn engendra Salman,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ Σαλμαν ἐγέννησεν τὸν Βοος καὶ Βοος ἐγέννησεν τὸν Ωβηδ.",
+     "giguet": "Et Salmon engendra Booz, et Booz engendra Obed&nbsp;;",
+     "alexandrie": "et Salman engendra Boos, et Boos engendra Obed,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ Ωβηδ ἐγέννησεν τὸν Ιεσσαι καὶ Ιεσσαι ἐγέννησεν τὸν Δαυιδ.",
+     "giguet": "Et Obed engendra Jessé, et Jessé engendra David.",
+     "alexandrie": "et Obed engendra Jessé, et Jessé engendra David.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  }
+ ]
+}

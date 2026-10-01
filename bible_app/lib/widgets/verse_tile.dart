@@ -220,31 +220,68 @@ class VerseTile extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                      child: showNotes
-                          ? NoteAwareVerseText(
-                              verse: verse,
-                              disposition: disposition,
-                              onReferenceTap: onReferenceTap,
-                              textAlign: textAlign,
-                            )
-                          : _StrongAwareText(
-                              text: verse.text,
-                              style: materialTheme.textTheme.bodyLarge,
-                              strongStyle: materialTheme.textTheme.bodyLarge
-                                  ?.copyWith(
-                                    fontSize:
-                                        (materialTheme
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.fontSize ??
-                                            16) *
-                                        0.72,
-                                    color: theme.accentColor,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                              onStrongTap: onStrongTap,
-                              textAlign: textAlign,
+                      // SEF: the Greek line rides above the translation and the
+                      // source's footnotes sit under it — both extra to the BYM
+                      // note machinery, both data-gated (null = nothing drawn).
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if (verse.grec != null)
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 3 * rhythm.s),
+                              child: Text(
+                                verse.grec!,
+                                textAlign: textAlign,
+                                style:
+                                    materialTheme.textTheme.bodyLarge?.copyWith(
+                                  fontSize: rhythm.fontSize * .88,
+                                  color: theme.noteColor,
+                                  height: 1.35,
+                                ),
+                              ),
                             ),
+                          showNotes
+                              ? NoteAwareVerseText(
+                                  verse: verse,
+                                  disposition: disposition,
+                                  onReferenceTap: onReferenceTap,
+                                  textAlign: textAlign,
+                                )
+                              : _StrongAwareText(
+                                  text: verse.text,
+                                  style: materialTheme.textTheme.bodyLarge,
+                                  strongStyle:
+                                      materialTheme.textTheme.bodyLarge
+                                          ?.copyWith(
+                                            fontSize:
+                                                (materialTheme
+                                                        .textTheme
+                                                        .bodyLarge
+                                                        ?.fontSize ??
+                                                    16) *
+                                                0.72,
+                                            color: theme.accentColor,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                  onStrongTap: onStrongTap,
+                                  textAlign: textAlign,
+                                ),
+                          if (verse.note != null)
+                            Padding(
+                              padding: EdgeInsets.only(top: 3 * rhythm.s),
+                              child: Text(
+                                verse.note!,
+                                textAlign: textAlign,
+                                style:
+                                    materialTheme.textTheme.bodyLarge?.copyWith(
+                                  fontSize: rhythm.fontSize * .81,
+                                  color: theme.noteColor,
+                                  height: 1.4,
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
                     ),
                     if (isFavorite || hasNote)
                       Column(
@@ -1178,6 +1215,17 @@ class _ParagraphBlockState extends State<_ParagraphBlock>
       // Exposant verse number, tappable like the rest of the verse.
       push('$vn ', numStyle);
 
+      // SEF: the Greek line gets its own line above the translation, muted
+      // and a touch smaller, same as in the tile layout.
+      final grec = verse.grec;
+      if (grec != null && grec.isNotEmpty) {
+        push(
+          grec,
+          body.copyWith(fontSize: baseSize * .88, color: theme.noteColor),
+        );
+        push('\n', body);
+      }
+
       final notedStyle = body.copyWith(
         color: theme.linkColor,
         fontWeight: FontWeight.bold,
@@ -1262,6 +1310,14 @@ class _ParagraphBlockState extends State<_ParagraphBlock>
         }
       } else {
         push(verse.text, body);
+      }
+
+      // SEF: unanchored footnotes trail the verse in the note style the
+      // continuous layout already uses for BYM's woven-in notes.
+      final note = verse.note;
+      if (note != null && note.isNotEmpty) {
+        push(' ', body);
+        push(note, noteStyle);
       }
 
       // End-of-verse markers: user favourite / user note as tiny icons. The

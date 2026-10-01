@@ -1,3 +1,5 @@
+import 'book_catalog.dart';
+
 /// The JSON layout the files of a version carry.
 ///
 /// Independent of *where* the files live: the app conflated the two axes as
@@ -17,6 +19,11 @@ enum VersionFormat {
   /// getbible.net's bare schema — `chapters[].verses[].text`, nothing else.
   /// Read by `bookFromGetbible`.
   getbible,
+
+  /// The SEF schema: getbible's fields plus a Greek line (`grec`), a second
+  /// French translation (`alexandrie`), unanchored footnotes (`notes`) and
+  /// the source's section titles (`section`). Read by `bookFromSef`.
+  sef,
 }
 
 /// How a version can actually be consulted from the reading « Version » sheet.
@@ -75,6 +82,16 @@ class VersionEntry {
   /// servables aujourd'hui sont françaises sauf la KJV.
   final String languageCode;
 
+  /// Whether the version only carries the Old Testament (BYM indexes 1..39).
+  ///
+  /// SEF is the Septuagint: its canon ends at Malachie, Matthieu does not
+  /// exist in it. Everything that counts books — the Bibliothèque progress,
+  /// the download loop, « is this install complete? » — asks this instead of
+  /// assuming the 66, and reading a New Testament book in it says the book is
+  /// absent from the version rather than offering a download that could never
+  /// land.
+  final bool otOnly;
+
   const VersionEntry({
     required this.code,
     required this.name,
@@ -85,6 +102,7 @@ class VersionEntry {
     this.urlTemplate,
     this.hasStrong = false,
     this.languageCode = 'FR',
+    this.otOnly = false,
   });
 
   /// True for the version shipped inside the app (readable offline, no download).
@@ -106,6 +124,16 @@ class VersionEntry {
   /// dispositions on this. Asking the format rather than the code is what lets
   /// a BYM-format version downloaded from elsewhere keep its notes.
   bool get carriesNotes => format == VersionFormat.bym;
+
+  /// BYM indexes (1..66) the version can hold: all of them, or 1..39 for an
+  /// Old Testament-only version (the BYM order puts Malachie at 39 and
+  /// Matthieu at 40).
+  bool containsBook(int bymIndex) => bymIndex >= 1 &&
+      (otOnly ? bymIndex <= 39 : bymIndex <= bookCatalog.length);
+
+  /// How many books a complete install holds — the denominator of the
+  /// Bibliothèque progress bar and of the download outcome.
+  int get bookCount => otOnly ? 39 : bookCatalog.length;
 }
 
 class VersionGroup {
@@ -125,7 +153,9 @@ class VersionGroup {
 ///   Darby, Martin, KJV via getbible.net (décision 9), and Ostervald,
 ///   néo-Crampon Libre, Chouraqui + King James Française via a direct GitHub
 ///   host ([VersionEntry.urlTemplate], produced by
-///   `appCodebar/ostervald_to_json.py` and `appCodebar/html_verses_to_json.py`) ;
+///   `appCodebar/ostervald_to_json.py` and `appCodebar/html_verses_to_json.py`),
+///   plus the Septuaginta (SEF: grec + deux traductions françaises, Ancien
+///   Testament seul, produced by `sef/sef_to_json.py`) ;
 /// - **unavailable** : copyright / sourceless versions shown greyed for parity
 ///   with the maquette (NBS, NEG79, NVS78P, S21, INT).
 ///
@@ -251,6 +281,25 @@ const List<VersionGroup> versionCatalog = [
       // Malachie 3), alignée sur la BYM.
       urlTemplate:
           'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/main/neocrampon/{book}.json',
+    ),
+    VersionEntry(
+      code: 'SEF',
+      name: 'Septuaginta — la Septante en français',
+      // Le copyright de la source porte sur la carte : le grec de Rahlfs est
+      // sous droits Deutsche Bibelgesellschaft (meta/header.xml), et les deux
+      // traductions françaises (Giguet, Alexandrie) portent le nom du
+      // logiciel, Biblia Universalis 3 — même mention dans les fichiers.
+      rights: '© 1935, 1979 Deutsche Bibelgesellschaft (grec) · '
+          '© Biblia Universalis 3 (traductions)',
+      availability: VersionAvailability.downloadable,
+      // Hébergement GitHub identique à OST / NCL, sous-dossier propre —
+      // produit par `sef/sef_to_json.py`. Grec + deux traductions françaises,
+      // donc un format au-delà du texte nu. Ancien Testament seulement (39
+      // livres) : la Septante n'a pas de Nouveau Testament.
+      format: VersionFormat.sef,
+      otOnly: true,
+      urlTemplate:
+          'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/main/sef/{book}.json',
     ),
     VersionEntry(
       code: 'KJV',

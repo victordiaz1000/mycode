@@ -1,0 +1,3697 @@
+{
+ "code": "WIS",
+ "book": "Sagesse",
+ "fichiersToc": [
+  "WIS/001.html",
+  "WIS/002.html",
+  "WIS/003.html",
+  "WIS/004.html",
+  "WIS/005.html",
+  "WIS/006.html",
+  "WIS/007.html",
+  "WIS/008.html",
+  "WIS/009.html",
+  "WIS/010.html",
+  "WIS/011.html",
+  "WIS/012.html",
+  "WIS/013.html",
+  "WIS/014.html",
+  "WIS/015.html",
+  "WIS/016.html",
+  "WIS/017.html",
+  "WIS/018.html",
+  "WIS/019.html"
+ ],
+ "chapitres": [
+  {
+   "chapitre": 1,
+   "libelle": "1",
+   "fichierToc": "WIS/001.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "Ἀγαπήσατε δικαιοσύνην οἱ κρίνοντες τὴν γῆν φρονήσατε περὶ τοῦ κυρίου ἐν ἀγαθότητι καὶ ἐν ἁπλότητι καρδίας ζητήσατε αὐτόν.",
+     "giguet": "Aimez la justice, vous qui jugez la terre&nbsp;; ayez le cœur bon en pensant au Seigneur&nbsp;; cherchez-le dans la simplicité du cœur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὅτι εὑρίσκεται τοῖς μὴ πειράζουσιν αὐτόν ἐμφανίζεται δὲ τοῖς μὴ ἀπιστοῦσιν αὐτῷ.",
+     "giguet": "Car Il est trouvé par ceux qui ne le tentent point, et Il se manifeste à ceux qui ont foi en lui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "σκολιοὶ γὰρ λογισμοὶ χωρίζουσιν ἀπὸ θεοῦ δοκιμαζομένη τε ἡ δύναμις ἐλέγχει τοὺς ἄφρονας.",
+     "giguet": "Les pensées tortueuses éloignent de Dieu, et sa puissance confond les insensés, quand ils la mettent à l'épreuve.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ὅτι εἰς κακότεχνον ψυχὴν οὐκ εἰσελεύσεται σοφία οὐδὲ κατοικήσει ἐν σώματι κατάχρεῳ ἁμαρτίας.",
+     "giguet": "La sagesse n'entrera pas dans une âme artificieuse&nbsp;; elle ne résidera pas en un corps esclave du péché.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ἅγιον γὰρ πνεῦμα παιδείας φεύξεται δόλον καὶ ἀπαναστήσεται ἀπὸ λογισμῶν ἀσυνέτων καὶ ἐλεγχθήσεται ἐπελθούσης ἀδικίας.",
+     "giguet": "Car l'Esprit Saint, Maître de la discipline, fuit le déguisement&nbsp;; Il s'éloigne d'un cœur insensé, et se retire à l'approche de l'iniquité.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "φιλάνθρωπον γὰρ πνεῦμα σοφία καὶ οὐκ ἀθῳώσει βλάσφημον ἀπὸ χειλέων αὐτοῦ ὅτι τῶν νεφρῶν αὐτοῦ μάρτυς ὁ θεὸς καὶ τῆς καρδίας αὐτοῦ ἐπίσκοπος ἀληθὴς καὶ τῆς γλώσσης ἀκουστής.",
+     "giguet": "La sagesse est un esprit de charité&nbsp;; elle ne pardonne pas aux lèvres médisantes&nbsp;: car Dieu sonde les reins, Il scrute le cœur en toute vérité&nbsp;; ce que dit la langue, Il l'entend.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὅτι πνεῦμα κυρίου πεπλήρωκεν τὴν οἰκουμένην καὶ τὸ συνέχον τὰ πάντα γνῶσιν ἔχει φωνῆς.",
+     "giguet": "L'Esprit du Seigneur remplit l'univers, et comme Il contient tout, Il a connaissance de tout ce que dit la voix de l'homme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "διὰ τοῦτο φθεγγόμενος ἄδικα οὐδεὶς μὴ λάθῃ οὐδὲ μὴ παροδεύσῃ αὐτὸν ἐλέγχουσα ἡ δίκη.",
+     "giguet": "C'est pourquoi celui qui dit des paroles iniques ne lui sera point caché, et il n'échappera point au jugement qui doit le châtier.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἐν γὰρ διαβουλίοις ἀσεβοῦς ἐξέτασις ἔσται λόγων δὲ αὐτοῦ ἀκοὴ πρὸς κύριον ἥξει εἰς ἔλεγχον ἀνομημάτων αὐτοῦ.",
+     "giguet": "Les diffamations des impies seront poursuivies, et le bruit de leurs paroles parviendra jusqu'au Seigneur, pour les punir de leurs iniquités.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ὅτι οὖς ζηλώσεως ἀκροᾶται τὰ πάντα καὶ θροῦς γογγυσμῶν οὐκ ἀποκρύπτεται.",
+     "giguet": "Car l'oreille du Dieu jaloux entend toutes choses, et le tumulte des murmures ne lui sera point caché.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "φυλάξασθε τοίνυν γογγυσμὸν ἀνωφελῆ καὶ ἀπὸ καταλαλιᾶς φείσασθε γλώσσης ὅτι φθέγμα λαθραῖον κενὸν οὐ πορεύσεται στόμα δὲ καταψευδόμενον ἀναιρεῖ ψυχήν.",
+     "giguet": "Gardez-vous donc de plaintes inutiles&nbsp;; préservez votre langue de toute médisance&nbsp;; car pas une parole secrète ne sera perdue, et la bouche menteuse tue l'âme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "μὴ ζηλοῦτε θάνατον ἐν πλάνῃ ζωῆς ὑμῶν μηδὲ ἐπισπᾶσθε ὄλεθρον ἐν ἔργοις χειρῶν ὑμῶν.",
+     "giguet": "Ne cherchez point la mort par les égarements de votre vie&nbsp;; n'attirez point votre perdition par les œuvres de vos mains.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ὅτι ὁ θεὸς θάνατον οὐκ ἐποίησεν οὐδὲ τέρπεται ἐπ' ἀπωλείᾳ ζώντων.",
+     "giguet": "Car Dieu n'a point fait la mort, et Il ne se réjouit point de la perdition des vivants.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἔκτισεν γὰρ εἰς τὸ εἶναι τὰ πάντα καὶ σωτήριοι αἱ γενέσεις τοῦ κόσμου καὶ οὐκ ἔστιν ἐν αὐταῖς φάρμακον ὀλέθρου οὔτε ᾅδου βασίλειον ἐπὶ γῆς.",
+     "giguet": "Il a créé toutes choses pour qu'elles fussent&nbsp;; les générations du monde peuvent se sauver&nbsp;; il n'est point en elles de venin mortel, et l'empire de l'enfer n'est pas sur la terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "δικαιοσύνη γὰρ ἀθάνατός ἐστιν.",
+     "giguet": "Car la justice est immortelle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἀσεβεῖς δὲ ταῖς χερσὶν καὶ τοῖς λόγοις προσεκαλέσαντο αὐτόν φίλον ἡγησάμενοι αὐτὸν ἐτάκησαν καὶ συνθήκην ἔθεντο πρὸς αὐτόν ὅτι ἄξιοί εἰσιν τῆς ἐκείνου μερίδος εἶναι.",
+     "giguet": "Mais les impies appellent la mort de la parole et des mains&nbsp;; ils l'ont estimée une amie, et ils ont été consumés, et ils ont fait un pacte avec elle&nbsp;; car ils sont dignes d'être de son parti.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 2,
+   "libelle": "2",
+   "fichierToc": "WIS/002.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "εἶπον γὰρ ἐν ἑαυτοῖς λογισάμενοι οὐκ ὀρθῶς ὀλίγος ἐστὶν καὶ λυπηρὸς ὁ βίος ἡμῶν καὶ οὐκ ἔστιν ἴασις ἐν τελευτῇ ἀνθρώπου καὶ οὐκ ἐγνώσθη ὁ ἀναλύσας ἐξ ᾅδου.",
+     "giguet": "Ceux qui en eux-mêmes ne pensent pas avec droiture, ont dit&nbsp;: Notre vie est courte et pleine de tristesse, et la fin de l'homme n'est pas un remède à ses maux&nbsp;; l'on ne connaît personne qui soit revenu de l'enfer.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὅτι αὐτοσχεδίως ἐγενήθημεν καὶ μετὰ τοῦτο ἐσόμεθα ὡς οὐχ ὑπάρξαντες ὅτι καπνὸς ἡ πνοὴ ἐν ῥισὶν ἡμῶν καὶ ὁ λόγος σπινθὴρ ἐν κινήσει καρδίας ἡμῶν.",
+     "giguet": "Car nous avons été engendrés sans réflexion, et, après cela, nous serons comme n'ayant pas été&nbsp;; le souffle qui s'échappe de nos narines, c'est une fumée, et la pensée est une étincelle, dans l'agitation de nos cœurs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "οὗ σβεσθέντος τέφρα ἀποβήσεται τὸ σῶμα καὶ τὸ πνεῦμα διαχυθήσεται ὡς χαῦνος ἀήρ.",
+     "giguet": "Quand elle sera éteinte, le corps sera cendre, et le souffle se répandra comme l'air insaisissable.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ τὸ ὄνομα ἡμῶν ἐπιλησθήσεται ἐν χρόνῳ καὶ οὐθεὶς μνημονεύσει τῶν ἔργων ἡμῶν καὶ παρελεύσεται ὁ βίος ἡμῶν ὡς ἴχνη νεφέλης καὶ ὡς ὁμίχλη διασκεδασθήσεται διωχθεῖσα ὑπὸ ἀκτίνων ἡλίου καὶ ὑπὸ θερμότητος αὐτοῦ βαρυνθεῖσα.",
+     "giguet": "Et notre nom sera oublié dans le temps, et nul ne se souviendra de nos œuvres&nbsp;; et notre vie passera comme l'ombre d'un nuage&nbsp;; elle se dissipera comme un brouillard chassé par les rayons du soleil, et tombant sous la chaleur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "σκιᾶς γὰρ πάροδος ὁ καιρὸς ἡμῶν καὶ οὐκ ἔστιν ἀναποδισμὸς τῆς τελευτῆς ἡμῶν ὅτι κατεσφραγίσθη καὶ οὐδεὶς ἀναστρέφει.",
+     "giguet": "Car notre vie est le passage d'une ombre&nbsp;; notre fin est sans retour&nbsp;; elle est scellée, et nul ne revient.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "δεῦτε οὖν καὶ ἀπολαύσωμεν τῶν ὄντων ἀγαθῶν καὶ χρησώμεθα τῇ κτίσει ὡς ἐν νεότητι σπουδαίως.",
+     "giguet": "Venez donc, et jouissons des biens présents&nbsp;; hâtons-nous d'user de la créature pendant notre jeunesse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "οἴνου πολυτελοῦς καὶ μύρων πλησθῶμεν καὶ μὴ παροδευσάτω ἡμᾶς ἄνθος ἔαρος.",
+     "giguet": "Enivrons-nous de parfums et de vins délicieux, et ne laissons point passer la fleur de la saison.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "στεψώμεθα ῥόδων κάλυξιν πρὶν ἢ μαρανθῆναι.",
+     "giguet": "Couronnons-nous de roses, avant qu'elles soient flétries.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "μηδεὶς ἡμῶν ἄμοιρος ἔστω τῆς ἡμετέρας ἀγερωχίας πανταχῇ καταλίπωμεν σύμβολα τῆς εὐφροσύνης ὅτι αὕτη ἡ μερὶς ἡμῶν καὶ ὁ κλῆρος οὗτος.",
+     "giguet": "Que nul de nous ne soit privé de nos plaisirs&nbsp;; laissons partout des signes de nos joies&nbsp;: car c'est là notre partage, c'est notre sort.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καταδυναστεύσωμεν πένητα δίκαιον μὴ φεισώμεθα χήρας μηδὲ πρεσβύτου ἐντραπῶμεν πολιὰς πολυχρονίους.",
+     "giguet": "Opprimons le juste, s'il est pauvre&nbsp;; n'épargnons pas la veuve&nbsp;; ne respectons point les cheveux blancs du vieillard chargé d'années.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἔστω δὲ ἡμῶν ἡ ἰσχὺς νόμος τῆς δικαιοσύνης τὸ γὰρ ἀσθενὲς ἄχρηστον ἐλέγχεται.",
+     "giguet": "Que la force soit notre loi de justice&nbsp;; car tout ce qui est faible est inutile.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἐνεδρεύσωμεν τὸν δίκαιον ὅτι δύσχρηστος ἡμῖν ἐστιν καὶ ἐναντιοῦται τοῖς ἔργοις ἡμῶν καὶ ὀνειδίζει ἡμῖν ἁμαρτήματα νόμου καὶ ἐπιφημίζει ἡμῖν ἁμαρτήματα παιδείας ἡμῶν.",
+     "giguet": "Tendons des pièges au juste&nbsp;; car il nous est importun&nbsp;; il est contraire à nos œuvres&nbsp;; il nous reproche nos manquements à la loi&nbsp;; il nous diffame en décriant notre conduite.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἐπαγγέλλεται γνῶσιν ἔχειν θεοῦ καὶ παῖδα κυρίου ἑαυτὸν ὀνομάζει.",
+     "giguet": "Il assure qu'il a la science de Dieu, et il se nomme enfant de Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἐγένετο ἡμῖν εἰς ἔλεγχον ἐννοιῶν ἡμῶν βαρύς ἐστιν ἡμῖν καὶ βλεπόμενος.",
+     "giguet": "Il est pour nous comme un blâme vivant de nos pensées.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ὅτι ἀνόμοιος τοῖς ἄλλοις ὁ βίος αὐτοῦ καὶ ἐξηλλαγμέναι αἱ τρίβοι αὐτοῦ.",
+     "giguet": "Il nous est odieux, même à voir&nbsp;; parce que sa vie n'est point comme celle des autres, et que ses sentiers sont différents.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "εἰς κίβδηλον ἐλογίσθημεν αὐτῷ καὶ ἀπέχεται τῶν ὁδῶν ἡμῶν ὡς ἀπὸ ἀκαθαρσιῶν μακαρίζει ἔσχατα δικαίων καὶ ἀλαζονεύεται πατέρα θεόν.",
+     "giguet": "Nous sommes estimés par lui de mauvais aloi, et il se détourne de nos voies comme de choses impures&nbsp;; il déclare heureuse la fin du juste, et il se glorifie d'avoir Dieu pour Père.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ἴδωμεν εἰ οἱ λόγοι αὐτοῦ ἀληθεῖς καὶ πειράσωμεν τὰ ἐν ἐκβάσει αὐτοῦ.",
+     "giguet": "Voyons s'il y a quelque vérité en ses paroles&nbsp;; éprouvons les choses de sa fin.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "εἰ γάρ ἐστιν ὁ δίκαιος υἱὸς θεοῦ ἀντιλήμψεται αὐτοῦ καὶ ῥύσεται αὐτὸν ἐκ χειρὸς ἀνθεστηκότων.",
+     "giguet": "Car si le juste est fils de Dieu, Dieu le protégera, et le tirera des mains de ses adversaires.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ὕβρει καὶ βασάνῳ ἐτάσωμεν αὐτόν ἵνα γνῶμεν τὴν ἐπιείκειαν αὐτοῦ καὶ δοκιμάσωμεν τὴν ἀνεξικακίαν αὐτοῦ.",
+     "giguet": "Interrogeons-le dans l'outrage et la torture, afin que nous connaissions sa douceur, et que nous jugions de sa patience.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "θανάτῳ ἀσχήμονι καταδικάσωμεν αὐτόν ἔσται γὰρ αὐτοῦ ἐπισκοπὴ ἐκ λόγων αὐτοῦ.",
+     "giguet": "Condamnons-le à une mort infamante&nbsp;; car alors nous verrons s'il y a vérité en ses paroles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "ταῦτα ἐλογίσαντο καὶ ἐπλανήθησαν ἀπετύφλωσεν γὰρ αὐτοὺς ἡ κακία αὐτῶν.",
+     "giguet": "Voilà comme ils ont raisonné, et ils sont tombés dans l'erreur&nbsp;; car leur malice les a aveuglés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ οὐκ ἔγνωσαν μυστήρια θεοῦ οὐδὲ μισθὸν ἤλπισαν ὁσιότητος οὐδὲ ἔκριναν γέρας ψυχῶν ἀμώμων.",
+     "giguet": "Et ils n'ont point pénétré les mystères de Dieu&nbsp;; ils n'ont point cru qu'il y eût un salaire pour la sainteté, et ils n'ont fait nul cas de la récompense destinée aux innocents.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "ὅτι ὁ θεὸς ἔκτισεν τὸν ἄνθρωπον ἐπ' ἀφθαρσίᾳ καὶ εἰκόνα τῆς ἰδίας ἀϊδιότητος ἐποίησεν αὐτόν.",
+     "giguet": "Car Dieu a créé l'homme pour l'immortalité&nbsp;; et Il l'a créé à son image et ressemblance.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "φθόνῳ δὲ διαβόλου θάνατος εἰσῆλθεν εἰς τὸν κόσμον πειράζουσιν δὲ αὐτὸν οἱ τῆς ἐκείνου μερίδος ὄντες.",
+     "giguet": "Mais la mort est entrée dans le monde par l'envie du démon&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 3,
+   "libelle": "3",
+   "fichierToc": "WIS/003.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "δικαίων δὲ ψυχαὶ ἐν χειρὶ θεοῦ καὶ οὐ μὴ ἅψηται αὐτῶν βάσανος.",
+     "giguet": "L'âme des justes est dans la main de Dieu, et nulle torture ne les atteindra.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἔδοξαν ἐν ὀφθαλμοῖς ἀφρόνων τεθνάναι καὶ ἐλογίσθη κάκωσις ἡ ἔξοδος αὐτῶν.",
+     "giguet": "Aux yeux des insensés, il semble qu'ils meurent&nbsp;; leur fin est regardée comme une infortune,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἡ ἀφ' ἡμῶν πορεία σύντριμμα οἱ δέ εἰσιν ἐν εἰρήνῃ.",
+     "giguet": "et leur sortie du monde comme une tribulation. Cependant ils sont en paix.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ γὰρ ἐν ὄψει ἀνθρώπων ἐὰν κολασθῶσιν ἡ ἐλπὶς αὐτῶν ἀθανασίας πλήρης.",
+     "giguet": "Lors même qu'aux yeux des hommes ils auraient souffert, leur espérance est pleine d'immortalité.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ὀλίγα παιδευθέντες μεγάλα εὐεργετηθήσονται ὅτι ὁ θεὸς ἐπείρασεν αὐτοὺς καὶ εὗρεν αὐτοὺς ἀξίους ἑαυτοῦ.",
+     "giguet": "Leur affliction fut légère, grande sera leur récompense&nbsp;; car Dieu les a mis à l'épreuve, et les a trouvés dignes de lui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ὡς χρυσὸν ἐν χωνευτηρίῳ ἐδοκίμασεν αὐτοὺς καὶ ὡς ὁλοκάρπωμα θυσίας προσεδέξατο αὐτούς.",
+     "giguet": "Il les a fait passer au creuset comme de l'or, et Il les a accueillis comme un sacrifice d'holocauste.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἐν καιρῷ ἐπισκοπῆς αὐτῶν ἀναλάμψουσιν καὶ ὡς σπινθῆρες ἐν καλάμῃ διαδραμοῦνται.",
+     "giguet": "Et, au temps de sa visite, ils brilleront comme des étincelles qui courent à travers les roseaux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "κρινοῦσιν ἔθνη καὶ κρατήσουσιν λαῶν καὶ βασιλεύσει αὐτῶν κύριος εἰς τοὺς αἰῶνας.",
+     "giguet": "Ils jugeront les nations, ils domineront sur les peuples, et leur Seigneur régnera dans tous les siècles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "οἱ πεποιθότες ἐπ' αὐτῷ συνήσουσιν ἀλήθειαν καὶ οἱ πιστοὶ ἐν ἀγάπῃ προσμενοῦσιν αὐτῷ ὅτι χάρις καὶ ἔλεος τοῖς ἐκλεκτοῖς αὐτοῦ.",
+     "giguet": "Ceux qui ont foi en lui comprendront la vérité, et les fidèles persévéreront dans leur amour pour lui&nbsp;; car sa grâce et sa miséricorde seront pour ses élus.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "οἱ δὲ ἀσεβεῖς καθὰ ἐλογίσαντο ἕξουσιν ἐπιτιμίαν οἱ ἀμελήσαντες τοῦ δικαίου καὶ τοῦ κυρίου ἀποστάντες.",
+     "giguet": "Mais les impies, qui n'ont point eu d'égards pour le juste, et se sont retirés du Seigneur, seront punis selon leurs pensées.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "σοφίαν γὰρ καὶ παιδείαν ὁ ἐξουθενῶν ταλαίπωρος καὶ κενὴ ἡ ἐλπὶς αὐτῶν καὶ οἱ κόποι ἀνόνητοι καὶ ἄχρηστα τὰ ἔργα αὐτῶν.",
+     "giguet": "Malheur à ceux qui méprisent la sagesse et la discipline&nbsp;; vaine est leur espérance, leur labeur infructueux, leurs œuvres inutiles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "αἱ γυναῖκες αὐτῶν ἄφρονες καὶ πονηρὰ τὰ τέκνα αὐτῶν ἐπικατάρατος ἡ γένεσις αὐτῶν.",
+     "giguet": "Leurs femmes sont insensées, et leurs enfants pervers&nbsp;; leur race est maudite.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ὅτι μακαρία στεῖρα ἡ ἀμίαντος ἥτις οὐκ ἔγνω κοίτην ἐν παραπτώματι ἕξει καρπὸν ἐν ἐπισκοπῇ ψυχῶν.",
+     "giguet": "Heureuse la femme stérile, mais non souillée, qui n'a pas déshonoré sa couche par le péché&nbsp;; elle aura sa récompense le jour de la visite des âmes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ εὐνοῦχος ὁ μὴ ἐργασάμενος ἐν χειρὶ ἀνόμημα μηδὲ ἐνθυμηθεὶς κατὰ τοῦ κυρίου πονηρά δοθήσεται γὰρ αὐτῷ τῆς πίστεως χάρις ἐκλεκτὴ καὶ κλῆρος ἐν ναῷ κυρίου θυμηρέστερος.",
+     "giguet": "Et l'eunuque qui, de ses mains, n'aura pas fait œuvre d'iniquité, et n'aura point pensé à mal contre le Seigneur, recevra une grâce particulière de foi, et, dans le temple du Seigneur, un partage digne d'envie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ἀγαθῶν γὰρ πόνων καρπὸς εὐκλεής καὶ ἀδιάπτωτος ἡ ῥίζα τῆς φρονήσεως.",
+     "giguet": "Le fruit des bons labeurs est glorieux, et la racine de la prudence ne se perd pas.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "τέκνα δὲ μοιχῶν ἀτέλεστα ἔσται καὶ ἐκ παρανόμου κοίτης σπέρμα ἀφανισθήσεται.",
+     "giguet": "Les enfants des adultères finiront mal, et la race issue d'une couche criminelle disparaîtra.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ἐάν τε γὰρ μακρόβιοι γένωνται εἰς οὐθὲν λογισθήσονται καὶ ἄτιμον ἐπ' ἐσχάτων τὸ γῆρας αὐτῶν.",
+     "giguet": "Et s'ils vivent longtemps, ils seront comblés pour rien&nbsp;; et les derniers jours de leur vieillesse seront sans honneurs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἐάν τε ὀξέως τελευτήσωσιν οὐχ ἕξουσιν ἐλπίδα οὐδὲ ἐν ἡμέρᾳ διαγνώσεως παραμύθιον.",
+     "giguet": "Et s'ils meurent jeunes, ils n'auront ni espérance ni consolation au jour du jugement.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "γενεᾶς γὰρ ἀδίκου χαλεπὰ τὰ τέλη.",
+     "giguet": "Car d'une lignée inique, mauvaise est la fin.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 4,
+   "libelle": "4",
+   "fichierToc": "WIS/004.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "κρείσσων ἀτεκνία μετὰ ἀρετῆς ἀθανασία γάρ ἐστιν ἐν μνήμῃ αὐτῆς ὅτι καὶ παρὰ θεῷ γινώσκεται καὶ παρὰ ἀνθρώποις.",
+     "giguet": "Mieux vaut être sans enfants avec la vertu&nbsp;; car sa mémoire est immortelle, elle est connue et de Dieu et des hommes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "παροῦσάν τε μιμοῦνται αὐτὴν καὶ ποθοῦσιν ἀπελθοῦσαν καὶ ἐν τῷ αἰῶνι στεφανηφοροῦσα πομπεύει τὸν τῶν ἀμιάντων ἄθλων ἀγῶνα νικήσασα.",
+     "giguet": "Présente, on l'imite&nbsp;; absente, on la regrette&nbsp;; dans tous les siècles, elle marche couronnée et triomphante&nbsp;: car elle a remporté le prix des chastes luttes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "πολύγονον δὲ ἀσεβῶν πλῆθος οὐ χρησιμεύσει καὶ ἐκ νόθων μοσχευμάτων οὐ δώσει ῥίζαν εἰς βάθος οὐδὲ ἀσφαλῆ βάσιν ἑδράσει.",
+     "giguet": "La multitude féconde des impies ne fera aucun bien&nbsp;; et ces boutures bâtardes ne jetteront point de profondes racines, ni ne s'établiront sur une base solide.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "κἂν γὰρ ἐν κλάδοις πρὸς καιρὸν ἀναθάλῃ ἐπισφαλῶς βεβηκότα ὑπὸ ἀνέμου σαλευθήσεται καὶ ὑπὸ βίας ἀνέμων ἐκριζωθήσεται.",
+     "giguet": "Et si, pour un moment, l'un des rejetons vient à germer, comme il sera sans force, le moindre vent l'ébranlera, et la violence de la tempête finira par le déraciner.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "περικλασθήσονται κλῶνες ἀτέλεστοι καὶ ὁ καρπὸς αὐτῶν ἄχρηστος ἄωρος εἰς βρῶσιν καὶ εἰς οὐθὲν ἐπιτήδειος.",
+     "giguet": "Ses chétifs rameaux seront brisés, et ses fruits seront mauvais, amers au goût, entièrement inutiles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἐκ γὰρ ἀνόμων ὕπνων τέκνα γεννώμενα μάρτυρές εἰσιν πονηρίας κατὰ γονέων ἐν ἐξετασμῷ αὐτῶν.",
+     "giguet": "Car interrogez les enfants nés de sommeils illégitimes, ils témoignent de la perversité de ceux qui les ont engendrés&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "δίκαιος δὲ ἐὰν φθάσῃ τελευτῆσαι ἐν ἀναπαύσει ἔσται.",
+     "giguet": "mais le juste, s'il est parvenu à la mort, sera en repos.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "γῆρας γὰρ τίμιον οὐ τὸ πολυχρόνιον οὐδὲ ἀριθμῷ ἐτῶν μεμέτρηται.",
+     "giguet": "Car ce n'est ni la longueur des jours ni le nombre des années qui rendent la vieillesse vénérable&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "πολιὰ δέ ἐστιν φρόνησις ἀνθρώποις καὶ ἡλικία γήρως βίος ἀκηλίδωτος.",
+     "giguet": "mais la prudence dans les hommes leur tient lieu de cheveux blancs&nbsp;; une vie pure a le même âge que la vieillesse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "εὐάρεστος θεῷ γενόμενος ἠγαπήθη καὶ ζῶν μεταξὺ ἁμαρτωλῶν μετετέθη.",
+     "giguet": "L'homme agréable à Dieu est aimé de lui&nbsp;; et, s'il vivait au milieu des impies, il en a été retiré.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἡρπάγη μὴ κακία ἀλλάξῃ σύνεσιν αὐτοῦ ἢ δόλος ἀπατήσῃ ψυχὴν αὐτοῦ.",
+     "giguet": "Il a été enlevé, de peur que leur malice ne pervertît son intelligence, ou que la ruse ne trompât son âme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "βασκανία γὰρ φαυλότητος ἀμαυροῖ τὰ καλά καὶ ῥεμβασμὸς ἐπιθυμίας μεταλλεύει νοῦν ἄκακον.",
+     "giguet": "Car les fascinations de la frivolité obscurcissent la vertu, et l'inquiétude de la concupiscence ébranle une âme innocente.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "τελειωθεὶς ἐν ὀλίγῳ ἐπλήρωσεν χρόνους μακρούς.",
+     "giguet": "L'homme parfait, en peu de temps, a rempli de longs jours.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἀρεστὴ γὰρ ἦν κυρίῳ ἡ ψυχὴ αὐτοῦ διὰ τοῦτο ἔσπευσεν ἐκ μέσου πονηρίας οἱ δὲ λαοὶ ἰδόντες καὶ μὴ νοήσαντες μηδὲ θέντες ἐπὶ διανοίᾳ τὸ τοιοῦτο.",
+     "giguet": "Car son âme a plu au Seigneur&nbsp;; c'est pourquoi Il a eu hâte de la séparer du milieu de l'iniquité&nbsp;; mais les peuples voient, et ne comprennent pas&nbsp;; ils ne se mettent point dans la pensée",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ὅτι χάρις καὶ ἔλεος ἐν τοῖς ἐκλεκτοῖς αὐτοῦ καὶ ἐπισκοπὴ ἐν τοῖς ὁσίοις αὐτοῦ.",
+     "giguet": "que la grâce et la miséricorde sont aux élus de Dieu, et sa visite à ses saints.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "κατακρινεῖ δὲ δίκαιος καμὼν τοὺς ζῶντας ἀσεβεῖς καὶ νεότης τελεσθεῖσα ταχέως πολυετὲς γῆρας ἀδίκου.",
+     "giguet": "Le juste mort condamne les impies vivants, et la jeunesse qui finit prématurément, condamne la vieillesse de l'impie chargé d'années.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ὄψονται γὰρ τελευτὴν σοφοῦ καὶ οὐ νοήσουσιν τί ἐβουλεύσατο περὶ αὐτοῦ καὶ εἰς τί ἠσφαλίσατο αὐτὸν ὁ κύριος.",
+     "giguet": "Les impies verront la mort du sage, et ne comprendront point les desseins du Seigneur sur lui, ni pourquoi Dieu l'a mis en sûreté.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ὄψονται καὶ ἐξουθενήσουσιν αὐτοὺς δὲ ὁ κύριος ἐκγελάσεται.",
+     "giguet": "Ils la verront, et n'en tiendront aucun compte&nbsp;; mais le Seigneur se rira d'eux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ ἔσονται μετὰ τοῦτο εἰς πτῶμα ἄτιμον καὶ εἰς ὕβριν ἐν νεκροῖς δι' αἰῶνος ὅτι ῥήξει αὐτοὺς ἀφώνους πρηνεῖς καὶ σαλεύσει αὐτοὺς ἐκ θεμελίων καὶ ἕως ἐσχάτου χερσωθήσονται καὶ ἔσονται ἐν ὀδύνῃ καὶ ἡ μνήμη αὐτῶν ἀπολεῖται.",
+     "giguet": "Et, après cela, ils tomberont sans honneur, et pour l'éternité ils seront en opprobre parmi les morts&nbsp;; car le Seigneur les brisera sans voix, le front en avant&nbsp;; et Il les ébranlera, et, de la base au sommet, ils seront désolés, et ils seront dans la douleur, et leur mémoire périra.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "ἐλεύσονται ἐν συλλογισμῷ ἁμαρτημάτων αὐτῶν δειλοί καὶ ἐλέγξει αὐτοὺς ἐξ ἐναντίας τὰ ἀνομήματα αὐτῶν.",
+     "giguet": "Ils viendront tout tremblants au souvenir de leurs péchés, et leurs iniquités passeront devant eux pour les accuser.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 5,
+   "libelle": "5",
+   "fichierToc": "WIS/005.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "τότε στήσεται ἐν παρρησίᾳ πολλῇ ὁ δίκαιος κατὰ πρόσωπον τῶν θλιψάντων αὐτὸν καὶ τῶν ἀθετούντων τοὺς πόνους αὐτοῦ.",
+     "giguet": "Alors le juste se placera avec confiance en face de ceux qui l'auront opprimé, et qui lui auront ravi le fruit de son labeur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἰδόντες ταραχθήσονται φόβῳ δεινῷ καὶ ἐκστήσονται ἐπὶ τῷ παραδόξῳ τῆς σωτηρίας.",
+     "giguet": "À son aspect, ils seront troublés, pleins de crainte, stupéfaits de son salut inespéré.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἐροῦσιν ἐν ἑαυτοῖς μετανοοῦντες καὶ διὰ στενοχωρίαν πνεύματος στενάξονται καὶ ἐροῦσιν.",
+     "giguet": "Ils se diront repentants, gémissants en l'angoisse de leur esprit&nbsp;; et ils diront&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "οὗτος ἦν ὃν ἔσχομέν ποτε εἰς γέλωτα καὶ εἰς παραβολὴν ὀνειδισμοῦ οἱ ἄφρονες τὸν βίον αὐτοῦ ἐλογισάμεθα μανίαν καὶ τὴν τελευτὴν αὐτοῦ ἄτιμον.",
+     "giguet": "Voilà donc celui que nous tenions autrefois en dérision et en opprobre&nbsp;! Insensés, nous imputions leur vie à la folie, leur mort à déshonneur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "πῶς κατελογίσθη ἐν υἱοῖς θεοῦ καὶ ἐν ἁγίοις ὁ κλῆρος αὐτοῦ ἐστιν.",
+     "giguet": "Comment a-t-il compté parmi les fils de Dieu&nbsp;? Comment son héritage est-il avec les saints&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἄρα ἐπλανήθημεν ἀπὸ ὁδοῦ ἀληθείας καὶ τὸ τῆς δικαιοσύνης φῶς οὐκ ἐπέλαμψεν ἡμῖν καὶ ὁ ἥλιος οὐκ ἀνέτειλεν ἡμῖν.",
+     "giguet": "Nous nous sommes donc écartés des voies de la vérité&nbsp;; la lumière de la justice ne nous a pas éclairés, et le soleil ne s'est pas levé sur nous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἀνομίας ἐνεπλήσθημεν τρίβοις καὶ ἀπωλείας καὶ διωδεύσαμεν ἐρήμους ἀβάτους τὴν δὲ ὁδὸν κυρίου οὐκ ἐπέγνωμεν.",
+     "giguet": "Nous nous sommes lassés dans les sentiers de l'iniquité et de la perdition, et nous avons cheminé dans des déserts infréquentés, et nous n'avons point connu la voie du Seigneur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "τί ὠφέλησεν ἡμᾶς ἡ ὑπερηφανία καὶ τί πλοῦτος μετὰ ἀλαζονείας συμβέβληται ἡμῖν.",
+     "giguet": "De quoi nous a servi notre superbe&nbsp;? Que nous a rapporté la richesse dont nous étions si fiers&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "παρῆλθεν ἐκεῖνα πάντα ὡς σκιὰ καὶ ὡς ἀγγελία παρατρέχουσα.",
+     "giguet": "Tout cela a passé comme l'ombre, comme un messager qui court en avant&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ὡς ναῦς διερχομένη κυμαινόμενον ὕδωρ ἧς διαβάσης οὐκ ἔστιν ἴχνος εὑρεῖν οὐδὲ ἀτραπὸν τρόπιος αὐτῆς ἐν κύμασιν.",
+     "giguet": "comme un navire qui fend l'onde, vogue sans laisser de traces, et dont la carène ne creuse pas de sentier dans les flots&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἢ ὡς ὀρνέου διιπτάντος ἀέρα οὐθὲν εὑρίσκεται τεκμήριον πορείας πληγῇ δὲ μαστιζόμενον ταρσῶν πνεῦμα κοῦφον καὶ σχιζόμενον βίᾳ ῥοίζου κινουμένων πτερύγων διωδεύθη καὶ μετὰ τοῦτο οὐχ εὑρέθη σημεῖον ἐπιβάσεως ἐν αὐτῷ.",
+     "giguet": "comme l'oiseau qui traverse les airs sans que l'on voie des marques de son vol&nbsp;; mais se mouvant à grands coups d'ailes, fendant avec force et bruit l'espace silencieux, allant toujours en agitant ses ailes, et ne laissant après lui nulle trace de son passage&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἢ ὡς βέλους βληθέντος ἐπὶ σκοπὸν τμηθεὶς ὁ ἀὴρ εὐθέως εἰς ἑαυτὸν ἀνελύθη ὡς ἀγνοῆσαι τὴν δίοδον αὐτοῦ.",
+     "giguet": "ou comme la flèche lancée au but, et dont on ne peut reconnaître le parcours, parce que l'air qu'elle a fendu s'est aussitôt refermé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "οὕτως καὶ ἡμεῖς γεννηθέντες ἐξελίπομεν καὶ ἀρετῆς μὲν σημεῖον οὐδὲν ἔσχομεν δεῖξαι ἐν δὲ τῇ κακίᾳ ἡμῶν κατεδαπανήθημεν.",
+     "giguet": "Ainsi nous naissons, nous mourons, et nous ne pouvons montrer signe de vertu&nbsp;; mais nous nous sommes consumés en notre propre méchanceté.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ὅτι ἐλπὶς ἀσεβοῦς ὡς φερόμενος χνοῦς ὑπὸ ἀνέμου καὶ ὡς πάχνη ὑπὸ λαίλαπος διωχθεῖσα λεπτὴ καὶ ὡς καπνὸς ὑπὸ ἀνέμου διεχύθη καὶ ὡς μνεία καταλύτου μονοημέρου παρώδευσεν.",
+     "giguet": "l'espérance des impies est donc comme la poussière emportée par le vent&nbsp;; comme la gelée blanche fondue par la tempête&nbsp;; comme la fumée dispersée&nbsp;; au moindre souffle, elle s'est évanouie, comme le souvenir d'un hôte qui n'est resté qu'un jour, et a passé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "δίκαιοι δὲ εἰς τὸν αἰῶνα ζῶσιν καὶ ἐν κυρίῳ ὁ μισθὸς αὐτῶν καὶ ἡ φροντὶς αὐτῶν παρὰ ὑψίστῳ.",
+     "giguet": "Mais les justes vivront éternellement, et leur salaire est dans le Seigneur, et leur pensée dans le Très-Haut.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "διὰ τοῦτο λήμψονται τὸ βασίλειον τῆς εὐπρεπείας καὶ τὸ διάδημα τοῦ κάλλους ἐκ χειρὸς κυρίου ὅτι τῇ δεξιᾷ σκεπάσει αὐτοὺς καὶ τῷ βραχίονι ὑπερασπιεῖ αὐτῶν.",
+     "giguet": "C'est pourquoi ils recevront, de la main du Seigneur, un trône de grâce et un diadème de beauté, et Il les abritera sous sa droite, et les défendra de son bras.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "λήμψεται πανοπλίαν τὸν ζῆλον αὐτοῦ καὶ ὁπλοποιήσει τὴν κτίσιν εἰς ἄμυναν ἐχθρῶν.",
+     "giguet": "Il s'armera de son zèle, et Il en couvrira sa créature pour la venger de ses ennemis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἐνδύσεται θώρακα δικαιοσύνην καὶ περιθήσεται κόρυθα κρίσιν ἀνυπόκριτον.",
+     "giguet": "Pour cuirasse Il revêtira sa justice, et pour casque Il prendra l'intégrité de son jugement.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "λήμψεται ἀσπίδα ἀκαταμάχητον ὁσιότητα.",
+     "giguet": "Il aura la sainteté pour invincible bouclier.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "ὀξυνεῖ δὲ ἀπότομον ὀργὴν εἰς ῥομφαίαν συνεκπολεμήσει δὲ αὐτῷ ὁ κόσμος ἐπὶ τοὺς παράφρονας.",
+     "giguet": "Il aiguisera sa terrible colère pour en faire son épée, et le monde, de concert avec lui, subjuguera les insensés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "πορεύσονται εὔστοχοι βολίδες ἀστραπῶν καὶ ὡς ἀπὸ εὐκύκλου τόξου τῶν νεφῶν ἐπὶ σκοπὸν ἁλοῦνται.",
+     "giguet": "Les traits infaillibles de son tonnerre partiront, et, comme ceux de l'arc des nuées, ils s'élanceront au but.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ ἐκ πετροβόλου θυμοῦ πλήρεις ῥιφήσονται χάλαζαι ἀγανακτήσει κατ' αὐτῶν ὕδωρ θαλάσσης ποταμοὶ δὲ συγκλύσουσιν ἀποτόμως.",
+     "giguet": "Et la grêle tombera avec violence comme une pluie de pierres. Les eaux de la mer tourneront contre eux leur fureur, et les fleuves déborderont en courroux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "ἀντιστήσεται αὐτοῖς πνεῦμα δυνάμεως καὶ ὡς λαῖλαψ ἐκλικμήσει αὐτούς καὶ ἐρημώσει πᾶσαν τὴν γῆν ἀνομία καὶ ἡ κακοπραγία περιτρέψει θρόνους δυναστῶν.",
+     "giguet": "Contre eux se tiendra l'Esprit de vertu, et Il les vannera comme un tourbillon, et l'iniquité fera de la terre une solitude&nbsp;; et la méchanceté renversera le trône des puissants.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 6,
+   "libelle": "6",
+   "fichierToc": "WIS/006.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἀκούσατε οὖν βασιλεῖς καὶ σύνετε μάθετε δικασταὶ περάτων γῆς.",
+     "giguet": "Écoutez donc, rois&nbsp;; apprenez, juges de la terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἐνωτίσασθε οἱ κρατοῦντες πλήθους καὶ γεγαυρωμένοι ἐπὶ ὄχλοις ἐθνῶν.",
+     "giguet": "Prêtez l'oreille, ô vous qui gouvernez les peuples et qui êtes si fiers de leur multitude.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ὅτι ἐδόθη παρὰ κυρίου ἡ κράτησις ὑμῖν καὶ ἡ δυναστεία παρὰ ὑψίστου ὃς ἐξετάσει ὑμῶν τὰ ἔργα καὶ τὰς βουλὰς διερευνήσει.",
+     "giguet": "Votre puissance vous a été donnée par le Seigneur&nbsp;; votre autorité vient du Très-Haut, qui interrogera vos œuvres, et scrutera vos desseins.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ὅτι ὑπηρέται ὄντες τῆς αὐτοῦ βασιλείας οὐκ ἐκρίνατε ὀρθῶς οὐδὲ ἐφυλάξατε νόμον οὐδὲ κατὰ τὴν βουλὴν τοῦ θεοῦ ἐπορεύθητε.",
+     "giguet": "Vous, ministres de son royaume, vous ne jugez point avec droiture&nbsp;; vous n'observez point la loi&nbsp;; vous ne marchez point selon la volonté de Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "φρικτῶς καὶ ταχέως ἐπιστήσεται ὑμῖν ὅτι κρίσις ἀπότομος ἐν τοῖς ὑπερέχουσιν γίνεται.",
+     "giguet": "Et quand soudain Il fondra sur vous, vous en frissonnerez&nbsp;; car son jugement est bien plus sévère contre ceux qui ont la puissance.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ὁ γὰρ ἐλάχιστος συγγνωστός ἐστιν ἐλέους δυνατοὶ δὲ δυνατῶς ἐτασθήσονται.",
+     "giguet": "Car le petit reçoit le pardon de la miséricorde&nbsp;; mais les puissants seront poursuivis avec rigueur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "οὐ γὰρ ὑποστελεῖται πρόσωπον ὁ πάντων δεσπότης οὐδὲ ἐντραπήσεται μέγεθος ὅτι μικρὸν καὶ μέγαν αὐτὸς ἐποίησεν ὁμοίως τε προνοεῖ περὶ πάντων.",
+     "giguet": "Le Maître de toutes choses n'aura point égard au rang&nbsp;; Il ne considérera pas la grandeur&nbsp;: c'est lui qui a créé le petit et le grand, et sa providence veille également sur tous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "τοῖς δὲ κραταιοῖς ἰσχυρὰ ἐφίσταται ἔρευνα.",
+     "giguet": "Une enquête plus rigide est réservée aux plus puissants.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "πρὸς ὑμᾶς οὖν ὦ τύραννοι οἱ λόγοι μου ἵνα μάθητε σοφίαν καὶ μὴ παραπέσητε.",
+     "giguet": "Ô rois, c'est à vous que s'adressent mes paroles, afin que vous appreniez la sagesse, et que vous ne vous en écartiez point.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "οἱ γὰρ φυλάξαντες ὁσίως τὰ ὅσια ὁσιωθήσονται καὶ οἱ διδαχθέντες αὐτὰ εὑρήσουσιν ἀπολογίαν.",
+     "giguet": "Car ceux qui gardent saintement les choses saintes seront sanctifiés, et ceux qui les auront apprises y trouveront ce qu'ils ont à répondre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἐπιθυμήσατε οὖν τῶν λόγων μου ποθήσατε καὶ παιδευθήσεσθε.",
+     "giguet": "Soyez donc avides de mes paroles&nbsp;; aimez-les, et corrigez-vous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "λαμπρὰ καὶ ἀμάραντός ἐστιν ἡ σοφία καὶ εὐχερῶς θεωρεῖται ὑπὸ τῶν ἀγαπώντων αὐτὴν καὶ εὑρίσκεται ὑπὸ τῶν ζητούντων αὐτήν.",
+     "giguet": "La sagesse brille et ne s'obscurcit jamais&nbsp;; ceux qui l'aiment, la voient facilement&nbsp;; ceux qui la cherchent, la trouvent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "φθάνει τοὺς ἐπιθυμοῦντας προγνωσθῆναι.",
+     "giguet": "Elle prévient ceux qui désirent la connaître avant tout.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ὁ ὀρθρίσας πρὸς αὐτὴν οὐ κοπιάσει πάρεδρον γὰρ εὑρήσει τῶν πυλῶν αὐτοῦ.",
+     "giguet": "Celui qui, pour elle, se lève dès l'aurore, ne se fatiguera pas&nbsp;; car il la trouvera assise près de sa porte.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "τὸ γὰρ ἐνθυμηθῆναι περὶ αὐτῆς φρονήσεως τελειότης καὶ ὁ ἀγρυπνήσας δι' αὐτὴν ταχέως ἀμέριμνος ἔσται.",
+     "giguet": "Penser à elle est une prudence consommée&nbsp;; celui qui veille pour elle sera bientôt exempt d'inquiétude.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ὅτι τοὺς ἀξίους αὐτῆς αὐτὴ περιέρχεται ζητοῦσα καὶ ἐν ταῖς τρίβοις φαντάζεται αὐτοῖς εὐμενῶς καὶ ἐν πάσῃ ἐπινοίᾳ ὑπαντᾷ αὐτοῖς.",
+     "giguet": "Elle s'en va à la ronde, cherchant ceux qui sont dignes d'elle, et se manifeste avec bienveillance en leurs sentiers, et va à la rencontre de tous leurs desseins.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ἀρχὴ γὰρ αὐτῆς ἡ ἀληθεστάτη παιδείας ἐπιθυμία φροντὶς δὲ παιδείας ἀγάπη.",
+     "giguet": "Le commencement de la sagesse est donc un vrai désir de s'instruire&nbsp;; et le soin de s'instruire, c'est l'amour.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἀγάπη δὲ τήρησις νόμων αὐτῆς προσοχὴ δὲ νόμων βεβαίωσις ἀφθαρσίας.",
+     "giguet": "L'amour de la sagesse, c'est l'observance de ses lois&nbsp;; l'observance des lois, c'est une pureté accomplie&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ἀφθαρσία δὲ ἐγγὺς εἶναι ποιεῖ θεοῦ.",
+     "giguet": "enfin la pureté nous approche de Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "ἐπιθυμία ἄρα σοφίας ἀνάγει ἐπὶ βασιλείαν.",
+     "giguet": "Donc le désir de la sagesse nous conduit au royaume éternel.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "εἰ οὖν ἥδεσθε ἐπὶ θρόνοις καὶ σκήπτροις τύραννοι λαῶν τιμήσατε σοφίαν ἵνα εἰς τὸν αἰῶνα βασιλεύσητε.",
+     "giguet": "Ainsi, rois des peuples, si vous mettez votre joie dans les trônes et les sceptres, honorez la sagesse, afin que vous soyez rois éternellement.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "τί δέ ἐστιν σοφία καὶ πῶς ἐγένετο ἀπαγγελῶ καὶ οὐκ ἀποκρύψω ὑμῖν μυστήρια ἀλλὰ ἀπ' ἀρχῆς γενέσεως ἐξιχνιάσω καὶ θήσω εἰς τὸ ἐμφανὲς τὴν γνῶσιν αὐτῆς καὶ οὐ μὴ παροδεύσω τὴν ἀλήθειαν.",
+     "giguet": "Ce qu'est la sagesse et comment elle est née, je vais le dire, et je ne vous cacherai point ces mystères&nbsp;; je la suivrai à la trace depuis les premiers jours de sa naissance&nbsp;; et je mettrai sa doctrine en lumière, et je ne m'écarterai point de la vérité.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "οὔτε μὴν φθόνῳ τετηκότι συνοδεύσω ὅτι οὗτος οὐ κοινωνήσει σοφίᾳ.",
+     "giguet": "Je ne cheminerai point avec celui que l'envie consume&nbsp;; car celui-là n'aura point de part à la sagesse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "πλῆθος δὲ σοφῶν σωτηρία κόσμου καὶ βασιλεὺς φρόνιμος εὐστάθεια δήμου.",
+     "giguet": "La multitude des sages est le salut du monde, et un roi sage est l'appui de son peuple.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "ὥστε παιδεύεσθε τοῖς ῥήμασίν μου καὶ ὠφεληθήσεσθε.",
+     "giguet": "Recevez donc l'instruction qui sortira de mes paroles&nbsp;; elle vous profitera.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 7,
+   "libelle": "7",
+   "fichierToc": "WIS/007.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "εἰμὶ μὲν κἀγὼ θνητὸς ἄνθρωπος ἴσος ἅπασιν καὶ γηγενοῦς ἀπόγονος πρωτοπλάστου καὶ ἐν κοιλίᾳ μητρὸς ἐγλύφην σὰρξ.",
+     "giguet": "Et moi aussi, je suis un homme mortel, semblable à tous, né de la race du premier créé&nbsp;; et j'ai été fait chair, dans les entrailles d'une femme,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "δεκαμηνιαίῳ χρόνῳ παγεὶς ἐν αἵματι ἐκ σπέρματος ἀνδρὸς καὶ ἡδονῆς ὕπνῳ συνελθούσης.",
+     "giguet": "coagulé dans le sang en dix mois&nbsp;; fruit de la semence d'un homme, et du plaisir qui vient avec le sommeil.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἐγὼ δὲ γενόμενος ἔσπασα τὸν κοινὸν ἀέρα καὶ ἐπὶ τὴν ὁμοιοπαθῆ κατέπεσον γῆν πρώτην φωνὴν τὴν ὁμοίαν πᾶσιν ἴσα κλαίων.",
+     "giguet": "Et moi aussi, aussitôt né, j'ai respiré l'air commun à tous&nbsp;; je suis tombé sur une terre également misérable, et, comme tous, j'ai jeté ma première voix en pleurant.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἐν σπαργάνοις ἀνετράφην καὶ φροντίσιν.",
+     "giguet": "J'ai été élevé dans les langes entouré de soins.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "οὐδεὶς γὰρ βασιλέων ἑτέραν ἔσχεν γενέσεως ἀρχήν.",
+     "giguet": "Car nul des rois ne commence autrement à naître&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "μία δὲ πάντων εἴσοδος εἰς τὸν βίον ἔξοδός τε ἴση.",
+     "giguet": "même entrée dans la vie, et même sortie pour tous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "διὰ τοῦτο εὐξάμην καὶ φρόνησις ἐδόθη μοι ἐπεκαλεσάμην καὶ ἦλθέν μοι πνεῦμα σοφίας.",
+     "giguet": "C'est pourquoi j'ai prié, et la sagesse m'a été donnée&nbsp;; j'ai invoqué Dieu, et en moi est venu l'esprit de sagesse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "προέκρινα αὐτὴν σκήπτρων καὶ θρόνων καὶ πλοῦτον οὐδὲν ἡγησάμην ἐν συγκρίσει αὐτῆς.",
+     "giguet": "Je l'ai estimée plus que les sceptres et les trônes, et, au prix d'elle, j'ai tenu pour rien les richesses.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "οὐδὲ ὡμοίωσα αὐτῇ λίθον ἀτίμητον ὅτι ὁ πᾶς χρυσὸς ἐν ὄψει αὐτῆς ψάμμος ὀλίγη καὶ ὡς πηλὸς λογισθήσεται ἄργυρος ἐναντίον αὐτῆς.",
+     "giguet": "Je ne lui ai point comparé de pierre précieuse&nbsp;; tout l'or, à son aspect, ne paraît plus qu'un peu de sable, et, devant elle, l'argent ne vaut pas plus que de la boue.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ὑπὲρ ὑγίειαν καὶ εὐμορφίαν ἠγάπησα αὐτὴν καὶ προειλόμην αὐτὴν ἀντὶ φωτὸς ἔχειν ὅτι ἀκοίμητον τὸ ἐκ ταύτης φέγγος.",
+     "giguet": "Je l'ai aimée plus que la santé, plus que la beauté&nbsp;; et je l'aurais choisie de préférence à la lumière, parce que sa lumière ne s'éteint jamais.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἦλθεν δέ μοι τὰ ἀγαθὰ ὁμοῦ πάντα μετ' αὐτῆς καὶ ἀναρίθμητος πλοῦτος ἐν χερσὶν αὐτῆς.",
+     "giguet": "Tous les biens à la fois me sont venus avec elle, et dans ses mains elle a d'innombrables richesses.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "εὐφράνθην δὲ ἐπὶ πᾶσιν ὅτι αὐτῶν ἡγεῖται σοφία ἠγνόουν δὲ αὐτὴν γενέτιν εἶναι τούτων.",
+     "giguet": "Et je me suis réjoui de toutes ces choses, parce que la sagesse elle-même me les amenait, et pourtant j'ignorais qu'elle en fût la mère.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἀδόλως τε ἔμαθον ἀφθόνως τε μεταδίδωμι τὸν πλοῦτον αὐτῆς οὐκ ἀποκρύπτομαι.",
+     "giguet": "Je l'ai apprise en toute sincérité&nbsp;; je la communique sans épargne&nbsp;; je ne cèle point ses trésors.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἀνεκλιπὴς γὰρ θησαυρός ἐστιν ἀνθρώποις ὃν οἱ κτησάμενοι πρὸς θεὸν ἐστείλαντο φιλίαν διὰ τὰς ἐκ παιδείας δωρεὰς συσταθέντες.",
+     "giguet": "Car ils sont inépuisables pour les hommes&nbsp;; ceux qui en usent en vue de Dieu se sont acquis son amour, et ils ont été recommandables par les dons de la science.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ἐμοὶ δὲ δῴη ὁ θεὸς εἰπεῖν κατὰ γνώμην καὶ ἐνθυμηθῆναι ἀξίως τῶν δεδομένων ὅτι αὐτὸς καὶ τῆς σοφίας ὁδηγός ἐστιν καὶ τῶν σοφῶν διορθωτής.",
+     "giguet": "Pour moi, que Dieu m'accorde de parler selon ma pensée, d'avoir des sentiments dignes des choses qui m'ont été données, parce que c'est lui le guide de la sagesse, c'est lui qui redresse les sages.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἐν γὰρ χειρὶ αὐτοῦ καὶ ἡμεῖς καὶ οἱ λόγοι ἡμῶν πᾶσά τε φρόνησις καὶ ἐργατειῶν ἐπιστήμη.",
+     "giguet": "Car nous sommes en ses mains, nous et nos paroles, et toute notre sagesse, et la science de nos œuvres.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "αὐτὸς γάρ μοι ἔδωκεν τῶν ὄντων γνῶσιν ἀψευδῆ εἰδέναι σύστασιν κόσμου καὶ ἐνέργειαν στοιχείων.",
+     "giguet": "C'est lui qui m'a donné la vraie science des choses de la nature&nbsp;; c'est lui qui m'a enseigné l'arrangement du monde, et la vertu des éléments&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἀρχὴν καὶ τέλος καὶ μεσότητα χρόνων τροπῶν ἀλλαγὰς καὶ μεταβολὰς καιρῶν.",
+     "giguet": "le commencement, la fin et le milieu des temps, la course irrégulière des sphères et les changements des saisons&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ἐνιαυτοῦ κύκλους καὶ ἄστρων θέσεις.",
+     "giguet": "le cercle de l'année, et la position des étoiles&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "φύσεις ζῴων καὶ θυμοὺς θηρίων πνευμάτων βίας καὶ διαλογισμοὺς ἀνθρώπων διαφορὰς φυτῶν καὶ δυνάμεις ῥιζῶν.",
+     "giguet": "la nature des animaux, l'instinct des bêtes, la force des vents, les pensées des hommes, les variétés des plantes et les vertus des racines.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "ὅσα τέ ἐστιν κρυπτὰ καὶ ἐμφανῆ ἔγνων ἡ γὰρ πάντων τεχνῖτις ἐδίδαξέν με σοφία.",
+     "giguet": "J'ai su toutes les choses cachées, comme celles qui sont manifestes&nbsp;; car l'artisan universel, la Sagesse, m'a instruit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "ἔστιν γὰρ ἐν αὐτῇ πνεῦμα νοερόν ἅγιον μονογενές πολυμερές λεπτόν εὐκίνητον τρανόν ἀμόλυντον σαφές ἀπήμαντον φιλάγαθον ὀξύ.",
+     "giguet": "En elle réside un esprit intelligent, saint, unique et multiple, subtil, vif, pénétrant, pur, clair, incorruptible, ami du bien, rapide, libre et bienfaisant,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "ἀκώλυτον εὐεργετικόν φιλάνθρωπον βέβαιον ἀσφαλές ἀμέριμνον παντοδύναμον πανεπίσκοπον καὶ διὰ πάντων χωροῦν πνευμάτων νοερῶν καθαρῶν λεπτοτάτων.",
+     "giguet": "ami des hommes, ferme, constant, infaillible, tout-puissant&nbsp;; voyant tout, et l'emportant sur tous les esprits les plus intelligents, les plus purs, les plus subtils.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "πάσης γὰρ κινήσεως κινητικώτερον σοφία διήκει δὲ καὶ χωρεῖ διὰ πάντων διὰ τὴν καθαρότητα.",
+     "giguet": "En effet, la Sagesse est plus active que toute activité&nbsp;; et, grâce à sa pureté, partout elle s'ouvre passage, elle pénètre partout.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "ἀτμὶς γάρ ἐστιν τῆς τοῦ θεοῦ δυνάμεως καὶ ἀπόρροια τῆς τοῦ παντοκράτορος δόξης εἰλικρινής διὰ τοῦτο οὐδὲν μεμιαμμένον εἰς αὐτὴν παρεμπίπτει.",
+     "giguet": "Car c'est un souffle de la vertu de Dieu&nbsp;; c'est une émanation pure de la gloire du Tout-Puissant. C'est pourquoi rien de souillé ne pénètre en elle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "26",
+     "grec": "ἀπαύγασμα γάρ ἐστιν φωτὸς ἀϊδίου καὶ ἔσοπτρον ἀκηλίδωτον τῆς τοῦ θεοῦ ἐνεργείας καὶ εἰκὼν τῆς ἀγαθότητος αὐτοῦ.",
+     "giguet": "C'est la splendeur de la lumière éternelle, le miroir sans tache de la puissance de Dieu, et l'image de sa bonté.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "27",
+     "grec": "μία δὲ οὖσα πάντα δύναται καὶ μένουσα ἐν αὑτῇ τὰ πάντα καινίζει καὶ κατὰ γενεὰς εἰς ψυχὰς ὁσίας μεταβαίνουσα φίλους θεοῦ καὶ προφήτας κατασκευάζει.",
+     "giguet": "Unique, elle peut tout&nbsp;; immuable, elle renouvelle tout&nbsp;; et, de génération en génération, pénétrant dans les âmes saintes, elle forme les amis de Dieu et les prophètes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "28",
+     "grec": "οὐθὲν γὰρ ἀγαπᾷ ὁ θεὸς εἰ μὴ τὸν σοφίᾳ συνοικοῦντα.",
+     "giguet": "Car Dieu n'aime que celui qui cohabite avec la Sagesse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "29",
+     "grec": "ἔστιν γὰρ αὕτη εὐπρεπεστέρα ἡλίου καὶ ὑπὲρ πᾶσαν ἄστρων θέσιν φωτὶ συγκρινομένη εὑρίσκεται προτέρα.",
+     "giguet": "Elle est plus belle que le soleil, plus belle que la disposition des étoiles&nbsp;; comparée à la lumière, elle a le premier rang.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "30",
+     "grec": "τοῦτο μὲν γὰρ διαδέχεται νύξ σοφίας δὲ οὐ κατισχύει κακία.",
+     "giguet": "Car la nuit succède au jour&nbsp;; mais le mal ne prévaut pas sur la Sagesse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 8,
+   "libelle": "8",
+   "fichierToc": "WIS/008.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "διατείνει δὲ ἀπὸ πέρατος ἐπὶ πέρας εὐρώστως καὶ διοικεῖ τὰ πάντα χρηστῶς.",
+     "giguet": "La Sagesse, dans sa force, s'étend d'une extrémité de la terre à l'autre&nbsp;; elle règle toutes choses avec perfection.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ταύτην ἐφίλησα καὶ ἐξεζήτησα ἐκ νεότητός μου καὶ ἐζήτησα νύμφην ἀγαγέσθαι ἐμαυτῷ καὶ ἐραστὴς ἐγενόμην τοῦ κάλλους αὐτῆς.",
+     "giguet": "Je l'ai aimée et je l'ai choisie dès ma jeunesse&nbsp;; je l'ai cherchée afin de la prendre pour épouse, tant j'étais épris de sa beauté.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "εὐγένειαν δοξάζει συμβίωσιν θεοῦ ἔχουσα καὶ ὁ πάντων δεσπότης ἠγάπησεν αὐτήν.",
+     "giguet": "Elle honore sa noble origine en cohabitant avec Dieu&nbsp;; le Maître de toutes choses la chérit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "μύστις γάρ ἐστιν τῆς τοῦ θεοῦ ἐπιστήμης καὶ αἱρετὶς τῶν ἔργων αὐτοῦ.",
+     "giguet": "C'est l'interprète de la science de Dieu&nbsp;; c'est la directrice de ses œuvres.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "εἰ δὲ πλοῦτός ἐστιν ἐπιθυμητὸν κτῆμα ἐν βίῳ τί σοφίας πλουσιώτερον τῆς τὰ πάντα ἐργαζομένης.",
+     "giguet": "Et si, dans la vie, la richesse est une chose désirable, qu'y a-t-il de plus riche que la Sagesse, l'artisan universel&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "εἰ δὲ φρόνησις ἐργάζεται τίς αὐτῆς τῶν ὄντων μᾶλλόν ἐστιν τεχνῖτις.",
+     "giguet": "Or, si la Sagesse coopère à nos œuvres, qui plus qu'elle parmi les êtres est habile ouvrier&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ εἰ δικαιοσύνην ἀγαπᾷ τις οἱ πόνοι ταύτης εἰσὶν ἀρεταί σωφροσύνην γὰρ καὶ φρόνησιν ἐκδιδάσκει δικαιοσύνην καὶ ἀνδρείαν ὧν χρησιμώτερον οὐδέν ἐστιν ἐν βίῳ ἀνθρώποις.",
+     "giguet": "Et si quelqu'un aime la justice, ses vertus sont l'œuvre de la Sagesse&nbsp;; car il apprend la modération, la prudence, l'équité, le courage, que rien dans la vie de l'homme ne surpasse en efficacité.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "εἰ δὲ καὶ πολυπειρίαν ποθεῖ τις οἶδεν τὰ ἀρχαῖα καὶ τὰ μέλλοντα εἰκάζει ἐπίσταται στροφὰς λόγων καὶ λύσεις αἰνιγμάτων σημεῖα καὶ τέρατα προγινώσκει καὶ ἐκβάσεις καιρῶν καὶ χρόνων.",
+     "giguet": "Et si quelqu'un désire une grande expérience, la Sagesse sait le passé, elle prévoir l'avenir, elle connaît les subtilités du langage, et les solutions des problèmes&nbsp;; d'avance, elle connaît les signes et les prodiges, les vicissitudes des saisons et des temps.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἔκρινα τοίνυν ταύτην ἀγαγέσθαι πρὸς συμβίωσιν εἰδὼς ὅτι ἔσται μοι σύμβουλος ἀγαθῶν καὶ παραίνεσις φροντίδων καὶ λύπης.",
+     "giguet": "J'ai donc résolu de la prendre pour épouse, sachant qu'elle ne me conseillerait que le bien, et me consolerait de mes peines et de mes inquiétudes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἕξω δι' αὐτὴν δόξαν ἐν ὄχλοις καὶ τιμὴν παρὰ πρεσβυτέροις ὁ νέος.",
+     "giguet": "Par elle j'aurai gloire parmi les peuples, et honneur parmi les vieillards, malgré ma jeunesse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ὀξὺς εὑρεθήσομαι ἐν κρίσει καὶ ἐν ὄψει δυναστῶν θαυμασθήσομαι.",
+     "giguet": "On me trouvera pénétrant quand je rendrai la justice&nbsp;; je ferai l'admiration des puissants en paraissant devant eux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "σιγῶντά με περιμενοῦσιν καὶ φθεγγομένῳ προσέξουσιν καὶ λαλοῦντος ἐπὶ πλεῖον χεῖρα ἐπιθήσουσιν ἐπὶ στόμα αὐτῶν.",
+     "giguet": "Quand je me tairai, ils seront dans l'attente&nbsp;; quand je parlerai, ils auront les yeux sur moi&nbsp;; et si je parle plus longuement, ils ne mettront une main sur la bouche.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἕξω δι' αὐτὴν ἀθανασίαν καὶ μνήμην αἰώνιον τοῖς μετ' ἐμὲ ἀπολείψω.",
+     "giguet": "Par elle j'aurai l'immortalité, et, dans la postérité, je laisserai une mémoire éternelle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "διοικήσω λαούς καὶ ἔθνη ὑποταγήσεταί μοι.",
+     "giguet": "Je régirai les peuples, et les nations me seront soumises.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "φοβηθήσονταί με ἀκούσαντες τύραννοι φρικτοί ἐν πλήθει φανοῦμαι ἀγαθὸς καὶ ἐν πολέμῳ ἀνδρεῖος.",
+     "giguet": "Les rois, qui font trembler les hommes, en m'entendant seront saisis de crainte&nbsp;; je me montrerai bon envers la multitude, et fort à la guerre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "εἰσελθὼν εἰς τὸν οἶκόν μου προσαναπαύσομαι αὐτῇ οὐ γὰρ ἔχει πικρίαν ἡ συναναστροφὴ αὐτῆς οὐδὲ ὀδύνην ἡ συμβίωσις αὐτῆς ἀλλὰ εὐφροσύνην καὶ χαράν.",
+     "giguet": "Rentré dans mon palais, je me reposerai avec la Sagesse&nbsp;; car son entretien est sans amertume&nbsp;; son commerce donne non de la douleur, mais du bonheur et de la joie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ταῦτα λογισάμενος ἐν ἐμαυτῷ καὶ φροντίσας ἐν καρδίᾳ μου ὅτι ἀθανασία ἐστὶν ἐν συγγενείᾳ σοφίας.",
+     "giguet": "Après avoir pensé ces choses, et songé, en mon cœur, que l'immortalité est parente de la Sagesse&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ ἐν φιλίᾳ αὐτῆς τέρψις ἀγαθὴ καὶ ἐν πόνοις χειρῶν αὐτῆς πλοῦτος ἀνεκλιπὴς καὶ ἐν συγγυμνασίᾳ ὁμιλίας αὐτῆς φρόνησις καὶ εὔκλεια ἐν κοινωνίᾳ λόγων αὐτῆς περιῄειν ζητῶν ὅπως λάβω αὐτὴν εἰς ἐμαυτόν.",
+     "giguet": "que son amitié est pleine de charmes&nbsp;; que des travaux de ses mains naît une richesse inépuisable&nbsp;; que l'on acquiert la prudence dans l'exercice de sa société, et la gloire en devisant avec elle, je l'ai cherchée de toutes parts, afin de la prendre en moi-même.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "παῖς δὲ ἤμην εὐφυὴς ψυχῆς τε ἔλαχον ἀγαθῆς.",
+     "giguet": "Or j'étais un enfant heureusement né, et j'étais doué d'une belle âme&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "μᾶλλον δὲ ἀγαθὸς ὢν ἦλθον εἰς σῶμα ἀμίαντον.",
+     "giguet": "ou plutôt étant bon, j'en vins à avoir un corps sans souillure&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "γνοὺς δὲ ὅτι οὐκ ἄλλως ἔσομαι ἐγκρατής ἐὰν μὴ ὁ θεὸς δῷ καὶ τοῦτο δ' ἦν φρονήσεως τὸ εἰδέναι τίνος ἡ χάρις ἐνέτυχον τῷ κυρίῳ καὶ ἐδεήθην αὐτοῦ καὶ εἶπον ἐξ ὅλης τῆς καρδίας μου.",
+     "giguet": "sachant qu'en aucune manière, je ne serais chaste, à moins que Dieu ne me fit ce don, et que cela même était de la sagesse, de savoir de qui en venait la grâce, j'allai au Seigneur, et je le priai, et je lui dis de toute mon âme",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 9,
+   "libelle": "9",
+   "fichierToc": "WIS/009.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "θεὲ πατέρων καὶ κύριε τοῦ ἐλέους ὁ ποιήσας τὰ πάντα ἐν λόγῳ σου.",
+     "giguet": "Dieu de mes pères, Seigneur miséricordieux, qui par ta Parole as créé toutes choses&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ τῇ σοφίᾳ σου κατασκευάσας ἄνθρωπον ἵνα δεσπόζῃ τῶν ὑπὸ σοῦ γενομένων κτισμάτων.",
+     "giguet": "qui en ta Sagesse as formé l'homme, pour qu'il régnât sur toutes les créatures&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ διέπῃ τὸν κόσμον ἐν ὁσιότητι καὶ δικαιοσύνῃ καὶ ἐν εὐθύτητι ψυχῆς κρίσιν κρίνῃ.",
+     "giguet": "pour qu'il gouvernât le monde avec sainteté et justice, et qu'il jugeât dans la droiture de son âme&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "δός μοι τὴν τῶν σῶν θρόνων πάρεδρον σοφίαν καὶ μή με ἀποδοκιμάσῃς ἐκ παίδων σου.",
+     "giguet": "donne-moi la Sagesse, celle qui siège avec toi sur tes trônes, et ne me réprouves pas d'entre tes enfants.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ὅτι ἐγὼ δοῦλος σὸς καὶ υἱὸς τῆς παιδίσκης σου ἄνθρωπος ἀσθενὴς καὶ ὀλιγοχρόνιος καὶ ἐλάσσων ἐν συνέσει κρίσεως καὶ νόμων.",
+     "giguet": "Je suis ton serviteur et le fils de ta servante, homme faible et de peu de durée, et des moindres en intelligence du jugement et de la loi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "κἂν γάρ τις ᾖ τέλειος ἐν υἱοῖς ἀνθρώπων τῆς ἀπὸ σοῦ σοφίας ἀπούσης εἰς οὐδὲν λογισθήσεται.",
+     "giguet": "Car, si l'un des fils des hommes était parfait, ta Sagesse lui manquant, il serait compté pour rien.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "σύ με προείλω βασιλέα λαοῦ σου καὶ δικαστὴν υἱῶν σου καὶ θυγατέρων.",
+     "giguet": "Tu m'as élu roi de ton peuple, juge de tes fils et de tes filles&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "εἶπας οἰκοδομῆσαι ναὸν ἐν ὄρει ἁγίῳ σου καὶ ἐν πόλει κατασκηνώσεώς σου θυσιαστήριον μίμημα σκηνῆς ἁγίας ἣν προητοίμασας ἀπ' ἀρχῆς.",
+     "giguet": "tu m'as dit de bâtir un temple sur ta montagne sainte, et un autel dans la cité de ton tabernacle, image du saint tabernacle que, dès le commencement, tu as préparé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ μετὰ σοῦ ἡ σοφία ἡ εἰδυῖα τὰ ἔργα σου καὶ παροῦσα ὅτε ἐποίεις τὸν κόσμον καὶ ἐπισταμένη τί ἀρεστὸν ἐν ὀφθαλμοῖς σου καὶ τί εὐθὲς ἐν ἐντολαῖς σου.",
+     "giguet": "Et avec toi est la Sagesse qui connaît tes œuvres&nbsp;; elle était présente, lorsque tu as créé le monde&nbsp;; elle sait ce qui est agréable à tes yeux, et quelle est la droiture de tes commandements.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἐξαπόστειλον αὐτὴν ἐξ ἁγίων οὐρανῶν καὶ ἀπὸ θρόνου δόξης σου πέμψον αὐτήν ἵνα συμπαροῦσά μοι κοπιάσῃ καὶ γνῶ τί εὐάρεστόν ἐστιν παρὰ σοί.",
+     "giguet": "Fais-la descendre des cieux, qui sont ton sanctuaire&nbsp;; envoie-la du trône de ta gloire, afin qu'elle soit avec moi, qu'elle travaille avec moi, et que je sache ce qui t'est agréable.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "οἶδε γὰρ ἐκείνη πάντα καὶ συνίει καὶ ὁδηγήσει με ἐν ταῖς πράξεσί μου σωφρόνως καὶ φυλάξει με ἐν τῇ δόξῃ αὐτῆς.",
+     "giguet": "Car elle sait et comprend tout&nbsp;; elle me dirigera avec prudence dans toutes mes œuvres&nbsp;; elle me gardera par sa gloire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ἔσται προσδεκτὰ τὰ ἔργα μου καὶ διακρινῶ τὸν λαόν σου δικαίως καὶ ἔσομαι ἄξιος θρόνων πατρός μου.",
+     "giguet": "Et mes œuvres seront bien accueillies&nbsp;; et je jugerai ton peuple avec prudence, et je serai digne des trônes de mon père.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "τίς γὰρ ἄνθρωπος γνώσεται βουλὴν θεοῦ ἢ τίς ἐνθυμηθήσεται τί θέλει ὁ κύριος.",
+     "giguet": "Car quel homme connaîtra le conseil de Dieu&nbsp;? Qui se mettra dans l'esprit ce que veut le Seigneur&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "λογισμοὶ γὰρ θνητῶν δειλοί καὶ ἐπισφαλεῖς αἱ ἐπίνοιαι ἡμῶν.",
+     "giguet": "Les pensées des mortels sont craintives, et nos projets mal assurés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "φθαρτὸν γὰρ σῶμα βαρύνει ψυχήν καὶ βρίθει τὸ γεῶδες σκῆνος νοῦν πολυφρόντιδα.",
+     "giguet": "Car le corps corruptible appesantit l'âme, et la demeure terrestre déprime l'intelligence par la multiplicité des soins.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ μόλις εἰκάζομεν τὰ ἐπὶ γῆς καὶ τὰ ἐν χερσὶν εὑρίσκομεν μετὰ πόνου τὰ δὲ ἐν οὐρανοῖς τίς ἐξιχνίασεν.",
+     "giguet": "Et à peine pouvons-nous apprécier les choses qui sont sur la terre&nbsp;; et ce qui est en nos mains, nous le trouvons avec labeur. Mais les choses qui sont dans les cieux, qui saura les découvrir&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "βουλὴν δέ σου τίς ἔγνω εἰ μὴ σὺ ἔδωκας σοφίαν καὶ ἔπεμψας τὸ ἅγιόν σου πνεῦμα ἀπὸ ὑψίστων.",
+     "giguet": "Qui connaît ton conseil, si tu ne lui as donné la Sagesse, et si, d'en haut, tu ne lui as envoyé ton Esprit Saint&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ οὕτως διωρθώθησαν αἱ τρίβοι τῶν ἐπὶ γῆς καὶ τὰ ἀρεστά σου ἐδιδάχθησαν ἄνθρωποι καὶ τῇ σοφίᾳ ἐσώθησαν.",
+     "giguet": "C'est lui qui redresse les sentiers de ceux qui cheminent sur la terre&nbsp;; c'est de lui que les hommes apprennent les choses qui te sont agréables,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 10,
+   "libelle": "10",
+   "fichierToc": "WIS/010.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "αὕτη πρωτόπλαστον πατέρα κόσμου μόνον κτισθέντα διεφύλαξεν καὶ ἐξείλατο αὐτὸν ἐκ παραπτώματος ἰδίου.",
+     "giguet": "C'est elle qui a conservé le premier créé, le père du monde, formé d'abord seul, et elle l'a tiré de sa propre chute.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἔδωκέν τε αὐτῷ ἰσχὺν κρατῆσαι ἁπάντων.",
+     "giguet": "Elle lui a donné le pouvoir de maîtriser toutes choses.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἀποστὰς δὲ ἀπ' αὐτῆς ἄδικος ἐν ὀργῇ αὐτοῦ ἀδελφοκτόνοις συναπώλετο θυμοῖς.",
+     "giguet": "le méchant dans sa colère s'étant séparé d'elle, se perdit en même temps par des fureurs fratricides.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "δι' ὃν κατακλυζομένην γῆν πάλιν ἔσωσεν σοφία δι' εὐτελοῦς ξύλου τὸν δίκαιον κυβερνήσασα.",
+     "giguet": "Inondée à cause d'elle, la terre fut de nouveau sauvée par la Sagesse, qui fut pilote du juste, voguant sur un bois de peu de prix.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "αὕτη καὶ ἐν ὁμονοίᾳ πονηρίας ἐθνῶν συγχυθέντων ἔγνω τὸν δίκαιον καὶ ἐτήρησεν αὐτὸν ἄμεμπτον θεῷ καὶ ἐπὶ τέκνου σπλάγχνοις ἰσχυρὸν ἐφύλαξεν.",
+     "giguet": "C'est elle qui, lorsque toutes les nations furent unies en un même esprit de malice, choisit le juste, et le garda pur devant Dieu, et le fortifia selon les entrailles de sa tendresse pour son fils.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "αὕτη δίκαιον ἐξαπολλυμένων ἀσεβῶν ἐρρύσατο φυγόντα καταβάσιον πῦρ Πενταπόλεως.",
+     "giguet": "C'est elle, quand les méchants périrent, qui sauva un juste fuyant la descente du feu sur la Pentapole.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἧς ἔτι μαρτύριον τῆς πονηρίας καπνιζομένη καθέστηκε χέρσος καὶ ἀτελέσιν ὥραις καρποφοροῦντα φυτά ἀπιστούσης ψυχῆς μνημεῖον ἑστηκυῖα στήλη ἁλός.",
+     "giguet": "Et, en témoignage de leur perversité, cette terre demeure aride et fumante, et de ses arbres les fruits ne mûrissent pas&nbsp;; et une statue de sel est le mémorial de la femme incrédule.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "σοφίαν γὰρ παροδεύσαντες οὐ μόνον ἐβλάβησαν τοῦ μὴ γνῶναι τὰ καλά ἀλλὰ καὶ τῆς ἀφροσύνης ἀπέλιπον τῷ βίῳ μνημόσυνον ἵνα ἐν οἷς ἐσφάλησαν μηδὲ λαθεῖν δυνηθῶσιν.",
+     "giguet": "Car ceux qui abandonnent la Sagesse, non seulement se sont fait le tort de ne plus connaître le bien, mais encore ils ont laissé à la terre le mémorial de leur démence, de telle sorte qu'ils ne puissent même cacher en quoi ils avaient failli.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "σοφία δὲ τοὺς θεραπεύοντας αὐτὴν ἐκ πόνων ἐρρύσατο.",
+     "giguet": "Au contraire, la Sagesse a tiré de peine ceux qui l'avaient servie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "αὕτη φυγάδα ὀργῆς ἀδελφοῦ δίκαιον ὡδήγησεν ἐν τρίβοις εὐθείαις ἔδειξεν αὐτῷ βασιλείαν θεοῦ καὶ ἔδωκεν αὐτῷ γνῶσιν ἁγίων εὐπόρησεν αὐτὸν ἐν μόχθοις καὶ ἐπλήθυνεν τοὺς πόνους αὐτοῦ.",
+     "giguet": "C'est elle qui conduisit dans la voie étroite le juste fuyant le courroux d'un frère&nbsp;; elle qui lui montra le Royaume de Dieu, et lui donna la science des choses saintes&nbsp;; elle qui le récompensa de ses fatigues, et multiplia le fruit de ses travaux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἐν πλεονεξίᾳ κατισχυόντων αὐτὸν παρέστη καὶ ἐπλούτισεν αὐτόν.",
+     "giguet": "C'est elle qui l'assista contre la convoitise de ceux qui lui faisaient violence, et qui l'enrichit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "διεφύλαξεν αὐτὸν ἀπὸ ἐχθρῶν καὶ ἀπὸ ἐνεδρευόντων ἠσφαλίσατο καὶ ἀγῶνα ἰσχυρὸν ἐβράβευσεν αὐτῷ ἵνα γνῷ ὅτι παντὸς δυνατωτέρα ἐστὶν εὐσέβεια.",
+     "giguet": "C'est elle qui le protégea contre ses ennemis, l'affermit contre les séducteurs, et lui décerna le prix d'une lutte pénible, pour lui apprendre que la piété est plus forte que toute chose.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "αὕτη πραθέντα δίκαιον οὐκ ἐγκατέλιπεν ἀλλὰ ἐξ ἁμαρτίας ἐρρύσατο αὐτόν.",
+     "giguet": "Elle ne lui délaissa point le juste qu'on avait vendu&nbsp;; mais elle le préserva du péché. Elle descendit avec lui dans la citerne&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "συγκατέβη αὐτῷ εἰς λάκκον καὶ ἐν δεσμοῖς οὐκ ἀφῆκεν αὐτόν ἕως ἤνεγκεν αὐτῷ σκῆπτρα βασιλείας καὶ ἐξουσίαν τυραννούντων αὐτοῦ ψευδεῖς τε ἔδειξεν τοὺς μωμησαμένους αὐτὸν καὶ ἔδωκεν αὐτῷ δόξαν αἰώνιον.",
+     "giguet": "et, dans la prison, elle ne l'abandonna point avant de lui avoir donné le sceptre royal et le pouvoir sur ceux qui le tyrannisaient. Elle convainquit de mensonge ses accusateurs, et lui assura une gloire éternelle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "αὕτη λαὸν ὅσιον καὶ σπέρμα ἄμεμπτον ἐρρύσατο ἐξ ἔθνους θλιβόντων.",
+     "giguet": "Elle délivra d'une nation qui l'opprimait un peuple saint, une race irréprochable.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "εἰσῆλθεν εἰς ψυχὴν θεράποντος κυρίου καὶ ἀντέστη βασιλεῦσιν φοβεροῖς ἐν τέρασι καὶ σημείοις.",
+     "giguet": "Elle entra dans l'âme du serviteur de Dieu, et il tint tête à des rois redoutables, en faisant des signes et des prodiges.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ἀπέδωκεν ὁσίοις μισθὸν κόπων αὐτῶν ὡδήγησεν αὐτοὺς ἐν ὁδῷ θαυμαστῇ καὶ ἐγένετο αὐτοῖς εἰς σκέπην ἡμέρας καὶ εἰς φλόγα ἄστρων τὴν νύκτα.",
+     "giguet": "Elle rendit aux saints le salaire de leurs travaux&nbsp;; elle les guida dans une voie merveilleuse&nbsp;; elle fut pour eux comme un voile le jour, et la nuit comme la lumière des étoiles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "διεβίβασεν αὐτοὺς θάλασσαν ἐρυθρὰν καὶ διήγαγεν αὐτοὺς δι' ὕδατος πολλοῦ.",
+     "giguet": "Elle leur fit passer la mer Rouge et les conduisit à travers les grandes eaux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "τοὺς δὲ ἐχθροὺς αὐτῶν κατέκλυσεν καὶ ἐκ βάθους ἀβύσσου ἀνέβρασεν αὐτούς.",
+     "giguet": "Puis, ayant submergé leurs ennemis, elle les fit sortir du fond de l'abîme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "διὰ τοῦτο δίκαιοι ἐσκύλευσαν ἀσεβεῖς καὶ ὕμνησαν κύριε τὸ ὄνομα τὸ ἅγιόν σου τήν τε ὑπέρμαχόν σου χεῖρα ᾔνεσαν ὁμοθυμαδόν.",
+     "giguet": "C'est pourquoi les justes s'emparèrent de la dépouilles des impies, et ils chantèrent, ô Seigneur, ton saint Nom, et louèrent tout d'une voix ta main tutélaire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "ὅτι ἡ σοφία ἤνοιξεν στόμα κωφῶν καὶ γλώσσας νηπίων ἔθηκεν τρανάς.",
+     "giguet": "Car la Sagesse a ouvert la bouche des muets, et a fait éloquente la langue des enfants.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 11,
+   "libelle": "11",
+   "fichierToc": "WIS/011.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "εὐόδωσεν τὰ ἔργα αὐτῶν ἐν χειρὶ προφήτου ἁγίου.",
+     "giguet": "Elle a dirigé leurs œuvres par les mains du saint prophète.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "διώδευσαν ἔρημον ἀοίκητον καὶ ἐν ἀβάτοις ἔπηξαν σκηνάς.",
+     "giguet": "Ils ont parcouru un désert inhabité&nbsp;; ils ont dressé leurs tentes en des lieux infréquentés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἀντέστησαν πολεμίοις καὶ ἐχθροὺς ἠμύναντο.",
+     "giguet": "Ils ont tenu tête à leurs ennemis, et ils ont repoussé leurs adversaires.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἐδίψησαν καὶ ἐπεκαλέσαντό σε καὶ ἐδόθη αὐτοῖς ἐκ πέτρας ἀκροτόμου ὕδωρ καὶ ἴαμα δίψης ἐκ λίθου σκληροῦ.",
+     "giguet": "Ils ont eu soif, et ils vous ont invoqué&nbsp;; et, du sommet du rocher, l'eau a jailli pour eux&nbsp;; et le remède à leur soif est sorti de la pierre dure.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "δι' ὧν γὰρ ἐκολάσθησαν οἱ ἐχθροὶ αὐτῶν διὰ τούτων αὐτοὶ ἀποροῦντες εὐεργετήθησαν.",
+     "giguet": "Par là, leurs ennemis ont été punis&nbsp;; par là, eux, dans leur détresse, ont été comblés de biens.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἀντὶ μὲν πηγῆς ἀενάου ποταμοῦ αἵματι λυθρώδει ταραχθέντος.",
+     "giguet": "Car, au lieu de la source intarissable du fleuve, les uns, tremblants, ont bu du sang immonde,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "εἰς ἔλεγχον νηπιοκτόνου διατάγματος ἔδωκας αὐτοῖς δαψιλὲς ὕδωρ ἀνελπίστως.",
+     "giguet": "et ont été châtiés par le massacre ordonné de leurs petits enfants&nbsp;; mais aux autres tu as donné une eau abondante et inespérée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "δείξας διὰ τοῦ τότε δίψους πῶς τοὺς ὑπεναντίους ἐκόλασας.",
+     "giguet": "Tu as montré alors, par cette soif, comment tu savais châtier tes ennemis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ὅτε γὰρ ἐπειράσθησαν καίπερ ἐν ἐλέει παιδευόμενοι ἔγνωσαν πῶς μετ' ὀργῆς κρινόμενοι ἀσεβεῖς ἐβασανίζοντο.",
+     "giguet": "Car, lorsqu'ils eurent été tentés et qu'ils eurent été repris, quoique avec miséricorde, ils reconnurent combien souffrent les impies que tu juges en ton courroux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "τούτους μὲν γὰρ ὡς πατὴρ νουθετῶν ἐδοκίμασας ἐκείνους δὲ ὡς ἀπότομος βασιλεὺς καταδικάζων ἐξήτασας.",
+     "giguet": "Mais eux, tu les as éprouvés en les admonestant comme un père&nbsp;; et les autres, après les avoir interrogés, tu les as condamnés comme un roi irrité.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἀπόντες δὲ καὶ παρόντες ὁμοίως ἐτρύχοντο.",
+     "giguet": "Absents comme présents, les impies ont été pareillement torturés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "διπλῆ γὰρ αὐτοὺς ἔλαβεν λύπη καὶ στεναγμὸς μνημῶν τῶν παρελθόντων.",
+     "giguet": "Car une double affliction les a saisis, et ils ont gémi en se souvenant du passé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ὅτε γὰρ ἤκουσαν διὰ τῶν ἰδίων κολάσεων εὐεργετημένους αὐτούς ᾔσθοντο τοῦ κυρίου.",
+     "giguet": "En effet, ils ont ouï que, par leur propre tourment, d'autres avaient reçu des bienfaits, et alors ils ont senti le Seigneur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ὃν γὰρ ἐν ἐκθέσει πάλαι ῥιφέντα ἀπεῖπον χλευάζοντες ἐπὶ τέλει τῶν ἐκβάσεων ἐθαύμασαν οὐχ ὅμοια δικαίοις διψήσαντες.",
+     "giguet": "Quand jadis Il était entré en explication avec eux, ils l'avaient méconnu et raillé&nbsp;; mais ils ont été bien surpris de l'issue des événements, n'ayant pas eu la même soif que les justes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ἀντὶ δὲ λογισμῶν ἀσυνέτων ἀδικίας αὐτῶν ἐν οἷς πλανηθέντες ἐθρήσκευον ἄλογα ἑρπετὰ καὶ κνώδαλα εὐτελῆ ἐπαπέστειλας αὐτοῖς πλῆθος ἀλόγων ζῴων εἰς ἐκδίκησιν.",
+     "giguet": "En expiation des faux raisonnements de leurs iniquités, qui les avaient égarés et entraînés à adorer des reptiles engourdis et des bêtes méprisables, tu leur as envoyé une multitude d'animaux sans raison,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἵνα γνῶσιν ὅτι δι' ὧν τις ἁμαρτάνει διὰ τούτων κολάζεται.",
+     "giguet": "afin qu'ils sachent que l'on est puni par où l'on a péché.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "οὐ γὰρ ἠπόρει ἡ παντοδύναμός σου χεὶρ καὶ κτίσασα τὸν κόσμον ἐξ ἀμόρφου ὕλης ἐπιπέμψαι αὐτοῖς πλῆθος ἄρκων ἢ θρασεῖς λέοντας.",
+     "giguet": "Ta main toute puissante, la main qui, d'une matière informe, a créé le monde, n'aurait pas eu de peine à leur envoyer une multitude d'ours, de lions audacieux,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἢ νεοκτίστους θυμοῦ πλήρεις θῆρας ἀγνώστους ἤτοι πυρπνόον φυσῶντας ἄσθμα ἢ βρόμον λικμωμένους καπνοῦ ἢ δεινοὺς ἀπ' ὀμμάτων σπινθῆρας ἀστράπτοντας.",
+     "giguet": "ou de bêtes inconnues d'une nouvelle espèce, et pleines de rage&nbsp;: les unes soufflant un air enflammé ou une fumée infecte&nbsp;; les autres lançant de leurs yeux de terribles étincelles&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ὧν οὐ μόνον ἡ βλάβη ἠδύνατο συνεκτρῖψαι αὐτούς ἀλλὰ καὶ ἡ ὄψις ἐκφοβήσασα διολέσαι.",
+     "giguet": "telles que non seulement leurs atteintes auraient pu les détruire, mais que leur aspect seul les eût frappés d'un effroi mortel.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ χωρὶς δὲ τούτων ἑνὶ πνεύματι πεσεῖν ἐδύναντο ὑπὸ τῆς δίκης διωχθέντες καὶ λικμηθέντες ὑπὸ πνεύματος δυνάμεώς σου ἀλλὰ πάντα μέτρῳ καὶ ἀριθμῷ καὶ σταθμῷ διέταξας.",
+     "giguet": "Et sans cela même, un souffle eût suffi pour les abattre, poursuivis par ta justice et vannés au vent de ta puissance. Mais tu as tout réglé avec poids et mesure.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "τὸ γὰρ μεγάλως ἰσχύειν σοι πάρεστιν πάντοτε καὶ κράτει βραχίονός σου τίς ἀντιστήσεται.",
+     "giguet": "Car c'est à toi qu'il appartient de prévaloir en tous lieux par la force&nbsp;; et qui donc résisterait à la puissance de ton bras&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "ὅτι ὡς ῥοπὴ ἐκ πλαστίγγων ὅλος ὁ κόσμος ἐναντίον σου καὶ ὡς ῥανὶς δρόσου ὀρθρινὴ κατελθοῦσα ἐπὶ γῆν.",
+     "giguet": "l'univers est devant toi comme le grain de sable qui fait pencher la balance, ou comme la goutte de rosée qui, le matin, descend sur la terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "ἐλεεῖς δὲ πάντας ὅτι πάντα δύνασαι καὶ παρορᾷς ἁμαρτήματα ἀνθρώπων εἰς μετάνοιαν.",
+     "giguet": "Mais tu as pitié de tous, parce que tu peux tout&nbsp;; et tu feins de ne point voir les péchés des hommes, en vue du repentir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "ἀγαπᾷς γὰρ τὰ ὄντα πάντα καὶ οὐδὲν βδελύσσῃ ὧν ἐποίησας οὐδὲ γὰρ ἂν μισῶν τι κατεσκεύασας.",
+     "giguet": "tu as aimé tous les êtres&nbsp;; tu n'as en abomination rien de ce que tu as créé, et tu n'as rien préparé de tu dusses haïr.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "πῶς δὲ διέμεινεν ἄν τι εἰ μὴ σὺ ἠθέλησας ἢ τὸ μὴ κληθὲν ὑπὸ σοῦ διετηρήθη.",
+     "giguet": "Quelle chose subsisterait, si tu ne le voulais&nbsp;; ou durerait, si tu ne l'avait appelée&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "26",
+     "grec": "φείδῃ δὲ πάντων ὅτι σά ἐστιν δέσποτα φιλόψυχε.",
+     "giguet": "Mais tu pardonnes à tous, parce que tout t'appartient, ô Maître qui aime les âmes&nbsp;!",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 12,
+   "libelle": "12",
+   "fichierToc": "WIS/012.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "τὸ γὰρ ἄφθαρτόν σου πνεῦμά ἐστιν ἐν πᾶσιν.",
+     "giguet": "Ton Esprit en toute chose est infaillible.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "διὸ τοὺς παραπίπτοντας κατ' ὀλίγον ἐλέγχεις καὶ ἐν οἷς ἁμαρτάνουσιν ὑπομιμνῄσκων νουθετεῖς ἵνα ἀπαλλαγέντες τῆς κακίας πιστεύσωσιν ἐπὶ σέ κύριε.",
+     "giguet": "Aussi, peu à peu tu réprimandes ceux qui tombent&nbsp;; tu avertis les pécheurs, en ranimant leurs souvenirs, afin que, se corrigeant de leur malice, ils aient foi en toi, Seigneur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ γὰρ τοὺς πάλαι οἰκήτορας τῆς ἁγίας σου γῆς.",
+     "giguet": "Car tu as pris en haine les anciens habitants de ta terre sainte,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "μισήσας ἐπὶ τῷ ἔχθιστα πράσσειν ἔργα φαρμακειῶν καὶ τελετὰς ἀνοσίους.",
+     "giguet": "parce qu'ils avaient fait les œuvres odieuses des enchanteurs, et qu'ils avaient des initiations impies&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "τέκνων τε φονὰς ἀνελεήμονας καὶ σπλαγχνοφάγον ἀνθρωπίνων σαρκῶν θοῖναν καὶ αἵματος ἐκ μέσου μύστας θιάσου.",
+     "giguet": "parce qu'ils égorgeaient sans pitié leurs enfants, qu'ils mangeaient des entrailles humaines, et buvaient le sang au milieu de tes fêtes,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ αὐθέντας γονεῖς ψυχῶν ἀβοηθήτων ἐβουλήθης ἀπολέσαι διὰ χειρῶν πατέρων ἡμῶν.",
+     "giguet": "et qu'ils étaient ainsi pères et homicides d'âmes abandonnées&nbsp;; tu as donc voulu les exterminer, par les mains de nos pères,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἵνα ἀξίαν ἀποικίαν δέξηται θεοῦ παίδων ἡ παρὰ σοὶ πασῶν τιμιωτάτη γῆ.",
+     "giguet": "afin que cette terre qui, entre toutes, était la plus aimée de toi, devînt un lieu de passage pour les enfants de Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἀλλὰ καὶ τούτων ὡς ἀνθρώπων ἐφείσω ἀπέστειλάς τε προδρόμους τοῦ στρατοπέδου σου σφῆκας ἵνα αὐτοὺς κατὰ βραχὺ ἐξολεθρεύσωσιν.",
+     "giguet": "Cependant tu as eu pour eux des ménagements comme hommes&nbsp;: tu leur as envoyé, comme les avant-coureurs d'une armée, des essaims de guêpes pour les détruire peu à peu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "οὐκ ἀδυνατῶν ἐν παρατάξει ἀσεβεῖς δικαίοις ὑποχειρίους δοῦναι ἢ θηρίοις δεινοῖς ἢ λόγῳ ἀποτόμῳ ὑφ' ἓν ἐκτρῖψαι.",
+     "giguet": "Tu pouvais sans doute en une seule bataille soumettre les impies aux justes, ou les livrer à des bêtes terribles, ou les exterminer d'un seul mot&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "κρίνων δὲ κατὰ βραχὺ ἐδίδους τόπον μετανοίας οὐκ ἀγνοῶν ὅτι πονηρὰ ἡ γένεσις αὐτῶν καὶ ἔμφυτος ἡ κακία αὐτῶν καὶ ὅτι οὐ μὴ ἀλλαγῇ ὁ λογισμὸς αὐτῶν εἰς τὸν αἰῶνα.",
+     "giguet": "mais, en les jugeant peu à peu, tu as donné place au repentir, quoique n'ignorant pas qu'ils avaient une origine mauvaise, que la malice était chez eux innée, et que leur pensée ne changerait pas dans la suite des siècles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "σπέρμα γὰρ ἦν κατηραμένον ἀπ' ἀρχῆς οὐδὲ εὐλαβούμενός τινα ἐφ' οἷς ἡμάρτανον ἄδειαν ἐδίδους.",
+     "giguet": "Leur race, en effet, dès le commencement était maudite, et nul égard ne te portait à laisser leurs péchés impunis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "τίς γὰρ ἐρεῖ τί ἐποίησας ἢ τίς ἀντιστήσεται τῷ κρίματί σου τίς δὲ ἐγκαλέσει σοι κατὰ ἐθνῶν ἀπολωλότων ἃ σὺ ἐποίησας ἢ τίς εἰς κατάστασίν σοι ἐλεύσεται ἔκδικος κατὰ ἀδίκων ἀνθρώπων.",
+     "giguet": "Car qui dira&nbsp;: Qu'as-tu fait&nbsp;? Et qui se lèvera contre tes jugements&nbsp;? Qui t'imputera ce que tu as fait aux nations que tu as détruites&nbsp;? Et qui se posera devant toi comme vengeur des méchants&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "οὔτε γὰρ θεός ἐστιν πλὴν σοῦ ᾧ μέλει περὶ πάντων ἵνα δείξῃς ὅτι οὐκ ἀδίκως ἔκρινας.",
+     "giguet": "Nul, hormis toi, n'est Dieu&nbsp;; toi seul prends soin de toutes choses, pour montrer que tu ne juges pas injustement.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "οὔτε βασιλεὺς ἢ τύραννος ἀντοφθαλμῆσαι δυνήσεταί σοι περὶ ὧν ἐκόλασας.",
+     "giguet": "Il n'est point de roi ou de tyran qui puisse te reprocher en face ceux que tu as perdus.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "δίκαιος δὲ ὢν δικαίως τὰ πάντα διέπεις αὐτὸν τὸν μὴ ὀφείλοντα κολασθῆναι καταδικάσαι ἀλλότριον ἡγούμενος τῆς σῆς δυνάμεως.",
+     "giguet": "Mais tu es juste, et tu gouvernes avec justice&nbsp;; et tu estimes indigne de ta vertu de punir celui qui ne doit pas être puni.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἡ γὰρ ἰσχύς σου δικαιοσύνης ἀρχή καὶ τὸ πάντων σε δεσπόζειν πάντων φείδεσθαί σε ποιεῖ.",
+     "giguet": "Car ta force est le commencement de la justice, et le pouvoir que tu as sur tout te fait tout épargner.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ἰσχὺν γὰρ ἐνδείκνυσαι ἀπιστούμενος ἐπὶ δυνάμεως τελειότητι καὶ ἐν τοῖς εἰδόσι τὸ θράσος ἐξελέγχεις.",
+     "giguet": "Tu montres cette force à ceux qui doutent de la perfection de ta vertu, et tu punis l'audace de ceux qui la connaissent et la bravent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "σὺ δὲ δεσπόζων ἰσχύος ἐν ἐπιεικείᾳ κρίνεις καὶ μετὰ πολλῆς φειδοῦς διοικεῖς ἡμᾶς πάρεστιν γάρ σοι ὅταν θέλῃς τὸ δύνασθαι.",
+     "giguet": "Maître de ta force, tu juges avec douceur et tu nous gouvernes avec beaucoup de ménagements&nbsp;; car il t'appartient de pouvoir quand tu veux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ἐδίδαξας δέ σου τὸν λαὸν διὰ τῶν τοιούτων ἔργων ὅτι δεῖ τὸν δίκαιον εἶναι φιλάνθρωπον καὶ εὐέλπιδας ἐποίησας τοὺς υἱούς σου ὅτι διδοῖς ἐπὶ ἁμαρτήμασιν μετάνοιαν.",
+     "giguet": "Et, par de telles œuvres, tu as appris à ton peuple qu'il doit être juste et humain, et tu as rempli tes fils d'espérance, en leur donnant le repentir après leurs fautes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "εἰ γὰρ ἐχθροὺς παίδων σου καὶ ὀφειλομένους θανάτῳ μετὰ τοσαύτης ἐτιμωρήσω προσοχῆς καὶ διέσεως δοὺς χρόνους καὶ τόπον δι' ὧν ἀπαλλαγῶσι τῆς κακίας.",
+     "giguet": "Mais si en punissant les ennemis de tes enfants, voués justement à la mort, tu y a mis tant de prudence et d'égards&nbsp;; si tu leur as accordé le temps et l'occasion de se corriger de leur malice,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "μετὰ πόσης ἀκριβείας ἔκρινας τοὺς υἱούς σου ὧν τοῖς πατράσιν ὅρκους καὶ συνθήκας ἔδωκας ἀγαθῶν ὑποσχέσεων.",
+     "giguet": "avec quelle attention n'as-tu pas jugé tes fils, en faisant avec leurs pères des alliances et des serments de bonnes promesses&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "ἡμᾶς οὖν παιδεύων τοὺς ἐχθροὺς ἡμῶν ἐν μυριότητι μαστιγοῖς ἵνα σου τὴν ἀγαθότητα μεριμνῶμεν κρίνοντες κρινόμενοι δὲ προσδοκῶμεν ἔλεος.",
+     "giguet": "Lors donc que tu nous corriges, tu flagelles de mille manières tes ennemis, afin que, jugeant, nous songions à ton amour, et que, jugés, nous espérions en ta miséricorde.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "ὅθεν καὶ τοὺς ἐν ἀφροσύνῃ ζωῆς βιώσαντας ἀδίκως διὰ τῶν ἰδίων ἐβασάνισας βδελυγμάτων.",
+     "giguet": "De là vient aussi que tu as fait souffrir, à cause de leurs abominations, les méchants qui avaient vécu dans la folie et l'iniquité.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "καὶ γὰρ τῶν πλάνης ὁδῶν μακρότερον ἐπλανήθησαν θεοὺς ὑπολαμβάνοντες τὰ καὶ ἐν ζῴοις τῶν αἰσχρῶν ἄτιμα νηπίων δίκην ἀφρόνων ψευσθέντες.",
+     "giguet": "Ils s'étaient au loin égarés dans les voies de l'erreur, prenant pour dieux les plus vils des animaux malfaisants, égarés comme des enfants sans raison.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "διὰ τοῦτο ὡς παισὶν ἀλογίστοις τὴν κρίσιν εἰς ἐμπαιγμὸν ἔπεμψας.",
+     "giguet": "Ainsi les as-tu frappés d'un jugement dérisoire, comme des enfants insensés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "26",
+     "grec": "οἱ δὲ παιγνίοις ἐπιτιμήσεως μὴ νουθετηθέντες ἀξίαν θεοῦ κρίσιν πειράσουσιν.",
+     "giguet": "Et ceux que n'ont point avertis des réprimandes enjouées, feront l'épreuve d'un jugement digne de Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "27",
+     "grec": "ἐφ' οἷς γὰρ αὐτοὶ πάσχοντες ἠγανάκτουν ἐπὶ τούτοις οὓς ἐδόκουν θεούς ἐν αὐτοῖς κολαζόμενοι ἰδόντες ὃν πάλαι ἠρνοῦντο εἰδέναι θεὸν ἐπέγνωσαν ἀληθῆ διὸ καὶ τὸ τέρμα τῆς καταδίκης ἐπ' αὐτοὺς ἐπῆλθεν.",
+     "giguet": "Touchés de leurs souffrances, ils se sont indignés contre ce qu'ils croyaient des dieux&nbsp;; châtiés par eux, ils ont reconnu que ce Dieu qu'ils avaient d'abord rejeté est le vrai Dieu, et c'est ainsi que la fin de leur condamnation est venue.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 13,
+   "libelle": "13",
+   "fichierToc": "WIS/013.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "μάταιοι μὲν γὰρ πάντες ἄνθρωποι φύσει οἷς παρῆν θεοῦ ἀγνωσία καὶ ἐκ τῶν ὁρωμένων ἀγαθῶν οὐκ ἴσχυσαν εἰδέναι τὸν ὄντα οὔτε τοῖς ἔργοις προσέχοντες ἐπέγνωσαν τὸν τεχνίτην.",
+     "giguet": "Tous les hommes, en qui est l'ignorance de Dieu, sont vains par nature&nbsp;; ayant vu le bien, ils n'ont pu connaître Celui qui est&nbsp;; ayant considéré les œuvres, ils n'ont pas connu l'Artisan.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἀλλ' ἢ πῦρ ἢ πνεῦμα ἢ ταχινὸν ἀέρα ἢ κύκλον ἄστρων ἢ βίαιον ὕδωρ ἢ φωστῆρας οὐρανοῦ πρυτάνεις κόσμου θεοὺς ἐνόμισαν.",
+     "giguet": "Ils ont regardé comme des cieux, régulateurs du monde, soit le feu, soit le vent, soit l'air mobile, soit le cercle des étoiles, soit l'onde impétueuse, soit les luminaires du ciel.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ὧν εἰ μὲν τῇ καλλονῇ τερπόμενοι ταῦτα θεοὺς ὑπελάμβανον γνώτωσαν πόσῳ τούτων ὁ δεσπότης ἐστὶ βελτίων ὁ γὰρ τοῦ κάλλους γενεσιάρχης ἔκτισεν αὐτά.",
+     "giguet": "Si, charmés de leur beauté, ils les ont pris pour des dieux, qu'ils comprennent combien est plus beau le Maître, puisque le Créateur même de la beauté à créé ces êtres.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "εἰ δὲ δύναμιν καὶ ἐνέργειαν ἐκπλαγέντες νοησάτωσαν ἀπ' αὐτῶν πόσῳ ὁ κατασκευάσας αὐτὰ δυνατώτερός ἐστιν.",
+     "giguet": "S'ils ont été émerveillés de leur force et de leur énergie, qu'ils songent combien Celui qui les a mis en ordre est plus fort qu'eux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ἐκ γὰρ μεγέθους καὶ καλλονῆς κτισμάτων ἀναλόγως ὁ γενεσιουργὸς αὐτῶν θεωρεῖται.",
+     "giguet": "Car il est visible qu'à la grandeur et à la beauté des créatures correspondent la grandeur et la beauté du Créateur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἀλλ' ὅμως ἐπὶ τούτοις μέμψις ἐστὶν ὀλίγη καὶ γὰρ αὐτοὶ τάχα πλανῶνται θεὸν ζητοῦντες καὶ θέλοντες εὑρεῖν.",
+     "giguet": "Mais enfin, à ces hommes il y a d'abord peu de reproches à faire&nbsp;; car ils s'égarent facilement, cherchant Dieu et Le voulant trouver.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἐν γὰρ τοῖς ἔργοις αὐτοῦ ἀναστρεφόμενοι διερευνῶσιν καὶ πείθονται τῇ ὄψει ὅτι καλὰ τὰ βλεπόμενα.",
+     "giguet": "Attirés par Ses œuvres, ils s'enquièrent et ont foi en l'apparence, tant ce qu'ils voient est beau.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "πάλιν δ' οὐδ' αὐτοὶ συγγνωστοί.",
+     "giguet": "Mais ensuite, s'ils persistent, ils sont impardonnables.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "εἰ γὰρ τοσοῦτον ἴσχυσαν εἰδέναι ἵνα δύνωνται στοχάσασθαι τὸν αἰῶνα τὸν τούτων δεσπότην πῶς τάχιον οὐχ εὗρον.",
+     "giguet": "Car s'ils ont pu en savoir assez pour estimer les choses du temps, comment ont-ils tardé à trouver Celui qui en dispose&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ταλαίπωροι δὲ καὶ ἐν νεκροῖς αἱ ἐλπίδες αὐτῶν οἵτινες ἐκάλεσαν θεοὺς ἔργα χειρῶν ἀνθρώπων χρυσὸν καὶ ἄργυρον τέχνης ἐμμελέτημα καὶ ἀπεικάσματα ζῴων ἢ λίθον ἄχρηστον χειρὸς ἔργον ἀρχαίας.",
+     "giguet": "Mais ceux-là sont malheureux (et leur espérance est parmi les morts), qui ont appelé «&nbsp;dieu&nbsp;» des ouvrages de la main des hommes, or ou argent, productions de l'art, images des animaux ou pierre inerte, travail d'un artisan irréfléchi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "εἰ δὲ καί τις ὑλοτόμος τέκτων εὐκίνητον φυτὸν ἐκπρίσας περιέξυσεν εὐμαθῶς πάντα τὸν φλοιὸν αὐτοῦ καὶ τεχνησάμενος εὐπρεπῶς κατεσκεύασεν χρήσιμον σκεῦος εἰς ὑπηρεσίαν ζωῆς.",
+     "giguet": "Si quelque ouvrier habile à travailler le bois, ayant scié un arbre facile à tourner, l'a dépouillé adroitement de son écorce et en a fait un meuble utile aux usages de la vie,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "τὰ δὲ ἀποβλήματα τῆς ἐργασίας εἰς ἑτοιμασίαν τροφῆς ἀναλώσας ἐνεπλήσθη.",
+     "giguet": "les rebuts de son œuvre, il les a pris pour apprêter ses aliments, et il s'est rassasié.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "τὸ δὲ ἐξ αὐτῶν ἀπόβλημα εἰς οὐθὲν εὔχρηστον ξύλον σκολιὸν καὶ ὄζοις συμπεφυκός λαβὼν ἔγλυψεν ἐν ἐπιμελείᾳ ἀργίας αὐτοῦ καὶ ἐμπειρίᾳ συνέσεως ἐτύπωσεν αὐτό ἀπείκασεν αὐτὸ εἰκόνι ἀνθρώπου.",
+     "giguet": "Et ce qu'il en doit rejeter encore, ce qui n'est bon à rien, le bois tortu et noueux, il l'a pris, il l'a sculpté avec soin, à ses heures de loisir&nbsp;; il lui a donné une figure avec la science de son art il en a reproduit l'image d'un homme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἢ ζῴῳ τινὶ εὐτελεῖ ὡμοίωσεν αὐτὸ καταχρίσας μίλτῳ καὶ φύκει ἐρυθήνας χρόαν αὐτοῦ καὶ πᾶσαν κηλῖδα τὴν ἐν αὐτῷ καταχρίσας.",
+     "giguet": "Ou bien il en a fait la ressemblance de quelque vil animal&nbsp;; puis il l'a frotté de vermillon, il l'a fardé de rouge, et il en a masqué tous les défauts.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ποιήσας αὐτῷ αὐτοῦ ἄξιον οἴκημα ἐν τοίχῳ ἔθηκεν αὐτὸ ἀσφαλισάμενος σιδήρῳ.",
+     "giguet": "Ensuite il a fait dans son mur une niche digne de son œuvre&nbsp;; il l'y a posé, et il l'a assujetti avec du fer,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἵνα μὲν οὖν μὴ καταπέσῃ προενόησεν αὐτοῦ εἰδὼς ὅτι ἀδυνατεῖ ἑαυτῷ βοηθῆσαι καὶ γάρ ἐστιν εἰκὼν καὶ χρείαν ἔχει βοηθείας.",
+     "giguet": "de peur qu'il ne vînt à tomber&nbsp;; il a tout prévu pour lui, sachant qu'il ne pourrait s'aider lui-même, puisque ce n'est qu'une image ayant besoin d'appui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "περὶ δὲ κτημάτων καὶ γάμων αὐτοῦ καὶ τέκνων προσευχόμενος οὐκ αἰσχύνεται τῷ ἀψύχῳ προσλαλῶν καὶ περὶ μὲν ὑγιείας τὸ ἀσθενὲς ἐπικαλεῖται.",
+     "giguet": "Enfin, il le prie pour ses biens, ses noces, ses enfants&nbsp;; il n'a point honte de parler à cette chose sans âme, il invoque pour sa santé ce qui est infirme,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "περὶ δὲ ζωῆς τὸ νεκρὸν ἀξιοῖ περὶ δὲ ἐπικουρίας τὸ ἀπειρότατον ἱκετεύει περὶ δὲ ὁδοιπορίας τὸ μηδὲ βάσει χρῆσθαι δυνάμενον.",
+     "giguet": "et pour sa vie ce qui est mort&nbsp;; il appelle à son aide l'objet le plus inerte. Veut-il faire un voyage&nbsp;? Il s'adresse à ce qui ne peut se tenir sur ses pieds.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "περὶ δὲ πορισμοῦ καὶ ἐργασίας καὶ χειρῶν ἐπιτυχίας τὸ ἀδρανέστατον ταῖς χερσὶν εὐδράνειαν αἰτεῖται.",
+     "giguet": "Veut-il acheter ou faire œuvre de ses mains&nbsp;? Il implore l'habileté des mains les plus inhabiles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 14,
+   "libelle": "14",
+   "fichierToc": "WIS/014.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "πλοῦν τις πάλιν στελλόμενος καὶ ἄγρια μέλλων διοδεύειν κύματα τοῦ φέροντος αὐτὸν πλοίου σαθρότερον ξύλον ἐπιβοᾶται.",
+     "giguet": "D'autre part, un homme se met en mer&nbsp;; il est sur le point de traverser les flots indomptés&nbsp;; il invoque à grands cris un bois plus frêle que le navire qui le porte.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἐκεῖνο μὲν γὰρ ὄρεξις πορισμῶν ἐπενόησεν τεχνῖτις δὲ σοφία κατεσκεύασεν.",
+     "giguet": "Car c'est là ce que le désir du gain a inventé, et la sagesse de l'artisan l'a ainsi préparé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἡ δὲ σή πάτερ διακυβερνᾷ πρόνοια ὅτι ἔδωκας καὶ ἐν θαλάσσῃ ὁδὸν καὶ ἐν κύμασι τρίβον ἀσφαλῆ.",
+     "giguet": "Mais toi, ô Père&nbsp;; ta providence gouverne elle-même&nbsp;; car tu as donné une voie à la mer, et des sentiers certains sur les vagues,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "δεικνὺς ὅτι δύνασαι ἐκ παντὸς σῴζειν ἵνα κἂν ἄνευ τέχνης τις ἐπιβῇ.",
+     "giguet": "montrant que partout il est en ton pouvoir de sauver, afin que même ceux qui sont sans technique osent s'embarquer.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "θέλεις δὲ μὴ ἀργὰ εἶναι τὰ τῆς σοφίας σου ἔργα διὰ τοῦτο καὶ ἐλαχίστῳ ξύλῳ πιστεύουσιν ἄνθρωποι ψυχὰς καὶ διελθόντες κλύδωνα σχεδίᾳ διεσώθησαν.",
+     "giguet": "Tu as voulu que nulle des œuvres de ta sagesse ne fût inutile&nbsp;; c'est pour cela que les hommes confient leur âme à un peu de bois, et que, fendant les vagues avec leur barque, ils sont sauvés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἀρχῆς γὰρ ἀπολλυμένων ὑπερηφάνων γιγάντων ἡ ἐλπὶς τοῦ κόσμου ἐπὶ σχεδίας καταφυγοῦσα ἀπέλιπεν αἰῶνι σπέρμα γενέσεως τῇ σῇ κυβερνηθεῖσα χειρί.",
+     "giguet": "Et, au commencement, quand furent exterminés les géants superbes, l'espérance du monde, réfugiée dans une arche, conserva au monde la semence de la génération d'où il devait naître, en la confiant à ta main qui l'avait dirigée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "εὐλόγηται γὰρ ξύλον δι' οὗ γίνεται δικαιοσύνη.",
+     "giguet": "Car le bois est béni, par lequel justice est faite.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "τὸ χειροποίητον δέ ἐπικατάρατον αὐτὸ καὶ ὁ ποιήσας αὐτό ὅτι ὁ μὲν ἠργάζετο τὸ δὲ φθαρτὸν θεὸς ὠνομάσθη.",
+     "giguet": "Mais le bois que la main a façonné est maudit, lui et l'homme qui a fait l'œuvre&nbsp;: l'un pour y avoir travaillé, l'autre parce que, quoique corruptible, elle a été appelée Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἐν ἴσῳ γὰρ μισητὰ θεῷ καὶ ὁ ἀσεβῶν καὶ ἡ ἀσέβεια αὐτοῦ.",
+     "giguet": "Car Dieu hait pareillement et l'impie et son impiété.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ γὰρ τὸ πραχθὲν σὺν τῷ δράσαντι κολασθήσεται.",
+     "giguet": "Et l'œuvre sera condamnée, de même que l'artisan.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "διὰ τοῦτο καὶ ἐν εἰδώλοις ἐθνῶν ἐπισκοπὴ ἔσται ὅτι ἐν κτίσματι θεοῦ εἰς βδέλυγμα ἐγενήθησαν καὶ εἰς σκάνδαλα ψυχαῖς ἀνθρώπων καὶ εἰς παγίδα ποσὶν ἀφρόνων.",
+     "giguet": "C'est pourquoi aussi les idoles des gentils ne seront point épargnées&nbsp;; en effet, elles sont pour la création de Dieu une souillure&nbsp;; pour les âmes des hommes, un piège&nbsp;; pour les pieds des insensés, un filet.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἀρχὴ γὰρ πορνείας ἐπίνοια εἰδώλων εὕρεσις δὲ αὐτῶν φθορὰ ζωῆς.",
+     "giguet": "La pensée de faire des idoles est le principe de la prostitution&nbsp;; leur invention est la perdition de la vie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "οὔτε γὰρ ἦν ἀπ' ἀρχῆς οὔτε εἰς τὸν αἰῶνα ἔσται.",
+     "giguet": "Car, au commencement, l'idolâtrie n'était point, et elle ne sera pas toujours.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "κενοδοξίᾳ γὰρ ἀνθρώπων εἰσῆλθεν εἰς τὸν κόσμον καὶ διὰ τοῦτο σύντομον αὐτῶν τὸ τέλος ἐπενοήθη.",
+     "giguet": "Elle est venue dans le monde par la vanité des hommes, et c'est pourquoi on a senti que la fin en serait prochaine.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ἀώρῳ γὰρ πένθει τρυχόμενος πατὴρ τοῦ ταχέως ἀφαιρεθέντος τέκνου εἰκόνα ποιήσας τόν ποτε νεκρὸν ἄνθρωπον νῦν ὡς θεὸν ἐτίμησεν καὶ παρέδωκεν τοῖς ὑποχειρίοις μυστήρια καὶ τελετάς.",
+     "giguet": "Un père accablé d'une douleur excessive par la perte prématurée de son fils a fait faire son image&nbsp;; et celui qui était tout à l'heure un homme mort, il l'a honoré comme un dieu, et il a confié à des serviteurs ses mystères et ses initiations.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "εἶτα ἐν χρόνῳ κρατυνθὲν τὸ ἀσεβὲς ἔθος ὡς νόμος ἐφυλάχθη.",
+     "giguet": "Avec le temps, cette coutume impie, s'étant fortifiée, a été gardée comme loi&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ τυράννων ἐπιταγαῖς ἐθρησκεύετο τὰ γλυπτά οὓς ἐν ὄψει μὴ δυνάμενοι τιμᾶν ἄνθρωποι διὰ τὸ μακρὰν οἰκεῖν τὴν πόρρωθεν ὄψιν ἀνατυπωσάμενοι ἐμφανῆ εἰκόνα τοῦ τιμωμένου βασιλέως ἐποίησαν ἵνα ὡς παρόντα τὸν ἀπόντα κολακεύωσιν διὰ τῆς σπουδῆς.",
+     "giguet": "et, par l'ordre des tyrans, des statues ont été adorées. Ceux que les hommes ne pouvaient honorer en face, parce qu'ils habitaient au loin, ils en ont fait prendre l'image, et ont exposé à tous les regards la statue d'un roi qu'ils voulaient vénérer, afin que, présent ou absent, ils le flattassent avec le même zèle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "εἰς ἐπίτασιν δὲ θρησκείας καὶ τοὺς ἀγνοοῦντας ἡ τοῦ τεχνίτου προετρέψατο φιλοτιμία.",
+     "giguet": "De plus, l'émulation de l'artiste attira les ignorants dans l'égarement de cette superstition.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ὁ μὲν γὰρ τάχα κρατοῦντι βουλόμενος ἀρέσαι ἐξεβιάσατο τῇ τέχνῃ τὴν ὁμοιότητα ἐπὶ τὸ κάλλιον.",
+     "giguet": "Car, voulant s'empresser de plaire au maître, il s'efforça par son art d'embellir le modèle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "τὸ δὲ πλῆθος ἐφελκόμενον διὰ τὸ εὔχαρι τῆς ἐργασίας τὸν πρὸ ὀλίγου τιμηθέντα ἄνθρωπον νῦν σέβασμα ἐλογίσαντο.",
+     "giguet": "Et la multitude, séduite par la grâce de l'œuvre, honora d'un culte celui que naguère elle honorait comme un homme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ τοῦτο ἐγένετο τῷ βίῳ εἰς ἔνεδρον ὅτι ἢ συμφορᾷ ἢ τυραννίδι δουλεύσαντες ἄνθρωποι τὸ ἀκοινώνητον ὄνομα λίθοις καὶ ξύλοις περιέθεσαν.",
+     "giguet": "Et ce fut le piège où tombèrent les humains&nbsp;; soit hasard, soit servilité envers la tyrannie, ils donnèrent à la pierre ou au bois un nom qui ne pouvait lui appartenir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "εἶτ' οὐκ ἤρκεσεν τὸ πλανᾶσθαι περὶ τὴν τοῦ θεοῦ γνῶσιν ἀλλὰ καὶ ἐν μεγάλῳ ζῶντες ἀγνοίας πολέμῳ τὰ τοσαῦτα κακὰ εἰρήνην προσαγορεύουσιν.",
+     "giguet": "Ensuite il ne leur suffit pas d'avoir erré dans la connaissance de Dieu&nbsp;; mais, vivant dans la rude bataille de l'ignorance, ils donnèrent le nom de paix à tant et de si grands maux,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "ἢ γὰρ τεκνοφόνους τελετὰς ἢ κρύφια μυστήρια ἢ ἐμμανεῖς ἐξάλλων θεσμῶν κώμους ἄγοντες.",
+     "giguet": "soit en des initiations infanticides, soit en de secrets mystères, soit emportés, selon les lois, en des orgies furieuses.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "οὔτε βίους οὔτε γάμους καθαροὺς ἔτι φυλάσσουσιν ἕτερος δ' ἕτερον ἢ λοχῶν ἀναιρεῖ ἢ νοθεύων ὀδυνᾷ.",
+     "giguet": "Ils ne gardent plus aucune pureté, ni dans la vie ni dans le mariage&nbsp;: l'un tue l'autre en une embuscade, ou l'afflige par l'adultère.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "πάντα δ' ἐπιμὶξ ἔχει αἷμα καὶ φόνος κλοπὴ καὶ δόλος φθορά ἀπιστία τάραχος ἐπιορκία.",
+     "giguet": "Tout est pêle-mêle, sang et meurtre, larcin et fraude, perdition, perfidie, trouble, parjure,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "26",
+     "grec": "θόρυβος ἀγαθῶν χάριτος ἀμνηστία ψυχῶν μιασμός γενέσεως ἐναλλαγή γάμων ἀταξία μοιχεία καὶ ἀσέλγεια.",
+     "giguet": "persécution des justes, oubli de la grâce, souillure des âmes, confusion des naissances, dérèglement dans le mariage, adultère et débauche.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "27",
+     "grec": "ἡ γὰρ τῶν ἀνωνύμων εἰδώλων θρησκεία παντὸς ἀρχὴ κακοῦ καὶ αἰτία καὶ πέρας ἐστίν.",
+     "giguet": "le culte d'idoles infâmes est le principe, la cause et le comble des maux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "28",
+     "grec": "ἢ γὰρ εὐφραινόμενοι μεμήνασιν ἢ προφητεύουσιν ψευδῆ ἢ ζῶσιν ἀδίκως ἢ ἐπιορκοῦσιν ταχέως.",
+     "giguet": "Les joies de ceux qui les adorent sont des fureurs, leurs prophéties des mensonges, leur vie une suite d'iniquités, et ils sont toujours prêts à se parjurer.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "29",
+     "grec": "ἀψύχοις γὰρ πεποιθότες εἰδώλοις κακῶς ὀμόσαντες ἀδικηθῆναι οὐ προσδέχονται.",
+     "giguet": "En se confiant à des images sans âme, en prêtant de faux serments, ils ne croient pas se nuire à eux-mêmes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "30",
+     "grec": "ἀμφότερα δὲ αὐτοὺς μετελεύσεται τὰ δίκαια ὅτι κακῶς ἐφρόνησαν περὶ θεοῦ προσέχοντες εἰδώλοις καὶ ἀδίκως ὤμοσαν ἐν δόλῳ καταφρονήσαντες ὁσιότητος.",
+     "giguet": "Un double et juste châtiment les atteindra, parce qu'ils ont de Dieu une idée mauvaise en s'attachant aux idoles, et parce que, au mépris de toute sainteté, ils ont juré dans un esprit de fraude.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "31",
+     "grec": "οὐ γὰρ ἡ τῶν ὀμνυμένων δύναμις ἀλλ' ἡ τῶν ἁμαρτανόντων δίκη ἐπεξέρχεται ἀεὶ τὴν τῶν ἀδίκων παράβασιν.",
+     "giguet": "Car ce n'est point la puissance de ceux par qui on a juré, mais la justice infligée au péché, qui s'élève toujours contre l'iniquité des prévaricateurs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 15,
+   "libelle": "15",
+   "fichierToc": "WIS/015.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "σὺ δέ ὁ θεὸς ἡμῶν χρηστὸς καὶ ἀληθής μακρόθυμος καὶ ἐλέει διοικῶν τὰ πάντα.",
+     "giguet": "Mais toi, ô mon Dieu, tu es bon et vrai&nbsp;; tu es patient, et tu gouvernes toutes choses avec miséricorde.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ γὰρ ἐὰν ἁμάρτωμεν σοί ἐσμεν εἰδότες σου τὸ κράτος οὐχ ἁμαρτησόμεθα δέ εἰδότες ὅτι σοὶ λελογίσμεθα.",
+     "giguet": "Lors même que nous péchons, nous ne cessons pas d'être à toi, connaissant ta puissance&nbsp;; et si nous ne péchons pas, nous savons que nous sommes comptés parmi ceux qui t'appartiennent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "τὸ γὰρ ἐπίστασθαί σε ὁλόκληρος δικαιοσύνη καὶ εἰδέναι σου τὸ κράτος ῥίζα ἀθανασίας.",
+     "giguet": "Te connaître, c'est la parfaite justice&nbsp;; connaître ta puissance, c'est la racine de l'immortalité.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "οὔτε γὰρ ἐπλάνησεν ἡμᾶς ἀνθρώπων κακότεχνος ἐπίνοια οὐδὲ σκιαγράφων πόνος ἄκαρπος εἶδος σπιλωθὲν χρώμασιν διηλλαγμένοις.",
+     "giguet": "Pour nous, les inventions de l'art dépravé des hommes ne nous ont pas égarés, ni le travail stérile des peintres, image d'une sculpture aux couleurs changeantes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ὧν ὄψις ἄφροσιν εἰς ὄρεξιν ἔρχεται ποθεῖ τε νεκρᾶς εἰκόνος εἶδος ἄπνουν.",
+     "giguet": "Leur vue seule cause la honte des insensés&nbsp;; car ils se passionnent pour une image morte, pour une apparence inanimée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "κακῶν ἐρασταὶ ἄξιοί τε τοιούτων ἐλπίδων καὶ οἱ δρῶντες καὶ οἱ ποθοῦντες καὶ οἱ σεβόμενοι.",
+     "giguet": "Les hommes amis du mal sont dignes de tels dieux, et ceux qui ont fait ces dieux, et ceux qui les aiment, et ceux qui les adorent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ γὰρ κεραμεὺς ἁπαλὴν γῆν θλίβων ἐπίμοχθον πλάσσει πρὸς ὑπηρεσίαν ἡμῶν ἓν ἕκαστον ἀλλ' ἐκ τοῦ αὐτοῦ πηλοῦ ἀνεπλάσατο τά τε τῶν καθαρῶν ἔργων δοῦλα σκεύη τά τε ἐναντία πάντα ὁμοίως τούτων δὲ ἑτέρου τίς ἑκάστου ἐστὶν ἡ χρῆσις κριτὴς ὁ πηλουργός.",
+     "giguet": "Le potier, en pétrissant de la terre molle, à grand-peine façonne toute chose à notre usage&nbsp;; il fait avec la même argile les vases qui servent aux œuvres pures et aux œuvres qui ne le sont pas, et il juge à quoi chacun d'eux sera employé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ κακόμοχθος θεὸν μάταιον ἐκ τοῦ αὐτοῦ πλάσσει πηλοῦ ὃς πρὸ μικροῦ ἐκ γῆς γενηθεὶς μετ' ὀλίγον πορεύεται ἐξ ἧς ἐλήμφθη τὸ τῆς ψυχῆς ἀπαιτηθεὶς χρέος.",
+     "giguet": "Ensuite, par un vain labeur, avec la même argile, il fait un dieu, lui qui, tout à l'heure né de la terre, ne tardera pas à retourner d'où il est sorti, quand on lui réclamera la dette de son âme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἀλλ' ἔστιν αὐτῷ φροντὶς οὐχ ὅτι μέλλει κάμνειν οὐδ' ὅτι βραχυτελῆ βίον ἔχει ἀλλ' ἀντερείδεται μὲν χρυσουργοῖς καὶ ἀργυροχόοις χαλκοπλάστας τε μιμεῖται καὶ δόξαν ἡγεῖται ὅτι κίβδηλα πλάσσει.",
+     "giguet": "Mais ce qui le préoccupe, ce n'est pas la fatigue, ni la brièveté de sa vie, c'est de rivaliser avec le sculpteur en or ou en argent, et d'imiter le fondeur en cuivre&nbsp;; et il estime comme une gloire d'avoir fait une œuvre trompeuse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "σποδὸς ἡ καρδία αὐτοῦ καὶ γῆς εὐτελεστέρα ἡ ἐλπὶς αὐτοῦ πηλοῦ τε ἀτιμότερος ὁ βίος αὐτοῦ.",
+     "giguet": "Son cœur est cendre&nbsp;; son espérance est plus vile que la terre, et sa vie plus méprisable que la boue,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ὅτι ἠγνόησεν τὸν πλάσαντα αὐτὸν καὶ τὸν ἐμπνεύσαντα αὐτῷ ψυχὴν ἐνεργοῦσαν καὶ ἐμφυσήσαντα πνεῦμα ζωτικόν.",
+     "giguet": "parce qu'il a méconnu Celui qui l'a créé, qui l'a doué d'une âme créatrice, qui l'a inspiré de l'esprit de vie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἀλλ' ἐλογίσαντο παίγνιον εἶναι τὴν ζωὴν ἡμῶν καὶ τὸν βίον πανηγυρισμὸν ἐπικερδῆ δεῖν γάρ φησιν ὅθεν δή κἂν ἐκ κακοῦ πορίζειν.",
+     "giguet": "Mais ils se sont imaginé que notre vie est un jeu d'enfants, et notre conduite un divertissement lucratif&nbsp;; il faut, dit-on, acquérir n'importe comment, même par le mal.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "οὗτος γὰρ παρὰ πάντας οἶδεν ὅτι ἁμαρτάνει ὕλης γεώδους εὔθραυστα σκεύη καὶ γλυπτὰ δημιουργῶν.",
+     "giguet": "Car ce potier sait mieux que personne qu'il pèche en fabriquant avec une matière terrestre des idoles et des vases fragiles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "πάντες δὲ ἀφρονέστατοι καὶ τάλανες ὑπὲρ ψυχὴν νηπίου οἱ ἐχθροὶ τοῦ λαοῦ σου καταδυναστεύσαντες αὐτόν.",
+     "giguet": "Mais tous les ennemis de ton peuple, ceux qui ont dominé sur lui, sont plus malheureux et plus insensés que l'enfant qui vient de naître.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ὅτι καὶ πάντα τὰ εἴδωλα τῶν ἐθνῶν ἐλογίσαντο θεούς οἷς οὔτε ὀμμάτων χρῆσις εἰς ὅρασιν οὔτε ῥῖνες εἰς συνολκὴν ἀέρος οὔτε ὦτα ἀκούειν οὔτε δάκτυλοι χειρῶν εἰς ψηλάφησιν καὶ οἱ πόδες αὐτῶν ἀργοὶ πρὸς ἐπίβασιν.",
+     "giguet": "En effet, ils ont réputé dieux toutes les idoles des gentils, qui ne font point usage de leurs yeux pour voir, ni de leurs narines pour respirer l'air, ni de leurs oreilles pour entendre, ni des doigts de leurs mains pour toucher, ni de leurs pieds inertes pour se mouvoir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἄνθρωπος γὰρ ἐποίησεν αὐτούς καὶ τὸ πνεῦμα δεδανεισμένος ἔπλασεν αὐτούς οὐδεὶς γὰρ αὐτῷ ὅμοιον ἄνθρωπος ἰσχύει πλάσαι θεόν.",
+     "giguet": "Car un homme les a forgées, les a façonnées, lui qui avait reçu l'intelligence&nbsp;: or nul homme n'a le pouvoir de faire un dieu semblable à lui-même.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "θνητὸς δὲ ὢν νεκρὸν ἐργάζεται χερσὶν ἀνόμοις κρείττων γάρ ἐστιν τῶν σεβασμάτων αὐτοῦ ὧν αὐτὸς μὲν ἔζησεν ἐκεῖνα δὲ οὐδέποτε.",
+     "giguet": "Mortel, il a fait de sa main inique un mort&nbsp;; il vaut mieux lui-même que ce qu'il vénère, puisque, ayant reçu l'être, il a vécu, et ses dieux, jamais.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ τὰ ζῷα δὲ τὰ ἔχθιστα σέβονται ἀνοίᾳ γὰρ συγκρινόμενα τῶν ἄλλων ἐστὶ χείρονα.",
+     "giguet": "Cependant on honore d'un culte les animaux les plus vils&nbsp;; car, comparés aux autres, ils les dépassent en stupidité.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "οὐδ' ὅσον ἐπιποθῆσαι ὡς ἐν ζῴων ὄψει καλὰ τυγχάνει ἐκπέφευγεν δὲ καὶ τὸν τοῦ θεοῦ ἔπαινον καὶ τὴν εὐλογίαν αὐτοῦ.",
+     "giguet": "Aussi rien de bien n'arrive à qui n'a d'autre désir que de contempler les bêtes&nbsp;; celui-là fuit les louanges de Dieu et sa bénédiction.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 16,
+   "libelle": "16",
+   "fichierToc": "WIS/016.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "διὰ τοῦτο δι' ὁμοίων ἐκολάσθησαν ἀξίως καὶ διὰ πλήθους κνωδάλων ἐβασανίσθησαν.",
+     "giguet": "C'est pourquoi les gentils ont été justement châtiés par des êtres semblables&nbsp;; ils ont été tourmentés par une multitude de bêtes malfaisantes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἀνθ' ἧς κολάσεως εὐεργετήσας τὸν λαόν σου εἰς ἐπιθυμίαν ὀρέξεως ξένην γεῦσιν τροφὴν ἡτοίμασας ὀρτυγομήτραν.",
+     "giguet": "Au lieu des corrections, tu as donné des biens à ton peuple&nbsp;; en sa concupiscence d'appétit, tu lui as préparé pour sa nourriture des râles, des cailles d'une saveur exquise.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἵνα ἐκεῖνοι μὲν ἐπιθυμοῦντες τροφὴν διὰ τὴν εἰδέχθειαν τῶν ἐπαπεσταλμένων καὶ τὴν ἀναγκαίαν ὄρεξιν ἀποστρέφωνται αὐτοὶ δὲ ἐπ' ὀλίγον ἐνδεεῖς γενόμενοι καὶ ξένης μετάσχωσι γεύσεως.",
+     "giguet": "Tandis que les désirs des Égyptiens, quand le besoin d'aliments les sollicitait, étaient détournés par l'horreur des plaies qui leur étaient envoyées, ton peuple, après une courte détresse, se délectait d'une exquise nourriture.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἔδει γὰρ ἐκείνοις μὲν ἀπαραίτητον ἔνδειαν ἐπελθεῖν τυραννοῦσιν τούτοις δὲ μόνον δειχθῆναι πῶς οἱ ἐχθροὶ αὐτῶν ἐβασανίζοντο.",
+     "giguet": "Ceux-là, en punition de leur tyrannie, devaient souffrir d'une indigence sans remède&nbsp;; à ceux-ci tu te bornais à leur faire voir comment leurs ennemis étaient tourmentés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ γὰρ ὅτε αὐτοῖς δεινὸς ἐπῆλθεν θηρίων θυμὸς δήγμασίν τε σκολιῶν διεφθείροντο ὄφεων οὐ μέχρι τέλους ἔμεινεν ἡ ὀργή σου.",
+     "giguet": "Sur eux aussi, à la vérité, se tourna la rage furieuse d'animaux terribles&nbsp;; ils furent mordus par des serpents tortueux, mais ta colère ne persista pas au point de les détruire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "εἰς νουθεσίαν δὲ πρὸς ὀλίγον ἐταράχθησαν σύμβολον ἔχοντες σωτηρίας εἰς ἀνάμνησιν ἐντολῆς νόμου σου.",
+     "giguet": "Ils furent un moment troublés par cet avertissement, et ils élevèrent un signe de salut, comme mémorial de ta loi et tu leur avait intimée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὁ γὰρ ἐπιστραφεὶς οὐ διὰ τὸ θεωρούμενον ἐσῴζετο ἀλλὰ διὰ σὲ τὸν πάντων σωτῆρα.",
+     "giguet": "Et celui qui se convertissait n'était point sauvé pour avoir regardé ce signe, mais à cause de toi, Sauveur universel&nbsp;!",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ ἐν τούτῳ δὲ ἔπεισας τοὺς ἐχθροὺς ἡμῶν ὅτι σὺ εἶ ὁ ῥυόμενος ἐκ παντὸς κακοῦ.",
+     "giguet": "Et de cette manière tu as convaincu nos ennemis que tu es Celui qui délivre de tout mal.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "οὓς μὲν γὰρ ἀκρίδων καὶ μυιῶν ἀπέκτεινεν δήγματα καὶ οὐχ εὑρέθη ἴαμα τῇ ψυχῇ αὐτῶν ὅτι ἄξιοι ἦσαν ὑπὸ τοιούτων κολασθῆναι.",
+     "giguet": "Car les morsures des sauterelles et des mouches avaient tué les Égyptiens, et il ne s'était point trouvé de guérison pour leurs âmes, parce qu'ils méritaient d'être punis comme ils l'avaient été.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "τοὺς δὲ υἱούς σου οὐδὲ ἰοβόλων δρακόντων ἐνίκησαν ὀδόντες τὸ ἔλεος γάρ σου ἀντιπαρῆλθεν καὶ ἰάσατο αὐτούς.",
+     "giguet": "Mais tes enfants ne furent point vaincus par les dents venimeuses des dragons, parce que ta miséricorde survint et les guérit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "εἰς γὰρ ὑπόμνησιν τῶν λογίων σου ἐνεκεντρίζοντο καὶ ὀξέως διεσῴζοντο ἵνα μὴ εἰς βαθεῖαν ἐμπεσόντες λήθην ἀπερίσπαστοι γένωνται τῆς σῆς εὐεργεσίας.",
+     "giguet": "Pour qu'ils se souvinssent de tes commandements, ils avaient été aiguillonnés&nbsp;; mais ils furent promptement guéris, de peur que, tombant dans un profond oubli, ils ne pussent jouir de tes bienfaits.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ γὰρ οὔτε βοτάνη οὔτε μάλαγμα ἐθεράπευσεν αὐτούς ἀλλὰ ὁ σός κύριε λόγος ὁ πάντας ἰώμενος.",
+     "giguet": "Or il n'y eut ni herbe ni émollient qui les guérit&nbsp;; mais, ô Seigneur, ce fut ta Parole, cette Parole qui guérit tout.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "σὺ γὰρ ζωῆς καὶ θανάτου ἐξουσίαν ἔχεις καὶ κατάγεις εἰς πύλας ᾅδου καὶ ἀνάγεις.",
+     "giguet": "Car tu as pouvoir de vie et de mort&nbsp;; tu conduis aux portes de l'enfer, et tu en ramènes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἄνθρωπος δὲ ἀποκτέννει μὲν τῇ κακίᾳ αὐτοῦ ἐξελθὸν δὲ πνεῦμα οὐκ ἀναστρέφει οὐδὲ ἀναλύει ψυχὴν παραλημφθεῖσαν.",
+     "giguet": "Un homme tue dans sa perversité, et l'âme, une fois sortie, ne revient pas&nbsp;; et cet homme ne peut la rappeler pour la prendre de nouveau.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "τὴν δὲ σὴν χεῖρα φυγεῖν ἀδύνατόν ἐστιν.",
+     "giguet": "Mais il est impossible d'échapper à ta main.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἀρνούμενοι γάρ σε εἰδέναι ἀσεβεῖς ἐν ἰσχύι βραχίονός σου ἐμαστιγώθησαν ξένοις ὑετοῖς καὶ χαλάζαις καὶ ὄμβροις διωκόμενοι ἀπαραιτήτοις καὶ πυρὶ καταναλισκόμενοι.",
+     "giguet": "Les impies, refusant de te connaître, ont été flagellés par la force de ton bras&nbsp;; ils ont été persécutés par des plaies surnaturelles, par de la grêle, par des orages, et ils ont été dévorés par le feu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "τὸ γὰρ παραδοξότατον ἐν τῷ πάντα σβεννύντι ὕδατι πλεῖον ἐνήργει τὸ πῦρ ὑπέρμαχος γὰρ ὁ κόσμος ἐστὶν δικαίων.",
+     "giguet": "Et, merveille suprême&nbsp;! le feu redoublait de fureur au milieu de l'eau qui éteint tout&nbsp;; car l'univers est l'auxiliaire des justes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ποτὲ μὲν γὰρ ἡμεροῦτο φλόξ ἵνα μὴ καταφλέξῃ τὰ ἐπ' ἀσεβεῖς ἀπεσταλμένα ζῷα ἀλλ' αὐτοὶ βλέποντες εἰδῶσιν ὅτι θεοῦ κρίσει ἐλαύνονται.",
+     "giguet": "Ainsi, il advint que la flamme s'adoucit pour ne point consumer les bêtes envoyées contre les impies, et pour qu'eux-mêmes, ouvrant les yeux, vissent qu'ils étaient poursuivis par la justice de Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ποτὲ δὲ καὶ μεταξὺ ὕδατος ὑπὲρ τὴν πυρὸς δύναμιν φλέγει ἵνα ἀδίκου γῆς γενήματα διαφθείρῃ.",
+     "giguet": "Or il advint encore qu'au milieu même de l'eau le feu s'enflammait d'une force nouvelle, pour détruire les rejetons d'une terre inique.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "ἀνθ' ὧν ἀγγέλων τροφὴν ἐψώμισας τὸν λαόν σου καὶ ἕτοιμον ἄρτον ἀπ' οὐρανοῦ παρέσχες αὐτοῖς ἀκοπιάτως πᾶσαν ἡδονὴν ἰσχύοντα καὶ πρὸς πᾶσαν ἁρμόνιον γεῦσιν.",
+     "giguet": "Au contraire, tu as distribué à ton peuple le pain des anges&nbsp;; tu as envoyé pour lui le pain du ciel préparé sans labeur, plein de délices et en harmonie avec tous les goûts.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "ἡ μὲν γὰρ ὑπόστασίς σου τὴν σὴν πρὸς τέκνα ἐνεφάνιζεν γλυκύτητα τῇ δὲ τοῦ προσφερομένου ἐπιθυμίᾳ ὑπηρετῶν πρὸς ὅ τις ἐβούλετο μετεκιρνᾶτο.",
+     "giguet": "Cette substance, venue de toi, manifesta ta bonté pour tes enfants&nbsp;; et, se conformant aux désirs de ceux qui la mangeaient, elle prit le goût que chacun voulait.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "χιὼν δὲ καὶ κρύσταλλος ὑπέμεινε πῦρ καὶ οὐκ ἐτήκετο ἵνα γνῶσιν ὅτι τοὺς τῶν ἐχθρῶν καρποὺς κατέφθειρε πῦρ φλεγόμενον ἐν τῇ χαλάζῃ καὶ ἐν τοῖς ὑετοῖς διαστράπτον.",
+     "giguet": "Au contraire, c'était pour tes ennemis une neige, une glace qui résistait au feu sans se fondre&nbsp;; et l'on n'ignorait pas que la flamme, en consumant les fruits des Égyptiens, brûlait au milieu de la grêle, et resplendissait au milieu des pluies.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "τοῦτο πάλιν δ' ἵνα τραφῶσιν δίκαιοι καὶ τῆς ἰδίας ἐπιλέλησται δυνάμεως.",
+     "giguet": "Et encore, pour que les justes fussent nourris, le feu oubliait même sa vertu propre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "ἡ γὰρ κτίσις σοὶ τῷ ποιήσαντι ὑπηρετοῦσα ἐπιτείνεται εἰς κόλασιν κατὰ τῶν ἀδίκων καὶ ἀνίεται εἰς εὐεργεσίαν ὑπὲρ τῶν ἐπὶ σοὶ πεποιθότων.",
+     "giguet": "Car la créature, soumise à son Créateur, trouve des forces nouvelles pour le châtiment des hommes iniques, et s'adoucit pour le bien de ceux qui croient en toi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "διὰ τοῦτο καὶ τότε εἰς πάντα μεταλλευομένη τῇ παντοτρόφῳ σου δωρεᾷ ὑπηρέτει πρὸς τὴν τῶν δεομένων θέλησιν.",
+     "giguet": "C'est pourquoi la manne, en se transformant de toute manière, servait ta grâce nourricière de toutes choses, au gré des désirs de ceux qui la désiraient&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "26",
+     "grec": "ἵνα μάθωσιν οἱ υἱοί σου οὓς ἠγάπησας κύριε ὅτι οὐχ αἱ γενέσεις τῶν καρπῶν τρέφουσιν ἄνθρωπον ἀλλὰ τὸ ῥῆμά σου τοὺς σοὶ πιστεύοντας διατηρεῖ.",
+     "giguet": "afin que les enfants aimés de toi, Seigneur, apprissent que ce n'est point le fruit qui nourrit l'homme, mais que ta Parole conserve ceux qui mettent leur confiance en toi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "27",
+     "grec": "τὸ γὰρ ὑπὸ πυρὸς μὴ φθειρόμενον ἁπλῶς ὑπὸ βραχείας ἀκτῖνος ἡλίου θερμαινόμενον ἐτήκετο.",
+     "giguet": "Car cette substance, que le feu ne détruisait pas, fondait rapidement à la chaleur d'un faible rayon de soleil&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "28",
+     "grec": "ὅπως γνωστὸν ᾖ ὅτι δεῖ φθάνειν τὸν ἥλιον ἐπ' εὐχαριστίαν σου καὶ πρὸς ἀνατολὴν φωτὸς ἐντυγχάνειν σοι.",
+     "giguet": "afin qu'il fût notoire que l'on doit devancer le soleil pour te rendre grâces, et t'adorer avant la lumière du matin.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "29",
+     "grec": "ἀχαρίστου γὰρ ἐλπὶς ὡς χειμέριος πάχνη τακήσεται καὶ ῥυήσεται ὡς ὕδωρ ἄχρηστον.",
+     "giguet": "Car l'espérance de l'ingrat se dissipe comme le givre en hiver&nbsp;; elle s'écoule comme une onde inutile.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 17,
+   "libelle": "17",
+   "fichierToc": "WIS/017.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "μεγάλαι γάρ σου αἱ κρίσεις καὶ δυσδιήγητοι διὰ τοῦτο ἀπαίδευτοι ψυχαὶ ἐπλανήθησαν.",
+     "giguet": "Tes jugements sont grands et inénarrables&nbsp;; c'est pourquoi des âmes sans discipline se sont égarées.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὑπειληφότες γὰρ καταδυναστεύειν ἔθνος ἅγιον ἄνομοι δέσμιοι σκότους καὶ μακρᾶς πεδῆται νυκτὸς κατακλεισθέντες ὀρόφοις φυγάδες τῆς αἰωνίου προνοίας ἔκειντο.",
+     "giguet": "Des pervers croyaient opprimer le peuple saint&nbsp;; mais eux-mêmes, enclos dans leurs demeures, enchaînés par les ténèbres, esclaves de la profonde nuit, ils se couchèrent, cherchant à fuir l'éternelle Providence.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "λανθάνειν γὰρ νομίζοντες ἐπὶ κρυφαίοις ἁμαρτήμασιν ἀφεγγεῖ λήθης παρακαλύμματι ἐσκορπίσθησαν θαμβούμενοι δεινῶς καὶ ἰνδάλμασιν ἐκταρασσόμενοι.",
+     "giguet": "Et, tandis qu'ils s'imaginaient tenir cachés leurs péchés secrets, ils ont été dispersés, revêtus des sombres voiles de l'oubli, frappés d'un effroi terrible, troublés par de lugubres apparitions.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "οὐδὲ γὰρ ὁ κατέχων αὐτοὺς μυχὸς ἀφόβους διεφύλαττεν ἦχοι δ' ἐκταράσσοντες αὐτοὺς περιεκόμπουν καὶ φάσματα ἀμειδήτοις κατηφῆ προσώποις ἐνεφανίζετο.",
+     "giguet": "Car il n'y eut point de réduit assez profond pour les recevoir et les sauver de la terreur, parce que des bruits sinistres les étourdissaient, et que de mornes fantômes leur montraient des fronts sans sourire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ πυρὸς μὲν οὐδεμία βία κατίσχυεν φωτίζειν οὔτε ἄστρων ἔκλαμπροι φλόγες καταυγάζειν ὑπέμενον τὴν στυγνὴν ἐκείνην νύκτα.",
+     "giguet": "Et il n'y eut point de flamme assez éclatante pour les éclairer, et les feux scintillants des étoiles ne continuèrent pas à briller durant cette nuit lamentable.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "διεφαίνετο δ' αὐτοῖς μόνον αὐτομάτη πυρὰ φόβου πλήρης ἐκδειματούμενοι δὲ τῆς μὴ θεωρουμένης ἐκείνης ὄψεως ἡγοῦντο χείρω τὰ βλεπόμενα.",
+     "giguet": "Il n'y eut de visible pour eux qu'un feu spontané, plein d'épouvantements&nbsp;; et terrifiés par une apparition qu'ils ne voyaient pas, les choses qu'ils voyaient leur semblaient pire qu'elle ne sont.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "μαγικῆς δὲ ἐμπαίγματα κατέκειτο τέχνης καὶ τῆς ἐπὶ φρονήσει ἀλαζονείας ἔλεγχος ἐφύβριστος.",
+     "giguet": "Alors on laissa de côté les illusions de l'art magique, et l'on repoussa avec mépris l'arrogance de ceux qui vantaient leur sagesse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "οἱ γὰρ ὑπισχνούμενοι δείματα καὶ ταραχὰς ἀπελαύνειν ψυχῆς νοσούσης οὗτοι καταγέλαστον εὐλάβειαν ἐνόσουν.",
+     "giguet": "Car ceux qui, habituellement, promettaient de bannir des âmes malades la crainte et l'inquiétude, étaient eux-mêmes malades d'une terreur ridicule,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ γὰρ εἰ μηδὲν αὐτοὺς ταραχῶδες ἐφόβει κνωδάλων παρόδοις καὶ ἑρπετῶν συριγμοῖς ἐκσεσοβημένοι διώλλυντο ἔντρομοι καὶ τὸν μηδαμόθεν φευκτὸν ἀέρα προσιδεῖν ἀρνούμενοι.",
+     "giguet": "n'y eût-il rien qui dût les troubler&nbsp;; mis en fuite par le pas des bêtes ou le sifflement des reptiles, ils périssaient tout tremblants&nbsp;; ils n'osaient plus même regarder l'air que nulle part on ne peut éviter.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "δειλὸν γὰρ ἰδίῳ πονηρία μάρτυρι καταδικαζομένη ἀεὶ δὲ προσείληφεν τὰ χαλεπὰ συνεχομένη τῇ συνειδήσει.",
+     "giguet": "Car la méchanceté, naturellement craintive, se condamne par son propre témoignage&nbsp;; et, pressée par la conscience, elle attire d'avance sur elle des peines affligeantes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "οὐθὲν γάρ ἐστιν φόβος εἰ μὴ προδοσία τῶν ἀπὸ λογισμοῦ βοηθημάτων.",
+     "giguet": "Car la crainte n'est autre chose que la défaillance des secours de la raison.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἔνδοθεν δὲ οὖσα ἥττων ἡ προσδοκία πλείονα λογίζεται τὴν ἄγνοιαν τῆς παρεχούσης τὴν βάσανον αἰτίας.",
+     "giguet": "Et moins on a d'espérance en dedans, plus on calcule, sans les connaître, les causes de ses tourments.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "οἱ δὲ τὴν ἀδύνατον ὄντως νύκτα καὶ ἐξ ἀδυνάτου ᾅδου μυχῶν ἐπελθοῦσαν τὸν αὐτὸν ὕπνον κοιμώμενοι.",
+     "giguet": "Ces hommes cependant, durant cette nuit d'effroi, venue des abîmes effroyables de l'enfer, et plongés dans un même sommeil,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "τὰ μὲν τέρασιν ἠλαύνοντο φαντασμάτων τὰ δὲ τῆς ψυχῆς παρελύοντο προδοσίᾳ αἰφνίδιος γὰρ αὐτοῖς καὶ ἀπροσδόκητος φόβος ἐπεχύθη.",
+     "giguet": "d'une part, étaient poursuivis par la vision de fantômes&nbsp;; d'autre part, étaient énervés par la défaillance de leurs âmes&nbsp;: aussi furent-ils saisis d'une terreur soudaine et imprévue.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "εἶθ' οὕτως ὃς δή ποτ' οὖν ἦν ἐκεῖ καταπίπτων ἐφρουρεῖτο εἰς τὴν ἀσίδηρον εἱρκτὴν κατακλεισθείς.",
+     "giguet": "Et si l'un deux venait à tomber, n'importe où, il restait là enfermé dans cette prison sans fers.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "εἴ τε γὰρ γεωργὸς ἦν τις ἢ ποιμὴν ἢ τῶν κατ' ἐρημίαν ἐργάτης μόχθων προλημφθεὶς τὴν δυσάλυκτον ἔμενεν ἀνάγκην μιᾷ γὰρ ἁλύσει σκότους πάντες ἐδέθησαν.",
+     "giguet": "Laboureur, pâtre, journalier travaillant dans le désert, s'il était surpris, demeurait là, contraint par une inflexible nécessité&nbsp;; car tous étaient retenus par une même chaîne de ténèbres.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "εἴ τε πνεῦμα συρίζον ἢ περὶ ἀμφιλαφεῖς κλάδους ὀρνέων ἦχος εὐμελὴς ἢ ῥυθμὸς ὕδατος πορευομένου βίᾳ ἢ κτύπος ἀπηνὴς καταρριπτομένων πετρῶν.",
+     "giguet": "Le doux chant des oiseaux dans les arbres touffus, le bruit cadencé de l'eau courant avec force, le fracas étrange des rochers qui s'écroulaient,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἢ σκιρτώντων ζῴων δρόμος ἀθεώρητος ἢ ὠρυομένων ἀπηνεστάτων θηρίων φωνὴ ἢ ἀντανακλωμένη ἐκ κοιλότητος ὀρέων ἠχώ παρέλυεν αὐτοὺς ἐκφοβοῦντα.",
+     "giguet": "la course des animaux bondissant inaperçus, les voix des hôtes farouches, l'écho répété par le creux des montagnes, les glaçaient de terreur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ὅλος γὰρ ὁ κόσμος λαμπρῷ κατελάμπετο φωτὶ καὶ ἀνεμποδίστοις συνείχετο ἔργοις.",
+     "giguet": "Le monde entier jouissait d'une lumière sereine, et se livrait sans entrave à ses travaux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "μόνοις δὲ ἐκείνοις ἐπετέτατο βαρεῖα νὺξ εἰκὼν τοῦ μέλλοντος αὐτοὺς διαδέχεσθαι σκότους ἑαυτοῖς δὲ ἦσαν βαρύτεροι σκότους.",
+     "giguet": "Eux seuls étaient accablés sous le poids d'une profonde nuit, image des ténèbres qui leur étaient réservées, et ils étaient pour eux-mêmes plus importuns que les ténèbres.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 18,
+   "libelle": "18",
+   "fichierToc": "WIS/018.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "τοῖς δὲ ὁσίοις σου μέγιστον ἦν φῶς ὧν φωνὴν μὲν ἀκούοντες μορφὴν δὲ οὐχ ὁρῶντες ὅτι μὲν οὐ κἀκεῖνοι ἐπεπόνθεισαν ἐμακάριζον.",
+     "giguet": "Cependant la plus vive lumière brillait pour tes saints&nbsp;; ils entendaient les cris des Égyptiens sans voir leur visage, et ils se glorifiaient de ne point souffrir comme eux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὅτι δ' οὐ βλάπτουσιν προηδικημένοι ηὐχαρίστουν καὶ τοῦ διενεχθῆναι χάριν ἐδέοντο.",
+     "giguet": "Et ils te rendaient grâces de ce que ceux qui les avaient maltraités ne pouvaient plus leur nuire&nbsp;; et ils demandaient comme une faveur qu'il y eût cette différence entre eux et leurs ennemis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἀνθ' ὧν πυριφλεγῆ στῦλον ὁδηγὸν μὲν ἀγνώστου ὁδοιπορίας ἥλιον δὲ ἀβλαβῆ φιλοτίμου ξενιτείας παρέσχες.",
+     "giguet": "Et c'est pourquoi tu leur as donné une colonne ardente pour les conduire dans une terre inconnue, soleil tempéré d'un voyage rempli de tes bienfaits.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἄξιοι μὲν γὰρ ἐκεῖνοι στερηθῆναι φωτὸς καὶ φυλακισθῆναι σκότει οἱ κατακλείστους φυλάξαντες τοὺς υἱούς σου δι' ὧν ἤμελλεν τὸ ἄφθαρτον νόμου φῶς τῷ αἰῶνι δίδοσθαι.",
+     "giguet": "Mais les Égyptiens méritaient d'être privés de lumière et d'être emprisonnés dans les ténèbres, pour avoir retenus enfermés tes enfants, par qui la lumière inaltérable de ta loi devait être répandue dans le siècle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "βουλευσαμένους δ' αὐτοὺς τὰ τῶν ὁσίων ἀποκτεῖναι νήπια καὶ ἑνὸς ἐκτεθέντος τέκνου καὶ σωθέντος εἰς ἔλεγχον τὸ αὐτῶν ἀφείλω πλῆθος τέκνων καὶ ὁμοθυμαδὸν ἀπώλεσας ἐν ὕδατι σφοδρῷ.",
+     "giguet": "Et comme ils avaient résolu de faire périr les enfants des saints, un de ces enfants ayant été exposé et sauvé, pour leur opprobre, tu as frappé la multitude de leurs fils&nbsp;; et eux, tu les as tous submergés sous les flots impétueux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἐκείνη ἡ νὺξ προεγνώσθη πατράσιν ἡμῶν ἵνα ἀσφαλῶς εἰδότες οἷς ἐπίστευσαν ὅρκοις ἐπευθυμήσωσιν.",
+     "giguet": "Cette nuit avait été annoncée à nos pères, afin qu'instruits avec certitude par des serments auxquels ils crurent, ils eussent bon courage.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "προσεδέχθη ὑπὸ λαοῦ σου σωτηρία μὲν δικαίων ἐχθρῶν δὲ ἀπώλεια.",
+     "giguet": "Ton peuple fut témoin à la fois du salut des justes et de la ruine de ses ennemis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ᾧ γὰρ ἐτιμωρήσω τοὺς ὑπεναντίους τούτῳ ἡμᾶς προσκαλεσάμενος ἐδόξασας.",
+     "giguet": "Car, en même temps, tu as puni ces derniers, et nous, tu nous as appelés et bénis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "κρυφῇ γὰρ ἐθυσίαζον ὅσιοι παῖδες ἀγαθῶν καὶ τὸν τῆς θειότητος νόμον ἐν ὁμονοίᾳ διέθεντο τῶν αὐτῶν ὁμοίως καὶ ἀγαθῶν καὶ κινδύνων μεταλήμψεσθαι τοὺς ἁγίους πατέρων ἤδη προαναμέλποντες αἴνους.",
+     "giguet": "Les saints enfants des bons offraient en secret leurs sacrifices&nbsp;; ils établissaient d'un sentiment unanime cette loi divine, que les saints participeraient également au bien et au mal&nbsp;; et déjà ils chantaient les louanges de leurs pères.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἀντήχει δ' ἀσύμφωνος ἐχθρῶν ἡ βοή καὶ οἰκτρὰ διεφέρετο φωνὴ θρηνουμένων παίδων.",
+     "giguet": "Cependant résonnait la voix confuse des ennemis, pleurant amèrement la mort de leurs fils premiers-nés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ὁμοίᾳ δὲ δίκῃ δοῦλος ἅμα δεσπότῃ κολασθεὶς καὶ δημότης βασιλεῖ τὰ αὐτὰ πάσχων.",
+     "giguet": "L'esclave et le maître étaient frappés du même châtiment&nbsp;; le peuple et le roi souffraient de la même peine.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ὁμοθυμαδὸν δὲ πάντες ἐν ἑνὶ ὀνόματι θανάτου νεκροὺς εἶχον ἀναριθμήτους οὐδὲ γὰρ πρὸς τὸ θάψαι οἱ ζῶντες ἦσαν ἱκανοί ἐπεὶ πρὸς μίαν ῥοπὴν ἡ ἐντιμοτέρα γένεσις αὐτῶν διέφθαρτο.",
+     "giguet": "Tous à la fois n'entendaient d'autre nom que la mort&nbsp;; ils avaient sous les yeux une multitude innombrable de cadavres, et les survivants étaient sans force pour les ensevelir&nbsp;; car, en un instant, le plus précieux de leur race venait d'être exterminé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "πάντα γὰρ ἀπιστοῦντες διὰ τὰς φαρμακείας ἐπὶ τῷ τῶν πρωτοτόκων ὀλέθρῳ ὡμολόγησαν θεοῦ υἱὸν λαὸν εἶναι.",
+     "giguet": "À cause de leurs enchantements, ils n'avaient pas d'abord été convaincus&nbsp;; mais après l'extermination de leurs premiers-nés, ils reconnurent que ce peuple était fils de Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἡσύχου γὰρ σιγῆς περιεχούσης τὰ πάντα καὶ νυκτὸς ἐν ἰδίῳ τάχει μεσαζούσης.",
+     "giguet": "Car un profond silence enveloppait toutes choses, et la nuit était au milieu de son cours,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ὁ παντοδύναμός σου λόγος ἀπ' οὐρανῶν ἐκ θρόνων βασιλείων ἀπότομος πολεμιστὴς εἰς μέσον τῆς ὀλεθρίας ἥλατο γῆς ξίφος ὀξὺ τὴν ἀνυπόκριτον ἐπιταγήν σου φέρων.",
+     "giguet": "quand la parole du Tout-Puissant, adversaire sans pitié, jaillit du trône royal des cieux au milieu de cette terre perdue, portant le glaive rapide de ton commandement,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ στὰς ἐπλήρωσεν τὰ πάντα θανάτου καὶ οὐρανοῦ μὲν ἥπτετο βεβήκει δ' ἐπὶ γῆς.",
+     "giguet": "sans détour elle s'arrêta, et soudain elle remplit tout de mort&nbsp;; et elle touchait au ciel, et elle marchait sur la terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "τότε παραχρῆμα φαντασίαι μὲν ὀνείρων δεινῶν ἐξετάραξαν αὐτούς φόβοι δὲ ἐπέστησαν ἀδόκητοι.",
+     "giguet": "Alors les terribles visions des songes les troubles soudain&nbsp;; alors les épouvantements imprévus les arrêtent&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ ἄλλος ἀλλαχῇ ῥιφεὶς ἡμίθνητος δι' ἣν ἔθνῃσκον αἰτίαν ἐνεφάνιζεν.",
+     "giguet": "ils tombent épars à demi morts, et reconnaissent la cause qui les a fait mourir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "οἱ γὰρ ὄνειροι θορυβήσαντες αὐτοὺς τοῦτο προεμήνυσαν ἵνα μὴ ἀγνοοῦντες δι' ὃ κακῶς πάσχουσιν ἀπόλωνται.",
+     "giguet": "Car les songes qui les ont troublés la leur ont fait connaître, afin qu'en mourant ils sachent d'où leur venaient ces maux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "ἥψατο δὲ καὶ δικαίων πεῖρα θανάτου καὶ θραῦσις ἐν ἐρήμῳ ἐγένετο πλήθους ἀλλ' οὐκ ἐπὶ πολὺ ἔμεινεν ἡ ὀργή.",
+     "giguet": "L'épreuve de la mort atteignit aussi les justes, et un grand nombre fut frappé dans le désert&nbsp;; mais ta colère ne dura qu'un moment.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "σπεύσας γὰρ ἀνὴρ ἄμεμπτος προεμάχησεν τὸ τῆς ἰδίας λειτουργίας ὅπλον προσευχὴν καὶ θυμιάματος ἐξιλασμὸν κομίσας ἀντέστη τῷ θυμῷ καὶ πέρας ἐπέθηκε τῇ συμφορᾷ δεικνὺς ὅτι σός ἐστιν θεράπων.",
+     "giguet": "Car un homme irréprochable se hâta d'intercéder pour eux&nbsp;; revêtu de l'armure de son propre sacerdoce, de la prière et de l'encens de l'expiation, il s'opposa à ta colère, et mit fin à cette calamité en se montrant serviteur de Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "ἐνίκησεν δὲ τὸν χόλον οὐκ ἰσχύι τοῦ σώματος οὐχ ὅπλων ἐνεργείᾳ ἀλλὰ λόγῳ τὸν κολάζοντα ὑπέταξεν ὅρκους πατέρων καὶ διαθήκας ὑπομνήσας.",
+     "giguet": "Il triompha de ta colère, non par la force du corps ni par la force des armes, mais par la parole il subjugua l'ange exterminateur, en lui rappelant le souvenir de l'alliance de Dieu et de ses promesses à nos pères.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "σωρηδὸν γὰρ ἤδη πεπτωκότων ἐπ' ἀλλήλων νεκρῶν μεταξὺ στὰς ἀνέκοψε τὴν ὀργὴν καὶ διέσχισεν τὴν πρὸς τοὺς ζῶντας ὁδόν.",
+     "giguet": "Il y avait déjà, çà et là, des monceaux de cadavres, quand il se mit entre Dieu et le peuple, et arrêta le courroux du Seigneur et l'empêcha d'aller à ceux qui vivaient encore.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "ἐπὶ γὰρ ποδήρους ἐνδύματος ἦν ὅλος ὁ κόσμος καὶ πατέρων δόξαι ἐπὶ τετραστίχου λίθων γλυφῆς καὶ μεγαλωσύνη σου ἐπὶ διαδήματος κεφαλῆς αὐτοῦ.",
+     "giguet": "Car le monde entier était dans sa robe sacerdotale, et la gloire des patriarches sur les quatre rangs de pierres gravées, et ta magnificence, ô Seigneur, sur le diadème de sa tête.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "τούτοις εἶξεν ὁ ὀλεθρεύων ταῦτα δὲ ἐφοβήθη ἦν γὰρ μόνη ἡ πεῖρα τῆς ὀργῆς ἱκανή.",
+     "giguet": "À ces signes, l'exterminateur s'arrêta, et le peuple en trembla de crainte&nbsp;; car cette seule épreuve de ta colère suffisait.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 19,
+   "libelle": "19",
+   "fichierToc": "WIS/019.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "τοῖς δὲ ἀσεβέσιν μέχρι τέλους ἀνελεήμων θυμὸς ἐπέστη προῄδει γὰρ αὐτῶν καὶ τὰ μέλλοντα.",
+     "giguet": "Au contraire, un impitoyable courroux resta suspendu jusqu'à la fin sur les impies&nbsp;; car le Seigneur avait prévu ce qu'ils devaient faire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὅτι αὐτοὶ ἐπιτρέψαντες τοῦ ἀπιέναι καὶ μετὰ σπουδῆς προπέμψαντες αὐτοὺς διώξουσιν μεταμεληθέντες.",
+     "giguet": "En effet, après s'être convertis pour laisser partir le peuple, et l'avoir congédié avec empressement, les Égyptiens se repentent et le poursuivent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἔτι γὰρ ἐν χερσὶν ἔχοντες τὰ πένθη καὶ προσοδυρόμενοι τάφοις νεκρῶν ἕτερον ἐπεσπάσαντο λογισμὸν ἀνοίας καὶ οὓς ἱκετεύοντες ἐξέβαλον τούτους ὡς φυγάδας ἐδίωκον.",
+     "giguet": "Plongés encore dans le deuil, arrosant de leurs larmes les sépulcres des morts, ils se laissaient entraîner par un autre calcul de démence&nbsp;; et ceux qu'ils avaient renvoyés en les suppliant, ils les poursuivent comme des fugitifs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "εἷλκεν γὰρ αὐτοὺς ἡ ἀξία ἐπὶ τοῦτο τὸ πέρας ἀνάγκη καὶ τῶν συμβεβηκότων ἀμνηστίαν ἐνέβαλεν ἵνα τὴν λείπουσαν ταῖς βασάνοις προσαναπληρώσωσιν κόλασιν.",
+     "giguet": "Une juste nécessité les poussait à cette fin&nbsp;; et l'oubli de ce qui venant d'arriver les abusait, afin que le châtiment achevât ce qui manquait à leurs tortures,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ὁ μὲν λαός σου παράδοξον ὁδοιπορίαν πειράσῃ ἐκεῖνοι δὲ ξένον εὕρωσι θάνατον.",
+     "giguet": "et que ton peuple fît l'essai d'une voie miraculeuse, tandis qu'eux-mêmes allaient trouver un genre de mort inconnu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ὅλη γὰρ ἡ κτίσις ἐν ἰδίῳ γένει πάλιν ἄνωθεν διετυποῦτο ὑπηρετοῦσα ταῖς σαῖς ἐπιταγαῖς ἵνα οἱ σοὶ παῖδες φυλαχθῶσιν ἀβλαβεῖς.",
+     "giguet": "Car alors toute créature reçut d'en haut, sans changer de nature, une forme nouvelle, en obéissant à tes ordres, afin que tes fils échappassent sains et saufs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἡ τὴν παρεμβολὴν σκιάζουσα νεφέλη ἐκ δὲ προϋφεστῶτος ὕδατος ξηρᾶς ἀνάδυσις γῆς ἐθεωρήθη ἐξ ἐρυθρᾶς θαλάσσης ὁδὸς ἀνεμπόδιστος καὶ χλοηφόρον πεδίον ἐκ κλύδωνος βιαίου.",
+     "giguet": "Une nuée ombragea leur camp, et, à la place où l'eau était auparavant, on vit une issue à travers la terre sèche, une voie facile dans la mer Rouge, et un champ verdoyant au fond des flots&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "δι' οὗ πανεθνεὶ διῆλθον οἱ τῇ σῇ σκεπαζόμενοι χειρὶ θεωρήσαντες θαυμαστὰ τέρατα.",
+     "giguet": "par où, tous à la fois, ceux que ta main abritait passèrent en contemplant ces merveilleux prodiges.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ὡς γὰρ ἵπποι ἐνεμήθησαν καὶ ὡς ἀμνοὶ διεσκίρτησαν αἰνοῦντές σε κύριε τὸν ῥυσάμενον αὐτούς.",
+     "giguet": "Ils étaient en un pâturage comme des chevaux&nbsp;; ils bondissaient comme des agneaux en te louant, Seigneur, toi qui les sauvais.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἐμέμνηντο γὰρ ἔτι τῶν ἐν τῇ παροικίᾳ αὐτῶν πῶς ἀντὶ μὲν γενέσεως ζῴων ἐξήγαγεν ἡ γῆ σκνῖπα ἀντὶ δὲ ἐνύδρων ἐξηρεύξατο ὁ ποταμὸς πλῆθος βατράχων.",
+     "giguet": "Ils se rappelaient encore les faits qui avaient eu lieu en la terre de leur passage&nbsp;: les moucherons produits par les champs, au lieu des animaux habituels&nbsp;; le fleuve vomissant une multitude de grenouilles, au lieu de poissons.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἐφ' ὑστέρῳ δὲ εἶδον καὶ γένεσιν νέαν ὀρνέων ὅτε ἐπιθυμίᾳ προαχθέντες ᾐτήσαντο ἐδέσματα τρυφῆς.",
+     "giguet": "Plus tard, ils virent une nouvelle espèce d'oiseaux, lorsque, dans leur concupiscence, ils demandèrent des mets délicats.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "εἰς γὰρ παραμυθίαν ἐκ θαλάσσης ἀνέβη αὐτοῖς ὀρτυγομήτρα.",
+     "giguet": "Au gré de leurs désirs, Dieu fit lever pour eux de la mer des râles de cailles,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ αἱ τιμωρίαι τοῖς ἁμαρτωλοῖς ἐπῆλθον οὐκ ἄνευ τῶν προγεγονότων τεκμηρίων τῇ βίᾳ τῶν κεραυνῶν δικαίως γὰρ ἔπασχον ταῖς ἰδίαις αὐτῶν πονηρίαις καὶ γὰρ χαλεπωτέραν μισοξενίαν ἐπετήδευσαν.",
+     "giguet": "dans le même temps que le châtiment atteignait les pécheurs, non sans avoir été avertis par de grands coups de tonnerre&nbsp;; mais ils souffraient justement à cause de leurs péchés. Car ils avaient été inhospitaliers de la manière la plus cruelle&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "οἱ μὲν γὰρ τοὺς ἀγνοοῦντας οὐκ ἐδέχοντο παρόντας οὗτοι δὲ εὐεργέτας ξένους ἐδουλοῦντο.",
+     "giguet": "en effet, ce n'étaient point des inconnus qu'ils avaient accueillis, mais des hôtes bienfaisants qu'ils avaient réduits en esclavage.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ οὐ μόνον ἀλλ' ἤ τις ἐπισκοπὴ ἔσται αὐτῶν ἐπεὶ ἀπεχθῶς προσεδέχοντο τοὺς ἀλλοτρίους.",
+     "giguet": "Et ce n'est pas tout&nbsp;: une autre considération, c'est que c'était un peuple étranger qu'ils avaient traité indignement.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "οἱ δὲ μετὰ ἑορτασμάτων εἰσδεξάμενοι τοὺς ἤδη τῶν αὐτῶν μετεσχηκότας δικαίων δεινοῖς ἐκάκωσαν πόνοις.",
+     "giguet": "Après avoir reçu au milieu des fêtes ceux qui étaient accoutumés déjà à vivre sous leurs lois, ils les ont accablés de cruels travaux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ἐπλήγησαν δὲ καὶ ἀορασίᾳ ὥσπερ ἐκεῖνοι ἐπὶ ταῖς τοῦ δικαίου θύραις ὅτε ἀχανεῖ περιβληθέντες σκότει ἕκαστος τῶν ἑαυτοῦ θυρῶν τὴν δίοδον ἐζήτει.",
+     "giguet": "Mais ils ont été frappés d'aveuglement, comme ceux qui, devant la porte d'un juste, enveloppés de ténèbres impénétrables, cherchaient tous la porte de leur propre demeure.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "δι' ἑαυτῶν γὰρ τὰ στοιχεῖα μεθαρμοζόμενα ὥσπερ ἐν ψαλτηρίῳ φθόγγοι τοῦ ῥυθμοῦ τὸ ὄνομα διαλλάσσουσιν πάντοτε μένοντα ἤχῳ ὅπερ ἐστὶν εἰκάσαι ἐκ τῆς τῶν γεγονότων ὄψεως ἀκριβῶς.",
+     "giguet": "Les éléments furent métamorphosés en leur essence, comme dans la harpe les tons du rythme changent de nom, quoique le son subsiste&nbsp;; comparaison qui montre exactement ce qui alors se passa.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "χερσαῖα γὰρ εἰς ἔνυδρα μετεβάλλετο καὶ νηκτὰ μετέβαινεν ἐπὶ γῆς.",
+     "giguet": "Les animaux terrestres furent transformés en poissons&nbsp;; ceux qui nageaient marchèrent à terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "πῦρ ἴσχυεν ἐν ὕδατι τῆς ἰδίας δυνάμεως καὶ ὕδωρ τῆς σβεστικῆς φύσεως ἐπελανθάνετο.",
+     "giguet": "Le feu redoubla d'énergie au milieu de l'eau, et l'eau ne se souvint plus de son pouvoir d'éteindre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "φλόγες ἀνάπαλιν εὐφθάρτων ζῴων οὐκ ἐμάραναν σάρκας ἐμπεριπατούντων οὐδὲ τηκτὸν κρυσταλλοειδὲς εὔτηκτον γένος ἀμβροσίας τροφῆς.",
+     "giguet": "Les flammes, en revanche, ne consumaient pas la chair des faibles animaux qui les traversaient&nbsp;; elles ne fondaient pas l'aliment divin, quoiqu'il fût aussi facile à fondre que la glace&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "κατὰ πάντα γάρ κύριε ἐμεγάλυνας τὸν λαόν σου καὶ ἐδόξασας καὶ οὐχ ὑπερεῖδες ἐν παντὶ καιρῷ καὶ τόπῳ παριστάμενος.",
+     "giguet": "car, Seigneur, tu avais grandi ton peuple en toutes choses&nbsp;; tu l'avais glorifié, loin de le mépriser&nbsp;; tu l'avais assisté en tout temps et en tout lieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  }
+ ]
+}

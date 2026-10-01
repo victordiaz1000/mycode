@@ -303,7 +303,7 @@ void main() {
 
       // 15 catalogue entries, BYM and LSGS the only searchable ones here, so 13
       // are left to fetch — the count moved when CHO and KJF became downloadable.
-      expect(find.text('13 autres versions à télécharger'), findsOneWidget);
+      expect(find.text('14 autres versions à télécharger'), findsOneWidget);
       await tester.tap(find.text('Bibliothèque'));
       await tester.pumpAndSettle();
       expect(opened, 1);

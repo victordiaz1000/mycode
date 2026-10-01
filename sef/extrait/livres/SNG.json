@@ -1,0 +1,1032 @@
+{
+ "code": "SNG",
+ "book": "Cantique des Cantiques",
+ "fichiersToc": [
+  "SNG/001.html",
+  "SNG/002.html",
+  "SNG/003.html",
+  "SNG/004.html",
+  "SNG/005.html",
+  "SNG/006.html",
+  "SNG/007.html",
+  "SNG/008.html"
+ ],
+ "chapitres": [
+  {
+   "chapitre": 1,
+   "libelle": "1",
+   "fichierToc": "SNG/001.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ᾆσμα ᾀσμάτων ὅ ἐστιν τῷ Σαλωμων.",
+     "giguet": "Cantique des cantiques, qui est de Salomon.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "φιλησάτω με ἀπὸ φιλημάτων στόματος αὐτοῦ ὅτι ἀγαθοὶ μαστοί σου ὑπὲρ οἶνον.",
+     "giguet": "Qu'il m'embrasse des baisers de sa bouche&nbsp;; car tes mamelles sont meilleures que le vin.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ὀσμὴ μύρων σου ὑπὲρ πάντα τὰ ἀρώματα μύρον ἐκκενωθὲν ὄνομά σου διὰ τοῦτο νεάνιδες ἠγάπησάν σε.",
+     "giguet": "Et la senteur de tes parfums l'emporte sur tous les aromates&nbsp;; ton nom verse tout le parfum&nbsp;: voilà pourquoi les jeunes filles t'aiment.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "εἵλκυσάν σε ὀπίσω σου εἰς ὀσμὴν μύρων σου δραμοῦμεν εἰσήνεγκέν με ὁ βασιλεὺς εἰς τὸ ταμίειον αὐτοῦ ἀγαλλιασώμεθα καὶ εὐφρανθῶμεν ἐν σοί ἀγαπήσομεν μαστούς σου ὑπὲρ οἶνον εὐθύτης ἠγάπησέν σε.",
+     "giguet": "Elles t'attirent, et à ta suite sous courons aux senteurs de tes parfums. Le roi m'a introduite dans sa chambre secrète&nbsp;; nous tressaillirons, nous nous réjouirons en toi&nbsp;; nous aimerons tes mamelles plus que le vin&nbsp;; la droiture t'a chéri.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "μέλαινά εἰμι καὶ καλή θυγατέρες Ιερουσαλημ ὡς σκηνώματα Κηδαρ ὡς δέρρεις Σαλωμων.",
+     "giguet": "Filles de Jérusalem, je suis noire, et je suis belle, comme les tentes de Cédar, comme les tentures de Salomon.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "μὴ βλέψητέ με ὅτι ἐγώ εἰμι μεμελανωμένη ὅτι παρέβλεψέν με ὁ ἥλιος υἱοὶ μητρός μου ἐμαχέσαντο ἐν ἐμοί ἔθεντό με φυλάκισσαν ἐν ἀμπελῶσιν ἀμπελῶνα ἐμὸν οὐκ ἐφύλαξα.",
+     "giguet": "Ne me regardez pas, car je suis noire&nbsp;; c'est parce que le soleil m'a observé ardemment. Les fils de ma mère se sont levés contre moi&nbsp;; ils m'avaient fait la gardienne des vignes, et ma propre vigne, je ne l'aie point gardée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἀπάγγειλόν μοι ὃν ἠγάπησεν ἡ ψυχή μου ποῦ ποιμαίνεις ποῦ κοιτάζεις ἐν μεσημβρίᾳ μήποτε γένωμαι ὡς περιβαλλομένη ἐπ' ἀγέλαις ἑταίρων σου.",
+     "giguet": "Ô toi que mon âme a aimé, indique-moi où tu pais ton troupeau, où tu reposes à midi, de peur que peut-être je ne m'égare à la suite des troupeaux de tes compagnons.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἐὰν μὴ γνῷς σεαυτήν ἡ καλὴ ἐν γυναιξίν ἔξελθε σὺ ἐν πτέρναις τῶν ποιμνίων καὶ ποίμαινε τὰς ἐρίφους σου ἐπὶ σκηνώμασιν τῶν ποιμένων.",
+     "giguet": "Ô toi, la plus belle des femmes, si tu ne te connais toi-même, suis les talons de mes troupeaux, et pais tes chevreaux près des tentes de mes pasteurs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "τῇ ἵππῳ μου ἐν ἅρμασιν Φαραω ὡμοίωσά σε ἡ πλησίον μου.",
+     "giguet": "Ma compagne, je t'ai comparée à ma cavale parmi les chars de Pharaon.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "τί ὡραιώθησαν σιαγόνες σου ὡς τρυγόνες τράχηλός σου ὡς ὁρμίσκοι.",
+     "giguet": "Tes joues sont belles comme des colombes, et ton cou, comme des colliers.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ὁμοιώματα χρυσίου ποιήσομέν σοι μετὰ στιγμάτων τοῦ ἀργυρίου.",
+     "giguet": "Nous te ferons des ornements d'or émaillés d'argent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἕως οὗ ὁ βασιλεὺς ἐν ἀνακλίσει αὐτοῦ νάρδος μου ἔδωκεν ὀσμὴν αὐτοῦ.",
+     "giguet": "Aussi longtemps que le roi a été à table, mon nard a répandu son parfum.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἀπόδεσμος τῆς στακτῆς ἀδελφιδός μου ἐμοί ἀνὰ μέσον τῶν μαστῶν μου αὐλισθήσεται.",
+     "giguet": "Mon frère bien-aimé est pour moi un bouquet de myrrhe&nbsp;; il reposera entre mes mamelles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "βότρυς τῆς κύπρου ἀδελφιδός μου ἐμοὶ ἐν ἀμπελῶσιν Εγγαδδι.",
+     "giguet": "Mon frère bien-aimé est pour moi une grappe de henné dans la vigne d'Engaddi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ἰδοὺ εἶ καλή ἡ πλησίον μου ἰδοὺ εἶ καλή ὀφθαλμοί σου περιστεραί.",
+     "giguet": "Que tu es belle, ô ma compagne, que tu es belle&nbsp;! Tes yeux sont ceux d'une colombe.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἰδοὺ εἶ καλός ὁ ἀδελφιδός μου καί γε ὡραῖος πρὸς κλίνη ἡμῶν σύσκιος.",
+     "giguet": "Et toi, que tu es beau, mon frère bien-aimé&nbsp;! Que tu es charmant à l'ombre de notre couche&nbsp;!",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "δοκοὶ οἴκων ἡμῶν κέδροι φατνώματα ἡμῶν κυπάρισσοι.",
+     "giguet": "Les solives de nos demeures sont de cèdre, et ses lambris de cyprès.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 2,
+   "libelle": "2",
+   "fichierToc": "SNG/002.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἐγὼ ἄνθος τοῦ πεδίου κρίνον τῶν κοιλάδων.",
+     "giguet": "Je suis la fleur des champs et le lis des vallées.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὡς κρίνον ἐν μέσῳ ἀκανθῶν οὕτως ἡ πλησίον μου ἀνὰ μέσον τῶν θυγατέρων.",
+     "giguet": "Comme le lis des vallées au milieu des épines, ainsi est ma compagne au milieu des jeunes filles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ὡς μῆλον ἐν τοῖς ξύλοις τοῦ δρυμοῦ οὕτως ἀδελφιδός μου ἀνὰ μέσον τῶν υἱῶν ἐν τῇ σκιᾷ αὐτοῦ ἐπεθύμησα καὶ ἐκάθισα καὶ καρπὸς αὐτοῦ γλυκὺς ἐν λάρυγγί μου.",
+     "giguet": "Comme le pommier parmi les arbres de la forêt, ainsi est mon frère bien-aimé parmi les fils. J'ai désiré son ombre, et je m'y suis assise, et son fruit est doux à mon palais.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "εἰσαγάγετέ με εἰς οἶκον τοῦ οἴνου τάξατε ἐπ' ἐμὲ ἀγάπην.",
+     "giguet": "Introduisez-moi dans le cellier au vin&nbsp;; placez sur moi l'amour.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "στηρίσατέ με ἐν ἀμόραις στοιβάσατέ με ἐν μήλοις ὅτι τετρωμένη ἀγάπης ἐγώ.",
+     "giguet": "Soutenez-moi avec des parfums&nbsp;; entourez-moi de fruits, car je suis blessée d'amour.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "εὐώνυμος αὐτοῦ ὑπὸ τὴν κεφαλήν μου καὶ ἡ δεξιὰ αὐτοῦ περιλήμψεταί με.",
+     "giguet": "Sa main gauche sera sous ma tête, et de sa droite il m'embrassera.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὥρκισα ὑμᾶς θυγατέρες Ιερουσαλημ ἐν ταῖς δυνάμεσιν καὶ ἐν ταῖς ἰσχύσεσιν τοῦ ἀγροῦ ἐὰν ἐγείρητε καὶ ἐξεγείρητε τὴν ἀγάπην ἕως οὗ θελήσῃ.",
+     "giguet": "Filles de Jérusalem, je vous adjure, par les puissances et les vertus de la campagne, n'éveillez pas, ne réveillez pas ma bien-aimée, qu'elle-même ne le désire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "φωνὴ ἀδελφιδοῦ μου ἰδοὺ οὗτος ἥκει πηδῶν ἐπὶ τὰ ὄρη διαλλόμενος ἐπὶ τοὺς βουνούς.",
+     "giguet": "C'est la voix de mon bien-aimé&nbsp;; le voilà qui vient en bondissant sur les monts, en franchissant les collines.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ὅμοιός ἐστιν ἀδελφιδός μου τῇ δορκάδι ἢ νεβρῷ ἐλάφων ἐπὶ τὰ ὄρη Βαιθηλ ἰδοὺ οὗτος ἕστηκεν ὀπίσω τοῦ τοίχου ἡμῶν παρακύπτων διὰ τῶν θυρίδων ἐκκύπτων διὰ τῶν δικτύων.",
+     "giguet": "Mon frère bien-aimé ressemble au chevreuil ou au jeune faon sur les montagnes de Béthel. le voilà derrière notre mur&nbsp;; il se penche par la fenêtre, il regarde à travers le treillis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἀποκρίνεται ἀδελφιδός μου καὶ λέγει μοι ἀνάστα ἐλθέ ἡ πλησίον μου καλή μου περιστερά μου.",
+     "giguet": "Mon frère bien-aimé me répond, et me dit&nbsp;: Lève-toi, ma compagne&nbsp;; viens, ô ma belle, ô ma colombe.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ὅτι ἰδοὺ ὁ χειμὼν παρῆλθεν ὁ ὑετὸς ἀπῆλθεν ἐπορεύθη ἑαυτῷ.",
+     "giguet": "Car voilà que l'hiver est passé&nbsp;; la pluie s'en est allée, elle est partie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "τὰ ἄνθη ὤφθη ἐν τῇ γῇ καιρὸς τῆς τομῆς ἔφθακεν φωνὴ τοῦ τρυγόνος ἠκούσθη ἐν τῇ γῇ ἡμῶν.",
+     "giguet": "Les fleurs se montrent sur la terre&nbsp;; le temps de tailler est venu&nbsp;; le roucoulement de la tourterelle s'entend sur notre terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἡ συκῆ ἐξήνεγκεν ὀλύνθους αὐτῆς αἱ ἄμπελοι κυπρίζουσιν ἔδωκαν ὀσμήν ἀνάστα ἐλθέ ἡ πλησίον μου καλή μου περιστερά μου.",
+     "giguet": "Les jeunes figues montrent leurs bourgeons&nbsp;; les vignes sont en fleur et donnent leur parfum. Lève-toi, ma compagne&nbsp;; viens ô ma belle, ô ma colombe.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐλθὲ σύ περιστερά μου ἐν σκέπῃ τῆς πέτρας ἐχόμενα τοῦ προτειχίσματος δεῖξόν μοι τὴν ὄψιν σου καὶ ἀκούτισόν με τὴν φωνήν σου ὅτι ἡ φωνή σου ἡδεῖα καὶ ἡ ὄψις σου ὡραία.",
+     "giguet": "Viens, toi ma colombe, à l'abri sous les roches, dans le creux des murs. Montre-moi ton visage, que j'entende ta voix&nbsp;; car ta voix est douce, et ton visage est plein de grâces.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "πιάσατε ἡμῖν ἀλώπεκας μικροὺς ἀφανίζοντας ἀμπελῶνας καὶ αἱ ἄμπελοι ἡμῶν κυπρίζουσιν.",
+     "giguet": "Prenez les jeunes renards, qui ravagent les vignes, quand nos vignes sont en fleur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἀδελφιδός μου ἐμοί κἀγὼ αὐτῷ ὁ ποιμαίνων ἐν τοῖς κρίνοις.",
+     "giguet": "Mon frère bien-aimé est à moi, et moi à lui&nbsp;; et il fait paître son troupeau parmi les lis,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ἕως οὗ διαπνεύσῃ ἡ ἡμέρα καὶ κινηθῶσιν αἱ σκιαί ἀπόστρεψον ὁμοιώθητι σύ ἀδελφιδέ μου τῷ δόρκωνι ἢ νεβρῷ ἐλάφων ἐπὶ ὄρη κοιλωμάτων.",
+     "giguet": "Jusqu'à ce que se lèvent les premières brises du jour et que les ténèbres se dissipent. Reviens, mon frère bien-aimé&nbsp;; accours comme le chevreuil ou le jeune faon sur les ravins des montagnes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 3,
+   "libelle": "3",
+   "fichierToc": "SNG/003.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἐπὶ κοίτην μου ἐν νυξὶν ἐζήτησα ὃν ἠγάπησεν ἡ ψυχή μου ἐζήτησα αὐτὸν καὶ οὐχ εὗρον αὐτόν ἐκάλεσα αὐτόν καὶ οὐχ ὑπήκουσέν μου.",
+     "giguet": "Sur ma couche, la nuit, j'ai désiré celui qu'aime mon âme&nbsp;; je l'ai cherché, et ne l'ai point trouvé&nbsp;; je l'ai appelé, et il ne m'a pas écouté.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἀναστήσομαι δὴ καὶ κυκλώσω ἐν τῇ πόλει ἐν ταῖς ἀγοραῖς καὶ ἐν ταῖς πλατείαις καὶ ζητήσω ὃν ἠγάπησεν ἡ ψυχή μου ἐζήτησα αὐτὸν καὶ οὐχ εὗρον αὐτόν.",
+     "giguet": "Je me lèverai donc&nbsp;; j'irai par la ville, les marchés, les places, et je chercherai celui qu'aime mon âme. Je l'ai cherché, et ne l'ai point trouvé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "εὕροσάν με οἱ τηροῦντες οἱ κυκλοῦντες ἐν τῇ πόλει μὴ ὃν ἠγάπησεν ἡ ψυχή μου εἴδετε.",
+     "giguet": "Les gardiens m'ont rencontrée, en faisant la ronde dans la ville&nbsp;: N'avez-vous pas vu celui qu'aime mon âme&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ὡς μικρὸν ὅτε παρῆλθον ἀπ' αὐτῶν ἕως οὗ εὗρον ὃν ἠγάπησεν ἡ ψυχή μου ἐκράτησα αὐτὸν καὶ οὐκ ἀφήσω αὐτόν ἕως οὗ εἰσήγαγον αὐτὸν εἰς οἶκον μητρός μου καὶ εἰς ταμίειον τῆς συλλαβούσης με.",
+     "giguet": "À peine éloignée d'eux, j'ai trouvé celui qu'aime mon âme&nbsp;; je l'ai pris par la main, et ne l'ai point quitté que je ne l'eusse introduit dans la maison de ma mère, dans la chambre de celle qui m'a conçue.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ὥρκισα ὑμᾶς θυγατέρες Ιερουσαλημ ἐν ταῖς δυνάμεσιν καὶ ἐν ταῖς ἰσχύσεσιν τοῦ ἀγροῦ ἐὰν ἐγείρητε καὶ ἐξεγείρητε τὴν ἀγάπην ἕως ἂν θελήσῃ.",
+     "giguet": "Filles de Jérusalem, je vous adjure par les puissances et les vertus des campagnes, n'éveillez pas, ne réveillez pas ma bien-aimée, qu'elle ne le désire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "τίς αὕτη ἡ ἀναβαίνουσα ἀπὸ τῆς ἐρήμου ὡς στελέχη καπνοῦ τεθυμιαμένη σμύρναν καὶ λίβανον ἀπὸ πάντων κονιορτῶν μυρεψοῦ.",
+     "giguet": "Qui est celle qui monte du désert, comme une colonne de fumée sortant de l'encens et de la myrrhe, et de toutes les poudres dont se composent les parfums&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἰδοὺ ἡ κλίνη τοῦ Σαλωμων ἑξήκοντα δυνατοὶ κύκλῳ αὐτῆς ἀπὸ δυνατῶν Ισραηλ.",
+     "giguet": "Voilà la couche de Salomon&nbsp;; soixante vaillants des forts d'Israël sont rangés en cercle autour d'elle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "πάντες κατέχοντες ῥομφαίαν δεδιδαγμένοι πόλεμον ἀνὴρ ῥομφαία αὐτοῦ ἐπὶ μηρὸν αὐτοῦ ἀπὸ θάμβους ἐν νυξίν.",
+     "giguet": "Tous exercés aux combats, ils ont l'épée au côté, pour en écarter les terreurs de la nuit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "φορεῖον ἐποίησεν ἑαυτῷ ὁ βασιλεὺς Σαλωμων ἀπὸ ξύλων τοῦ Λιβάνου.",
+     "giguet": "Le roi Salomon s'est fait un lit de cèdres du Liban.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "στύλους αὐτοῦ ἐποίησεν ἀργύριον καὶ ἀνάκλιτον αὐτοῦ χρύσεον ἐπίβασις αὐτοῦ πορφυρᾶ ἐντὸς αὐτοῦ λιθόστρωτον ἀγάπην ἀπὸ θυγατέρων Ιερουσαλημ.",
+     "giguet": "Les montants en sont d'argent, et le siège est d'or&nbsp;; le marchepied est de porphyre, et l'intérieur est pavé de pierres précieuses, amour des filles de Jérusalem.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἐξέλθατε καὶ ἴδετε ἐν τῷ βασιλεῖ Σαλωμων ἐν τῷ στεφάνῳ ᾧ ἐστεφάνωσεν αὐτὸν ἡ μήτηρ αὐτοῦ ἐν ἡμέρᾳ νυμφεύσεως αὐτοῦ καὶ ἐν ἡμέρᾳ εὐφροσύνης καρδίας αὐτοῦ.",
+     "giguet": "Filles de Sion, sortez, contemplez le roi Salomon avec la couronne que lui a posée sa mère le jour de son mariage, le jour de la joie de son cœur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 4,
+   "libelle": "4",
+   "fichierToc": "SNG/004.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἰδοὺ εἶ καλή ἡ πλησίον μου ἰδοὺ εἶ καλή ὀφθαλμοί σου περιστεραὶ ἐκτὸς τῆς σιωπήσεώς σου τρίχωμά σου ὡς ἀγέλαι τῶν αἰγῶν αἳ ἀπεκαλύφθησαν ἀπὸ τοῦ Γαλααδ.",
+     "giguet": "Que tu es belle, ô ma compagne&nbsp;! Que tu es belle&nbsp;! Tes yeux sont ceux des colombes, sans parler de tes beautés cachées. Ta chevelure est comme la toison des troupeaux de chèvres qu'on voit en Galaad.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὀδόντες σου ὡς ἀγέλαι τῶν κεκαρμένων αἳ ἀνέβησαν ἀπὸ τοῦ λουτροῦ αἱ πᾶσαι διδυμεύουσαι καὶ ἀτεκνοῦσα οὐκ ἔστιν ἐν αὐταῖς.",
+     "giguet": "Tes dents sont comme des brebis tondues sortant du lavoir après la tonte&nbsp;; toutes ont deux petits, et nulle n'est stérile.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ὡς σπαρτίον τὸ κόκκινον χείλη σου καὶ ἡ λαλιά σου ὡραία ὡς λέπυρον τῆς ῥόας μῆλόν σου ἐκτὸς τῆς σιωπήσεώς σου.",
+     "giguet": "Tes lèvres sont comme un ruban écarlate, et ton langage est plein de grâce&nbsp;; tes joues sont comme la peau de la grenade, sans parler de tes beautés cachées.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ὡς πύργος Δαυιδ τράχηλός σου ὁ ᾠκοδομημένος εἰς θαλπιωθ χίλιοι θυρεοὶ κρέμανται ἐπ' αὐτόν πᾶσαι βολίδες τῶν δυνατῶν.",
+     "giguet": "Ton cou est comme la tour de David, qu'il a bâtie pour être un arsenal&nbsp;; mille boucliers y sont suspendus, et tous les javelots des vaillants.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "δύο μαστοί σου ὡς δύο νεβροὶ δίδυμοι δορκάδος οἱ νεμόμενοι ἐν κρίνοις.",
+     "giguet": "Tes deux mamelles sont comme deux faons jumeaux du chevreuil, paissant parmi les lis,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἕως οὗ διαπνεύσῃ ἡ ἡμέρα καὶ κινηθῶσιν αἱ σκιαί πορεύσομαι ἐμαυτῷ πρὸς τὸ ὄρος τῆς σμύρνης καὶ πρὸς τὸν βουνὸν τοῦ Λιβάνου.",
+     "giguet": "Jusqu'à ce que se lèvent les premières brises du jour, et que les ténèbres se dissipent. J'irai à la montagne de myrrhe et à la colline d'encens.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὅλη καλὴ εἶ ἡ πλησίον μου καὶ μῶμος οὐκ ἔστιν ἐν σοί.",
+     "giguet": "Tu es toute belle, ô ma compagne&nbsp;; et il n'est point de tache en toi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "δεῦρο ἀπὸ Λιβάνου νύμφη δεῦρο ἀπὸ Λιβάνου ἐλεύσῃ καὶ διελεύσῃ ἀπὸ ἀρχῆς πίστεως ἀπὸ κεφαλῆς Σανιρ καὶ Ερμων ἀπὸ μανδρῶν λεόντων ἀπὸ ὀρέων παρδάλεων.",
+     "giguet": "Viens du Liban, ma fiancée, viens du Liban&nbsp;; tu iras du puits du serment aux cimes de Sanir et d'Hermon, des antres des lions aux montagnes des panthères.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἐκαρδίωσας ἡμᾶς ἀδελφή μου νύμφη ἐκαρδίωσας ἡμᾶς ἑνὶ ἀπὸ ὀφθαλμῶν σου ἐν μιᾷ ἐνθέματι τραχήλων σου.",
+     "giguet": "Tu m'as ravi mon cœur, ma sœur, ma fiancée&nbsp;; tu m'as ravi mon cœur d'un seul de tes regards, d'un seul des cheveux de ton cou.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "τί ἐκαλλιώθησαν μαστοί σου ἀδελφή μου νύμφη τί ἐκαλλιώθησαν μαστοί σου ἀπὸ οἴνου καὶ ὀσμὴ ἱματίων σου ὑπὲρ πάντα τὰ ἀρώματα.",
+     "giguet": "Que tes mamelles sont belles, ma sœur, ma fiancée&nbsp;! Tes mamelles sont plus précieuses que le vin&nbsp;; et les senteurs de tes vêtements plus douces que tous les aromates.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "κηρίον ἀποστάζουσιν χείλη σου νύμφη μέλι καὶ γάλα ὑπὸ τὴν γλῶσσάν σου καὶ ὀσμὴ ἱματίων σου ὡς ὀσμὴ Λιβάνου.",
+     "giguet": "De tes lèvres découlent des rayons de miel, ô ma fiancée&nbsp;; le miel et le lait sont sous ta langue, et l'odeur de tes vêtements est comme l'odeur de l'encens.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "κῆπος κεκλεισμένος ἀδελφή μου νύμφη κῆπος κεκλεισμένος πηγὴ ἐσφραγισμένη.",
+     "giguet": "Ma sœur, ma fiancée, est un jardin enclos&nbsp;; c'est un jardin enclos, une fontaine scellée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἀποστολαί σου παράδεισος ῥοῶν μετὰ καρποῦ ἀκροδρύων κύπροι μετὰ νάρδων.",
+     "giguet": "Tes rejetons forment un jardin de grenades avec les fruits du noyer, du henné et du nard,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "νάρδος καὶ κρόκος κάλαμος καὶ κιννάμωμον μετὰ πάντων ξύλων τοῦ Λιβάνου σμύρνα αλωθ μετὰ πάντων πρώτων μύρων.",
+     "giguet": "Du nard et du safran, de la canne et du cinnamome, de tous les arbres du Liban, de la myrrhe, de l'aloès, et des parfums les plus exquis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "πηγὴ κήπων φρέαρ ὕδατος ζῶντος καὶ ῥοιζοῦντος ἀπὸ τοῦ Λιβάνου.",
+     "giguet": "La fontaine de ce jardin est un puits d'eau vive, qui jaillit du Liban.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἐξεγέρθητι βορρᾶ καὶ ἔρχου νότε διάπνευσον κῆπόν μου καὶ ῥευσάτωσαν ἀρώματά μου καταβήτω ἀδελφιδός μου εἰς κῆπον αὐτοῦ καὶ φαγέτω καρπὸν ἀκροδρύων αὐτοῦ.",
+     "giguet": "Fuis d'ici, vent du nord&nbsp;; viens, vent du midi, souffle sur mon jardin, et que mes parfums en découlent. Que mon frère bien-aimé descende en son jardin, qu'il mange de ses fruits.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 5,
+   "libelle": "5",
+   "fichierToc": "SNG/005.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "εἰσῆλθον εἰς κῆπόν μου ἀδελφή μου νύμφη ἐτρύγησα σμύρναν μου μετὰ ἀρωμάτων μου ἔφαγον ἄρτον μου μετὰ μέλιτός μου ἔπιον οἶνόν μου μετὰ γάλακτός μου φάγετε πλησίοι καὶ πίετε καὶ μεθύσθητε ἀδελφοί.",
+     "giguet": "Je suis entré dans mon jardin, ma sœur, ma fiancée&nbsp;; j'ai récolté ma myrrhe et mes parfums&nbsp;; j'ai mangé mon pain avec un rayon de miel&nbsp;; j'ai bu mon vin et mon lait. Mangez, ô mes amis&nbsp;; buvez, mes frères, et enivrez-vous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἐγὼ καθεύδω καὶ ἡ καρδία μου ἀγρυπνεῖ φωνὴ ἀδελφιδοῦ μου κρούει ἐπὶ τὴν θύραν ἄνοιξόν μοι ἀδελφή μου ἡ πλησίον μου περιστερά μου τελεία μου ὅτι ἡ κεφαλή μου ἐπλήσθη δρόσου καὶ οἱ βόστρυχοί μου ψεκάδων νυκτός.",
+     "giguet": "Pour moi, je dors, et mon cœur veille. C'est la voix de mon frère bien-aimé&nbsp;; il heurte à la porte&nbsp;: Ouvre-moi, dit-il, ma compagne, ma sœur, ma colombe, ma parfaite&nbsp;; ma tête est pleine de rosée, et mes boucles humides des gouttes de la nuit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἐξεδυσάμην τὸν χιτῶνά μου πῶς ἐνδύσωμαι αὐτόν ἐνιψάμην τοὺς πόδας μου πῶς μολυνῶ αὐτούς.",
+     "giguet": "J'ai ôté ma tunique&nbsp;; comment la revêtirai-je&nbsp;? Je me suis lavé les pieds&nbsp;; comment puis-je maintenant les salir&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἀδελφιδός μου ἀπέστειλεν χεῖρα αὐτοῦ ἀπὸ τῆς ὀπῆς καὶ ἡ κοιλία μου ἐθροήθη ἐπ' αὐτόν.",
+     "giguet": "Mon frère bien-aimé a passé la main dans l'ouverture de la porte, et si près de mon bien-aimé mes entrailles ont tressailli.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ἀνέστην ἐγὼ ἀνοῖξαι τῷ ἀδελφιδῷ μου χεῖρές μου ἔσταξαν σμύρναν δάκτυλοί μου σμύρναν πλήρη ἐπὶ χεῖρας τοῦ κλείθρου.",
+     "giguet": "Je me suis levée pour ouvrir à mon frère bien-aimé&nbsp;; mes mains ont distillé la myrrhe&nbsp;; mes doigts ont rempli de myrrhe la poignée du verrou.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἤνοιξα ἐγὼ τῷ ἀδελφιδῷ μου ἀδελφιδός μου παρῆλθεν ψυχή μου ἐξῆλθεν ἐν λόγῳ αὐτοῦ ἐζήτησα αὐτὸν καὶ οὐχ εὗρον αὐτόν ἐκάλεσα αὐτόν καὶ οὐχ ὑπήκουσέν μου.",
+     "giguet": "Et j'ai ouvert à mon frère bien-aimé, et mon frère bien-aimé n'était plus là&nbsp;; et mon âme était défaillante pendant qu'il parlait. Je l'ai cherché, et ne l'ai point trouvé&nbsp;; je l'ai appelé, et il ne m'a point entendue.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "εὕροσάν με οἱ φύλακες οἱ κυκλοῦντες ἐν τῇ πόλει ἐπάταξάν με ἐτραυμάτισάν με ἦραν τὸ θέριστρόν μου ἀπ' ἐμοῦ φύλακες τῶν τειχέων.",
+     "giguet": "Les gardes m'ont rencontrée, en faisant la ronde dans la ville&nbsp;; ils m'ont battue et meurtrie&nbsp;; les sentinelles des remparts m'ont dépouillée de mon manteau.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ὥρκισα ὑμᾶς θυγατέρες Ιερουσαλημ ἐν ταῖς δυνάμεσιν καὶ ἐν ταῖς ἰσχύσεσιν τοῦ ἀγροῦ ἐὰν εὕρητε τὸν ἀδελφιδόν μου τί ἀπαγγείλητε αὐτῷ ὅτι τετρωμένη ἀγάπης εἰμὶ ἐγώ.",
+     "giguet": "Filles de Jérusalem, je vous adjure par les puissances et les vertus des campagnes, si vous avez trouvé mon frère bien-aimé, que lui direz-vous&nbsp;? Dites-lui que je suis blessée d'amour.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "τί ἀδελφιδός σου ἀπὸ ἀδελφιδοῦ ἡ καλὴ ἐν γυναιξίν τί ἀδελφιδός σου ἀπὸ ἀδελφιδοῦ ὅτι οὕτως ὥρκισας ἡμᾶς.",
+     "giguet": "Qu'est donc ton frère bien-aimé auprès d'un autre frère, ô toi belle entre toutes les femmes&nbsp;? Qu'est ton frère bien-aimé auprès d'un autre frère, pour que tu nous adjure ainsi&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἀδελφιδός μου λευκὸς καὶ πυρρός ἐκλελοχισμένος ἀπὸ μυριάδων.",
+     "giguet": "Mon frère bien-aimé est blanc et rose, choisi entre dix mille.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "κεφαλὴ αὐτοῦ χρυσίον καὶ φαζ βόστρυχοι αὐτοῦ ἐλάται μέλανες ὡς κόραξ.",
+     "giguet": "Sa tête est de l'or fin de Céphaz&nbsp;; ses cheveux sont souples, et noirs comme le corbeau.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ὀφθαλμοὶ αὐτοῦ ὡς περιστεραὶ ἐπὶ πληρώματα ὑδάτων λελουσμέναι ἐν γάλακτι καθήμεναι ἐπὶ πληρώματα ὑδάτων.",
+     "giguet": "Ses yeux sont comme ceux des colombes sur des étangs pleins d'eau, lavées dans le lait, se reposant sur les étangs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "σιαγόνες αὐτοῦ ὡς φιάλαι τοῦ ἀρώματος φύουσαι μυρεψικά χείλη αὐτοῦ κρίνα στάζοντα σμύρναν πλήρη.",
+     "giguet": "Ses joues sont comme des vases d'aromates exhalant des parfums&nbsp;; ses lèvres sont des lis distillant la myrrhe la plus pure.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "χεῖρες αὐτοῦ τορευταὶ χρυσαῖ πεπληρωμέναι θαρσις κοιλία αὐτοῦ πυξίον ἐλεφάντινον ἐπὶ λίθου σαπφείρου.",
+     "giguet": "Ses mains sont gracieuses et d'or, et pleines de béryl&nbsp;; son abdomen est une tablette d'ivoire sur une pierre de saphir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "κνῆμαι αὐτοῦ στῦλοι μαρμάρινοι τεθεμελιωμένοι ἐπὶ βάσεις χρυσᾶς εἶδος αὐτοῦ ὡς Λίβανος ἐκλεκτὸς ὡς κέδροι.",
+     "giguet": "Ses jambes sont des colonnes de marbre posées sur des bases d'or&nbsp;; sa beauté est celle du Liban&nbsp;: elle excelle comme le cèdre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "φάρυγξ αὐτοῦ γλυκασμοὶ καὶ ὅλος ἐπιθυμία οὗτος ἀδελφιδός μου καὶ οὗτος πλησίον μου θυγατέρες Ιερουσαλημ.",
+     "giguet": "Sa bouche est pleine de douceur, et fait naître les désirs&nbsp;; tel est mon frère bien-aimé, tel est mon ami, filles de Jérusalem.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 6,
+   "libelle": "6",
+   "fichierToc": "SNG/006.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ποῦ ἀπῆλθεν ὁ ἀδελφιδός σου ἡ καλὴ ἐν γυναιξίν ποῦ ἀπέβλεψεν ὁ ἀδελφιδός σου καὶ ζητήσομεν αὐτὸν μετὰ σοῦ.",
+     "giguet": "Où est allé ton frère bien-aimé, ô toi belle entre toutes les femmes&nbsp;? Où ton frère bien-aimé a-t-il porté ses regards&nbsp;? Et nous le chercherons avec toi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἀδελφιδός μου κατέβη εἰς κῆπον αὐτοῦ εἰς φιάλας τοῦ ἀρώματος ποιμαίνειν ἐν κήποις καὶ συλλέγειν κρίνα.",
+     "giguet": "Mon frère bien-aimé est descendu dans son jardin parmi les fioles d'aromates, pour paître son troupeau dans les jardins, et y cueillir des lis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἐγὼ τῷ ἀδελφιδῷ μου καὶ ἀδελφιδός μου ἐμοὶ ὁ ποιμαίνων ἐν τοῖς κρίνοις.",
+     "giguet": "Je suis à mon frère bien-aimé, et mon frère bien-aimé est à moi&nbsp;; il fait paître son troupeau parmi les lis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καλὴ εἶ ἡ πλησίον μου ὡς εὐδοκία ὡραία ὡς Ιερουσαλημ θάμβος ὡς τεταγμέναι.",
+     "giguet": "Tu es belle, ô ma compagne, comme la tendresse, gracieuse comme Jérusalem, terrible comme une armée en bataille.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ἀπόστρεψον ὀφθαλμούς σου ἀπεναντίον μου ὅτι αὐτοὶ ἀνεπτέρωσάν με τρίχωμά σου ὡς ἀγέλαι τῶν αἰγῶν αἳ ἀνεφάνησαν ἀπὸ τοῦ Γαλααδ.",
+     "giguet": "Détourne de moi tes yeux, car ils m'ont transporté&nbsp;; ta chevelure est comme les troupeaux de chèvres que l'on voit en Galaad.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ὀδόντες σου ὡς ἀγέλαι τῶν κεκαρμένων αἳ ἀνέβησαν ἀπὸ τοῦ λουτροῦ αἱ πᾶσαι διδυμεύουσαι καὶ ἀτεκνοῦσα οὐκ ἔστιν ἐν αὐταῖς.",
+     "giguet": "Tes dents sont comme la toison des brebis sortant du lavoir après la tonte, qui toutes ont deux petits, et dont nulle n'est stérile.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὡς σπαρτίον τὸ κόκκινον χείλη σου καὶ ἡ λαλιά σου ὡραία ὡς λέπυρον τῆς ῥόας μῆλόν σου ἐκτὸς τῆς σιωπήσεώς σου.",
+     "giguet": "Tes lèvres sont comme un ruban d'écarlate, et ton langage est plein de grâce. Tes joues sont comme la peau de la grenade, sans parler de tes beautés cachées.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἑξήκοντά εἰσιν βασίλισσαι καὶ ὀγδοήκοντα παλλακαί καὶ νεάνιδες ὧν οὐκ ἔστιν ἀριθμός.",
+     "giguet": "Il y a soixante reines et quatre-vingt concubines, et des jeunes filles sans nombre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "μία ἐστὶν περιστερά μου τελεία μου μία ἐστὶν τῇ μητρὶ αὐτῆς ἐκλεκτή ἐστιν τῇ τεκούσῃ αὐτῆς εἴδοσαν αὐτὴν θυγατέρες καὶ μακαριοῦσιν αὐτήν βασίλισσαι καὶ παλλακαὶ καὶ αἰνέσουσιν αὐτήν.",
+     "giguet": "Mais ma colombe, ma parfaite est unique&nbsp;; elle est l'unique de sa mère&nbsp;; elle est l'élue de celle qui l'a enfantée. Les jeunes filles l'ont vue, et la déclarent heureuse&nbsp;; les reines et les concubines la loueront.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "τίς αὕτη ἡ ἐκκύπτουσα ὡσεὶ ὄρθρος καλὴ ὡς σελήνη ἐκλεκτὴ ὡς ὁ ἥλιος θάμβος ὡς τεταγμέναι.",
+     "giguet": "Quelle est celle qui surgit dehors comme le matin&nbsp;; belle comme la lune, élue comme le soleil, terrible comme une armée en bataille&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "εἰς κῆπον καρύας κατέβην ἰδεῖν ἐν γενήμασιν τοῦ χειμάρρου ἰδεῖν εἰ ἤνθησεν ἡ ἄμπελος ἐξήνθησαν αἱ ῥόαι ἐκεῖ δώσω τοὺς μαστούς μου σοί.",
+     "giguet": "Je suis descendu au jardin des noyers, pour voir les fruits du vallon&nbsp;; si la vigne est en fleur, et si les grenades sont fleuries. Là je te donnerai mes mamelles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "οὐκ ἔγνω ἡ ψυχή μου ἔθετό με ἅρματα Αμιναδαβ.",
+     "giguet": "Mon âme n'a rien su, et j'ai été comme emportée par les chars d'Aminadab.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 7,
+   "libelle": "7",
+   "fichierToc": "SNG/007.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἐπίστρεφε ἐπίστρεφε ἡ Σουλαμῖτις ἐπίστρεφε ἐπίστρεφε καὶ ὀψόμεθα ἐν σοί τί ὄψεσθε ἐν τῇ Σουλαμίτιδι ἡ ἐρχομένη ὡς χοροὶ τῶν παρεμβολῶν.",
+     "giguet": "Reviens, reviens, ma Sulamite&nbsp;; reviens, reviens, et nous te verrons. Que verrez-vous en la Sulamite, qui vient comme les rangs d'une armée&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "τί ὡραιώθησαν διαβήματά σου ἐν ὑποδήμασιν θύγατερ Ναδαβ ῥυθμοὶ μηρῶν σου ὅμοιοι ὁρμίσκοις ἔργῳ χειρῶν τεχνίτου.",
+     "giguet": "Fille de Nadab, que les sandales donnent grâce à tes pas&nbsp;! Les contours de tes cuisses ressemblent à des colliers, chef-d'œuvre d'un artiste.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ὀμφαλός σου κρατὴρ τορευτὸς μὴ ὑστερούμενος κρᾶμα κοιλία σου θιμωνιὰ σίτου πεφραγμένη ἐν κρίνοις.",
+     "giguet": "Ton nombril est comme un cratère ciselé, où le vin ne manque jamais. Ton ventre est comme un monceau de froment enveloppé de lis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "δύο μαστοί σου ὡς δύο νεβροὶ δίδυμοι δορκάδος.",
+     "giguet": "Tes deux mamelles sont comme les deux faons jumeaux d'un chevreuil.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "τράχηλός σου ὡς πύργος ἐλεφάντινος ὀφθαλμοί σου ὡς λίμναι ἐν Εσεβων ἐν πύλαις θυγατρὸς πολλῶν μυκτήρ σου ὡς πύργος τοῦ Λιβάνου σκοπεύων πρόσωπον Δαμασκοῦ.",
+     "giguet": "Ton cou est comme une tour d'ivoire, tes yeux comme des étangs d'Hésebon, près des portes de la fille issue de beaucoup de peuples. Ton nez est comme la tour du Liban qui regarde Damas.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "κεφαλή σου ἐπὶ σὲ ὡς Κάρμηλος καὶ πλόκιον κεφαλῆς σου ὡς πορφύρα βασιλεὺς δεδεμένος ἐν παραδρομαῖς.",
+     "giguet": "Ta tête est posée sur toi semblable au Mont Carmel, et ta chevelure est comme de la pourpre&nbsp;; le roi est retenu dans tes galeries.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "τί ὡραιώθης καὶ τί ἡδύνθης ἀγάπη ἐν τρυφαῖς σου.",
+     "giguet": "Ô ma bien-aimée, que de grâce, que de suavité en tes délices&nbsp;!",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "τοῦτο μέγεθός σου ὡμοιώθη τῷ φοίνικι καὶ οἱ μαστοί σου τοῖς βότρυσιν.",
+     "giguet": "Ta stature est celle d'un palmier&nbsp;; tes mamelles sont comme des grappes de raisins.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "εἶπα ἀναβήσομαι ἐν τῷ φοίνικι κρατήσω τῶν ὕψεων αὐτοῦ καὶ ἔσονται δὴ μαστοί σου ὡς βότρυες τῆς ἀμπέλου καὶ ὀσμὴ ῥινός σου ὡς μῆλα.",
+     "giguet": "J'ai dit&nbsp;: Je monterai au palmier&nbsp;; j'atteindrai à son faîte, et tes mamelles seront comme les grappes de la vigne, l'odeur de tes narines comme celle des pommes,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ λάρυγξ σου ὡς οἶνος ὁ ἀγαθὸς πορευόμενος τῷ ἀδελφιδῷ μου εἰς εὐθύθητα ἱκανούμενος χείλεσίν μου καὶ ὀδοῦσιν.",
+     "giguet": "Et ton gosier comme le bon vin, — qui coule droit à mon frère bien-aimé —, et qui pconvient à mes dents et à mes lèvres.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἐγὼ τῷ ἀδελφιδῷ μου καὶ ἐπ' ἐμὲ ἡ ἐπιστροφὴ αὐτοῦ.",
+     "giguet": "Je suis à mon frère bien-aimé, et son regard est tourné vers moi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἐλθέ ἀδελφιδέ μου ἐξέλθωμεν εἰς ἀγρόν αὐλισθῶμεν ἐν κώμαις.",
+     "giguet": "Viens, mon frère bien-aimé, allons aux champs, dormons dans les bourgades.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ὀρθρίσωμεν εἰς ἀμπελῶνας ἴδωμεν εἰ ἤνθησεν ἡ ἄμπελος ἤνθησεν ὁ κυπρισμός ἤνθησαν αἱ ῥόαι ἐκεῖ δώσω τοὺς μαστούς μου σοί.",
+     "giguet": "Levons-nous dès l'aurore pour aller aux vignes&nbsp;; voyons si le raisin est en fleur, si les grains sont en fleur, si les grenades fleurissent&nbsp;: c'est là que je te donnerai mes mamelles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "οἱ μανδραγόραι ἔδωκαν ὀσμήν καὶ ἐπὶ θύραις ἡμῶν πάντα ἀκρόδρυα νέα πρὸς παλαιά ἀδελφιδέ μου ἐτήρησά σοι.",
+     "giguet": "Les mandragores ont donné leur senteur, et, au seuil de nos portes, tous les fruits verts et mûrs, ô mon frère bien-aimé, je les ai gardés pour toi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 8,
+   "libelle": "8",
+   "fichierToc": "SNG/008.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "τίς δῴη σε ἀδελφιδόν μου θηλάζοντα μαστοὺς μητρός μου εὑροῦσά σε ἔξω φιλήσω σε καί γε οὐκ ἐξουδενώσουσίν μοι.",
+     "giguet": "Ô mon frère bien-aimé, si quelqu'un pouvait t'accorder que tu as sucé les mamelles de ma mère&nbsp;! Alors, te trouvant dehors, je te baiserai, et nul ne me mépriserait.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "παραλήμψομαί σε εἰσάξω σε εἰς οἶκον μητρός μου καὶ εἰς ταμίειον τῆς συλλαβούσης με ποτιῶ σε ἀπὸ οἴνου τοῦ μυρεψικοῦ ἀπὸ νάματος ῥοῶν μου.",
+     "giguet": "Je te prendrai par la main, je t'introduirai dans la maison de ma mère, dans la chambre de celle qui m'a conçu. Je te ferai boire du vin parfumé, et du jus de mes grenades.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "εὐώνυμος αὐτοῦ ὑπὸ τὴν κεφαλήν μου καὶ ἡ δεξιὰ αὐτοῦ περιλήμψεταί με.",
+     "giguet": "Il posera sa main gauche sur ma tête, et, de la droite, il m'embrassera.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ὥρκισα ὑμᾶς θυγατέρες Ιερουσαλημ ἐν ταῖς δυνάμεσιν καὶ ἐν ταῖς ἰσχύσεσιν τοῦ ἀγροῦ τί ἐγείρητε καὶ τί ἐξεγείρητε τὴν ἀγάπην ἕως ἂν θελήσῃ.",
+     "giguet": "Je vous adjure, filles de Jérusalem, par les vertus de la campagne, n'éveillez pas, ne réveillez pas ma bien-aimée qu'elle ne le désire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "τίς αὕτη ἡ ἀναβαίνουσα λελευκανθισμένη ἐπιστηριζομένη ἐπὶ τὸν ἀδελφιδὸν αὐτῆς ὑπὸ μῆλον ἐξήγειρά σε ἐκεῖ ὠδίνησέν σε ἡ μήτηρ σου ἐκεῖ ὠδίνησέν σε ἡ τεκοῦσά σου.",
+     "giguet": "Quelle est celle qui se lève blanche comme l'aubépine, appuyée sur son frère bien-aimé&nbsp;? Je t'ai réveillée sous un pommier&nbsp;; c'est là que ta mère t'a enfantée&nbsp;; c'est là que t'a enfantée celle qui t'a conçu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "θές με ὡς σφραγῖδα ἐπὶ τὴν καρδίαν σου ὡς σφραγῖδα ἐπὶ τὸν βραχίονά σου ὅτι κραταιὰ ὡς θάνατος ἀγάπη σκληρὸς ὡς ᾅδης ζῆλος περίπτερα αὐτῆς περίπτερα πυρός φλόγες αὐτῆς.",
+     "giguet": "Mets-moi comme un sceau sur ton cœur, et comme un sceau sur ton bras. Car l'amour est fort comme la mort, et la jalousie est cruelle comme l'enfer&nbsp;; ses traits sont des traits de feu, ce sont des flammes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὕδωρ πολὺ οὐ δυνήσεται σβέσαι τὴν ἀγάπην καὶ ποταμοὶ οὐ συγκλύσουσιν αὐτήν ἐὰν δῷ ἀνὴρ τὸν πάντα βίον αὐτοῦ ἐν τῇ ἀγάπῃ ἐξουδενώσει ἐξουδενώσουσιν αὐτόν.",
+     "giguet": "Des torrents d'eau ne pourront point éteindre l'amour, ni les fleuves le submerger. Si un homme donnait tout son bien en échange de l'amour, les autres hommes auront pour lui le dernier mépris.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἀδελφὴ ἡμῖν μικρὰ καὶ μαστοὺς οὐκ ἔχει τί ποιήσωμεν τῇ ἀδελφῇ ἡμῶν ἐν ἡμέρᾳ ᾗ ἐὰν λαληθῇ ἐν αὐτῇ.",
+     "giguet": "Notre sœur est petite, et n'a point de mamelles&nbsp;; que ferons-nous pour notre sœur, le jour où je viendrai lui parler&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "εἰ τεῖχός ἐστιν οἰκοδομήσωμεν ἐπ' αὐτὴν ἐπάλξεις ἀργυρᾶς καὶ εἰ θύρα ἐστίν διαγράψωμεν ἐπ' αὐτὴν σανίδα κεδρίνην.",
+     "giguet": "Si elle est un mur, couronnons-la de créneaux d'argent&nbsp;; si elle est une porte, incrustons-la de bois de cèdre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἐγὼ τεῖχος καὶ μαστοί μου ὡς πύργοι ἐγὼ ἤμην ἐν ὀφθαλμοῖς αὐτοῦ ὡς εὑρίσκουσα εἰρήνην.",
+     "giguet": "Moi, je suis un mur, et mes mamelles sont comme des tours&nbsp;; et j'ai été à leurs yeux comme ayant trouvé la paix.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἀμπελὼν ἐγενήθη τῷ Σαλωμων ἐν Βεελαμων ἔδωκεν τὸν ἀμπελῶνα αὐτοῦ τοῖς τηροῦσιν ἀνὴρ οἴσει ἐν καρπῷ αὐτοῦ χιλίους ἀργυρίου.",
+     "giguet": "Salomon avait une vigne en Béelamon&nbsp;; il a donné sa vigne à ceux qui la gardent&nbsp;; chacun rendra de ses fruits mille sicles d'argent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἀμπελών μου ἐμὸς ἐνώπιόν μου οἱ χίλιοι σοί Σαλωμων καὶ οἱ διακόσιοι τοῖς τηροῦσι τὸν καρπὸν αὐτοῦ.",
+     "giguet": "Ma vigne est à moi&nbsp;; elle est devant mes yeux&nbsp;; que Salomon en ait mille sicles&nbsp;; que ceux qui gardent ses fruits en aient deux cents.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ὁ καθήμενος ἐν κήποις ἑταῖροι προσέχοντες τῇ φωνῇ σου ἀκούτισόν με.",
+     "giguet": "Ô toi qui demeures dans les jardins, mes compagnes écoutent ta voix&nbsp;; fais-la-moi entendre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "φύγε ἀδελφιδέ μου καὶ ὁμοιώθητι τῇ δορκάδι ἢ τῷ νεβρῷ τῶν ἐλάφων ἐπὶ ὄρη ἀρωμάτων.",
+     "giguet": "Fuis, mon frère bien-aimé&nbsp;; et, rapide comme le chevreuil ou comme le faon de la biche, fuis dans les montagnes des parfums.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  }
+ ]
+}

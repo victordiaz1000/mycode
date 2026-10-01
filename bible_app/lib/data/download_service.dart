@@ -222,7 +222,9 @@ class DownloadService {
     void Function(DownloadProgress)? onProgress,
   }) async {
     _cancelled = false;
-    final total = bookCatalog.length;
+    // Le dénominateur est le canon de la version, pas les 66 : une SEF se
+    // termine à 39/39 et n'essaie jamais de télécharger un NT inexistant.
+    final total = entry.bookCount;
 
     if (!entry.fetchable) {
       return DownloadOutcome(

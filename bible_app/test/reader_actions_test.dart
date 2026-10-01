@@ -263,7 +263,7 @@ void main() {
 
     expect(find.text('Bibliothèque'), findsOneWidget);
     // 14 catalogue entries, BYM and LSGS being the only readable ones here.
-    expect(find.text('13 autres versions à télécharger'), findsOneWidget);
+    expect(find.text('14 autres versions à télécharger'), findsOneWidget);
   });
 
   testWidgets('a listed version no longer carries an audio glyph', (

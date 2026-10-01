@@ -1,0 +1,2904 @@
+{
+ "code": "JDT",
+ "book": "Judith",
+ "fichiersToc": [
+  "JDT/001.html",
+  "JDT/002.html",
+  "JDT/003.html",
+  "JDT/004.html",
+  "JDT/005.html",
+  "JDT/006.html",
+  "JDT/007.html",
+  "JDT/008.html",
+  "JDT/009.html",
+  "JDT/010.html",
+  "JDT/011.html",
+  "JDT/012.html",
+  "JDT/013.html",
+  "JDT/014.html",
+  "JDT/015.html",
+  "JDT/016.html"
+ ],
+ "chapitres": [
+  {
+   "chapitre": 1,
+   "libelle": "1",
+   "fichierToc": "JDT/001.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἔτους δωδεκάτου τῆς βασιλείας Ναβουχοδονοσορ ὃς ἐβασίλευσεν Ἀσσυρίων ἐν Νινευη τῇ πόλει τῇ μεγάλῃ ἐν ταῖς ἡμέραις Αρφαξαδ ὃς ἐβασίλευσεν Μήδων ἐν Ἐκβατάνοις.",
+     "giguet": "La douzième, année du règne de Nabuchodonosor, qui régna, sur les Assyriens, en la grande ville, de Ninive, du temps d'Arphaxad, qui régnait sur les Mèdes, en Ecbatane,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ᾠκοδόμησεν ἐπ' Ἐκβατάνων κύκλῳ τείχη ἐκ λίθων λελαξευμένων εἰς πλάτος πηχῶν τριῶν καὶ εἰς μῆκος πηχῶν ἓξ καὶ ἐποίησεν τὸ ὕψος τοῦ τείχους πηχῶν ἑβδομήκοντα καὶ τὸ πλάτος αὐτοῦ πηχῶν πεντήκοντα.",
+     "giguet": "Celui-ci édifia autour d'Ecbatane un rempart en pierres de taille, larges de trois coudées, longues de six&nbsp;; et il donna aux murs une hauteur de soixante-dix coudées, et une largeur de cinquante.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ τοὺς πύργους αὐτοῦ ἔστησεν ἐπὶ ταῖς πύλαις αὐτῆς πηχῶν ἑκατὸν καὶ τὸ πλάτος αὐτῆς ἐθεμελίωσεν εἰς πήχεις ἑξήκοντα.",
+     "giguet": "Et il éleva, au-dessus des portes de la ville, les tours à la hauteur de cent coudées&nbsp;; et il assit les fondations de la ville sur une largeur de soixante coudées.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἐποίησεν τὰς πύλας αὐτῆς πύλας διεγειρομένας εἰς ὕψος πηχῶν ἑβδομήκοντα καὶ τὸ πλάτος αὐτῆς πήχεις τεσσαράκοντα εἰς ἐξόδους δυνάμεως δυνατῶν αὐτοῦ καὶ διατάξεις τῶν πεζῶν αὐτοῦ.",
+     "giguet": "Et il fit des portes (portes, qu'il rétablit), sur une hauteur de soixante-dix coudées, et leur largeur fut de quarante coudées, pour les sorties de ses vaillants et les manœuvres de ses piétons.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἐποίησεν πόλεμον ἐν ταῖς ἡμέραις ἐκείναις ὁ βασιλεὺς Ναβουχοδονοσορ πρὸς βασιλέα Αρφαξαδ ἐν τῷ πεδίῳ τῷ μεγάλῳ τοῦτό ἐστιν πεδίον ἐν τοῖς ὁρίοις Ραγαυ.",
+     "giguet": "Or, en ces jours-là, le roi Nabuchodonosor livra bataille au roi Arphaxad dans la vaste plaine qui est sur le territoire de Ragau.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ συνήντησαν πρὸς αὐτὸν πάντες οἱ κατοικοῦντες τὴν ὀρεινὴν καὶ πάντες οἱ κατοικοῦντες τὸν Εὐφράτην καὶ τὸν Τίγριν καὶ τὸν Ὑδάσπην καὶ πεδία Αριωχ βασιλέως Ἐλυμαίων καὶ συνῆλθον ἔθνη πολλὰ εἰς παράταξιν υἱῶν Χελεουδ.",
+     "giguet": "Tous ceux qui habitaient la région montagneuse, les rives de l'Euphrate, du Tigre, de l'Hydaspe et ceux de la plaine d'Erioch, roi des Élyméens, se réunirent à lui, et une multitude de nations allèrent ensemble combattre les fils d'Héléhul.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἀπέστειλεν Ναβουχοδονοσορ βασιλεὺς Ἀσσυρίων ἐπὶ πάντας τοὺς κατοικοῦντας τὴν Περσίδα καὶ ἐπὶ πάντας τοὺς κατοικοῦντας πρὸς δυσμαῖς τοὺς κατοικοῦντας τὴν Κιλικίαν καὶ Δαμασκὸν καὶ τὸν Λίβανον καὶ Ἀντιλίβανον καὶ πάντας τοὺς κατοικοῦντας κατὰ πρόσωπον τῆς παραλίας.",
+     "giguet": "Et, avant la guerre, Nabuchodonosor, roi des Assyriens, envoya chez les Perses et chez tous les peuples de l'Occident qui habitaient la Cilicie, Damas, le Liban, l'Anti-Liban, et toutes les provinces maritimes,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ τοὺς ἐν τοῖς ἔθνεσι τοῦ Καρμήλου καὶ Γαλααδ καὶ τὴν ἄνω Γαλιλαίαν καὶ τὸ μέγα πεδίον Εσδρηλων.",
+     "giguet": "Et le mont Carmel, et Galaad, et la haute Galilée, et la grande plaine d'Esdrelon,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ πάντας τοὺς ἐν Σαμαρείᾳ καὶ ταῖς πόλεσιν αὐτῆς καὶ πέραν τοῦ Ιορδάνου ἕως Ιερουσαλημ καὶ Βατανη καὶ Χελους καὶ Καδης καὶ τοῦ ποταμοῦ Αἰγύπτου καὶ Ταφνας καὶ Ραμεσση καὶ πᾶσαν γῆν Γεσεμ.",
+     "giguet": "Et toutes les villes de Samarie, et les rives du Jourdain jusqu'à Jérusalem, et Béthanie, et Chellus, et Cadès, et les bords du fleuve d'Egypte, et Taphas, et Ramsès, et toutes la terre de Gesen",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἕως τοῦ ἐλθεῖν ἐπάνω Τάνεως καὶ Μέμφεως καὶ πάντας τοὺς κατοικοῦντας τὴν Αἴγυπτον ἕως τοῦ ἐλθεῖν ἐπὶ τὰ ὅρια τῆς Αἰθιοπίας.",
+     "giguet": "Jusqu'au delà de Tanis et de Memphis, et toute l'Egypte jusqu'aux frontières de l'Ethiopie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἐφαύλισαν πάντες οἱ κατοικοῦντες πᾶσαν τὴν γῆν τὸ ῥῆμα Ναβουχοδονοσορ βασιλέως Ἀσσυρίων καὶ οὐ συνῆλθον αὐτῷ εἰς τὸν πόλεμον ὅτι οὐκ ἐφοβήθησαν αὐτόν ἀλλ' ἦν ἐναντίον αὐτῶν ὡς ἀνὴρ εἷς καὶ ἀνέστρεψαν τοὺς ἀγγέλους αὐτοῦ κενοὺς ἐν ἀτιμίᾳ προσώπου αὐτῶν.",
+     "giguet": "Or, toutes les nations qui habitaient toute la terre, méprisèrent les ordres de Nabuchodonosor, roi des Assyriens, et elles ne se joignirent pas à lui en cette guerre, parce qu'elles ne le craignaient pas, et qu'il était à leurs yeux comme un autre homme&nbsp;; et elles renvoyèrent ses messagers les mains vides en les outrageant.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ἐθυμώθη Ναβουχοδονοσορ ἐπὶ πᾶσαν τὴν γῆν ταύτην σφόδρα καὶ ὤμοσε κατὰ τοῦ θρόνου καὶ τῆς βασιλείας αὐτοῦ εἰ μὴν ἐκδικήσειν πάντα τὰ ὅρια τῆς Κιλικίας καὶ Δαμασκηνῆς καὶ Συρίας ἀνελεῖν τῇ ῥομφαίᾳ αὐτοῦ καὶ πάντας τοὺς κατοικοῦντας ἐν γῇ Μωαβ καὶ τοὺς υἱοὺς Αμμων καὶ πᾶσαν τὴν Ιουδαίαν καὶ πάντας τοὺς ἐν Αἰγύπτῳ ἕως τοῦ ἐλθεῖν ἐπὶ τὰ ὅρια τῶν δύο θαλασσῶν.",
+     "giguet": "Et Nabuchodonosor se mit en grand courroux contre toute cette terre, et il jura, par son trône et sa royauté, de tirer vengeance des Ciliciens, de Damas, et des Syriens, et de passer au fil de l'épée Moab, les fils d'Ammon, toute la Judée et l'Egypte jusqu'aux bords des deux mers.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ παρετάξατο ἐν τῇ δυνάμει αὐτοῦ πρὸς Αρφαξαδ βασιλέα ἐν τῷ ἔτει τῷ ἑπτακαιδεκάτῳ καὶ ἐκραταιώθη ἐν τῷ πολέμῳ αὐτοῦ καὶ ἀνέστρεψεν πᾶσαν τὴν δύναμιν Αρφαξαδ καὶ πᾶσαν τὴν ἵππον αὐτοῦ καὶ πάντα τὰ ἅρματα αὐτοῦ.",
+     "giguet": "Ensuite, il livra bataille, avec toutes ses forces, à Arphaxad en la dix-septième année de son règne, et il fut le plus fort, et il mit en déroute l'armée d'Arphaxad, sa cavalerie et ses chars.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐκυρίευσε τῶν πόλεων αὐτοῦ καὶ ἀφίκετο ἕως Ἐκβατάνων καὶ ἐκράτησε τῶν πύργων καὶ ἐπρονόμευσε τὰς πλατείας αὐτῆς καὶ τὸν κόσμον αὐτῆς ἔθηκεν εἰς ὄνειδος αὐτῆς.",
+     "giguet": "Et il se rendit maître de toutes ses villes, et il poussa jusqu'à Ecbatane, et il prit ses tours, et il pilla ses places, et il fit son opprobre de ce qui avait fait son ornement.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἔλαβε τὸν Αρφαξαδ ἐν τοῖς ὄρεσι Ραγαυ καὶ κατηκόντισεν αὐτὸν ἐν ταῖς σιβύναις αὐτοῦ καὶ ἐξωλέθρευσεν αὐτὸν ἕως τῆς ἡμέρας ἐκείνης.",
+     "giguet": "Et il prit Arphaxad dans les montagnes de Ragau, et il le perça de ses traits, et il abattit sa puissance, qui ne s'est pas relevée jusqu'à nos jours.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ ἀνέστρεψεν μετ' αὐτῶν αὐτὸς καὶ πᾶς ὁ σύμμικτος αὐτοῦ πλῆθος ἀνδρῶν πολεμιστῶν πολὺ σφόδρα καὶ ἦν ἐκεῖ ῥᾳθυμῶν καὶ εὐωχούμενος αὐτὸς καὶ ἡ δύναμις αὐτοῦ ἐφ' ἡμέρας ἑκατὸν εἴκοσι.",
+     "giguet": "Et il revint avec ses captifs, lui et tous ses alliés et la multitude innombrable de ses guerriers, en Médie&nbsp;; il passa avec son armée cent vingt jours dans les festins et les délices.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 2,
+   "libelle": "2",
+   "fichierToc": "JDT/002.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐν τῷ ἔτει τῷ ὀκτωκαιδεκάτῳ δευτέρᾳ καὶ εἰκάδι τοῦ πρώτου μηνὸς ἐγένετο λόγος ἐν οἴκῳ Ναβουχοδονοσορ βασιλέως Ἀσσυρίων ἐκδικῆσαι πᾶσαν τὴν γῆν καθὼς ἐλάλησεν.",
+     "giguet": "Et, en la dix-huitième année de son règne, le vingt-deux du premier mois, il y eut un conseil dans le palais de Nabuchodonosor, pour tirer vengeance de toute la terre, comme il l'avait résolu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ συνεκάλεσεν πάντας τοὺς θεράποντας αὐτοῦ καὶ πάντας τοὺς μεγιστᾶνας αὐτοῦ καὶ ἔθετο μετ' αὐτῶν τὸ μυστήριον τῆς βουλῆς αὐτοῦ καὶ συνετέλεσεν πᾶσαν τὴν κακίαν τῆς γῆς ἐκ τοῦ στόματος αὐτοῦ.",
+     "giguet": "Et il convoqua tous ses serviteurs et ses grands, et il leur dévoila le mystère de sa résolution&nbsp;; et, de sa propre bouche, il décréta la ruine complète de la terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ αὐτοὶ ἔκριναν ὀλεθρεῦσαι πᾶσαν σάρκα οἳ οὐκ ἠκολούθησαν τῷ λόγῳ τοῦ στόματος αὐτοῦ.",
+     "giguet": "Et ils jugèrent qu'il fallait exterminer toute chair chez ceux qui n'avaient point suivi la parole de sa bouche.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἐγένετο ὡς συνετέλεσεν τὴν βουλὴν αὐτοῦ ἐκάλεσεν Ναβουχοδονοσορ βασιλεὺς Ἀσσυρίων τὸν Ολοφέρνην ἀρχιστράτηγον τῆς δυνάμεως αὐτοῦ δεύτερον ὄντα μετ' αὐτὸν καὶ εἶπεν πρὸς αὐτόν.",
+     "giguet": "Et lorsque le conseil fut achevé, Nabuchodonosor appela Holopherne, général en chef de ses armées, le second après lui, et il lui dit&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "τάδε λέγει ὁ βασιλεὺς ὁ μέγας ὁ κύριος πάσης τῆς γῆς ἰδοὺ σὺ ἐξελεύσῃ ἐκ τοῦ προσώπου μου καὶ λήμψῃ μετὰ σεαυτοῦ ἄνδρας πεποιθότας ἐν ἰσχύι αὐτῶν πεζῶν εἰς χιλιάδας ἑκατὸν εἴκοσι καὶ πλῆθος ἵππων σὺν ἀναβάταις χιλιάδας δέκα δύο.",
+     "giguet": "Voici ce que dit le grand roi, maître de toute la terre&nbsp;: Voilà que tu vas sortir de devant ma face, et prendre avec toi des hommes confiants en leur force, jusqu'à cent vingt mille piétons, et douze mille chevaux avec leurs cavaliers&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἐξελεύσῃ εἰς συνάντησιν πάσῃ τῇ γῇ ἐπὶ δυσμάς ὅτι ἠπείθησαν τῷ ῥήματι τοῦ στόματός μου.",
+     "giguet": "Puis, tu marcheras contre toute la terre de l'Occident, car ils n'ont point obéi à la parole de ma bouche.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἀπαγγελεῖς αὐτοῖς ἑτοιμάζειν γῆν καὶ ὕδωρ ὅτι ἐξελεύσομαι ἐν θυμῷ μου ἐπ' αὐτοὺς καὶ καλύψω πᾶν τὸ πρόσωπον τῆς γῆς ἐν τοῖς ποσὶν τῆς δυνάμεώς μου καὶ δώσω αὐτοὺς εἰς διαρπαγὴν αὐτοῖς.",
+     "giguet": "Et tu leur feras savoir qu'ils préparent la terre et l'eau&nbsp;; car, dans ma fureur, je marcherai contre eux, et je couvrirai, sous les pieds de mon armée, toute la surface de la terre, et je les livrerai en proie à mes guerriers&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ οἱ τραυματίαι αὐτῶν πληρώσουσιν τὰς φάραγγας αὐτῶν καὶ πᾶς χειμάρρους καὶ ποταμὸς ἐπικλύζων τοῖς νεκροῖς αὐτῶν πληρωθήσεται.",
+     "giguet": "Et leurs cadavres rempliront les vallons et les torrents, et chaque fleuve débordera à cause des morts dont il sera rempli&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ ἄξω τὴν αἰχμαλωσίαν αὐτῶν ἐπὶ τὰ ἄκρα πάσης τῆς γῆς.",
+     "giguet": "Et je ferai conduire les captifs aux extrémités de la terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "σὺ δὲ ἐξελθὼν προκαταλήμψῃ μοι πᾶν ὅριον αὐτῶν καὶ ἐκδώσουσίν σοι ἑαυτούς καὶ διατηρήσεις ἐμοὶ αὐτοὺς εἰς ἡμέραν ἐλεγμοῦ αὐτῶν.",
+     "giguet": "Pars donc, envahis tous leurs territoires&nbsp;; ils se rendront à toi, et tu me les conserveras pour le jour de ma vengeance.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἐπὶ δὲ τοὺς ἀπειθοῦντας οὐ φείσεται ὁ ὀφθαλμός σου τοῦ δοῦναι αὐτοὺς εἰς φόνον καὶ ἁρπαγὴν ἐν πάσῃ τῇ γῇ σου.",
+     "giguet": "Quant à ceux qui n'obéiront pas, tu n'auras d'eux aucune pitié&nbsp;; tu les feras massacrer, ou tu les emmèneras en tous tes domaines.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ὅτι ζῶν ἐγὼ καὶ τὸ κράτος τῆς βασιλείας μου λελάληκα καὶ ποιήσω ταῦτα ἐν χειρί μου.",
+     "giguet": "Par ma vie, par la force de mon royaume, j'ai dit, et je ferai ces choses de ma main.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ σὺ δὲ οὐ παραβήσῃ ἕν τι τῶν ῥημάτων τοῦ κυρίου σου ἀλλὰ ἐπιτελῶν ἐπιτελέσεις καθότι προστέταχά σοι καὶ οὐ μακρυνεῖς τοῦ ποιῆσαι αὐτά.",
+     "giguet": "Et toi, tu ne transgresseras en rien les paroles de ton maître&nbsp;; mais tu accompliras et accompliras tout ce que je t'ai commandé, et tu ne tarderas pas à l'accomplir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐξῆλθεν Ολοφέρνης ἀπὸ προσώπου τοῦ κυρίου αὐτοῦ καὶ ἐκάλεσεν πάντας τοὺς δυνάστας καὶ τοὺς στρατηγοὺς καὶ ἐπιστάτας τῆς δυνάμεως Ασσουρ.",
+     "giguet": "Et Holopherne sortit de devant la face de son maître, et il convoqua tous les vaillants, et les généraux et les intendants de l'armée d'Assur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἠρίθμησεν ἐκλεκτοὺς ἄνδρας εἰς παράταξιν καθότι ἐκέλευσεν αὐτῷ ὁ κύριος αὐτοῦ εἰς μυριάδας δέκα δύο καὶ ἱππεῖς τοξότας μυρίους δισχιλίους.",
+     "giguet": "Et il compta, pour entrer en campagne, autant d'hommes d'élite que son maître l'avait ordonné, par douzaines de myriades, et douze mille cavaliers portant des arcs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ διέταξεν αὐτοὺς ὃν τρόπον πολέμου πλῆθος συντάσσεται.",
+     "giguet": "Et il les disposa comme à la guerre on dispose une grande multitude.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ἔλαβεν καμήλους καὶ ὄνους καὶ ἡμιόνους εἰς τὴν ἀπαρτίαν αὐτῶν πλῆθος πολὺ σφόδρα καὶ πρόβατα καὶ βόας καὶ αἶγας εἰς τὴν παρασκευὴν αὐτῶν ὧν οὐκ ἦν ἀριθμός.",
+     "giguet": "Et il prit un immense convoi de chameaux, d'ânes et de mulets pour les bagages, et un innombrable approvisionnement de brebis, de bœufs et de chèvres,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ ἐπισιτισμὸν παντὶ ἀνδρὶ εἰς πλῆθος καὶ χρυσίον καὶ ἀργύριον ἐξ οἴκου βασιλέως πολὺ σφόδρα.",
+     "giguet": "Et, pour chaque homme, abondance de vivres et des amas d'argent et d'or tirés du trésor royal.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ ἐξῆλθεν αὐτὸς καὶ πᾶσα ἡ δύναμις αὐτοῦ εἰς πορείαν τοῦ προελθεῖν βασιλέως Ναβουχοδονοσορ καὶ καλύψαι πᾶν τὸ πρόσωπον τῆς γῆς πρὸς δυσμαῖς ἐν ἅρμασι καὶ ἱππεῦσι καὶ πεζοῖς ἐπιλέκτοις αὐτῶν.",
+     "giguet": "Et il partit en personne avec toute son année pour devancer, en cette expédition, le roi Nabuchodonosor, et cacher toute la face de la terre d'Occident sous ses chars, ses chevaux et ses piétons d'élite.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ πολὺς ὁ ἐπίμικτος ὡς ἀκρὶς συνεξῆλθον αὐτοῖς καὶ ὡς ἡ ἄμμος τῆς γῆς οὐ γὰρ ἦν ἀριθμὸς ἀπὸ πλήθους αὐτῶν.",
+     "giguet": "Et cette multitude était comme une nuée de sauterelles, ou comme le sable de la terre&nbsp;; car on n'en savait pas le nombre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ ἀπῆλθον ἐκ Νινευη ὁδὸν τριῶν ἡμερῶν ἐπὶ πρόσωπον τοῦ πεδίου Βεκτιλεθ καὶ ἐπεστρατοπέδευσαν ἀπὸ Βεκτιλεθ πλησίον τοῦ ὄρους τοῦ ἐπ' ἀριστερᾷ τῆς ἄνω Κιλικίας.",
+     "giguet": "Et, au sortir de Ninive, après trois jours de marche, il campa dans la plaine de Bectileth, près des montagnes, à gauche de la haute Cilicie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ ἔλαβεν πᾶσαν τὴν δύναμιν αὐτοῦ τοὺς πεζοὺς καὶ τοὺς ἱππεῖς καὶ τὰ ἅρματα αὐτοῦ καὶ ἀπῆλθεν ἐκεῖθεν εἰς τὴν ὀρεινήν.",
+     "giguet": "Et il prit toute son armée, ses piétons, ses cavaliers et ses chars, et il entra dans les montagnes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "καὶ διέκοψεν τὸ Φουδ καὶ Λουδ καὶ ἐπρονόμευσεν υἱοὺς πάντας Ρασσις καὶ υἱοὺς Ισμαηλ τοὺς κατὰ πρόσωπον τῆς ἐρήμου πρὸς νότον τῆς Χελεων.",
+     "giguet": "Et il rompit Phud et Lud, et ses troupes pillèrent tous les fils de Rassis et les fils d'Ismaël, ceux qui demeurent en face, du désert, au midi des Helléens.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "καὶ παρῆλθεν τὸν Εὐφράτην καὶ διῆλθεν τὴν Μεσοποταμίαν καὶ κατέσκαψεν πάσας τὰς πόλεις τὰς ὑψηλὰς τὰς ἐπὶ τοῦ χειμάρρου Αβρωνα ἕως τοῦ ἐλθεῖν ἐπὶ θάλασσαν.",
+     "giguet": "Et il passa l'Euphrate, et il traversa la Mésopotamie, et il renversa toutes les forteresses bâties sur le torrent d'Abron jusqu'à son embouchure.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "καὶ κατελάβετο τὰ ὅρια τῆς Κιλικίας καὶ κατέκοψε πάντας τοὺς ἀντιστάντας αὐτῷ καὶ ἦλθεν ἕως ὁρίων Ιαφεθ τὰ πρὸς νότον κατὰ πρόσωπον τῆς Ἀραβίας.",
+     "giguet": "Et il se rendit maître de la Cilicie, entière et il tailla en pièces tout ce qui lui résista&nbsp;; et il atteignit le territoire de Japhet qui s'étend au sud, en face de l'Arabie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "26",
+     "grec": "καὶ ἐκύκλωσεν πάντας τοὺς υἱοὺς Μαδιαμ καὶ ἐνέπρησεν τὰ σκηνώματα αὐτῶν καὶ ἐπρονόμευσεν τὰς μάνδρας αὐτῶν.",
+     "giguet": "Et il enveloppa tous les fils de Madian, et il incendia leurs demeures, et il pilla leurs bergeries.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "27",
+     "grec": "καὶ κατέβη εἰς πεδίον Δαμασκοῦ ἐν ἡμέραις θερισμοῦ πυρῶν καὶ ἐνέπρησεν πάντας τοὺς ἀγροὺς αὐτῶν καὶ τὰ ποίμνια καὶ τὰ βουκόλια ἔδωκεν εἰς ἀφανισμὸν καὶ τὰς πόλεις αὐτῶν ἐσκύλευσεν καὶ τὰ πεδία αὐτῶν ἐξελίκμησεν καὶ ἐπάταξεν πάντας τοὺς νεανίσκους αὐτῶν ἐν στόματι ῥομφαίας.",
+     "giguet": "Et il descendit dans la plaine de Damas, comme on moissonnait les froments, et il livra les champs à la flamme, et il fit disparaître brebis et bœufs, et il pilla les villes, ravagea les campagnes, et passa tous les jeunes hommes au fil de l'épée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "28",
+     "grec": "καὶ ἐπέπεσεν φόβος καὶ τρόμος αὐτοῦ ἐπὶ τοὺς κατοικοῦντας τὴν παραλίαν τοὺς ὄντας ἐν Σιδῶνι καὶ ἐν Τύρῳ καὶ τοὺς κατοικοῦντας Σουρ καὶ Οκινα καὶ πάντας τοὺς κατοικοῦντας Ιεμνααν καὶ οἱ κατοικοῦντες ἐν Ἀζώτῳ καὶ Ἀσκαλῶνι ἐφοβήθησαν αὐτὸν σφόδρα.",
+     "giguet": "Et la terreur, la crainte de lui tombèrent sur les peuples de la côte, sur ceux qui étaient en Sidon, et à Tyr, et à Sur, et à Ocina, et sur tous ceux de Jemnaan. Et les habitants d'Azot et d'Ascalon furent frappés d'épouvante.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 3,
+   "libelle": "3",
+   "fichierToc": "JDT/003.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἀπέστειλαν πρὸς αὐτὸν ἀγγέλους λόγοις εἰρηνικοῖς λέγοντες.",
+     "giguet": "Et ils lui envoyèrent des messagers, avec des paroles pacifiques, disant&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἰδοὺ ἡμεῖς οἱ παῖδες Ναβουχοδονοσορ βασιλέως μεγάλου παρακείμεθα ἐνώπιόν σου χρῆσαι ἡμῖν καθὼς ἀρεστόν ἐστιν τῷ προσώπῳ σου.",
+     "giguet": "Voilà que nous, les serviteurs du grand roi Nabuchodonosor, nous sommes devant toi&nbsp;; use de nous comme bon te semble.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἰδοὺ αἱ ἐπαύλεις ἡμῶν καὶ πᾶς τόπος ἡμῶν καὶ πᾶν πεδίον πυρῶν καὶ τὰ ποίμνια καὶ τὰ βουκόλια καὶ πᾶσαι αἱ μάνδραι τῶν σκηνῶν ἡμῶν παράκεινται πρὸ προσώπου σου χρῆσαι καθὸ ἂν ἀρέσκῃ σοι.",
+     "giguet": "Voilà que nos maisons des champs, et toute notre plaine couverte de moissons, et nos brebis, et nos bœufs, et nos tentes, sont devant toi&nbsp;; uses-en comme bon te semble.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἰδοὺ καὶ αἱ πόλεις ἡμῶν καὶ οἱ κατοικοῦντες ἐν αὐταῖς δοῦλοι σοί εἰσιν ἐλθὼν ἀπάντησον αὐταῖς ὡς ἔστιν ἀγαθὸν ἐν ὀφθαλμοῖς σου.",
+     "giguet": "Voilà que nos villes et ceux qui les habitent sont tes esclaves&nbsp;; viens, entres-y comme il est agréable à tes yeux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ παρεγένοντο οἱ ἄνδρες πρὸς Ολοφέρνην καὶ ἀπήγγειλαν αὐτῷ κατὰ τὰ ῥήματα ταῦτα.",
+     "giguet": "Et ces hommes arrivèrent auprès d'Holopherne, et ils lui rapportèrent ces paroles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ κατέβη ἐπὶ τὴν παραλίαν αὐτὸς καὶ ἡ δύναμις αὐτοῦ καὶ ἐφρούρωσε τὰς πόλεις τὰς ὑψηλὰς καὶ ἔλαβεν ἐξ αὐτῶν εἰς συμμαχίαν ἄνδρας ἐπιλέκτους.",
+     "giguet": "Et il descendit, en la contrée maritime, lui et son armée, et il mit des garnisons dans les villes fortifiées, et il en prit les hommes d'élite comme auxiliaires.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἐδέξαντο αὐτὸν αὐτοὶ καὶ πᾶσα ἡ περίχωρος αὐτῶν μετὰ στεφάνων καὶ χορῶν καὶ τυμπάνων.",
+     "giguet": "Et ils l'accueillirent, eux et tout leur voisinage, avec des couronnes, des chœurs de danse et des tambours.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ κατέσκαψεν πάντα τὰ ὅρια αὐτῶν καὶ τὰ ἄλση αὐτῶν ἐξέκοψεν καὶ ἦν δεδομένον αὐτῷ ἐξολεθρεῦσαι πάντας τοὺς θεοὺς τῆς γῆς ὅπως αὐτῷ μόνῳ τῷ Ναβουχοδονοσορ λατρεύσωσι πάντα τὰ ἔθνη καὶ πᾶσαι αἱ γλῶσσαι καὶ αἱ φυλαὶ αὐτῶν ἐπικαλέσωνται αὐτὸν εἰς θεόν.",
+     "giguet": "Et il détruisit tout sur leur territoire, et il arracha les bois sacrés&nbsp;; et il avait résolu de briser tous les dieux de la terre, afin que les nations ne servissent plus que le seul Nabuchodonosor, et que toutes leurs langues, toutes leurs tribus l'invoquassent comme un Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ ἦλθεν κατὰ πρόσωπον Εσδρηλων πλησίον τῆς Δωταιας ἥ ἐστιν ἀπέναντι τοῦ πρίονος τοῦ μεγάλου τῆς Ιουδαίας.",
+     "giguet": "Et il arriva en face d'Esdrelon, près de Dothaïn, qui est devant la grande chaîne de montagnes de la Judée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ κατεστρατοπέδευσαν ἀνὰ μέσον Γαιβαι καὶ Σκυθῶν πόλεως καὶ ἦν ἐκεῖ μῆνα ἡμερῶν εἰς τὸ συλλέξαι πᾶσαν τὴν ἀπαρτίαν τῆς δυνάμεως αὐτοῦ.",
+     "giguet": "Et il campa entre Gébé et Scython, et il y resta un mois pour refaire tout l'approvisionnement de son armée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 4,
+   "libelle": "4",
+   "fichierToc": "JDT/004.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἤκουσαν οἱ υἱοὶ Ισραηλ οἱ κατοικοῦντες ἐν τῇ Ιουδαίᾳ πάντα ὅσα ἐποίησεν Ολοφέρνης τοῖς ἔθνεσιν ὁ ἀρχιστράτηγος Ναβουχοδονοσορ βασιλέως Ἀσσυρίων καὶ ὃν τρόπον ἐσκύλευσεν πάντα τὰ ἱερὰ αὐτῶν καὶ ἔδωκεν αὐτὰ εἰς ἀφανισμόν.",
+     "giguet": "Et les fils d'Israël, qui demeuraient en Judée, ouïrent tout ce qu'Holopherne, général en chef de Nabuchodonosor, roi des Assyriens, avait fait aux nations, et de quelle manière il s'était emparé de leurs choses saintes pour les anéantir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ἐφοβήθησαν σφόδρα σφόδρα ἀπὸ προσώπου αὐτοῦ καὶ περὶ Ιερουσαλημ καὶ τοῦ ναοῦ κυρίου θεοῦ αὐτῶν ἐταράχθησαν.",
+     "giguet": "Et ils eurent très grande crainte de lui, et ils furent pleins de trouble, à cause de Jérusalem et du temple du Seigneur leur Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ὅτι προσφάτως ἦσαν ἀναβεβηκότες ἐκ τῆς αἰχμαλωσίας καὶ νεωστὶ πᾶς ὁ λαὸς συνελέλεκτο τῆς Ιουδαίας καὶ τὰ σκεύη καὶ τὸ θυσιαστήριον καὶ ὁ οἶκος ἐκ τῆς βεβηλώσεως ἡγιασμένα ἦν.",
+     "giguet": "Car ils étaient récemment revenus de captivité&nbsp;; et tout le peuple de la Judée s'était de nouveau réuni, et les vases, et l'autel et le temple, après avoir été profanés, venaient d'être sanctifiés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἀπέστειλαν εἰς πᾶν ὅριον Σαμαρείας καὶ Κωνα καὶ Βαιθωρων καὶ Βελμαιν καὶ Ιεριχω καὶ εἰς Χωβα καὶ Αισωρα καὶ τὸν αὐλῶνα Σαλημ.",
+     "giguet": "Et ils envoyèrent des messagers sur tout le territoire de Samarie, ainsi qu'à Conus, à Béthoron, à Belmen, à Jéricho, à Hoba, à Aisora et dans le val de Salem.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ προκατελάβοντο πάσας τὰς κορυφὰς τῶν ὀρέων τῶν ὑψηλῶν καὶ ἐτείχισαν τὰς ἐν αὐτοῖς κώμας καὶ παρέθεντο εἰς ἐπισιτισμὸν εἰς παρασκευὴν πολέμου ὅτι προσφάτως ἦν τὰ πεδία αὐτῶν τεθερισμένα.",
+     "giguet": "Et ils occupèrent toutes les cimes des hautes montagnes, fortifièrent leurs bourgs et les approvisionnèrent de vivres et de munitions de guerre&nbsp;; car leurs champs venaient d'être moissonnés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἔγραψεν Ιωακιμ ὁ ἱερεὺς ὁ μέγας ὃς ἦν ἐν ταῖς ἡμέραις ἐν Ιερουσαλημ τοῖς κατοικοῦσι Βαιτυλουα καὶ Βαιτομεσθαιμ ἥ ἐστιν ἀπέναντι Εσδρηλων κατὰ πρόσωπον τοῦ πεδίου τοῦ πλησίον Δωθαϊμ.",
+     "giguet": "Et Joacim, qui était en ces jours-là grand prêtre à Jérusalem, écrivit aux habitants de Béthulie et de Betomesthem qui est devant Esdrelon, en face de la plaine voisine de Dothaïn,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "λέγων διακατασχεῖν τὰς ἀναβάσεις τῆς ὀρεινῆς ὅτι δι' αὐτῶν ἦν ἡ εἴσοδος εἰς τὴν Ιουδαίαν καὶ ἦν εὐχερῶς διακωλῦσαι αὐτοὺς προσβαίνοντας στενῆς τῆς προσβάσεως οὔσης ἐπ' ἄνδρας τοὺς πάντας δύο.",
+     "giguet": "Disant de garder les défilés de la région montagneuse&nbsp;; car c'est là qu'était l'entrée de la Judée, et il était facile de contenir les assaillants, la montée étant assez étroite pour que deux hommes suffisent contre tous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ ἐποίησαν οἱ υἱοὶ Ισραηλ καθὰ συνέταξεν αὐτοῖς Ιωακιμ ὁ ἱερεὺς ὁ μέγας καὶ ἡ γερουσία παντὸς δήμου Ισραηλ οἳ ἐκάθηντο ἐν Ιερουσαλημ.",
+     "giguet": "Et les enfants d'Israël firent comme le leur prescrivirent Joacim le grand prêtre, et les anciens du peuple qui résidaient à Jérusalem.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ ἀνεβόησαν πᾶς ἀνὴρ Ισραηλ πρὸς τὸν θεὸν ἐν ἐκτενείᾳ μεγάλῃ καὶ ἐταπείνωσαν τὰς ψυχὰς αὐτῶν ἐν ἐκτενείᾳ μεγάλῃ.",
+     "giguet": "Et tous les hommes d'Israël crièrent au Seigneur avec une grande instance, et ils humilièrent leurs âmes avec une grande instance.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "αὐτοὶ καὶ αἱ γυναῖκες αὐτῶν καὶ τὰ νήπια αὐτῶν καὶ τὰ κτήνη αὐτῶν καὶ πᾶς πάροικος καὶ μισθωτὸς καὶ ἀργυρώνητος αὐτῶν ἐπέθεντο σάκκους ἐπὶ τὰς ὀσφύας αὐτῶν.",
+     "giguet": "Et ils ceignirent de cilices eux, leurs femmes, leurs enfants, leurs chevaux, et tout étranger travaillant comme mercenaire ou acheté à prix d'argent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ πᾶς ἀνὴρ Ισραηλ καὶ γυνὴ καὶ τὰ παιδία οἱ κατοικοῦντες ἐν Ιερουσαλημ ἔπεσον κατὰ πρόσωπον τοῦ ναοῦ καὶ ἐσποδώσαντο τὰς κεφαλὰς αὐτῶν καὶ ἐξέτειναν τοὺς σάκκους αὐτῶν κατὰ πρόσωπον κυρίου.",
+     "giguet": "Et tout le peuple de Jérusalem, les hommes, les femmes, les enfants se prosternèrent devant le temple de Dieu, la tête couverte de cendres, et ils montrèrent leurs cilices au Seigneur, et ils entourèrent l'autel d'un cilice.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ τὸ θυσιαστήριον σάκκῳ περιέβαλον καὶ ἐβόησαν πρὸς τὸν θεὸν Ισραηλ ὁμοθυμαδὸν ἐκτενῶς τοῦ μὴ δοῦναι εἰς διαρπαγὴν τὰ νήπια αὐτῶν καὶ τὰς γυναῖκας εἰς προνομὴν καὶ τὰς πόλεις τῆς κληρονομίας αὐτῶν εἰς ἀφανισμὸν καὶ τὰ ἅγια εἰς βεβήλωσιν καὶ ὀνειδισμὸν ἐπίχαρμα τοῖς ἔθνεσιν.",
+     "giguet": "Et, tout d'une voix, avec instance, ils crièrent au Dieu d'Israël pour qu'il ne livrât pas leurs enfants et leurs femmes au pillage, les villes de leur héritage à la destruction, les choses saintes à la profanation, aux outrages, à la risée des gentils.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ εἰσήκουσεν κύριος τῆς φωνῆς αὐτῶν καὶ εἰσεῖδεν τὴν θλῖψιν αὐτῶν καὶ ἦν ὁ λαὸς νηστεύων ἡμέρας πλείους ἐν πάσῃ τῇ Ιουδαίᾳ καὶ Ιερουσαλημ κατὰ πρόσωπον τῶν ἁγίων κυρίου παντοκράτορος.",
+     "giguet": "Dieu entendit leur clameur et il vit leur affliction. Et le peuple jeûna bien des jours, en toute la Judée, et à Jérusalem devant le Saint des saints du Seigneur tout-puissant.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ Ιωακιμ ὁ ἱερεὺς ὁ μέγας καὶ πάντες οἱ παρεστηκότες ἐνώπιον κυρίου ἱερεῖς καὶ οἱ λειτουργοῦντες κυρίῳ σάκκους περιεζωσμένοι τὰς ὀσφύας αὐτῶν προσέφερον τὴν ὁλοκαύτωσιν τοῦ ἐνδελεχισμοῦ καὶ τὰς εὐχὰς καὶ τὰ ἑκούσια δόματα τοῦ λαοῦ.",
+     "giguet": "Et Joacim le grand prêtre et tous les prêtres qui servaient devant le Seigneur, les reins ceints de cilices, offrirent l'holocauste perpétuel, et les vœux, et les dons volontaires du peuple&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἦν σποδὸς ἐπὶ τὰς κιδάρεις αὐτῶν καὶ ἐβόων πρὸς κύριον ἐκ πάσης δυνάμεως εἰς ἀγαθὸν ἐπισκέψασθαι πᾶν οἶκον Ισραηλ.",
+     "giguet": "Et ils avaient de la cendre sur leurs tiares, et ils criaient au Seigneur Dieu de toutes les armées, afin qu'il regardât pour son bien toute la maison d'Israël.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 5,
+   "libelle": "5",
+   "fichierToc": "JDT/005.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἀνηγγέλη Ολοφέρνῃ ἀρχιστρατήγῳ δυνάμεως Ασσουρ διότι οἱ υἱοὶ Ισραηλ παρεσκευάσαντο εἰς πόλεμον καὶ τὰς διόδους τῆς ὀρεινῆς συνέκλεισαν καὶ ἐτείχισαν πᾶσαν κορυφὴν ὄρους ὑψηλοῦ καὶ ἔθηκαν ἐν τοῖς πεδίοις σκάνδαλα.",
+     "giguet": "Et l'on vint dire à Holopherne, général en chef de l'armée d'Assur, que les fils d'Israël avaient fait des apprêts de guerre, qu'ils avaient clos les défilés des montagnes, muré toutes les cimes des monts, et créé des obstacles dans la plaine.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ὠργίσθη θυμῷ σφόδρα καὶ ἐκάλεσεν πάντας τοὺς ἄρχοντας Μωαβ καὶ τοὺς στρατηγοὺς Αμμων καὶ πάντας σατράπας τῆς παραλίας.",
+     "giguet": "Et il s'enflamma d'une violente colère, et il convoqua tous les chefs de Moab, et les généraux d'Ammon, et les satrapes de la contrée maritime.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ εἶπεν αὐτοῖς ἀναγγείλατε δή μοι υἱοὶ Χανααν τίς ὁ λαὸς οὗτος ὁ καθήμενος ἐν τῇ ὀρεινῇ καὶ τίνες ἃς κατοικοῦσιν πόλεις καὶ τὸ πλῆθος τῆς δυνάμεως αὐτῶν καὶ ἐν τίνι τὸ κράτος αὐτῶν καὶ ἡ ἰσχὺς αὐτῶν καὶ τίς ἀνέστηκεν ἐπ' αὐτῶν βασιλεὺς ἡγούμενος στρατιᾶς αὐτῶν.",
+     "giguet": "Et il leur dit&nbsp;: Instruisez-moi, fils de Chanaan&nbsp;: quel est le peuple qui demeure dans les montagnes&nbsp;? Quelles sont les villes qu'ils habitent&nbsp;? Quel est le nombre de leur armée&nbsp;? En quoi consistent leur force et leur puissance&nbsp;? Quel roi ont-ils à la tête de leurs combattants&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ διὰ τί κατενωτίσαντο τοῦ μὴ ἐλθεῖν εἰς ἀπάντησίν μοι παρὰ πάντας τοὺς κατοικοῦντας ἐν δυσμαῖς.",
+     "giguet": "Pourquoi dédaignent-ils de se rendre auprès de moi, parmi tous les peuples de l'Occident&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ εἶπεν πρὸς αὐτὸν Αχιωρ ὁ ἡγούμενος πάντων υἱῶν Αμμων ἀκουσάτω δὴ λόγον ὁ κύριός μου ἐκ στόματος τοῦ δούλου σου καὶ ἀναγγελῶ σοι τὴν ἀλήθειαν περὶ τοῦ λαοῦ τούτου ὃς κατοικεῖ τὴν ὀρεινὴν ταύτην πλησίον σοῦ οἰκοῦντος καὶ οὐκ ἐξελεύσεται ψεῦδος ἐκ τοῦ στόματος τοῦ δούλου σου.",
+     "giguet": "Et Achior, chef de tous les fils d'Ammon, lui dit&nbsp;: Que mon maître écoute la parole de la bouche de son esclave, et je te ferai connaître la vérité sur le peuple qui habite ces montagnes que tu vois près de toi, et aucun mensonge ne sortira de la bouche de ton esclave.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ὁ λαὸς οὗτός εἰσιν ἀπόγονοι Χαλδαίων.",
+     "giguet": "Ce peuple est issu de la Chaldée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ παρῴκησαν τὸ πρότερον ἐν τῇ Μεσοποταμίᾳ ὅτι οὐκ ἐβουλήθησαν ἀκολουθῆσαι τοῖς θεοῖς τῶν πατέρων αὐτῶν οἳ ἐγένοντο ἐν γῇ Χαλδαίων.",
+     "giguet": "Ils émigrèrent d'abord en la Mésopotamie, parce qu'ils ne voulurent point servir les dieux de leurs pères qui étaient en la terre de Chaldée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ ἐξέβησαν ἐξ ὁδοῦ τῶν γονέων αὐτῶν καὶ προσεκύνησαν τῷ θεῷ τοῦ οὐρανοῦ θεῷ ᾧ ἐπέγνωσαν καὶ ἐξέβαλον αὐτοὺς ἀπὸ προσώπου τῶν θεῶν αὐτῶν καὶ ἔφυγον εἰς Μεσοποταμίαν καὶ παρῴκησαν ἐκεῖ ἡμέρας πολλάς.",
+     "giguet": "Et ils sortirent de la voie de leurs ancêtres, et ils adorèrent le Dieu du ciel, le Dieu qu'ils avaient appris à connaître, et, comme on les chassa de la face des faux dieux, ils s'enfuirent en Mésopotamie et ils y demeurèrent bien des jours.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ εἶπεν ὁ θεὸς αὐτῶν ἐξελθεῖν ἐκ τῆς παροικίας αὐτῶν καὶ πορευθῆναι εἰς γῆν Χανααν καὶ κατῴκησαν ἐκεῖ καὶ ἐπληθύνθησαν χρυσίῳ καὶ ἀργυρίῳ καὶ ἐν κτήνεσιν πολλοῖς σφόδρα.",
+     "giguet": "Et leur Dieu leur dit de quitter le lieu de leur passage, et de s'en aller en la terre de Chanaan, et ils s'y établirent, et ils devinrent très riches en or, en argent et en bestiaux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ κατέβησαν εἰς Αἴγυπτον ἐκάλυψεν γὰρ τὸ πρόσωπον τῆς γῆς Χανααν λιμός καὶ παρῴκησαν ἐκεῖ μέχρις οὗ διετράφησαν καὶ ἐγένοντο ἐκεῖ εἰς πλῆθος πολύ καὶ οὐκ ἦν ἀριθμὸς τοῦ γένους αὐτῶν.",
+     "giguet": "Et ils descendirent en Egypte, car une famine avait enveloppé la face de toute la terre de Chanaan, et ils y restèrent jusqu'à ce qu'ils s'y fussent accrus. Et ils s'y multiplièrent au point que leurs familles étaient innombrables.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἐπανέστη αὐτοῖς ὁ βασιλεὺς Αἰγύπτου καὶ κατεσοφίσατο αὐτοὺς ἐν πόνῳ καὶ πλίνθῳ ἐταπείνωσαν αὐτοὺς καὶ ἔθεντο αὐτοὺς εἰς δούλους.",
+     "giguet": "Et le roi d'Egypte se leva contre eux&nbsp;; et on les opprima par le travail, en leur faisant faire des briques, et on les humilia, et on les traita en esclaves.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ἀνεβόησαν πρὸς τὸν θεὸν αὐτῶν καὶ ἐπάταξεν πᾶσαν τὴν γῆν Αἰγύπτου πληγαῖς ἐν αἷς οὐκ ἦν ἴασις καὶ ἐξέβαλον αὐτοὺς οἱ Αἰγύπτιοι ἀπὸ προσώπου αὐτῶν.",
+     "giguet": "Et ils crièrent à leur Dieu, qui frappa l'Egypte de plaies sans remède&nbsp;; et les Égyptiens les chassèrent de devant leur face.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ κατεξήρανεν ὁ θεὸς τὴν ἐρυθρὰν θάλασσαν ἔμπροσθεν αὐτῶν.",
+     "giguet": "Et Dieu, devant eux, mit à sec la mer Rouge,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἤγαγεν αὐτοὺς εἰς ὁδὸν τοῦ Σινα καὶ Καδης Βαρνη καὶ ἐξέβαλον πάντας τοὺς κατοικοῦντας ἐν τῇ ἐρήμῳ.",
+     "giguet": "Et il les conduisit par la route de Sina et de Cadès-Barné&nbsp;; ils chassèrent devant eux tous ceux qui habitaient le désert.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ᾤκησαν ἐν γῇ Αμορραίων καὶ πάντας τοὺς Εσεβωνίτας ἐξωλέθρευσαν ἐν τῇ ἰσχύι αὐτῶν καὶ διαβάντες τὸν Ιορδάνην ἐκληρονόμησαν πᾶσαν τὴν ὀρεινὴν.",
+     "giguet": "Et ils se fixèrent en la terre des Amorrhéens, et, en leur force, ils exterminèrent les Esebonites&nbsp;; et, après avoir passé le Jourdain, ils prirent possession de toute la contrée montagneuse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ ἐξέβαλον ἐκ προσώπου αὐτῶν τὸν Χαναναῖον καὶ τὸν Φερεζαῖον καὶ τὸν Ιεβουσαῖον καὶ τὸν Συχεμ καὶ πάντας τοὺς Γεργεσαίους καὶ κατῴκησαν ἐν αὐτῇ ἡμέρας πολλάς.",
+     "giguet": "Et ils chassèrent de devant leur face le Chananéen, le Phérézéen, le Jébuséen, et ceux de Sichem, et tous les Gergéséens, et ils demeurèrent bien des jours en la terre promise.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ἕως οὐχ ἥμαρτον ἐνώπιον τοῦ θεοῦ αὐτῶν ἦν μετ' αὐτῶν τὰ ἀγαθά ὅτι θεὸς μισῶν ἀδικίαν μετ' αὐτῶν ἐστιν.",
+     "giguet": "Et, tant qu'ils ne péchèrent point devant leur Dieu, ils prospérèrent&nbsp;; car c'est un Dieu haïssant l'iniquité qu'ils ont avec eux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ὅτε δὲ ἀπέστησαν ἀπὸ τῆς ὁδοῦ ἧς διέθετο αὐτοῖς ἐξωλεθρεύθησαν ἐν πολλοῖς πολέμοις ἐπὶ πολὺ σφόδρα καὶ ᾐχμαλωτεύθησαν εἰς γῆν οὐκ ἰδίαν καὶ ὁ ναὸς τοῦ θεοῦ αὐτῶν ἐγενήθη εἰς ἔδαφος καὶ αἱ πόλεις αὐτῶν ἐκρατήθησαν ὑπὸ τῶν ὑπεναντίων.",
+     "giguet": "Mais, lorsqu'ils s'écartèrent de la voie qu'il leur avait tracée, ils furent exterminés en beaucoup de batailles contre de grandes multitudes&nbsp;; ils furent emmenés captifs en une terre étrangère, et le temple de leur Dieu fut abaissé au niveau du sol, et leurs villes furent prises par les ennemis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ νῦν ἐπιστρέψαντες ἐπὶ τὸν θεὸν αὐτῶν ἀνέβησαν ἐκ τῆς διασπορᾶς οὗ διεσπάρησαν ἐκεῖ καὶ κατέσχον τὴν Ιερουσαλημ οὗ τὸ ἁγίασμα αὐτῶν καὶ κατῳκίσθησαν ἐν τῇ ὀρεινῇ ὅτι ἦν ἔρημος.",
+     "giguet": "Et maintenant, s'étant convertis à leur Dieu, ils sont revenus des lieux où ils avaient été dispersés, et ils ont recouvré Jérusalem où sont leurs choses saintes, et ils ont repeuplé la contrée montagneuse qui était un désert.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ νῦν δέσποτα κύριε εἰ μὲν ἔστιν ἀγνόημα ἐν τῷ λαῷ τούτῳ καὶ ἁμαρτάνουσιν εἰς τὸν θεὸν αὐτῶν καὶ ἐπισκεψόμεθα ὅτι ἔστιν ἐν αὐτοῖς σκάνδαλον τοῦτο καὶ ἀναβησόμεθα καὶ ἐκπολεμήσομεν αὐτούς.",
+     "giguet": "Sache donc, seigneur mon maître, s'il est quelque égarement parmi ce peuple, s'ils pèchent contre leur Dieu&nbsp;; informons-nous de ce qui est pour eux une cause de chute, et nous irons les combattre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "εἰ δ' οὐκ ἔστιν ἀνομία ἐν τῷ ἔθνει αὐτῶν παρελθέτω δὴ ὁ κύριός μου μήποτε ὑπερασπίσῃ ὁ κύριος αὐτῶν καὶ ὁ θεὸς αὐτῶν ὑπὲρ αὐτῶν καὶ ἐσόμεθα εἰς ὀνειδισμὸν ἐναντίον πάσης τῆς γῆς.",
+     "giguet": "Mais, s'il n'y a point chez ce peuple de dérèglement, que mon maître les évite, de peur que le Seigneur leur Dieu n'étende son bouclier sur eux, et que nous ne soyons la risée de toute la terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ ἐγένετο ὡς ἐπαύσατο Αχιωρ λαλῶν τοὺς λόγους τούτους καὶ ἐγόγγυσεν πᾶς ὁ λαὸς ὁ κυκλῶν τὴν σκηνὴν καὶ περιεστώς καὶ εἶπαν οἱ μεγιστᾶνες Ολοφέρνου καὶ πάντες οἱ κατοικοῦντες τὴν παραλίαν καὶ τὴν Μωαβ συγκόψαι αὐτόν.",
+     "giguet": "Or, dès qu'Achior eut fini de parler, tout le peuple, qui se tenait autour de la tente, se mit à murmurer. Et les chefs d'Holopherne, et ceux des villes maritimes, et ceux de Moab, s'écrièrent&nbsp;: Il faut le mettre en pièces&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "οὐ γὰρ φοβηθησόμεθα ἀπὸ υἱῶν Ισραηλ ἰδοὺ γὰρ λαὸς ἐν ᾧ οὐκ ἔστιν δύναμις οὐδὲ κράτος εἰς παράταξιν ἰσχυράν.",
+     "giguet": "Car nous ne craignons pas les fils d'Israël&nbsp;: c'est un peuple qui n'a ni troupes ni force pour nous livrer sérieusement bataille.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "διὸ δὴ ἀναβησόμεθα καὶ ἔσονται εἰς κατάβρωσιν πάσης τῆς στρατιᾶς σου δέσποτα Ολοφέρνη.",
+     "giguet": "Marchons donc, Holopherne, notre maître&nbsp;; ta grande armée n'en fera qu'une bouchée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 6,
+   "libelle": "6",
+   "fichierToc": "JDT/006.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ὡς κατέπαυσεν ὁ θόρυβος τῶν ἀνδρῶν τῶν κύκλῳ τῆς συνεδρίας καὶ εἶπεν Ολοφέρνης ἀρχιστράτηγος δυνάμεως Ασσουρ πρὸς Αχιωρ ἐναντίον παντὸς τοῦ δήμου ἀλλοφύλων καὶ πρὸς πάντας υἱοὺς Μωαβ.",
+     "giguet": "Dès que le tumulte des hommes, qui entourait le conseil, fut apaisé, Holopherne, général en chef de l'armée d'Assur, dit à Achior, devant tout le peuple des Philistins, et devant tous les fils de Moab&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ τίς εἶ σύ Αχιωρ καὶ οἱ μισθωτοὶ τοῦ Εφραιμ ὅτι ἐπροφήτευσας ἐν ἡμῖν καθὼς σήμερον καὶ εἶπας τὸ γένος Ισραηλ μὴ πολεμῆσαι ὅτι ὁ θεὸς αὐτῶν ὑπερασπιεῖ αὐτῶν καὶ τίς θεὸς εἰ μὴ Ναβουχοδονοσορ οὗτος ἀποστελεῖ τὸ κράτος αὐτοῦ καὶ ἐξολεθρεύσει αὐτοὺς ἀπὸ προσώπου τῆς γῆς καὶ οὐ ῥύσεται αὐτοὺς ὁ θεὸς αὐτῶν.",
+     "giguet": "Qui donc es-tu, Achior&nbsp;? que sont les mercenaires d'Ephraïm, pour que, parmi nous, tu aies prophétisé comme aujourd'hui, et que tu m'aies dit de ne point combattre la race d'Israël, parce que son Dieu la protège&nbsp;? Et qui donc est Dieu, si ce n'est Nabuchodonosor&nbsp;? C'est lui qui déploiera sa puissance, et il les fera disparaître de la face de la terre, et leur Dieu ne les sauvera pas.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἀλλ' ἡμεῖς οἱ δοῦλοι αὐτοῦ πατάξομεν αὐτοὺς ὡς ἄνθρωπον ἕνα καὶ οὐχ ὑποστήσονται τὸ κράτος τῶν ἵππων ἡμῶν.",
+     "giguet": "Et nous, ses serviteurs, nous les abattrons comme un seul homme&nbsp;; ils ne soutiendront pas le choc de nos chevaux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "κατακαύσομεν γὰρ αὐτοὺς ἐν αὐτοῖς καὶ τὰ ὄρη αὐτῶν μεθυσθήσεται ἐν τῷ αἵματι αὐτῶν καὶ τὰ πεδία αὐτῶν πληρωθήσεται τῶν νεκρῶν αὐτῶν καὶ οὐκ ἀντιστήσεται τὸ ἴχνος τῶν ποδῶν αὐτῶν κατὰ πρόσωπον ἡμῶν ἀλλὰ ἀπωλείᾳ ἀπολοῦνται λέγει ὁ βασιλεὺς Ναβουχοδονοσορ ὁ κύριος πάσης τῆς γῆς εἶπεν γάρ οὐ ματαιωθήσεται τὰ ῥήματα τῶν λόγων αὐτοῦ.",
+     "giguet": "Nous les brûlerons chez eux&nbsp;; leurs montagnes s'enivreront de leur sang, leurs plaines seront couvertes de leurs cadavres, et la trace de leurs pas ne subsistera même point devant nous&nbsp;; ils auront radicalement péri. Voilà ce que dit le roi Nabuchodonosor, le maître de toute la terre&nbsp;; il a parlé, et ses paroles ne seront point choses vaines.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "σὺ δέ Αχιωρ μισθωτὲ τοῦ Αμμων ὃς ἐλάλησας τοὺς λόγους τούτους ἐν ἡμέρᾳ ἀδικίας σου οὐκ ὄψει ἔτι τὸ πρόσωπόν μου ἀπὸ τῆς ἡμέρας ταύτης ἕως οὗ ἐκδικήσω τὸ γένος τῶν ἐξ Αἰγύπτου.",
+     "giguet": "Et toi, Achior, mercenaire d'Ammon, qui as dit ces paroles au jour de ton iniquité, à partir de ce jour tu ne verras plus mon visage, jusqu'à ce que j'aie tiré vengeance de cette race qui est sortie d'Egypte.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ τότε διελεύσεται ὁ σίδηρος τῆς στρατιᾶς μου καὶ ὁ λαὸς τῶν θεραπόντων μου τὰς πλευράς σου καὶ πεσῇ ἐν τοῖς τραυματίαις αὐτῶν ὅταν ἐπιστρέψω.",
+     "giguet": "Et alors, le fer de mon armée, la foule de mes serviteurs traverseront tes flancs, et tu tomberas parmi leurs morts quand je serai revenu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἀποκαταστήσουσίν σε οἱ δοῦλοί μου εἰς τὴν ὀρεινὴν καὶ θήσουσίν σε ἐν μιᾷ τῶν πόλεων τῶν ἀναβάσεων.",
+     "giguet": "Et mes serviteurs vont te mener dans les montagnes, et ils te déposeront en l'une des villes par où l'on y monte.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ οὐκ ἀπολῇ ἕως οὗ ἐξολεθρευθῇς μετ' αὐτῶν.",
+     "giguet": "Et tu ne périras pas que tu ne sois frappé avec eux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ εἴπερ ἐλπίζεις τῇ καρδίᾳ σου ὅτι οὐ συλλημφθήσονται μὴ συμπεσέτω σου τὸ πρόσωπον ἐλάλησα καὶ οὐδὲν διαπεσεῖται τῶν ῥημάτων μου.",
+     "giguet": "Et si en ton cœur tu espères qu'ils ne seront point pris, ne nous montre donc pas un visage si abattu. J'ai dit, nulle de mes paroles ne sera sans effet,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ προσέταξεν Ολοφέρνης τοῖς δούλοις αὐτοῦ οἳ ἦσαν παρεστηκότες ἐν τῇ σκηνῇ αὐτοῦ συλλαβεῖν τὸν Αχιωρ καὶ ἀποκαταστῆσαι αὐτὸν εἰς Βαιτυλουα καὶ παραδοῦναι εἰς χεῖρας υἱῶν Ισραηλ.",
+     "giguet": "Et Holopherne ordonna à ses serviteurs, qui se tenaient auprès de lui sous sa tente, de saisir Achior, de le conduire à Béthulie et de le livrer aux fils d'Israël.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ συνέλαβον αὐτὸν οἱ δοῦλοι αὐτοῦ καὶ ἤγαγον αὐτὸν ἔξω τῆς παρεμβολῆς εἰς τὸ πεδίον καὶ ἀπῆραν ἐκ μέσου τῆς πεδινῆς εἰς τὴν ὀρεινὴν καὶ παρεγένοντο ἐπὶ τὰς πηγάς αἳ ἦσαν ὑποκάτω Βαιτυλουα.",
+     "giguet": "Et les serviteurs le prirent, et ils l'emmenèrent hors du camp dans la plaine, et, de là, ils passèrent, du milieu de la plaine, en la montagne, et ils arrivèrent aux fontaines qui sont au-dessous de Béthulie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ὡς εἶδαν αὐτοὺς οἱ ἄνδρες τῆς πόλεως ἐπὶ τὴν κορυφὴν τοῦ ὄρους ἀνέλαβον τὰ ὅπλα αὐτῶν καὶ ἀπῆλθον ἔξω τῆς πόλεως ἐπὶ τὴν κορυφὴν τοῦ ὄρους καὶ πᾶς ἀνὴρ σφενδονήτης διεκράτησαν τὴν ἀνάβασιν αὐτῶν καὶ ἔβαλλον ἐν λίθοις ἐπ' αὐτούς.",
+     "giguet": "Lorsque les hommes de la ville les virent sur la cime de la montagne, ils s'armèrent, ils sortirent de la ville sur la cime de la montagne. Et tous les frondeurs les continrent, comme ils montaient encore, en lançant sur eux des pierres.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ὑποδύσαντες ὑποκάτω τοῦ ὄρους ἔδησαν τὸν Αχιωρ καὶ ἀφῆκαν ἐρριμμένον ὑπὸ τὴν ῥίζαν τοῦ ὄρους καὶ ἀπῴχοντο πρὸς τὸν κύριον αὐτῶν.",
+     "giguet": "Alors, s'étant glissés au bas de la rampe, ils lièrent Achior, le laissèrent abattu au pied de la montagne, et retournèrent auprès de leur maître.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καταβάντες δὲ οἱ υἱοὶ Ισραηλ ἐκ τῆς πόλεως αὐτῶν ἐπέστησαν αὐτῷ καὶ λύσαντες αὐτὸν ἀπήγαγον εἰς τὴν Βαιτυλουα καὶ κατέστησαν αὐτὸν ἐπὶ τοὺς ἄρχοντας τῆς πόλεως αὐτῶν.",
+     "giguet": "Or, les fils d'Israël, qui étaient descendus de leur ville, s'arrêtèrent auprès de lui, lui ôtèrent ses liens, le conduisirent à Béthulie, et le menèrent aux chefs de leur ville,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "οἳ ἦσαν ἐν ταῖς ἡμέραις ἐκείναις Οζιας ὁ τοῦ Μιχα ἐκ τῆς φυλῆς Συμεων καὶ Χαβρις ὁ τοῦ Γοθονιηλ καὶ Χαρμις υἱὸς Μελχιηλ.",
+     "giguet": "Qui, en ces jours-là, étaient&nbsp;: Ozias, fils de Micha, de la tribu de Siméon&nbsp;; Habris, fils d'Othoniel, et Charmis, fils de Melchiel.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ συνεκάλεσαν πάντας τοὺς πρεσβυτέρους τῆς πόλεως καὶ συνέδραμον πᾶς νεανίσκος αὐτῶν καὶ αἱ γυναῖκες εἰς τὴν ἐκκλησίαν καὶ ἔστησαν τὸν Αχιωρ ἐν μέσῳ παντὸς τοῦ λαοῦ αὐτῶν καὶ ἐπηρώτησεν αὐτὸν Οζιας τὸ συμβεβηκός.",
+     "giguet": "Et ceux-ci convoquèrent tous les anciens de la ville et les jeunes gens, et les femmes accoururent à l'assemblée&nbsp;; et ils placèrent Achior au milieu de tout le peuple, et Ozias lui demanda ce qui était advenu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ἀποκριθεὶς ἀπήγγειλεν αὐτοῖς τὰ ῥήματα τῆς συνεδρίας Ολοφέρνου καὶ πάντα τὰ ῥήματα ὅσα ἐλάλησεν ἐν μέσῳ τῶν ἀρχόντων υἱῶν Ασσουρ καὶ ὅσα ἐμεγαλορρημόνησεν Ολοφέρνης εἰς τὸν οἶκον Ισραηλ.",
+     "giguet": "Et, répondant, il leur fit connaître tous les discours du conseil d'Holopherne, toutes les paroles que lui-même avait dites au milieu des chefs des fils d'Assur, et avec quelle jactance Holopherne avait parlé contre la maison d'Israël.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ πεσόντες ὁ λαὸς προσεκύνησαν τῷ θεῷ καὶ ἐβόησαν λέγοντες.",
+     "giguet": "Et le peuple tomba la face contre terre, et il adora Dieu, et ils crièrent à lui, disant&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "κύριε ὁ θεὸς τοῦ οὐρανοῦ κάτιδε ἐπὶ τὰς ὑπερηφανίας αὐτῶν καὶ ἐλέησον τὴν ταπείνωσιν τοῦ γένους ἡμῶν καὶ ἐπίβλεψον ἐπὶ τὸ πρόσωπον τῶν ἡγιασμένων σοι ἐν τῇ ἡμέρᾳ ταύτῃ.",
+     "giguet": "Seigneur Dieu du ciel, voyez leur orgueil, ayez pitié de l'humiliation de notre race, regardez aujourd'hui ceux qui vous sont consacrés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ παρεκάλεσαν τὸν Αχιωρ καὶ ἐπῄνεσαν αὐτὸν σφόδρα.",
+     "giguet": "Et ils consolèrent Achior, et ils le louèrent grandement.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ παρέλαβεν αὐτὸν Οζιας ἐκ τῆς ἐκκλησίας εἰς οἶκον αὐτοῦ καὶ ἐποίησεν πότον τοῖς πρεσβυτέροις καὶ ἐπεκαλέσαντο τὸν θεὸν Ισραηλ εἰς βοήθειαν ὅλην τὴν νύκτα ἐκείνην.",
+     "giguet": "Et Ozias l'emmena de l'assemblée à sa maison, et il fit un festin aux anciens du peuple, et toute cette nuit ils implorèrent le secours du Dieu d'Israël.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 7,
+   "libelle": "7",
+   "fichierToc": "JDT/007.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "τῇ δὲ ἐπαύριον παρήγγειλεν Ολοφέρνης πάσῃ τῇ στρατιᾷ αὐτοῦ καὶ παντὶ τῷ λαῷ αὐτοῦ οἳ παρεγένοντο ἐπὶ τὴν συμμαχίαν αὐτοῦ ἀναζευγνύειν ἐπὶ Βαιτυλουα καὶ τὰς ἀναβάσεις τῆς ὀρεινῆς προκαταλαμβάνεσθαι καὶ ποιεῖν πόλεμον πρὸς τοὺς υἱοὺς Ισραηλ.",
+     "giguet": "Le lendemain, dès l'aurore, Holopherne donna l'ordre à toute son armée et à la multitude de ses auxiliaires, de marcher sur Béthulie, d'occuper les cols de la montagne, et de porter la guerre chez les fils d'Israël.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ἀνέζευξεν ἐν τῇ ἡμέρᾳ ἐκείνῃ πᾶς ἀνὴρ δυνατὸς αὐτῶν καὶ ἡ δύναμις αὐτῶν ἀνδρῶν πολεμιστῶν χιλιάδες πεζῶν ἑκατὸν ἑβδομήκοντα καὶ ἱππέων χιλιάδες δέκα δύο χωρὶς τῆς ἀποσκευῆς καὶ τῶν ἀνδρῶν οἳ ἦσαν πεζοὶ ἐν αὐτοῖς πλῆθος πολὺ σφόδρα.",
+     "giguet": "Et, en ces jours-là, chacun de ses vaillants et son armée entière partirent&nbsp;; il avait cent soixante-dix mille combattants à pied, et douze mille hommes de cavalerie, sans compter les bagages et les hommes à pied qui étaient avec eux&nbsp;: immense multitude.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ παρενέβαλον ἐν τῷ αὐλῶνι πλησίον Βαιτυλουα ἐπὶ τῆς πηγῆς καὶ παρέτειναν εἰς εὖρος ἐπὶ Δωθαϊμ ἕως Βελβαιμ καὶ εἰς μῆκος ἀπὸ Βαιτυλουα ἕως Κυαμωνος ἥ ἐστιν ἀπέναντι τοῦ Εσδρηλων.",
+     "giguet": "Et ils campèrent dans la vallée, au-dessous de Béthulie, vers les fontaines, et ils s'étendirent, en large, de Dothaïn à Belthem, et, en long, de Béthulie à Cyamone, qui est en face d'Esdrelon.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "οἱ δὲ υἱοὶ Ισραηλ ὡς εἶδον αὐτῶν τὸ πλῆθος ἐταράχθησαν σφόδρα καὶ εἶπαν ἕκαστος πρὸς τὸν πλησίον αὐτοῦ νῦν ἐκλείξουσιν οὗτοι τὸ πρόσωπον τῆς γῆς πάσης καὶ οὔτε τὰ ὄρη τὰ ὑψηλὰ οὔτε αἱ φάραγγες οὔτε οἱ βουνοὶ ὑποστήσονται τὸ βάρος αὐτῶν.",
+     "giguet": "Or, les fils d'Israël, quand ils virent cette multitude, furent grandement troublés, et ils se dirent les uns aux autres&nbsp;: Cette armée va bientôt balayer la face de toute la terre&nbsp;; ni les hautes montagnes, ni les ravins, ni les collines, ne pourront en soutenir le poids.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἀναλαβόντες ἕκαστος τὰ σκεύη τὰ πολεμικὰ αὐτῶν καὶ ἀνακαύσαντες πυρὰς ἐπὶ τοὺς πύργους αὐτῶν ἔμενον φυλάσσοντες ὅλην τὴν νύκτα ἐκείνην.",
+     "giguet": "Et, chacun ayant pris ses armes de guerre, ils allumèrent des bûchers sur leurs tours, et ils veillèrent toute la nuit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "τῇ δὲ ἡμέρᾳ τῇ δευτέρᾳ ἐξήγαγεν Ολοφέρνης πᾶσαν τὴν ἵππον αὐτοῦ κατὰ πρόσωπον τῶν υἱῶν Ισραηλ οἳ ἦσαν ἐν Βαιτυλουα.",
+     "giguet": "Le jour suivant, Holopherne déploya toute sa cavalerie devant les fils d'Israël qui étaient dans Béthulie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἐπεσκέψατο τὰς ἀναβάσεις τῆς πόλεως αὐτῶν καὶ τὰς πηγὰς τῶν ὑδάτων ἐφώδευσεν καὶ προκατελάβετο αὐτὰς καὶ ἐπέστησεν αὐταῖς παρεμβολὰς ἀνδρῶν πολεμιστῶν καὶ αὐτὸς ἀνέζευξεν εἰς τὸν λαὸν αὐτοῦ.",
+     "giguet": "Et il reconnut le chemin montant à leur ville, examina les puits de leurs eaux, s'en rendit maître, y plaça un poste d'hommes vaillants, et rejoignit son armée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ προσελθόντες αὐτῷ πάντες ἄρχοντες υἱῶν Ησαυ καὶ πάντες οἱ ἡγούμενοι τοῦ λαοῦ Μωαβ καὶ οἱ στρατηγοὶ τῆς παραλίας εἶπαν.",
+     "giguet": "Alors, tous les chefs des fils d'Esau et de Moab, et les généraux des villes maritimes le vinrent trouver, et lui dirent&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἀκουσάτω δὴ λόγον ὁ δεσπότης ἡμῶν ἵνα μὴ γένηται θραῦσμα ἐν τῇ δυνάμει σου.",
+     "giguet": "Que notre maître écoute une parole, de peur que son armée n'essuie quelque désastre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ὁ γὰρ λαὸς οὗτος τῶν υἱῶν Ισραηλ οὐ πέποιθαν ἐπὶ τοῖς δόρασιν αὐτῶν ἀλλ' ἐπὶ τοῖς ὕψεσι τῶν ὀρέων ἐν οἷς αὐτοὶ ἐνοικοῦσιν ἐν αὐτοῖς οὐ γάρ ἐστιν εὐχερὲς προσβῆναι ταῖς κορυφαῖς τῶν ὀρέων αὐτῶν.",
+     "giguet": "Car, le peuple d'Israël ne se confie point à ses javelines, mais à la hauteur des monts en lesquels il habite. Et, en effet, il n'est pas facile de monter sur les cimes de ses montagnes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ νῦν δέσποτα μὴ πολέμει πρὸς αὐτοὺς καθὼς γίνεται πόλεμος παρατάξεως καὶ οὐ πεσεῖται ἐκ τοῦ λαοῦ σου ἀνὴρ εἷς.",
+     "giguet": "Maintenant donc, maître, ne leur fais pas la guerre, comme il est d'usage, en leur livrant bataille, et pas un homme de ton armée ne périra.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἀνάμεινον ἐπὶ τῆς παρεμβολῆς σου διαφυλάσσων πάντα ἄνδρα ἐκ τῆς δυνάμεώς σου καὶ ἐπικρατησάτωσαν οἱ παῖδές σου τῆς πηγῆς τοῦ ὕδατος ἣ ἐκπορεύεται ἐκ τῆς ῥίζης τοῦ ὄρους.",
+     "giguet": "Demeure dans ton camp, préservant de tout péril chaque homme de ton armée&nbsp;; que tes serviteurs restent maîtres de la fontaine qui jaillit au pied de la montagne.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "διότι ἐκεῖθεν ὑδρεύονται πάντες οἱ κατοικοῦντες Βαιτυλουα καὶ ἀνελεῖ αὐτοὺς ἡ δίψα καὶ ἐκδώσουσι τὴν πόλιν αὐτῶν καὶ ἡμεῖς καὶ ὁ λαὸς ἡμῶν ἀναβησόμεθα ἐπὶ τὰς πλησίον κορυφὰς τῶν ὀρέων καὶ παρεμβαλοῦμεν ἐπ' αὐταῖς εἰς προφυλακὴν τοῦ μὴ ἐξελθεῖν ἐκ τῆς πόλεως ἄνδρα ἕνα.",
+     "giguet": "Car, c'est là que tous les habitants de Béthulie viennent puiser, et la soif les dévorera, et ils livreront leur ville&nbsp;; nous, cependant, et nos troupes nous monterons sur les cimes voisines, et nous y camperons en avant-garde, pour que personne ne sorte de la ville.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ τακήσονται ἐν τῷ λιμῷ αὐτοὶ καὶ αἱ γυναῖκες αὐτῶν καὶ τὰ τέκνα αὐτῶν καὶ πρὶν ἐλθεῖν τὴν ῥομφαίαν ἐπ' αὐτοὺς καταστρωθήσονται ἐν ταῖς πλατείαις τῆς οἰκήσεως αὐτῶν.",
+     "giguet": "Et ils seront consumés par la faim, eux et leurs femmes et leurs enfants, et avant que le glaive les frappe ils succomberont dans les rues où ils habitent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἀνταποδώσεις αὐτοῖς ἀνταπόδομα πονηρὸν ἀνθ' ὧν ἐστασίασαν καὶ οὐκ ἀπήντησαν τῷ προσώπῳ σου ἐν εἰρήνῃ.",
+     "giguet": "Et tu leur feras porter une peine sévère de ce qu'ils se sont révoltés, et de ce qu'ils ne sont point venus en paix à ta rencontre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ ἤρεσαν οἱ λόγοι αὐτῶν ἐνώπιον Ολοφέρνου καὶ ἐνώπιον πάντων τῶν θεραπόντων αὐτοῦ καὶ συνέταξε ποιεῖν καθὰ ἐλάλησαν.",
+     "giguet": "Et ce conseil fut agréable à Holopherne et à tous ses serviteurs&nbsp;; et ils résolurent de faire comme ils avaient dit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ἀπῆρεν παρεμβολὴ υἱῶν Αμμων καὶ μετ' αὐτῶν χιλιάδες πέντε υἱῶν Ασσουρ καὶ παρενέβαλον ἐν τῷ αὐλῶνι καὶ προκατελάβοντο τὰ ὕδατα καὶ τὰς πηγὰς τῶν ὑδάτων τῶν υἱῶν Ισραηλ.",
+     "giguet": "Et le camp des fils d'Ammon partit, et avec eux cinq mille des fils d'Assur, et ils campèrent dans le vallon, et ils s'emparèrent des eaux et des puits des eaux des enfants d'Israël.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ ἀνέβησαν οἱ υἱοὶ Ησαυ καὶ οἱ υἱοὶ Αμμων καὶ παρενέβαλον ἐν τῇ ὀρεινῇ ἀπέναντι Δωθαϊμ καὶ ἀπέστειλαν ἐξ αὐτῶν πρὸς νότον καὶ ἀπηλιώτην ἀπέναντι Εγρεβηλ ἥ ἐστιν πλησίον Χους ἥ ἐστιν ἐπὶ τοῦ χειμάρρου Μοχμουρ καὶ ἡ λοιπὴ στρατιὰ τῶν Ἀσσυρίων παρενέβαλον ἐν τῷ πεδίῳ καὶ ἐκάλυψαν πᾶν τὸ πρόσωπον τῆς γῆς καὶ αἱ σκηναὶ καὶ αἱ ἀπαρτίαι αὐτῶν κατεστρατοπέδευσαν ἐν ὄχλῳ πολλῷ καὶ ἦσαν εἰς πλῆθος πολὺ σφόδρα.",
+     "giguet": "Et les fils d'Esau montèrent avec les fils d'Ammon, et ils campèrent dans les montagnes vis-à-vis Dothaïn, et ils envoyèrent de leurs hommes au midi et à l'est vis-à-vis d'Ecrebel, qui est près de Chus, sur le torrent de Mochmor, et le reste de l'armée des Assyriens était campé dans la plaine, et ils couvraient la face de toute la terre. Et leurs tentes, et leurs bagages étaient rangés en foule, et il y avait là une immense multitude.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ οἱ υἱοὶ Ισραηλ ἀνεβόησαν πρὸς κύριον θεὸν αὐτῶν ὅτι ὠλιγοψύχησεν τὸ πνεῦμα αὐτῶν ὅτι ἐκύκλωσαν πάντες οἱ ἐχθροὶ αὐτῶν καὶ οὐκ ἦν διαφυγεῖν ἐκ μέσου αὐτῶν.",
+     "giguet": "Et les enfants d'Israël crièrent au Seigneur leur Dieu&nbsp;; car leur souffle était défaillant, parce que tous leurs ennemis les enveloppaient, et qu'il n'y avait pas à leur échapper.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ ἔμεινεν κύκλῳ αὐτῶν πᾶσα παρεμβολὴ Ασσουρ οἱ πεζοὶ καὶ ἅρματα καὶ οἱ ἱππεῖς αὐτῶν ἡμέρας τριάκοντα τέσσαρας καὶ ἐξέλιπεν πάντας τοὺς κατοικοῦντας Βαιτυλουα πάντα τὰ ἀγγεῖα αὐτῶν τῶν ὑδάτων.",
+     "giguet": "Et le camp des Assyriens, piétons, chars et cavaliers, demeura trente-quatre jours autour d'eux, et l'eau que contenaient tous les vaisseaux des habitants de Béthulie vint à manquer.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ οἱ λάκκοι ἐξεκενοῦντο καὶ οὐκ εἶχον πιεῖν εἰς πλησμονὴν ὕδωρ ἡμέραν μίαν ὅτι ἐν μέτρῳ ἐδίδοσαν αὐτοῖς πιεῖν.",
+     "giguet": "Et leurs citernes étaient vides, et on leur donnait à boire à la ration, et ils n'avaient pas eu un seul jour de l'eau à satiété.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ ἠθύμησεν τὰ νήπια αὐτῶν καὶ αἱ γυναῖκες καὶ οἱ νεανίσκοι ἐξέλιπον ἀπὸ τῆς δίψης καὶ ἔπιπτον ἐν ταῖς πλατείαις τῆς πόλεως καὶ ἐν ταῖς διόδοις τῶν πυλῶν καὶ οὐκ ἦν κραταίωσις ἔτι ἐν αὐτοῖς.",
+     "giguet": "Et leurs enfants étaient abattus&nbsp;; leurs femmes, et les jeunes gens mouraient de soif&nbsp;; ils tombaient dans les rues de la ville, et aux passages des portes&nbsp;; il n'y avait plus en eux aucune force.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "καὶ ἐπισυνήχθησαν πᾶς ὁ λαὸς ἐπὶ Οζιαν καὶ τοὺς ἄρχοντας τῆς πόλεως οἱ νεανίσκοι καὶ αἱ γυναῖκες καὶ τὰ παιδία καὶ ἀνεβόησαν φωνῇ μεγάλῃ καὶ εἶπαν ἐναντίον πάντων τῶν πρεσβυτέρων.",
+     "giguet": "Et tout le peuple se réunit autour d'Ozias et des chefs de la ville, jeunes hommes, femmes et enfants, et ils jetèrent une haute clameur, et ils dirent aux anciens&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "κρίναι ὁ θεὸς ἀνὰ μέσον ὑμῶν καὶ ἡμῶν ὅτι ἐποιήσατε ἐν ἡμῖν ἀδικίαν μεγάλην οὐ λαλήσαντες εἰρηνικὰ μετὰ υἱῶν Ασσουρ.",
+     "giguet": "Que Dieu juge entre vous et nous&nbsp;; car vous avez commis parmi nous une grande iniquité en ne portant point des paroles pacifiques aux fils d'Assur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "καὶ νῦν οὐκ ἔστιν ὁ βοηθὸς ἡμῶν ἀλλὰ πέπρακεν ἡμᾶς ὁ θεὸς εἰς τὰς χεῖρας αὐτῶν τοῦ καταστρωθῆναι ἐναντίον αὐτῶν ἐν δίψῃ καὶ ἀπωλείᾳ μεγάλῃ.",
+     "giguet": "Et maintenant, il n'est plus pour nous de défenseur&nbsp;; mais Dieu nous a vendus à leurs mains, pour que devant eux nous soyons abattus par la soif, et en grande perdition.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "26",
+     "grec": "καὶ νῦν ἐπικαλέσασθε αὐτοὺς καὶ ἔκδοσθε τὴν πόλιν πᾶσαν εἰς προνομὴν τῷ λαῷ Ολοφέρνου καὶ πάσῃ τῇ δυνάμει αὐτοῦ.",
+     "giguet": "Appelez-les donc, rendez-leur la ville, qu'elle soit tout entière la proie du peuple d'Holopherne et de son armée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "27",
+     "grec": "κρεῖσσον γὰρ ἡμῖν γενηθῆναι αὐτοῖς εἰς διαρπαγήν ἐσόμεθα γὰρ εἰς δούλους καὶ ζήσεται ἡ ψυχὴ ἡμῶν καὶ οὐκ ὀψόμεθα τὸν θάνατον τῶν νηπίων ἡμῶν ἐν ὀφθαλμοῖς ἡμῶν καὶ τὰς γυναῖκας καὶ τὰ τέκνα ἡμῶν ἐκλειπούσας τὰς ψυχὰς αὐτῶν.",
+     "giguet": "Car il vaut mieux pour nous qu'ils nous ravissent&nbsp;; nous serons leurs esclaves, mais notre âme vivra, et nous ne verrons point la mort de nos petits-enfants sous nos yeux&nbsp;; nous ne verrons pas nos enfants et nos femmes, l'âme défaillante.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "28",
+     "grec": "μαρτυρόμεθα ὑμῖν τὸν οὐρανὸν καὶ τὴν γῆν καὶ τὸν θεὸν ἡμῶν καὶ κύριον τῶν πατέρων ἡμῶν ὃς ἐκδικεῖ ἡμᾶς κατὰ τὰς ἁμαρτίας ἡμῶν καὶ κατὰ τὰ ἁμαρτήματα τῶν πατέρων ἡμῶν ἵνα μὴ ποιήσῃ κατὰ τὰ ῥήματα ταῦτα ἐν τῇ ἡμέρᾳ τῇ σήμερον.",
+     "giguet": "Nous prenons à témoin contre vous le ciel et la terre, et notre Seigneur Dieu de nos pères, qui nous punit de nos péchés et des péchés de nos pères, si toi, Ozias, tu ne fais aujourd'hui même comme nous venons de dire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "29",
+     "grec": "καὶ ἐγένετο κλαυθμὸς μέγας ἐν μέσῳ τῆς ἐκκλησίας πάντων ὁμοθυμαδόν καὶ ἐβόησαν πρὸς κύριον τὸν θεὸν φωνῇ μεγάλῃ.",
+     "giguet": "Et il y eut un grand et unanime gémissement au milieu de l'assemblée, et ils crièrent, à haute voix, au Seigneur Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "30",
+     "grec": "καὶ εἶπεν πρὸς αὐτοὺς Οζιας θαρσεῖτε ἀδελφοί διακαρτερήσωμεν ἔτι πέντε ἡμέρας ἐν αἷς ἐπιστρέψει κύριος ὁ θεὸς ἡμῶν τὸ ἔλεος αὐτοῦ ἐφ' ἡμᾶς οὐ γὰρ ἐγκαταλείψει ἡμᾶς εἰς τέλος.",
+     "giguet": "Et Ozias leur dit&nbsp;: Frères, prenez courage, persistons encore cinq jours pendant lesquels le Seigneur notre Dieu ramènera sur nous sa miséricorde, car il ne nous abandonnera pas jusqu'à la fin.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "31",
+     "grec": "ἐὰν δὲ διέλθωσιν αὗται καὶ μὴ ἔλθῃ ἐφ' ἡμᾶς βοήθεια ποιήσω κατὰ τὰ ῥήματα ὑμῶν.",
+     "giguet": "Ce temps écoulé, s'il ne nous vient pas en aide, je ferai comme vous avez dit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "32",
+     "grec": "καὶ ἐσκόρπισεν τὸν λαὸν εἰς τὴν ἑαυτοῦ παρεμβολήν καὶ ἐπὶ τὰ τείχη καὶ τοὺς πύργους τῆς πόλεως αὐτῶν ἀπῆλθον καὶ τὰς γυναῖκας καὶ τὰ τέκνα εἰς τοὺς οἴκους αὐτῶν ἀπέστειλαν καὶ ἦσαν ἐν ταπεινώσει πολλῇ ἐν τῇ πόλει.",
+     "giguet": "Et il renvoya les hommes à leur poste sur les murs et les tours de la ville, et les femmes et les enfants en leurs demeures. Et toute la ville était dans une grande humiliation.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 8,
+   "libelle": "8",
+   "fichierToc": "JDT/008.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἤκουσεν ἐν ἐκείναις ταῖς ἡμέραις Ιουδιθ θυγάτηρ Μεραρι υἱοῦ Ωξ υἱοῦ Ιωσηφ υἱοῦ Οζιηλ υἱοῦ Ελκια υἱοῦ Ανανιου υἱοῦ Γεδεων υἱοῦ Ραφαϊν υἱοῦ Αχιτωβ υἱοῦ Ηλιου υἱοῦ Χελκιου υἱοῦ Ελιαβ υἱοῦ Ναθαναηλ υἱοῦ Σαλαμιηλ υἱοῦ Σαρασαδαι υἱοῦ Ισραηλ.",
+     "giguet": "Or, en ces jours-là, Judith, fille de Mérari, fils d'Ox, fils de Joseph, fils d'Oziel, fils d'Helcias, fils d'Éliu, fils d'Helciu, fils d'Eliab, fils de Nathanaël, fils de Salamiel, fils de Sarasadaï, fils d'Israël, avait tout entendu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ὁ ἀνὴρ αὐτῆς Μανασσης τῆς φυλῆς αὐτῆς καὶ τῆς πατριᾶς αὐτῆς καὶ ἀπέθανεν ἐν ἡμέραις θερισμοῦ κριθῶν.",
+     "giguet": "Son mari Manassès, de sa tribu et de sa famille, paternelle, était mort pendant la moisson des orges.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἐπέστη γὰρ ἐπὶ τοὺς δεσμεύοντας τὰ δράγματα ἐν τῷ πεδίῳ καὶ ὁ καύσων ἦλθεν ἐπὶ τὴν κεφαλὴν αὐτοῦ καὶ ἔπεσεν ἐπὶ τὴν κλίνην αὐτοῦ καὶ ἐτελεύτησεν ἐν Βαιτυλουα τῇ πόλει αὐτοῦ καὶ ἔθαψαν αὐτὸν μετὰ τῶν πατέρων αὐτοῦ ἐν τῷ ἀγρῷ τῷ ἀνὰ μέσον Δωθαϊμ καὶ Βαλαμων.",
+     "giguet": "Car, comme il était à faire lier ses gerbes dans la plaine, il fut frappé à la tête d'un coup de soleil, et il se mit au lit, et il mourut en Béthulie, sa ville, et on l'ensevelit, auprès de ses pères, dans le champ entre Dothaïn et Bélamon.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἦν Ιουδιθ ἐν τῷ οἴκῳ αὐτῆς χηρεύουσα ἔτη τρία καὶ μῆνας τέσσαρας.",
+     "giguet": "Et Judith était en sa maison, veuve depuis trois ans et quatre mois.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἐποίησεν ἑαυτῇ σκηνὴν ἐπὶ τοῦ δώματος τοῦ οἴκου αὐτῆς καὶ ἐπέθηκεν ἐπὶ τὴν ὀσφὺν αὐτῆς σάκκον καὶ ἦν ἐπ' αὐτῆς τὰ ἱμάτια τῆς χηρεύσεως αὐτῆς.",
+     "giguet": "Et elle s'était dressé une tente, sur la terrasse de sa maison, et elle s'était ceinte d'un cilice, et elle portait les habits de son veuvage.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἐνήστευε πάσας τὰς ἡμέρας τῆς χηρεύσεως αὐτῆς χωρὶς προσαββάτων καὶ σαββάτων καὶ προνουμηνιῶν καὶ νουμηνιῶν καὶ ἑορτῶν καὶ χαρμοσυνῶν οἴκου Ισραηλ.",
+     "giguet": "Et elle avait jeûné, tous les jours de son veuvage, hormis le jour et la veille du sabbat, le jour et la veille des nouvelles lunes, ainsi que des fêtes et des réjouissances de la maison d'Israël.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἦν καλὴ τῷ εἴδει καὶ ὡραία τῇ ὄψει σφόδρα καὶ ὑπελίπετο αὐτῇ Μανασσης ὁ ἀνὴρ αὐτῆς χρυσίον καὶ ἀργύριον καὶ παῖδας καὶ παιδίσκας καὶ κτήνη καὶ ἀγρούς καὶ ἔμενεν ἐπ' αὐτῶν.",
+     "giguet": "Et elle était de belle prestance et d'une grande beauté, et Manassès, son mari, lui avait laissé de l'or et de l'argent, des serviteurs, des servantes, du bétail et des champs&nbsp;; et elle demeurait sur son bien.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ οὐκ ἦν ὃς ἐπήνεγκεν αὐτῇ ῥῆμα πονηρόν ὅτι ἐφοβεῖτο τὸν θεὸν σφόδρα.",
+     "giguet": "Et il n'était personne qui dît contre elle une mauvaise parole, car elle avait grande crainte de Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ ἤκουσεν τὰ ῥήματα τοῦ λαοῦ τὰ πονηρὰ ἐπὶ τὸν ἄρχοντα ὅτι ὠλιγοψύχησαν ἐν τῇ σπάνει τῶν ὑδάτων καὶ ἤκουσεν πάντας τοὺς λόγους Ιουδιθ οὓς ἐλάλησεν πρὸς αὐτοὺς Οζιας ὡς ὤμοσεν αὐτοῖς παραδώσειν τὴν πόλιν μετὰ ἡμέρας πέντε τοῖς Ἀσσυρίοις.",
+     "giguet": "Et elle avait ouï les mauvaises paroles du peuple contre le chef de la ville, parce qu'ils étaient défaillants faute d'eau. Et Judith avait ouï pareillement la réponse d'Ozias, et son serment de rendre dans cinq jours la ville aux Assyriens.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ ἀποστείλασα τὴν ἅβραν αὐτῆς τὴν ἐφεστῶσαν πᾶσιν τοῖς ὑπάρχουσιν αὐτῆς ἐκάλεσεν Χαβριν καὶ Χαρμιν τοὺς πρεσβυτέρους τῆς πόλεως αὐτῆς.",
+     "giguet": "Et ayant envoyé sa servante, celle qui était à la tête de tous ses biens, elle appela Ozias, Habris et Charmis, les anciens de sa ville.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἦλθον πρὸς αὐτήν καὶ εἶπεν πρὸς αὐτούς ἀκούσατε δή μου ἄρχοντες τῶν κατοικούντων ἐν Βαιτυλουα ὅτι οὐκ εὐθὴς ὁ λόγος ὑμῶν ὃν ἐλαλήσατε ἐναντίον τοῦ λαοῦ ἐν τῇ ἡμέρᾳ ταύτῃ καὶ ἐστήσατε τὸν ὅρκον τοῦτον ὃν ἐλαλήσατε ἀνὰ μέσον τοῦ θεοῦ καὶ ὑμῶν καὶ εἴπατε ἐκδώσειν τὴν πόλιν τοῖς ἐχθροῖς ἡμῶν ἐὰν μὴ ἐν αὐταῖς ἐπιστρέψῃ κύριος βοήθειαν ὑμῖν.",
+     "giguet": "Et ils vinrent chez elle, et elle leur dit&nbsp;: Écoutez-moi, chefs de ceux qui habitent Béthulie&nbsp;; ce n'est pas une parole juste que vous avez dite aujourd'hui devant le peuple, quand vous avez mis entre Dieu et vous, le serment que vous avez prêté de rendre la ville à nos ennemis, si, dans cinq jours, le Seigneur ne vient pas à notre aide.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ νῦν τίνες ἐστὲ ὑμεῖς οἳ ἐπειράσατε τὸν θεὸν ἐν τῇ ἡμέρᾳ τῇ σήμερον καὶ ἵστατε ὑπὲρ τοῦ θεοῦ ἐν μέσῳ υἱῶν ἀνθρώπων.",
+     "giguet": "Et qui donc êtes-vous pour tenter aujourd'hui le Seigneur, et pour décider à la place de Dieu, parmi les fils des hommes&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ νῦν κύριον παντοκράτορα ἐξετάζετε καὶ οὐθὲν ἐπιγνώσεσθε ἕως τοῦ αἰῶνος.",
+     "giguet": "Et maintenant, vous êtes à examiner le Seigneur tout-puissant, mais vous n'apprendrez jamais à le connaître.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ὅτι βάθος καρδίας ἀνθρώπου οὐχ εὑρήσετε καὶ λόγους τῆς διανοίας αὐτοῦ οὐ διαλήμψεσθε καὶ πῶς τὸν θεόν ὃς ἐποίησεν πάντα ταῦτα ἐρευνήσετε καὶ τὸν νοῦν αὐτοῦ ἐπιγνώσεσθε καὶ τὸν λογισμὸν αὐτοῦ κατανοήσετε μηδαμῶς ἀδελφοί μὴ παροργίζετε κύριον τὸν θεὸν ἡμῶν.",
+     "giguet": "Vous ne trouvez pas le fond du cœur de l'homme&nbsp;; vous ne saisissez point ce qu'il roule en sa pensée. Comment donc scruterez-vous la pensée de Dieu qui a fait toutes ces choses&nbsp;? comment saurez-vous ce qu'il médite&nbsp;? comment pénètrerez-vous ses desseins&nbsp;? Vous ne le pouvez, mes frères&nbsp;; craignez donc d'irriter le Seigneur notre Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ὅτι ἐὰν μὴ βούληται ἐν ταῖς πέντε ἡμέραις βοηθῆσαι ἡμῖν αὐτὸς ἔχει τὴν ἐξουσίαν ἐν αἷς θέλει σκεπάσαι ἡμέραις ἢ καὶ ὀλεθρεῦσαι ἡμᾶς πρὸ προσώπου τῶν ἐχθρῶν ἡμῶν.",
+     "giguet": "Craignez qu'il ne refuse de vous secourir dans cinq jours&nbsp;; il a le pouvoir de vous sauver dans le nombre de jours qu'il lui convient, ou de nous exterminer devant nos ennemis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ὑμεῖς δὲ μὴ ἐνεχυράζετε τὰς βουλὰς κυρίου τοῦ θεοῦ ἡμῶν ὅτι οὐχ ὡς ἄνθρωπος ὁ θεὸς ἀπειληθῆναι οὐδ' ὡς υἱὸς ἀνθρώπου διαιτηθῆναι.",
+     "giguet": "Gardez-vous d'extorquer la volonté du Seigneur notre Dieu, car Dieu ne peut être menacé comme un homme, ni gouverné comme un fils de l'homme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "διόπερ ἀναμένοντες τὴν παρ' αὐτοῦ σωτηρίαν ἐπικαλεσώμεθα αὐτὸν εἰς βοήθειαν ἡμῶν καὶ εἰσακούσεται τῆς φωνῆς ἡμῶν ἐὰν ᾖ αὐτῷ ἀρεστόν.",
+     "giguet": "C'est pourquoi, attendant de lui seul notre salut, il faut l'appeler à notre secours, et il entendra nos cris, si cela lui est agréable.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ὅτι οὐκ ἀνέστη ἐν ταῖς γενεαῖς ἡμῶν οὐδέ ἐστιν ἐν τῇ ἡμέρᾳ τῇ σήμερον οὔτε φυλὴ οὔτε πατριὰ οὔτε δῆμος οὔτε πόλις ἐξ ἡμῶν οἳ προσκυνοῦσι θεοῖς χειροποιήτοις καθάπερ ἐγένετο ἐν ταῖς πρότερον ἡμέραις.",
+     "giguet": "Parce que dans nos familles nul ne s'est élevé contre lui&nbsp;; il n'est aujourd'hui ni tribu, ni famille paternelle, ni canton, ni ville, parmi nous, qui adore des dieux faits de la main des hommes, comme il arrivait dans les premiers jours&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ὧν χάριν ἐδόθησαν εἰς ῥομφαίαν καὶ εἰς διαρπαγὴν οἱ πατέρες ἡμῶν καὶ ἔπεσον πτῶμα μέγα ἐνώπιον τῶν ἐχθρῶν ἡμῶν.",
+     "giguet": "En punition de quoi nos pères ont été livrés au meurtre et au pillage, et ont fait une grande chute devant nos ennemis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "ἡμεῖς δὲ ἕτερον θεὸν οὐκ ἔγνωμεν πλὴν αὐτοῦ ὅθεν ἐλπίζομεν ὅτι οὐχ ὑπερόψεται ἡμᾶς οὐδ' ἀπὸ τοῦ γένους ἡμῶν.",
+     "giguet": "Nous n'avons jamais reconnu d'autre Dieu que lui&nbsp;; voilà pourquoi nous espérons qu'il n'abandonnera ni nous, ni ce qui est de notre race.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "ὅτι ἐν τῷ λημφθῆναι ἡμᾶς οὕτως καὶ λημφθήσεται πᾶσα ἡ Ιουδαία καὶ προνομευθήσεται τὰ ἅγια ἡμῶν καὶ ἐκζητήσει τὴν βεβήλωσιν αὐτῶν ἐκ τοῦ αἵματος ἡμῶν.",
+     "giguet": "Car, si nous sommes pris, la Judée entière sera renversée, les choses saintes seront pillées, et il nous demandera compte de leur profanation,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ τὸν φόνον τῶν ἀδελφῶν ἡμῶν καὶ τὴν αἰχμαλωσίαν τῆς γῆς καὶ τὴν ἐρήμωσιν τῆς κληρονομίας ἡμῶν ἐπιστρέψει εἰς κεφαλὴν ἡμῶν ἐν τοῖς ἔθνεσιν οὗ ἐὰν δουλεύσωμεν ἐκεῖ καὶ ἐσόμεθα εἰς πρόσκομμα καὶ εἰς ὄνειδος ἐναντίον τῶν κτωμένων ἡμᾶς.",
+     "giguet": "Et du massacre de nos frères, et de la captivité de la terre, et de la désolation de notre héritage&nbsp;; il fera retomber tous ces malheurs sur nos têtes, chez les nations où nous serons asservis, et nous deviendrons des sujets de scandale et d'outrages aux yeux de ceux qui seront nos maîtres&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "ὅτι οὐ κατευθυνθήσεται ἡ δουλεία ἡμῶν εἰς χάριν ἀλλ' εἰς ἀτιμίαν θήσει αὐτὴν κύριος ὁ θεὸς ἡμῶν.",
+     "giguet": "Parce que notre servitude n'ira pas droit à nous attirer sa grâce, mais le Seigneur notre Dieu la fera tourner à notre déshonneur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "καὶ νῦν ἀδελφοί ἐπιδειξώμεθα τοῖς ἀδελφοῖς ἡμῶν ὅτι ἐξ ἡμῶν κρέμαται ἡ ψυχὴ αὐτῶν καὶ τὰ ἅγια καὶ ὁ οἶκος καὶ τὸ θυσιαστήριον ἐπεστήρισται ἐφ' ἡμῖν.",
+     "giguet": "Maintenant donc, frères, montrons à nos frères que leur vie dépend de nous, que les choses saintes, et le temple et l'autel, reposent sur nous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "παρὰ ταῦτα πάντα εὐχαριστήσωμεν κυρίῳ τῷ θεῷ ἡμῶν ὃς πειράζει ἡμᾶς καθὰ καὶ τοὺς πατέρας ἡμῶν.",
+     "giguet": "Par-dessus toutes choses, témoignons notre reconnaissance au Seigneur notre Dieu, qui nous éprouve comme nos pères.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "26",
+     "grec": "μνήσθητε ὅσα ἐποίησεν μετὰ Αβρααμ καὶ ὅσα ἐπείρασεν τὸν Ισαακ καὶ ὅσα ἐγένετο τῷ Ιακωβ ἐν Μεσοποταμίᾳ τῆς Συρίας ποιμαίνοντι τὰ πρόβατα Λαβαν τοῦ ἀδελφοῦ τῆς μητρὸς αὐτοῦ.",
+     "giguet": "Souvenez-vous de ce qu'il a fait avec Abraham, et de quelle manière il a tenté Isaac, et de ce qui est advenu à Jacob en la Mésopotamie syrienne, lorsqu'il paissait les brebis de son oncle maternel Laban.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "27",
+     "grec": "ὅτι οὐ καθὼς ἐκείνους ἐπύρωσεν εἰς ἐτασμὸν τῆς καρδίας αὐτῶν καὶ ἡμᾶς οὐκ ἐξεδίκησεν ἀλλ' εἰς νουθέτησιν μαστιγοῖ κύριος τοὺς ἐγγίζοντας αὐτῷ.",
+     "giguet": "Il ne vous éprouve pas comme il a éprouvé ceux-ci, en sondant leur cœur, et il ne vous poursuit pas de sa vengeance&nbsp;; mais le Seigneur châtie, pour les avertir, ceux qui s'approchent de lui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "28",
+     "grec": "καὶ εἶπεν πρὸς αὐτὴν Οζιας πάντα ὅσα εἶπας ἐν ἀγαθῇ καρδίᾳ ἐλάλησας καὶ οὐκ ἔστιν ὃς ἀντιστήσεται τοῖς λόγοις σου.",
+     "giguet": "Et Ozias lui répondit&nbsp;: Tout ce que tu as dit part d'un cœur vertueux, et personne ne peut opposer quoi que ce soit à tes paroles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "29",
+     "grec": "ὅτι οὐκ ἐν τῇ σήμερον ἡ σοφία σου πρόδηλός ἐστιν ἀλλ' ἀπ' ἀρχῆς ἡμερῶν σου ἔγνω πᾶς ὁ λαὸς τὴν σύνεσίν σου καθότι ἀγαθόν ἐστιν τὸ πλάσμα τῆς καρδίας σου.",
+     "giguet": "Et ce n'est pas d'aujourd'hui que la sagesse éclate&nbsp;: depuis tes premiers jours, tout le peuple connaît ton intelligence et la beauté de ton âme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "30",
+     "grec": "ἀλλὰ ὁ λαὸς δεδίψηκεν σφόδρα καὶ ἠνάγκασαν ἡμᾶς ποιῆσαι καθὰ ἐλαλήσαμεν αὐτοῖς καὶ ἐπαγαγεῖν ἐφ' ἡμᾶς ὅρκον ὃν οὐ παραβησόμεθα.",
+     "giguet": "Mais le peuple, qui a eu bien soif, nous a mis dans la nécessité de faire comme nous leur avons dit, et d'assumer sur nous un serment que nous ne violerons point.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "31",
+     "grec": "καὶ νῦν δεήθητι περὶ ἡμῶν ὅτι γυνὴ εὐσεβὴς εἶ καὶ ἀποστελεῖ κύριος τὸν ὑετὸν εἰς πλήρωσιν τῶν λάκκων ἡμῶν καὶ οὐκ ἐκλείψομεν ἔτι.",
+     "giguet": "Prie donc pour nous, car tu es une femme pieuse, et le Seigneur enverra de la pluie pour remplir nos citernes, et nous ne manquerons plus d'eau.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "32",
+     "grec": "καὶ εἶπεν πρὸς αὐτοὺς Ιουδιθ ἀκούσατέ μου καὶ ποιήσω πρᾶγμα ὃ ἀφίξεται εἰς γενεὰς γενεῶν υἱοῖς τοῦ γένους ἡμῶν.",
+     "giguet": "Et Judith leur dit&nbsp;: Écoutez-moi, et je ferai une action qui parviendra aux générations des générations de notre race.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "33",
+     "grec": "ὑμεῖς στήσεσθε ἐπὶ τῆς πύλης τὴν νύκτα ταύτην καὶ ἐξελεύσομαι ἐγὼ μετὰ τῆς ἅβρας μου καὶ ἐν ταῖς ἡμέραις μεθ' ἃς εἴπατε παραδώσειν τὴν πόλιν τοῖς ἐχθροῖς ἡμῶν ἐπισκέψεται κύριος τὸν Ισραηλ ἐν χειρί μου.",
+     "giguet": "Tenez-vous cette nuit vers la porte, et je sortirai avec ma servante&nbsp;; et, pendant les jours après lesquels vous avez dit que vous rendriez la ville à nos ennemis, le Seigneur, par mon intermédiaire, visitera Israël.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "34",
+     "grec": "ὑμεῖς δὲ οὐκ ἐξερευνήσετε τὴν πρᾶξίν μου οὐ γὰρ ἐρῶ ὑμῖν ἕως τοῦ τελεσθῆναι ἃ ἐγὼ ποιῶ.",
+     "giguet": "Ne scrutez pas mon dessein&nbsp;; je ne vous dirai rien que mon œuvre ne soit accomplie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "35",
+     "grec": "καὶ εἶπεν Οζιας καὶ οἱ ἄρχοντες πρὸς αὐτήν πορεύου εἰς εἰρήνην καὶ κύριος ὁ θεὸς ἔμπροσθέν σου εἰς ἐκδίκησιν τῶν ἐχθρῶν ἡμῶν.",
+     "giguet": "Et Ozias et les chefs lui dirent&nbsp;: Va en paix, et que le Seigneur marche devant toi pour tirer vengeance de nos ennemis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "36",
+     "grec": "καὶ ἀποστρέψαντες ἐκ τῆς σκηνῆς ἐπορεύθησαν ἐπὶ τὰς διατάξεις αὐτῶν.",
+     "giguet": "Et ils sortirent de la tente de Judith, et ils retournèrent à leur poste.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 9,
+   "libelle": "9",
+   "fichierToc": "JDT/009.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "Ιουδιθ δὲ ἔπεσεν ἐπὶ πρόσωπον καὶ ἐπέθετο σποδὸν ἐπὶ τὴν κεφαλὴν αὐτῆς καὶ ἐγύμνωσεν ὃν ἐνεδεδύκει σάκκον καὶ ἦν ἄρτι προσφερόμενον ἐν Ιερουσαλημ εἰς τὸν οἶκον τοῦ θεοῦ τὸ θυμίαμα τῆς ἑσπέρας ἐκείνης καὶ ἐβόησεν φωνῇ μεγάλῃ Ιουδιθ πρὸς κύριον καὶ εἶπεν.",
+     "giguet": "Et Judith tomba la face contre terre, et elle se couvrit la tête de cendre, et ne garda que son cilice&nbsp;; or, l'on venait, tout à l'heure, ce soir-là, d'offrir l'encens dans le temple de Dieu à Jérusalem, et Judith, à haute voix, cria au Seigneur, et elle dit&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "κύριε ὁ θεὸς τοῦ πατρός μου Συμεων ᾧ ἔδωκας ἐν χειρὶ ῥομφαίαν εἰς ἐκδίκησιν ἀλλογενῶν οἳ ἔλυσαν μήτραν παρθένου εἰς μίασμα καὶ ἐγύμνωσαν μηρὸν εἰς αἰσχύνην καὶ ἐβεβήλωσαν μήτραν εἰς ὄνειδος εἶπας γάρ οὐχ οὕτως ἔσται καὶ ἐποίησαν.",
+     "giguet": "Seigneur Dieu de mon père Siméon, à qui vous avez mis à la main un glaive pour tirer vengeance des étrangers quand ils eurent dénoué la ceinture de la jeune vierge pour la souiller, quand à sa honte ils eurent relevé ses vêtements et l'eurent outragée par leur violence&nbsp;; car vous avez dit&nbsp;: Cela ne peut pas être.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἀνθ' ὧν ἔδωκας ἄρχοντας αὐτῶν εἰς φόνον καὶ τὴν στρωμνὴν αὐτῶν ἣ ᾐδέσατο τὴν ἀπάτην αὐτῶν ἀπατηθεῖσαν εἰς αἷμα καὶ ἐπάταξας δούλους ἐπὶ δυνάσταις καὶ δυνάστας ἐπὶ θρόνους αὐτῶν.",
+     "giguet": "Et ils avaient fait des choses en punition desquelles vous avez livré leurs chefs au meurtre&nbsp;; et vous avez inondé de leur sang la couche où les retenait la ruse des fils de Jacob, et vous avez frappé les esclaves auprès des grands, et les grands sur leurs trônes,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἔδωκας γυναῖκας αὐτῶν εἰς προνομὴν καὶ θυγατέρας αὐτῶν εἰς αἰχμαλωσίαν καὶ πάντα τὰ σκῦλα αὐτῶν εἰς διαίρεσιν υἱῶν ἠγαπημένων ὑπὸ σοῦ οἳ καὶ ἐζήλωσαν τὸν ζῆλόν σου καὶ ἐβδελύξαντο μίασμα αἵματος αὐτῶν καὶ ἐπεκαλέσαντό σε εἰς βοηθόν ὁ θεὸς ὁ θεὸς ὁ ἐμός καὶ εἰσάκουσον ἐμοῦ τῆς χήρας.",
+     "giguet": "Et vous avez fait de leurs femmes une proie, et de leurs filles des captives. Et les fils de ceux que vous aimiez se sont partagé leurs dépouilles, parce qu'ils brûlaient de zèle pour vous, qu'ils avaient en abomination la tache faite à leur sang, et qu'ils avaient invoqué votre secours&nbsp;; ô Dieu, ô mon Dieu, exaucez-moi aussi, moi qui suis veuve.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "σὺ γὰρ ἐποίησας τὰ πρότερα ἐκείνων καὶ ἐκεῖνα καὶ τὰ μετέπειτα καὶ τὰ νῦν καὶ τὰ ἐπερχόμενα διενοήθης καὶ ἐγενήθησαν ἃ ἐνενοήθης.",
+     "giguet": "Car, c'est vous qui avez fait les choses antérieures à celles-ci, et celles-ci, et celles qui suivront. Vous avez conçu les choses d'à présent et celles de l'avenir&nbsp;; et tout ce que vous avez arrêté en votre esprit est arrivé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ παρέστησαν ἃ ἐβουλεύσω καὶ εἶπαν ἰδοὺ πάρεσμεν πᾶσαι γὰρ αἱ ὁδοί σου ἕτοιμοι καὶ ἡ κρίσις σου ἐν προγνώσει.",
+     "giguet": "Et les choses que vous avez méditées ont comparu, et elles ont dit&nbsp;: Nous voici, et toutes vos voies sont préparées, votre jugement est déterminé d'avance.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἰδοὺ γὰρ Ἀσσύριοι ἐπληθύνθησαν ἐν δυνάμει αὐτῶν ὑψώθησαν ἐφ' ἵππῳ καὶ ἀναβάτῃ ἐγαυρίασαν ἐν βραχίονι πεζῶν ἤλπισαν ἐν ἀσπίδι καὶ ἐν γαίσῳ καὶ τόξῳ καὶ σφενδόνῃ καὶ οὐκ ἔγνωσαν ὅτι σὺ εἶ κύριος συντρίβων πολέμους.",
+     "giguet": "Or, maintenant voilà que les Assyriens ont grossi leurs troupes, ils se sont enorgueillis du cheval et du cavalier, ils se sont glorifiés du bras des piétons, ils ont mis leur espérance en des boucliers, des javelines, des arcs, et des frondes&nbsp;; et ils ne savent pas que vous êtes le Seigneur qui broie les combats.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "κύριος ὄνομά σοι σὺ ῥάξον αὐτῶν τὴν ἰσχὺν ἐν δυνάμει σου καὶ κάταξον τὸ κράτος αὐτῶν ἐν τῷ θυμῷ σου ἐβουλεύσαντο γὰρ βεβηλῶσαι τὰ ἅγιά σου μιᾶναι τὸ σκήνωμα τῆς καταπαύσεως τοῦ ὀνόματος τῆς δόξης σου καταβαλεῖν σιδήρῳ κέρας θυσιαστηρίου σου.",
+     "giguet": "Votre nom est le Seigneur. Brisez leur force par votre puissance, renversez leur domination par votre colère, car ils veulent profaner votre sanctuaire, ils veulent souiller le tabernacle où reposent votre nom et votre gloire, ils veulent abattre avec le fer les cornes de votre autel.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "βλέψον εἰς ὑπερηφανίαν αὐτῶν ἀπόστειλον τὴν ὀργήν σου εἰς κεφαλὰς αὐτῶν δὸς ἐν χειρί μου τῆς χήρας ὃ διενοήθην κράτος.",
+     "giguet": "Voyez leur arrogance, faites tomber votre courroux sur leurs têtes&nbsp;; donnez au bras de la veuve la force d'exécuter ce que la veuve a conçu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "πάταξον δοῦλον ἐκ χειλέων ἀπάτης μου ἐπ' ἄρχοντι καὶ ἄρχοντα ἐπὶ θεράποντι αὐτοῦ θραῦσον αὐτῶν τὸ ἀνάστεμα ἐν χειρὶ θηλείας.",
+     "giguet": "Frappez l'esclave auprès du maître et le maître auprès du serviteur, trompés tous les deux par les flatteries de mes lèvres&nbsp;; écrasez leur fierté par la main d'une femme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "οὐ γὰρ ἐν πλήθει τὸ κράτος σου οὐδὲ ἡ δυναστεία σου ἐν ἰσχύουσιν ἀλλὰ ταπεινῶν εἶ θεός ἐλαττόνων εἶ βοηθός ἀντιλήμπτωρ ἀσθενούντων ἀπεγνωσμένων σκεπαστής ἀπηλπισμένων σωτήρ.",
+     "giguet": "Car votre force n'est pas avec la multitude, ni votre puissance avec les grands&nbsp;; mais vous êtes le Dieu des humbles, l'auxiliaire des petits, le défenseur des faibles, le refuge des méconnus, le sauveur des désespérés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ναὶ ναὶ ὁ θεὸς τοῦ πατρός μου καὶ θεὸς κληρονομίας Ισραηλ δέσποτα τῶν οὐρανῶν καὶ τῆς γῆς κτίστα τῶν ὑδάτων βασιλεῦ πάσης κτίσεώς σου σὺ εἰσάκουσον τῆς δεήσεώς μου.",
+     "giguet": "Oui, oui, Dieu de mon père, Dieu de l'héritage d'Israël, maître des cieux et de la terre, créateur des eaux, roi de toutes vos créatures, vous exaucerez ma prière.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ δὸς λόγον μου καὶ ἀπάτην εἰς τραῦμα καὶ μώλωπα αὐτῶν οἳ κατὰ τῆς διαθήκης σου καὶ οἴκου ἡγιασμένου σου καὶ κορυφῆς Σιων καὶ οἴκου κατασχέσεως υἱῶν σου ἐβουλεύσαντο σκληρά.",
+     "giguet": "Faites que mes paroles et mes caresses trompeuses soient plaies et meurtrissures pour ceux qui ont conçu de cruels desseins contre votre alliance, votre temple, la montagne de Sion et la demeure où vous",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ποίησον ἐπὶ παντὸς ἔθνους σου καὶ πάσης φυλῆς ἐπίγνωσιν τοῦ εἰδῆσαι ὅτι σὺ εἶ ὁ θεὸς θεὸς πάσης δυνάμεως καὶ κράτους καὶ οὐκ ἔστιν ἄλλος ὑπερασπίζων τοῦ γένους Ισραηλ εἰ μὴ σύ.",
+     "giguet": "Répandez parmi tout votre peuple, parmi toute tribu, l'intelligence&nbsp;; qu'ils sachent que vous êtes le Dieu des royaumes et des armées, et qu'il n'est point pour la race d'Israël d'autre protecteur que vous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 10,
+   "libelle": "10",
+   "fichierToc": "JDT/010.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐγένετο ὡς ἐπαύσατο βοῶσα πρὸς τὸν θεὸν Ισραηλ καὶ συνετέλεσεν πάντα τὰ ῥήματα ταῦτα.",
+     "giguet": "Lorsqu'elle se fut arrêtée ayant crié au Seigneur, et qu'elle eut achevé toutes ces paroles,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ἀνέστη ἀπὸ τῆς πτώσεως καὶ ἐκάλεσεν τὴν ἅβραν αὐτῆς καὶ κατέβη εἰς τὸν οἶκον ἐν ᾧ διέτριβεν ἐν αὐτῷ ἐν ταῖς ἡμέραις τῶν σαββάτων καὶ ἐν ταῖς ἑορταῖς αὐτῆς.",
+     "giguet": "Elle se leva du lieu où elle était prosternée, appela sa servante, et descendit en la demeure où elle passait les jours de sabbat et les fêtes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ περιείλατο τὸν σάκκον ὃν ἐνεδεδύκει καὶ ἐξεδύσατο τὰ ἱμάτια τῆς χηρεύσεως αὐτῆς καὶ περιεκλύσατο τὸ σῶμα ὕδατι καὶ ἐχρίσατο μύρῳ παχεῖ καὶ διέξανε τὰς τρίχας τῆς κεφαλῆς αὐτῆς καὶ ἐπέθετο μίτραν ἐπ' αὐτῆς καὶ ἐνεδύσατο τὰ ἱμάτια τῆς εὐφροσύνης αὐτῆς ἐν οἷς ἐστολίζετο ἐν ταῖς ἡμέραις τῆς ζωῆς τοῦ ἀνδρὸς αὐτῆς Μανασση.",
+     "giguet": "Et elle rejeta le cilice dont elle était revêtue&nbsp;; elle ôta son habillement de veuve, se lava le corps avec de l'eau, se frotta de myrrhe épaisse, arrangea sa chevelure, et se coiffa d'un turban&nbsp;; puis, elle reprit les vêtements de ses jours de joie, ceux qu'elle portait quand Manassès, son mari, vivait encore.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἔλαβεν σανδάλια εἰς τοὺς πόδας αὐτῆς καὶ περιέθετο τοὺς χλιδῶνας καὶ τὰ ψέλια καὶ τοὺς δακτυλίους καὶ τὰ ἐνώτια καὶ πάντα τὸν κόσμον αὐτῆς καὶ ἐκαλλωπίσατο σφόδρα εἰς ἀπάτησιν ὀφθαλμῶν ἀνδρῶν ὅσοι ἂν ἴδωσιν αὐτήν.",
+     "giguet": "Et elle noua sous ses pieds des sandales, mit ses bracelets, ses colliers, ses anneaux, ses pendants d'oreilles, toute sa parure&nbsp;; enfin, elle s'orna magnifiquement pour charmer les yeux de tous les hommes qui la verraient.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἔδωκεν τῇ ἅβρᾳ αὐτῆς ἀσκοπυτίνην οἴνου καὶ καψάκην ἐλαίου καὶ πήραν ἐπλήρωσεν ἀλφίτων καὶ παλάθης καὶ ἄρτων καθαρῶν καὶ περιεδίπλωσε πάντα τὰ ἀγγεῖα αὐτῆς καὶ ἐπέθηκεν αὐτῇ.",
+     "giguet": "Et elle donna à sa servante une petite outre de vin et une fiole d'huile&nbsp;; et elle remplit un sac de pain, de figues, de vivres frais, et elle mit ces choses dans une double enveloppe, et elle en chargea sa servante.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἐξήλθοσαν ἐπὶ τὴν πύλην τῆς πόλεως Βαιτυλουα καὶ εὕροσαν ἐφεστῶτα ἐπ' αὐτῇ Οζιαν καὶ τοὺς πρεσβυτέρους τῆς πόλεως Χαβριν καὶ Χαρμιν.",
+     "giguet": "Et elles gagnèrent la porte de Béthulie, et elles y trouvèrent Ozias et les anciens de la ville, Habris et Charmis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὡς δὲ εἶδον αὐτὴν καὶ ἦν ἠλλοιωμένον τὸ πρόσωπον αὐτῆς καὶ τὴν στολὴν μεταβεβληκυῖαν αὐτῆς καὶ ἐθαύμασαν ἐπὶ τῷ κάλλει αὐτῆς ἐπὶ πολὺ σφόδρα καὶ εἶπαν αὐτῇ.",
+     "giguet": "Lorsqu'ils la virent&nbsp;; lorsqu'ils virent le changement de son visage et sa parure, ils furent émerveillés de sa beauté, et ils lui dirent&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ὁ θεὸς τῶν πατέρων ἡμῶν δῴη σε εἰς χάριν καὶ τελειώσαι τὰ ἐπιτηδεύματά σου εἰς γαυρίαμα υἱῶν Ισραηλ καὶ ὕψωμα Ιερουσαλημ.",
+     "giguet": "Que Dieu, que le Dieu de nos pères t'accorde sa grâce, qu'il accomplisse ce que tu as projeté pour l'orgueil des fils d'Israël et l'exaltation de Jérusalem. Et elle adora Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ προσεκύνησεν τῷ θεῷ καὶ εἶπεν πρὸς αὐτούς ἐπιτάξατε ἀνοῖξαί μοι τὴν πύλην τῆς πόλεως καὶ ἐξελεύσομαι εἰς τελείωσιν τῶν λόγων ὧν ἐλαλήσατε μετ' ἐμοῦ καὶ συνέταξαν τοῖς νεανίσκοις ἀνοῖξαι αὐτῇ καθότι ἐλάλησεν.",
+     "giguet": "Et elle leur dit&nbsp;: Ordonnez qu'on m'ouvre la porte de la ville, et je sortirai pour mener à bonne fin les affaires dont nous nous sommes entretenus. Et ils ordonnèrent aux jeunes gens de lui ouvrir la porte, comme elle avait dit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ ἐποίησαν οὕτως καὶ ἐξῆλθεν Ιουδιθ αὐτὴ καὶ ἡ παιδίσκη αὐτῆς μετ' αὐτῆς ἀπεσκόπευον δὲ αὐτὴν οἱ ἄνδρες τῆς πόλεως ἕως οὗ κατέβη τὸ ὄρος ἕως διῆλθεν τὸν αὐλῶνα καὶ οὐκέτι ἐθεώρουν αὐτήν.",
+     "giguet": "Et ils obéirent, et Judith sortit avec sa servante&nbsp;; les hommes de la ville la suivirent du regard jusqu'à ce qu'elle fût parvenue au pied de la montagne et qu'elle eût traversé le vallon, et ils ne l'aperçurent plus.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἐπορεύοντο ἐν τῷ αὐλῶνι εἰς εὐθεῖαν καὶ συνήντησεν αὐτῇ προφυλακὴ τῶν Ἀσσυρίων.",
+     "giguet": "Et les deux femmes s'enfoncèrent tout droit dans le vallon, et elles rencontrèrent la garde avancée des Assyriens.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ συνέλαβον αὐτὴν καὶ ἐπηρώτησαν τίνων εἶ καὶ πόθεν ἔρχῃ καὶ ποῦ πορεύῃ καὶ εἶπεν θυγάτηρ εἰμὶ τῶν Εβραίων καὶ ἀποδιδράσκω ἀπὸ προσώπου αὐτῶν ὅτι μέλλουσιν δίδοσθαι ὑμῖν εἰς κατάβρωμα.",
+     "giguet": "Ceux-ci prirent Judith, et lui firent ces questions&nbsp;: De quelles gens es-tu&nbsp;? d'où viens-tu&nbsp;? où vas-tu&nbsp;? Et elle dit&nbsp;: Je suis une fille des Hébreux, et je m'enfuis loin de leur face, parce qu'ils sont à la veille de devenir votre proie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "κἀγὼ ἔρχομαι εἰς τὸ πρόσωπον Ολοφέρνου ἀρχιστρατήγου δυνάμεως ὑμῶν τοῦ ἀπαγγεῖλαι ῥήματα ἀληθείας καὶ δείξω πρὸ προσώπου αὐτοῦ ὁδὸν καθ' ἣν πορεύσεται καὶ κυριεύσει πάσης τῆς ὀρεινῆς καὶ οὐ διαφωνήσει τῶν ἀνδρῶν αὐτοῦ σὰρξ μία οὐδὲ πνεῦμα ζωῆς.",
+     "giguet": "Et moi, je vais devant Holopherne, général en chef de votre armée, pour lui annoncer des choses véritables, et je lui montrerai un chemin par où il ira, et il se rendra maître de toute la montagne&nbsp;; et parmi ses hommes nulle chair ayant souffle de vie ne rendra le dernier soupir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ὡς δὲ ἤκουσαν οἱ ἄνδρες τὰ ῥήματα αὐτῆς καὶ κατενόησαν τὸ πρόσωπον αὐτῆς καὶ ἦν ἐναντίον αὐτῶν θαυμάσιον τῷ κάλλει σφόδρα καὶ εἶπαν πρὸς αὐτήν.",
+     "giguet": "Dès que les hommes eurent ouï ses paroles et qu'ils eurent vu son visage (et elle était devant eux merveilleuse par son extrême beauté), ils lui dirent&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "σέσωκας τὴν ψυχήν σου σπεύσασα καταβῆναι εἰς πρόσωπον τοῦ κυρίου ἡμῶν καὶ νῦν πρόσελθε ἐπὶ τὴν σκηνὴν αὐτοῦ καὶ ἀφ' ἡμῶν προπέμψουσίν σε ἕως παραδώσουσίν σε εἰς χεῖρας αὐτοῦ.",
+     "giguet": "Tu as sauvé ta vie en te hâtant de descendre en présence de notre maître&nbsp;; va donc à sa tente&nbsp;; quelques-uns de nous vont te conduire, jusqu'à ce qu'ils t'aient remise entre ses mains.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἐὰν δὲ στῇς ἐναντίον αὐτοῦ μὴ φοβηθῇς τῇ καρδίᾳ σου ἀλλὰ ἀνάγγειλον κατὰ τὰ ῥήματά σου καὶ εὖ σε ποιήσει.",
+     "giguet": "Lorsque tu seras devant lui, ne crains rien en ton cœur, fais-lui connaître ce que tu nous as dit, et il te traitera bien.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ἐπέλεξαν ἐξ αὐτῶν ἄνδρας ἑκατὸν καὶ παρέζευξαν αὐτῇ καὶ τῇ ἅβρᾳ αὐτῆς καὶ ἤγαγον αὐτὰς ἐπὶ τὴν σκηνὴν Ολοφέρνου.",
+     "giguet": "Et ils choisirent entre eux cent hommes, et ceux-ci escortèrent Judith et sa servante, et ils les conduisirent à la tente d'Holopherne.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ ἐγένετο συνδρομὴ ἐν πάσῃ τῇ παρεμβολῇ διεβοήθη γὰρ εἰς τὰ σκηνώματα ἡ παρουσία αὐτῆς καὶ ἐλθόντες ἐκύκλουν αὐτήν ὡς εἱστήκει ἔξω τῆς σκηνῆς Ολοφέρνου ἕως προσήγγειλαν αὐτῷ περὶ αὐτῆς.",
+     "giguet": "Et il y eut des allées et venues dans tout le camp&nbsp;; car sa présence fut divulguée dans toutes les tentes&nbsp;; et on vint, et on l'entoura pendant qu'elle se tenait hors de la tente d'Holopherne, en attendant qu'on lui eut annoncé sa présence.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ ἐθαύμαζον ἐπὶ τῷ κάλλει αὐτῆς καὶ ἐθαύμαζον τοὺς υἱοὺς Ισραηλ ἀπ' αὐτῆς καὶ εἶπεν ἕκαστος πρὸς τὸν πλησίον αὐτοῦ τίς καταφρονήσει τοῦ λαοῦ τούτου ὃς ἔχει ἐν ἑαυτῷ γυναῖκας τοιαύτας ὅτι οὐ καλόν ἐστιν ὑπολείπεσθαι ἐξ αὐτῶν ἄνδρα ἕνα οἳ ἀφεθέντες δυνήσονται κατασοφίσασθαι πᾶσαν τὴν γῆν.",
+     "giguet": "Et tous admirèrent sa beauté, et ils s'émerveillèrent à cause d'elle, des fils d'Israël, et ils se dirent les uns aux autres&nbsp;: Qui méprisera ce peuple qui a chez lui de telles femmes&nbsp;? Il ne serait pas bon d'en épargner un seul homme, ceux qui resteraient seraient capables de séduire toute la terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ ἐξῆλθον οἱ παρακαθεύδοντες Ολοφέρνῃ καὶ πάντες οἱ θεράποντες αὐτοῦ καὶ εἰσήγαγον αὐτὴν εἰς τὴν σκηνήν.",
+     "giguet": "Et les serviteurs d'Holopherne qui dormaient auprès de lui sortirent, et ils introduisirent Judith sous sa tente.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ ἦν Ολοφέρνης ἀναπαυόμενος ἐπὶ τῆς κλίνης αὐτοῦ ἐν τῷ κωνωπίῳ ὃ ἦν ἐκ πορφύρας καὶ χρυσίου καὶ σμαράγδου καὶ λίθων πολυτελῶν καθυφασμένων.",
+     "giguet": "Et Holopherne était à se reposer sur son lit dans un moustiquaire de pourpre et d'or, entrelacé d'émeraudes et de pierres précieuses.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ ἀνήγγειλαν αὐτῷ περὶ αὐτῆς καὶ ἐξῆλθεν εἰς τὸ προσκήνιον καὶ λαμπάδες ἀργυραῖ προάγουσαι αὐτοῦ.",
+     "giguet": "Et ils la lui annoncèrent, et il vint dans l'avant-tente, et l'on portait devant lui des flambeaux d'argent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "ὡς δὲ ἦλθεν κατὰ πρόσωπον αὐτοῦ Ιουδιθ καὶ τῶν θεραπόντων αὐτοῦ ἐθαύμασαν πάντες ἐπὶ τῷ κάλλει τοῦ προσώπου αὐτῆς καὶ πεσοῦσα ἐπὶ πρόσωπον προσεκύνησεν αὐτῷ καὶ ἤγειραν αὐτὴν οἱ δοῦλοι αὐτοῦ.",
+     "giguet": "Quand Judith entra devant lui et devant ses serviteurs, ils furent tous émerveillés de la beauté de son visage&nbsp;; et tombant la face contre terre elle l'adora, et ses serviteurs la relevèrent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 11,
+   "libelle": "11",
+   "fichierToc": "JDT/011.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ εἶπεν πρὸς αὐτὴν Ολοφέρνης θάρσησον γύναι μὴ φοβηθῇς τῇ καρδίᾳ σου ὅτι ἐγὼ οὐκ ἐκάκωσα ἄνθρωπον ὅστις ᾑρέτικεν δουλεύειν βασιλεῖ Ναβουχοδονοσορ πάσης τῆς γῆς.",
+     "giguet": "Et Holopherne lui dit&nbsp;: Rassure-toi, femme, ne crains rien en ton cœur&nbsp;; je n'ai maltraité aucun des hommes qui ont bien voulu servir Nabuchodonosor, roi de toute la terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ νῦν ὁ λαός σου ὁ κατοικῶν τὴν ὀρεινὴν εἰ μὴ ἐφαύλισάν με οὐκ ἂν ἦρα τὸ δόρυ μου ἐπ' αὐτούς ἀλλὰ αὐτοὶ ἑαυτοῖς ἐποίησαν ταῦτα.",
+     "giguet": "Et si ton peuple, qui habite la montagne, ne m'avait point méprisé, je n'aurais point levé contre eux ma javeline&nbsp;; mais ils se sont fait à eux-mêmes cela.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ νῦν λέγε μοι τίνος ἕνεκεν ἀπέδρας ἀπ' αὐτῶν καὶ ἦλθες πρὸς ἡμᾶς ἥκεις γὰρ εἰς σωτηρίαν θάρσει ἐν τῇ νυκτὶ ταύτῃ ζήσῃ καὶ εἰς τὸ λοιπόν.",
+     "giguet": "Et maintenant, dis-moi pourquoi tu les as fuis, et es venue auprès de nous&nbsp;? Certes, tu viens pour ton salut&nbsp;; rassure-toi, tu vivras cette nuit, et les autres nuits.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "οὐ γὰρ ἔστιν ὃς ἀδικήσει σε ἀλλ' εὖ σε ποιήσει καθὰ γίνεται τοῖς δούλοις τοῦ κυρίου μου βασιλέως Ναβουχοδονοσορ.",
+     "giguet": "Il n'est personne pour te faire injure, mais on te traitera bien, comme il arrive à ceux qui servent mon maître, le roi Nabuchodonosor.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ εἶπεν πρὸς αὐτὸν Ιουδιθ δέξαι τὰ ῥήματα τῆς δούλης σου καὶ λαλησάτω ἡ παιδίσκη σου κατὰ πρόσωπόν σου καὶ οὐκ ἀναγγελῶ ψεῦδος τῷ κυρίῳ μου ἐν τῇ νυκτὶ ταύτῃ.",
+     "giguet": "Et Judith lui dit&nbsp;: Accueille les paroles de ta servante, et que ta servante te parle en face, et cette nuit je ne dirai rien à mon maître qui ne soit vrai.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἐὰν κατακολουθήσῃς τοῖς λόγοις τῆς παιδίσκης σου τελείως πρᾶγμα ποιήσει μετὰ σοῦ ὁ θεός καὶ οὐκ ἀποπεσεῖται ὁ κύριός μου τῶν ἐπιτηδευμάτων αὐτοῦ.",
+     "giguet": "Et si tu suis les conseils de ta servante, Dieu fera avec toi une chose parfaite, et mon maître ne sera frustré en rien de ce qu'il médite.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ζῇ γὰρ βασιλεὺς Ναβουχοδονοσορ πάσης τῆς γῆς καὶ ζῇ τὸ κράτος αὐτοῦ ὃς ἀπέστειλέν σε εἰς κατόρθωσιν πάσης ψυχῆς ὅτι οὐ μόνον ἄνθρωποι διὰ σὲ δουλεύουσιν αὐτῷ ἀλλὰ καὶ τὰ θηρία τοῦ ἀγροῦ καὶ τὰ κτήνη καὶ τὰ πετεινὰ τοῦ οὐρανοῦ διὰ τῆς ἰσχύος σου ζήσονται ἐπὶ Ναβουχοδονοσορ καὶ πάντα τὸν οἶκον αὐτοῦ.",
+     "giguet": "Vive Nabuchodonosor, roi de toute la terre&nbsp;! vive sa puissance&nbsp;! il t'a envoyé pour le redressement de toute âme&nbsp;; car, ce ne sont pas seulement les hommes qui seront tes esclaves pour te servir, mais, les bêtes fauves des champs, et les troupeaux, et les oiseaux du ciel, à cause de ta force, vivront pour Nabuchodonosor et toute sa famille.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἠκούσαμεν γὰρ τὴν σοφίαν σου καὶ τὰ πανουργεύματα τῆς ψυχῆς σου καὶ ἀνηγγέλη πάσῃ τῇ γῇ ὅτι σὺ μόνος ἀγαθὸς ἐν πάσῃ βασιλείᾳ καὶ δυνατὸς ἐν ἐπιστήμῃ καὶ θαυμαστὸς ἐν στρατεύμασιν πολέμου.",
+     "giguet": "J'ai entendu parler de ta sagesse et de toutes les ressources de ton âme, et il est connu de toute la terre que toi seul en tout le royaume tu es brave et expérimenté, et admirable dans les combinaisons de la guerre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ νῦν ὁ λόγος ὃν ἐλάλησεν Αχιωρ ἐν τῇ συνεδρίᾳ σου ἠκούσαμεν τὰ ῥήματα αὐτοῦ ὅτι περιεποιήσαντο αὐτὸν οἱ ἄνδρες Βαιτυλουα καὶ ἀνήγγειλεν αὐτοῖς πάντα ὅσα ἐξελάλησεν παρὰ σοί.",
+     "giguet": "J'ai appris aussi ce qu'Achior dit en ton conseil, nous avons ouï son discours, car les hommes de Béthulie lui ont donné asile, et il leur a fait connaître toutes les paroles qu'il t'a adressées.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "διό δέσποτα κύριε μὴ παρέλθῃς τὸν λόγον αὐτοῦ ἀλλὰ κατάθου αὐτὸν ἐν τῇ καρδίᾳ σου ὅτι ἐστὶν ἀληθής οὐ γὰρ ἐκδικᾶται τὸ γένος ἡμῶν οὐ κατισχύει ῥομφαία ἐπ' αὐτούς ἐὰν μὴ ἁμάρτωσιν εἰς τὸν θεὸν αὐτῶν.",
+     "giguet": "Ne les dédaigne pas, seigneur maître, mais dépose-les en ton cœur&nbsp;; elles sont véritables&nbsp;; en effet, notre race ne sera pas punie, le glaive ne prévaudra pas contre elle, si elle n'a péché contre son Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ νῦν ἵνα μὴ γένηται ὁ κύριός μου ἔκβολος καὶ ἄπρακτος καὶ ἐπιπεσεῖται θάνατος ἐπὶ πρόσωπον αὐτῶν καὶ κατελάβετο αὐτοὺς ἁμάρτημα ἐν ᾧ παροργιοῦσιν τὸν θεὸν αὐτῶν ὁπηνίκα ἂν ποιήσωσιν ἀτοπίαν.",
+     "giguet": "Or maintenant, afin que mon maître ne soit pas rejeté et sans succès, la mort va tomber sur eux en face, car un péché par lequel ils ont irrité leur Dieu les a fait condamner, et ils se sont étrangement égarés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἐπεὶ παρεξέλιπεν αὐτοὺς τὰ βρώματα καὶ ἐσπανίσθη πᾶν ὕδωρ ἐβουλεύσαντο ἐπιβαλεῖν τοῖς κτήνεσιν αὐτῶν καὶ πάντα ὅσα διεστείλατο αὐτοῖς ὁ θεὸς τοῖς νόμοις αὐτοῦ μὴ φαγεῖν διέγνωσαν δαπανῆσαι.",
+     "giguet": "En effet, manquant de vivres, n'ayant plus d'eau, ils ont le dessein de mettre la main sur leur bétail, et tout ce que, dans sa loi, Dieu leur a enjoint de ne pas manger, ils ont résolu de s'en repaître.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ τὰς ἀπαρχὰς τοῦ σίτου καὶ τὰς δεκάτας τοῦ οἴνου καὶ τοῦ ἐλαίου ἃ διεφύλαξαν ἁγιάσαντες τοῖς ἱερεῦσιν τοῖς παρεστηκόσιν ἐν Ιερουσαλημ ἀπέναντι τοῦ προσώπου τοῦ θεοῦ ἡμῶν κεκρίκασιν ἐξαναλῶσαι ὧν οὐδὲ ταῖς χερσὶν καθῆκεν ἅψασθαι οὐδένα τῶν ἐκ τοῦ λαοῦ.",
+     "giguet": "Et les prémices de leur blé, et la dîme de leur huile et de leur vin, qu'ils réservaient comme consacrées aux prêtres qui se tiennent à Jérusalem devant notre Dieu, ils ont pris sur eux d'en user&nbsp;; et ils consommeront des choses que nul parmi le peuple n'a le droit de toucher de ses mains.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἀπεστάλκασιν εἰς Ιερουσαλημ ὅτι καὶ οἱ ἐκεῖ κατοικοῦντες ἐποίησαν ταῦτα τοὺς μετακομίσοντας αὐτοῖς τὴν ἄφεσιν παρὰ τῆς γερουσίας.",
+     "giguet": "Parce que ceux qui demeurent ici ont fait cela, ils ont envoyé des hommes à Jérusalem, pour que les anciens leur en donnent la permission&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἔσται ὡς ἂν ἀναγγείλῃ αὐτοῖς καὶ ποιήσωσιν δοθήσονταί σοι εἰς ὄλεθρον ἐν τῇ ἡμέρᾳ ἐκείνῃ.",
+     "giguet": "Et quand ils auront la réponse et qu'ils feront ces choses, ce jour-là même sera celui de leur ruine.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ὅθεν ἐγὼ ἡ δούλη σου ἐπιγνοῦσα ταῦτα πάντα ἀπέδρων ἀπὸ προσώπου αὐτῶν καὶ ἀπέστειλέν με ὁ θεὸς ποιῆσαι μετὰ σοῦ πράγματα ἐφ' οἷς ἐκστήσεται πᾶσα ἡ γῆ ὅσοι ἐὰν ἀκούσωσιν αὐτά.",
+     "giguet": "Voilà pourquoi moi, ta servante, en ayant été informée, je me suis échappée de leur ville. Et Dieu m'a envoyée pour accomplir avec toi des choses qui frapperont d'étonnement sur toute la terre ceux qui les apprendront.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ὅτι ἡ δούλη σου θεοσεβής ἐστιν καὶ θεραπεύουσα νυκτὸς καὶ ἡμέρας τὸν θεὸν τοῦ οὐρανοῦ καὶ νῦν μενῶ παρὰ σοί κύριέ μου καὶ ἐξελεύσεται ἡ δούλη σου κατὰ νύκτα εἰς τὴν φάραγγα καὶ προσεύξομαι πρὸς τὸν θεόν καὶ ἐρεῖ μοι πότε ἐποίησαν τὰ ἁμαρτήματα αὐτῶν.",
+     "giguet": "Car ta servante est pieuse&nbsp;; elle sert nuit et jour le Dieu du ciel&nbsp;; et maintenant, je demeurerai auprès de toi, ô mon maître, et ta servante ira chaque nuit dans le vallon, et je prierai Dieu, et il me dira quand ils commettront leurs péchés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ ἐλθοῦσα προσανοίσω σοι καὶ ἐξελεύσῃ σὺν πάσῃ τῇ δυνάμει σου καὶ οὐκ ἔστιν ὃς ἀντιστήσεταί σοι ἐξ αὐτῶν.",
+     "giguet": "Et je viendrai te le rapporter&nbsp;; tu sortiras avec toutes tes forces, et nul chez eux ne te tiendra tête.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ ἄξω σε διὰ μέσου τῆς Ιουδαίας ἕως τοῦ ἐλθεῖν ἀπέναντι Ιερουσαλημ καὶ θήσω τὸν δίφρον σου ἐν μέσῳ αὐτῆς καὶ ἄξεις αὐτοὺς ὡς πρόβατα οἷς οὐκ ἔστιν ποιμήν καὶ οὐ γρύξει κύων τῇ γλώσσῃ αὐτοῦ ἀπέναντί σου ὅτι ταῦτα ἐλαλήθη μοι κατὰ πρόγνωσίν μου καὶ ἀπηγγέλη μοι καὶ ἀπεστάλην ἀναγγεῖλαί σοι.",
+     "giguet": "Et je serai ton guide au cœur de la Judée jusqu'à ce que je t'aie conduit devant Jérusalem, et je placerai tan trône dans son enceinte, et tu les emmèneras comme des brebis qui n'ont point de pasteur. Et pas un chien devant toi ne grondera de la langue, car tout cela m'a été dit par ma prévoyance, tout cela m'a été dévoilé, et je te suis envoyée pour te le faire connaître.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ ἤρεσαν οἱ λόγοι αὐτῆς ἐναντίον Ολοφέρνου καὶ ἐναντίον πάντων τῶν θεραπόντων αὐτοῦ καὶ ἐθαύμασαν ἐπὶ τῇ σοφίᾳ αὐτῆς καὶ εἶπαν.",
+     "giguet": "Et ce discours fut agréable à Holopherne et à ses serviteurs, et ils admirèrent sa sagesse, et ils dirent&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "οὐκ ἔστιν τοιαύτη γυνὴ ἀπ' ἄκρου ἕως ἄκρου τῆς γῆς ἐν καλῷ προσώπῳ καὶ συνέσει λόγων.",
+     "giguet": "D'une extrémité de la terre à l'autre il n'est point une pareille femme pour la beauté du visage et pour le grand sens des paroles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ εἶπεν πρὸς αὐτὴν Ολοφέρνης εὖ ἐποίησεν ὁ θεὸς ἀποστείλας σε ἔμπροσθεν τοῦ λαοῦ τοῦ γενηθῆναι ἐν χερσὶν ἡμῶν κράτος ἐν δὲ τοῖς φαυλίσασι τὸν κύριόν μου ἀπώλειαν.",
+     "giguet": "Et Holopherne lui dit&nbsp;: Dieu a bien fait de t'envoyer avant ton peuple, pour que la victoire soit entre nos mains, et pour la perdition de ceux qui ont méprisé mon maître.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "καὶ νῦν ἀστεία εἶ σὺ ἐν τῷ εἴδει σου καὶ ἀγαθὴ ἐν τοῖς λόγοις σου ὅτι ἐὰν ποιήσῃς καθὰ ἐλάλησας ὁ θεός σου ἔσται μου θεός καὶ σὺ ἐν οἴκῳ βασιλέως Ναβουχοδονοσορ καθήσῃ καὶ ἔσῃ ὀνομαστὴ παρὰ πᾶσαν τὴν γῆν.",
+     "giguet": "Tu es attrayante par ta beauté, tu es bonne en toutes tes paroles&nbsp;; et, si tu fais comme tu as dit, ton Dieu sera pour moi un Dieu&nbsp;; tu demeureras dans le palais du roi Nabuchodonosor, et ta renommée se répandra par toute la terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 12,
+   "libelle": "12",
+   "fichierToc": "JDT/012.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐκέλευσεν εἰσαγαγεῖν αὐτὴν οὗ ἐτίθετο τὰ ἀργυρώματα αὐτοῦ καὶ συνέταξεν καταστρῶσαι αὐτῇ ἀπὸ τῶν ὀψοποιημάτων αὐτοῦ καὶ τοῦ οἴνου αὐτοῦ πίνειν.",
+     "giguet": "Et il ordonna qu'on la menât dans la tente où ses vases d'argent étaient déposés, et qu'on lui servît de ses mets, et qu'elle bût de son vin.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ εἶπεν Ιουδιθ οὐ φάγομαι ἐξ αὐτῶν ἵνα μὴ γένηται σκάνδαλον ἀλλ' ἐκ τῶν ἠκολουθηκότων μοι χορηγηθήσεται.",
+     "giguet": "Et Judith lui dit&nbsp;: Je n'en mangerai pas, de peur qu'ils ne nous soient à scandale&nbsp;: on me servira de ceux que j'ai apportés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ εἶπεν πρὸς αὐτὴν Ολοφέρνης ἐὰν δὲ ἐκλίπῃ τὰ ὄντα μετὰ σοῦ πόθεν ἐξοίσομέν σοι δοῦναι ὅμοια αὐτοῖς οὐ γάρ ἐστιν μεθ' ἡμῶν ἐκ τοῦ γένους σου.",
+     "giguet": "Et Holopherne lui dit&nbsp;: Mais, lorsque ceux qui sont avec toi viendront à manquer, d'où en apporterons-nous de semblables pour te les donner&nbsp;? car il n'y a parmi nous personne de ta nation.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ εἶπεν Ιουδιθ πρὸς αὐτόν ζῇ ἡ ψυχή σου κύριέ μου ὅτι οὐ δαπανήσει ἡ δούλη σου τὰ ὄντα μετ' ἐμοῦ ἕως ἂν ποιήσῃ κύριος ἐν χειρί μου ἃ ἐβουλεύσατο.",
+     "giguet": "Et Judith reprit&nbsp;: Vive ta vie&nbsp;! ô mon maître, ta servante n'aura pas consommé ceux qui sont avec moi, avant que le Seigneur n'ait accompli, par ma main, ce qu'il a décidé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἠγάγοσαν αὐτὴν οἱ θεράποντες Ολοφέρνου εἰς τὴν σκηνήν καὶ ὕπνωσεν μέχρι μεσούσης τῆς νυκτός καὶ ἀνέστη πρὸς τὴν ἑωθινὴν φυλακήν.",
+     "giguet": "Et tes serviteurs d'Holopherne l'introduisirent sous la tente, et elle sommeilla jusqu'au milieu de la nuit, et elle se leva à la veillée du matin.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἀπέστειλεν πρὸς Ολοφέρνην λέγουσα ἐπιταξάτω δὴ ὁ κύριός μου ἐᾶσαι τὴν δούλην σου ἐπὶ προσευχὴν ἐξελθεῖν.",
+     "giguet": "Et elle envoya à Holopherne, disant&nbsp;: Que mon maître ordonne qu'on laisse ta servante sortir pour qu'elle aille faire sa prière.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ προσέταξεν Ολοφέρνης τοῖς σωματοφύλαξιν μὴ διακωλύειν αὐτήν καὶ παρέμεινεν ἐν τῇ παρεμβολῇ ἡμέρας τρεῖς καὶ ἐξεπορεύετο κατὰ νύκτα εἰς τὴν φάραγγα Βαιτυλουα καὶ ἐβαπτίζετο ἐν τῇ παρεμβολῇ ἐπὶ τῆς πηγῆς τοῦ ὕδατος.",
+     "giguet": "Et Holopherne prescrivit à ses gardes de ne la point retenir, et elle passa trois jours dans le camp&nbsp;; et, chaque nuit, elle alla au ravin de Béthulie, et elle fit ses ablutions dans la fontaine des eaux que renfermait le camp.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ ὡς ἀνέβη ἐδέετο τοῦ κυρίου θεοῦ Ισραηλ κατευθῦναι τὴν ὁδὸν αὐτῆς εἰς ἀνάστημα τῶν υἱῶν τοῦ λαοῦ αὐτοῦ.",
+     "giguet": "Et, lorsqu'elle était revenue, elle priait le Seigneur Dieu d'Israël de la diriger dans la voie, pour le salut des fils de son peuple.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ εἰσπορευομένη καθαρὰ παρέμενεν ἐν τῇ σκηνῇ μέχρι οὗ προσηνέγκατο τὴν τροφὴν αὐτῆς πρὸς ἑσπέραν.",
+     "giguet": "Et, étant rentrée pure, elle se tenait sous la tente jusqu'à ce que sur le soir on lui apportât sa nourriture.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ ἐγένετο ἐν τῇ ἡμέρᾳ τῇ τετάρτῃ ἐποίησεν Ολοφέρνης πότον τοῖς δούλοις αὐτοῦ μόνοις καὶ οὐκ ἐκάλεσεν εἰς τὴν κλῆσιν οὐδένα τῶν πρὸς ταῖς χρείαις.",
+     "giguet": "Or, le quatrième jour, Holopherne eut un festin à ses serviteurs seuls, et il n'invita, à cette fête habituelle, aucun de ses convives accoutumés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ εἶπεν Βαγώᾳ τῷ εὐνούχῳ ὃς ἦν ἐφεστηκὼς ἐπὶ πάντων τῶν αὐτοῦ πεῖσον δὴ πορευθεὶς τὴν γυναῖκα τὴν Εβραίαν ἥ ἐστιν παρὰ σοί τοῦ ἐλθεῖν πρὸς ἡμᾶς καὶ φαγεῖν καὶ πιεῖν μεθ' ἡμῶν.",
+     "giguet": "Et il dit à Bagoa, l'eunuque qui était placé au-dessus de tous ses esclaves&nbsp;: Va trouver cette femme d'Hébreu, qui est sous ta garde, persuade-lui de se rendre auprès de nous, et de manger et de boire avec nous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἰδοὺ γὰρ αἰσχρὸν τῷ προσώπῳ ἡμῶν εἰ γυναῖκα τοιαύτην παρήσομεν οὐχ ὁμιλήσαντες αὐτῇ ὅτι ἐὰν ταύτην μὴ ἐπισπασώμεθα καταγελάσεται ἡμῶν.",
+     "giguet": "Car c'est pour nous une honte d'être aussi près d'une telle femme, et de n'avoir point commerce avec elle&nbsp;; et, si nous ne l'obtenons, on se rira de nous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ἐξῆλθεν Βαγώας ἀπὸ προσώπου Ολοφέρνου καὶ εἰσῆλθεν πρὸς αὐτὴν καὶ εἶπεν μὴ ὀκνησάτω δὴ ἡ παιδίσκη ἡ καλὴ αὕτη ἐλθοῦσα πρὸς τὸν κύριόν μου δοξασθῆναι κατὰ πρόσωπον αὐτοῦ καὶ πίεσαι μεθ' ἡμῶν εἰς εὐφροσύνην οἶνον καὶ γενηθῆναι ἐν τῇ ἡμέρᾳ ταύτῃ ὡς θυγάτηρ μία τῶν υἱῶν Ασσουρ αἳ παρεστήκασιν ἐν οἴκῳ Ναβουχοδονοσορ.",
+     "giguet": "Et Bagoa, quittant Holopherne, entra près de Judith, et lui dit&nbsp;: Que cette belle jeune fille ne craigne pas de venir auprès de mon maître pour être honorée devant lui&nbsp;; elle boira joyeusement avec nous du vin, et, ce jour-ci, elle sera comme l'une des filles d'Assur qui se tiennent dans le palais de Nabuchodonosor&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ εἶπεν πρὸς αὐτὸν Ιουδιθ καὶ τίς εἰμι ἐγὼ ἀντεροῦσα τῷ κυρίῳ μου ὅτι πᾶν ὃ ἔσται ἐν τοῖς ὀφθαλμοῖς αὐτοῦ ἀρεστόν σπεύσασα ποιήσω καὶ ἔσται τοῦτό μοι ἀγαλλίαμα ἕως ἡμέρας θανάτου μου.",
+     "giguet": "Et Judith répondit&nbsp;: Et qui suis-je moi, pour contredire mon maître&nbsp;? Tout ce qui sera agréable à ses yeux, je m'empresserai de le faire, et ce sera ma joie jusqu'au jour de ma mort.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ διαναστᾶσα ἐκοσμήθη τῷ ἱματισμῷ καὶ παντὶ τῷ κόσμῳ τῷ γυναικείῳ καὶ προσῆλθεν ἡ δούλη αὐτῆς καὶ ἔστρωσεν αὐτῇ κατέναντι Ολοφέρνου χαμαὶ τὰ κώδια ἃ ἔλαβεν παρὰ Βαγώου εἰς τὴν καθημερινὴν δίαιταν αὐτῆς εἰς τὸ ἐσθίειν κατακλινομένην ἐπ' αὐτῶν.",
+     "giguet": "Et, s'étant levée, elle se para de ses beaux vêtements et de tous ses ornements de femme, et sa servante la précéda&nbsp;; et, pour elle, elle étendit à terre, en face d'Holopherne, les toisons à leur usage journalier, qu'elles avaient empruntées de Bagoa, et sur lesquelles elles se couchaient pour manger.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ εἰσελθοῦσα ἀνέπεσεν Ιουδιθ καὶ ἐξέστη ἡ καρδία Ολοφέρνου ἐπ' αὐτήν καὶ ἐσαλεύθη ἡ ψυχὴ αὐτοῦ καὶ ἦν κατεπίθυμος σφόδρα τοῦ συγγενέσθαι μετ' αὐτῆς καὶ ἐτήρει καιρὸν τοῦ ἀπατῆσαι αὐτὴν ἀφ' ἧς ἡμέρας εἶδεν αὐτήν.",
+     "giguet": "Et Judith, étant entrée, s'y plaça, et le cœur d'Holopherne à son aspect fut troublé, et son âme en fut vivement agitée, et il nourrissait un désir violent de la posséder&nbsp;; et, depuis le jour où elle lui était apparue, il épiait l'occasion de la séduire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ εἶπεν πρὸς αὐτὴν Ολοφέρνης πίε δὴ καὶ γενήθητι μεθ' ἡμῶν εἰς εὐφροσύνην.",
+     "giguet": "Et Holopherne lui dit&nbsp;: Bois donc, et, avec nous, tiens-toi en joie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ εἶπεν Ιουδιθ πίομαι δή κύριε ὅτι ἐμεγαλύνθη τὸ ζῆν μου ἐν ἐμοὶ σήμερον παρὰ πάσας τὰς ἡμέρας τῆς γενέσεώς μου.",
+     "giguet": "Et Judith répondit&nbsp;: Certes, je boirai, ô mon maître&nbsp;; car je me sens aujourd'hui plus glorieuse de vivre que je ne l'ai jamais été depuis ma naissance.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ λαβοῦσα ἔφαγεν καὶ ἔπιεν κατέναντι αὐτοῦ ἃ ἡτοίμασεν ἡ δούλη αὐτῆς.",
+     "giguet": "Et elle prit, et elle mangea devant lui ce que sa servante lui avait préparé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ ηὐφράνθη Ολοφέρνης ἀπ' αὐτῆς καὶ ἔπιεν οἶνον πολὺν σφόδρα ὅσον οὐκ ἔπιεν πώποτε ἐν ἡμέρᾳ μιᾷ ἀφ' οὗ ἐγεννήθη.",
+     "giguet": "Et Holopherne se réjouit à cause d'elle, et il but une quantité de vin telle qu'en aucun jour de sa vie il n'en avait tant bu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 13,
+   "libelle": "13",
+   "fichierToc": "JDT/013.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ὡς δὲ ὀψία ἐγένετο ἐσπούδασαν οἱ δοῦλοι αὐτοῦ ἀναλύειν καὶ Βαγώας συνέκλεισεν τὴν σκηνὴν ἔξωθεν καὶ ἀπέκλεισεν τοὺς παρεστῶτας ἐκ προσώπου τοῦ κυρίου αὐτοῦ καὶ ἀπῴχοντο εἰς τὰς κοίτας αὐτῶν ἦσαν γὰρ πάντες κεκοπωμένοι διὰ τὸ ἐπὶ πλεῖον γεγονέναι τὸν πότον.",
+     "giguet": "Sur le soir, ses esclaves s'empressèrent de partir, et Bagoa ferma la tente en dehors, et il renvoya tous ceux qui se tenaient ordinairement auprès du maître, et ils allèrent se coucher&nbsp;; car ils étaient tous accablés, parce que le festin avait été des plus abondants.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὑπελείφθη δὲ Ιουδιθ μόνη ἐν τῇ σκηνῇ καὶ Ολοφέρνης προπεπτωκὼς ἐπὶ τὴν κλίνην αὐτοῦ ἦν γὰρ περικεχυμένος αὐτῷ ὁ οἶνος.",
+     "giguet": "Judith demeura seule sous la tente avec Holopherne qui était étendu sur sa couche, le vin ruisselant autour de lui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ εἶπεν Ιουδιθ τῇ δούλῃ αὐτῆς στῆναι ἔξω τοῦ κοιτῶνος αὐτῆς καὶ ἐπιτηρεῖν τὴν ἔξοδον αὐτῆς καθάπερ καθ' ἡμέραν ἐξελεύσεσθαι γὰρ ἔφη ἐπὶ τὴν προσευχὴν αὐτῆς καὶ τῷ Βαγώᾳ ἐλάλησεν κατὰ τὰ ῥήματα ταῦτα.",
+     "giguet": "Et Judith dit à sa servante de se tenir hors du lieu où elle couchait, et d'épier sa sortie, comme chaque jour&nbsp;; car elle avait dit qu'elle irait faire sa prière, et elle en avait parlé à Bagoa.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἀπήλθοσαν πάντες ἐκ προσώπου καὶ οὐδεὶς κατελείφθη ἐν τῷ κοιτῶνι ἀπὸ μικροῦ ἕως μεγάλου καὶ στᾶσα Ιουδιθ παρὰ τὴν κλίνην αὐτοῦ εἶπεν ἐν τῇ καρδίᾳ αὐτῆς κύριε ὁ θεὸς πάσης δυνάμεως ἐπίβλεψον ἐν τῇ ὥρᾳ ταύτῃ ἐπὶ τὰ ἔργα τῶν χειρῶν μου εἰς ὕψωμα Ιερουσαλημ.",
+     "giguet": "Ils s'étaient donc tous éloignés de la présence du maître, et nul, du petit au grand, n'était resté sous le pavillon où il couchait. Alors, Judith, debout près du lit, dit en son cœur&nbsp;: Seigneur Dieu des armées, regardez en cet instant les œuvres de mes mains pour l'exaltation de Jérusalem.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ὅτι νῦν καιρὸς ἀντιλαβέσθαι τῆς κληρονομίας σου καὶ ποιῆσαι τὸ ἐπιτήδευμά μου εἰς θραῦσμα ἐχθρῶν οἳ ἐπανέστησαν ἡμῖν.",
+     "giguet": "C'est maintenant le temps de ressaisir votre héritage, et de faire ce que j'ai prémédité pour la ruine des ennemis qui se sont élevés contre nous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ προσελθοῦσα τῷ κανόνι τῆς κλίνης ὃς ἦν πρὸς κεφαλῆς Ολοφέρνου καθεῖλεν τὸν ἀκινάκην αὐτοῦ ἀπ' αὐτοῦ.",
+     "giguet": "Et s'étant approchée de la colonne du lit qui était au-dessus de la tête d'Holopherne, elle en décrocha son cimeterre,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἐγγίσασα τῆς κλίνης ἐδράξατο τῆς κόμης τῆς κεφαλῆς αὐτοῦ καὶ εἶπεν κραταίωσόν με κύριε ὁ θεὸς Ισραηλ ἐν τῇ ἡμέρᾳ ταύτῃ.",
+     "giguet": "Et elle se pencha sur le lit, et saisit les cheveux d'Holopherne, et elle dit&nbsp;: En ce jour fortifiez-moi, Dieu d'Israël.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ ἐπάταξεν εἰς τὸν τράχηλον αὐτοῦ δὶς ἐν τῇ ἰσχύι αὐτῆς καὶ ἀφεῖλεν τὴν κεφαλὴν αὐτοῦ ἀπ' αὐτοῦ.",
+     "giguet": "Et elle le frappa deux fois au cou de toute sa force, et elle lui trancha la tête.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ ἀπεκύλισε τὸ σῶμα αὐτοῦ ἀπὸ τῆς στρωμνῆς καὶ ἀφεῖλε τὸ κωνώπιον ἀπὸ τῶν στύλων καὶ μετ' ὀλίγον ἐξῆλθεν καὶ παρέδωκεν τῇ ἅβρᾳ αὐτῆς τὴν κεφαλὴν Ολοφέρνου.",
+     "giguet": "Et elle fit rouler le corps au bas de la couche, et elle enleva le moustiquaire suspendu aux colonnes, et aussitôt elle sortit, et elle donna à sa servante la tête d'Holopherne.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ ἐνέβαλεν αὐτὴν εἰς τὴν πήραν τῶν βρωμάτων αὐτῆς καὶ ἐξῆλθον αἱ δύο ἅμα κατὰ τὸν ἐθισμὸν αὐτῶν ἐπὶ τὴν προσευχήν καὶ διελθοῦσαι τὴν παρεμβολὴν ἐκύκλωσαν τὴν φάραγγα ἐκείνην καὶ προσανέβησαν τὸ ὄρος Βαιτυλουα καὶ ἤλθοσαν πρὸς τὰς πύλας αὐτῆς.",
+     "giguet": "Et celle-ci la mit dans leur sac aux vivres, et elles sortirent ensemble, selon leur habitude&nbsp;; et, après avoir traversé le camp, elles firent le tour du ravin, et elles remontèrent la montagne de Béthulie, et elles arrivèrent aux portes de la ville.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ εἶπεν Ιουδιθ μακρόθεν τοῖς φυλάσσουσιν ἐπὶ τῶν πυλῶν ἀνοίξατε ἀνοίξατε δὴ τὴν πύλην μεθ' ἡμῶν ὁ θεὸς ὁ θεὸς ἡμῶν ποιῆσαι ἔτι ἰσχὺν ἐν Ισραηλ καὶ κράτος κατὰ τῶν ἐχθρῶν καθὰ καὶ σήμερον ἐποίησεν.",
+     "giguet": "Et Judith cria de loin aux sentinelles&nbsp;: Ouvrez, ouvre donc la porte, Dieu, notre Dieu, est avec nous, pour montrer encore sa force en Israël, et sa puissance contre ses ennemis, comme il a fait aujourd'hui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ἐγένετο ὡς ἤκουσαν οἱ ἄνδρες τῆς πόλεως αὐτῆς τὴν φωνὴν αὐτῆς ἐσπούδασαν τοῦ καταβῆναι ἐπὶ τὴν πύλην τῆς πόλεως αὐτῶν καὶ συνεκάλεσαν τοὺς πρεσβυτέρους τῆς πόλεως.",
+     "giguet": "Et lorsque les hommes de la ville eurent entendu sa voix, ils se hâtèrent de descendre auprès de la porte, et convoquèrent les anciens de la ville.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ συνέδραμον πάντες ἀπὸ μικροῦ ἕως μεγάλου αὐτῶν ὅτι παράδοξον ἦν αὐτοῖς τὸ ἐλθεῖν αὐτήν καὶ ἤνοιξαν τὴν πύλην καὶ ὑπεδέξαντο αὐτὰς καὶ ἅψαντες πῦρ εἰς φαῦσιν περιεκύκλωσαν αὐτάς.",
+     "giguet": "Et tout le monde accourut, du petit au grand, car ils ne s'attendaient pas à son retour, et ils ouvrirent la porte, et ils les firent entrer, et, ayant allumé un grand feu, ils les entourèrent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἡ δὲ εἶπεν πρὸς αὐτοὺς φωνῇ μεγάλῃ αἰνεῖτε τὸν θεόν αἰνεῖτε αἰνεῖτε τὸν θεόν ὃς οὐκ ἀπέστησεν τὸ ἔλεος αὐτοῦ ἀπὸ τοῦ οἴκου Ισραηλ ἀλλ' ἔθραυσε τοὺς ἐχθροὺς ἡμῶν διὰ χειρός μου ἐν τῇ νυκτὶ ταύτῃ.",
+     "giguet": "Et Judith leur dit à haute voix&nbsp;: Louez Dieu, louez-le&nbsp;; louez Dieu qui n'a point détourné sa miséricorde de la maison d'Israël, mais qui, cette nuit même, a brisé nos ennemis par ma main.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ προελοῦσα τὴν κεφαλὴν ἐκ τῆς πήρας ἔδειξεν καὶ εἶπεν αὐτοῖς ἰδοὺ ἡ κεφαλὴ Ολοφέρνου ἀρχιστρατήγου δυνάμεως Ασσουρ καὶ ἰδοὺ τὸ κωνώπιον ἐν ᾧ κατέκειτο ἐν ταῖς μέθαις αὐτοῦ καὶ ἐπάταξεν αὐτὸν ὁ κύριος ἐν χειρὶ θηλείας.",
+     "giguet": "Et tirant du sac la tête, elle la leur montra, et elle dit&nbsp;: Voici la tête d'Holopherne, général en chef de l'armée d'Assyrie, et voici le filet sous lequel il dormait lorsqu'il était ivre, et le Seigneur l'a frappé par la main d'une femme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ ζῇ κύριος ὃς διεφύλαξέν με ἐν τῇ ὁδῷ μου ᾗ ἐπορεύθην ὅτι ἠπάτησεν αὐτὸν τὸ πρόσωπόν μου εἰς ἀπώλειαν αὐτοῦ καὶ οὐκ ἐποίησεν ἁμάρτημα μετ' ἐμοῦ εἰς μίασμα καὶ αἰσχύνην.",
+     "giguet": "Et vive le Seigneur qui m'a gardée en la voie où j'ai marché&nbsp;! car mon visage a trompé cet homme à sa perdition, et il n'a point fait avec moi de péché qui me souille et me déshonore.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ἐξέστη πᾶς ὁ λαὸς σφόδρα καὶ κύψαντες προσεκύνησαν τῷ θεῷ καὶ εἶπαν ὁμοθυμαδόν εὐλογητὸς εἶ ὁ θεὸς ἡμῶν ὁ ἐξουδενώσας ἐν τῇ ἡμέρᾳ τῇ σήμερον τοὺς ἐχθροὺς τοῦ λαοῦ σου.",
+     "giguet": "Et tout le peuple fut en grande extase&nbsp;; et, s'étant prosternés, ils adorèrent Dieu, et ils crièrent tout d'une voix&nbsp;: Béni soyez-vous, ô notre Dieu, qui avez aujourd'hui avili les ennemis de votre peuple&nbsp;!",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ εἶπεν αὐτῇ Οζιας εὐλογητὴ σύ θύγατερ τῷ θεῷ τῷ ὑψίστῳ παρὰ πάσας τὰς γυναῖκας τὰς ἐπὶ τῆς γῆς καὶ εὐλογημένος κύριος ὁ θεός ὃς ἔκτισεν τοὺς οὐρανοὺς καὶ τὴν γῆν ὃς κατεύθυνέν σε εἰς τραῦμα κεφαλῆς ἄρχοντος ἐχθρῶν ἡμῶν.",
+     "giguet": "Et Ozias lui dit&nbsp;: Bénie sois-tu, ma fille, par le Dieu très-haut, entre toutes les femmes qui existent sur la terre&nbsp;! Béni soit le Seigneur Dieu, créateur de la terre et du ciel, parce qu'il t'a dirigée pour frapper la tête du prince de nos ennemis&nbsp;!",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ὅτι οὐκ ἀποστήσεται ἡ ἐλπίς σου ἀπὸ καρδίας ἀνθρώπων μνημονευόντων ἰσχὺν θεοῦ ἕως αἰῶνος.",
+     "giguet": "Et jamais l'espoir que tu as eu en Dieu ne s'effacera du cœur des hommes, qui se souviennent de la puissance de Dieu dans tous les siècles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ ποιήσαι σοι αὐτὰ ὁ θεὸς εἰς ὕψος αἰώνιον τοῦ ἐπισκέψασθαί σε ἐν ἀγαθοῖς ἀνθ' ὧν οὐκ ἐφείσω τῆς ψυχῆς σου διὰ τὴν ταπείνωσιν τοῦ γένους ἡμῶν ἀλλ' ἐπεξῆλθες τῷ πτώματι ἡμῶν ἐπ' εὐθεῖαν πορευθεῖσα ἐνώπιον τοῦ θεοῦ ἡμῶν καὶ εἶπαν πᾶς ὁ λαός γένοιτο γένοιτο.",
+     "giguet": "Que le Seigneur te bénisse et t'exalte à jamais&nbsp;; qu'il te visite pour ton bien en récompense de ce que tu n'as pas ménagé ta vie, devant l'humiliation de notre race&nbsp;; mais tu es allée au-devant de notre chute, et tu as marché droit devant notre Dieu. Et le peuple tout entier s'écria&nbsp;: Ainsi soit-il, ainsi soit-il.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 14,
+   "libelle": "14",
+   "fichierToc": "JDT/014.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ εἶπεν πρὸς αὐτοὺς Ιουδιθ ἀκούσατε δή μου ἀδελφοί καὶ λαβόντες τὴν κεφαλὴν ταύτην κρεμάσατε αὐτὴν ἐπὶ τῆς ἐπάλξεως τοῦ τείχους ὑμῶν.",
+     "giguet": "Et Judith leur dit&nbsp;: Écoutez-moi, frères, prenez cette tête, et suspendez-la aux créneaux de nos remparts.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ἔσται ἡνίκα ἐὰν διαφαύσῃ ὁ ὄρθρος καὶ ἐξέλθῃ ὁ ἥλιος ἐπὶ τὴν γῆν ἀναλήμψεσθε ἕκαστος τὰ σκεύη τὰ πολεμικὰ ὑμῶν καὶ ἐξελεύσεσθε πᾶς ἀνὴρ ἰσχύων ἔξω τῆς πόλεως καὶ δώσετε ἀρχηγὸν εἰς αὐτοὺς ὡς καταβαίνοντες ἐπὶ τὸ πεδίον εἰς τὴν προφυλακὴν υἱῶν Ασσουρ καὶ οὐ καταβήσεσθε.",
+     "giguet": "Et, aux premières lueurs du matin, quand le soleil se lèvera sur la terre, que chacun prenne les armes, que l'on nomme un chef, que tout homme fort sorte de la ville, comme pour descendre sur la garde avancée des Assyriens&nbsp;; mais vous ne descendrez pas.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἀναλαβόντες οὗτοι τὰς πανοπλίας αὐτῶν πορεύσονται εἰς τὴν παρεμβολὴν αὐτῶν καὶ ἐγεροῦσι τοὺς στρατηγοὺς τῆς δυνάμεως Ασσουρ καὶ συνδραμοῦνται ἐπὶ τὴν σκηνὴν Ολοφέρνου καὶ οὐχ εὑρήσουσιν αὐτόν καὶ ἐπιπεσεῖται ἐπ' αὐτοὺς φόβος καὶ φεύξονται ἀπὸ προσώπου ὑμῶν.",
+     "giguet": "Ceux-ci, après s'être couverts de leurs armures, se replieront sur le camp, et ils réveilleront les généraux de l'armée d'Assur, et ils courront tous ensemble à la tente d'Holopherne, et ils ne le trouveront pas, et l'épouvante tombera sur eux, et ils s'enfuiront devant nous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἐπακολουθήσαντες ὑμεῖς καὶ πάντες οἱ κατοικοῦντες πᾶν ὅριον Ισραηλ καταστρώσατε αὐτοὺς ἐν ταῖς ὁδοῖς αὐτῶν.",
+     "giguet": "Alors, courant après eux, vous et tout ce qui habite le territoire d'Israël, renversez-les sur leurs chemins.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "πρὸ δὲ τοῦ ποιῆσαι ταῦτα καλέσατέ μοι Αχιωρ τὸν Αμμανίτην ἵνα ἰδὼν ἐπιγνοῖ τὸν ἐκφαυλίσαντα τὸν οἶκον τοῦ Ισραηλ καὶ αὐτὸν ὡς εἰς θάνατον ἀποστείλαντα εἰς ἡμᾶς.",
+     "giguet": "Mais, avant de faire cela, appelez-moi Achior l'Ammonite, afin qu'ayant vu, il reconnaisse celui qui méprisait la maison d'Israël, et qui l'avait lui-même envoyé parmi nous comme à la mort.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἐκάλεσαν τὸν Αχιωρ ἐκ τοῦ οἴκου Οζια ὡς δὲ ἦλθεν καὶ εἶδεν τὴν κεφαλὴν Ολοφέρνου ἐν χειρὶ ἀνδρὸς ἑνὸς ἐν τῇ ἐκκλησίᾳ τοῦ λαοῦ ἔπεσεν ἐπὶ πρόσωπον καὶ ἐξελύθη τὸ πνεῦμα αὐτοῦ.",
+     "giguet": "On fit donc venir Achior de la maison d'Ozias. Dès qu'il fut arrivé et qu'il eut vu la tête d'Holopherne à la main d'un homme de l'assemblée du peuple, il tomba la face contre terre, et le souffle lui manqua.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὡς δὲ ἀνέλαβον αὐτόν προσέπεσεν τοῖς ποσὶν Ιουδιθ καὶ προσεκύνησεν τῷ προσώπῳ αὐτῆς καὶ εἶπεν εὐλογημένη σὺ ἐν παντὶ σκηνώματι Ιουδα καὶ ἐν παντὶ ἔθνει οἵτινες ἀκούσαντες τὸ ὄνομά σου ταραχθήσονται.",
+     "giguet": "Lorsqu'on l'eut fait revenir à lui, il se jeta aux pieds de Judith et il l'adora, et il dit&nbsp;: Bénie sois-tu en toute demeure de Juda et en toute nation&nbsp;! quiconque ouïra ton nom sera ému.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ νῦν ἀνάγγειλόν μοι ὅσα ἐποίησας ἐν ταῖς ἡμέραις ταύταις καὶ ἀπήγγειλεν αὐτῷ Ιουδιθ ἐν μέσῳ τοῦ λαοῦ πάντα ὅσα ἦν πεποιηκυῖα ἀφ' ἧς ἡμέρας ἐξῆλθεν ἕως οὗ ἐλάλει αὐτοῖς.",
+     "giguet": "Raconte-moi maintenant tout ce que tu as fait en ces derniers jours. Et Judith lui raconta, au milieu de tout le peuple, ce qu'elle avait fait depuis sa sortie jusqu'au moment où elle parlait.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ὡς δὲ ἐπαύσατο λαλοῦσα ἠλάλαξεν ὁ λαὸς φωνῇ μεγάλῃ καὶ ἔδωκεν φωνὴν εὐφρόσυνον ἐν τῇ πόλει αὐτῶν.",
+     "giguet": "Dès qu'elle eut terminé son récit, le peuple applaudit à haute voix, et des cris d'allégresse retentirent dans toute la ville.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἰδὼν δὲ Αχιωρ πάντα ὅσα ἐποίησεν ὁ θεὸς τοῦ Ισραηλ ἐπίστευσεν τῷ θεῷ σφόδρα καὶ περιετέμετο τὴν σάρκα τῆς ἀκροβυστίας αὐτοῦ καὶ προσετέθη εἰς τὸν οἶκον Ισραηλ ἕως τῆς ἡμέρας ταύτης.",
+     "giguet": "Et Achior, ayant vu tout ce qu'avait fait le Dieu d'Israël, crut en lui avec ferveur, et il se fit circoncire, et il a été compté parmi la maison d'Israël jusqu'à ce jour.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἡνίκα δὲ ὁ ὄρθρος ἀνέβη καὶ ἐκρέμασαν τὴν κεφαλὴν Ολοφέρνου ἐκ τοῦ τείχους καὶ ἀνέλαβεν πᾶς ἀνὴρ τὰ ὅπλα αὐτοῦ καὶ ἐξήλθοσαν κατὰ σπείρας ἐπὶ τὰς ἀναβάσεις τοῦ ὄρους.",
+     "giguet": "Dès les premières lueurs du matin, on suspendit aux remparts la tête d'Holopherne&nbsp;; et chaque homme d'Israël prit les armes, et ils descendirent par cohortes la rampe de la montagne.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "οἱ δὲ υἱοὶ Ασσουρ ὡς εἶδον αὐτούς διέπεμψαν ἐπὶ τοὺς ἡγουμένους αὐτῶν οἱ δὲ ἦλθον ἐπὶ τοὺς στρατηγοὺς καὶ χιλιάρχους καὶ ἐπὶ πάντα ἄρχοντα αὐτῶν.",
+     "giguet": "Et les fils d'Assur les virent, et ils envoyèrent des gens à leurs chefs. Or, ceux-ci allèrent trouver les généraux, les commandants de mille hommes, et tous leurs princes,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ παρεγένοντο ἐπὶ τὴν σκηνὴν Ολοφέρνου καὶ εἶπαν τῷ ὄντι ἐπὶ πάντων τῶν αὐτοῦ ἔγειρον δὴ τὸν κύριον ἡμῶν ὅτι ἐτόλμησαν οἱ δοῦλοι καταβαίνειν ἐφ' ἡμᾶς εἰς πόλεμον ἵνα ἐξολεθρευθῶσιν εἰς τέλος.",
+     "giguet": "Qui s'approchèrent de la tente d'Holopherne, et dirent à celui qui était au-dessus de ses serviteurs&nbsp;: Éveille notre maître, car nos esclaves osent descendre pour nous attaquer, et pour que nous les exterminions enfin.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ εἰσῆλθεν Βαγώας καὶ ἔκρουσε τὴν αὐλαίαν τῆς σκηνῆς ὑπενόει γὰρ καθεύδειν αὐτὸν μετὰ Ιουδιθ.",
+     "giguet": "Et Bagoa entra, et il agita la portière de la tente, car il croyait son maître endormi avec Judith.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ὡς δ' οὐθεὶς ἐπήκουσεν διαστείλας εἰσῆλθεν εἰς τὸν κοιτῶνα καὶ εὗρεν αὐτὸν ἐπὶ τῆς χελωνίδος ἐρριμμένον νεκρόν καὶ ἡ κεφαλὴ αὐτοῦ ἀφῄρητο ἀπ' αὐτοῦ.",
+     "giguet": "Et, comme nul ne l'entendit, il ouvrit et pénétra dans le pavillon, et il trouva Holopherne étendu mort au pied du lit, et sa tête avait été enlevée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ ἐβόησεν φωνῇ μεγάλῃ μετὰ κλαυθμοῦ καὶ στεναγμοῦ καὶ βοῆς ἰσχυρᾶς καὶ διέρρηξεν τὰ ἱμάτια αὐτοῦ.",
+     "giguet": "Et il jeta les hauts cris, avec pleurs et sanglots, et il déchira ses vêtements.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ εἰσῆλθεν εἰς τὴν σκηνήν οὗ ἦν Ιουδιθ καταλύουσα καὶ οὐχ εὗρεν αὐτήν καὶ ἐξεπήδησεν εἰς τὸν λαὸν καὶ ἐβόησεν.",
+     "giguet": "Et il courut à la tente où logeait Judith, et il ne la vit pas, et il s'élança vers la troupe en criant&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἠθέτησαν οἱ δοῦλοι ἐποίησεν αἰσχύνην μία γυνὴ τῶν Εβραίων εἰς τὸν οἶκον τοῦ βασιλέως Ναβουχοδονοσορ ὅτι ἰδοὺ Ολοφέρνης χαμαί καὶ ἡ κεφαλὴ οὐκ ἔστιν ἐπ' αὐτῷ.",
+     "giguet": "Les esclaves se sont révoltés&nbsp;; une femme des Hébreux a fait entrer la honte en la maison de Nabuchodonosor. Voilà qu'Holopherne gît à terre, et sa tête a été enlevée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ὡς δὲ ἤκουσαν ταῦτα τὰ ῥήματα οἱ ἄρχοντες τῆς δυνάμεως Ασσουρ τοὺς χιτῶνας αὐτῶν διέρρηξαν καὶ ἐταράχθη αὐτῶν ἡ ψυχὴ σφόδρα καὶ ἐγένετο αὐτῶν κραυγὴ καὶ βοὴ μεγάλη σφόδρα ἐν μέσῳ τῆς παρεμβολῆς.",
+     "giguet": "Lorsqu'ils eurent ouï ces paroles, les chefs de l'armée d'Assur déchirèrent leurs tuniques, et leur âme fut grandement troublée, et leurs cris et hautes clameurs se firent entendre au milieu du camp.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 15,
+   "libelle": "15",
+   "fichierToc": "JDT/015.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ὡς ἤκουσαν οἱ ἐν τοῖς σκηνώμασιν ὄντες ἐξέστησαν ἐπὶ τὸ γεγονός.",
+     "giguet": "Et lorsque ceux qui étaient sous les tentes l'ouïrent, ils furent hors d'eux-mêmes de ce qui venait d'arriver.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ἐπέπεσεν ἐπ' αὐτοὺς τρόμος καὶ φόβος καὶ οὐκ ἦν ἄνθρωπος μένων κατὰ πρόσωπον τοῦ πλησίον ἔτι ἀλλ' ἐκχυθέντες ὁμοθυμαδὸν ἔφευγον ἐπὶ πᾶσαν ὁδὸν τοῦ πεδίου καὶ τῆς ὀρεινῆς.",
+     "giguet": "Et la terreur et l'effroi tombèrent sur eux, et il n'y eut pas un homme qui restât ferme en présence de son voisin&nbsp;; et, s'étant dispersés tous à la fois, ils s'enfuirent par tous les chemins de la plaine et des montagnes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ οἱ παρεμβεβληκότες ἐν τῇ ὀρεινῇ κύκλῳ Βαιτυλουα καὶ ἐτράπησαν εἰς φυγήν καὶ τότε οἱ υἱοὶ Ισραηλ πᾶς ἀνὴρ πολεμιστὴς ἐξ αὐτῶν ἐξεχύθησαν ἐπ' αὐτούς.",
+     "giguet": "Et ceux qui étaient campés autour de Béthulie, sur les hauteurs, prirent pareillement la fuite. Alors, tous les guerriers d'Israël se répandirent contre eux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἀπέστειλεν Οζιας εἰς Βαιτομασθαιμ καὶ Βηβαι καὶ Χωβαι καὶ Κωλα καὶ εἰς πᾶν ὅριον Ισραηλ τοὺς ἀπαγγέλλοντας ὑπὲρ τῶν συντετελεσμένων καὶ ἵνα πάντες ἐπεκχυθῶσιν τοῖς πολεμίοις εἰς τὴν ἀναίρεσιν αὐτῶν.",
+     "giguet": "Et Ozias envoya des messagers à Bétomasthem, à Hobaï, à Hola et dans toute la contrée montagneuse d'Israël, publiant ce qui s'était accompli, afin que tous se missent à la poursuite des fugitifs pour les anéantir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ὡς δὲ ἤκουσαν οἱ υἱοὶ Ισραηλ πάντες ὁμοθυμαδὸν ἐπέπεσον ἐπ' αὐτοὺς καὶ ἔκοπτον αὐτοὺς ἕως Χωβα ὡσαύτως δὲ καὶ οἱ ἐξ Ιερουσαλημ παρεγενήθησαν καὶ ἐκ πάσης τῆς ὀρεινῆς ἀνήγγειλαν γὰρ αὐτοῖς τὰ γεγονότα τῇ παρεμβολῇ τῶν ἐχθρῶν αὐτῶν καὶ οἱ ἐν Γαλααδ καὶ οἱ ἐν τῇ Γαλιλαίᾳ ὑπερεκέρασαν αὐτοὺς πληγῇ μεγάλῃ ἕως οὗ παρῆλθον Δαμασκὸν καὶ τὰ ὅρια αὐτῆς.",
+     "giguet": "Lorsque les fils d'Israël ouïrent ces nouvelles, tous, comme un seul homme, tombèrent sur eux, et ils les taillèrent en pièces jusqu'à Hobra&nbsp;; ceux de Jérusalem survinrent aussi de toutes les montagnes&nbsp;; car on leur avait appris ce qui était advenu dans le camp des ennemis. Galaad et la Galilée les enveloppèrent et leur firent de grandes plaies, jusqu'à ce qu'ils eussent dépassé Damas et son territoire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "οἱ δὲ λοιποὶ οἱ κατοικοῦντες Βαιτυλουα ἐπέπεσαν τῇ παρεμβολῇ Ασσουρ καὶ ἐπρονόμευσαν αὐτοὺς καὶ ἐπλούτησαν σφόδρα.",
+     "giguet": "Cependant, ceux qui étaient restés à Béthulie tombèrent sur le camp d'Assur, le pillèrent et s'enrichirent beaucoup.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "οἱ δὲ υἱοὶ Ισραηλ ἀναστρέψαντες ἀπὸ τῆς κοπῆς ἐκυρίευσαν τῶν λοιπῶν καὶ αἱ κῶμαι καὶ ἐπαύλεις ἐν τῇ ὀρεινῇ καὶ πεδινῇ ἐκράτησαν πολλῶν λαφύρων ἦν γὰρ πλῆθος πολὺ σφόδρα.",
+     "giguet": "Et les fils d'Israël, revenant sur leurs pas, se rendirent maîtres de ce qui leur était échappé, et ils firent un immense butin dans les villages et dans les maisons des champs de la plaine et de la montagne.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ Ιωακιμ ὁ ἱερεὺς ὁ μέγας καὶ ἡ γερουσία τῶν υἱῶν Ισραηλ οἱ κατοικοῦντες ἐν Ιερουσαλημ ἦλθον τοῦ θεάσασθαι τὰ ἀγαθά ἃ ἐποίησεν κύριος τῷ Ισραηλ καὶ τοῦ ἰδεῖν τὴν Ιουδιθ καὶ λαλῆσαι μετ' αὐτῆς εἰρήνην.",
+     "giguet": "Et le grand prêtre Joacim et les anciens des fils d'Israël, qui résidaient à Jérusalem, vinrent pour contempler le bien que le Seigneur avait fait à Israël, et pour voir Judith, et pour lui apporter des paroles de paix.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ὡς δὲ εἰσῆλθον πρὸς αὐτήν εὐλόγησαν αὐτὴν πάντες ὁμοθυμαδὸν καὶ εἶπαν πρὸς αὐτήν σὺ ὕψωμα Ιερουσαλημ σὺ γαυρίαμα μέγα τοῦ Ισραηλ σὺ καύχημα μέγα τοῦ γένους ἡμῶν.",
+     "giguet": "Lorsqu'ils entrèrent chez elle, ils la bénirent tout d'une voix, et lui dirent&nbsp;: Tu es la gloire d'Israël, tu es la joie d'Israël, tu es l'orgueil de notre race.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἐποίησας ταῦτα πάντα ἐν χειρί σου ἐποίησας τὰ ἀγαθὰ μετὰ Ισραηλ καὶ εὐδόκησεν ἐπ' αὐτοῖς ὁ θεός εὐλογημένη γίνου παρὰ τῷ παντοκράτορι κυρίῳ εἰς τὸν αἰῶνα χρόνον καὶ εἶπεν πᾶς ὁ λαός γένοιτο.",
+     "giguet": "Tu as fait de ta main toutes ces choses&nbsp;; tu as fait ces bonnes choses pour Israël&nbsp;; que Dieu se complaise en toi plus qu'en aucun du peuple. Bénie sois-tu à jamais par le Seigneur tout-puissant&nbsp;! Et tout le peuple s'écria&nbsp;: Ainsi soit-il.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἐλαφύρευσεν πᾶς ὁ λαὸς τὴν παρεμβολὴν ἐφ' ἡμέρας τριάκοντα καὶ ἔδωκαν τῇ Ιουδιθ τὴν σκηνὴν Ολοφέρνου καὶ πάντα τὰ ἀργυρώματα καὶ τὰς κλίνας καὶ τὰ ὁλκεῖα καὶ πάντα τὰ κατασκευάσματα αὐτοῦ καὶ λαβοῦσα αὐτὴ ἐπέθηκεν ἐπὶ τὴν ἡμίονον αὐτῆς καὶ ἔζευξεν τὰς ἁμάξας αὐτῆς καὶ ἐσώρευσεν αὐτὰ ἐπ' αὐτῶν.",
+     "giguet": "Et tout le peuple pilla le camp pendant trente jours, et ils donnèrent à Judith la tente d'Holopherne, toute son argenterie, ses lits, ses cratères et tous ses vases. Et, les ayant pris, elle les mit sur sa mule, ou elle attela ses chariots, et les y entassa.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ συνέδραμεν πᾶσα γυνὴ Ισραηλ τοῦ ἰδεῖν αὐτὴν καὶ εὐλόγησαν αὐτὴν καὶ ἐποίησαν αὐτῇ χορὸν ἐξ αὐτῶν καὶ ἔλαβεν θύρσους ἐν ταῖς χερσὶν αὐτῆς καὶ ἔδωκεν ταῖς γυναιξὶν ταῖς μετ' αὐτῆς.",
+     "giguet": "Et toutes les femmes d'Israël accoururent pour la voir, et elles la bénirent, et elles formèrent pour elle un chœur de danses&nbsp;; et elle prit en ses mains des thyrses, et elle les donna aux femmes qui étaient avec elle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ἐστεφανώσαντο τὴν ἐλαίαν αὐτὴ καὶ αἱ μετ' αὐτῆς καὶ προῆλθεν παντὸς τοῦ λαοῦ ἐν χορείᾳ ἡγουμένη πασῶν τῶν γυναικῶν καὶ ἠκολούθει πᾶς ἀνὴρ Ισραηλ ἐνωπλισμένοι μετὰ στεφάνων καὶ ὕμνουν ἐν τῷ στόματι αὐτῶν.",
+     "giguet": "Et on couronna d'olivier elle et ses femmes. Et l'on vint de tout le peuple prendre part à la danse que menaient toutes les femmes, et les hommes d'Israël, en armes, couronnés aussi, les accompagnèrent de leurs chants.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐξῆρχεν Ιουδιθ τὴν ἐξομολόγησιν ταύτην ἐν παντὶ Ισραηλ καὶ ὑπερεφώνει πᾶς ὁ λαὸς τὴν αἴνεσιν ταύτην.",
+     "giguet": "Et Judith entonna ce cantique de louanges au milieu de tout Israël, et tout le peuple le répéta.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 16,
+   "libelle": "16",
+   "fichierToc": "JDT/016.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ εἶπεν Ιουδιθ ἐξάρχετε τῷ θεῷ μου ἐν τυμπάνοις ᾄσατε τῷ κυρίῳ ἐν κυμβάλοις ἐναρμόσασθε αὐτῷ ψαλμὸν καὶ αἶνον ὑψοῦτε καὶ ἐπικαλεῖσθε τὸ ὄνομα αὐτοῦ.",
+     "giguet": "Et Judith dit&nbsp;: Préludez, pour mon Dieu, au son des tambours&nbsp;; chantez, pour le Seigneur, au son des cymbales&nbsp;; chantez pour lui, en mesure, un psaume nouveau&nbsp;; exaltez et invoquez son nom.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὅτι θεὸς συντρίβων πολέμους κύριος ὅτι εἰς παρεμβολὰς αὐτοῦ ἐν μέσῳ λαοῦ ἐξείλατό με ἐκ χειρὸς καταδιωκόντων με.",
+     "giguet": "Car le Seigneur est le Dieu qui broie les armées. Et dans son camp, au milieu du peuple, il m'a arrachée de la main de ceux qui me poursuivaient.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἦλθεν Ασσουρ ἐξ ὀρέων ἀπὸ βορρᾶ ἦλθεν ἐν μυριάσι δυνάμεως αὐτοῦ ὧν τὸ πλῆθος αὐτῶν ἐνέφραξεν χειμάρρους καὶ ἡ ἵππος αὐτῶν ἐκάλυψεν βουνούς.",
+     "giguet": "Assur est venu des montagnes de l'aquilon&nbsp;; il est venu avec les myriades de son armée&nbsp;; leur multitude a comblé les vallons, leur cavalerie a couvert les collines.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "εἶπεν ἐμπρήσειν τὰ ὅριά μου καὶ τοὺς νεανίσκους μου ἀνελεῖν ἐν ῥομφαίᾳ καὶ τὰ θηλάζοντά μου θήσειν εἰς ἔδαφος καὶ τὰ νήπιά μου δώσειν εἰς προνομὴν καὶ τὰς παρθένους μου σκυλεῦσαι.",
+     "giguet": "Il avait juré de livrer mon pays à la flamme, de faire périr mes jeunes hommes par le glaive, d'écraser mes enfants à la mamelle, de faire de mes enfants un butin, et de mes vierges une proie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "κύριος παντοκράτωρ ἠθέτησεν αὐτοὺς ἐν χειρὶ θηλείας.",
+     "giguet": "Le Seigneur tout-puissant les a effacés par la main d'une femme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "οὐ γὰρ ὑπέπεσεν ὁ δυνατὸς αὐτῶν ὑπὸ νεανίσκων οὐδὲ υἱοὶ τιτάνων ἐπάταξαν αὐτόν οὐδὲ ὑψηλοὶ γίγαντες ἐπέθεντο αὐτῷ ἀλλὰ Ιουδιθ θυγάτηρ Μεραρι ἐν κάλλει προσώπου αὐτῆς παρέλυσεν αὐτόν.",
+     "giguet": "Car leur homme puissant n'est pas tombé sous les coups de jeunes guerriers&nbsp;; les fils des Titans ne l'ont point frappé, les grands géants ne l'ont point attaqué&nbsp;; mais Judith, fille de Mérari, l'a défait par la beauté de son visage.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἐξεδύσατο γὰρ στολὴν χηρεύσεως αὐτῆς εἰς ὕψος τῶν πονούντων ἐν Ισραηλ ἠλείψατο τὸ πρόσωπον αὐτῆς ἐν μυρισμῷ.",
+     "giguet": "Elle a ôté sa robe de veuve pour l'exaltation des affligés d'Israël. Elle a parfumé de myrrhe son visage,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ ἐδήσατο τὰς τρίχας αὐτῆς ἐν μίτρᾳ καὶ ἔλαβεν στολὴν λινῆν εἰς ἀπάτην αὐτοῦ.",
+     "giguet": "Et a noué ses cheveux sous un turban&nbsp;; elle a pris une robe de lin pour le tromper.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "τὸ σανδάλιον αὐτῆς ἥρπασεν ὀφθαλμὸν αὐτοῦ καὶ τὸ κάλλος αὐτῆς ᾐχμαλώτισεν ψυχὴν αὐτοῦ διῆλθεν ὁ ἀκινάκης τὸν τράχηλον αὐτοῦ.",
+     "giguet": "Sa petite sandale a ravi son œil, sa beauté a captivé son âme&nbsp;; le cimeterre a tranché sa tête.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἔφριξαν Πέρσαι τὴν τόλμαν αὐτῆς καὶ Μῆδοι τὸ θράσος αὐτῆς ἐταράχθησαν.",
+     "giguet": "Les Perses ont frémi de l'audace d'une femme, et les Mèdes ont été brisés par sa hardiesse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "τότε ἠλάλαξαν οἱ ταπεινοί μου καὶ ἐφοβήθησαν οἱ ἀσθενοῦντές μου καὶ ἐπτοήθησαν ὕψωσαν τὴν φωνὴν αὐτῶν καὶ ἀνετράπησαν.",
+     "giguet": "Alors mes humbles ont jeté un cri de joie, et mes faibles les ont épouvantés, et ils ont été frappés de stupeur&nbsp;; ils ont élevé la voix, et ils ont pris la fuite.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "υἱοὶ κορασίων κατεκέντησαν αὐτοὺς καὶ ὡς παῖδας αὐτομολούντων ἐτίτρωσκον αὐτούς ἀπώλοντο ἐκ παρατάξεως κυρίου μου.",
+     "giguet": "Les enfants des jeunes femmes les ont percés, ils les ont blessés comme des esclaves fugitifs&nbsp;; le Seigneur leur a livré bataille, et ils ont péri.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ὑμνήσω τῷ θεῷ μου ὕμνον καινόν κύριε μέγας εἶ καὶ ἔνδοξος θαυμαστὸς ἐν ἰσχύι ἀνυπέρβλητος.",
+     "giguet": "Je chanterai à Dieu un hymne nouveau. Seigneur, vous êtes grand et glorieux&nbsp;; votre force émerveille&nbsp;; vous êtes invincible.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "σοὶ δουλευσάτω πᾶσα ἡ κτίσις σου ὅτι εἶπας καὶ ἐγενήθησαν ἀπέστειλας τὸ πνεῦμά σου καὶ ᾠκοδόμησεν καὶ οὐκ ἔστιν ὃς ἀντιστήσεται τῇ φωνῇ σου.",
+     "giguet": "Que toutes vos créatures vous servent&nbsp;; car vous avez dit, et elles ont été&nbsp;; vous avez envoyé votre Esprit, et il a édifié, et il n'est personne qui n'obéisse à votre voix.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ὄρη γὰρ ἐκ θεμελίων σὺν ὕδασιν σαλευθήσεται πέτραι δ' ἀπὸ προσώπου σου ὡς κηρὸς τακήσονται ἔτι δὲ τοῖς φοβουμένοις σε σὺ εὐιλατεύσεις αὐτοῖς.",
+     "giguet": "Car les montagnes seront ébranlées à partir de leurs racines, en même temps que les eaux&nbsp;; et les rochers devant vous fondront comme de la cire, et vous êtes propice à ceux qui vous craignent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ὅτι μικρὸν πᾶσα θυσία εἰς ὀσμὴν εὐωδίας καὶ ἐλάχιστον πᾶν στέαρ εἰς ὁλοκαύτωμά σοι ὁ δὲ φοβούμενος τὸν κύριον μέγας διὰ παντός.",
+     "giguet": "Tout sacrifice qu'on vous offre en odeur de suavité est petit&nbsp;; toute la graisse de vos holocaustes est très petite&nbsp;; mais, celui qui craint le Seigneur est toujours grand.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "οὐαὶ ἔθνεσιν ἐπανιστανομένοις τῷ γένει μου κύριος παντοκράτωρ ἐκδικήσει αὐτοὺς ἐν ἡμέρᾳ κρίσεως δοῦναι πῦρ καὶ σκώληκας εἰς σάρκας αὐτῶν καὶ κλαύσονται ἐν αἰσθήσει ἕως αἰῶνος.",
+     "giguet": "Malheur aux peuples qui s'attaquent à ma race&nbsp;! le Seigneur tout-puissant, au jour du jugement, les punira. Il livrera leur chair aux vers et à la flamme, et ils pleureront en une souffrance éternelle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ὡς δὲ ἤλθοσαν εἰς Ιερουσαλημ προσεκύνησαν τῷ θεῷ καὶ ἡνίκα ἐκαθαρίσθη ὁ λαός ἀνήνεγκαν τὰ ὁλοκαυτώματα αὐτῶν καὶ τὰ ἑκούσια αὐτῶν καὶ τὰ δόματα.",
+     "giguet": "Lorsque le peuple rentra à Jérusalem, il adora Dieu&nbsp;; et, aussitôt qu'il se fut purifié, il offrit ses holocaustes, ses sacrifices volontaires et ses dons.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ ἀνέθηκεν Ιουδιθ πάντα τὰ σκεύη Ολοφέρνου ὅσα ἔδωκεν ὁ λαὸς αὐτῇ καὶ τὸ κωνώπιον ὃ ἔλαβεν ἑαυτῇ ἐκ τοῦ κοιτῶνος αὐτοῦ εἰς ἀνάθημα τῷ θεῷ ἔδωκεν.",
+     "giguet": "Et Judith consacra, comme offrande au Seigneur, tous les vases d'Holopherne, que lui avait donnés le peuple, et le moustiquaire qu'elle avait enlevé de sa couche.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ ἦν ὁ λαὸς εὐφραινόμενος ἐν Ιερουσαλημ κατὰ πρόσωπον τῶν ἁγίων ἐπὶ μῆνας τρεῖς καὶ Ιουδιθ μετ' αὐτῶν κατέμεινεν.",
+     "giguet": "Et le peuple passa trois mois en réjouissances à Jérusalem, devant les lieux saints, et Judith demeura avec lui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "μετὰ δὲ τὰς ἡμέρας ταύτας ἀνέζευξεν ἕκαστος εἰς τὴν κληρονομίαν αὐτοῦ καὶ Ιουδιθ ἀπῆλθεν εἰς Βαιτυλουα καὶ κατέμεινεν ἐπὶ τῆς ὑπάρξεως αὐτῆς καὶ ἐγένετο κατὰ τὸν καιρὸν αὐτῆς ἔνδοξος ἐν πάσῃ τῇ γῇ.",
+     "giguet": "Ce temps écoulé, chacun s'en retourna à son héritage&nbsp;; et Judith, à Béthulie, où elle demeura sur ses biens&nbsp;; et elle fut, toute sa vie, pleine de gloire en toute la terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ πολλοὶ ἐπεθύμησαν αὐτήν καὶ οὐκ ἔγνω ἀνὴρ αὐτὴν πάσας τὰς ἡμέρας τῆς ζωῆς αὐτῆς ἀφ' ἧς ἡμέρας ἀπέθανεν Μανασσης ὁ ἀνὴρ αὐτῆς καὶ προσετέθη πρὸς τὸν λαὸν αὐτοῦ.",
+     "giguet": "Et beaucoup la désirèrent, et nul homme ne la connut, durant tous les jours de sa vie, depuis qu'elle eut perdu Manassès son mari&nbsp;; et elle fut réunie à son peuple.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "καὶ ἦν προβαίνουσα μεγάλη σφόδρα καὶ ἐγήρασεν ἐν τῷ οἴκῳ τοῦ ἀνδρὸς αὐτῆς ἔτη ἑκατὸν πέντε καὶ ἀφῆκεν τὴν ἅβραν αὐτῆς ἐλευθέραν καὶ ἀπέθανεν εἰς Βαιτυλουα καὶ ἔθαψαν αὐτὴν ἐν τῷ σπηλαίῳ τοῦ ἀνδρὸς αὐτῆς Μανασση.",
+     "giguet": "Et elle paraissait au dehors avec beaucoup de gloire. Et elle vieillit dans la maison de son époux jusqu'à cent cinq ans&nbsp;; et elle avait affranchi sa servante, et elle mourut à Béthulie, et on l'ensevelit dans la caverne de Manassès, son époux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "καὶ ἐπένθησεν αὐτὴν οἶκος Ισραηλ ἡμέρας ἑπτά καὶ διεῖλεν τὰ ὑπάρχοντα αὐτῆς πρὸ τοῦ ἀποθανεῖν αὐτὴν πᾶσι τοῖς ἔγγιστα Μανασση τοῦ ἀνδρὸς αὐτῆς καὶ τοῖς ἔγγιστα τοῦ γένους αὐτῆς.",
+     "giguet": "Et la maison d'Israël la pleura sept jours, et, avant de mourir, elle avait partagé ses richesses entre tous les proches de Manassès et ceux de sa propre famille.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "καὶ οὐκ ἦν ἔτι ὁ ἐκφοβῶν τοὺς υἱοὺς Ισραηλ ἐν ταῖς ἡμέραις Ιουδιθ καὶ μετὰ τὸ ἀποθανεῖν αὐτὴν ἡμέρας πολλάς.",
+     "giguet": "Et nul n'effraya encore les fils d'Israël tant que vécut Judith, ni bien des jours après sa mort.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  }
+ ]
+}

@@ -1,0 +1,595 @@
+{
+ "code": "LJE",
+ "book": "Lettre de Jérémie",
+ "fichiersToc": [
+  "LJE/001.html"
+ ],
+ "chapitres": [
+  {
+   "chapitre": 1,
+   "libelle": "1",
+   "fichierToc": "LJE/001.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "Διὰ τὰς ἁμαρτίας, ἃς ἡμαρτήκατε ἐναντίον τοῦ θεοῦ, ἀχθήσεσθε εἰς Βαβυλῶνα αἰχμάλωτοι ὑπὸ Ναβουχοδονοσορ βασιλέως τῶν Βαβυλωνίων.",
+     "giguet": "A cause des péchés que vous avez commis devant Dieu, vous allez être emmenés captifs à Babylone par Nabuchodonosor, roi des Babyloniens.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "εἰσελθόντες οὖν εἰς Βαβυλῶνα ἔσεσθε ἐκεῖ ἔτη πλείονα καὶ χρόνον μακρὸν ἕως γενεῶν ἑπτά, μετὰ τοῦτο δὲ ἐξάξω ὑμᾶς ἐκεῖθεν μετ εἰρήνης.",
+     "giguet": "Etant donc entrés à Babylone, vous y resterez de nombreuses années et un long temps, jusqu'à sept générations, et après cela je vous en ferai sortir en paix.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "νυνὶ δὲ ὄψεσθε ἐν Βαβυλῶνι θεοὺς ἀργυροῦς καὶ χρυσοῦς καὶ ξυλίνους ἐπ ὤμοις αἰρομένους δεικνύντας φόβον τοῖς ἔθνεσιν.",
+     "giguet": "Or vous verrez à Babylone des dieux d'argent, d'or et de bois, que l'on porte sur les épaules et qui inspirent la crainte aux nations.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "εὐλαβήθητε οὖν μὴ καὶ ὑμεῖς ἀφομοιωθέντες τοῖς ἀλλοφύλοις ἀφομοιωθῆτε καὶ φόβος ὑμᾶς λάβῃ ἐπ αὐτοῖς",
+     "giguet": "Prenez donc garde à ne pas imiter vous aussi ces étrangers et à ne pas vous effrayer de ces dieux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ἰδόντας ὄχλον ἔμπροσθεν καὶ ὄπισθεν αὐτῶν προσκυνοῦντας αὐτά, εἴπατε δὲ τῇ διανοίᾳ Σοὶ δεῖ προσκυνεῖν, δέσποτα.",
+     "giguet": "Quand vous verrez une foule se presser par devant et par derrière et leur rendre ses hommages, dites en votre cœur: « C'est vous, Seigneur, qu'il faut adorer. »",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ὁ γὰρ ἄγγελός μου μεθ ὑμῶν ἐστιν, αὐτός τε ἐκζητῶν τὰς ψυχὰς ὑμῶν.",
+     "giguet": "Car mon ange est avec vous, et il prend soin de votre vie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "Γλῶσσα γὰρ αὐτῶν ἐστιν κατεξυσμένη ὑπὸ τέκτονος, αὐτά τε περίχρυσα καὶ περιάργυρα, ψευδῆ δ ἐστὶν καὶ οὐ δύνανται λαλεῖν.",
+     "giguet": "Car la langue de ces dieux a été polie par un ouvrier ; on les recouvre d'or et d'argent, mais ils ne sont que mensonge et ne peuvent parler.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ ὥσπερ παρθένῳ φιλοκόσμῳ λαμβάνοντες χρυσίον κατασκευάζουσιν στεφάνους ἐπὶ τὰς κεφαλὰς τῶν θεῶν αὐτῶν·",
+     "giguet": "Comme pour une fille qui aime la parure, on a pris de l'or et l'on a fait des couronnes pour les poser sur leur tête.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἔστι δὲ καὶ ὅτε ὑφαιρούμενοι οἱ ἱερεῖς ἀπὸ τῶν θεῶν αὐτῶν χρυσίον καὶ ἀργύριον εἰς ἑαυτοὺς καταναλώσουσιν, δώσουσιν δὲ ἀπ αὐτῶν καὶ ταῖς ἐπὶ τοῦ τέγους πόρναις.",
+     "giguet": "Les prêtres vont jusqu'à dérober à leurs dieux de l'or et de l'argent qu'ils font servir à leurs propres usages ; ils en donneront même aux prostituées dans leur maison.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "κοσμοῦσί τε αὐτοὺς ὡς ἀνθρώπους τοῖς ἐνδύμασιν, θεοὺς ἀργυροῦς καὶ χρυσοῦς καὶ ξυλίνους· οὗτοι δὲ οὐ διασῴζονται ἀπὸ ἰοῦ καὶ βρωμάτων.",
+     "giguet": "Ils les parent de riches vêtements, comme des hommes, ces dieux d'argent, d'or et de bois ; mais ceux-ci ne peuvent se défendre ni de la rouille, ni des vers.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "περιβεβλημένων αὐτῶν ἱματισμὸν πορφυροῦν, ἐκμάσσονται τὸ πρόσωπον αὐτῶν διὰ τὸν ἐκ τῆς οἰκίας κονιορτόν, ὅς ἐστιν πλείων ἐπ αὐτοῖς.",
+     "giguet": "Quand on les a revêtus de pourpre, il faut encore essuyer leur visage, à cause de la poussière de leur maison qui les couvre d'une couche épaisse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ σκῆπτρον ἔχει ὡς ἄνθρωπος κριτὴς χώρας, ὃς τὸν εἰς αὐτὸν ἁμαρτάνοντα οὐκ ἀνελεῖ.",
+     "giguet": "En voici un qui tient un sceptre, comme un gouverneur de province il ne fera pas mourir celui qui l'aura offensé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἔχει δὲ ἐγχειρίδιον ἐν δεξιᾷ καὶ πέλεκυν, ἑαυτὸν δὲ ἐκ πολέμου καὶ λῃστῶν οὐκ ἐξελεῖται.",
+     "giguet": "Cet autre porte à la main une épée ou une hache, mais il ne peut se défendre contre l'ennemi ou les voleurs",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ὅθεν γνώριμοί εἰσιν οὐκ ὄντες θεοί· μὴ οὖν φοβηθῆτε αὐτούς.",
+     "giguet": "par où l'on voit bien que ce ne sont pas des dieux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "Ὥσπερ γὰρ σκεῦος ἀνθρώπου συντριβὲν ἀχρεῖον γίνεται, τοιοῦτοι ὑπάρχουσιν οἱ θεοὶ αὐτῶν, καθιδρυμένων αὐτῶν ἐν τοῖς οἴκοις.",
+     "giguet": "Ne les craignez donc point. Le vase qu'un homme possède, lorsqu'il est brisé, devient inutile ainsi en est-il de leurs dieux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "οἱ ὀφθαλμοὶ αὐτῶν πλήρεις εἰσὶν κονιορτοῦ ἀπὸ τῶν ποδῶν τῶν εἰσπορευομένων.",
+     "giguet": "Si vous les placez dans une maison, la poussière des pieds de ceux qui entrent leur remplit les yeux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ὥσπερ τινὶ ἠδικηκότι βασιλέα περιπεφραγμέναι εἰσὶν αἱ αὐλαὶ ὡς ἐπὶ θανάτῳ ἀπηγμένῳ, τοὺς οἴκους αὐτῶν ὀχυροῦσιν οἱ ἱερεῖς θυρώμασίν τε καὶ κλείθροις καὶ μοχλοῖς, ὅπως ὑπὸ τῶν λῃστῶν μὴ συληθῶσι.",
+     "giguet": "De même que les portes de la prison sont fermées avec soin sur un criminel de lèse-majesté, ou sur un homme qu'on va conduire au dernier supplice, ainsi les prêtres défendent la demeure de leurs dieux par des portes solides, par des serrures et des verrous, de peur qu'ils ne soient dépouillés par les voleurs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "λύχνους καίουσιν καὶ πλείους ἢ ἑαυτοῖς, ὧν οὐδένα δύνανται ἰδεῖν.",
+     "giguet": "Ils allument des lampes, et même en plus grand nombre que pour eux-mêmes, et ces dieux n'en peuvent voir aucune.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ἔστιν μὲν ὥσπερ δοκὸς τῶν ἐκ τῆς οἰκίας, τὰς δὲ καρδίας αὐτῶν φασιν ἐκλείχεσθαι, τῶν ἀπὸ τῆς γῆς ἑρπετῶν κατεσθόντων αὐτούς τε καὶ τὸν ἱματισμὸν αὐτῶν οὐκ αἰσθάνονται.",
+     "giguet": "Ils sont comme des poutres faisant saillie dans une maison, et l'on dit que leur cœur est rongé par des reptiles qui sortent de terre, et qui les dévorent ainsi que leurs vêtements, sans qu'ils le sentent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "μεμελανωμένοι τὸ πρόσωπον αὐτῶν ἀπὸ τοῦ καπνοῦ τοῦ ἐκ τῆς οἰκίας.",
+     "giguet": "Leur visage devient noir par la fumée qui s'élève de la maison.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "ἐπὶ τὸ σῶμα αὐτῶν καὶ ἐπὶ τὴν κεφαλὴν ἐφίπτανται νυκτερίδες, χελιδόνες καὶ τὰ ὄρνεα, ὡσαύτως δὲ καὶ οἱ αἴλουροι.",
+     "giguet": "Sur leur corps et sur leur tête voltigent les hiboux, les hirondelles et les autres oiseaux ; les chats eux-mêmes y prennent leurs ébats.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "ὅθεν γνώσεσθε ὅτι οὔκ εἰσιν θεοί· μὴ οὖν φοβεῖσθε αὐτά.",
+     "giguet": "Par là vous reconnaîtrez que ce ne sont pas des dieux ; ne les craignez donc point.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "Τὸ γὰρ χρυσίον, ὃ περίκεινται εἰς κάλλος, ἐὰν μή τις ἐκμάξῃ τὸν ἰόν, οὐ μὴ στίλψωσιν· οὐδὲ γάρ, ὅτε ἐχωνεύοντο, ᾐσθάνοντο.",
+     "giguet": "L'or dont on les recouvre pour les embellir, si quelqu'un n'en ôte pas la rouille, ils ne le feront pas briller ; car ils n'ont même rien senti lorsqu'on les fondait,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "ἐκ πάσης τιμῆς ἠγορασμένα ἐστίν, ἐν οἷς οὐκ ἔστιν πνεῦμα.",
+     "giguet": "Ces idoles ont été achetées au plus haut prix, et il n'y a point en elle de souffle de vie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "ἄνευ ποδῶν ἐπ ὤμοις φέρονται ἐνδεικνύμενοι τὴν ἑαυτῶν ἀτιμίαν τοῖς ἀνθρώποις, αἰσχύνονταί τε καὶ οἱ θεραπεύοντες αὐτὰ διὰ τό, μήποτε ἐπὶ τὴν γῆν πέσῃ, δι αὐτῶν ἀνίστασθαι·",
+     "giguet": "N'ayant pas de pieds, elles sont portées sur les épaules, montrant ainsi aux hommes leur honteuse impuissance. Qu'ils soient confondus avec elles ceux qui les servent !",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "26",
+     "grec": "μήτε ἐάν τις αὐτὸ ὀρθὸν στήσῃ, δι ἑαυτοῦ κινηθήσεται, μήτε ἐὰν κλιθῇ, οὐ μὴ ὀρθωθῇ, ἀλλ ὥσπερ νεκροῖς τὰ δῶρα αὐτοῖς παρατίθεται.",
+     "giguet": "Si elles tombent à terre, elles ne se relèveront pas d'elles-mêmes, et si quelqu'un les pose debout, elles ne se mettront pas d'elles-mêmes en mouvement, et si elles penchent, elles ne se redresseront pas. C'est comme à des morts qu'on met devant elles des offrandes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "27",
+     "grec": "τὰς δὲ θυσίας αὐτῶν ἀποδόμενοι οἱ ἱερεῖς αὐτῶν καταχρῶνται· ὡσαύτως δὲ καὶ αἱ γυναῖκες αὐτῶν ἀπ αὐτῶν ταριχεύουσαι οὔτε πτωχῷ οὔτε ἀδυνάτῳ μεταδιδόασιν· τῶν θυσιῶν αὐτῶν ἀποκαθημένη καὶ λεχὼ ἅπτονται.",
+     "giguet": "Les prêtres vendent les victimes qu'on leur offre et en font leur profit ; leurs femmes en salent la chair, et ne donnent rien ni au pauvre, ni à l'infirme. Les femmes en couches ou dans un état impur touchent à leurs sacrifices.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "28",
+     "grec": "γνόντες οὖν ἀπὸ τούτων ὅτι οὔκ εἰσιν θεοί, μὴ φοβηθῆτε αὐτούς.",
+     "giguet": "Sachant donc par toutes ces choses que ce ne sont pas des dieux, ne les craignez point.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "29",
+     "grec": "Πόθεν γὰρ κληθείησαν θεοί ; ὅτι γυναῖκες παρατιθέασιν θεοῖς ἀργυροῖς καὶ χρυσοῖς καὶ ξυλίνοις·",
+     "giguet": "Et pourquoi les appellerait-on des dieux ? Car des femmes viennent apporter leurs offrandes à ces dieux d'argent, d'or et de bois.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "30",
+     "grec": "καὶ ἐν τοῖς οἴκοις αὐτῶν οἱ ἱερεῖς διφρεύουσιν ἔχοντες τοὺς χιτῶνας διερρωγότας καὶ τὰς κεφαλὰς καὶ τοὺς πώγωνας ἐξυρημένους, ὧν αἱ κεφαλαὶ ἀκάλυπτοί εἰσιν,",
+     "giguet": "Et dans leur temple les prêtres sont assis, la tunique déchirée, la tête et le visage rasés, et la tête découverte.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "31",
+     "grec": "ὠρύονται δὲ βοῶντες ἐναντίον τῶν θεῶν αὐτῶν ὥσπερ τινὲς ἐν περιδείπνῳ νεκροῦ.",
+     "giguet": "Ils rugissent en criant devant leurs dieux, comme dans un festin mortuaire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "32",
+     "grec": "ἀπὸ τοῦ ἱματισμοῦ αὐτῶν ἀφελόμενοι οἱ ἱερεῖς ἐνδύουσιν τὰς γυναῖκας αὐτῶν καὶ τὰ παιδία.",
+     "giguet": "Leurs prêtres leur enlèvent leurs vêtements, et ils en habillent leurs femmes et leurs enfants.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "33",
+     "grec": "οὔτε ἐὰν κακὸν πάθωσιν ὑπό τινος οὔτε ἐὰν ἀγαθόν, δυνήσονται ἀνταποδοῦναι· οὔτε καταστῆσαι βασιλέα δύνανται οὔτε ἀφελέσθαι.",
+     "giguet": "Qu'on leur fasse du mal ou qu'on leur fasse du bien, ils ne pourront rendre ni l'un ni l'autre ; ils sont incapables d'établir un roi ou de le renverser.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "34",
+     "grec": "ὡσαύτως οὔτε πλοῦτον οὔτε χαλκὸν οὐ μὴ δύνωνται διδόναι· ἐάν τις αὐτοῖς εὐχὴν εὐξάμενος μὴ ἀποδῷ, οὐ μὴ ἐπιζητήσωσιν.",
+     "giguet": "Ils ne peuvent pas davantage donner la richesse, ni même une pièce de monnaie. Si quelqu'un leur ayant fait un vœu, ne s'en acquitte pas, ils ne sauraient en exiger 1'accomplissement.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "35",
+     "grec": "ἐκ θανάτου ἄνθρωπον οὐ μὴ ῥύσωνται οὔτε ἥττονα ἀπὸ ἰσχυροῦ οὐ μὴ ἐξέλωνται.",
+     "giguet": "Ils ne sauveront pas un homme de la mort, ils n'arracheront point le faible de la main d'un plus puissant.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "36",
+     "grec": "ἄνθρωπον τυφλὸν εἰς ὅρασιν οὐ μὴ περιστήσωσιν, ἐν ἀνάγκῃ ἄνθρωπον ὄντα οὐ μὴ ἐξέλωνται.",
+     "giguet": "Ils ne rendront pas la vue à un aveugle et ne tireront pas un homme de la détresse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "37",
+     "grec": "χήραν οὐ μὴ ἐλεήσωσιν οὔτε ὀρφανὸν εὖ ποιήσουσιν.",
+     "giguet": "Ils n'auront pas pitié de la veuve et ne feront pas de bien à l'orphelin.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "38",
+     "grec": "τοῖς ἀπὸ τοῦ ὄρους λίθοις ὡμοιωμένοι εἰσὶν τὰ ξύλινα καὶ τὰ περίχρυσα καὶ τὰ περιάργυρα, οἱ δὲ θεραπεύοντες αὐτὰ καταισχυνθήσονται.",
+     "giguet": "Elles ressemblent aux rochers détachés de la montagne, ces idoles de bois, recouvertes d'or et d'argent, et ceux qui les servent seront confondus.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "39",
+     "grec": "πῶς οὖν νομιστέον ἢ κλητέον αὐτοὺς ὑπάρχειν θεούς ;",
+     "giguet": "Comment croire ou dire que ce sont des dieux ?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "40",
+     "grec": "Ἔτι δὲ καὶ αὐτῶν τῶν Χαλδαίων ἀτιμαζόντων αὐτά, οἵ, ὅταν ἴδωσιν ἐνεὸν οὐ δυνάμενον λαλῆσαι, προσενεγκάμενοι τὸν Βῆλον ἀξιοῦσιν φωνῆσαι, ὡς δυνατοῦ ὄντος αὐτοῦ αἰσθέσθαι,",
+     "giguet": "Les Chaldéens eux-mêmes les déshonorent, lorsque, voyant un homme qui ne peut parler, ils le présentent à Bel pour qu'il lui donne la parole ; comme s'il pouvait entendre quelque chose.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "41",
+     "grec": "καὶ οὐ δύνανται αὐτοὶ νοήσαντες καταλιπεῖν αὐτά, αἴσθησιν γὰρ οὐκ ἔχουσιν.",
+     "giguet": "Et quoiqu'ils comprennent l'impuissance de ces idoles, ils ne peuvent les abandonner ; car elles n'ont pas le sentiment.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "42",
+     "grec": "αἱ δὲ γυναῖκες περιθέμεναι σχοινία ἐν ταῖς ὁδοῖς ἐγκάθηνται θυμιῶσαι τὰ πίτυρα·",
+     "giguet": "Des femmes couronnées de jonc vont s'asseoir sur les chemins, brûlant de la farine grossière ;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "43",
+     "grec": "ὅταν δέ τις αὐτῶν ἐφελκυσθεῖσα ὑπό τινος τῶν παραπορευομένων κοιμηθῇ, τὴν πλησίον ὀνειδίζει, ὅτι οὐκ ἠξίωται ὥσπερ καὶ αὐτὴ οὔτε τὸ σχοινίον αὐτῆς διερράγη.",
+     "giguet": "et quand l'une d'elles, entraînée par quelque passant, a dormi avec lui, elle reproche à sa voisine de n'avoir pas été jugée digne du même honneur, et de n'avoir pas vu rompre sa tresse de jonc.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "44",
+     "grec": "πάντα τὰ γινόμενα αὐτοῖς ἐστιν ψευδῆ· πῶς οὖν νομιστέον ἢ κλητέον ὥστε θεοὺς αὐτοὺς ὑπάρχειν ;",
+     "giguet": "Tout ce qui se fait à l'égard des idoles est mensonge. Comment donc croire ou dire que ce sont des dieux ?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "45",
+     "grec": "Ὑπὸ τεκτόνων καὶ χρυσοχόων κατεσκευασμένα εἰσίν· οὐθὲν ἄλλο μὴ γένωνται ἢ ὃ βούλονται οἱ τεχνῖται αὐτὰ γενέσθαι.",
+     "giguet": "Ce sont, des artisans et des orfèvres qui les ont faits ; ils ne sauraient être autrement que les ouvriers veulent qu'ils soient.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "46",
+     "grec": "αὐτοί τε οἱ κατασκευάζοντες αὐτὰ οὐ μὴ γένωνται πολυχρόνιοι· πῶς τε δὴ μέλλει τὰ ὑπ αὐτῶν κατασκευασθέντα εἶναι θεοί ;",
+     "giguet": "Et les ouvriers qui les ont façonnés n'ont pas longtemps à vivre ; comment donc leurs ouvrages seraient-ils de longue durée ?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "47",
+     "grec": "κατέλιπον γὰρ ψεύδη καὶ ὄνειδος τοῖς ἐπιγινομένοις.",
+     "giguet": "Ils n'ont laissé après eux que mensonge et opprobre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "48",
+     "grec": "ὅταν γὰρ ἐπέλθῃ ἐπ αὐτὰ πόλεμος καὶ κακά, βουλεύονται πρὸς ἑαυτοὺς οἱ ἱερεῖς ποῦ συναποκρυβῶσι μετ αὐτῶν.",
+     "giguet": "Que survienne une guerre, ou qu'ils soient menacés par quelque autre calamité, les prêtres délibèrent entre eux pour savoir où ils se cacheront avec leurs dieux ;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "49",
+     "grec": "πῶς οὖν οὐκ ἔστιν αἰσθέσθαι ὅτι οὔκ εἰσιν θεοί, οἳ οὔτε σῴζουσιν ἑαυτοὺς ἐκ πολέμου οὔτε ἐκ κακῶν ;",
+     "giguet": "comment donc ne comprennent-ils pas que ceux-là ne sont pas des dieux, qui ne peuvent se sauver de la guerre ou d'une autre calamité ?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "50",
+     "grec": "ὑπάρχοντα γὰρ ξύλινα καὶ περίχρυσα καὶ περιάργυρα γνωσθήσεται μετὰ ταῦτα ὅτι ἐστὶν ψευδῆ· τοῖς ἔθνεσι πᾶσι τοῖς τε βασιλεῦσι φανερὸν ἔσται ὅτι οὔκ εἰσι θεοὶ ἀλλὰ ἔργα χειρῶν ἀνθρώπων, καὶ οὐδὲν θεοῦ ἔργον ἐν αὐτοῖς ἐστιν.",
+     "giguet": "Ces idoles de bois recouvertes d'or et d'argent seront reconnues plus tard comme n'étant que mensonge ; toutes les nations et tous les rois s'apercevront qu'elles ne sont pas des dieux, mais des ouvrages de mains d'hommes, et qu'il n'y a en elles aucune œuvre divine.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "51",
+     "grec": "τίνι οὖν γνωστέον ἐστὶν ὅτι οὔκ εἰσιν θεοί ;",
+     "giguet": "Pour qui donc ne serait-il pas évident que ce ne sont pas des dieux ?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "52",
+     "grec": "Βασιλέα γὰρ χώρας οὐ μὴ ἀναστήσωσιν οὔτε ὑετὸν ἀνθρώποις οὐ μὴ δῶσιν",
+     "giguet": "Ils n'établiront jamais un roi sur un pays, et ne donneront pas la pluie aux hommes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "53",
+     "grec": "κρίσιν τε οὐ μὴ διακρίνωσιν αὐτῶν οὐδὲ μὴ ῥύσωνται ἀδικούμενον ἀδύνατοι ὄντες· ὥσπερ γὰρ κορῶναι ἀνὰ μέσον τοῦ οὐρανοῦ καὶ τῆς γῆς.",
+     "giguet": "Ils ne sauront pas discerner ce qui est juste dans leurs propres affaires, et ils ne protègeront pas contre 1'injustice, parce qu'ils ne peuvent rien, semblables à des corneilles qui se tiennent entre le ciel et ta terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "54",
+     "grec": "καὶ γὰρ ὅταν ἐμπέσῃ εἰς οἰκίαν θεῶν ξυλίνων ἢ περιχρύσων ἢ περιαργύρων πῦρ, οἱ μὲν ἱερεῖς αὐτῶν φεύξονται καὶ διασωθήσονται, αὐτοὶ δὲ ὥσπερ δοκοὶ μέσοι κατακαυθήσονται.",
+     "giguet": "Et lorsque le feu tombera sur la maison de ces dieux de bois recouverts d'or et d'argent, leurs prêtres prendront la fuite et seront sauvés, mais eux seront consumés comme des poutres au milieu des flammes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "55",
+     "grec": "βασιλεῖ δὲ καὶ πολεμίοις οὐ μὴ ἀντιστῶσιν.",
+     "giguet": "Ils ne résisteront ni à un roi, ni à une armée ennemie ;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "56",
+     "grec": "πῶς οὖν ἐκδεκτέον ἢ νομιστέον ὅτι εἰσὶν θεοί ;",
+     "giguet": "comment admettre ou penser que ce sont des dieux ?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "57",
+     "grec": "Οὔτε ἀπὸ κλεπτῶν οὔτε ἀπὸ λῃστῶν οὐ μὴ διασωθῶσιν θεοὶ ξύλινοι καὶ περιάργυροι καὶ περίχρυσοι, ὧν οἱ ἰσχύοντες περιελοῦνται τὸ χρυσίον καὶ τὸ ἀργύριον καὶ τὸν ἱματισμὸν τὸν περικείμενον αὐτοῖς ἀπελεύσονται ἔχοντες, οὔτε ἑαυτοῖς οὐ μὴ βοηθήσωσιν·",
+     "giguet": "Ils n'échapperont pas aux voleurs et aux brigands, ces dieux de bois, recouverts d'argent et d'or. Des hommes plus puissants qu'eux enlèveront l'argent et l'or et s'en iront avec les riches vêtements dont on les a couverts, et ces dieux ne pourront se secourir eux-mêmes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "58",
+     "grec": "ὥστε κρεῖσσον εἶναι βασιλέα ἐπιδεικνύμενον τὴν ἑαυτοῦ ἀνδρείαν ἢ σκεῦος ἐν οἰκίᾳ χρήσιμον, ἐφ ᾧ χρήσεται ὁ κεκτημένος, ἢ οἱ ψευδεῖς θεοί· ἢ καὶ θύρα ἐν οἰκίᾳ διασῴζουσα τὰ ἐν αὐτῇ ὄντα ἢ οἱ ψευδεῖς θεοί, καὶ ξύλινος στῦλος ἐν βασιλείοις ἢ οἱ ψευδεῖς θεοί.",
+     "giguet": "Aussi vaut-il mieux être un roi déployant sa force, ou un vase utile dans la maison, dont le maître se sert, que d'être ces faux dieux ; ou bien une porte à une maison qui garde ce qui s'y trouve, que d'être ces faux dieux ; ou encore une colonne de bois dans la maison d'un roi, que d'être ces faux dieux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "59",
+     "grec": "ἥλιος μὲν γὰρ καὶ σελήνη καὶ ἄστρα ὄντα λαμπρὰ καὶ ἀποστελλόμενα ἐπὶ χρείας εὐήκοά εἰσιν·",
+     "giguet": "Le soleil, la lumière et les astres qui sont brillants et envoyés pour l'utilité des hommes, obéissent à Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "60",
+     "grec": "ὡσαύτως καὶ ἀστραπή, ὅταν ἐπιφανῇ, εὔοπτός ἐστιν· τὸ δ αὐτὸ καὶ πνεῦμα ἐν πάσῃ χώρᾳ πνεῖ·",
+     "giguet": "De même encore l'éclair, lorsqu'il paraît, est beau à voir ; le vent aussi souffle dans tous les pays ;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "61",
+     "grec": "καὶ νεφέλαις ὅταν ἐπιταγῇ ὑπὸ τοῦ θεοῦ ἐπιπορεύεσθαι ἐφ ὅλην τὴν οἰκουμένην, συντελοῦσι τὸ ταχθέν· τό τε πῦρ ἐξαποσταλὲν ἄνωθεν ἐξαναλῶσαι ὄρη καὶ δρυμοὺς ποιεῖ τὸ συνταχθέν.",
+     "giguet": "et lorsque Dieu commande aux nuées de parcourir toute la terre, elles exécutent ce qui leur est ordonné. Le feu également, lorsqu'il est envoyé d'en haut pour consumer les montagnes et les forêts, fait ce qui lui a été commandé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "62",
+     "grec": "ταῦτα δὲ οὔτε ταῖς ἰδέαις οὔτε ταῖς δυνάμεσιν αὐτῶν ἀφωμοιωμένα ἐστίν.",
+     "giguet": "Mais les idoles ne sont pas comparables ni en beauté, ni en puissance à toutes ces choses.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "63",
+     "grec": "ὅθεν οὔτε νομιστέον οὔτε κλητέον ὑπάρχειν αὐτοὺς θεούς, οὐ δυνατῶν ὄντων αὐτῶν οὔτε κρίσιν κρῖναι οὔτε εὖ ποιεῖν ἀνθρώποις.",
+     "giguet": "Il ne faut donc ni penser ni dire que ce sont des dieux, puisqu'elles ne peuvent ni discerner ce qui est juste, ni faire du bien aux hommes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "64",
+     "grec": "γνόντες οὖν ὅτι οὔκ εἰσιν θεοί, μὴ φοβηθῆτε αὐτούς.",
+     "giguet": "Sachant donc que ce ne sont pas des dieux, ne les craignez point.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "65",
+     "grec": "Οὔτε γὰρ βασιλεῦσιν οὐ μὴ καταράσωνται οὔτε μὴ εὐλογήσωσι.",
+     "giguet": "Ils sont incapables de maudire ou de bénir les rois.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "66",
+     "grec": "σημεῖά τε ἐν ἔθνεσιν ἐν οὐρανῷ οὐ μὴ δείξωσιν οὐδὲ ὡς ὁ ἥλιος λάμψουσιν οὐδὲ φωτίσουσιν ὡς σελήνη.",
+     "giguet": "Ils ne font pas voir aux nations des signes dans le ciel ; ils ne brillent pas comme le soleil, ils n'éclairent pas comme la lune.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "67",
+     "grec": "τὰ θηρία ἐστὶν κρείττω αὐτῶν, ἃ δύνανται ἐκφυγόντα εἰς σκέπην ἑαυτὰ ὠφελῆσαι.",
+     "giguet": "Les bêtes valent mieux qu'eux, puisqu'elles peuvent en fuyant trouver un abri et être utiles à elles-mêmes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "68",
+     "grec": "κατ οὐδένα οὖν τρόπον ἐστὶν ἡμῖν φανερὸν ὅτι εἰσὶν θεοί· διὸ μὴ φοβηθῆτε αὐτούς.",
+     "giguet": "Ainsi de toute manière il est évident pour nous que ce ne sont pas des dieux ; ne les craignez donc pas.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "69",
+     "grec": "Ὥσπερ γὰρ ἐν σικυηράτῳ προβασκάνιον οὐδὲν φυλάσσον, οὕτως οἱ θεοὶ αὐτῶν εἰσιν ξύλινοι καὶ περίχρυσοι καὶ περιάργυροι.",
+     "giguet": "De même qu'un épouvantail dans un champ de concombres ne préserve de rien, ainsi en est-il de leurs dieux de bois, recouverts d'or et d'argent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "70",
+     "grec": "τὸν αὐτὸν τρόπον καὶ τῇ ἐν κήπῳ ῥάμνῳ, ἐφ ἧς πᾶν ὄρνεον ἐπικάθηται, ὡσαύτως δὲ καὶ νεκρῷ ἐρριμμένῳ ἐν σκότει ἀφωμοίωνται οἱ θεοὶ αὐτῶν ξύλινοι καὶ περίχρυσοι καὶ περιάργυροι.",
+     "giguet": "Ils sont semblables à un buisson d'épines dans un jardin, sur lequel tous les oiseaux se posent, ou à un mort jeté dans un lieu obscur, leurs dieux de bois, recouverts d'or et d'argent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "71",
+     "grec": "ἀπό τε τῆς πορφύρας καὶ τῆς μαρμάρου τῆς ἐπ αὐτοῖς σηπομένης γνώσεσθε ὅτι οὔκ εἰσιν θεοί· αὐτά τε ἐξ ὑστέρου βρωθήσονται, καὶ ἔσται ὄνειδος ἐν τῇ χώρᾳ.",
+     "giguet": "La pourpre elle-même et le marbre que les vers rongent sur eux, font voir que ce ne sont pas des dieux. Eux-mêmes finiront par être dévorés et deviendront une honte dans le pays.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "72",
+     "grec": "κρείσσων οὖν ἄνθρωπος δίκαιος οὐκ ἔχων εἴδωλα, ἔσται γὰρ μακρὰν ἀπὸ ὀνειδισμοῦ.",
+     "giguet": "Mieux vaut l'homme juste qui n'a pas d'idoles ; il n'aura pas à craindre la confusion.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  }
+ ]
+}

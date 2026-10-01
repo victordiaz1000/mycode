@@ -1,0 +1,1916 @@
+{
+ "code": "ECC",
+ "book": "Ecclésiaste",
+ "fichiersToc": [
+  "ECC/001.html",
+  "ECC/002.html",
+  "ECC/003.html",
+  "ECC/004.html",
+  "ECC/005.html",
+  "ECC/006.html",
+  "ECC/007.html",
+  "ECC/008.html",
+  "ECC/009.html",
+  "ECC/010.html",
+  "ECC/011.html",
+  "ECC/012.html"
+ ],
+ "chapitres": [
+  {
+   "chapitre": 1,
+   "libelle": "1",
+   "fichierToc": "ECC/001.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ῥήματα Ἐκκλησιαστοῦ υἱοῦ Δαυιδ βασιλέως Ισραηλ ἐν Ιερουσαλημ.",
+     "giguet": "Paroles de l'Ecclésiaste, fils de David, roi d'Israël en Jérusalem.",
+     "alexandrie": "Paroles de l’ecclésiaste, fils de David, roi d’Israël à Jérusalem.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ματαιότης ματαιοτήτων εἶπεν ὁ Ἐκκλησιαστής ματαιότης ματαιοτήτων τὰ πάντα ματαιότης.",
+     "giguet": "Vanités des vanités, dit Ecclésiaste, vanité des vanités, tout est vanité.",
+     "alexandrie": "Folie&nbsp;! Folies&nbsp;! a dit l’ecclésiaste, Folie&nbsp;! Folies&nbsp;! Tout est folie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "τίς περισσεία τῷ ἀνθρώπῳ ἐν παντὶ μόχθῳ αὐτοῦ ᾧ μοχθεῖ ὑπὸ τὸν ἥλιον.",
+     "giguet": "Que reste-t-il à l'homme de tout le labeur dont il se consume sous le soleil&nbsp;?",
+     "alexandrie": "Quel avantage pour l’homme à tout le tourment dont il est tourmenté sous le soleil&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "γενεὰ πορεύεται καὶ γενεὰ ἔρχεται καὶ ἡ γῆ εἰς τὸν αἰῶνα ἕστηκεν.",
+     "giguet": "Une génération passe, et une génération vient, et la terre demeure éternellement.",
+     "alexandrie": "Une génération va et une génération vient, et la terre demeure pour toujours.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἀνατέλλει ὁ ἥλιος καὶ δύνει ὁ ἥλιος καὶ εἰς τὸν τόπον αὐτοῦ ἕλκει.",
+     "giguet": "Et le soleil se lève, et le soleil se couche&nbsp;; il se retire en son lieu&nbsp;;",
+     "alexandrie": "Et le soleil se lève et le soleil se couche et vers son lieu il entraîne.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἀνατέλλων αὐτὸς ἐκεῖ πορεύεται πρὸς νότον καὶ κυκλοῖ πρὸς βορρᾶν κυκλοῖ κυκλῶν πορεύεται τὸ πνεῦμα καὶ ἐπὶ κύκλους αὐτοῦ ἐπιστρέφει τὸ πνεῦμα.",
+     "giguet": "Se levant, il chemine vers le midi, puis il tourne au nord&nbsp;; le souffle du vent va tournant, tournant sans cesse, et toujours il recommence ses circuits.",
+     "alexandrie": "En se levant là il va vers le sud et il circule vers le nord&nbsp;; il circule et circule, il va, le vent, et sur ses circuits il retourne, le vent.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "πάντες οἱ χείμαρροι πορεύονται εἰς τὴν θάλασσαν καὶ ἡ θάλασσα οὐκ ἔσται ἐμπιμπλαμένη εἰς τόπον οὗ οἱ χείμαρροι πορεύονται ἐκεῖ αὐτοὶ ἐπιστρέφουσιν τοῦ πορευθῆναι.",
+     "giguet": "Tous les torrents vont à la mer, et la mer n'en est pas remplie&nbsp;; du lieu où coulent les torrents, ils reviennent pour couler encore.",
+     "alexandrie": "Tous les torrents vont vers la mer, et la mer ne sera pas remplie&nbsp;; au lieu où vont les torrents, c’est là qu’ils retournent et s’en vont.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "πάντες οἱ λόγοι ἔγκοποι οὐ δυνήσεται ἀνὴρ τοῦ λαλεῖν καὶ οὐκ ἐμπλησθήσεται ὀφθαλμὸς τοῦ ὁρᾶν καὶ οὐ πληρωθήσεται οὖς ἀπὸ ἀκροάσεως.",
+     "giguet": "Toutes choses sont laborieuses, nul homme ne pourra les expliquer&nbsp;; et l'œil ne se lassera pas de voir, et l'oreille ne se rassasiera pas d'entendre.",
+     "alexandrie": "Tous les discours, épuisés&nbsp;: aucun homme ne pourra parler, et l’œil ne sera pas comblé de voir, et l'oreille ne sera pas comblée d’écoute.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "τί τὸ γεγονός αὐτὸ τὸ γενησόμενον καὶ τί τὸ πεποιημένον αὐτὸ τὸ ποιηθησόμενον καὶ οὐκ ἔστιν πᾶν πρόσφατον ὑπὸ τὸν ἥλιον.",
+     "giguet": "Qu'est-ce que le passé&nbsp;? La même chose que l'avenir&nbsp;; et qu'a-t-on fait&nbsp;? Ce que l'on fera toujours&nbsp;: il n'y a rien de nouveau sous le soleil.",
+     "alexandrie": "Qu’est-ce qui a existé&nbsp;? cela même qui sera&nbsp;; et qu’est-ce qui a été fait&nbsp;? cela même qui sera fait&nbsp;; et il n’y a rien de récent sous le soleil.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ὃς λαλήσει καὶ ἐρεῖ ἰδὲ τοῦτο καινόν ἐστιν ἤδη γέγονεν ἐν τοῖς αἰῶσιν τοῖς γενομένοις ἀπὸ ἔμπροσθεν ἡμῶν.",
+     "giguet": "Qui pourra dire&nbsp;: Voyez, ceci est nouveau&nbsp;? Mais cette chose a déjà été dans les siècles qui ont passé avant nous.",
+     "alexandrie": "Qui parlera et dira&nbsp;: «&nbsp;Vois, cela est nouveau&nbsp;» a déjà existé dans les siècles qui ont existé avant nous.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "οὐκ ἔστιν μνήμη τοῖς πρώτοις καί γε τοῖς ἐσχάτοις γενομένοις οὐκ ἔσται αὐτοῖς μνήμη μετὰ τῶν γενησομένων εἰς τὴν ἐσχάτην.",
+     "giguet": "Mais on a perdu la mémoire des premiers, et ceux de la fin n'auront point mémoire de ceux qui naîtront d'ici à la fin.",
+     "alexandrie": "Il n’y a pas de souvenir des premiers événements et vraiment, des derniers il n’y en aura pas de souvenir avec ceux qui existeront au dernier jour.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἐγὼ Ἐκκλησιαστὴς ἐγενόμην βασιλεὺς ἐπὶ Ισραηλ ἐν Ιερουσαλημ.",
+     "giguet": "Moi, l'Ecclésiaste, j'ai régné sur Israël en Jérusalem.",
+     "alexandrie": "Moi l’ecclésiaste, j’ai été roi sur Israël, à Jérusalem&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ἔδωκα τὴν καρδίαν μου τοῦ ἐκζητῆσαι καὶ τοῦ κατασκέψασθαι ἐν τῇ σοφίᾳ περὶ πάντων τῶν γινομένων ὑπὸ τὸν οὐρανόν ὅτι περισπασμὸν πονηρὸν ἔδωκεν ὁ θεὸς τοῖς υἱοῖς τοῦ ἀνθρώπου τοῦ περισπᾶσθαι ἐν αὐτῷ.",
+     "giguet": "Et j'ai appliqué mon cœur à chercher et à observer avec sagesse tout ce qui existe sous le ciel&nbsp;; car Dieu a donné aux fils des hommes cette mauvaise inquiétude, pour qu'ils s'inquiètent en elle.",
+     "alexandrie": "et j’ai adonné mon cœur à chercher et à observer dans la sagesse tout ce qui existe sous le ciel&nbsp;; parce que&nbsp;: c’est un mauvais tracas que Dieu a donné aux fils de l’homme pour qu’ils s’en tracassent.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "εἶδον σὺν πάντα τὰ ποιήματα τὰ πεποιημένα ὑπὸ τὸν ἥλιον καὶ ἰδοὺ τὰ πάντα ματαιότης καὶ προαίρεσις πνεύματος.",
+     "giguet": "J'ai vu toutes les œuvres qui ont été faites sous le soleil, et voilà que toutes étaient vanité et présomption d'esprit.",
+     "alexandrie": "J’ai vu toutes les œuvres qui ont été faites sous le soleil et voici, tout est folie et choix de vent.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "διεστραμμένον οὐ δυνήσεται τοῦ ἐπικοσμηθῆναι καὶ ὑστέρημα οὐ δυνήσεται τοῦ ἀριθμηθῆναι.",
+     "giguet": "On ne peut embellir ce qui a été tordu&nbsp;; et ce qui manque, on ne peut le compter.",
+     "alexandrie": "Le tordu ne pourra être mis en ordre et le manque ne pourra être dénombré.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἐλάλησα ἐγὼ ἐν καρδίᾳ μου τῷ λέγειν ἐγὼ ἰδοὺ ἐμεγαλύνθην καὶ προσέθηκα σοφίαν ἐπὶ πᾶσιν οἳ ἐγένοντο ἔμπροσθέν μου ἐν Ιερουσαλημ καὶ καρδία μου εἶδεν πολλά σοφίαν καὶ γνῶσιν.",
+     "giguet": "Pour moi, j'ai dit en mon cœur&nbsp;: Voilà que je suis devenu grand, et que j'ai acquis plus de sagesse qu'aucun de ceux qui, avant moi, ont été en Jérusalem&nbsp;; et mon cœur a vu beaucoup de choses, concernant la sagesse et la science.",
+     "alexandrie": "J’ai parlé, moi, dans mon cœur, disant&nbsp;: Voici que je suis devenu un grand, et j’ai acquis plus de sagesse que tous ceux qui ont existé avant moi à Jérusalem, et mon cœur a vu beaucoup de choses, sagesse et connaissance.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ἔδωκα καρδίαν μου τοῦ γνῶναι σοφίαν καὶ γνῶσιν παραβολὰς καὶ ἐπιστήμην ἔγνων ὅτι καί γε τοῦτ' ἔστιν προαίρεσις πνεύματος.",
+     "giguet": "J'ai appliqué mon cœur à connaître la sagesse, la science, les paraboles, et j'ai acquis un savoir supérieur&nbsp;; et j'ai connu que cela même était présomption d'esprit.",
+     "alexandrie": "Et j’ai adonné mon cœur à connaître sagesse et connaissance&nbsp;; paraboles et science, je les ai connues —&nbsp;et que vraiment, cela aussi est choix de vent&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ὅτι ἐν πλήθει σοφίας πλῆθος γνώσεως καὶ ὁ προστιθεὶς γνῶσιν προσθήσει ἄλγημα.",
+     "giguet": "Car dans une grande sagesse est une grande science&nbsp;; et qui accroît sa science, accroît sa douleur.",
+     "alexandrie": "parce que&nbsp;: dans abondance de sagesse, abondance de connaissance, et qui accroît la connaissance accroîtra la souffrance.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 2,
+   "libelle": "2",
+   "fichierToc": "ECC/002.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "εἶπον ἐγὼ ἐν καρδίᾳ μου δεῦρο δὴ πειράσω σε ἐν εὐφροσύνῃ καὶ ἰδὲ ἐν ἀγαθῷ καὶ ἰδοὺ καί γε τοῦτο ματαιότης.",
+     "giguet": "J'ai dit en mon cœur&nbsp;: Viens, et je te tenterai par la joie&nbsp;; vois, c'est ici le bonheur, et voilà que cela aussi est vanité.",
+     "alexandrie": "J’ai dit, moi, dans mon cœur&nbsp;: -Allons, oui, je t’éprouverai dans la réjouissance, et vois le bien&nbsp;: et voici, vraiment, cela est folie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "τῷ γέλωτι εἶπα περιφορὰν καὶ τῇ εὐφροσύνῃ τί τοῦτο ποιεῖς.",
+     "giguet": "J'ai dit au rire&nbsp;: Tu es un égarement&nbsp;; et à la joie&nbsp;: Que fais-tu&nbsp;?",
+     "alexandrie": "Au rire, j’ai dit&nbsp;: «&nbsp;Fourvoiement&nbsp;», et à la réjouissance&nbsp;: «&nbsp;Pourquoi fais-tu cela&nbsp;?»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "κατεσκεψάμην ἐν καρδίᾳ μου τοῦ ἑλκύσαι εἰς οἶνον τὴν σάρκα μου καὶ καρδία μου ὡδήγησεν ἐν σοφίᾳ καὶ τοῦ κρατῆσαι ἐπ' ἀφροσύνῃ ἕως οὗ ἴδω ποῖον τὸ ἀγαθὸν τοῖς υἱοῖς τοῦ ἀνθρώπου ὃ ποιήσουσιν ὑπὸ τὸν ἥλιον ἀριθμὸν ἡμερῶν ζωῆς αὐτῶν.",
+     "giguet": "J'ai examiné dans mon cœur s'il fallait tirer ma chair vers le vin&nbsp;; et mon cœur m'a conduit avec sagesse à m'attacher à la folie, jusqu'à ce que j'aie découvert ce qu'il est bon que fassent les hommes, sous le soleil, durant les jours de leur vie.",
+     "alexandrie": "J’ai examiné si mon cœur attirerait vers le vin ma chair - et mon cœur m’a mené sur le chemin de la sagesse - et s’il se rendait maître de la réjouissance, jusqu’à ce que je voie ce qu’est le bien pour les fils de l’homme, ce qu’ils feront sous le soleil pendant le nombre des jours de leur vie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἐμεγάλυνα ποίημά μου ᾠκοδόμησά μοι οἴκους ἐφύτευσά μοι ἀμπελῶνας.",
+     "giguet": "J'ai agrandi mon œuvre&nbsp;; je me suis bâti des palais&nbsp;; j'ai planté des vignes.",
+     "alexandrie": "J’ai agrandi mon ouvrage, j’ai construit pour moi des demeures, j’ai planté pour moi des vignobles,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ἐποίησά μοι κήπους καὶ παραδείσους καὶ ἐφύτευσα ἐν αὐτοῖς ξύλον πᾶν καρποῦ.",
+     "giguet": "Je me suis fait des vergers et des jardins, et j'y ai planté toute une forêt d'arbres fruitiers.",
+     "alexandrie": "j’ai fait pour moi des jardins et des vergers et j’y ai planté tout arbre fruitier&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἐποίησά μοι κολυμβήθρας ὑδάτων τοῦ ποτίσαι ἀπ' αὐτῶν δρυμὸν βλαστῶντα ξύλα.",
+     "giguet": "J'ai creusé des réservoirs d'eau, pour arroser les jeunes plants de ma forêt.",
+     "alexandrie": "j’ai fait pour moi des bassins d’eau, pour en arroser la futaie qui fait croître le bois.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἐκτησάμην δούλους καὶ παιδίσκας καὶ οἰκογενεῖς ἐγένοντό μοι καί γε κτῆσις βουκολίου καὶ ποιμνίου πολλὴ ἐγένετό μοι ὑπὲρ πάντας τοὺς γενομένους ἔμπροσθέν μου ἐν Ιερουσαλημ.",
+     "giguet": "J'ai acheté des esclaves et des servantes, et il m'en est né dans mes demeures&nbsp;; et j'ai eu en outre plus de bœufs et de menus troupeaux qu'aucun de ceux qui, avant moi, ont été en Jérusalem.",
+     "alexandrie": "J’ai acquis des esclaves et des servantes, et j’ai eu des serviteurs pour ma maison, et vraiment, j’ai fait grande acquisition de bœufs et de troupeaux, plus que tous ceux qui ont existé avant moi à Jérusalem.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "συνήγαγόν μοι καί γε ἀργύριον καὶ χρυσίον καὶ περιουσιασμοὺς βασιλέων καὶ τῶν χωρῶν ἐποίησά μοι ᾄδοντας καὶ ᾀδούσας καὶ ἐντρυφήματα υἱῶν τοῦ ἀνθρώπου οἰνοχόον καὶ οἰνοχόας.",
+     "giguet": "J'ai amassé aussi l'argent et de l'or, et les trésors des rois et des empires. J'ai eu des chanteurs et des chanteuses&nbsp;; j'ai eu toutes les délices des fils des hommes&nbsp;; j'ai eu des échansons et des femmes pour remplir ma coupe.",
+     "alexandrie": "J’ai amassé pour moi, vraiment, de l’argent et de l’or et les biens précieux des rois et des provinces. Je me suis procuré chanteurs et chanteuses et les délices des fils de l’homme, échanson et coupes pour le vin&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ ἐμεγαλύνθην καὶ προσέθηκα παρὰ πάντας τοὺς γενομένους ἔμπροσθέν μου ἐν Ιερουσαλημ καί γε σοφία μου ἐστάθη μοι.",
+     "giguet": "Et je suis devenu grand, et j'ai possédé plus qu'aucun de ceux qui, avant moi&nbsp;; ont été en Jérusalem, et ma sagesse est demeurée avec moi.",
+     "alexandrie": "Je suis devenu un grand et je me suis élevé plus que tous ceux qui ont existé avant moi à Jérusalem&nbsp;; et vraiment, ma sagesse m’est demeurée.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ πᾶν ὃ ᾔτησαν οἱ ὀφθαλμοί μου οὐχ ὑφεῖλον ἀπ' αὐτῶν οὐκ ἀπεκώλυσα τὴν καρδίαν μου ἀπὸ πάσης εὐφροσύνης ὅτι καρδία μου εὐφράνθη ἐν παντὶ μόχθῳ μου καὶ τοῦτο ἐγένετο μερίς μου ἀπὸ παντὸς μόχθου μου.",
+     "giguet": "Et je n'ai refusé à mes yeux rien de ce qu'ils ont demandé&nbsp;; je n'ai point empêché mon cœur de prendre part à tous mes plaisirs&nbsp;; car mon cœur s'est réjoui en tous mes travaux, et cela même a été le fruit de tous nos labeurs.",
+     "alexandrie": "Et tout ce que mes yeux avaient demandé, je ne le leur ai pas soustrait, je n'ai tenu mon cœur à l’écart d’aucune réjouissance, parce que, dans tout mon tourment, mon cœur s’est réjoui et cela a été ma part dans tout mon tourment",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἐπέβλεψα ἐγὼ ἐν πᾶσιν ποιήμασίν μου οἷς ἐποίησαν αἱ χεῖρές μου καὶ ἐν μόχθῳ ᾧ ἐμόχθησα τοῦ ποιεῖν καὶ ἰδοὺ τὰ πάντα ματαιότης καὶ προαίρεσις πνεύματος καὶ οὐκ ἔστιν περισσεία ὑπὸ τὸν ἥλιον.",
+     "giguet": "Et j'ai considéré toutes mes œuvres, tout ce qu'avaient fait mes mains, et la fatigue que j'avais éprouvée en mes travaux&nbsp;; et voilà que tout cela est vanité et présomption d'esprit&nbsp;: ainsi il n'est rien d'excellent sous le soleil.",
+     "alexandrie": "Et j’ai considéré, moi, toutes les œuvres que mes mains avaient faites, et tout le tourment dont je fus tourmente à les taire, et voici&nbsp;: tout est folie et choix de vent, et il n’y a pas d’avantage sous le soleil.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ἐπέβλεψα ἐγὼ τοῦ ἰδεῖν σοφίαν καὶ περιφορὰν καὶ ἀφροσύνην ὅτι τίς ὁ ἄνθρωπος ὃς ἐπελεύσεται ὀπίσω τῆς βουλῆς τὰ ὅσα ἐποίησεν αὐτήν.",
+     "giguet": "Et j'ai tourné mes regards vers la sagesse, et l'égarement, et la folie&nbsp;; car quel est l'homme qui suivra le bon chemin, même après s'être consulté&nbsp;?",
+     "alexandrie": "Et j’ai considéré, moi, pour voir sagesse, fourvoiement et déraison&nbsp;; parce que&nbsp;: quel est l’homme qui, après la délibération, l’appliquera en tout ce qu’il a fait&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ εἶδον ἐγὼ ὅτι ἔστιν περισσεία τῇ σοφίᾳ ὑπὲρ τὴν ἀφροσύνην ὡς περισσεία τοῦ φωτὸς ὑπὲρ τὸ σκότος.",
+     "giguet": "Et j'ai vu que la sagesse l'emporte sur la folie autant que la lumière sur les ténèbres.",
+     "alexandrie": "Et j’ai vu, moi, qu’il y a un avantage à la sagesse sur la déraison comme il y a un avantage de la lumière sur l'obscurité&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "τοῦ σοφοῦ οἱ ὀφθαλμοὶ αὐτοῦ ἐν κεφαλῇ αὐτοῦ καὶ ὁ ἄφρων ἐν σκότει πορεύεται καὶ ἔγνων καί γε ἐγὼ ὅτι συνάντημα ἓν συναντήσεται τοῖς πᾶσιν αὐτοῖς.",
+     "giguet": "Les yeux du sage sont à sa tête&nbsp;; l'insensé marche dans les ténèbres&nbsp;; et j'ai connu qu'une même fin adviendra à tous.",
+     "alexandrie": "les yeux du sage sont sur sa tête et l’insensé avance dans l’obscurité. Et j’ai appris, vraiment, moi, qu’une même adversité adviendra pour eux tous.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ εἶπα ἐγὼ ἐν καρδίᾳ μου ὡς συνάντημα τοῦ ἄφρονος καί γε ἐμοὶ συναντήσεταί μοι καὶ ἵνα τί ἐσοφισάμην ἐγὼ τότε περισσὸν ἐλάλησα ἐν καρδίᾳ μου διότι ἄφρων ἐκ περισσεύματος λαλεῖ ὅτι καί γε τοῦτο ματαιότης.",
+     "giguet": "Et j'ai dit en mon cœur&nbsp;: La même fin adviendra à l'insensé et à moi-même&nbsp;; pourquoi donc ai-je acquis la sagesse&nbsp;? J'ai donc, en outre, dit en mon cœur&nbsp;: Cela aussi est vanité, puisque l'insensé parle aussi d'abondance.",
+     "alexandrie": "Et j’ai dit, moi, dans mon cœur, que l’adversité de l’insensé, vraiment, m’adviendra à moi aussi, et pourquoi ai-je pratiqué la sagesse&nbsp;? Alors, moi, j’ai dit avec excès dans mon cœur — parce qu’un insensé parle à l’excès — que vraiment, cela est folie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ὅτι οὐκ ἔστιν μνήμη τοῦ σοφοῦ μετὰ τοῦ ἄφρονος εἰς αἰῶνα καθότι ἤδη αἱ ἡμέραι αἱ ἐρχόμεναι τὰ πάντα ἐπελήσθη καὶ πῶς ἀποθανεῖται ὁ σοφὸς μετὰ τοῦ ἄφρονος.",
+     "giguet": "Car dans les siècles on oubliera le sage, puisque les jours se succèdent, emportant le souvenir de toutes choses. Et pourquoi le sage meurt-il comme l'insensé&nbsp;?",
+     "alexandrie": "Parce que&nbsp;: il n’y a pas plus de souvenir du sage que de l’insensé pour toujours, de la même façon que déjà il y a les jours qui viennent, tout a été oublié&nbsp;; et comment le sage mourra-t-il avec l’insensé&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ἐμίσησα σὺν τὴν ζωήν ὅτι πονηρὸν ἐπ' ἐμὲ τὸ ποίημα τὸ πεποιημένον ὑπὸ τὸν ἥλιον ὅτι τὰ πάντα ματαιότης καὶ προαίρεσις πνεύματος.",
+     "giguet": "Alors j'ai pris en haine la vie, parce que, me suis-je dit, le travail que j'ai fait sous le soleil est mauvais, et que tout est vanité et présomption d'esprit.",
+     "alexandrie": "Et j’ai haï la vie parce que mauvaise est pour moi l’œuvre qui a été faite sous le soleil, parce que&nbsp;: tout est folie et choix de vent.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ ἐμίσησα ἐγὼ σὺν πάντα μόχθον μου ὃν ἐγὼ μοχθῶ ὑπὸ τὸν ἥλιον ὅτι ἀφίω αὐτὸν τῷ ἀνθρώπῳ τῷ γινομένῳ μετ' ἐμέ.",
+     "giguet": "Et j'ai pris en haine toute la peine que je m'étais donnée, sous le soleil, parce que j'en laisserai le fruit à un homme qui viendra après moi.",
+     "alexandrie": "Et j’ai haï, moi, tout mon tourment, dont je suis tourmenté sous le soleil, parce que je le laisse à l’homme qui existe après moi&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ τίς οἶδεν εἰ σοφὸς ἔσται ἢ ἄφρων καὶ ἐξουσιάζεται ἐν παντὶ μόχθῳ μου ᾧ ἐμόχθησα καὶ ᾧ ἐσοφισάμην ὑπὸ τὸν ἥλιον καί γε τοῦτο ματαιότης.",
+     "giguet": "Et qui sait s'il sera insensé ou sage, et s'il aura pouvoir sur les travaux où j'ai eu fatigue et sagesse sous le soleil&nbsp;? Et cela encore est vanité.",
+     "alexandrie": "et qui sait s’il sera sage ou insensé&nbsp;? Et il a du pouvoir sur tout le tourment, dont je fus tourmenté et avec lequel j’ai pratiqué la sagesse sous le soleil. Et vraiment, cela est folie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ ἐπέστρεψα ἐγὼ τοῦ ἀποτάξασθαι τῇ καρδίᾳ μου ἐπὶ παντὶ τῷ μόχθῳ ᾧ ἐμόχθησα ὑπὸ τὸν ἥλιον.",
+     "giguet": "Et j'ai fait un retour sur moi-même, pour considérer en mon cœur toute la peine des travaux et sagesse sous le soleil.",
+     "alexandrie": "Et j’en suis venu, moi, à renoncer dans mon cœur à tout le tourment dont je fus tourmenté sous le soleil,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "ὅτι ἔστιν ἄνθρωπος οὗ μόχθος αὐτοῦ ἐν σοφίᾳ καὶ ἐν γνώσει καὶ ἐν ἀνδρείᾳ καὶ ἄνθρωπος ὃς οὐκ ἐμόχθησεν ἐν αὐτῷ δώσει αὐτῷ μερίδα αὐτοῦ καί γε τοῦτο ματαιότης καὶ πονηρία μεγάλη.",
+     "giguet": "Car il est un homme, et à ses labeurs il a mis toute sa sagesse, sa science et son courage&nbsp;; et cet homme en laissera le fruit à qui n'en a pas eu la fatigue&nbsp;; et cela encore est vanité et grande affliction.",
+     "alexandrie": "parce qu’il y a un homme, et son tourment dans la sagesse, dans la connaissance et dans le courage, et l’homme qui n’en eut pas de tourment lui donnera sa part. Et vraiment, cela est folie et grand mal.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "ὅτι τί γίνεται τῷ ἀνθρώπῳ ἐν παντὶ μόχθῳ αὐτοῦ καὶ ἐν προαιρέσει καρδίας αὐτοῦ ᾧ αὐτὸς μοχθεῖ ὑπὸ τὸν ἥλιον.",
+     "giguet": "Car c'est là ce qui arrive à l'homme en tous ses travaux et en tous les choix de son cœur, pour lesquels il s'est fatigué sous le soleil.",
+     "alexandrie": "Parce que&nbsp;: qu’y a-t-il pour l’homme dans tout son tourment et dans le choix de son cœur, dont lui est tourmenté sous le soleil&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "ὅτι πᾶσαι αἱ ἡμέραι αὐτοῦ ἀλγημάτων καὶ θυμοῦ περισπασμὸς αὐτοῦ καί γε ἐν νυκτὶ οὐ κοιμᾶται ἡ καρδία αὐτοῦ καί γε τοῦτο ματαιότης ἐστίν.",
+     "giguet": "Tous ses jours sont des jours de douleurs et d'angoisses de l'âme, et, même pendant la nuit, son cœur ne repose pas&nbsp;; et cela encore est vanité.",
+     "alexandrie": "Parce que&nbsp;: tous ses jours sont tracas de souffrances et d’emportement, et vraiment dans la nuit son cœur ne dort pas. Et cela vraiment est folie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "οὐκ ἔστιν ἀγαθὸν ἐν ἀνθρώπῳ ὃ φάγεται καὶ ὃ πίεται καὶ ὃ δείξει τῇ ψυχῇ αὐτοῦ ἀγαθὸν ἐν μόχθῳ αὐτοῦ καί γε τοῦτο εἶδον ἐγὼ ὅτι ἀπὸ χειρὸς τοῦ θεοῦ ἐστιν.",
+     "giguet": "L'homme n'a rien de bon que le manger et le boire, et tout ce qui est le fruit de son labeur&nbsp;; mais j'ai vu, moi, que cela vient de la main de Dieu.",
+     "alexandrie": "II n’y a pas de bien pour l’homme&nbsp;: ce qu’il mangera et boira et ce qu’il montrera à son âme, c’est un bien dans son tourment. Et vraiment j’ai vu, moi, que cela est de la main de Dieu&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "ὅτι τίς φάγεται καὶ τίς φείσεται πάρεξ αὐτοῦ.",
+     "giguet": "Car qui lui permettra de manger, ou l'en empêchera, si ce n'est Dieu&nbsp;?",
+     "alexandrie": "parce que&nbsp;: qui mangera et qui boira en dehors de Lui&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "26",
+     "grec": "ὅτι τῷ ἀνθρώπῳ τῷ ἀγαθῷ πρὸ προσώπου αὐτοῦ ἔδωκεν σοφίαν καὶ γνῶσιν καὶ εὐφροσύνην καὶ τῷ ἁμαρτάνοντι ἔδωκεν περισπασμὸν τοῦ προσθεῖναι καὶ τοῦ συναγαγεῖν τοῦ δοῦναι τῷ ἀγαθῷ πρὸ προσώπου τοῦ θεοῦ ὅτι καί γε τοῦτο ματαιότης καὶ προαίρεσις πνεύματος.",
+     "giguet": "Il a donné à l'homme bon à ses yeux la sagesse, la science et la joie, et Il a donné au pécheur l'embarras d'amasser, d'accumuler, pour laisser à celui qui est bon devant Dieu. Et cela est aussi vanité et présomption d'esprit.",
+     "alexandrie": "Parce que&nbsp;: à l’homme qui est bon devant sa face, Il a donné sagesse, connaissance et réjouissance&nbsp;; et au pécheur Il a donné du tracas, pour accumuler et amasser, pour donner à l’homme bon devant la face de Dieu&nbsp;; c’est que&nbsp;: vraiment, cela est folie et choix de vent.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 3,
+   "libelle": "3",
+   "fichierToc": "ECC/003.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "τοῖς πᾶσιν χρόνος καὶ καιρὸς τῷ παντὶ πράγματι ὑπὸ τὸν οὐρανόν.",
+     "giguet": "Il y a temps pour tout, et toute chose sous le ciel a son moment.",
+     "alexandrie": "Temps pour tout et moment pour toute chose sous le ciel&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καιρὸς τοῦ τεκεῖν καὶ καιρὸς τοῦ ἀποθανεῖν καιρὸς τοῦ φυτεῦσαι καὶ καιρὸς τοῦ ἐκτῖλαι πεφυτευμένον.",
+     "giguet": "Il y a temps pour naître et pour mourir&nbsp;; temps pour planter et pour arracher ce qui a été planté&nbsp;;",
+     "alexandrie": "moment pour enfanter et moment pour mourir, moment pour planter et moment pour arracher ce qui a été planté,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καιρὸς τοῦ ἀποκτεῖναι καὶ καιρὸς τοῦ ἰάσασθαι καιρὸς τοῦ καθελεῖν καὶ καιρὸς τοῦ οἰκοδομῆσαι.",
+     "giguet": "Temps pour tuer et pour guérir&nbsp;; temps pour abattre et pour édifier&nbsp;;",
+     "alexandrie": "moment pour tuer et moment pour guérir, moment pour détruire et moment pour bâtir,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καιρὸς τοῦ κλαῦσαι καὶ καιρὸς τοῦ γελάσαι καιρὸς τοῦ κόψασθαι καὶ καιρὸς τοῦ ὀρχήσασθαι.",
+     "giguet": "Temps pour pleurer et pour rire&nbsp;; temps pour gémir et pour danser&nbsp;;",
+     "alexandrie": "moment pour pleurer et moment pour rire, moment pour se frapper la poitrine et moment pour danser.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καιρὸς τοῦ βαλεῖν λίθους καὶ καιρὸς τοῦ συναγαγεῖν λίθους καιρὸς τοῦ περιλαβεῖν καὶ καιρὸς τοῦ μακρυνθῆναι ἀπὸ περιλήμψεως.",
+     "giguet": "Temps pour jeter les pierres et pour les ramasser&nbsp;; temps pour embrasser et pour s'éloigner des embrassements&nbsp;;",
+     "alexandrie": "Moment pour lancer des pierres et moment pour rassembler des pierres, moment pour embrasser et moment pour s’éloigner de l’embrassement,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καιρὸς τοῦ ζητῆσαι καὶ καιρὸς τοῦ ἀπολέσαι καιρὸς τοῦ φυλάξαι καὶ καιρὸς τοῦ ἐκβαλεῖν.",
+     "giguet": "Temps pour acquérir et pour perdre&nbsp;; temps pour conserver et pour rejeter&nbsp;;",
+     "alexandrie": "Moment pour chercher et moment pour perdre, moment pour garder et moment pour rejeter,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καιρὸς τοῦ ῥῆξαι καὶ καιρὸς τοῦ ῥάψαι καιρὸς τοῦ σιγᾶν καὶ καιρὸς τοῦ λαλεῖν.",
+     "giguet": "Temps pour déchirer et pour recoudre&nbsp;; temps pour se taire et pour parler&nbsp;;",
+     "alexandrie": "Moment pour déchirer et moment pour coudre, moment pour parler et moment pour se taire.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καιρὸς τοῦ φιλῆσαι καὶ καιρὸς τοῦ μισῆσαι καιρὸς πολέμου καὶ καιρὸς εἰρήνης.",
+     "giguet": "Temps pour aimer et pour haïr&nbsp;; temps pour combattre et pour faire la paix.",
+     "alexandrie": "Moment pour aimer et moment pour haïr, moment de la guerre et moment de la paix.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "τίς περισσεία τοῦ ποιοῦντος ἐν οἷς αὐτὸς μοχθεῖ.",
+     "giguet": "Quel avantage a celui qui se fatigue aux choses qu'il fait&nbsp;?",
+     "alexandrie": "Quel avantage pour celui qui agit, dans ce dont il se tourmente&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "εἶδον σὺν τὸν περισπασμόν ὃν ἔδωκεν ὁ θεὸς τοῖς υἱοῖς τοῦ ἀνθρώπου τοῦ περισπᾶσθαι ἐν αὐτῷ.",
+     "giguet": "J'ai vu toute l'inquiétude que Dieu a donnée aux fils des hommes, pour qu'ils s'inquiètent en elle.",
+     "alexandrie": "J’ai vu le tracas que Dieu a donné aux fils de l’homme pour qu’ils s’y tracassent.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "σὺν τὰ πάντα ἐποίησεν καλὰ ἐν καιρῷ αὐτοῦ καί γε σὺν τὸν αἰῶνα ἔδωκεν ἐν καρδίᾳ αὐτῶν ὅπως μὴ εὕρῃ ὁ ἄνθρωπος τὸ ποίημα ὃ ἐποίησεν ὁ θεός ἀπ' ἀρχῆς καὶ μέχρι τέλους.",
+     "giguet": "Toutes les choses qu'Il a faites sont bonnes en leur temps, et même Il a mis l'éternité dans le cœur des hommes, de telle façon que du commencement à la fin ils ne puissent s'expliquer l'œuvre que Dieu a créée.",
+     "alexandrie": "Pour tout ce qu’il a fait de bon au moment voulu, et vraiment, il a donné aussi dans leur cœur l’ensemble de la durée sans que l’homme puisse trouver l’ouvrage qu’a fait Dieu, du commencement jusqu’à la fin.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἔγνων ὅτι οὐκ ἔστιν ἀγαθὸν ἐν αὐτοῖς εἰ μὴ τοῦ εὐφρανθῆναι καὶ τοῦ ποιεῖν ἀγαθὸν ἐν ζωῇ αὐτοῦ.",
+     "giguet": "J'ai connu qu'il n'est rien de bon en eux-mêmes, si ce n'est de se réjouir et de faire le bien pendant leur vie.",
+     "alexandrie": "J’ai appris que&nbsp;: il n’y a pas de bien en eux, sinon de se réjouir et de faire le bien dans sa vie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καί γε πᾶς ὁ ἄνθρωπος ὃς φάγεται καὶ πίεται καὶ ἴδῃ ἀγαθὸν ἐν παντὶ μόχθῳ αὐτοῦ δόμα θεοῦ ἐστιν.",
+     "giguet": "Et si un homme mange, boit, et voit le bien dans son labeur, c'est là un don de Dieu.",
+     "alexandrie": "Et vraiment, tout homme qui mangera, boira et verra aussi du bien dans tout son tourment, - c’est un don de Dieu.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἔγνων ὅτι πάντα ὅσα ἐποίησεν ὁ θεός αὐτὰ ἔσται εἰς τὸν αἰῶνα ἐπ' αὐτῷ οὐκ ἔστιν προσθεῖναι καὶ ἀπ' αὐτοῦ οὐκ ἔστιν ἀφελεῖν καὶ ὁ θεὸς ἐποίησεν ἵνα φοβηθῶσιν ἀπὸ προσώπου αὐτοῦ.",
+     "giguet": "J'ai connu que tout ce qu'a fait Dieu subsistera durant tous les siècles&nbsp;; nous ne pouvons y rien ajouter, en rien ôter. Et Dieu a fait cela pour que les hommes craignent sa face.",
+     "alexandrie": "J’ai appris que tout ce que Dieu a fait, cela sera pour toujours&nbsp;; il n’est pas possible d’y ajouter et il n’est pas possible d’en retrancher. Et Dieu l’a fait, pour qu’on ait crainte à cause de sa face.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "τὸ γενόμενον ἤδη ἐστίν καὶ ὅσα τοῦ γίνεσθαι ἤδη γέγονεν καὶ ὁ θεὸς ζητήσει τὸν διωκόμενον.",
+     "giguet": "Ce qui a été est encore&nbsp;; et tout ce qui doit être a été, et Dieu cherchera celui qui est poursuivi.",
+     "alexandrie": "Ce qui s’est produit déjà est et tout ce qui va se produire s’est déjà produit, et Dieu cherchera le persécuté.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ ἔτι εἶδον ὑπὸ τὸν ἥλιον τόπον τῆς κρίσεως ἐκεῖ ὁ ἀσεβής καὶ τόπον τοῦ δικαίου ἐκεῖ ὁ ἀσεβής.",
+     "giguet": "Et j'ai vu encore, sous le soleil, le lieu du jugement, là était l'impie, et le lieu de la justice, là était l'impie.",
+     "alexandrie": "Et encore j’ai vu sous le soleil un lieu du jugement, là est l’impie, et un lieu du juste, là est l’homme pieux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "εἶπα ἐγὼ ἐν καρδίᾳ μου σὺν τὸν δίκαιον καὶ σὺν τὸν ἀσεβῆ κρινεῖ ὁ θεός ὅτι καιρὸς τῷ παντὶ πράγματι καὶ ἐπὶ παντὶ τῷ ποιήματι.",
+     "giguet": "Et j'ai dit en mon cœur&nbsp;: Dieu jugera ensemble le juste et l'impie&nbsp;; car il y a temps pour toute chose et pour toute œuvre.",
+     "alexandrie": "J’ai dit, moi, dans mon cœur&nbsp;: le juste et l’impie, Dieu les jugera, parce qu’il y a un moment pour toute action et pour tout ouvrage.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἐκεῖ εἶπα ἐγὼ ἐν καρδίᾳ μου περὶ λαλιᾶς υἱῶν τοῦ ἀνθρώπου ὅτι διακρινεῖ αὐτοὺς ὁ θεός καὶ τοῦ δεῖξαι ὅτι αὐτοὶ κτήνη εἰσὶν καί γε αὐτοῖς.",
+     "giguet": "J'ai dit en mon cœur, touchant les discours des hommes&nbsp;: Dieu les discernera, et Il leur montrera qu'ils sont du bétail à ses yeux.",
+     "alexandrie": "Là, j’ai dit, moi, dans mon cœur, à propos des fils de l’homme, que Dieu les jugera, et pour montrer qu’eux sont du bétail, et vraiment, eux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ὅτι συνάντημα υἱῶν τοῦ ἀνθρώπου καὶ συνάντημα τοῦ κτήνους συνάντημα ἓν αὐτοῖς ὡς ὁ θάνατος τούτου οὕτως ὁ θάνατος τούτου καὶ πνεῦμα ἓν τοῖς πᾶσιν καὶ τί ἐπερίσσευσεν ὁ ἄνθρωπος παρὰ τὸ κτῆνος οὐδέν ὅτι τὰ πάντα ματαιότης.",
+     "giguet": "Car le fils des hommes et la bête sont sujets aux mêmes accidents&nbsp;; la mort de celui-ci est la mort de celui-là, et le même souffle les anime tous&nbsp;: et qu'a l'homme de plus que la bête&nbsp;? Rien&nbsp;; car tout est vanité.",
+     "alexandrie": "Parce que&nbsp;: l’adversité des fils de l’homme et l’adversité du bétail, même adversité pour eux. Comme est la mort de celui-ci, de même la mort de celui-là, et un même souffle pour tous. Et quel avantage a eu l’homme sur le bétail&nbsp;? Aucun, parce que&nbsp;: tout est folie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "τὰ πάντα πορεύεται εἰς τόπον ἕνα τὰ πάντα ἐγένετο ἀπὸ τοῦ χοός καὶ τὰ πάντα ἐπιστρέφει εἰς τὸν χοῦν.",
+     "giguet": "Toutes choses vont au même lieu&nbsp;; tout est sorti de la poussière, et tout retournera en poussière.",
+     "alexandrie": "Tout va vers un seul lieu&nbsp;; tout est né de la poussière, et tout retourne à la poussière&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ τίς οἶδεν πνεῦμα υἱῶν τοῦ ἀνθρώπου εἰ ἀναβαίνει αὐτὸ εἰς ἄνω καὶ πνεῦμα τοῦ κτήνους εἰ καταβαίνει αὐτὸ κάτω εἰς γῆν.",
+     "giguet": "Et qui a vu si le souffle des fils des hommes remonte en haut, ou si le souffle des bêtes descend en bas dans la terre&nbsp;?",
+     "alexandrie": "Et qui connaît le souffle des fils de l’homme, s’il monte, lui, vers en haut, et le souffle du bétail, s’il descend, lui, vers en bas, jusqu’à terre&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ εἶδον ὅτι οὐκ ἔστιν ἀγαθὸν εἰ μὴ ὃ εὐφρανθήσεται ὁ ἄνθρωπος ἐν ποιήμασιν αὐτοῦ ὅτι αὐτὸ μερὶς αὐτοῦ ὅτι τίς ἄξει αὐτὸν τοῦ ἰδεῖν ἐν ᾧ ἐὰν γένηται μετ' αὐτόν.",
+     "giguet": "Et j'ai vu qu'il n'est rien de bon pour l'homme, sinon de se complaire en ses œuvres&nbsp;; car tel est son partage. Car qui le conduira à connaître quelque chose de ce qui sera après lui&nbsp;?",
+     "alexandrie": "Et j’ai vu qu’il n’y a pas de bien sinon ce dont l’homme se réjouira dans ses œuvres, parce que c’est son lot&nbsp;; parce que&nbsp;: qui le mènera voir ce qui existe après lui&nbsp;?",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 4,
+   "libelle": "4",
+   "fichierToc": "ECC/004.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐπέστρεψα ἐγὼ καὶ εἶδον σὺν πάσας τὰς συκοφαντίας τὰς γινομένας ὑπὸ τὸν ἥλιον καὶ ἰδοὺ δάκρυον τῶν συκοφαντουμένων καὶ οὐκ ἔστιν αὐτοῖς παρακαλῶν καὶ ἀπὸ χειρὸς συκοφαντούντων αὐτοὺς ἰσχύς καὶ οὐκ ἔστιν αὐτοῖς παρακαλῶν.",
+     "giguet": "Et je me suis tourné d'un autre côté, et j'ai vu toutes les oppressions qui se font sous le soleil. Et voilà les larmes de ceux qu'on a opprimés, et nul ne les console&nbsp;! Et voilà la forte main de ceux qui oppriment, et nul ne les console&nbsp;!",
+     "alexandrie": "Et je me suis retourné, moi, et j’ai vu toutes les oppressions qui existent sous le soleil&nbsp;; et voici le pleur des opprimés, et il n’y en a pas qui les console, et de la main de leurs oppresseurs est la force, et il n’y en a pas qui les console.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ἐπῄνεσα ἐγὼ σὺν τοὺς τεθνηκότας τοὺς ἤδη ἀποθανόντας ὑπὲρ τοὺς ζῶντας ὅσοι αὐτοὶ ζῶσιν ἕως τοῦ νῦν.",
+     "giguet": "Et j'ai félicité tous les morts, tous les trépassés plus que les vivants, plus que tous ceux qui vivent jusqu'à aujourd'hui.",
+     "alexandrie": "Et j’ai loué, moi, les morts, ceux qui sont déjà morts, plus que les vivants, ceux-là mêmes qui vivent jusqu’à maintenant&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἀγαθὸς ὑπὲρ τοὺς δύο τούτους ὅστις οὔπω ἐγένετο ὃς οὐκ εἶδεν σὺν τὸ ποίημα τὸ πονηρὸν τὸ πεποιημένον ὑπὸ τὸν ἥλιον.",
+     "giguet": "Plus heureux que les vivants et les morts, celui qui n'a jamais été&nbsp;; il n'a pas vu toute l'œuvre mauvaise qui se fait sous le soleil.",
+     "alexandrie": "et meilleur que ces deux-là, celui qui n’a pas encore existé, qui n’a pas encore vu l’ouvrage mauvais qui a été fait sous le soleil.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ εἶδον ἐγὼ σὺν πάντα τὸν μόχθον καὶ σὺν πᾶσαν ἀνδρείαν τοῦ ποιήματος ὅτι αὐτὸ ζῆλος ἀνδρὸς ἀπὸ τοῦ ἑταίρου αὐτοῦ καί γε τοῦτο ματαιότης καὶ προαίρεσις πνεύματος.",
+     "giguet": "Et j'ai vu tout labeur et toute industrie à l'œuvre&nbsp;; et j'ai vu que cette ardeur provient de l'envie que l'homme porte à son semblable. Et cela encore est vanité et présomption d'esprit.",
+     "alexandrie": "Et j’ai vu, moi, tout le tourment et tout le courage de l’œuvre, que c’est jalousie d’un homme venant de son compagnon, et vraiment, cela est folie et choix de vent.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ὁ ἄφρων περιέλαβεν τὰς χεῖρας αὐτοῦ καὶ ἔφαγεν τὰς σάρκας αὐτοῦ.",
+     "giguet": "L'insensé se croise les bras, et mange sa propre chair.",
+     "alexandrie": "L’insensé embrasse ses mains et mange ses chairs.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἀγαθὸν πλήρωμα δρακὸς ἀναπαύσεως ὑπὲρ πλήρωμα δύο δρακῶν μόχθου καὶ προαιρέσεως πνεύματος.",
+     "giguet": "Mieux vaut une main pleine avec le repos, que les deux mains pleines avec labeur et peine d'esprit.",
+     "alexandrie": "Bonne chose que la plénitude d’une poignée de repos plus que la plénitude de deux poignées de tourment et du choix du vent.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἐπέστρεψα ἐγὼ καὶ εἶδον ματαιότητα ὑπὸ τὸν ἥλιον.",
+     "giguet": "Et je me suis retourné, et j'ai vu une autre vanité sous le soleil.",
+     "alexandrie": "Et je me suis retourné, moi, et j’ai vu de la folie sous le soleil.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἔστιν εἷς καὶ οὐκ ἔστιν δεύτερος καί γε υἱὸς καὶ ἀδελφὸς οὐκ ἔστιν αὐτῷ καὶ οὐκ ἔστιν περασμὸς τῷ παντὶ μόχθῳ αὐτοῦ καί γε ὀφθαλμὸς αὐτοῦ οὐκ ἐμπίπλαται πλούτου καὶ τίνι ἐγὼ μοχθῶ καὶ στερίσκω τὴν ψυχήν μου ἀπὸ ἀγαθωσύνης καί γε τοῦτο ματαιότης καὶ περισπασμὸς πονηρός ἐστιν.",
+     "giguet": "C'est un homme seul, et qui n'en a pas un second avec lui&nbsp;; et quoiqu'il n'ait ni fils ni frère, son travail est sans fin, et son œil n'est pas rassasié de richesse&nbsp;: Et pour qui mon labeur, et pour qui privé-je mon âme de tout bien&nbsp;? Or cela encore est vanité et mauvaise inquiétude.",
+     "alexandrie": "Il y a un seul et il n’y a pas de deuxième, et vraiment, fils et frère, il n’en a pas, lui&nbsp;; et il n’y a pas de limite à tout son tourment, et vraiment, son œil ne se remplit pas de richesse. Et pour qui dois-je, moi, avoir du tourment et priver mon âme d’un bénéfice&nbsp;? Et vraiment cela est folie et tracas mauvais.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἀγαθοὶ οἱ δύο ὑπὲρ τὸν ἕνα οἷς ἔστιν αὐτοῖς μισθὸς ἀγαθὸς ἐν μόχθῳ αὐτῶν.",
+     "giguet": "Deux valent mieux qu'un, et ils reçoivent de leur commun labeur un salaire abondant&nbsp;;",
+     "alexandrie": "Bonne chose d’être deux, plus que d’être seul, pour eux il y a un bon salaire dans leur tourment",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ὅτι ἐὰν πέσωσιν ὁ εἷς ἐγερεῖ τὸν μέτοχον αὐτοῦ καὶ οὐαὶ αὐτῷ τῷ ἑνί ὅταν πέσῃ καὶ μὴ ᾖ δεύτερος τοῦ ἐγεῖραι αὐτόν.",
+     "giguet": "Car, s'ils tombent, l'un relève son compagnon&nbsp;; malheur à l'homme seul, s'il tombe, il n'a personne pour le relever&nbsp;!",
+     "alexandrie": "parce que&nbsp;: s’ils tombent, l’un relèvera son associé, et malheur à celui qui est seul, lorsqu’il tombe et qu’il n’y a pas de deuxième pour le relever.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καί γε ἐὰν κοιμηθῶσιν δύο καὶ θέρμη αὐτοῖς καὶ ὁ εἷς πῶς θερμανθῇ.",
+     "giguet": "Et si deux dorment ensemble, la chaleur est avec eux&nbsp;; et comment un seul se réchauffera-t-il&nbsp;?",
+     "alexandrie": "Et vraiment&nbsp;: si deux dorment, il y a aussi de la chaleur pour eux&nbsp;; et celui qui est seul, comment peut-il être réchauffé&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ἐὰν ἐπικραταιωθῇ ὁ εἷς οἱ δύο στήσονται κατέναντι αὐτοῦ καὶ τὸ σπαρτίον τὸ ἔντριτον οὐ ταχέως ἀπορραγήσεται.",
+     "giguet": "Et si un seul prévaut, les deux lui résisteront&nbsp;; et une triple corde ne sera pas promptement brisée.",
+     "alexandrie": "Et, si celui qui est seul est dominé, les deux se tiendront debout devant lui, et la corde triple ne sera pas rapidement déchirée.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἀγαθὸς παῖς πένης καὶ σοφὸς ὑπὲρ βασιλέα πρεσβύτερον καὶ ἄφρονα ὃς οὐκ ἔγνω τοῦ προσέχειν ἔτι.",
+     "giguet": "Mieux vaut un enfant pauvre et sage, qu'un roi vieux et insensé qui ne sait rien prévoir.",
+     "alexandrie": "Bonne chose qu’un enfant pauvre et sage plus qu’un roi vieux et insensé qui ne sait plus être attentif&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ὅτι ἐξ οἴκου τῶν δεσμίων ἐξελεύσεται τοῦ βασιλεῦσαι ὅτι καί γε ἐν βασιλείᾳ αὐτοῦ ἐγεννήθη πένης.",
+     "giguet": "Car tel sortira de la prison pour régner, et tel autre qui était roi est devenu indigent.",
+     "alexandrie": "parce qu’il sortira de la maison des captifs pour régner, parce que vraiment, dans son royaume il est né pauvre&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "εἶδον σὺν πάντας τοὺς ζῶντας τοὺς περιπατοῦντας ὑπὸ τὸν ἥλιον μετὰ τοῦ νεανίσκου τοῦ δευτέρου ὃς στήσεται ἀντ' αὐτοῦ.",
+     "giguet": "J'ai vu tous les vivants, qui cheminent sous le soleil, se mettre à la suite du deuxième, le jeune homme qui doit remplacer ce roi.",
+     "alexandrie": "J’ai vu tous les vivants qui marchent sous le soleil&nbsp;; avec le jeune homme - le deuxième qui se tiendra debout à sa place,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "οὐκ ἔστιν περασμὸς τῷ παντὶ λαῷ τοῖς πᾶσιν ὅσοι ἐγένοντο ἔμπροσθεν αὐτῶν καί γε οἱ ἔσχατοι οὐκ εὐφρανθήσονται ἐν αὐτῷ ὅτι καί γε τοῦτο ματαιότης καὶ προαίρεσις πνεύματος.",
+     "giguet": "Le nombre est infini de tout le peuple, de tous ceux qui ont été avant eux. Et les derniers venus ne se réjouiront pas en ce jeune homme&nbsp;; car cela est encore vanité et présomption d'esprit.",
+     "alexandrie": "il n’y a pas de limite pour le peuple tout entier, pour tous ceux qui ont existé avant eux&nbsp;; et vraiment, les derniers ne se réjouiront pas en lui&nbsp;; parce que&nbsp;: vraiment, cela est folie et choix de vent.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "φύλαξον πόδα σου ἐν ᾧ ἐὰν πορεύῃ εἰς οἶκον τοῦ θεοῦ καὶ ἐγγὺς τοῦ ἀκούειν ὑπὲρ δόμα τῶν ἀφρόνων θυσία σου ὅτι οὔκ εἰσιν εἰδότες τοῦ ποιῆσαι κακόν.",
+     "giguet": "Prends garde où tu mets le pied dans le temple du Seigneur, et approche pour écouter&nbsp;; ton offrande sera plus agréable que les dons des insensés, car ils ignoreront qu'ils font le mal.",
+     "alexandrie": "Prends garde à ton pied, pendant que tu vas vers la maison de Dieu, et lorsque tu es près d’écouter&nbsp;; plus que le don des insensés, ton offrande, parce qu’ils ne savent pas faire le mal.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 5,
+   "libelle": "5",
+   "fichierToc": "ECC/005.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "μὴ σπεῦδε ἐπὶ στόματί σου καὶ καρδία σου μὴ ταχυνάτω τοῦ ἐξενέγκαι λόγον πρὸ προσώπου τοῦ θεοῦ ὅτι ὁ θεὸς ἐν τῷ οὐρανῷ καὶ σὺ ἐπὶ τῆς γῆς ἐπὶ τούτῳ ἔστωσαν οἱ λόγοι σου ὀλίγοι.",
+     "giguet": "Ne te hâte point d'ouvrir la bouche&nbsp;; que ton cœur ne soit pas pressé de proférer des paroles en présence de Dieu. Car Dieu est au plus haut du ciel, et toi tu es sur la terre&nbsp;; c'est pourquoi parle sobrement.",
+     "alexandrie": "Ne te hâte pas par ta bouche et que ton cœur ne se presse pas pour présenter un discours à la face de Dieu&nbsp;; parce que&nbsp;: Dieu est dans le ciel et toi sur la terre&nbsp;; pour cela, que tes discours restent peu nombreux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὅτι παραγίνεται ἐνύπνιον ἐν πλήθει περισπασμοῦ καὶ φωνὴ ἄφρονος ἐν πλήθει λόγων.",
+     "giguet": "Car le songe naît d'un excès d'inquiétude, et la voix de l'insensé naît de l'intempérance de sa langue.",
+     "alexandrie": "Parce que&nbsp;: le songe survient dans abondance d’épreuves et voix d’insensé dans abondance de discours.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καθὼς ἂν εὔξῃ εὐχὴν τῷ θεῷ μὴ χρονίσῃς τοῦ ἀποδοῦναι αὐτήν ὅτι οὐκ ἔστιν θέλημα ἐν ἄφροσιν σὺν ὅσα ἐὰν εὔξῃ ἀπόδος.",
+     "giguet": "Lorsque tu auras fait un vœu au Seigneur, ne tarde pas à t'en acquitter&nbsp;; car le bon vouloir n'est pas dans les insensés. Rends donc à Dieu tout ce que tu Lui auras voué.",
+     "alexandrie": "C’est comme «&nbsp;Voues-tu un vœu à Dieu, ne tarde pas à t’en acquitter&nbsp;»&nbsp;; parce qu’il n’y a pas de vouloir chez les insensés, toi, donc, si tu présentes un vœu, acquitte-t’en.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἀγαθὸν τὸ μὴ εὔξασθαί σε ἢ τὸ εὔξασθαί σε καὶ μὴ ἀποδοῦναι.",
+     "giguet": "Mieux vaut n'avoir point fait de vœu, que d'en faire et ne point l'accomplir.",
+     "alexandrie": "Il est bon que tu ne fasses pas de vœu, plutôt que présenter un vœu et ne pas t’en acquitter.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "μὴ δῷς τὸ στόμα σου τοῦ ἐξαμαρτῆσαι τὴν σάρκα σου καὶ μὴ εἴπῃς πρὸ προσώπου τοῦ θεοῦ ὅτι ἄγνοιά ἐστιν ἵνα μὴ ὀργισθῇ ὁ θεὸς ἐπὶ φωνῇ σου καὶ διαφθείρῃ τὰ ποιήματα χειρῶν σου.",
+     "giguet": "Ne permets pas à ta bouche de faire pécher ta chair&nbsp;; ne dis pas devant Dieu que tu ne savais pas, de peur que Dieu ne s'irrite de tes paroles, et qu'Il ne détruise les œuvres de tes mains.",
+     "alexandrie": "Ne laisse pas ta bouche faire pécher ta chair et ne dis pas à la face de Dieu que «&nbsp;C’est ignorance&nbsp;», pour que Dieu ne se mette pas en colère à ta voix et qu’il ne détruise pas les œuvres de tes mains,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ὅτι ἐν πλήθει ἐνυπνίων καὶ ματαιότητες καὶ λόγοι πολλοί ὅτι σὺν τὸν θεὸν φοβοῦ.",
+     "giguet": "Tout cela encore est abondance de songes, de vanités et de paroles&nbsp;; c'est pourquoi, crains Dieu.",
+     "alexandrie": "parce que&nbsp;: dans abondance de songes, il y a folies et discours abondants&nbsp;; c’est que&nbsp;: Dieu, crains-le.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἐὰν συκοφαντίαν πένητος καὶ ἁρπαγὴν κρίματος καὶ δικαιοσύνης ἴδῃς ἐν χώρᾳ μὴ θαυμάσῃς ἐπὶ τῷ πράγματι ὅτι ὑψηλὸς ἐπάνω ὑψηλοῦ φυλάξαι καὶ ὑψηλοὶ ἐπ' αὐτούς.",
+     "giguet": "Si tu vois en une contrée le pauvre trompé, le jugement et la justice déniés, n'en sois point surpris&nbsp;; car c'est un grand qui surveille un grand, et il y a plus grands encore au-dessus d'eux.",
+     "alexandrie": "Si tu vois dans une région oppression du pauvre, confiscation du jugement et de la justice, ne t’étonne pas de l’affaire&nbsp;; parce que&nbsp;: un supérieur veille au-dessus d’un supérieur et des supérieurs au-dessus d’eux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ περισσεία γῆς ἐν παντί ἐστι βασιλεὺς τοῦ ἀγροῦ εἰργασμένου.",
+     "giguet": "L'abondance de la terre est pour tous, quand, sous un roi les champs sont cultivés.",
+     "alexandrie": "Et l’avantage de la terre existe en tout&nbsp;: un roi du champ travaillé.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἀγαπῶν ἀργύριον οὐ πλησθήσεται ἀργυρίου καὶ τίς ἠγάπησεν ἐν πλήθει αὐτῶν γένημα καί γε τοῦτο ματαιότης.",
+     "giguet": "Celui qui aime l'argent ne sera pas rassasié par l'argent&nbsp;; ni celui qui s'est complu dans la multitude de ses productions. Ceci aussi est vanité.",
+     "alexandrie": "Qui aime l’argent n’aura pas abondance d’argent&nbsp;; et qui a aimé en abondance son produit&nbsp;? et vraiment, cela est folie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἐν πλήθει τῆς ἀγαθωσύνης ἐπληθύνθησαν ἔσθοντες αὐτήν καὶ τί ἀνδρεία τῷ παρ' αὐτῆς ὅτι ἀλλ' ἢ τοῦ ὁρᾶν ὀφθαλμοῖς αὐτοῦ.",
+     "giguet": "Quand s'accroît la richesse, il y a plus de gens pour la manger&nbsp;; et quelle virilité en retire celui qui la possède&nbsp;? il la voit seulement de ses propres yeux.",
+     "alexandrie": "Dans l’abondance du bénéfice, ont abondé ceux qui en mangent&nbsp;; et pourquoi du courage pour celui qui est à son côté sinon pour voir de ses yeux&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "γλυκὺς ὕπνος τοῦ δούλου εἰ ὀλίγον καὶ εἰ πολὺ φάγεται καὶ τῷ ἐμπλησθέντι τοῦ πλουτῆσαι οὐκ ἔστιν ἀφίων αὐτὸν τοῦ ὑπνῶσαι.",
+     "giguet": "Le dormir est doux au serviteur, qu'il ait mangé peu ou beaucoup&nbsp;; quant à celui qui regorge de richesses, rien ne le laisse sommeiller.",
+     "alexandrie": "Doux est le sommeil de l’esclave, qu’il mange peu ou beaucoup&nbsp;; et pour celui qui a eu abondance de richesses, il n’y a personne qui le laisse aller prendre du sommeil.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἔστιν ἀρρωστία ἣν εἶδον ὑπὸ τὸν ἥλιον πλοῦτον φυλασσόμενον τῷ παρ' αὐτοῦ εἰς κακίαν αὐτοῦ.",
+     "giguet": "Il est une maladie que j'ai vue sous le soleil&nbsp;: c'est la richesse gardée par celui qui la garde à son détriment.",
+     "alexandrie": "Il y a une infirmité, que j’ai vue sous le soleil, richesse surveillée par celui qui est d’auprès d’elle pour son malheur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ἀπολεῖται ὁ πλοῦτος ἐκεῖνος ἐν περισπασμῷ πονηρῷ καὶ ἐγέννησεν υἱόν καὶ οὐκ ἔστιν ἐν χειρὶ αὐτοῦ οὐδέν.",
+     "giguet": "Ses richesses périront au milieu de cruelles inquiétudes&nbsp;; il a un fils, et il ne lui laissera rien dans la main.",
+     "alexandrie": "Et il périra, ce riche-là, dans un tracas mauvais, et il a engendré un fils et dans sa main il n’y a rien du tout.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καθὼς ἐξῆλθεν ἀπὸ γαστρὸς μητρὸς αὐτοῦ γυμνός ἐπιστρέψει τοῦ πορευθῆναι ὡς ἥκει καὶ οὐδὲν οὐ λήμψεται ἐν μόχθῳ αὐτοῦ ἵνα πορευθῇ ἐν χειρὶ αὐτοῦ.",
+     "giguet": "Nu il est sorti du sein de sa mère&nbsp;; comme il est venu il s'en ira, sans rien recueillir de son labeur, pour l'emporter dans sa main.",
+     "alexandrie": "De même qu’il est sorti du ventre de sa mère nu, il retournera pour aller comme il est venu et il ne recevra dans son tourment rien qui aille dans sa main.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καί γε τοῦτο πονηρὰ ἀρρωστία ὥσπερ γὰρ παρεγένετο οὕτως καὶ ἀπελεύσεται καὶ τίς περισσεία αὐτῷ ᾗ μοχθεῖ εἰς ἄνεμον.",
+     "giguet": "Et cela encore est une maladie mauvaise&nbsp;; car comme il est venu il s'en ira de même&nbsp;; et quel est donc son profit&nbsp;?&nbsp;: il a travaillé pour le vent&nbsp;?",
+     "alexandrie": "Et vraiment, cela est une méchante infirmité. En effet comme il est survenu, de même aussi il s’en ira, et quel est pour lui l’avantage dont il est tourmenté pour du vent&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καί γε πᾶσαι αἱ ἡμέραι αὐτοῦ ἐν σκότει καὶ πένθει καὶ θυμῷ πολλῷ καὶ ἀρρωστίᾳ καὶ χόλῳ.",
+     "giguet": "Et ainsi il a passé tous ses jours dans les ténèbres, dans la tristesse, dans la colère, dans la maladie et dans la haine.",
+     "alexandrie": "Et vraiment, tous ses jours sont dans l’obscurité, le deuil, un grand emportement, l’infirmité et la bile.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ἰδοὺ ὃ εἶδον ἐγὼ ἀγαθόν ὅ ἐστιν καλόν τοῦ φαγεῖν καὶ τοῦ πιεῖν καὶ τοῦ ἰδεῖν ἀγαθωσύνην ἐν παντὶ μόχθῳ αὐτοῦ ᾧ ἐὰν μοχθῇ ὑπὸ τὸν ἥλιον ἀριθμὸν ἡμερῶν ζωῆς αὐτοῦ ὧν ἔδωκεν αὐτῷ ὁ θεός ὅτι αὐτὸ μερὶς αὐτοῦ.",
+     "giguet": "Voilà ce que j'ai vu de bien&nbsp;: c'est que l'homme mange et boive, et qu'il voie prospérer tout son labeur pour lequel il aura travaillé sous le soleil, tous les jours de sa vie que Dieu lui a donnés&nbsp;; car tel est son partage.",
+     "alexandrie": "Voici ce que j’ai vu, moi, de bon, ce qui est beau, manger et boire et voir du bénéfice dans tout le tourment dont on peut être tourmenté sous le soleil pendant le nombre des jours de sa vie, que Dieu lui a donnés&nbsp;; parce que&nbsp;: c’est sa part.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καί γε πᾶς ὁ ἄνθρωπος ᾧ ἔδωκεν αὐτῷ ὁ θεὸς πλοῦτον καὶ ὑπάρχοντα καὶ ἐξουσίασεν αὐτὸν τοῦ φαγεῖν ἀπ' αὐτοῦ καὶ τοῦ λαβεῖν τὸ μέρος αὐτοῦ καὶ τοῦ εὐφρανθῆναι ἐν μόχθῳ αὐτοῦ τοῦτο δόμα θεοῦ ἐστιν.",
+     "giguet": "Or tout homme à qui Dieu a donné richesse, possession, pouvoir de manger ses biens, de jouir de sa part, de se complaire en son labeur, a reçu un don de Dieu.",
+     "alexandrie": "Et vraiment, tout homme à qui Dieu a donné richesse et biens, et à qui Dieu a donné la faculté d’en manger, de prendre sa portion et de se réjouir dans son tourment, cela est un don de Dieu.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ὅτι οὐ πολλὰ μνησθήσεται τὰς ἡμέρας τῆς ζωῆς αὐτοῦ ὅτι ὁ θεὸς περισπᾷ αὐτὸν ἐν εὐφροσύνῃ καρδίας αὐτοῦ.",
+     "giguet": "Car celui-là ne se souviendra guère de la succession des jours de sa vie&nbsp;; Dieu l'en a distrait par la joie de son cœur.",
+     "alexandrie": "Parce qu’on ne se souviendra pas beaucoup durant les jours de sa vie&nbsp;; parce que Dieu lui donne du tracas dans la réjouissance de son cœur.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 6,
+   "libelle": "6",
+   "fichierToc": "ECC/006.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἔστιν πονηρία ἣν εἶδον ὑπὸ τὸν ἥλιον καὶ πολλή ἐστιν ἐπὶ τὸν ἄνθρωπον.",
+     "giguet": "Il est un autre mal que j'ai vu sous le soleil, et il est fréquent dans l'homme",
+     "alexandrie": "Il y a une méchanceté que j’ai vue sous le soleil, et elle est grande pour l’homme&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἀνήρ ᾧ δώσει αὐτῷ ὁ θεὸς πλοῦτον καὶ ὑπάρχοντα καὶ δόξαν καὶ οὐκ ἔστιν ὑστερῶν τῇ ψυχῇ αὐτοῦ ἀπὸ πάντων ὧν ἐπιθυμήσει καὶ οὐκ ἐξουσιάσει αὐτῷ ὁ θεὸς τοῦ φαγεῖν ἀπ' αὐτοῦ ὅτι ἀνὴρ ξένος φάγεται αὐτόν τοῦτο ματαιότης καὶ ἀρρωστία πονηρά ἐστιν.",
+     "giguet": "C'est un homme à qui Dieu aura donné richesses, possessions, honneurs, dont l'âme n'aura jamais eu un désir qui n'ait été satisfait&nbsp;; mais à qui Dieu n'aura pas donné le pouvoir de manger de ses biens&nbsp;; car un étranger les dévorera. C'est là une vanité et une malheureuse affliction.",
+     "alexandrie": "un homme à qui Dieu donnera richesse, biens et réputation, et il n’est pas privé pour son âme de tout ce qu’il désirera, et Dieu ne lui donnera pas la faculté de manger ce qui vient de lui, parce qu’un homme étranger le mangera&nbsp;; cela est folie et méchante infirmité.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἐὰν γεννήσῃ ἀνὴρ ἑκατὸν καὶ ἔτη πολλὰ ζήσεται καὶ πλῆθος ὅ τι ἔσονται ἡμέραι ἐτῶν αὐτοῦ καὶ ψυχὴ αὐτοῦ οὐκ ἐμπλησθήσεται ἀπὸ τῆς ἀγαθωσύνης καί γε ταφὴ οὐκ ἐγένετο αὐτῷ εἶπα ἀγαθὸν ὑπὲρ αὐτὸν τὸ ἔκτρωμα.",
+     "giguet": "Et si un homme a eu cent enfants, s'il a vécu beaucoup d'années&nbsp;; quelle qu'ait été la multitude de ses jours, si son âme n'a pas été remplie de ses biens, s'il n'a point de sépulcre, je dis&nbsp;: Un fœtus avorté vaut mieux que lui&nbsp;;",
+     "alexandrie": "Si un homme en a engendré cent et vit de nombreuses années, même pendant l’abondance que seront les jours de ses années, son âme ne sera pas comblée de bénéfice, et vraiment, il n’y a pas eu de sépulture pour lui&nbsp;; j’ai dit&nbsp;: Meilleur que lui, l’avorton,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ὅτι ἐν ματαιότητι ἦλθεν καὶ ἐν σκότει πορεύεται καὶ ἐν σκότει ὄνομα αὐτοῦ καλυφθήσεται.",
+     "giguet": "Car c'est en vain qu'il est venu au monde&nbsp;; il s'en va dans l'obscurité, et son nom sera caché dans les ténèbres.",
+     "alexandrie": "parce qu’il est venu dans la folie, avance dans l’obscurité, et dans l’obscurité son nom sera caché,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καί γε ἥλιον οὐκ εἶδεν καὶ οὐκ ἔγνω ἀνάπαυσις τούτῳ ὑπὲρ τοῦτον.",
+     "giguet": "Il n'a pas même vu le soleil, ni rien connu, il a plus de repos que l'autre.",
+     "alexandrie": "et vraiment, le soleil, il ne l’a pas vu et il n’a pas connu de repos plus que celui-là.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ εἰ ἔζησεν χιλίων ἐτῶν καθόδους καὶ ἀγαθωσύνην οὐκ εἶδεν μὴ οὐκ εἰς τόπον ἕνα τὰ πάντα πορεύεται.",
+     "giguet": "Et eût-il vécu mille années se répétant, sans voir la prospérité&nbsp;: toutes choses ne vont-elles pas au même lieu&nbsp;?",
+     "alexandrie": "Et s’il a vécu des périodes de mille ans et n’a pas vu de bénéfice, n’est-ce pas que tout va vers un unique lieu&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "πᾶς μόχθος τοῦ ἀνθρώπου εἰς στόμα αὐτοῦ καί γε ἡ ψυχὴ οὐ πληρωθήσεται.",
+     "giguet": "Tout le labeur de l'homme est pour sa bouche, et encore son âme n'en sera pas rassasiée.",
+     "alexandrie": "Tout le tourment de l’homme va à sa bouche, et vraiment, l’âme ne sera pas remplie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ὅτι τίς περισσεία τῷ σοφῷ ὑπὲρ τὸν ἄφρονα διότι ὁ πένης οἶδεν πορευθῆναι κατέναντι τῆς ζωῆς.",
+     "giguet": "Car quel avantage le sage a-t-il sur l'insensé&nbsp;? c'est pourquoi le pauvre sait marcher en face de la vie.",
+     "alexandrie": "Parce que&nbsp;: quel avantage pour le sage sur l’insensé&nbsp;? C’est pourquoi le pauvre sait avancer en face de la vie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἀγαθὸν ὅραμα ὀφθαλμῶν ὑπὲρ πορευόμενον ψυχῇ καί γε τοῦτο ματαιότης καὶ προαίρεσις πνεύματος.",
+     "giguet": "La vision des yeux est meilleure que les divagations de l'âme&nbsp;; mais cela aussi est vanité et présomption d'esprit.",
+     "alexandrie": "Bonne est la vision des yeux, plus que celle qui va à l’âme, et vraiment, cela est folie et choix de vent.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "εἴ τι ἐγένετο ἤδη κέκληται ὄνομα αὐτοῦ καὶ ἐγνώσθη ὅ ἐστιν ἄνθρωπος καὶ οὐ δυνήσεται τοῦ κριθῆναι μετὰ τοῦ ἰσχυροῦ ὑπὲρ αὐτόν.",
+     "giguet": "Si quelque chose a été, aussitôt un nom lui a été donné&nbsp;; on sait ce qu'est un homme, et qu'il ne pourra entrer en jugement avec un plus puissant que lui.",
+     "alexandrie": "Si quelque chose s’est produit, son nom a déjà été prononcé, et on a connu ce qu’est l’homme, et il ne pourra pas être jugé avec le fort plus que lui&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ὅτι εἰσὶν λόγοι πολλοὶ πληθύνοντες ματαιότητα τί περισσὸν τῷ ἀνθρώπῳ.",
+     "giguet": "Car il est maintes paroles qui multiplient la vanité. Quel avantage à l'homme&nbsp;?",
+     "alexandrie": "parce qu’il y a de nombreux discours multipliant la folie. Quoi d’avantageux pour l’homme&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ὅτι τίς οἶδεν τί ἀγαθὸν τῷ ἀνθρώπῳ ἐν τῇ ζωῇ ἀριθμὸν ἡμερῶν ζωῆς ματαιότητος αὐτοῦ καὶ ἐποίησεν αὐτὰς ἐν σκιᾷ ὅτι τίς ἀπαγγελεῖ τῷ ἀνθρώπῳ τί ἔσται ὀπίσω αὐτοῦ ὑπὸ τὸν ἥλιον.",
+     "giguet": "Qui sait ce qui est bon à l'homme en sa vie, durant le nombre des jours de sa vanité, qu'il a passés dans l'ombre&nbsp;? Qui fera connaître à l'homme ce qui sera après lui sous le soleil&nbsp;?",
+     "alexandrie": "Parce que&nbsp;: qui sait ce qu’il y a de bon pour l’homme dans sa vie pendant le nombre des jours de folie de sa vie&nbsp;? Et il les a faits dans l’ombre&nbsp;; c’est que&nbsp;: qui annoncera à l’homme ce qu’il y aura après lui sous le soleil&nbsp;?",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 7,
+   "libelle": "7",
+   "fichierToc": "ECC/007.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἀγαθὸν ὄνομα ὑπὲρ ἔλαιον ἀγαθὸν καὶ ἡμέρα τοῦ θανάτου ὑπὲρ ἡμέραν γενέσεως αὐτοῦ.",
+     "giguet": "Bon renom vaut mieux qu'une bonne huile parfumée&nbsp;; le jour de la mort vaut mieux que le jour de la naissance.",
+     "alexandrie": "Bonne chose qu’un nom, plus que l’huile bonne, et le jour de la mort, plus que le jour de sa naissance.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἀγαθὸν πορευθῆναι εἰς οἶκον πένθους ἢ ὅτι πορευθῆναι εἰς οἶκον πότου καθότι τοῦτο τέλος παντὸς τοῦ ἀνθρώπου καὶ ὁ ζῶν δώσει εἰς καρδίαν αὐτοῦ.",
+     "giguet": "Il vaut mieux aller à la maison du deuil qu'à la maison du festin, puisque le deuil est la fin de tout homme, et que le vivant donnera ainsi de bons avertissements à son cœur.",
+     "alexandrie": "Bonne chose de marcher vers une maison de deuil plus que marcher vers une maison de festin, parce que c’est la fin de tout homme et le vivant donnera du bien à son cœur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἀγαθὸν θυμὸς ὑπὲρ γέλωτα ὅτι ἐν κακίᾳ προσώπου ἀγαθυνθήσεται καρδία.",
+     "giguet": "La tristesse vaut mieux que le rire&nbsp;; parce que, par la tristesse du visage, le cœur deviendra bon.",
+     "alexandrie": "Bonne chose que l’emportement, plus que le rire parce que, dans la méchanceté du visage, le cœur sera bonifié.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καρδία σοφῶν ἐν οἴκῳ πένθους καὶ καρδία ἀφρόνων ἐν οἴκῳ εὐφροσύνης.",
+     "giguet": "Le cœur des sages est à la maison des pleurs&nbsp;; le cœur des insensés est à la maison d'allégresse.",
+     "alexandrie": "Le cœur des sages est dans la maison de deuil et le cœur des insensés est dans la maison de réjouissance.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ἀγαθὸν τὸ ἀκοῦσαι ἐπιτίμησιν σοφοῦ ὑπὲρ ἄνδρα ἀκούοντα ᾆσμα ἀφρόνων.",
+     "giguet": "Mieux vaut écouter la réprimande d'un sage, que d'entendre le chant des insensés.",
+     "alexandrie": "Bonne chose d’entendre la réprimande du sage, plus que d’être homme à écouter le chant des insensés",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ὅτι ὡς φωνὴ τῶν ἀκανθῶν ὑπὸ τὸν λέβητα οὕτως γέλως τῶν ἀφρόνων καί γε τοῦτο ματαιότης.",
+     "giguet": "Le rire des insensés est comme le pétillement des épines sous une chaudière&nbsp;; et cela encore est vanité.",
+     "alexandrie": "parce que&nbsp;: tel le bruit des ronces sous la marmite, tel est le rire des insensés&nbsp;; et vraiment, cela est folie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὅτι ἡ συκοφαντία περιφέρει σοφὸν καὶ ἀπόλλυσι τὴν καρδίαν εὐτονίας αὐτοῦ.",
+     "giguet": "La calomnie exaspère le sage, et lui fait perdre sa force d'âme.",
+     "alexandrie": "Car l’oppression fourvoie le sage et fait perdre au cœur sa vigueur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἀγαθὴ ἐσχάτη λόγων ὑπὲρ ἀρχὴν αὐτοῦ ἀγαθὸν μακρόθυμος ὑπὲρ ὑψηλὸν πνεύματι.",
+     "giguet": "La fin du discours vaut mieux que le commencement&nbsp;; un homme patient vaut mieux qu'un esprit présomptueux.",
+     "alexandrie": "Bonne chose que la fin des discours, plus que leur commencement, bonne chose qu’un homme longanime, plus qu’un esprit superbe.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "μὴ σπεύσῃς ἐν πνεύματί σου τοῦ θυμοῦσθαι ὅτι θυμὸς ἐν κόλπῳ ἀφρόνων ἀναπαύσεται.",
+     "giguet": "Ne t'abandonne pas trop vite au souffle de la colère&nbsp;; car la colère réside dans le sein des insensés.",
+     "alexandrie": "Ne te hâte pas de t’emporter dans ton esprit, parce que l’emportement reposera dans le sein des insensés.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "μὴ εἴπῃς τί ἐγένετο ὅτι αἱ ἡμέραι αἱ πρότεραι ἦσαν ἀγαθαὶ ὑπὲρ ταύτας ὅτι οὐκ ἐν σοφίᾳ ἐπηρώτησας περὶ τούτου.",
+     "giguet": "Garde-toi de dire&nbsp;: Comment se fait-il que les jours d'autrefois ont été meilleurs que ceux d'à présent&nbsp;? Car il n'est point sage de s'enquérir de ces choses.",
+     "alexandrie": "Ne dis pas&nbsp;: «&nbsp;Pourquoi est-il arrivé que les jours d’autrefois étaient bons, plus que ceux-ci&nbsp;?&nbsp;», parce que ce n’est pas avec sagesse que tu t’es enquis de cela.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἀγαθὴ σοφία μετὰ κληροδοσίας καὶ περισσεία τοῖς θεωροῦσιν τὸν ἥλιον.",
+     "giguet": "La sagesse est bonne, unie aux richesses&nbsp;; elle est alors profitable à ceux qui vivent sous le soleil.",
+     "alexandrie": "Bonne chose que la sagesse avec un héritage et il y a un avantage pour ceux qui voient le soleil&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ὅτι ἐν σκιᾷ αὐτῆς ἡ σοφία ὡς σκιὰ τοῦ ἀργυρίου καὶ περισσεία γνώσεως τῆς σοφίας ζωοποιήσει τὸν παρ' αὐτῆς.",
+     "giguet": "Car on s'abrite à l'ombre de la sagesse, comme à l'ombre de l'argent&nbsp;; et l'avantage de la science et de la sagesse, c'est qu'elles font vivre celui qui les possède.",
+     "alexandrie": "parce qu’à son ombre, la sagesse est comme l’ombre de l’argent et l’avantage que constitue la connaissance de la sagesse fera vivre celui qui se tient auprès d’elle.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἰδὲ τὰ ποιήματα τοῦ θεοῦ ὅτι τίς δυνήσεται τοῦ κοσμῆσαι ὃν ἂν ὁ θεὸς διαστρέψῃ αὐτόν.",
+     "giguet": "Considère les œuvres de Dieu&nbsp;; car qui pourrait arranger celui que Dieu a courbé&nbsp;?",
+     "alexandrie": "Vois les œuvres de Dieu&nbsp;; parce que&nbsp;: qui pourra mettre en ordre celui que Dieu tordra&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἐν ἡμέρᾳ ἀγαθωσύνης ζῆθι ἐν ἀγαθῷ καὶ ἐν ἡμέρᾳ κακίας ἰδέ καί γε σὺν τοῦτο σύμφωνον τούτῳ ἐποίησεν ὁ θεὸς περὶ λαλιᾶς ἵνα μὴ εὕρῃ ὁ ἄνθρωπος ὀπίσω αὐτοῦ μηδέν.",
+     "giguet": "Au jour de la prospérité vis dans le bien-être, et prévois le jour du malheur&nbsp;; prévois-le&nbsp;: car Dieu a fait telle chose concordant avec telle autre, à cause des propos des hommes, afin qu'ils ne trouvent rien [à blâmer] en Lui.",
+     "alexandrie": "Au jour du bénéfice vis dans le bien et au jour du malheur vois&nbsp;: et vraiment, que ceci s’accorde à cela, Dieu l’a fait à propos, pour que l’homme ne trouve rien après lui.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "σὺν τὰ πάντα εἶδον ἐν ἡμέραις ματαιότητός μου ἔστιν δίκαιος ἀπολλύμενος ἐν δικαίῳ αὐτοῦ καὶ ἔστιν ἀσεβὴς μένων ἐν κακίᾳ αὐτοῦ.",
+     "giguet": "J'ai vu toutes choses aux jours de ma vanité. Le juste meurt avec sa justice&nbsp;; l'impie subsiste avec sa perversité.",
+     "alexandrie": "J’ai vu toutes choses aux jours de ma folie&nbsp;: il y a le juste qui périt dans sa justice et il y a l’impie qui reste dans sa méchanceté.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "μὴ γίνου δίκαιος πολὺ καὶ μὴ σοφίζου περισσά μήποτε ἐκπλαγῇς.",
+     "giguet": "Ne sois pas juste à l'excès&nbsp;; ne soit point sage plus qu'il ne faut, de peur que tu ne sois accablé.",
+     "alexandrie": "Ne deviens pas trop juste et ne pratique pas la sagesse d’abondance, de peur d’être frappé de stupeur&nbsp;!",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "μὴ ἀσεβήσῃς πολὺ καὶ μὴ γίνου σκληρός ἵνα μὴ ἀποθάνῃς ἐν οὐ καιρῷ σου.",
+     "giguet": "Mais ne sois pas non plus impie ni obstiné à l'excès, de peur que tu ne périsses avant le temps.",
+     "alexandrie": "Ne sois pas trop impie et ne deviens pas endurci, afin de ne pas mourir quand ce n’est pas ton moment.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἀγαθὸν τὸ ἀντέχεσθαί σε ἐν τούτῳ καί γε ἀπὸ τούτου μὴ ἀνῇς τὴν χεῖρά σου ὅτι φοβούμενος τὸν θεὸν ἐξελεύσεται τὰ πάντα.",
+     "giguet": "Il est bon que tu t'attaches à telle chose, et que tu t'éloignes de telle autre, pour ne point souiller tes mains&nbsp;; car tout vient à ceux qui craignent Dieu.",
+     "alexandrie": "Bonne chose que de tenir à ceci et vraiment, n’en souille pas ta main, parce que qui craint Dieu s’en sortira en tout.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ἡ σοφία βοηθήσει τῷ σοφῷ ὑπὲρ δέκα ἐξουσιάζοντας τοὺς ὄντας ἐν τῇ πόλει.",
+     "giguet": "La sagesse secoura le sage plus que dix des plus puissants de la cité.",
+     "alexandrie": "La sagesse secourra le sage, plus que dix autorités de la cité&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "ὅτι ἄνθρωπος οὐκ ἔστιν δίκαιος ἐν τῇ γῇ ὃς ποιήσει ἀγαθὸν καὶ οὐχ ἁμαρτήσεται.",
+     "giguet": "Car il n'est point sur la terre de juste qui fasse le bien, et ne pèche.",
+     "alexandrie": "parce qu’il n’y a pas sur la terre d’homme juste qui fera le bien et ne commettra pas de faute.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καί γε εἰς πάντας τοὺς λόγους οὓς λαλήσουσιν μὴ θῇς καρδίαν σου ὅπως μὴ ἀκούσῃς τοῦ δούλου σου καταρωμένου σε.",
+     "giguet": "Mais ne dépose pas en ton cœur toutes les paroles que disent les impies, de peur que tu n'entendes ton serviteur te maudire.",
+     "alexandrie": "Et vraiment, ne dispose pas ton cœur à l’égard de tous les discours qu’ils prononceront, de façon à ne pas entendre ton esclave te maudire,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "ὅτι πλειστάκις πονηρεύσεταί σε καὶ καθόδους πολλὰς κακώσει καρδίαν σου ὅπως καί γε σὺ κατηράσω ἑτέρους.",
+     "giguet": "Car maintes fois il t'irritera, et de bien des manières il affligera ton cœur&nbsp;; car toi-même aussi tu as maudit les autres.",
+     "alexandrie": "car bien souvent il te fera du mal et à de nombreuses périodes il maltraitera ton cœur, de façon que tu en maudisses d’autres.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "πάντα ταῦτα ἐπείρασα ἐν τῇ σοφίᾳ εἶπα σοφισθήσομαι.",
+     "giguet": "J'ai éprouvé toutes choses en ma sagesse, et j'ai dit&nbsp;: Je serai sage&nbsp;:",
+     "alexandrie": "Tout cela, je l’ai expérimenté dans la sagesse&nbsp;; j’ai dit&nbsp;: «&nbsp;Je serai un sage&nbsp;»,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "καὶ αὐτὴ ἐμακρύνθη ἀπ' ἐμοῦ μακρὰν ὑπὲρ ὃ ἦν καὶ βαθὺ βάθος τίς εὑρήσει αὐτό.",
+     "giguet": "Et la sagesse s'est éloignée de moi. Elle était plus loin encore qu'auparavant&nbsp;; l'abîme entre nous était profond&nbsp;: qui le sondera&nbsp;?",
+     "alexandrie": "et elle s’est éloignée de moi, loin de ce que j’étais, et cette profondeur profonde, qui la trouvera&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "ἐκύκλωσα ἐγώ καὶ ἡ καρδία μου τοῦ γνῶναι καὶ τοῦ κατασκέψασθαι καὶ ζητῆσαι σοφίαν καὶ ψῆφον καὶ τοῦ γνῶναι ἀσεβοῦς ἀφροσύνην καὶ σκληρίαν καὶ περιφοράν.",
+     "giguet": "Pour moi, j'ai tourné autour de toutes choses, et j'ai appliqué mon esprit à les apprendre, à les examiner avec soin, à chercher la sagesse et la raison des choses, à connaître la démence de l'impie, et sa dureté, et son inquiétude.",
+     "alexandrie": "J’ai circulé, moi, et mon cœur, pour connaître, examiner et chercher sagesse et suffrage, et pour connaître la déraison de l’impie, son tumulte et son fourvoiement.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "26",
+     "grec": "καὶ εὑρίσκω ἐγὼ πικρότερον ὑπὲρ θάνατον σὺν τὴν γυναῖκα ἥτις ἐστὶν θηρεύματα καὶ σαγῆναι καρδία αὐτῆς δεσμοὶ χεῖρες αὐτῆς ἀγαθὸς πρὸ προσώπου τοῦ θεοῦ ἐξαιρεθήσεται ἀπ' αὐτῆς καὶ ἁμαρτάνων συλλημφθήσεται ἐν αὐτῇ.",
+     "giguet": "Et j'ai trouvé plus amère que la mort la femme prédatrice, dont le cœur est un filet, et les mains des menottes. L'homme bon en face du Seigneur fuira loin d'elle, et le pécheur y sera pris.",
+     "alexandrie": "Et je trouve, moi, plus amère que la mort, la femme, qui est un piège, des rets, son cœur, des chaînes dans ses mains&nbsp;; celui qui est bon devant la face de Dieu sera arrache à elle et celui qui est pécheur sera saisi par elle.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "27",
+     "grec": "ἰδὲ τοῦτο εὗρον εἶπεν ὁ Ἐκκλησιαστής μία τῇ μιᾷ τοῦ εὑρεῖν λογισμόν.",
+     "giguet": "Voilà ce que j'ai trouvé, dit l'Ecclésiaste, en prenant les choses une à une, pour en découvrir la raison.",
+     "alexandrie": "Vois, c’est ce que j'ai trouve, a dit l'ecclésiaste&nbsp;: une à une pour trouver un raisonnement,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "28",
+     "grec": "ὃν ἔτι ἐζήτησεν ἡ ψυχή μου καὶ οὐχ εὗρον ἄνθρωπον ἕνα ἀπὸ χιλίων εὗρον καὶ γυναῖκα ἐν πᾶσι τούτοις οὐχ εὗρον.",
+     "giguet": "Mon âme l'a cherchée cette raison, et je ne l'ai point trouvée, et j'ai trouvé un homme sur mille&nbsp;; mais parmi toutes les femmes, je n'en ai pas trouvé une seule.",
+     "alexandrie": "que mon âme a cherché et que je n'ai pas trouvé&nbsp;; et un homme sur mille, je l’ai trouvé et une femme parmi tous ceux-là, je ne l'ai pas trouvée.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "29",
+     "grec": "πλὴν ἰδὲ τοῦτο εὗρον ὃ ἐποίησεν ὁ θεὸς σὺν τὸν ἄνθρωπον εὐθῆ καὶ αὐτοὶ ἐζήτησαν λογισμοὺς πολλούς.",
+     "giguet": "Seulement voici ce que j'ai trouvé&nbsp;: Dieu a créé l'homme droit, et les hommes ont cherché une multitude de raisons.",
+     "alexandrie": "Excepté ceci, vois, que j’ai trouvé&nbsp;: Dieu a fait l'homme droit et eux, ils ont cherche maintes raisons.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 8,
+   "libelle": "8",
+   "fichierToc": "ECC/008.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "τίς οἶδεν σοφούς καὶ τίς οἶδεν λύσιν ῥήματος σοφία ἀνθρώπου φωτιεῖ πρόσωπον αὐτοῦ καὶ ἀναιδὴς προσώπῳ αὐτοῦ μισηθήσεται.",
+     "giguet": "Qui connaît les raisons véritables&nbsp;? Qui sait la solution des choses&nbsp;? La sagesse de l'homme se reflète sur son visage&nbsp;; le front de l'impudent inspire la haine.",
+     "alexandrie": "Qui connaît les sages&nbsp;? et qui connaît l’explication d’une chose&nbsp;? La sagesse d’un homme éclairera son visage, et l’impudent de visage sera haï.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "στόμα βασιλέως φύλαξον καὶ περὶ λόγου ὅρκου θεοῦ μὴ σπουδάσῃς.",
+     "giguet": "Observe le commandement du roi, et ne te hâte pas de prendre un engagement devant Dieu.",
+     "alexandrie": "La bouche du roi, surveille-la et, à propos du serment fait à Dieu, ne t’empresse pas&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἀπὸ προσώπου αὐτοῦ πορεύσῃ μὴ στῇς ἐν λόγῳ πονηρῷ ὅτι πᾶν ὃ ἐὰν θελήσῃ ποιήσει.",
+     "giguet": "Tu t'éloignerais de sa face&nbsp;; ne tiens pas à la parole si elle est coupable&nbsp;: car il fera tout ce qu'il voudra&nbsp;;",
+     "alexandrie": "tu iras loin de sa face, ne demeure pas dans une parole mauvaise&nbsp;; parce que, tout ce qu’il veut, il le fera,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καθὼς λαλεῖ βασιλεὺς ἐξουσιάζων καὶ τίς ἐρεῖ αὐτῷ τί ποιήσεις.",
+     "giguet": "Comme fait un roi puissant&nbsp;; et qui pourra lui dire&nbsp;: Qu'as-tu fait&nbsp;?",
+     "alexandrie": "comme parle un roi qui a l’autorité, et qui lui dira&nbsp;: Que feras-tu&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ὁ φυλάσσων ἐντολὴν οὐ γνώσεται ῥῆμα πονηρόν καὶ καιρὸν κρίσεως γινώσκει καρδία σοφοῦ.",
+     "giguet": "Celui qui observe les commandements ne connaîtra pas le mal, le cœur du sage sait le temps du jugement de Dieu.",
+     "alexandrie": "Celui qui garde un commandement ne connaîtra pas d’événement mauvais, et le moment du jugement, le cœur du sage le connaît&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ὅτι παντὶ πράγματι ἔστιν καιρὸς καὶ κρίσις ὅτι γνῶσις τοῦ ἀνθρώπου πολλὴ ἐπ' αὐτόν.",
+     "giguet": "Car pour toutes choses il y a temps et jugement, car il y a beaucoup à savoir sur l'homme.",
+     "alexandrie": "parce que pour tout acte il y a un moment et un jugement, parce que la connaissance de l’homme est multiple le concernant&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὅτι οὐκ ἔστιν γινώσκων τί τὸ ἐσόμενον ὅτι καθὼς ἔσται τίς ἀναγγελεῖ αὐτῷ.",
+     "giguet": "Mais nul ne sait ce qui doit arriver&nbsp;: que sera-ce&nbsp;? Qui le lui fera connaître&nbsp;?",
+     "alexandrie": "c’est que&nbsp;: il ne connaît pas ce qui sera, parce que&nbsp;: comme cela sera, qui le lui annoncera&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "οὐκ ἔστιν ἄνθρωπος ἐξουσιάζων ἐν πνεύματι τοῦ κωλῦσαι σὺν τὸ πνεῦμα καὶ οὐκ ἔστιν ἐξουσία ἐν ἡμέρᾳ τοῦ θανάτου καὶ οὐκ ἔστιν ἀποστολὴ ἐν τῷ πολέμῳ καὶ οὐ διασώσει ἀσέβεια τὸν παρ' αὐτῆς.",
+     "giguet": "Il n'est point d'homme qui ait pouvoir sur la vie, qui puisse la retenir&nbsp;; il n'a pas plus de pouvoir sur le jour de la mort&nbsp;; et il n'est point pour lui de trêve au jour de la bataille, et l'impiété ne sauvera pas ses habitués.",
+     "alexandrie": "Il n’y a pas d’homme puissant en souffle pour retenir le souffle&nbsp;; et il n’y a pas de pouvoir au jour de la mort, et il n’y a pas de cadeau au jour de la guerre, et l’impiété ne sauvera pas celui qui est à son côté.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ σὺν πᾶν τοῦτο εἶδον καὶ ἔδωκα τὴν καρδίαν μου εἰς πᾶν ποίημα ὃ πεποίηται ὑπὸ τὸν ἥλιον τὰ ὅσα ἐξουσιάσατο ὁ ἄνθρωπος ἐν ἀνθρώπῳ τοῦ κακῶσαι αὐτόν.",
+     "giguet": "Et j'ai vu toutes ces choses, et j'ai appliqué mon cœur à toute œuvre qui se fait sous le soleil&nbsp;; et j'ai vu les choses où l'homme a pris pouvoir sur l'homme, pour l'affliger.",
+     "alexandrie": "Et tout cela, je l’ai vu et j’ai donné mon cœur à toute œuvre qui a été faite sous le soleil, tout ce que l’homme a eu pouvoir de faire à l’homme pour le maltraiter.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ τότε εἶδον ἀσεβεῖς εἰς τάφους εἰσαχθέντας καὶ ἐκ τόπου ἁγίου ἐπορεύθησαν καὶ ἐπῃνέθησαν ἐν τῇ πόλει ὅτι οὕτως ἐποίησαν καί γε τοῦτο ματαιότης.",
+     "giguet": "Et j'ai vu des impies conduits à la sépulture, au sortir du lieu saint, et ils étaient allés dans leur voie, et ils avaient été loués dans la ville, parce qu'ils avaient ainsi fait&nbsp;; et cela encore est vanité.",
+     "alexandrie": "Et alors j'ai vu des impies conduits à leurs sépultures et du saint ils étaient partis et ils ont été loués dans la ville, parce qu’ils ont fait ainsi. Et vraiment, cela est folie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ὅτι οὐκ ἔστιν γινομένη ἀντίρρησις ἀπὸ τῶν ποιούντων τὸ πονηρὸν ταχύ διὰ τοῦτο ἐπληροφορήθη καρδία υἱῶν τοῦ ἀνθρώπου ἐν αὐτοῖς τοῦ ποιῆσαι τὸ πονηρόν.",
+     "giguet": "Car, parce que ceux qui font le mal ne sont point repris incontinent, le cœur des fils des hommes s'enhardit par leur exemple à mal faire.",
+     "alexandrie": "Parce qu’il n’y a pas de réfutation qui existe contre ceux qui font le mal rapidement&nbsp;; à cause de cela, le cœur des fils de l’homme s’est rempli pour faire le mal. Et vraiment, cela est folie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ὃς ἥμαρτεν ἐποίησεν τὸ πονηρὸν ἀπὸ τότε καὶ ἀπὸ μακρότητος αὐτῷ ὅτι καί γε γινώσκω ἐγὼ ὅτι ἔσται ἀγαθὸν τοῖς φοβουμένοις τὸν θεόν ὅπως φοβῶνται ἀπὸ προσώπου αὐτοῦ.",
+     "giguet": "Celui qui une fois a péché, a fait le mal depuis lors, et longtemps. Et moi je sais que Dieu est bon pour ceux qui craignent en sa présence.",
+     "alexandrie": "Celui qui a commis une faute, il a fait le mal depuis lors et depuis longtemps pour eux&nbsp;; parce que, vraiment, je sais, moi, qu’il y aura du bien pour ceux qui craignent Dieu, de sorte qu’ils craindront à cause de sa face&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ἀγαθὸν οὐκ ἔσται τῷ ἀσεβεῖ καὶ οὐ μακρυνεῖ ἡμέρας ἐν σκιᾷ ὃς οὐκ ἔστιν φοβούμενος ἀπὸ προσώπου τοῦ θεοῦ.",
+     "giguet": "Mais le bonheur ne sera pas pour l'impie, et il n'aura pas de longs jours&nbsp;; ils passeront comme l'ombre, parce qu'il ne craint pas la face de Dieu.",
+     "alexandrie": "et du bien, il n’y en aura pas pour l’impie, et il ne prolongera pas ses jours dans l’ombre, celui qui ne craint pas à cause de la face de Dieu.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἔστιν ματαιότης ἣ πεποίηται ἐπὶ τῆς γῆς ὅτι εἰσὶ δίκαιοι ὅτι φθάνει πρὸς αὐτοὺς ὡς ποίημα τῶν ἀσεβῶν καὶ εἰσὶν ἀσεβεῖς ὅτι φθάνει πρὸς αὐτοὺς ὡς ποίημα τῶν δικαίων εἶπα ὅτι καί γε τοῦτο ματαιότης.",
+     "giguet": "Voici encore une vanité qui existe sur la terre&nbsp;: il est des justes à qui il arrive comme à l'œuvre des impies&nbsp;; il est des impies à qui il arrive comme à l'œuvre des justes. Et cela, ai-je dit, est encore vanité.",
+     "alexandrie": "Il y a de la folie, qui est faite sur la terre, parce que&nbsp;: il y a des justes, il leur arrive comme si c’était œuvre des impies&nbsp;; et il y a des impies, il leur arrive comme si c’était œuvre des justes&nbsp;; j’ai dit que, vraiment, cela est folie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἐπῄνεσα ἐγὼ σὺν τὴν εὐφροσύνην ὅτι οὐκ ἔστιν ἀγαθὸν τῷ ἀνθρώπῳ ὑπὸ τὸν ἥλιον ὅτι εἰ μὴ τοῦ φαγεῖν καὶ τοῦ πιεῖν καὶ τοῦ εὐφρανθῆναι καὶ αὐτὸ συμπροσέσται αὐτῷ ἐν μόχθῳ αὐτοῦ ἡμέρας ζωῆς αὐτοῦ ὅσας ἔδωκεν αὐτῷ ὁ θεὸς ὑπὸ τὸν ἥλιον.",
+     "giguet": "Et c'est pourquoi (dit l'impie) j'ai loué toutes les joies&nbsp;; car il n'est rien de meilleur pour l'homme sous le soleil, sinon de manger, de boire et de se réjouir. Et cela seul lui restera de tout le labeur qu'il fait durant les jours de la vie que Dieu lui a données sous le soleil.",
+     "alexandrie": "Et j’ai loué, moi, la réjouissance, parce qu’il n’y a pas de bien pour l’homme sous le soleil sinon de manger, de boire et de se réjouir, et cela l’accompagnera dans son tourment pendant les jours de sa vie, tous ceux que Dieu lui a donnés sous le soleil.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἐν οἷς ἔδωκα τὴν καρδίαν μου τοῦ γνῶναι σοφίαν καὶ τοῦ ἰδεῖν τὸν περισπασμὸν τὸν πεποιημένον ἐπὶ τῆς γῆς ὅτι καί γε ἐν ἡμέρᾳ καὶ ἐν νυκτὶ ὕπνον ἐν ὀφθαλμοῖς αὐτοῦ οὐκ ἔστιν βλέπων.",
+     "giguet": "Dans ces pensées, j'ai appliqué mon cœur à connaître la sagesse, et à voir l'inquiétude qui naît sur la terre&nbsp;; car la nuit comme le jour, il n'est personne qui de ses yeux voie le sommeil.",
+     "alexandrie": "Pendant que j’ai adonné mon cœur à connaître la sagesse et à voir le tracas qui s’est fait sur la terre, parce que&nbsp;: vraiment, de jour et de nuit il n’y en a pas qui voie le sommeil de ses yeux,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ εἶδον σὺν πάντα τὰ ποιήματα τοῦ θεοῦ ὅτι οὐ δυνήσεται ἄνθρωπος τοῦ εὑρεῖν σὺν τὸ ποίημα τὸ πεποιημένον ὑπὸ τὸν ἥλιον ὅσα ἂν μοχθήσῃ ὁ ἄνθρωπος τοῦ ζητῆσαι καὶ οὐχ εὑρήσει καί γε ὅσα ἂν εἴπῃ ὁ σοφὸς τοῦ γνῶναι οὐ δυνήσεται τοῦ εὑρεῖν.",
+     "giguet": "Et j'ai vu toutes les œuvres de Dieu, et j'ai vu que l'homme ne pourra jamais s'expliquer l'œuvre qui se fait sous le soleil. Quelque fatigue qu'il se donne pour chercher, il ne la trouvera pas et, quelque science même que le sage croie avoir, il ne pourra la trouver.",
+     "alexandrie": "et j’ai vu toutes les œuvres de Dieu, et que l’homme ne pourra pas trouver l’œuvre qui a été faite sous le soleil&nbsp;; tout ce dont l’homme peut être tourmenté pour le chercher, et il ne le trouvera pas&nbsp;; et vraiment, tout ce que le sage peut dire pour le connaître, il ne pourra pas le trouver.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 9,
+   "libelle": "9",
+   "fichierToc": "ECC/009.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ὅτι σὺν πᾶν τοῦτο ἔδωκα εἰς καρδίαν μου καὶ καρδία μου σὺν πᾶν εἶδεν τοῦτο ὡς οἱ δίκαιοι καὶ οἱ σοφοὶ καὶ ἐργασίαι αὐτῶν ἐν χειρὶ τοῦ θεοῦ καί γε ἀγάπην καί γε μῖσος οὐκ ἔστιν εἰδὼς ὁ ἄνθρωπος τὰ πάντα πρὸ προσώπου αὐτῶν.",
+     "giguet": "C'est pourquoi j'ai déposé toutes ces choses en mon cœur, et mon cœur a vu toutes ces choses&nbsp;; il a vu que les justes et les sages et leurs œuvres sont dans la main de Dieu, et l'homme ne sait s'il est digne d'amour ou de haine&nbsp;; tout est placé devant eux.",
+     "alexandrie": "Parce que tout cela je l’ai donné à mon cœur, et mon cœur a vu tout cela, que les justes et les sages et leurs travaux sont dans la main de Dieu, et vraiment l’amour et vraiment la haine, l’homme ne les connaît pas&nbsp;; tout devant leur face.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ματαιότης ἐν τοῖς πᾶσιν συνάντημα ἓν τῷ δικαίῳ καὶ τῷ ἀσεβεῖ τῷ ἀγαθῷ καὶ τῷ κακῷ καὶ τῷ καθαρῷ καὶ τῷ ἀκαθάρτῳ καὶ τῷ θυσιάζοντι καὶ τῷ μὴ θυσιάζοντι ὡς ὁ ἀγαθός ὧς ὁ ἁμαρτάνων ὧς ὁ ὀμνύων καθὼς ὁ τὸν ὅρκον φοβούμενος.",
+     "giguet": "En tout il y a de la vantité&nbsp;: mêmes choses adviennent au juste et à l'impie, au bon et au méchant, au pur et à l'impur, à celui qui sacrifie et à celui qui ne sacrifie pas. Il en est du bon comme du pécheur, du parjure comme de l'homme qui respecte son serment.",
+     "alexandrie": "Folie chez tous. Même adversité pour le juste et pour l’impie, pour le bon et pour le mauvais, et pour le pur et pour l’impur, et pour celui qui offre des sacrifices et pour celui qui n’offre pas de sacrifices&nbsp;; comme est le bon, ainsi est celui qui commet des fautes&nbsp;; comme celui qui jure, de même celui qui craint le serment.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "τοῦτο πονηρὸν ἐν παντὶ πεποιημένῳ ὑπὸ τὸν ἥλιον ὅτι συνάντημα ἓν τοῖς πᾶσιν καί γε καρδία υἱῶν τοῦ ἀνθρώπου ἐπληρώθη πονηροῦ καὶ περιφέρεια ἐν καρδίᾳ αὐτῶν ἐν ζωῇ αὐτῶν καὶ ὀπίσω αὐτῶν πρὸς τοὺς νεκρούς.",
+     "giguet": "Et c'est le pire de tout ce qui a été créé sous le soleil, que les mêmes choses adviennent à tous&nbsp;; aussi le cœur des fils des hommes est-il plein de malice, et d'égarement tout au cours de leur vie&nbsp;; et après cela ils s'en vont chez les morts.",
+     "alexandrie": "Ceci est mauvais dans tout ce qui a été fait sous le soleil&nbsp;: qu’il y ait même adversité pour tous&nbsp;; et vraiment, le cœur des fils de l’homme a été rempli de mal, et le dévoiement est en leur cœur dans leur vie, et après eux, chez les morts.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ὅτι τίς ὃς κοινωνεῖ πρὸς πάντας τοὺς ζῶντας ἔστιν ἐλπίς ὅτι ὁ κύων ὁ ζῶν αὐτὸς ἀγαθὸς ὑπὲρ τὸν λέοντα τὸν νεκρόν.",
+     "giguet": "Car pour tout homme qui a part avec les vivants, il y a de l'espoir&nbsp;: un chien vivant vaut mieux qu'un lion mort.",
+     "alexandrie": "Parce que&nbsp;: qui est celui qui a en commun avec tous les vivants&nbsp;? Il y a de l’espérance parce que le chien vivant est, lui, bon, plus que le lion mort.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ὅτι οἱ ζῶντες γνώσονται ὅτι ἀποθανοῦνται καὶ οἱ νεκροὶ οὔκ εἰσιν γινώσκοντες οὐδέν καὶ οὐκ ἔστιν αὐτοῖς ἔτι μισθός ὅτι ἐπελήσθη ἡ μνήμη αὐτῶν.",
+     "giguet": "Les vivants savent qu'ils mourront, les morts ne savent rien&nbsp;; et il n'est plus pour eux de récompense, et leur mémoire est en oubli.",
+     "alexandrie": "Parce que&nbsp;: les vivants connaîtront qu’ils mourront, et les morts ne connaissent rien&nbsp;; et il n’y a plus pour eux de salaire parce que leur souvenir a été oublié&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καί γε ἀγάπη αὐτῶν καί γε μῖσος αὐτῶν καί γε ζῆλος αὐτῶν ἤδη ἀπώλετο καὶ μερὶς οὐκ ἔστιν αὐτοῖς ἔτι εἰς αἰῶνα ἐν παντὶ τῷ πεποιημένῳ ὑπὸ τὸν ἥλιον.",
+     "giguet": "Leur amour, leur haine, leur jalousie ont péri depuis longtemps&nbsp;; il n'ya plus désormais de part pour eux en tout ce qui se fait sous le soleil.",
+     "alexandrie": "et vraiment leur amour et vraiment leur haine et vraiment leur jalousie ont déjà péri, et ils n’ont plus leur part à jamais dans tout ce qui a été fait sous le soleil.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "δεῦρο φάγε ἐν εὐφροσύνῃ ἄρτον σου καὶ πίε ἐν καρδίᾳ ἀγαθῇ οἶνόν σου ὅτι ἤδη εὐδόκησεν ὁ θεὸς τὰ ποιήματά σου.",
+     "giguet": "Va&nbsp;! mange avec joie ton pain, bois de bon cœur ton vin, car tes œuvres sont agréables à Dieu.",
+     "alexandrie": "Allons, mange avec réjouissance ton pain, et bois avec bon cœur ton vin, parce que déjà Dieu a approuvé tes œuvres.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἐν παντὶ καιρῷ ἔστωσαν ἱμάτιά σου λευκά καὶ ἔλαιον ἐπὶ κεφαλήν σου μὴ ὑστερησάτω.",
+     "giguet": "En tout temps porte des vêtements blancs, et ne manque pas de parfumer ta tête.",
+     "alexandrie": "À tout moment, que tes vêtements demeurent blancs, et que l’huile sur ta tête ne manque pas.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἰδὲ ζωὴν μετὰ γυναικός ἧς ἠγάπησας πάσας ἡμέρας ζωῆς ματαιότητός σου τὰς δοθείσας σοι ὑπὸ τὸν ἥλιον πάσας ἡμέρας ματαιότητός σου ὅτι αὐτὸ μερίς σου ἐν τῇ ζωῇ σου καὶ ἐν τῷ μόχθῳ σου ᾧ σὺ μοχθεῖς ὑπὸ τὸν ἥλιον.",
+     "giguet": "Passe ta vie avec la femme que tu as aimée, tous les jours de ton existence passagère qui ton été donnés sous le soleil&nbsp;; car c'est là ton partage en ta vie, et le prix du labeur que tu as gagné sous le soleil.",
+     "alexandrie": "Vois la vie avec la femme que tu as aimée, durant tous les jours de ta vie de folie, ceux qui t’ont été donnés sous le soleil, tous les jours de ta folie, parce que c’est ta part dans ta vie et dans ton tourment, celui dont tu es tourmenté sous le soleil.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "πάντα ὅσα ἂν εὕρῃ ἡ χείρ σου τοῦ ποιῆσαι ὡς ἡ δύναμίς σου ποίησον ὅτι οὐκ ἔστιν ποίημα καὶ λογισμὸς καὶ γνῶσις καὶ σοφία ἐν ᾅδῃ ὅπου σὺ πορεύῃ ἐκεῖ.",
+     "giguet": "Tout ce que ta main aura trouvé à faire, fais-le selon tes forces; car il n'y a ni œuvres, ni raison, ni savoir, ni sagesse dans le tombeau où tu cours.",
+     "alexandrie": "Tout ce que ta main trouve à faire, à la mesure de ta force fais-le, parce qu’il n’y a pas d’œuvre, de raisonnement, de connaissance et de sagesse dans l’Hadès, là où tu vas, là-bas.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἐπέστρεψα καὶ εἶδον ὑπὸ τὸν ἥλιον ὅτι οὐ τοῖς κούφοις ὁ δρόμος καὶ οὐ τοῖς δυνατοῖς ὁ πόλεμος καί γε οὐ τοῖς σοφοῖς ἄρτος καί γε οὐ τοῖς συνετοῖς πλοῦτος καί γε οὐ τοῖς γινώσκουσιν χάρις ὅτι καιρὸς καὶ ἀπάντημα συναντήσεται τοῖς πᾶσιν αὐτοῖς.",
+     "giguet": "Et je me suis tourné d'un autre côté, et j'ai vu sous le soleil que la course n'est pas pour les agiles, ni la guerre pour les forts, ni le pain pour les sages, ni la richesse pour les intelligents, ni la faveur pour les savants&nbsp;; car l'occasion et la chance sont pour tous.",
+     "alexandrie": "Je me suis retourné et j’ai vu sous le soleil que&nbsp;: pour les esprits agiles, pas de course, et, pour les puissants, pas de guerre, et vraiment pour les sages, pas de pain, et vraiment pour les intelligents, pas de richesse et vraiment pour ceux qui savent, pas de grâce, parce qu'il y aura un moment et un sort qui seront le sort d’eux tous.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ὅτι καί γε οὐκ ἔγνω ὁ ἄνθρωπος τὸν καιρὸν αὐτοῦ ὡς οἱ ἰχθύες οἱ θηρευόμενοι ἐν ἀμφιβλήστρῳ κακῷ καὶ ὡς ὄρνεα τὰ θηρευόμενα ἐν παγίδι ὡς αὐτὰ παγιδεύονται οἱ υἱοὶ τοῦ ἀνθρώπου εἰς καιρὸν πονηρόν ὅταν ἐπιπέσῃ ἐπ' αὐτοὺς ἄφνω.",
+     "giguet": "L'homme ne connaît pas plus sa fin que le poisson retenu dans le filet perfide ou l'oiseau pris au piège; comme eux, les enfants des hommes sont capturés par l'adversité, lorsque soudain elle tombe sur eux.",
+     "alexandrie": "Parce que vraiment, l’homme ne connaît pas son moment&nbsp;; comme les poissons pourchassés dans une nasse mauvaise et comme des oiseaux pourchassés dans un piège, comme eux les fils de l’homme sont pris au piège au mauvais moment, lorsqu’il tombe sur eux soudain.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καί γε τοῦτο εἶδον σοφίαν ὑπὸ τὸν ἥλιον καὶ μεγάλη ἐστὶν πρός με.",
+     "giguet": "J'ai vu encore ceci&nbsp;: j'ai vu la sagesse sous le soleil, et grande elle est à mes yeux.",
+     "alexandrie": "Et vraiment, cela, j’ai vu que cela était la sagesse sous le soleil, et elle est grande pour moi.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "πόλις μικρὰ καὶ ἄνδρες ἐν αὐτῇ ὀλίγοι καὶ ἔλθῃ ἐπ' αὐτὴν βασιλεὺς μέγας καὶ κυκλώσῃ αὐτὴν καὶ οἰκοδομήσῃ ἐπ' αὐτὴν χάρακας μεγάλους.",
+     "giguet": "Il était une ville petite, et dans ses murs il y avait peu d'hommes; et un grand roi marchait contre elle, et il l'investit, et il éleva tout alentour de hautes palissades.",
+     "alexandrie": "Une ville petite et des hommes, dedans, peu nombreux, et qu’un grand roi vienne contre elle, l’encercle et établisse contre elle de grands retranchements&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ εὕρῃ ἐν αὐτῇ ἄνδρα πένητα σοφόν καὶ διασώσει αὐτὸς τὴν πόλιν ἐν τῇ σοφίᾳ αὐτοῦ καὶ ἄνθρωπος οὐκ ἐμνήσθη σὺν τοῦ ἀνδρὸς τοῦ πένητος ἐκείνου.",
+     "giguet": "Et il se trouva, en cette ville, un homme pauvre et sage, et il la sauva par sa sagesse, et nul ne se souvint de cet homme pauvre et sage.",
+     "alexandrie": "et qu’on trouve en elle un homme pauvre, sage, et il sauvera lui-même la ville dans sa sagesse&nbsp;; et pas un homme ne s’est souvenu de cet homme pauvre.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ εἶπα ἐγώ ἀγαθὴ σοφία ὑπὲρ δύναμιν καὶ σοφία τοῦ πένητος ἐξουδενωμένη καὶ λόγοι αὐτοῦ οὔκ εἰσιν ἀκουόμενοι.",
+     "giguet": "Et je me suis dit&nbsp;: La sagesse prévaut sur la force, et la sagesse du pauvre est méprisée; ses discours ne sont point écoutés.",
+     "alexandrie": "Et j’ai dit, moi&nbsp;: «&nbsp;Bonne la sagesse, plus que la puissance&nbsp;; et la sagesse du pauvre est réduite à rien, et ses discours ne sont pas entendus.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "λόγοι σοφῶν ἐν ἀναπαύσει ἀκούονται ὑπὲρ κραυγὴν ἐξουσιαζόντων ἐν ἀφροσύναις.",
+     "giguet": "Mieux est écoutée la parole du sage, dans le calme, que la clameur des princes dans leur folie.",
+     "alexandrie": "Les discours des sages sont entendus dans le repos, plus que la clameur de ceux qui ont du pouvoir dans les déraisons.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἀγαθὴ σοφία ὑπὲρ σκεύη πολέμου καὶ ἁμαρτάνων εἷς ἀπολέσει ἀγαθωσύνην πολλήν.",
+     "giguet": "Mieux vaut la sagesse que des armes de guerre; une seule faute peut ruiner une grande prospérité.",
+     "alexandrie": "Bonne est la sagesse plus que les préparatifs de guerre, et un seul homme qui pèche fera périr bien du bénéfice.&nbsp;»",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 10,
+   "libelle": "10",
+   "fichierToc": "ECC/010.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "μυῖαι θανατοῦσαι σαπριοῦσιν σκευασίαν ἐλαίου ἡδύσματος τίμιον ὀλίγον σοφίας ὑπὲρ δόξαν ἀφροσύνης μεγάλης.",
+     "giguet": "Des mouches mortes gâtent une fiole d'huile parfumée&nbsp;; mieux vaut un peu de sagesse qu'une grande gloire avec de la folie.",
+     "alexandrie": "Des mouches mortifères putréfieront une préparation d’huile d’agrément&nbsp;; précieuse chose qu’un peu de sagesse, plus que la réputation d’une grande déraison.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καρδία σοφοῦ εἰς δεξιὸν αὐτοῦ καὶ καρδία ἄφρονος εἰς ἀριστερὸν αὐτοῦ.",
+     "giguet": "Le cœur du sage est dans sa main droite&nbsp;; le cœur de l'impie est dans sa main gauche.",
+     "alexandrie": "Le cœur du sage est à sa droite et le cœur de l’insensé à sa gauche&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καί γε ἐν ὁδῷ ὅταν ἄφρων πορεύηται καρδία αὐτοῦ ὑστερήσει καὶ ἃ λογιεῖται πάντα ἀφροσύνη ἐστίν.",
+     "giguet": "Même quand l'insensé chemine dans sa voie, le cœur lui manque, et tout ce qu'il pense n'est que folie.",
+     "alexandrie": "et vraiment, lorsqu’un insensé marchera sur le chemin, son cœur viendra à manquer, et tout ce qu’il raisonnera est déraison.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἐὰν πνεῦμα τοῦ ἐξουσιάζοντος ἀναβῇ ἐπὶ σέ τόπον σου μὴ ἀφῇς ὅτι ἴαμα καταπαύσει ἁμαρτίας μεγάλας.",
+     "giguet": "Si l'esprit de celui qui a le pouvoir s'élève contre toi, ne quitte point ta demeure&nbsp;; car un remède fera cesser de grands péchés.",
+     "alexandrie": "Si le souffle du puissant monte contre toi, ne cède pas ta place, parce qu’un remède fera cesser de grandes fautes.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ἔστιν πονηρία ἣν εἶδον ὑπὸ τὸν ἥλιον ὡς ἀκούσιον ὃ ἐξῆλθεν ἀπὸ προσώπου τοῦ ἐξουσιάζοντος.",
+     "giguet": "Il est encore un mal que j'ai vu sous le soleil, sortant comme involontairement de la face de celui qui a le pouvoir.",
+     "alexandrie": "Il y a une méchanceté que j’ai vue sous le soleil, comme quelque chose d’inintentionnel qui est sorti de la face du puissant&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἐδόθη ὁ ἄφρων ἐν ὕψεσι μεγάλοις καὶ πλούσιοι ἐν ταπεινῷ καθήσονται.",
+     "giguet": "L'insensé a été promu aux grandeurs, et les riches seront assis au dernier rang.",
+     "alexandrie": "l’insensé a été donné dans de grandes hauteurs, et les riches siégeront dans l’humble&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "εἶδον δούλους ἐφ' ἵππους καὶ ἄρχοντας πορευομένους ὡς δούλους ἐπὶ τῆς γῆς.",
+     "giguet": "J'ai vu des serviteurs à cheval, et des princes marcher à pied comme des esclaves.",
+     "alexandrie": "j’ai vu des esclaves à cheval et des chefs qui allaient comme des esclaves sur la terre.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ὁ ὀρύσσων βόθρον ἐν αὐτῷ ἐμπεσεῖται καὶ καθαιροῦντα φραγμόν δήξεται αὐτὸν ὄφις.",
+     "giguet": "Celui qui creuse une fosse y tombera, et celui qui détruit une haie, le serpent le mordra.",
+     "alexandrie": "Celui qui creuse une fosse y tombera et, qui détruit une clôture, un serpent le mordra&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἐξαίρων λίθους διαπονηθήσεται ἐν αὐτοῖς σχίζων ξύλα κινδυνεύσει ἐν αὐτοῖς.",
+     "giguet": "Celui qui ramasse des pierres s'y blessera lui-même, et celui qui fend du bois se met en péril.",
+     "alexandrie": "enlève-t-on des pierres, on en subira de la peine, fend-on du bois, on y encourra du danger.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἐὰν ἐκπέσῃ τὸ σιδήριον καὶ αὐτὸς πρόσωπον ἐτάραξεν καὶ δυνάμεις δυναμώσει καὶ περισσεία τοῦ ἀνδρείου σοφία.",
+     "giguet": "Si son fer lui échappe, il en a le visage troublé&nbsp;; et il rassemble ses forces, mais plus que de la virilité, il faut de la sagesse.",
+     "alexandrie": "Si tombe le fer, et lui a eu la face troublée et il renforcera ses forces et l’avantage du courageux, c’est la sagesse.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἐὰν δάκῃ ὁ ὄφις ἐν οὐ ψιθυρισμῷ καὶ οὐκ ἔστιν περισσεία τῷ ἐπᾴδοντι.",
+     "giguet": "Un charmeur ne tire pas grand profit de son art, si un serpent le mord sans siffler.",
+     "alexandrie": "Si le serpent mord sans murmure et il n’y a pas d’avantage pour le charmeur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "λόγοι στόματος σοφοῦ χάρις καὶ χείλη ἄφρονος καταποντιοῦσιν αὐτόν.",
+     "giguet": "La grâce découle de la bouche du sage, et les lèvres de l'insensé le font trébucher.",
+     "alexandrie": "Les discours de la bouche d’un sage sont grâce et les lèvres de l’insensé l’engloutiront&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἀρχὴ λόγων στόματος αὐτοῦ ἀφροσόνη καὶ ἐσχάτη στόματος αὐτοῦ περιφέρεια πονηρά.",
+     "giguet": "Il commence par les folies de sa langue&nbsp;; il finit par les méchancetés de ses lèvres.",
+     "alexandrie": "le commencement des discours de sa bouche est déraison, et leur fin dévoiement mauvais de sa bouche.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ὁ ἄφρων πληθύνει λόγους οὐκ ἔγνω ὁ ἄνθρωπος τί τὸ γενόμενον καὶ τί τὸ ἐσόμενον ὀπίσω αὐτοῦ τίς ἀναγγελεῖ αὐτῷ.",
+     "giguet": "Car l'insensé multiplie les paroles. L'homme ne sait ni le passé ni l'avenir&nbsp;; et ce qui viendra après lui, qui le lui prédira&nbsp;?",
+     "alexandrie": "Et l’insensé multiplie les discours. L’homme ne sait pas ce qui a existé et, ce qui sera après lui, qui le lui annoncera&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "μόχθος τῶν ἀφρόνων κοπώσει αὐτούς ὃς οὐκ ἔγνω τοῦ πορευθῆναι εἰς πόλιν.",
+     "giguet": "Le travail des insensés leur sera funeste, comme celui de l'homme qui ne sait pas le chemin pour aller à la ville.",
+     "alexandrie": "Le tourment des insensés les fatiguera, celui qui ne sait pas aller vers la ville.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "οὐαί σοι πόλις ἧς ὁ βασιλεύς σου νεώτερος καὶ οἱ ἄρχοντές σου ἐν πρωίᾳ ἐσθίουσιν.",
+     "giguet": "Malheur à toi, ville dont le roi est jeune, et où les princes sont à table dès le matin&nbsp;!",
+     "alexandrie": "Malheur à toi, ville dont le roi est un jeune, et dont les chefs mangent au matin&nbsp;!",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "μακαρία σύ γῆ ἧς ὁ βασιλεύς σου υἱὸς ἐλευθέρων καὶ οἱ ἄρχοντές σου πρὸς καιρὸν φάγονται ἐν δυνάμει καὶ οὐκ αἰσχυνθήσονται.",
+     "giguet": "Heureuse es-tu, terre dont le roi sera fils d'hommes libres, et où les princes mangeront au temps opportun, pour soutenir leurs forces, et n'auront pas à rougir de leurs excès.",
+     "alexandrie": "Bienheureuse es-tu, terre, dont le roi est fils d’hommes libres et dont les chefs mangent au bon moment avec puissance, et ils ne seront pas couverts de honte.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἐν ὀκνηρίαις ταπεινωθήσεται ἡ δόκωσις καὶ ἐν ἀργίᾳ χειρῶν στάξει ἡ οἰκία.",
+     "giguet": "Le plancher du paresseux s'affaissera, et, à cause de l'inertie de ses mains, dans sa maison tombera la pluie goutte à goutte.",
+     "alexandrie": "Dans les lenteurs la charpente sera abaissée et dans la paresse des bras la maison suintera.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "εἰς γέλωτα ποιοῦσιν ἄρτον καὶ οἶνος εὐφραίνει ζῶντας καὶ τοῦ ἀργυρίου ἐπακούσεται σὺν τὰ πάντα.",
+     "giguet": "Ils font du pain pour se réjouir, et du vin qui égaie les vivants&nbsp;; ainsi toutes choses obéiront à l'argent.",
+     "alexandrie": "Pour le rire ils font du pain et le vin réjouit les vivants et on obéira à l’argent pour tout.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καί γε ἐν συνειδήσει σου βασιλέα μὴ καταράσῃ καὶ ἐν ταμιείοις κοιτώνων σου μὴ καταράσῃ πλούσιον ὅτι πετεινὸν τοῦ οὐρανοῦ ἀποίσει σὺν τὴν φωνήν καὶ ὁ ἔχων τὰς πτέρυγας ἀπαγγελεῖ λόγον.",
+     "giguet": "Toutefois, même dans le secret de la conscience, ne maudis point le roi&nbsp;; dans ta chambre à coucher, ne maudis point le riche, car quelque oiseau du ciel rapporterait tes paroles, quelque insecte ailé publierait tes discours.",
+     "alexandrie": "Et vraiment, dans ta conscience, ne maudis pas le roi, et dans les resserres de tes chambres à coucher, ne maudis pas le riche&nbsp;; parce que l’oiseau du ciel rapportera la parole, et celui qui a des ailes annoncera un discours.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 11,
+   "libelle": "11",
+   "fichierToc": "ECC/011.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἀπόστειλον τὸν ἄρτον σου ἐπὶ πρόσωπον τοῦ ὕδατος ὅτι ἐν πλήθει τῶν ἡμερῶν εὑρήσεις αὐτόν.",
+     "giguet": "Laisse aller ton pain au cours de l'eau&nbsp;; car après bien des jours tu le retrouveras.",
+     "alexandrie": "Laisse aller ton pain a la surface de l’eau, parce que dans l’abondance de tes jours tu le trouveras&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "δὸς μερίδα τοῖς ἑπτὰ καί γε τοῖς ὀκτώ ὅτι οὐ γινώσκεις τί ἔσται πονηρὸν ἐπὶ τὴν γῆν.",
+     "giguet": "Distribues-en à sept, même à huit personnes&nbsp;; car tu ignores ce qu'il doit y avoir de maux sur la terre.",
+     "alexandrie": "donne une part aux sept et vraiment aux huit, parce que tu ne connais pas ce qui sera mauvais sur la terre.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἐὰν πληρωθῶσιν τὰ νέφη ὑετοῦ ἐπὶ τὴν γῆν ἐκχέουσιν καὶ ἐὰν πέσῃ ξύλον ἐν τῷ νότῳ καὶ ἐὰν ἐν τῷ βορρᾷ τόπῳ οὗ πεσεῖται τὸ ξύλον ἐκεῖ ἔσται.",
+     "giguet": "Lorsque les nuées sont pleines, elles fondent en pluie sur la terre&nbsp;; et si un arbre tombe au midi ou au nord, il restera là où il sera tombé.",
+     "alexandrie": "Si les nuées sont pleines de pluie, elles la déversent sur la terre&nbsp;; et, si du bois tombe dans le sud et s’il en tombe dans le nord, le lieu où le bois tombera, il sera là-bas.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "τηρῶν ἄνεμον οὐ σπερεῖ καὶ βλέπων ἐν ταῖς νεφέλαις οὐ θερίσει.",
+     "giguet": "Celui qui observe le vent ne sèmera pas&nbsp;; et celui qui regarde aux nuages ne moissonnera pas.",
+     "alexandrie": "Observe-t-on le vent, on ne sèmera pas, et regarde-t-on dans les nuages, on ne moissonnera pas,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ἐν οἷς οὐκ ἔστιν γινώσκων τίς ἡ ὁδὸς τοῦ πνεύματος ὡς ὀστᾶ ἐν γαστρὶ τῆς κυοφορούσης οὕτως οὐ γνώσῃ τὰ ποιήματα τοῦ θεοῦ ὅσα ποιήσει σὺν τὰ πάντα.",
+     "giguet": "Car nul ne sait quelle est le chemin du vent&nbsp;; comme les os cachés dans les entrailles de la femme grosse, de même te sont cachées les œuvres que Dieu a faites et toutes celle qu'Il fera encore.",
+     "alexandrie": "parmi ceux dont pas un ne sait quel est le chemin du vent. Comme des os dans le sein de celle qui porte un enfant, ainsi tu ne connaîtras pas les œuvres de Dieu, celles qu’il fera, toutes.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἐν πρωίᾳ σπεῖρον τὸ σπέρμα σου καὶ εἰς ἑσπέραν μὴ ἀφέτω ἡ χείρ σου ὅτι οὐ γινώσκεις ποῖον στοιχήσει ἢ τοῦτο ἢ τοῦτο καὶ ἐὰν τὰ δύο ἐπὶ τὸ αὐτὸ ἀγαθά.",
+     "giguet": "Sème ton grain dès l'aurore, et que ta main ne s'arrête pas le soir&nbsp;; car tu ignores de celui-ci ou de celui-là lequel doit lever&nbsp;; s'ils lèvent tous les deux à la fois, c'est bien.",
+     "alexandrie": "Au matin, sème ta semence, et vers le soir que ta main ne se relâche pas, parce que tu ne connais pas laquelle rendra, ou celle-là ou celle-ci, et si les deux sont bonnes de même.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ γλυκὺ τὸ φῶς καὶ ἀγαθὸν τοῖς ὀφθαλμοῖς τοῦ βλέπειν σὺν τὸν ἥλιον.",
+     "giguet": "La lumière est douce, et il est bon aux yeux de voir le soleil.",
+     "alexandrie": "Et douce la lumière et bonne chose pour les yeux que de voir le soleil&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ὅτι καὶ ἐὰν ἔτη πολλὰ ζήσεται ὁ ἄνθρωπος ἐν πᾶσιν αὐτοῖς εὐφρανθήσεται καὶ μνησθήσεται τὰς ἡμέρας τοῦ σκότους ὅτι πολλαὶ ἔσονται πᾶν τὸ ἐρχόμενον ματαιότης.",
+     "giguet": "L'homme qui doit vivre beaucoup d'années trouvera en toutes de la joie, et il se souviendra des jours de ténèbres, car ils seront nombreux. Tout ce qui vient est vanité.",
+     "alexandrie": "parce que, même si l’homme vit de nombreuses années, en toutes celles-ci il sera réjoui et se souviendra, quant aux jours d’obscurité, qu’ils seront nombreux&nbsp;; tout ce qui vient est folie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "εὐφραίνου νεανίσκε ἐν νεότητί σου καὶ ἀγαθυνάτω σε ἡ καρδία σου ἐν ἡμέραις νεότητός σου καὶ περιπάτει ἐν ὁδοῖς καρδίας σου καὶ ἐν ὁράσει ὀφθαλμῶν σου καὶ γνῶθι ὅτι ἐπὶ πᾶσι τούτοις ἄξει σε ὁ θεὸς ἐν κρίσει.",
+     "giguet": "Jeune homme, réjouis-toi en ta jeunesse&nbsp;; que, durant les jours de ta jeunesse, ton cœur te réjouisse&nbsp;; marche avec innocence dans les voies de ton cœur, et dans ce que tes yeux auront vu. Mais sache que pour toutes ces choses le Seigneur t'appellera en jugement.",
+     "alexandrie": "Réjouis-toi, jeune homme, dans ta jeunesse, et que ton cœur te rende bon dans les jours de ta jeunesse, et promène-toi par les chemins de ton cœur, irréprochable, et par la vision de tes yeux, et sache que pour toutes ces choses Dieu te fera venir en jugement.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ ἀπόστησον θυμὸν ἀπὸ καρδίας σου καὶ παράγαγε πονηρίαν ἀπὸ σαρκός σου ὅτι ἡ νεότης καὶ ἡ ἄνοια ματαιότης.",
+     "giguet": "Éloigne de ton cœur la colère, et bannis de ta chair la méchanceté&nbsp;; car la jeunesse et la folie sont vanité.",
+     "alexandrie": "Et écarte l’emportement loin de ton cœur et emmène la méchanceté loin de ta chair parce que&nbsp;: la jeunesse et la démence sont folie.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 12,
+   "libelle": "12",
+   "fichierToc": "ECC/012.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ μνήσθητι τοῦ κτίσαντός σε ἐν ἡμέραις νεότητός σου ἕως ὅτου μὴ ἔλθωσιν ἡμέραι τῆς κακίας καὶ φθάσωσιν ἔτη ἐν οἷς ἐρεῖς οὐκ ἔστιν μοι ἐν αὐτοῖς θέλημα.",
+     "giguet": "Et, durant les jours de ta jeunesse, souviens-toi de Celui qui t'a créé&nbsp;; avant que les jours de l'adversité soient venus, avant que tu sois surpris par les années, où tu diras&nbsp;: Je n'ai point en elles de volonté&nbsp;;",
+     "alexandrie": "Et souviens-toi de celui qui t’a créé aux jours de ta jeunesse, aussi longtemps que ne viennent pas les jours du malheur et que n’arrivent pas les années dans lesquelles tu diras&nbsp;: Je n’ai pas en elles de bon vouloir&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἕως οὗ μὴ σκοτισθῇ ὁ ἥλιος καὶ τὸ φῶς καὶ ἡ σελήνη καὶ οἱ ἀστέρες καὶ ἐπιστρέψωσιν τὰ νέφη ὀπίσω τοῦ ὑετοῦ.",
+     "giguet": "Avant que le soleil et la lumière s'obscurcissent, et la lune, et les étoiles&nbsp;; avant que les nuées succèdent à la pluie&nbsp;;",
+     "alexandrie": "aussi longtemps que ne se sont pas obscurcis le soleil, la lumière, la lune et les étoiles, et que les nuages ne se sont pas détournés après la pluie&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἐν ἡμέρᾳ ᾗ ἐὰν σαλευθῶσιν φύλακες τῆς οἰκίας καὶ διαστραφῶσιν ἄνδρες τῆς δυνάμεως καὶ ἤργησαν αἱ ἀλήθουσαι ὅτι ὠλιγώθησαν καὶ σκοτάσουσιν αἱ βλέπουσαι ἐν ταῖς ὀπαῖς.",
+     "giguet": "Comme il arrivera le jour où les gardiens de la maison trembleront&nbsp;; où les hommes les plus forts plieront le dos&nbsp;; où les esclaves attachés à la meule s'arrêteront faute de force&nbsp;; où celles qui regarderont par la fenêtre ne verront que ténèbres&nbsp;;",
+     "alexandrie": "du jour où les gardiens de la maison seront ébranlés, et où les hommes de puissance seront tordus et où ont cessé leur travail celles qui sont à la meule, parce qu’elles étaient en petit nombre, et elles s’obscurciront, celles qui regardaient dans les trous&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ κλείσουσιν θύρας ἐν ἀγορᾷ ἐν ἀσθενείᾳ φωνῆς τῆς ἀληθούσης καὶ ἀναστήσεται εἰς φωνὴν τοῦ στρουθίου καὶ ταπεινωθήσονται πᾶσαι αἱ θυγατέρες τοῦ ᾄσματος.",
+     "giguet": "Quand ils fermeront les portes du marché, parce que la voix de celle qui avait accoutumé de moudre sera affaiblie&nbsp;; quand on se lèvera au chant du passereau, et que les filles du chant seront humiliées&nbsp;;",
+     "alexandrie": "et elles fermeront les portes sur la place dans la faiblesse de la voix de celle qui est à la meule, et elle se lèvera à la voix du moineau et toutes les filles du chant seront abaissées,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καί γε ἀπὸ ὕψους ὄψονται καὶ θάμβοι ἐν τῇ ὁδῷ καὶ ἀνθήσῃ τὸ ἀμύγδαλον καὶ παχυνθῇ ἡ ἀκρίς καὶ διασκεδασθῇ ἡ κάππαρις ὅτι ἐπορεύθη ὁ ἄνθρωπος εἰς οἶκον αἰῶνος αὐτοῦ καὶ ἐκύκλωσαν ἐν ἀγορᾷ οἱ κοπτόμενοι.",
+     "giguet": "Au jour où on lèvera les yeux, et où on aura des terreurs dans le chemin&nbsp;; où l'amandier sera en fleur&nbsp;; où la sauterelle s'épaissira&nbsp;; où le câprier tombera en poussière, parce que l'homme sera en marche pour sa demeure éternelle, et que sur la place publique iront çà et là des gens en pleurs&nbsp;;",
+     "alexandrie": "et vraiment, d’en haut ils verront, et les marques d’effroi sur le chemin&nbsp;; et l’amandier fleurira, et la sauterelle grossira et le câprier sera rompu parce que l’homme est allé vers sa maison d’éternité, et ils ont circulé sur la place, ceux qui se frappent la poitrine&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἕως ὅτου μὴ ἀνατραπῇ σχοινίον τοῦ ἀργυρίου καὶ συνθλιβῇ ἀνθέμιον τοῦ χρυσίου καὶ συντριβῇ ὑδρία ἐπὶ τὴν πηγήν καὶ συντροχάσῃ ὁ τροχὸς ἐπὶ τὸν λάκκον.",
+     "giguet": "Avant que la chaîne d'argent soit brisée, que la bandelette d'or soit rompue, que l'urne se brise à la fontaine, et que la roue de la citerne se déroule&nbsp;;",
+     "alexandrie": "aussi longtemps que ne se retournera pas le jonc d’argent, et que ne se resserrera pas la fleur d’or et que ne se brisera pas la cruche à la source et que ne roulera pas la roue vers la citerne,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἐπιστρέψῃ ὁ χοῦς ἐπὶ τὴν γῆν ὡς ἦν καὶ τὸ πνεῦμα ἐπιστρέψῃ πρὸς τὸν θεόν ὃς ἔδωκεν αὐτό.",
+     "giguet": "avant que la poussière revienne sur la terre, comme elle était, et que l'esprit retourne à Dieu, qui l'a donné.",
+     "alexandrie": "et que la poussière ne retournera pas à la terre, comme elle était&nbsp;; et que le souffle ne retournera pas à Dieu, qui l’a donné.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ματαιότης ματαιοτήτων εἶπεν ὁ Ἐκκλησιαστής τὰ πάντα ματαιότης.",
+     "giguet": "Vanité des vanités, a dit l'Ecclésiaste, tout est vanité.",
+     "alexandrie": "Folie&nbsp;! Folies&nbsp;! a dit l’ecclésiaste. Tout est folie&nbsp;!",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ περισσὸν ὅτι ἐγένετο Ἐκκλησιαστὴς σοφός ἔτι ἐδίδαξεν γνῶσιν σὺν τὸν λαόν καὶ οὖς ἐξιχνιάσεται κόσμιον παραβολῶν.",
+     "giguet": "Et de plus, comme l'Ecclésiaste était très sage, il enseigna la science à l'homme&nbsp;; et l'oreille découvrira le sens voilé des paraboles.",
+     "alexandrie": "Et c’est un avantage que l’ecclésiaste ait été un sage, il a encore enseigné la connaissance pour le peuple, et l'oreille dépistera la beauté de ses paraboles.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "πολλὰ ἐζήτησεν Ἐκκλησιαστὴς τοῦ εὑρεῖν λόγους θελήματος καὶ γεγραμμένον εὐθύτητος λόγους ἀληθείας.",
+     "giguet": "L'Ecclésiaste a cherché avec soin pour trouver des paroles de bonne volonté, des écrits de justice, des paroles de vérité.",
+     "alexandrie": "L’ecclésiaste a beaucoup cherché pour trouver des paroles de vouloir, et quelque chose d’écrit avec droiture, des paroles de vérité.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "λόγοι σοφῶν ὡς τὰ βούκεντρα καὶ ὡς ἧλοι πεφυτευμένοι οἳ παρὰ τῶν συναγμάτων ἐδόθησαν ἐκ ποιμένος ἑνὸς καὶ περισσὸν ἐξ αὐτῶν.",
+     "giguet": "Les paroles du sage sont comme des aiguillons, comme des clous qu'on a solidement fixés&nbsp;; elles sont été données par l'unique pasteur, et en abondance.",
+     "alexandrie": "Les paroles des sages sont comme les aiguillons et comme des clous bien plantés, qui ont été donnés par les rassemblements d’un seul berger, et c’est un avantage qui vient d’eux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "υἱέ μου φύλαξαι ποιῆσαι βιβλία πολλά οὐκ ἔστιν περασμός καὶ μελέτη πολλὴ κόπωσις σαρκός.",
+     "giguet": "Ô mon fils, à faire beaucoup de livres, il n'y a point de fin&nbsp;; et trop d'étude est fatigue de la chair.",
+     "alexandrie": "Mon fils, garde-toi de composer des livres nombreux&nbsp;; il n’y a pas de limite et, beaucoup d’étude, c’est fatigue de la chair.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "τέλος λόγου τὸ πᾶν ἀκούεται τὸν θεὸν φοβοῦ καὶ τὰς ἐντολὰς αὐτοῦ φύλασσε ὅτι τοῦτο πᾶς ὁ ἄνθρωπος.",
+     "giguet": "Écoute la conclusion, le résumé de ce discours&nbsp;; crains Dieu, et garde ses commandements, car c'est là tout l'homme.",
+     "alexandrie": "Fin du discours, tout est entendu. Crains Dieu et ses commandements, garde-les, parce que&nbsp;: cela, c’est tout l’homme.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ὅτι σὺν πᾶν τὸ ποίημα ὁ θεὸς ἄξει ἐν κρίσει ἐν παντὶ παρεωραμένῳ ἐὰν ἀγαθὸν καὶ ἐὰν πονηρόν.",
+     "giguet": "En effet, Dieu appellera en jugement chaque œuvre, chaque chose qui aura été négligée, bonne ou mauvaise.",
+     "alexandrie": "C'est que&nbsp;: toute œuvre, Dieu la conduira en jugement, dans tout ce qui a été négligé, pour voir si c’est bon ou si c’est mauvais.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  }
+ ]
+}

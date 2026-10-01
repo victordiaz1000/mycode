@@ -1,0 +1,436 @@
+{
+ "code": "JON",
+ "book": "Jonas",
+ "fichiersToc": [
+  "JON/001.html",
+  "JON/002.html",
+  "JON/003.html",
+  "JON/004.html"
+ ],
+ "chapitres": [
+  {
+   "chapitre": 1,
+   "libelle": "1",
+   "fichierToc": "JON/001.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐγένετο λόγος κυρίου πρὸς Ιωναν τὸν τοῦ Αμαθι λέγων.",
+     "giguet": "Et la parole du Seigneur vint à Jonas, fils d'Amathi, disant",
+     "alexandrie": "Et il y eut une parole du Seigneur adressée à Jonas, fils d’Amathi, disant&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἀνάστηθι καὶ πορεύθητι εἰς Νινευη τὴν πόλιν τὴν μεγάλην καὶ κήρυξον ἐν αὐτῇ ὅτι ἀνέβη ἡ κραυγὴ τῆς κακίας αὐτῆς πρός με.",
+     "giguet": "Lève-toi, et pars pour Ninive, la grande ville, et proclame dans ses murs que le cri de sa méchanceté est monté jusqu'à moi.",
+     "alexandrie": "«&nbsp;Lève-toi et va à Ninive la grande ville, et fais-y une proclamation, car le cri dénonçant sa malignité est monté vers moi.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἀνέστη Ιωνας τοῦ φυγεῖν εἰς Θαρσις ἐκ προσώπου κυρίου καὶ κατέβη εἰς Ιοππην καὶ εὗρεν πλοῖον βαδίζον εἰς Θαρσις καὶ ἔδωκεν τὸ ναῦλον αὐτοῦ καὶ ἐνέβη εἰς αὐτὸ τοῦ πλεῦσαι μετ' αὐτῶν εἰς Θαρσις ἐκ προσώπου κυρίου.",
+     "giguet": "Et Jonas se leva pour s'enfuir à Tharsis, loin de la face du Seigneur&nbsp;; et il descendit à Joppé&nbsp;; il y trouva une barque allant à Tharsis, et il paya son passage, et il s'embarqua pour naviguer avec les matelots, jusqu'à Tharsis, loin de la face du Seigneur.",
+     "alexandrie": "Et Jonas se leva pour fuir vers Tharsis, loin de la face du Seigneur, descendit à Joppè, trouva un bateau en partance pour Tharsis, paya son passage et y embarqua pour naviguer avec eux vers Tharsis, loin de la face du Seigneur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ κύριος ἐξήγειρεν πνεῦμα εἰς τὴν θάλασσαν καὶ ἐγένετο κλύδων μέγας ἐν τῇ θαλάσσῃ καὶ τὸ πλοῖον ἐκινδύνευεν συντριβῆναι.",
+     "giguet": "Et le Seigneur excita un grand vent sur la mer, et les vagues s'élevèrent, et la barque fut en danger de se rompre.",
+     "alexandrie": "Et le Seigneur fit lever un souffle sur la mer, et il y eut une forte houle en mer, et le bateau risquait de se disloquer.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἐφοβήθησαν οἱ ναυτικοὶ καὶ ἀνεβόων ἕκαστος πρὸς τὸν θεὸν αὐτῶν καὶ ἐκβολὴν ἐποιήσαντο τῶν σκευῶν τῶν ἐν τῷ πλοίῳ εἰς τὴν θάλασσαν τοῦ κουφισθῆναι ἀπ' αὐτῶν Ιωνας δὲ κατέβη εἰς τὴν κοίλην τοῦ πλοίου καὶ ἐκάθευδεν καὶ ἔρρεγχεν.",
+     "giguet": "Et les matelots eurent crainte, et ils crièrent chacun vers son dieu, et ils lancèrent à la mer le chargement de la barque, pour s'en alléger. Jonas descendit à fond de cale, et là il s'endormit, et il ronfla.",
+     "alexandrie": "Et les matelots eurent peur, appelaient au secours chacun son dieu, et ils jetèrent la cargaison du bateau à la mer afin de l’en alléger&nbsp;; Jonas, lui, était descendu dans la cale du bateau, il dormait et ronflait.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ προσῆλθεν πρὸς αὐτὸν ὁ πρωρεὺς καὶ εἶπεν αὐτῷ τί σὺ ῥέγχεις ἀνάστα καὶ ἐπικαλοῦ τὸν θεόν σου ὅπως διασώσῃ ὁ θεὸς ἡμᾶς καὶ μὴ ἀπολώμεθα.",
+     "giguet": "Et le pilote l'alla trouver, et il lui dit&nbsp;: Pourquoi ronfles-tu&nbsp;? Lève-toi, et invoque ton Dieu, afin que Dieu nous sauve, et que nous ne mourions pas.",
+     "alexandrie": "Et l’homme de proue s’approcha de lui et lui dit&nbsp;: «&nbsp;Qu’as-tu à ronfler, toi&nbsp;? Lève-toi et invoque ton dieu, afin que le dieu nous préserve et que nous ne périssions pas.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ εἶπεν ἕκαστος πρὸς τὸν πλησίον αὐτοῦ δεῦτε βάλωμεν κλήρους καὶ ἐπιγνῶμεν τίνος ἕνεκεν ἡ κακία αὕτη ἐστὶν ἐν ἡμῖν καὶ ἔβαλον κλήρους καὶ ἔπεσεν ὁ κλῆρος ἐπὶ Ιωναν.",
+     "giguet": "Et chacun des matelots dit à son voisin&nbsp;: Allons, agitons les sorts, et sachons par qui ce malheur nous arrive. Et ils agitèrent des sorts, et le sort tomba sur Jonas.",
+     "alexandrie": "Et chacun dit à son voisin&nbsp;: «&nbsp;Allons, tirons au sort et découvrons la cause de ce malheur qui est sur nous.&nbsp;» Et ils tirèrent au sort, et le sort tomba sur Jonas.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ εἶπον πρὸς αὐτόν ἀπάγγειλον ἡμῖν τίνος ἕνεκεν ἡ κακία αὕτη ἐστὶν ἐν ἡμῖν τίς σου ἡ ἐργασία ἐστίν καὶ πόθεν ἔρχῃ καὶ ἐκ ποίας χώρας καὶ ἐκ ποίου λαοῦ εἶ σύ.",
+     "giguet": "Et ils lui dirent&nbsp;: Déclare-nous quel est ton métier&nbsp;; d'où viens-tu&nbsp;? de quelle contrée, de quel peuple es-tu&nbsp;?",
+     "alexandrie": "Et ils lui dirent&nbsp;: «&nbsp;Annonce-nous la cause de ce malheur qui est sur nous. Quelle est ton activité&nbsp;? D’où viens-tu&nbsp;? De quel pays et de quel peuple es-tu, toi&nbsp;?»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ εἶπεν πρὸς αὐτούς δοῦλος κυρίου ἐγώ εἰμι καὶ τὸν κύριον θεὸν τοῦ οὐρανοῦ ἐγὼ σέβομαι ὃς ἐποίησεν τὴν θάλασσαν καὶ τὴν ξηράν.",
+     "giguet": "Et il leur dit&nbsp;: je suis un serviteur du Seigneur&nbsp;; j'adore le Seigneur Dieu du ciel, qui a créé la mer et la terre.",
+     "alexandrie": "Et il leur dit&nbsp;: «&nbsp;Moi, je suis serviteur du Seigneur et je vénère, moi, le Seigneur Dieu du ciel, qui a fait la mer et la terre ferme.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ ἐφοβήθησαν οἱ ἄνδρες φόβον μέγαν καὶ εἶπαν πρὸς αὐτόν τί τοῦτο ἐποίησας διότι ἔγνωσαν οἱ ἄνδρες ὅτι ἐκ προσώπου κυρίου ἦν φεύγων ὅτι ἀπήγγειλεν αὐτοῖς.",
+     "giguet": "Et ces hommes eurent grande crainte, et ils lui dirent&nbsp;: Pourquoi as-tu fait cela&nbsp;? Car ces hommes connurent qu'il fuyait loin de la face du Seigneur&nbsp;; car il le leur avait déclaré.",
+     "alexandrie": "Et les hommes eurent peur, grand peur, et lui dirent&nbsp;: «&nbsp;Qu’as-tu fait là&nbsp;?&nbsp;» Parce que ces hommes savaient qu’il était en fuite loin de la face du Seigneur, car il le leur avait annoncé.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ εἶπαν πρὸς αὐτόν τί σοι ποιήσωμεν καὶ κοπάσει ἡ θάλασσα ἀφ' ἡμῶν ὅτι ἡ θάλασσα ἐπορεύετο καὶ ἐξήγειρεν μᾶλλον κλύδωνα.",
+     "giguet": "Et ils lui dirent&nbsp;: Que te ferons-nous, afin que pour nous la mer se calme&nbsp;? Car la mer allait, et soulevait encore plus de vagues.",
+     "alexandrie": "Et ils lui dirent&nbsp;: «&nbsp;Que devons-nous te faire pour qu’alors la mer s’apaise en nous épargnant&nbsp;?&nbsp;» Car la mer continuait de soulever davantage sa houle.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ εἶπεν Ιωνας πρὸς αὐτούς ἄρατέ με καὶ ἐμβάλετέ με εἰς τὴν θάλασσαν καὶ κοπάσει ἡ θάλασσα ἀφ' ὑμῶν διότι ἔγνωκα ἐγὼ ὅτι δι' ἐμὲ ὁ κλύδων ὁ μέγας οὗτος ἐφ' ὑμᾶς ἐστιν.",
+     "giguet": "Et Jonas leur dit&nbsp;: Prenez-moi et jetez-moi à la mer, et la mer se calmera pour vous&nbsp;; car je sais que c'est à cause de moi qu'il y a contre vous ces grandes vagues.",
+     "alexandrie": "Et Jonas leur dit&nbsp;: «&nbsp;Prenez-moi, jetez-moi à la mer, et la mer s’apaisera en vous épargnant&nbsp;; parce que moi j’ai compris que cette grande houle est sur vous à cause de moi.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ παρεβιάζοντο οἱ ἄνδρες τοῦ ἐπιστρέψαι πρὸς τὴν γῆν καὶ οὐκ ἠδύναντο ὅτι ἡ θάλασσα ἐπορεύετο καὶ ἐξηγείρετο μᾶλλον ἐπ' αὐτούς.",
+     "giguet": "Et ces hommes s'efforcèrent de retourner à la côte&nbsp;; mais ils ne le purent, parce que la mer allait et soulevait contre eux toujours plus de vagues.",
+     "alexandrie": "Et les hommes se démenaient pour revenir vers la terre et ne le pouvaient pas, car la mer continuait de se soulever davantage contre eux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἀνεβόησαν πρὸς κύριον καὶ εἶπαν μηδαμῶς κύριε μὴ ἀπολώμεθα ἕνεκεν τῆς ψυχῆς τοῦ ἀνθρώπου τούτου καὶ μὴ δῷς ἐφ' ἡμᾶς αἷμα δίκαιον ὅτι σύ κύριε ὃν τρόπον ἐβούλου πεποίηκας.",
+     "giguet": "Et ils crièrent au Seigneur, et ils dirent&nbsp;: Non, Seigneur, que nous ne périssions pas pour la vie de cet homme&nbsp;; ne fais pas retomber sur nous un sang innocent&nbsp;; car, Seigneur, Tu as fait selon ta volonté.",
+     "alexandrie": "Et ils appelèrent le Seigneur au secours et dirent&nbsp;: «&nbsp;Non, Seigneur, ne périssons pas pour la vie de cet homme, et ne mets pas sur nous un sang juste, car c’est toi, Seigneur, qui as agi de la façon que tu voulais.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἔλαβον τὸν Ιωναν καὶ ἐξέβαλον αὐτὸν εἰς τὴν θάλασσαν καὶ ἔστη ἡ θάλασσα ἐκ τοῦ σάλου αὐτῆς.",
+     "giguet": "Et ils prirent Jonas, et ils le lancèrent à la mer&nbsp;; et la mer cessa de s'agiter.",
+     "alexandrie": "Et ils prirent Jonas et le jetèrent à la mer, et la mer s’arrêta, cessant ses secousses.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ ἐφοβήθησαν οἱ ἄνδρες φόβῳ μεγάλῳ τὸν κύριον καὶ ἔθυσαν θυσίαν τῷ κυρίῳ καὶ εὔξαντο εὐχάς.",
+     "giguet": "Et ces hommes eurent grande crainte du Seigneur&nbsp;; et ils offrirent au Seigneur un sacrifice, et ils Lui firent des vœux.",
+     "alexandrie": "Et les hommes eurent peur du Seigneur, d’une grande peur, offrirent un sacrifice au Seigneur et s’engagèrent par des vœux.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 2,
+   "libelle": "2",
+   "fichierToc": "JON/002.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ προσέταξεν κύριος κήτει μεγάλῳ καταπιεῖν τὸν Ιωναν καὶ ἦν Ιωνας ἐν τῇ κοιλίᾳ τοῦ κήτους τρεῖς ἡμέρας καὶ τρεῖς νύκτας.",
+     "giguet": "Et le Seigneur prescrivit à une grande baleine d'avaler Jonas, et Jonas fut dans le ventre de la baleine trois jours et trois nuits.",
+     "alexandrie": "Et le Seigneur ordonna à un grand monstre marin d’avaler Jonas&nbsp;; et Jonas fut dans le ventre du monstre trois jours et trois nuits.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ προσηύξατο Ιωνας πρὸς κύριον τὸν θεὸν αὐτοῦ ἐκ τῆς κοιλίας τοῦ κήτους.",
+     "giguet": "Et Jonas pria le Seigneur son Dieu, dans le ventre de la baleine.",
+     "alexandrie": "Et Jonas fit une prière au Seigneur son Dieu, depuis le ventre du monstre,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ εἶπεν ἐβόησα ἐν θλίψει μου πρὸς κύριον τὸν θεόν μου καὶ εἰσήκουσέν μου ἐκ κοιλίας ᾅδου κραυγῆς μου ἤκουσας φωνῆς μου.",
+     "giguet": "Et il dit&nbsp;: j'ai crié dans ma tribulation au Seigneur mon Dieu, et Il m'a exaucé&nbsp;; mon cri est parti des entrailles de l'enfer, et Tu as écouté ma voix&nbsp;;",
+     "alexandrie": "et il dit&nbsp;: J’ai appelé au secours, dans ma détresse, le Seigneur mon Dieu, et il m’a bien entendu&nbsp;; mon cri depuis le ventre de l’Hadès, tu l’as entendu, ma voix.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἀπέρριψάς με εἰς βάθη καρδίας θαλάσσης καὶ ποταμοί με ἐκύκλωσαν πάντες οἱ μετεωρισμοί σου καὶ τὰ κύματά σου ἐπ' ἐμὲ διῆλθον.",
+     "giguet": "Tu m'as précipité au plus profond du cœur de la mer&nbsp;; et les fleuves m'ont enveloppé, et toutes tes grandes vagues, tous tes flots ont passé sur moi.",
+     "alexandrie": "Tu m’avais précipité dans les profondeurs du cœur de la mer, et des courants m’ont encerclé&nbsp;; tous les soulèvements et les gonflements de tes flots ont déferlé sur moi.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἐγὼ εἶπα ἀπῶσμαι ἐξ ὀφθαλμῶν σου ἆρα προσθήσω τοῦ ἐπιβλέψαι πρὸς τὸν ναὸν τὸν ἅγιόν σου.",
+     "giguet": "Et j'ai dit&nbsp;: C'est moi qui me suis éloigné de tes yeux&nbsp;; me permettras-Tu de voir encore ton saint temple&nbsp;?",
+     "alexandrie": "Et moi j’ai dit&nbsp;: Me voilà repoussé loin de tes yeux&nbsp;; continuerai-je encore à regarder vers ton temple saint&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "περιεχύθη ὕδωρ μοι ἕως ψυχῆς ἄβυσσος ἐκύκλωσέν με ἐσχάτη ἔδυ ἡ κεφαλή μου εἰς σχισμὰς ὀρέων.",
+     "giguet": "L'eau s'est répandue autour de moi, jusqu'à l'âme&nbsp;; l'abîme le plus profond m'a enclos, et ma tête a plongé dans les crevasses des montagnes",
+     "alexandrie": "L’eau s’est déversée autour de moi jusqu’à l’âme, l’abîme le plus profond m’a encerclé, ma tête s’est enfoncée dans les failles des montagnes.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "κατέβην εἰς γῆν ἧς οἱ μοχλοὶ αὐτῆς κάτοχοι αἰώνιοι καὶ ἀναβήτω φθορὰ ζωῆς μου κύριε ὁ θεός μου.",
+     "giguet": "Je suis descendu sous la terre, dont les verrous sont des barrières éternelles. Seigneur mon Dieu, que la destruction de ma vie remonte à la surface des flots.",
+     "alexandrie": "Je suis descendu jusqu’au sol, dont les barres sont d’éternels verrous. Que remonte la corruption de ma vie, Seigneur mon Dieu&nbsp;!",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἐν τῷ ἐκλείπειν ἀπ' ἐμοῦ τὴν ψυχήν μου τοῦ κυρίου ἐμνήσθην καὶ ἔλθοι πρὸς σὲ ἡ προσευχή μου εἰς ναὸν ἅγιόν σου.",
+     "giguet": "En la défaillance de mon âme, je me suis souvenu de toi, Seigneur&nbsp;; que ma prière arrive à toi dans ton saint temple&nbsp;!",
+     "alexandrie": "Tandis que mon âme me quittait, je me suis souvenu du Seigneur. Puisse ma prière aller jusqu’à toi dans ton temple saint&nbsp;!",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "φυλασσόμενοι μάταια καὶ ψευδῆ ἔλεος αὐτῶν ἐγκατέλιπον.",
+     "giguet": "Ceux-là seuls qui s'attachent aux vanités et aux mensonges ont renoncé à leur miséricorde.",
+     "alexandrie": "En gardant vanités et mensonges, ils ont abandonné la pitié dont ils étaient l’objet.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἐγὼ δὲ μετὰ φωνῆς αἰνέσεως καὶ ἐξομολογήσεως θύσω σοι ὅσα ηὐξάμην ἀποδώσω σοι σωτηρίου τῷ κυρίῳ.",
+     "giguet": "Pour moi, je t'offrirai dans mes chants un sacrifice de louanges et d'admiration&nbsp;; je rendrai au Seigneur les vœux que je Lui ai faits pour mon salut.",
+     "alexandrie": "Mais moi, en exprimant louange et action de grâces, je t’offrirai un sacrifice&nbsp;; tous les vœux que j’ai faits, je m’en acquitterai pour mon salut auprès du Seigneur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ προσετάγη τῷ κήτει καὶ ἐξέβαλεν τὸν Ιωναν ἐπὶ τὴν ξηράν.",
+     "giguet": "Et le Seigneur donna ordre à la baleine, et elle rejeta Jonas sur la terre ferme.",
+     "alexandrie": "Et l’ordre fut donné au monstre, et il rejeta Jonas sur la terre ferme.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 3,
+   "libelle": "3",
+   "fichierToc": "JON/003.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐγένετο λόγος κυρίου πρὸς Ιωναν ἐκ δευτέρου λέγων.",
+     "giguet": "Et la parole du Seigneur vint à Jonas pour la seconde fois, disant",
+     "alexandrie": "Et il y eut une parole du Seigneur adressée à Jonas pour la deuxième fois, disant&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἀνάστηθι καὶ πορεύθητι εἰς Νινευη τὴν πόλιν τὴν μεγάλην καὶ κήρυξον ἐν αὐτῇ κατὰ τὸ κήρυγμα τὸ ἔμπροσθεν ὃ ἐγὼ ἐλάλησα πρὸς σέ.",
+     "giguet": "Lève-toi, et pars pour Ninive, la grande ville, et proclame dans ses murs la prédiction que je t'ai déjà prescrit de proclamer.",
+     "alexandrie": "«&nbsp;Lève-toi, va à Ninive la grande ville et fais-y une proclamation conforme à la proclamation précédente que je t’avais dite.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἀνέστη Ιωνας καὶ ἐπορεύθη εἰς Νινευη καθὼς ἐλάλησεν κύριος ἡ δὲ Νινευη ἦν πόλις μεγάλη τῷ θεῷ ὡσεὶ πορείας ὁδοῦ ἡμερῶν τριῶν.",
+     "giguet": "Et Jonas se leva&nbsp;; et il s'en alla à Ninive, comme lui avait dit le Seigneur. Or la ville de Ninive était grande de trois jours de marche.",
+     "alexandrie": "Et Jonas se leva et alla à Ninive, comme l’avait dit le Seigneur&nbsp;; or Ninive était une ville importante pour Dieu, environ trois jours de marche.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἤρξατο Ιωνας τοῦ εἰσελθεῖν εἰς τὴν πόλιν ὡσεὶ πορείαν ἡμέρας μιᾶς καὶ ἐκήρυξεν καὶ εἶπεν ἔτι τρεῖς ἡμέραι καὶ Νινευη καταστραφήσεται.",
+     "giguet": "Et Jonas commença par entrer dans la ville et par faire environ un jour de marche, et il cria, et il dit&nbsp;: Encore trois jours, et Ninive sera détruite&nbsp;!",
+     "alexandrie": "Et Jonas commença à pénétrer dans la ville sur environ un jour de marche, fît une proclamation et dit&nbsp;: «&nbsp;Encore trois jours et Ninive sera détruite.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἐνεπίστευσαν οἱ ἄνδρες Νινευη τῷ θεῷ καὶ ἐκήρυξαν νηστείαν καὶ ἐνεδύσαντο σάκκους ἀπὸ μεγάλου αὐτῶν ἕως μικροῦ αὐτῶν.",
+     "giguet": "Et les hommes de Ninive crurent en Dieu, et ils proclamèrent un jeûne, et ils se ceignirent de cilices, depuis le grand jusqu'au petit.",
+     "alexandrie": "Et les hommes de Ninive crurent en Dieu, proclamèrent un jeûne et revêtirent des habits de deuil, du plus grand au plus petit.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἤγγισεν ὁ λόγος πρὸς τὸν βασιλέα τῆς Νινευη καὶ ἐξανέστη ἀπὸ τοῦ θρόνου αὐτοῦ καὶ περιείλατο τὴν στολὴν αὐτοῦ ἀφ' ἑαυτοῦ καὶ περιεβάλετο σάκκον καὶ ἐκάθισεν ἐπὶ σποδοῦ.",
+     "giguet": "Et la parole de Jonas arriva au roi de Ninive, et il se leva de son trône, et il ôta sa robe, et il se ceignit d'un cilice, et il s'assit sur la cendre.",
+     "alexandrie": "Et la parole parvint jusqu’au roi de Ninive, il se leva de son trône, se dépouilla de sa robe, se couvrit d’un habit de deuil et s’assit sur la cendre.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἐκηρύχθη καὶ ἐρρέθη ἐν τῇ Νινευη παρὰ τοῦ βασιλέως καὶ παρὰ τῶν μεγιστάνων αὐτοῦ λέγων οἱ ἄνθρωποι καὶ τὰ κτήνη καὶ οἱ βόες καὶ τὰ πρόβατα μὴ γευσάσθωσαν μηδὲν μηδὲ νεμέσθωσαν μηδὲ ὕδωρ πιέτωσαν.",
+     "giguet": "Et il fut proclamé, et il fut dit en Ninive de la part du roi et de la part de ses grands, ce qui suit&nbsp;: Que ni hommes, ni bêtes, ni bœufs, ni brebis ne mangent, ne paissent, ne boivent même de l'eau.",
+     "alexandrie": "Et il fut proclamé et dit dans Ninive de la part du roi et de ses grands&nbsp;: «&nbsp;Que les hommes et les bêtes, bovins et moutons, ne mangent rien, ne paissent point, ne boivent pas d’eau.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ περιεβάλοντο σάκκους οἱ ἄνθρωποι καὶ τὰ κτήνη καὶ ἀνεβόησαν πρὸς τὸν θεὸν ἐκτενῶς καὶ ἀπέστρεψαν ἕκαστος ἀπὸ τῆς ὁδοῦ αὐτοῦ τῆς πονηρᾶς καὶ ἀπὸ τῆς ἀδικίας τῆς ἐν χερσὶν αὐτῶν λέγοντες.",
+     "giguet": "Et les hommes et les bêtes furent couverts de cilices, et les hommes crièrent sans relâche au Seigneur. Et chacun revint de sa voie coupable et de l'iniquité de ses mains, disant",
+     "alexandrie": "Et les hommes et les bêtes se couvrirent d’habits de deuil, et ils appelèrent Dieu au secours, avec force&nbsp;; et ils se détournèrent chacun de sa route mauvaise et de l’injustice que portaient leurs mains, disant&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "τίς οἶδεν εἰ μετανοήσει ὁ θεὸς καὶ ἀποστρέψει ἐξ ὀργῆς θυμοῦ αὐτοῦ καὶ οὐ μὴ ἀπολώμεθα.",
+     "giguet": "Qui sait si le Seigneur ne se repentira pas, et s'Il ne calmera pas les transports de sa colère, pour que nous ne périssions point&nbsp;?",
+     "alexandrie": "«&nbsp;Qui sait&nbsp;? Peut-être que Dieu se ravisera et se détournera de la colère de sa fureur&nbsp;; alors, assurément, nous ne périrons pas.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ εἶδεν ὁ θεὸς τὰ ἔργα αὐτῶν ὅτι ἀπέστρεψαν ἀπὸ τῶν ὁδῶν αὐτῶν τῶν πονηρῶν καὶ μετενόησεν ὁ θεὸς ἐπὶ τῇ κακίᾳ ᾗ ἐλάλησεν τοῦ ποιῆσαι αὐτοῖς καὶ οὐκ ἐποίησεν.",
+     "giguet": "Et Dieu vit leurs œuvres&nbsp;; Il vit qu'ils revenaient de leurs voies coupables&nbsp;; et Dieu se repentit du mal qu'Il avait voulu leur faire, et Il ne le leur fit pas.",
+     "alexandrie": "Et Dieu vit leurs actions&nbsp;: ils s’étaient détournés de leurs routes mauvaises, et Dieu se ravisa pour le mal qu’il avait dit qu’il leur ferait, et il ne le fit pas.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 4,
+   "libelle": "4",
+   "fichierToc": "JON/004.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐλυπήθη Ιωνας λύπην μεγάλην καὶ συνεχύθη.",
+     "giguet": "Et Jonas fut affligé d'une grande tristesse, et il fut confondu,",
+     "alexandrie": "Et Jonas fut peiné d’une grande peine et tout confondu.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ προσεύξατο πρὸς κύριον καὶ εἶπεν ὦ κύριε οὐχ οὗτοι οἱ λόγοι μου ἔτι ὄντος μου ἐν τῇ γῇ μου διὰ τοῦτο προέφθασα τοῦ φυγεῖν εἰς Θαρσις διότι ἔγνων ὅτι σὺ ἐλεήμων καὶ οἰκτίρμων μακρόθυμος καὶ πολυέλεος καὶ μετανοῶν ἐπὶ ταῖς κακίαις.",
+     "giguet": "Et il pria le Seigneur, et il dit&nbsp;: Seigneur, n'est-ce pas là ce que je disais, quand j'étais encore en mon pays&nbsp;? je m'étais hâté de fuir à Tharsis, parce que je te sais plein de clémence et de compassion, patient et abondant en miséricorde, et que tu te repens du mal que tu voulais faire aux hommes.",
+     "alexandrie": "Et il adressa une prière au Seigneur et dit&nbsp;: «&nbsp;Ô Seigneur, n’étaient-ce pas là mes paroles quand j’étais encore dans mon pays&nbsp;? Voici pourquoi j’ai pris les devants pour fuir vers Tharsis&nbsp;: j’ai reconnu que tu es enclin à la pitié et à la miséricorde, lon-ganime et de grande pitié, et prêt à te raviser devant les malheurs.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ νῦν δέσποτα κύριε λαβὲ τὴν ψυχήν μου ἀπ' ἐμοῦ ὅτι καλὸν τὸ ἀποθανεῖν με ἢ ζῆν με.",
+     "giguet": "Maintenant donc, Seigneur mon maître, prends-moi ma vie&nbsp;; car il vaut mieux pour moi mourir que vivre.",
+     "alexandrie": "Et maintenant, Seigneur Maître, prends-moi ma vie, car il est bon que je meure plutôt que de vivre.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ εἶπεν κύριος πρὸς Ιωναν εἰ σφόδρα λελύπησαι σύ.",
+     "giguet": "Et le Seigneur dit à Jonas&nbsp;: Pourquoi es-tu si vivement contristé&nbsp;?",
+     "alexandrie": "Et le Seigneur dit à Jonas&nbsp;: «&nbsp;Te voilà fort peiné&nbsp;?»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἐξῆλθεν Ιωνας ἐκ τῆς πόλεως καὶ ἐκάθισεν ἀπέναντι τῆς πόλεως καὶ ἐποίησεν ἑαυτῷ ἐκεῖ σκηνὴν καὶ ἐκάθητο ὑποκάτω αὐτῆς ἐν σκιᾷ ἕως οὗ ἀπίδῃ τί ἔσται τῇ πόλει.",
+     "giguet": "Et Jonas sortit de Ninive, et il s'assit en face de la ville, et là il se fit une tente et il s'y établit, jusqu'à ce qu'il eut vu de loin ce qui arriverait à la ville.",
+     "alexandrie": "Et Jonas sortit de la ville et s’assit en face de la ville&nbsp;; et il se fit là une cabane et il y restait assis, à l’ombre, attendant de voir ce qu’il arriverait à la ville.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ προσέταξεν κύριος ὁ θεὸς κολοκύνθῃ καὶ ἀνέβη ὑπὲρ κεφαλῆς τοῦ Ιωνα τοῦ εἶναι σκιὰν ὑπεράνω τῆς κεφαλῆς αὐτοῦ τοῦ σκιάζειν αὐτῷ ἀπὸ τῶν κακῶν αὐτοῦ καὶ ἐχάρη Ιωνας ἐπὶ τῇ κολοκύνθῃ χαρὰν μεγάλην.",
+     "giguet": "Et le Seigneur Dieu donna ordre à une gourde, et sa tige et ses feuilles montèrent au-dessus de la tête de Jonas pour l'ombrager et le préserver de tout mal. Et Jonas eut une grande joie de cette gourde.",
+     "alexandrie": "Et le Seigneur Dieu donna ordre à une coloquinte, et elle s’éleva au-dessus de la tête de Jonas, pour qu’il y eût de l’ombre sur sa tête, afin de lui faire une ombre contre ses maux&nbsp;; et Jonas se réjouit de cette coloquinte avec grande joie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ προσέταξεν ὁ θεὸς σκώληκι ἑωθινῇ τῇ ἐπαύριον καὶ ἐπάταξεν τὴν κολόκυνθαν καὶ ἀπεξηράνθη.",
+     "giguet": "Et Dieu donna ordre dès l'aurore à un ver qui rongea la gourde, et elle se dessécha.",
+     "alexandrie": "Et Dieu donna ordre à un ver, le lendemain à l’aube, il attaqua la coloquinte et elle se dessécha.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ ἐγένετο ἅμα τῷ ἀνατεῖλαι τὸν ἥλιον καὶ προσέταξεν ὁ θεὸς πνεύματι καύσωνος συγκαίοντι καὶ ἐπάταξεν ὁ ἥλιος ἐπὶ τὴν κεφαλὴν Ιωνα καὶ ὠλιγοψύχησεν καὶ ἀπελέγετο τὴν ψυχὴν αὐτοῦ καὶ εἶπεν καλόν μοι ἀποθανεῖν με ἢ ζῆν.",
+     "giguet": "Et il arriva, aux premiers rayons du soleil, que Dieu donna ordre à un vent chaud et ardent, et le soleil frappa sur la tête de Jonas, et celui-ci défaillit, et il désespéra de sa vie, et il dit&nbsp;: Mieux vaut pour moi mourir que vivre.",
+     "alexandrie": "Et il arriva qu’au lever du soleil, alors Dieu donna ordre à un souffle de sirocco brûlant, et le soleil s’attaqua à la tête de Jonas&nbsp;; et son âme défaillit, il renonça à son âme et dit&nbsp;: «&nbsp;Il est bon que je meure plutôt que de vivre.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ εἶπεν ὁ θεὸς πρὸς Ιωναν εἰ σφόδρα λελύπησαι σὺ ἐπὶ τῇ κολοκύνθῃ καὶ εἶπεν σφόδρα λελύπημαι ἐγὼ ἕως θανάτου.",
+     "giguet": "Et le Seigneur dit à Jonas&nbsp;: Est-ce à cause de la gourde que tu es si fortement contristé&nbsp;? Et il répondit&nbsp;: je suis triste jusqu'à la mort.",
+     "alexandrie": "Et Dieu dit à Jonas&nbsp;: «&nbsp;Te voilà fort peiné à cause de la coloquinte&nbsp;?&nbsp;» Et il dit&nbsp;: «&nbsp;Oui, me voilà fort peiné, jusqu’à la mort.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ εἶπεν κύριος σὺ ἐφείσω ὑπὲρ τῆς κολοκύνθης ὑπὲρ ἧς οὐκ ἐκακοπάθησας ἐπ' αὐτὴν καὶ οὐκ ἐξέθρεψας αὐτήν ἣ ἐγενήθη ὑπὸ νύκτα καὶ ὑπὸ νύκτα ἀπώλετο.",
+     "giguet": "Et le Seigneur dit&nbsp;: tu as grande pitié pour une gourde qui ne t'avait donné aucune peine, que tu n'avais point cultivé, qui était venue en une nuit, et qui en une nuit a été détruite.",
+     "alexandrie": "Et le Seigneur dit&nbsp;: «&nbsp;Toi, tu voulais conserver la coloquinte, pour laquelle tu n’as eu aucune peine, et tu ne l’as pas nourrie, elle qui est née en une nuit et a péri en une nuit&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἐγὼ δὲ οὐ φείσομαι ὑπὲρ Νινευη τῆς πόλεως τῆς μεγάλης ἐν ᾗ κατοικοῦσιν πλείους ἢ δώδεκα μυριάδες ἀνθρώπων οἵτινες οὐκ ἔγνωσαν δεξιὰν αὐτῶν ἢ ἀριστερὰν αὐτῶν καὶ κτήνη πολλά.",
+     "giguet": "Et moi, je n'épargnerai pas Ninive la grande ville, où demeurent plus de douze myriades d'hommes, qui ne savent pas distinguer leur main droite de leur main gauche&nbsp;; et des troupeaux si nombreux&nbsp;!",
+     "alexandrie": "et moi, je n’épargnerai pas Ninive la grande ville, où habitent plus de douze myriades d’hommes, qui ne connaissent pas leur droite de leur gauche, et des bêtes en grand nombre&nbsp;?&nbsp;»",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  }
+ ]
+}

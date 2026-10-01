@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'book_catalog.dart';
+import 'version_catalog.dart';
 
 /// What the Bibliothèque knows about one downloaded version.
 class InstalledVersion {
@@ -24,15 +25,35 @@ class InstalledVersion {
 
   bool get isEmpty => books.isEmpty;
 
-  /// Every book of the canon landed.
-  bool get isComplete => books.length >= bookCatalog.length;
+  /// Every book the version's canon holds landed.
+  ///
+  /// The canon comes from the catalogue, not from the 66: an `otOnly` version
+  /// (SEF) holds 39 books, and without this it would read as partial forever —
+  /// Matthieu, absent from its canon, could never land.
+  bool get isComplete {
+    final entry = versionByCode(code);
+    for (var i = 1; i <= bookCatalog.length; i++) {
+      if (entry != null && !entry.containsBook(i)) continue;
+      if (!books.contains(i)) return false;
+    }
+    return true;
+  }
 
   /// Started but interrupted — the case a resume exists for.
   bool get isPartial => books.isNotEmpty && !isComplete;
 
-  /// 0.0 .. 1.0, for the progress bar.
-  double get progress =>
-      bookCatalog.isEmpty ? 0 : books.length / bookCatalog.length;
+  /// 0.0 .. 1.0, for the progress bar — against the version's own canon, so a
+  /// complete SEF install reads 39/39, not 39/66.
+  double get progress {
+    final entry = versionByCode(code);
+    final total = entry?.bookCount ?? bookCatalog.length;
+    if (total == 0 || bookCatalog.isEmpty) return 0;
+    var landed = 0;
+    for (final i in books) {
+      if (entry == null || entry.containsBook(i)) landed++;
+    }
+    return (landed / total).clamp(0.0, 1.0);
+  }
 
   bool has(int bookIndex) => books.contains(bookIndex);
 }
@@ -129,12 +150,15 @@ class LibraryStore {
         : InstalledVersion(code: code, books: books);
   }
 
-  /// BYM book indexes still to fetch for [code], in reading order.
+  /// BYM book indexes still to fetch for [code], in reading order — scoped to
+  /// the version's canon: books the version does not hold (New Testament in an
+  /// `otOnly` SEF) are not « missing », they do not exist.
   Future<List<int>> missingBooks(String code) async {
+    final entry = versionByCode(code);
     final state = await versionState(code);
     return [
       for (var i = 1; i <= bookCatalog.length; i++)
-        if (!state.has(i)) i,
+        if ((entry == null || entry.containsBook(i)) && !state.has(i)) i,
     ];
   }
 

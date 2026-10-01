@@ -188,10 +188,13 @@ void main() {
           reason: 'LSGS gives Strong tokens but no BYM metadata or introduction');
     });
 
-    test('everything downloadable is bare text with a named source', () {
+    test('everything downloadable is text-only with a named source', () {
       // The flag is not free-standing: `loadBook` chooses its parser from it, so
       // a downloadable entry left on the wrong format would parse to an empty
-      // book at the first download rather than fail loudly.
+      // book at the first download rather than fail loudly. Both text schemas
+      // are legal — getbible for the bare corpus, SEF for the Septuagint's
+      // Greek + French — what a downloadable entry can never claim is the BYM
+      // schema, whose metadata its files do not carry.
       final downloadable = [
         for (final group in versionCatalog)
           for (final version in group.versions)
@@ -199,8 +202,12 @@ void main() {
       ];
       expect(downloadable, isNotEmpty);
       for (final version in downloadable) {
-        expect(version.format, VersionFormat.getbible,
-            reason: '${version.code} is served as bare text');
+        expect(
+          version.format == VersionFormat.getbible ||
+              version.format == VersionFormat.sef,
+          isTrue,
+          reason: '${version.code} must parse as a downloaded text schema',
+        );
         expect(version.fetchable, isTrue, reason: version.code);
         expect(version.getbibleId != null || version.urlTemplate != null, isTrue,
             reason: '${version.code} must name a source');
@@ -242,6 +249,79 @@ void main() {
       expect(versionByCode('ZZZ'), isNull);
       expect(const VersionEntry(code: 'ZZZ', name: 'z', rights: 'z').format,
           VersionFormat.getbible);
+    });
+  });
+
+  group('the SEF Septuagint', () {
+    test('is an Old Testament-only downloadable on the GitHub host', () {
+      final sef = versionByCode('SEF')!;
+      expect(sef.availability, VersionAvailability.downloadable);
+      expect(sef.fetchable, isTrue);
+      expect(sef.format, VersionFormat.sef);
+      expect(sef.carriesNotes, isFalse);
+      expect(sef.otOnly, isTrue);
+      expect(sef.bookCount, 39);
+      expect(sef.containsBook(39), isTrue, reason: 'Malachie');
+      expect(sef.containsBook(40), isFalse, reason: 'Matthieu n\'existe pas');
+      expect(
+        sef.urlTemplate,
+        'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/'
+        'main/sef/{book}.json',
+      );
+      // The copyright of a text under rights is asserted on the card, not
+      // hoped for — same rule as CHO and KJF.
+      expect(sef.rights, contains('©'));
+      expect(sef.rights, contains('Deutsche Bibelgesellschaft'));
+      expect(sef.languageCode, 'FR');
+    });
+
+    test('a New Testament book is absent from the version, not missing', () async {
+      // Nothing is downloaded for SEF: the canon check must answer before the
+      // device, or Matthieu would read as « téléchargez-le » — and every book
+      // past Malachie would 404 during the install.
+      expect(
+        () => repository.loadBook('SEF', 40),
+        throwsA(isA<BookNotInVersion>()
+            .having((e) => e.code, 'code', 'SEF')
+            .having((e) => e.bymIndex, 'bymIndex', 40)
+            .having((e) => e.message, 'message', contains('Ancien Testament'))),
+      );
+      // Still a BookNotDownloaded for every screen that already handles one.
+      expect(() => repository.loadBook('SEF', 40),
+          throwsA(isA<BookNotDownloaded>()));
+    });
+
+    test('parses grec, notes and section, keeping a Greek-only verse', () {
+      final book = bookFromSef({
+        'chapters': [
+          {
+            'chapter': 1,
+            'verses': [
+              {
+                'chapter': '1',
+                'verse': '1',
+                'text': 'Au commencement…',
+                'grec': 'Ἐν ἀρχῇ…',
+                'notes': ['Première note', 'Seconde note'],
+                'section': 'Le décalogue',
+              },
+              {'chapter': '1', 'verse': '2', 'grec': 'Καὶ ἡ γῆ…'},
+              {'chapter': '1', 'verse': '3', 'text': '   ', 'grec': '  '},
+            ],
+          },
+        ],
+      }, bymIndex: 1);
+
+      final verses = book.chapters.single.verses;
+      expect(verses, hasLength(2), reason: 'the double-empty verse is dropped');
+      expect(verses[0].text, 'Au commencement…');
+      expect(verses[0].grec, 'Ἐν ἀρχῇ…');
+      expect(verses[0].note, '• Première note\n• Seconde note');
+      expect(verses[0].section, 'Le décalogue');
+      expect(verses[0].textWithNotes, verses[0].text);
+      expect(verses[0].notes, isEmpty, reason: 'SEF footnotes are not anchored');
+      expect(verses[1].text, '', reason: 'a French hole keeps its Greek line');
+      expect(verses[1].note, isNull);
     });
   });
 }

@@ -1,0 +1,30 @@
+Extraction SEF.xml — Septuaginta en français (Biblia Universalis 3)
+======================================================================
+Blocs bible                      : 1072
+Entrées glossaire                : 44
+Livres (ordre TOC, 1CH d'abord)  : 47
+Chapitres extraits               : 1083 (dont 3 doublons signalés)
+Versets total                    : 28167
+  avec texte grec                : 28153
+  avec traduction Giguet         : 27880
+  avec traduction Alexandrie     : 12474
+  sans aucun texte               : 12
+Sous-versets non numériques      : 247
+Entrées <words> parsées          : 77797
+
+Anomalies / cas particuliers du source
+----------------------------------------------------------------------
+  - 1KI/020b.html: en-tête Giguet/Alexandrie absent
+  - 1KI/020b.html chap. 20 [LXX : 21]: doublon de 1KI/020.html#20 [LXX : 21]
+  - EZR/011.html: en-tête Giguet/Alexandrie absent
+  - EZR/011.html: cn="1" ≠ numéro TOC 11
+  - PSA/151.html chap. 151 (LXX : 151): doublon de PSA/150.html#151 (LXX : 151)
+  - SIR/052.html: en-tête Giguet/Alexandrie absent
+  - SIR/052.html chap. 52: doublon de SIR/051.html#52
+  - EZR/011: grec seul (sans traduction), texte identique au grec du
+    chapitre 10, titré « Esdras A » dans la source
+  - EZR/010 contient aussi Esdras A chapitres 1 à 9 (groupe « Esdras A »)
+  - PSA/150 contient aussi le psaume 151 ; SIR/051 contient aussi le prologue (52)
+  - 1KI/020b est une variante orthographique de 1KI/020 (&nbsp; vs espace fine)
+
+Ordre TOC des livres : 1CH, 1KI, 1MA, 1SA, 2CH, 2KI, 2MA, 2SA, AMO, BAR, DAN, DEU, ECC, EST, EXO, EZK, EZR, GEN, HAB, HAG, HOS, ISA, JDG, JDT, JER, JOB, JOL, JON, JOS, LAM, LEV, LJE, MAL, MIC, NAM, NEH, NUM, OBA, PRO, PSA, RUT, SIR, SNG, TOB, WIS, ZEC, ZEP

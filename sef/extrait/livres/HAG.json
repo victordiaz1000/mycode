@@ -1,0 +1,334 @@
+{
+ "code": "HAG",
+ "book": "Aggée",
+ "fichiersToc": [
+  "HAG/001.html",
+  "HAG/002.html"
+ ],
+ "chapitres": [
+  {
+   "chapitre": 1,
+   "libelle": "1",
+   "fichierToc": "HAG/001.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἐν τῷ δευτέρῳ ἔτει ἐπὶ Δαρείου τοῦ βασιλέως ἐν τῷ μηνὶ τῷ ἕκτῳ μιᾷ τοῦ μηνὸς ἐγένετο λόγος κύριου ἐν χειρὶ Αγγαιου τοῦ προφήτου λέγων εἰπὸν δὴ πρὸς Ζοροβαβελ τὸν τοῦ Σαλαθιηλ ἐκ φυλῆς Ιουδα καὶ πρὸς Ἰησοῦν τὸν τοῦ Ιωσεδεκ τὸν ἱερέα τὸν μέγαν λέγων.",
+     "giguet": "En la sixième année du règne de Darius, le sixième mois, le premier jour du mois, la parole du Seigneur vint à Aggée, le prophète, disant&nbsp;: Parle à Zorobabel, fils de Salathiel, de la tribu de Juda, et à Jésus, fils de Josédec, le grand prêtre, et dis",
+     "alexandrie": "La deuxième année sous le roi Darius, le sixième mois, le premier du mois, il y eut une parole du Seigneur, dans la main du prophète Aggée, et qui disait&nbsp;: Parle à Zorobabel, le fils de Salathiel, de la tribu de Juda, et à Ièsous, le fils de Josédec, le grand prêtre, en disant&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "τάδε λέγει κύριος παντοκράτωρ λέγων ὁ λαὸς οὗτος λέγουσιν οὐχ ἥκει ὁ καιρὸς τοῦ οἰκοδομῆσαι τὸν οἶκον κυρίου.",
+     "giguet": "Voici ce que dit le Seigneur tout-puissant. Ils disent que le temps n'est pas venu de réédifier la maison du Seigneur.",
+     "alexandrie": "Voici ce que dit le Seigneur tout-puissant, disant&nbsp;: «&nbsp;Ce peuple, ils disent&nbsp;: Il n’est pas venu, le moment d’édifier la maison du Seigneur.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἐγένετο λόγος κυρίου ἐν χειρὶ Αγγαιου τοῦ προφήτου λέγων.",
+     "giguet": "Or la parole du Seigneur est venue à Aggée, le prophète, disant",
+     "alexandrie": "Et il y eut une parole du Seigneur dans la main du prophète Aggée, et qui disait&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "εἰ καιρὸς ὑμῖν μέν ἐστιν τοῦ οἰκεῖν ἐν οἴκοις ὑμῶν κοιλοστάθμοις ὁ δὲ οἶκος οὗτος ἐξηρήμωται.",
+     "giguet": "Le temps est-il venu pour vous de demeurer en vos maisons lambrissées en voûte, quand ce temple est désert&nbsp;?",
+     "alexandrie": "«&nbsp;Est-ce le moment pour vous d’habiter dans vos maisons aux colonnes cannelées, alors que cette maison est désertée&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ νῦν τάδε λέγει κύριος παντοκράτωρ τάξατε δὴ τὰς καρδίας ὑμῶν εἰς τὰς ὁδοὺς ὑμῶν.",
+     "giguet": "Et maintenant, voici ce que dit le Seigneur tout-puissant. Dirigez vos cœurs en vos voies.",
+     "alexandrie": "Et maintenant voici ce que dit le Seigneur tout-puissant&nbsp;: Disposez donc votre cœur en vos chemins.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἐσπείρατε πολλὰ καὶ εἰσηνέγκατε ὀλίγα ἐφάγετε καὶ οὐκ εἰς πλησμονήν ἐπίετε καὶ οὐκ εἰς μέθην περιεβάλεσθε καὶ οὐκ ἐθερμάνθητε ἐν αὐτοῖς καὶ ὁ τοὺς μισθοὺς συνάγων συνήγαγεν εἰς δεσμὸν τετρυπημένον.",
+     "giguet": "Vous avez semé beaucoup, et peu recueilli&nbsp;; vous avez mangé, mais pas à satiété&nbsp;; vous avez bu, mais point jusqu'à l'ivresse&nbsp;; vous vous êtes vêtus, et vous n'avez pas été réchauffés&nbsp;; et celui qui a thésaurisé ses salaires, les a déposés dans un sac troué.",
+     "alexandrie": "Vous avez semé beaucoup et emporté peu, vous avez mangé et non à satiété, vous avez bu et non jusqu’à l’ivresse, vous vous êtes revêtus et ne vous en êtes pas réchauffés, et celui qui ramasse les salaires les a ramassés dans une bourse percée.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "τάδε λέγει κύριος παντοκράτωρ θέσθε τὰς καρδίας ὑμῶν εἰς τὰς ὁδοὺς ὑμῶν.",
+     "giguet": "Or voici ce que dit le Seigneur tout-puissant. Dirigez vos cœurs en vos voies&nbsp;;",
+     "alexandrie": "Voici ce que dit le Seigneur tout-puissant&nbsp;: Mettez votre cœur en vos chemins&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἀνάβητε ἐπὶ τὸ ὄρος καὶ κόψατε ξύλα καὶ οἰκοδομήσατε τὸν οἶκον καὶ εὐδοκήσω ἐν αὐτῷ καὶ ἐνδοξασθήσομαι εἶπεν κύριος.",
+     "giguet": "Montez sur la montagne&nbsp;; abattez des arbres, et réédifiez le temple&nbsp;; et je m'y complairai, et je serai glorifié, dit le Seigneur.",
+     "alexandrie": "montez sur la montagne, coupez du bois et édifiez la maison, et j’en serai satisfait et glorifié, dit le Seigneur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἐπεβλέψατε εἰς πολλά καὶ ἐγένετο ὀλίγα καὶ εἰσηνέχθη εἰς τὸν οἶκον καὶ ἐξεφύσησα αὐτά διὰ τοῦτο τάδε λέγει κύριος παντοκράτωρ ἀνθ' ὧν ὁ οἶκός μού ἐστιν ἔρημος ὑμεῖς δὲ διώκετε ἕκαστος εἰς τὸν οἶκον αὐτοῦ.",
+     "giguet": "Vous avez convoité beaucoup, et peu vous est venu&nbsp;; et ce peu vous l'avez emporté en vos maisons, et d'un souffle je l'en ai fait sortir&nbsp;; c'est pourquoi voici ce que dit le Seigneur tout-puissant En punition de ce que ma demeure est déserte, et que chacun de vous court à sa demeure,",
+     "alexandrie": "Vous avez porté vos regards sur beaucoup, et il y eut peu&nbsp;; et ce fut apporté dans la maison, et je l’ai dispersé en soufflant. C’est pourquoi voici ce que dit le Seigneur tout-puissant&nbsp;: c’est parce que ma maison est déserte, alors que vous vous agitez chacun pour sa maison,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "διὰ τοῦτο ἀνέξει ὁ οὐρανὸς ἀπὸ δρόσου καὶ ἡ γῆ ὑποστελεῖται τὰ ἐκφόρια αὐτῆς.",
+     "giguet": "Le ciel vous refusera sa rosée, et la terre vous retirera ses fruits.",
+     "alexandrie": "que le ciel suspendra la rosée et que la terre retiendra ses produits&nbsp;;",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἐπάξω ῥομφαίαν ἐπὶ τὴν γῆν καὶ ἐπὶ τὰ ὄρη καὶ ἐπὶ τὸν σῖτον καὶ ἐπὶ τὸν οἶνον καὶ ἐπὶ τὸ ἔλαιον καὶ ὅσα ἐκφέρει ἡ γῆ καὶ ἐπὶ τοὺς ἀνθρώπους καὶ ἐπὶ τὰ κτήνη καὶ ἐπὶ πάντας τοὺς πόνους τῶν χειρῶν αὐτῶν.",
+     "giguet": "Et je ferai passer un glaive sur la terre et sur les montagnes, sur le blé et sur le vin, sur l'huile et sur les fruits de la terre, sur les hommes, leur bétail et tous les travaux de leurs mains.",
+     "alexandrie": "et je pointerai la lance sur la terre, sur les montagnes, sur le blé, sur le vin, sur l’huile, sur tout ce que produit la terre, sur les hommes, sur le bétail et sur tous les travaux de leurs mains.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ἤκουσεν Ζοροβαβελ ὁ τοῦ Σαλαθιηλ ἐκ φυλῆς Ιουδα καὶ Ἰησοῦς ὁ τοῦ Ιωσεδεκ ὁ ἱερεὺς ὁ μέγας καὶ πάντες οἱ κατάλοιποι τοῦ λαοῦ τῆς φωνῆς κυρίου τοῦ θεοῦ αὐτῶν καὶ τῶν λόγων Αγγαιου τοῦ προφήτου καθότι ἐξαπέστειλεν αὐτὸν κύριος ὁ θεὸς αὐτῶν πρὸς αὐτούς καὶ ἐφοβήθη ὁ λαὸς ἀπὸ προσώπου κυρίου.",
+     "giguet": "Et Zorobabel, fils de Salathiel, de la tribu de Juda, et jésus, fils de Josédec, le grand prêtre, et tout le reste du peuple entendirent la voix du Seigneur leur Dieu, et les paroles d'Aggée, le prophète, telles que par lui le Seigneur, leur Dieu, les leur avait envoyées. Et le peuple révéra la face du Seigneur.",
+     "alexandrie": "Et Zorobabel, le fils de Salathiel, de la tribu de Juda, ainsi que lèsous, le fils de Josédec, le grand prêtre, et tout le reste du peuple entendirent la voix du Seigneur leur Dieu et les paroles du prophète Aggée, comme le leur avait dépêché le Seigneur, et le peuple eut peur devant le Seigneur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ εἶπεν Αγγαιος ὁ ἄγγελος κυρίου τῷ λαῷ ἐγώ εἰμι μεθ' ὑμῶν λέγει κύριος.",
+     "giguet": "Et Aggée, le messager du Seigneur, rapporta au peuple le message du Seigneur, disant&nbsp;: Je suis avec vous, dit le Seigneur.",
+     "alexandrie": "Et Aggée, le messager du Seigneur, dit au peuple&nbsp;: Je suis avec vous, dit le Seigneur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐξήγειρεν κύριος τὸ πνεῦμα Ζοροβαβελ τοῦ Σαλαθιηλ ἐκ φυλῆς Ιουδα καὶ τὸ πνεῦμα Ἰησοῦ τοῦ Ιωσεδεκ τοῦ ἱερέως τοῦ μεγάλου καὶ τὸ πνεῦμα τῶν καταλοίπων παντὸς τοῦ λαοῦ καὶ εἰσῆλθον καὶ ἐποίουν ἔργα ἐν τῷ οἴκῳ κυρίου παντοκράτορος θεοῦ αὐτῶν.",
+     "giguet": "Et le Seigneur suscita l'esprit de Zorobabel, fils de Salathiel, de la tribu de Juda, et l'esprit de Jésus, fils de Josédec, le grand prêtre, et l'esprit du reste du peuple&nbsp;; et ils entrèrent dans le temple du Seigneur, leur Dieu tout-puissant, et ils y firent des travaux,",
+     "alexandrie": "Et le Seigneur éveilla l’esprit de Zorobabel, le fils de Sala-thiel, de la tribu de Juda et l’esprit de lèsous, le fils de Josédec, le grand prêtre, et l’esprit du reste de tout le peuple, ils pénétrèrent et firent des travaux dans la maison du Seigneur tout-puissant leur Dieu",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "τῇ τετράδι καὶ εἰκάδι τοῦ μηνὸς τοῦ ἕκτου τῷ δευτέρῳ ἔτει ἐπὶ Δαρείου τοῦ βασιλέως.",
+     "giguet": "Le vingt-quatrième jour du sixième mois, la seconde année du règne de Darius.",
+     "alexandrie": "le vingt-quatrième jour du sixième mois, la deuxième année sous le roi Darius.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 2,
+   "libelle": "2",
+   "fichierToc": "HAG/002.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "τῷ ἑβδόμῳ μηνὶ μιᾷ καὶ εἰκάδι τοῦ μηνὸς ἐλάλησεν κύριος ἐν χειρὶ Αγγαιου τοῦ προφήτου λέγων.",
+     "giguet": "Le vingt-huitième jour du septième mois, le Seigneur confia sa parole aux mains d'Aggée, le prophète, disant",
+     "alexandrie": "Le septième mois, le vingt et un du mois, le Seigneur parla dans la main du prophète Aggée, disant&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "εἰπὸν δὴ πρὸς Ζοροβαβελ τὸν τοῦ Σαλαθιηλ ἐκ φυλῆς Ιουδα καὶ πρὸς Ἰησοῦν τὸν τοῦ Ιωσεδεκ τὸν ἱερέα τὸν μέγαν καὶ πρὸς πάντας τοὺς καταλοίπους τοῦ λαοῦ λέγων.",
+     "giguet": "Parle à Zorobabel, fils de Salathiel, de la tribu de Juda, et à Jésus, fils de Josédec, le grand prêtre, et à tout le reste du peuple, disant",
+     "alexandrie": "«&nbsp;Parle donc à Zorobabel, le fils de Salathiel, de la tribu de Juda, et à Ièsous, le fils de Josédec, le grand prêtre, et à tout le reste du peuple, en disant&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "τίς ἐξ ὑμῶν ὃς εἶδεν τὸν οἶκον τοῦτον ἐν τῇ δόξῃ αὐτοῦ τῇ ἔμπροσθεν καὶ πῶς ὑμεῖς βλέπετε αὐτὸν νῦν καθὼς οὐχ ὑπάρχοντα ἐνώπιον ὑμῶν.",
+     "giguet": "Qui de vous a vu ce temple en sa première gloire&nbsp;? Et comment le voyez-vous aujourd'hui&nbsp;? N'est-il pas devant vous comme n'étant point&nbsp;?",
+     "alexandrie": "Quel est celui d’entre vous qui a vu cette maison en sa gloire passée&nbsp;? Et comment la regardez-vous à présent&nbsp;? Comme si elle n’existait pas face à vous.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ νῦν κατίσχυε Ζοροβαβελ λέγει κύριος καὶ κατίσχυε Ἰησοῦ ὁ τοῦ Ιωσεδεκ ὁ ἱερεὺς ὁ μέγας καὶ κατισχυέτω πᾶς ὁ λαὸς τῆς γῆς λέγει κύριος καὶ ποιεῖτε διότι μεθ' ὑμῶν ἐγώ εἰμι λέγει κύριος παντοκράτωρ.",
+     "giguet": "Et maintenant arme-toi de force, Zorobabel, fils de Salathiel, de la tribu de Juda&nbsp;; arme-toi de force, Jésus, fils de Josédec, le grand-prêtre&nbsp;; arme-toi de force, peuple de la terre, dit le Seigneur, et travaille&nbsp;; car je suis avec vous, dit le Seigneur tout-puissant.",
+     "alexandrie": "Et maintenant sois fort, Zorobabel, dit le Seigneur, et sois fort, Ièsous, fils de Josédec, grand prêtre, et que soit fort tout le peuple du pays, dit le Seigneur, et agissez&nbsp;: car je suis avec vous, dit le Seigneur tout-puissant,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ τὸ πνεῦμά μου ἐφέστηκεν ἐν μέσῳ ὑμῶν θαρσεῖτε.",
+     "giguet": "Et mon Esprit est debout au milieu de vous&nbsp;; ayez confiance&nbsp;;",
+     "alexandrie": "et mon esprit s’est posé au milieu de vous&nbsp;; ayez confiance.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "διότι τάδε λέγει κύριος παντοκράτωρ ἔτι ἅπαξ ἐγὼ σείσω τὸν οὐρανὸν καὶ τὴν γῆν καὶ τὴν θάλασσαν καὶ τὴν ξηράν.",
+     "giguet": "Car voici ce que dit le Seigneur tout-puissant. Encore une fois, j'ébranlerai le ciel et la terre, la mer et le désert&nbsp;;",
+     "alexandrie": "Car voici ce que dit le Seigneur tout-puissant&nbsp;: une fois pour toutes, moi je secouerai le ciel, la terre, la mer et la terre sèche ,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ συσσείσω πάντα τὰ ἔθνη καὶ ἥξει τὰ ἐκλεκτὰ πάντων τῶν ἐθνῶν καὶ πλήσω τὸν οἶκον τοῦτον δόξης λέγει κύριος παντοκράτωρ.",
+     "giguet": "Et j'ébranlerai toutes les nations&nbsp;; et celles des nations que j'aurai élevées viendront&nbsp;; et je remplirai de gloire le temple, dit le Seigneur tout-puissant.",
+     "alexandrie": "et je secouerai en même temps toutes les nations, et il viendra, le meilleur de toutes les nations, et j’emplirai cette maison de gloire, dit le Seigneur tout-puissant.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἐμὸν τὸ ἀργύριον καὶ ἐμὸν τὸ χρυσίον λέγει κύριος παντοκράτωρ.",
+     "giguet": "À moi est l'or, à moi l'argent, dit le Seigneur tout-puissant.",
+     "alexandrie": "Il est à moi, l’argent, il est à moi, l’or, dit le Seigneur tout-puissant.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "διότι μεγάλη ἔσται ἡ δόξα τοῦ οἴκου τούτου ἡ ἐσχάτη ὑπὲρ τὴν πρώτην λέγει κύριος παντοκράτωρ καὶ ἐν τῷ τόπῳ τούτῳ δώσω εἰρήνην λέγει κύριος παντοκράτωρ καὶ εἰρήνην ψυχῆς εἰς περιποίησιν παντὶ τῷ κτίζοντι τοῦ ἀναστῆσαι τὸν ναὸν τοῦτον.",
+     "giguet": "La gloire de ce temple sera grande&nbsp;; mais celle de la fin surpassera celle du commencement, dit le Seigneur Dieu tout-puissant&nbsp;; et à cette terre je donnerai la paix, dit le Seigneur Dieu tout-puissant, et je donnerai la paix en ce lieu à tous ceux qui travaillent à réédifier le temple.",
+     "alexandrie": "Car grande sera la gloire de cette maison, cette dernière gloire qui surpassera la première, dit le Seigneur tout-puissant&nbsp;; et en ce lieu je donnerai la paix, dit le Seigneur tout-puissant, et la paix de l’âme pour sauvegarde, à tout bâtisseur, pour relever ce temple.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "τετράδι καὶ εἰκάδι τοῦ ἐνάτου μηνὸς ἔτους δευτέρου ἐπὶ Δαρείου ἐγένετο λόγος κυρίου πρὸς Αγγαιον τὸν προφήτην λέγων.",
+     "giguet": "Le vingt-troisième jour du neuvième mois de la seconde année du règne de Darius, la parole du Seigneur vint à Aggée, le prophète, disant&nbsp;:",
+     "alexandrie": "Le vingt-quatre du neuvième mois de la deuxième année sous Darius, il y eut une parole du Seigneur au prophète Aggée, et qui disait&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "τάδε λέγει κύριος παντοκράτωρ ἐπερώτησον τοὺς ἱερεῖς νόμον λέγων.",
+     "giguet": "Voici ce que dit le Seigneur, maître de toutes choses&nbsp;: Consulte les prêtres sur la loi&nbsp;; dis-leur&nbsp;:",
+     "alexandrie": "Voici ce que dit le Seigneur tout-puissant&nbsp;: «&nbsp;Interroge les prêtres sur la loi en disant&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἐὰν λάβῃ ἄνθρωπος κρέας ἅγιον ἐν τῷ ἄκρῳ τοῦ ἱματίου αὐτοῦ καὶ ἅψηται τὸ ἄκρον τοῦ ἱματίου αὐτοῦ ἄρτου ἢ ἑψέματος ἢ οἴνου ἢ ἐλαίου ἢ παντὸς βρώματος εἰ ἁγιασθήσεται καὶ ἀπεκρίθησαν οἱ ἱερεῖς καὶ εἶπαν οὔ.",
+     "giguet": "Si un homme prend dans le coin de son manteau de la chair consacrée, et si le coin de son manteau touche du pain ou de la viande cuite, du vin ou de l'huile, ou tout autre aliment, cet aliment sera-t-il sanctifié&nbsp;? Et les prêtres répondirent et dirent&nbsp;: Non.",
+     "alexandrie": "Si un homme prend une viande consacrée dans le bord de son manteau et que le bord de son manteau touche du pain, un mets cuit, du vin, de l’huile, n’importe quelle nourriture, sera-ce alors consacré&nbsp;?&nbsp;» Et les prêtres répondirent et dirent&nbsp;: Non.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ εἶπεν Αγγαιος ἐὰν ἅψηται μεμιαμμένος ἐπὶ ψυχῇ ἀπὸ παντὸς τούτων εἰ μιανθήσεται καὶ ἀπεκρίθησαν οἱ ἱερεῖς καὶ εἶπαν μιανθήσεται.",
+     "giguet": "Et Aggée dit&nbsp;: Si un homme souillé et non purifié en son âme touche l'une de ces choses, sera-t-elle souillée&nbsp;? Et les prêtres répondirent et dirent&nbsp;: Elle sera souillée.",
+     "alexandrie": "Et Aggée dit&nbsp;: Si quelqu’un, souillé au contact d’un cadavre, touche quoi que ce soit de cela, sera-ce alors souillé&nbsp;? Et les prêtres répondirent et dirent&nbsp;: Ce sera souillé.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἀπεκρίθη Αγγαιος καὶ εἶπεν οὕτως ὁ λαὸς οὗτος καὶ οὕτως τὸ ἔθνος τοῦτο ἐνώπιον ἐμοῦ λέγει κύριος καὶ οὕτως πάντα τὰ ἔργα τῶν χειρῶν αὐτῶν καὶ ὃς ἐὰν ἐγγίσῃ ἐκεῖ μιανθήσεται ἕνεκεν τῶν λημμάτων αὐτῶν τῶν ὀρθρινῶν ὀδυνηθήσονται ἀπὸ προσώπου πόνων αὐτῶν καὶ ἐμισεῖτε ἐν πύλαις ἐλέγχοντας.",
+     "giguet": "Et Aggée reprit, et dit&nbsp;: Tel est ce peuple&nbsp;; telle est cette nation devant moi, dit le Seigneur&nbsp;; telles sont toutes les œuvres de leurs mains&nbsp;; tel est celui qui approchera de ce lieu souillé à cause des présents qu'il a reçus le matin&nbsp;; et ils souffriront à l'aspect de leurs travaux&nbsp;; et ils ont haï celui qui les a réprimandés devant les portes de la ville.",
+     "alexandrie": "Et Aggée répondit et dit&nbsp;: Il en est ainsi de ce peuple, ainsi de cette nation devant moi&nbsp;! dit le Seigneur, et ainsi de toutes les œuvres de leurs mains, et qui s’approchera là sera souillé à cause de leurs profits matutinaux, et ils souffriront du fait de leurs labeurs&nbsp;; et, aux portes, vous haïssiez les réprobateurs.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ νῦν θέσθε δὴ εἰς τὰς καρδίας ὑμῶν ἀπὸ τῆς ἡμέρας ταύτης καὶ ὑπεράνω πρὸ τοῦ θεῖναι λίθον ἐπὶ λίθον ἐν τῷ ναῷ κυρίου.",
+     "giguet": "Et maintenant, en vos cœurs, remontez dans le passé à partir de ce jour, avant qu'on eût posé pierre sur pierre dans le temple du Seigneur&nbsp;;",
+     "alexandrie": "Et maintenant mettez donc ceci en votre cœur, de ce jour et dorénavant, avant de mettre pierre sur pierre dans le temple du Seigneur&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "τίνες ἦτε ὅτε ἐνεβάλλετε εἰς κυψέλην κριθῆς εἴκοσι σάτα καὶ ἐγένετο κριθῆς δέκα σάτα καὶ εἰσεπορεύεσθε εἰς τὸ ὑπολήνιον ἐξαντλῆσαι πεντήκοντα μετρητάς καὶ ἐγένοντο εἴκοσι.",
+     "giguet": "Qui étiez-vous&nbsp;? lorsque vous jetiez dans le coffre à orge vingt mesures de grain, et qu'elles se réduisaient à dix&nbsp;; lorsque vous alliez à la cuve, sous le pressoir, pour y puiser vingt-cinq mesures, et qu'il n'y en avait plus que vingt.",
+     "alexandrie": "Qui étiez-vous&nbsp;? Quand vous jetiez dans un coffre vingt boisseaux d’orge, alors il y eut dix boisseaux d’orge&nbsp;; et quand vous veniez au pressoir y puiser cinquante muids, alors il y en eut vingt.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ἐπάταξα ὑμᾶς ἐν ἀφορίᾳ καὶ ἐν ἀνεμοφθορίᾳ καὶ ἐν χαλάζῃ πάντα τὰ ἔργα τῶν χειρῶν ὑμῶν καὶ οὐκ ἐπεστρέψατε πρός με λέγει κύριος.",
+     "giguet": "Je vous ai frappés par la stérilité&nbsp;; j'ai frappé les œuvres de vos mains par les ravages du vent et par la grêle&nbsp;; et vous ne vous êtes point convertis à moi, dit le Seigneur.",
+     "alexandrie": "Je vous ai frappés de stérilité, de vent destructeur et de grêle, en toutes les œuvres de vos mains, et vous ne vous êtes pas retournés vers moi, dit le Seigneur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ὑποτάξατε δὴ τὰς καρδίας ὑμῶν ἀπὸ τῆς ἡμέρας ταύτης καὶ ἐπέκεινα ἀπὸ τῆς τετράδος καὶ εἰκάδος τοῦ ἐνάτου μηνὸς καὶ ἀπὸ τῆς ἡμέρας ἧς ἐθεμελιώθη ὁ ναὸς κυρίου θέσθε ἐν ταῖς καρδίαις ὑμῶν.",
+     "giguet": "Pensez donc en vos cœurs, à partir de ce jour et au delà, à partir du vingt-troisième jour du neuvième mois, et du jour où le temple du Seigneur a été fondé&nbsp;; considérez en vos cœurs",
+     "alexandrie": "Soumettez donc votre cœur, de ce jour et au-delà&nbsp;; depuis le vingt-quatre du neuvième mois et de ce jour, où ont été établies les bases du temple du Seigneur, mettez ceci en votre cœur&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "εἰ ἔτι ἐπιγνωσθήσεται ἐπὶ τῆς ἅλω καὶ εἰ ἔτι ἡ ἄμπελος καὶ ἡ συκῆ καὶ ἡ ῥόα καὶ τὰ ξύλα τῆς ἐλαίας τὰ οὐ φέροντα καρπόν ἀπὸ τῆς ἡμέρας ταύτης εὐλογήσω.",
+     "giguet": "Si l'on voit pareille chose dans les granges&nbsp;; vigne, figuier, grenadier ou olivier, rien n'a encore porté des fruits&nbsp;; mais à partir de ce jour je vous bénirai.",
+     "alexandrie": "Si on reconnaît encore sur l’aire, si on reconnaît encore la vigne, la figue, la grenade, les branches de l’olivier qui ne portent pas de fruit, de ce jour je bénirai.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ ἐγένετο λόγος κυρίου ἐκ δευτέρου πρὸς Αγγαιον τὸν προφήτην τετράδι καὶ εἰκάδι τοῦ μηνὸς λέγων.",
+     "giguet": "Et la parole du Seigneur vint une seconde fois à Aggée, le prophète, le vingt-quatrième jour du moi, disant&nbsp;:",
+     "alexandrie": "Et il y eut une parole du Seigneur pour la seconde fois au prophète Aggée, le vingt-quatrième du mois, et qui disait&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "εἰπὸν πρὸς Ζοροβαβελ τὸν τοῦ Σαλαθιηλ ἐκ φυλῆς Ιουδα λέγων ἐγὼ σείω τὸν οὐρανὸν καὶ τὴν γῆν καὶ τὴν θάλασσαν καὶ τὴν ξηρὰν.",
+     "giguet": "Parle à Zorobabel, fils de Salathiel, de la tribu de Juda&nbsp;; dis-lui j'ébranlerai le ciel et la terre, la mer et le désert,",
+     "alexandrie": "Parle à Zorobabel, le fils de Salathiel, de la tribu de Juda, en disant&nbsp;: «&nbsp;Moi, je secoue le ciel, la terre, la mer et la terre sèche",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ καταστρέψω θρόνους βασιλέων καὶ ὀλεθρεύσω δύναμιν βασιλέων τῶν ἐθνῶν καὶ καταστρέψω ἅρματα καὶ ἀναβάτας καὶ καταβήσονται ἵπποι καὶ ἀναβάται αὐτῶν ἕκαστος ἐν ῥομφαίᾳ πρὸς τὸν ἀδελφὸν αὐτοῦ.",
+     "giguet": "Et je renverserai le trône des rois, et je détruirai la puissance des rois des nations, et je ferai tomber leurs chars et leurs écuyers&nbsp;; et les chevaux et leurs cavaliers seront abattus&nbsp;; et le frère frappera du glaive son frère.",
+     "alexandrie": "et je renverserai les trônes des rois, je détruirai la puissance des rois des nations, je renverserai chars et cavaliers, et tomberont chevaux et leurs cavaliers, chacun sous la lance de son frère.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "ἐν τῇ ἡμέρᾳ ἐκείνῃ λέγει κύριος παντοκράτωρ λήμψομαί σε Ζοροβαβελ τὸν τοῦ Σαλαθιηλ τὸν δοῦλόν μου λέγει κύριος καὶ θήσομαί σε ὡς σφραγῖδα διότι σὲ ᾑρέτισα λέγει κύριος παντοκράτωρ.",
+     "giguet": "Or, en ce jour-là, dit le Seigneur, maître de toutes choses, je protégerai Zorobabel, fils de Salathiel, mon serviteur, dit le Seigneur Dieu&nbsp;; et tu seras pour moi comme un sceau d'alliance, parce que je t'ai choisi, dit le Seigneur tout-puissant.",
+     "alexandrie": "Ce jour-là, dit le Seigneur tout-puissant, je te prendrai, Zorobabel, fils de Salathiel, mon esclave, dit le Seigneur, et je disposerai de toi comme d’un sceau, car c’est toi que j’ai choisi, dit le Seigneur tout-puissant.&nbsp;»",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  }
+ ]
+}

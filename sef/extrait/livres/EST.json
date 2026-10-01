@@ -1,0 +1,2158 @@
+{
+ "code": "EST",
+ "book": "Esther",
+ "fichiersToc": [
+  "EST/001.html",
+  "EST/002.html",
+  "EST/003.html",
+  "EST/004.html",
+  "EST/005.html",
+  "EST/006.html",
+  "EST/007.html",
+  "EST/008.html",
+  "EST/009.html",
+  "EST/010.html"
+ ],
+ "chapitres": [
+  {
+   "chapitre": 1,
+   "libelle": "1a",
+   "fichierToc": "EST/001.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1a",
+     "grec": "ἔτους δευτέρου βασιλεύοντος Ἀρταξέρξου τοῦ μεγάλου τῇ μιᾷ τοῦ Νισα ἐνύπνιον εἶδεν Μαρδοχαῖος ὁ τοῦ Ιαϊρου τοῦ Σεμεϊου τοῦ Κισαιου ἐκ φυλῆς Βενιαμιν.",
+     "giguet": "La seconde année du règne du grand roi Artaxerxès, le premier de Nisan, le Juif Mardochée, fils de Jaïr, fils de Sémeï, fils de Cisée, de la tribu de Benjamin, eut en songe une vision.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1b",
+     "grec": "ἄνθρωπος Ιουδαῖος οἰκῶν ἐν Σούσοις τῇ πόλει ἄνθρωπος μέγας θεραπεύων ἐν τῇ αὐλῇ τοῦ βασιλέως.",
+     "giguet": "Demeurant en la ville de Suse, c'était un homme considérable, servant dans le palais du roi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1c",
+     "grec": "ἦν δὲ ἐκ τῆς αἰχμαλωσίας ἧς ᾐχμαλώτευσεν Ναβουχοδονοσορ ὁ βασιλεὺς Βαβυλῶνος ἐξ Ιερουσαλημ μετὰ Ιεχονιου τοῦ βασιλέως τῆς Ιουδαίας.",
+     "giguet": "Il était des captifs que Nabuchodonosor, roi de Babylone, avait emmenés avec Jéchonias, roi de la Judée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1d",
+     "grec": "καὶ τοῦτο αὐτοῦ τὸ ἐνύπνιον καὶ ἰδοὺ φωναὶ καὶ θόρυβος βρονταὶ καὶ σεισμός τάραχος ἐπὶ τῆς γῆς.",
+     "giguet": "Et voici sa vision&nbsp;: Voilà qu'il y avait voix et bruit, tonnerres et tremblements de terre, tumulte sur la terre,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1e",
+     "grec": "καὶ ἰδοὺ δύο δράκοντες μεγάλοι ἕτοιμοι προῆλθον ἀμφότεροι παλαίειν καὶ ἐγένετο αὐτῶν φωνὴ μεγάλη.",
+     "giguet": "Et voilà que deux dragons s'avancèrent, prêts à se combattre mutuellement&nbsp;; et ils poussaient de grands cris,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1f",
+     "grec": "καὶ τῇ φωνῇ αὐτῶν ἡτοιμάσθη πᾶν ἔθνος εἰς πόλεμον ὥστε πολεμῆσαι δικαίων ἔθνος.",
+     "giguet": "Et à leurs cris chaque nation se préparait à la guerre, pour combattre la nation des justes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1g",
+     "grec": "καὶ ἰδοὺ ἡμέρα σκότους καὶ γνόφου θλῖψις καὶ στενοχωρία κάκωσις καὶ τάραχος μέγας ἐπὶ τῆς γῆς.",
+     "giguet": "Voilà que c'était un jour d'obscurité et de ténèbres, de tribulation et d'angoisse, d'affliction et de grand tumulte sur la terre,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1h",
+     "grec": "καὶ ἐταράχθη δίκαιον πᾶν ἔθνος φοβούμενοι τὰ ἑαυτῶν κακὰ καὶ ἡτοιμάσθησαν ἀπολέσθαι καὶ ἐβόησαν πρὸς τὸν θεόν.",
+     "giguet": "Et toute la nation juste fut troublée, craignant sa propre affliction, et elle se tint prête à mourir, et elle cria au Seigneur Dieu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1i",
+     "grec": "ἀπὸ δὲ τῆς βοῆς αὐτῶν ἐγένετο ὡσανεὶ ἀπὸ μικρᾶς πηγῆς ποταμὸς μέγας ὕδωρ πολύ.",
+     "giguet": "Et à ses cris, il vint comme un grand fleuve, sortant d'une petite fontaine,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1k",
+     "grec": "φῶς καὶ ὁ ἥλιος ἀνέτειλεν καὶ οἱ ταπεινοὶ ὑψώθησαν καὶ κατέφαγον τοὺς ἐνδόξους.",
+     "giguet": "Et la lumière et le soleil parurent, et les humbles furent exaltés, et ils dévorèrent les superbes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1l",
+     "grec": "καὶ διεγερθεὶς Μαρδοχαῖος ὁ ἑωρακὼς τὸ ἐνύπνιον τοῦτο καὶ τί ὁ θεὸς βεβούλευται ποιῆσαι εἶχεν αὐτὸ ἐν τῇ καρδίᾳ καὶ ἐν παντὶ λόγῳ ἤθελεν ἐπιγνῶναι αὐτὸ ἕως τῆς νυκτός.",
+     "giguet": "Et Mardochée, celui qui avait eu cette vision, s'étant éveillé, se demanda en son cœur ce que Dieu voulait faire, et, toute la nuit, il n'eut pas d'autre pensée que de le découvrir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1m",
+     "grec": "καὶ ἡσύχασεν Μαρδοχαῖος ἐν τῇ αὐλῇ μετὰ Γαβαθα καὶ Θαρρα τῶν δύο εὐνούχων τοῦ βασιλέως τῶν φυλασσόντων τὴν αὐλὴν.",
+     "giguet": "Or, Mardochée se tint tranquille dans le parvis près de Gabatha et de Tharra, deux eunuques du roi qui gardaient le palais,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1n",
+     "grec": "ἤκουσέν τε αὐτῶν τοὺς λογισμοὺς καὶ τὰς μερίμνας αὐτῶν ἐξηρεύνησεν καὶ ἔμαθεν ὅτι ἑτοιμάζουσιν τὰς χεῖρας ἐπιβαλεῖν Ἀρταξέρξῃ τῷ βασιλεῖ καὶ ὑπέδειξεν τῷ βασιλεῖ περὶ αὐτῶν.",
+     "giguet": "Et il entendit leurs réflexions et il surprit leurs préoccupations, et il apprit qu'ils se préparaient à porter les mains sur le roi Artaxerxès, et il instruisit le roi de ce qui les concernait.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1o",
+     "grec": "καὶ ἐξήτασεν ὁ βασιλεὺς τοὺς δύο εὐνούχους καὶ ὁμολογήσαντες ἀπήχθησαν.",
+     "giguet": "Et le roi interrogea les deux eunuques&nbsp;; et ayant avoué, ils furent menés au supplice,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1p",
+     "grec": "καὶ ἔγραψεν ὁ βασιλεὺς τοὺς λόγους τούτους εἰς μνημόσυνον καὶ Μαρδοχαῖος ἔγραψεν περὶ τῶν λόγων τούτων.",
+     "giguet": "Et le roi fit écrire ces choses en un mémorial, et Mardochée aussi écrivit le récit de ces choses.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1q",
+     "grec": "καὶ ἐπέταξεν ὁ βασιλεὺς Μαρδοχαίῳ θεραπεύειν ἐν τῇ αὐλῇ καὶ ἔδωκεν αὐτῷ δόματα περὶ τούτων.",
+     "giguet": "Et le roi ordonna que Mardochée servît dans l'intérieur du palais, et il lui fit, à ce sujet, des présents.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1r",
+     "grec": "καὶ ἦν Αμαν Αμαδαθου Βουγαῖος ἔνδοξος ἐνώπιον τοῦ βασιλέως καὶ ἐζήτησεν κακοποιῆσαι τὸν Μαρδοχαῖον καὶ τὸν λαὸν αὐτοῦ ὑπὲρ τῶν δύο εὐνούχων τοῦ βασιλέως.",
+     "giguet": "Or, Aman, fils d'Amadathe le Bugéen, était en faveur auprès du roi, et il chercha à nuire à Mardochée et à son peuple à cause des deux eunuques du roi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1s",
+     "grec": "καὶ ἐγένετο μετὰ τοὺς λόγους τούτους ἐν ταῖς ἡμέραις Ἀρταξέρξου οὗτος ὁ Ἀρταξέρξης ἀπὸ τῆς Ἰνδικῆς ἑκατὸν εἴκοσι ἑπτὰ χωρῶν ἐκράτησεν.",
+     "giguet": "Or, après ces choses, il advint durant les jours d'Artaxerxès, qui régnait depuis l'Inde sur cent vingt-sept contrées,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἐν αὐταῖς ταῖς ἡμέραις ὅτε ἐθρονίσθη ὁ βασιλεὺς Ἀρταξέρξης ἐν Σούσοις τῇ πόλει.",
+     "giguet": "En ces jours-là, tandis qu'il trônait en la ville de Suse,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἐν τῷ τρίτῳ ἔτει βασιλεύοντος αὐτοῦ δοχὴν ἐποίησεν τοῖς φίλοις καὶ τοῖς λοιποῖς ἔθνεσιν καὶ τοῖς Περσῶν καὶ Μήδων ἐνδόξοις καὶ τοῖς ἄρχουσιν τῶν σατραπῶν.",
+     "giguet": "La troisième année de son règne, il advint qu'il fit un festin à ses amis et au reste des nations, et aux hommes considérables des Perses et des Mèdes, et aux premiers des satrapes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ μετὰ ταῦτα μετὰ τὸ δεῖξαι αὐτοῖς τὸν πλοῦτον τῆς βασιλείας αὐτοῦ καὶ τὴν δόξαν τῆς εὐφροσύνης τοῦ πλούτου αὐτοῦ ἐπὶ ἡμέρας ἑκατὸν ὀγδοήκοντα.",
+     "giguet": "Et ensuite, après leur avoir montré les richesses de son royaume, et la splendeur de ses joies et de ses trésors, pendant cent quatre-vingts jours,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ὅτε δὲ ἀνεπληρώθησαν αἱ ἡμέραι τοῦ γάμου ἐποίησεν ὁ βασιλεὺς πότον τοῖς ἔθνεσιν τοῖς εὑρεθεῖσιν εἰς τὴν πόλιν ἐπὶ ἡμέρας ἓξ ἐν αὐλῇ οἴκου τοῦ βασιλέως.",
+     "giguet": "Lorsque les jours de ses noces furent remplis, il fit pendant six jours aux nations qui se trouvaient à Suse un festin dans le parvis du palais,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "κεκοσμημένῃ βυσσίνοις καὶ καρπασίνοις τεταμένοις ἐπὶ σχοινίοις βυσσίνοις καὶ πορφυροῖς ἐπὶ κύβοις χρυσοῖς καὶ ἀργυροῖς ἐπὶ στύλοις παρίνοις καὶ λιθίνοις κλῖναι χρυσαῖ καὶ ἀργυραῖ ἐπὶ λιθοστρώτου σμαραγδίτου λίθου καὶ πιννίνου καὶ παρίνου λίθου καὶ στρωμναὶ διαφανεῖς ποικίλως διηνθισμέναι κύκλῳ ῥόδα πεπασμένα.",
+     "giguet": "Orné de voiles du lin le plus fin, et de gaze tendue par des cordons de lin et de pourpre sur des socles d'or et d'argent, et sur des colonnes de marbre blanc et de pierre. Les lits, d'argent et d'or, étaient posés sur des mosaïques d'émeraudes, de nacre et de marbre blanc&nbsp;; et les couvertures transparentes, diversement brodées, étaient encadrées de feuilles de roses.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ποτήρια χρυσᾶ καὶ ἀργυρᾶ καὶ ἀνθράκινον κυλίκιον προκείμενον ἀπὸ ταλάντων τρισμυρίων οἶνος πολὺς καὶ ἡδύς ὃν αὐτὸς ὁ βασιλεὺς ἔπινεν",
+     "giguet": "Les coupes étaient d'argent et d'or, et il y avait une petite coupe en diamant évaluée trente mille talents&nbsp;; on les remplissait de vin abondant et doux, le même que le roi buvait.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ὁ δὲ πότος οὗτος οὐ κατὰ προκείμενον νόμον ἐγένετο οὕτως δὲ ἠθέλησεν ὁ βασιλεὺς καὶ ἐπέταξεν τοῖς οἰκονόμοις ποιῆσαι τὸ θέλημα αὐτοῦ καὶ τῶν ἀνθρώπων.",
+     "giguet": "Et le repas ne se fit pas selon la loi établie&nbsp;; le roi l'avait ainsi voulu, et il avait ordonné à ses économes de se conformer à ses propres désirs et à ceux de ses convives.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ Αστιν ἡ βασίλισσα ἐποίησε πότον ταῖς γυναιξὶν ἐν τοῖς βασιλείοις ὅπου ὁ βασιλεὺς Ἀρταξέρξης.",
+     "giguet": "Et Vasthi, la reine, fit un festin pour les femmes dans l'intérieur du palais où résidait le roi Artaxerxès.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἐν δὲ τῇ ἡμέρᾳ τῇ ἑβδόμῃ ἡδέως γενόμενος ὁ βασιλεὺς εἶπεν τῷ Αμαν καὶ Βαζαν καὶ Θαρρα καὶ Βωραζη καὶ Ζαθολθα καὶ Αβαταζα καὶ Θαραβα τοῖς ἑπτὰ εὐνούχοις τοῖς διακόνοις τοῦ βασιλέως Ἀρταξέρξου.",
+     "giguet": "Le septième jour, le roi, étant en belle humeur, dit à Aman, à Bazan, à Tharra, à Barazi, à Zatholtha, à Abataza et à Tharaba, les sept eunuques attachés à sa personne,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "εἰσαγαγεῖν τὴν βασίλισσαν πρὸς αὐτὸν βασιλεύειν αὐτὴν καὶ περιθεῖναι αὐτῇ τὸ διάδημα καὶ δεῖξαι αὐτὴν πᾶσιν τοῖς ἄρχουσιν καὶ τοῖς ἔθνεσιν τὸ κάλλος αὐτῆς ὅτι καλὴ ἦν.",
+     "giguet": "De lui amener la reine pour qu'il la couronnât, qu'il posât sur sa tête le diadème, et qu'il la montrât dans sa beauté aux chefs et aux nations&nbsp;; car elle était belle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ οὐκ εἰσήκουσεν αὐτοῦ Αστιν ἡ βασίλισσα ἐλθεῖν μετὰ τῶν εὐνούχων καὶ ἐλυπήθη ὁ βασιλεὺς καὶ ὠργίσθη.",
+     "giguet": "Mais la reine Vasthi refusa de suivre les eunuques, et le roi en fut affligé, et il se mit en colère.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ εἶπεν τοῖς φίλοις αὐτοῦ κατὰ ταῦτα ἐλάλησεν Αστιν ποιήσατε οὖν περὶ τούτου νόμον καὶ κρίσιν.",
+     "giguet": "Et il dit à ses amis&nbsp;: Voici ce qu'a dit la reine, faites donc à ce sujet loi et jugement.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ προσῆλθεν αὐτῷ Αρκεσαιος καὶ Σαρσαθαιος καὶ Μαλησεαρ οἱ ἄρχοντες Περσῶν καὶ Μήδων οἱ ἐγγὺς τοῦ βασιλέως οἱ πρῶτοι παρακαθήμενοι τῷ βασιλεῖ.",
+     "giguet": "Et Arcesée, Sarsathée et Maliséar, princes des Perses et des Mèdes, ceux qui se tenaient près du roi, et qui s'asseyaient les premiers après lui, s'approchèrent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἀπήγγειλαν αὐτῷ κατὰ τοὺς νόμους ὡς δεῖ ποιῆσαι Αστιν τῇ βασιλίσσῃ ὅτι οὐκ ἐποίησεν τὰ ὑπὸ τοῦ βασιλέως προσταχθέντα διὰ τῶν εὐνούχων.",
+     "giguet": "Et ils lui firent connaître ce que selon la loi il était à propos de faire à la reine Vasthi, parce qu'elle n'avait point fait ce que lui avait commandé le roi par ses eunuques.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ εἶπεν ὁ Μουχαιος πρὸς τὸν βασιλέα καὶ τοὺς ἄρχοντας οὐ τὸν βασιλέα μόνον ἠδίκησεν Αστιν ἡ βασίλισσα ἀλλὰ καὶ πάντας τοὺς ἄρχοντας καὶ τοὺς ἡγουμένους τοῦ βασιλέως.",
+     "giguet": "Et Muchée dit au roi et aux princes&nbsp;: Vasthi, la reine, n'a pas nui au roi seul, mais aussi à tous les princes et aux grands officiers du roi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ γὰρ διηγήσατο αὐτοῖς τὰ ῥήματα τῆς βασιλίσσης καὶ ὡς ἀντεῖπεν τῷ βασιλεῖ ὡς οὖν ἀντεῖπεν τῷ βασιλεῖ Ἀρταξέρξῃ.",
+     "giguet": "Et il leur dit les paroles de la reine, et comme elle avait contredit le roi, et continuant&nbsp;: De même, ajouta-t-il, qu'elle a contredit le roi Artaxerxès,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "οὕτως σήμερον αἱ τυραννίδες αἱ λοιπαὶ τῶν ἀρχόντων Περσῶν καὶ Μήδων ἀκούσασαι τὰ τῷ βασιλεῖ λεχθέντα ὑπ' αὐτῆς τολμήσουσιν ὁμοίως ἀτιμάσαι τοὺς ἄνδρας αὐτῶν.",
+     "giguet": "Les autres femmes des Perses et des Mèdes du premier rang, apprenant ce qu'elle a dit au roi, oseront à l'avenir ne point honorer leurs époux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "εἰ οὖν δοκεῖ τῷ βασιλεῖ προσταξάτω βασιλικόν καὶ γραφήτω κατὰ τοὺς νόμους Μήδων καὶ Περσῶν καὶ μὴ ἄλλως χρησάσθω μηδὲ εἰσελθάτω ἔτι ἡ βασίλισσα πρὸς αὐτόν καὶ τὴν βασιλείαν αὐτῆς δότω ὁ βασιλεὺς γυναικὶ κρείττονι αὐτῆς.",
+     "giguet": "Si donc le roi le juge à propos, qu'il rende un édit, qu'il l'écrive selon la loi des Perses et des Mèdes, que l'on ne puisse y déroger&nbsp;; qu'il défende à la reine de s'approcher désormais de sa personne, et que le roi donne le diadème royal à une femme meilleure qu'elle&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ ἀκουσθήτω ὁ νόμος ὁ ὑπὸ τοῦ βασιλέως ὃν ἐὰν ποιῇ ἐν τῇ βασιλείᾳ αὐτοῦ καὶ οὕτως πᾶσαι αἱ γυναῖκες περιθήσουσιν τιμὴν τοῖς ἀνδράσιν ἑαυτῶν ἀπὸ πτωχοῦ ἕως πλουσίου.",
+     "giguet": "Et que l'édit qu'aura rendu le roi soit publié en tout son royaume. Alors, toutes les femmes mettront leurs soins à honorer leurs époux, depuis l'indigent jusqu'au riche.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ ἤρεσεν ὁ λόγος τῷ βασιλεῖ καὶ τοῖς ἄρχουσι καὶ ἐποίησεν ὁ βασιλεὺς καθὰ ἐλάλησεν ὁ Μουχαιος.",
+     "giguet": "Or, ce conseil plut au roi et aux princes, et le roi fit comme avait dit Muchée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ ἀπέστειλεν εἰς πᾶσαν τὴν βασιλείαν κατὰ χώραν κατὰ τὴν λέξιν αὐτῶν ὥστε εἶναι φόβον αὐτοῖς ἐν ταῖς οἰκίαις αὐτῶν.",
+     "giguet": "Et il envoya dans toutes les provinces de son royaume l'édit traduit en leurs diverses langues, afin qu'en toute demeure on eût crainte.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 2,
+   "libelle": "2",
+   "fichierToc": "EST/002.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ μετὰ τοὺς λόγους τούτους ἐκόπασεν ὁ βασιλεὺς τοῦ θυμοῦ καὶ οὐκέτι ἐμνήσθη τῆς Αστιν μνημονεύων οἷα ἐλάλησεν καὶ ὡς κατέκρινεν αὐτήν.",
+     "giguet": "Après ces choses, la colère du roi à la longue s'assoupit&nbsp;; mais il ne rechercha plus la reine, se souvenant de ce qu'elle avait dit, et du jugement qu'il avait rendu contre elle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ εἶπαν οἱ διάκονοι τοῦ βασιλέως ζητηθήτω τῷ βασιλεῖ κοράσια ἄφθορα καλὰ τῷ εἴδει.",
+     "giguet": "Et les serviteurs du roi dirent&nbsp;: Que l'on cherche pour le roi des jeunes filles chastes et belles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ καταστήσει ὁ βασιλεὺς κωμάρχας ἐν πάσαις ταῖς χώραις τῆς βασιλείας αὐτοῦ καὶ ἐπιλεξάτωσαν κοράσια παρθενικὰ καλὰ τῷ εἴδει εἰς Σουσαν τὴν πόλιν εἰς τὸν γυναικῶνα καὶ παραδοθήτωσαν τῷ εὐνούχῳ τοῦ βασιλέως τῷ φύλακι τῶν γυναικῶν καὶ δοθήτω σμῆγμα καὶ ἡ λοιπὴ ἐπιμέλεια.",
+     "giguet": "Que le roi donne ses ordres aux comarques de toutes les provinces de son royaume&nbsp;; qu'ils choisissent des jeunes filles vierges et belles pour le gynécée de la ville de Suse&nbsp;; qu'on les mette entre les mains de l'eunuque du roi gardien des femmes&nbsp;; et qu'on leur donne là des cosmétiques et toutes sortes de soins.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἡ γυνή ἣ ἂν ἀρέσῃ τῷ βασιλεῖ βασιλεύσει ἀντὶ Αστιν καὶ ἤρεσεν τῷ βασιλεῖ τὸ πρᾶγμα καὶ ἐποίησεν οὕτως.",
+     "giguet": "Puis, la femme qui plaira au roi sera reine à la place de Vasthi. Ce projet fut agréable au roi, et il fit ainsi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἄνθρωπος ἦν Ιουδαῖος ἐν Σούσοις τῇ πόλει καὶ ὄνομα αὐτῷ Μαρδοχαῖος ὁ τοῦ Ιαϊρου τοῦ Σεμεϊου τοῦ Κισαιου ἐκ φυλῆς Βενιαμιν.",
+     "giguet": "Or, il y avait en la ville de Suse un Juif qui se nommait Mardochée, fils de Jaïr, fils de Sémeï, fils de Cisée, de la tribu de Benjamin,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ὃς ἦν αἰχμάλωτος ἐξ Ιερουσαλημ ἣν ᾐχμαλώτευσεν Ναβουχοδονοσορ βασιλεὺς Βαβυλῶνος.",
+     "giguet": "Qui avait été fait captif à Jérusalem, parmi ceux qu'avait emmenés Nabuchodonosor, roi de Babylone.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἦν τούτῳ παῖς θρεπτή θυγάτηρ Αμιναδαβ ἀδελφοῦ πατρὸς αὐτοῦ καὶ ὄνομα αὐτῇ Εσθηρ ἐν δὲ τῷ μεταλλάξαι αὐτῆς τοὺς γονεῖς ἐπαίδευσεν αὐτὴν ἑαυτῷ εἰς γυναῖκα καὶ ἦν τὸ κοράσιον καλὸν τῷ εἴδει.",
+     "giguet": "Il avait élevé une enfant, fille d'Aminadab, son oncle paternel, et elle se nommait Esther, et, ses parents étant morts, il l'avait élevée pour qu'elle fût sa femme, et la jeune fille était belle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ ὅτε ἠκούσθη τὸ τοῦ βασιλέως πρόσταγμα συνήχθησαν κοράσια πολλὰ εἰς Σουσαν τὴν πόλιν ὑπὸ χεῖρα Γαι καὶ ἤχθη Εσθηρ πρὸς Γαι τὸν φύλακα τῶν γυναικῶν.",
+     "giguet": "Or, lorsque l'édit du roi fut publié, beaucoup de jeunes filles furent réunies à Suse entre les mains de l'eunuque Haï. Esther fut aussi conduite chez Haï, gardien des femmes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ ἤρεσεν αὐτῷ τὸ κοράσιον καὶ εὗρεν χάριν ἐνώπιον αὐτοῦ καὶ ἔσπευσεν αὐτῇ δοῦναι τὸ σμῆγμα καὶ τὴν μερίδα καὶ τὰ ἑπτὰ κοράσια τὰ ἀποδεδειγμένα αὐτῇ ἐκ βασιλικοῦ καὶ ἐχρήσατο αὐτῇ καλῶς καὶ ταῖς ἅβραις αὐτῆς ἐν τῷ γυναικῶνι.",
+     "giguet": "Et la jeune fille lui plut et elle trouva grâce à ses yeux, et il se hâta de lui donner des cosmétiques et sa part, et sept jeunes filles du palais pour la servir&nbsp;; il en usa bien avec elle et avec ses suivantes, dans le gynécée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ οὐχ ὑπέδειξεν Εσθηρ τὸ γένος αὐτῆς οὐδὲ τὴν πατρίδα ὁ γὰρ Μαρδοχαῖος ἐνετείλατο αὐτῇ μὴ ἀπαγγεῖλαι.",
+     "giguet": "Et Esther ne fit connaître ni ses parents ni sa patrie, car Mardochée lui avait défendu d'en rien déclarer.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καθ' ἑκάστην δὲ ἡμέραν ὁ Μαρδοχαῖος περιεπάτει κατὰ τὴν αὐλὴν τὴν γυναικείαν ἐπισκοπῶν τί Εσθηρ συμβήσεται.",
+     "giguet": "Et chaque jour Mardochée se promenait dans le parvis du gynécée, observant ce qui pouvait arriver à Esther.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "οὗτος δὲ ἦν καιρὸς κορασίου εἰσελθεῖν πρὸς τὸν βασιλέα ὅταν ἀναπληρώσῃ μῆνας δέκα δύο οὕτως γὰρ ἀναπληροῦνται αἱ ἡμέραι τῆς θεραπείας μῆνας ἓξ ἀλειφόμεναι ἐν σμυρνίνῳ ἐλαίῳ καὶ μῆνας ἓξ ἐν τοῖς ἀρώμασιν καὶ ἐν τοῖς σμήγμασιν τῶν γυναικῶν.",
+     "giguet": "Or, le moment où une jeune fille entre chez le roi, arrive quand les douze mois sont accomplis, car alors les jours de la purification sont écoulés&nbsp;; pendant six mois, elle s'est ointe d'huile de myrrhe, et pendant six mois d'aromates et de cosmétiques de femmes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ τότε εἰσπορεύεται πρὸς τὸν βασιλέα καὶ ὃ ἐὰν εἴπῃ παραδώσει αὐτῇ συνεισέρχεσθαι αὐτῇ ἀπὸ τοῦ γυναικῶνος ἕως τῶν βασιλείων.",
+     "giguet": "Enfin, on l'introduit chez le roi, et l'eunuque à qui il en donne l'ordre la conduit, pour qu'elle aille auprès de lui, du gynécée aux chambres du roi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "δείλης εἰσπορεύεται καὶ πρὸς ἡμέραν ἀποτρέχει εἰς τὸν γυναικῶνα τὸν δεύτερον οὗ Γαι ὁ εὐνοῦχος τοῦ βασιλέως ὁ φύλαξ τῶν γυναικῶν καὶ οὐκέτι εἰσπορεύεται πρὸς τὸν βασιλέα ἐὰν μὴ κληθῇ ὀνόματι.",
+     "giguet": "Elle y entre le soir, et, le lendemain, elle retourne au second gynécée où est l'eunuque Haï, gardien des femmes, et on ne la reconduit plus chez le roi, à moins qu'il ne la demande par son nom.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ἐν δὲ τῷ ἀναπληροῦσθαι τὸν χρόνον Εσθηρ τῆς θυγατρὸς Αμιναδαβ ἀδελφοῦ πατρὸς Μαρδοχαίου εἰσελθεῖν πρὸς τὸν βασιλέα οὐδὲν ἠθέτησεν ὧν αὐτῇ ἐνετείλατο ὁ εὐνοῦχος ὁ φύλαξ τῶν γυναικῶν ἦν γὰρ Εσθηρ εὑρίσκουσα χάριν παρὰ πάντων τῶν βλεπόντων αὐτήν.",
+     "giguet": "Et quand fut accompli le temps après lequel Esther, fille d'Aminadab, oncle paternel de Mardochée, devait être présentée au roi, elle ne négligea rien de ce que lui prescrivit l'eunuque, gardien des femmes. Car il était donné à Esther de trouver grâce aux yeux de tous ceux qui la voyaient.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ εἰσῆλθεν Εσθηρ πρὸς Ἀρταξέρξην τὸν βασιλέα τῷ δωδεκάτῳ μηνί ὅς ἐστιν Αδαρ τῷ ἑβδόμῳ ἔτει τῆς βασιλείας αὐτοῦ.",
+     "giguet": "Elle entra donc chez le roi Artaxerxès, le douzième mois qui est adar, la septième année de son règne.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ἠράσθη ὁ βασιλεὺς Εσθηρ καὶ εὗρεν χάριν παρὰ πάσας τὰς παρθένους καὶ ἐπέθηκεν αὐτῇ τὸ διάδημα τὸ γυναικεῖον.",
+     "giguet": "Et le roi aima Esther, et elle trouva grâce à ses yeux plus que toutes les autres vierges, et il lui mit le diadème de reine.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ ἐποίησεν ὁ βασιλεὺς πότον πᾶσι τοῖς φίλοις αὐτοῦ καὶ ταῖς δυνάμεσιν ἐπὶ ἡμέρας ἑπτὰ καὶ ὕψωσεν τοὺς γάμους Εσθηρ καὶ ἄφεσιν ἐποίησεν τοῖς ὑπὸ τὴν βασιλείαν αὐτοῦ.",
+     "giguet": "Et le roi fit un festin à tous ses amis et à tous ses grands, et la fête dura sept jours, et il célébra magnifiquement le mariage d'Esther, et il fit remise de ce qui lui était dû par les sujets de son royaume.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ὁ δὲ Μαρδοχαῖος ἐθεράπευεν ἐν τῇ αὐλῇ.",
+     "giguet": "Et Mardochée servait dans le parvis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "ἡ δὲ Εσθηρ οὐχ ὑπέδειξεν τὴν πατρίδα αὐτῆς οὕτως γὰρ ἐνετείλατο αὐτῇ Μαρδοχαῖος φοβεῖσθαι τὸν θεὸν καὶ ποιεῖν τὰ προστάγματα αὐτοῦ καθὼς ἦν μετ' αὐτοῦ καὶ Εσθηρ οὐ μετήλλαξεν τὴν ἀγωγὴν αὐτῆς.",
+     "giguet": "Et Esther ne déclara point quelle était sa patrie&nbsp;; car Mardochée le lui avait défendu, lui prescrivant de craindre Dieu et de suivre ses commandements, comme lorsqu'elle demeurait en sa maison&nbsp;; et Esther ne changea rien à ses habitudes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ ἐλυπήθησαν οἱ δύο εὐνοῦχοι τοῦ βασιλέως οἱ ἀρχισωματοφύλακες ὅτι προήχθη Μαρδοχαῖος καὶ ἐζήτουν ἀποκτεῖναι Ἀρταξέρξην τὸν βασιλέα.",
+     "giguet": "Et les deux eunuques, chefs des gardes du corps du roi, s'affligèrent des honneurs auxquels s'élevait Mardochée, et ils cherchèrent à tuer Artaxerxès.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ ἐδηλώθη Μαρδοχαίῳ ὁ λόγος καὶ ἐσήμανεν Εσθηρ καὶ αὐτὴ ἐνεφάνισεν τῷ βασιλεῖ τὰ τῆς ἐπιβουλῆς.",
+     "giguet": "Et Mardochée découvrit le complot, et il le dit à Esther, qui dévoila tout au roi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "ὁ δὲ βασιλεὺς ἤτασεν τοὺς δύο εὐνούχους καὶ ἐκρέμασεν αὐτούς καὶ προσέταξεν ὁ βασιλεὺς καταχωρίσαι εἰς μνημόσυνον ἐν τῇ βασιλικῇ βιβλιοθήκῃ ὑπὲρ τῆς εὐνοίας Μαρδοχαίου ἐν ἐγκωμίῳ.",
+     "giguet": "Or, le roi interrogea les eunuques et il les fit pendre&nbsp;; et il prescrivit d'écrire en un mémorial, dans les archives de la bibliothèque royale, une notice sur les bons offices de Mardochée, à sa louange.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 3,
+   "libelle": "3",
+   "fichierToc": "EST/003.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "μετὰ δὲ ταῦτα ἐδόξασεν ὁ βασιλεὺς Ἀρταξέρξης Αμαν Αμαδαθου Βουγαῖον καὶ ὕψωσεν αὐτόν καὶ ἐπρωτοβάθρει πάντων τῶν φίλων αὐτοῦ.",
+     "giguet": "Et, après cela, le roi Artaxerxès glorifia Aman, fils d'Amadathe le Bugéen, et il l'exalta, et il le fit asseoir sur un siège au-dessus de tous ses amis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ πάντες οἱ ἐν τῇ αὐλῇ προσεκύνουν αὐτῷ οὕτως γὰρ προσέταξεν ὁ βασιλεὺς ποιῆσαι ὁ δὲ Μαρδοχαῖος οὐ προσεκύνει αὐτῷ.",
+     "giguet": "Et tous ceux qui servaient dans le parvis l'adoraient, car ainsi l'avait ordonné le roi&nbsp;; et Mardochée ne se prosternait pas devant lui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἐλάλησαν οἱ ἐν τῇ αὐλῇ τοῦ βασιλέως τῷ Μαρδοχαίῳ Μαρδοχαῖε τί παρακούεις τὰ ὑπὸ τοῦ βασιλέως λεγόμενα.",
+     "giguet": "Et les serviteurs du parvis dirent à Mardochée&nbsp;: Mardochée, pourquoi désobéis-tu à ce qu'a dit le roi&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καθ' ἑκάστην ἡμέραν ἐλάλουν αὐτῷ καὶ οὐχ ὑπήκουεν αὐτῶν καὶ ὑπέδειξαν τῷ Αμαν Μαρδοχαῖον τοῖς τοῦ βασιλέως λόγοις ἀντιτασσόμενον καὶ ὑπέδειξεν αὐτοῖς ὁ Μαρδοχαῖος ὅτι Ιουδαῖός ἐστιν.",
+     "giguet": "Chaque jour ils lui parlaient ainsi, et il ne les écoutait pas&nbsp;; enfin, ils informèrent Aman que Mardochée résistait aux ordres du roi&nbsp;; or, Mardochée leur avait déclaré qu'il était Juif.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἐπιγνοὺς Αμαν ὅτι οὐ προσκυνεῖ αὐτῷ Μαρδοχαῖος ἐθυμώθη σφόδρα.",
+     "giguet": "Et Aman, en apprenant que Mardochée ne se prosternait pas devant lui, fut fort courroucé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἐβουλεύσατο ἀφανίσαι πάντας τοὺς ὑπὸ τὴν Ἀρταξέρξου βασιλείαν Ιουδαίους.",
+     "giguet": "Et il résolut d'effacer tous les Juifs du royaume d'Artaxerxès.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἐποίησεν ψήφισμα ἐν ἔτει δωδεκάτῳ τῆς βασιλείας Ἀρταξέρξου καὶ ἔβαλεν κλήρους ἡμέραν ἐξ ἡμέρας καὶ μῆνα ἐκ μηνὸς ὥστε ἀπολέσαι ἐν μιᾷ ἡμέρᾳ τὸ γένος Μαρδοχαίου καὶ ἔπεσεν ὁ κλῆρος εἰς τὴν τεσσαρεσκαιδεκάτην τοῦ μηνός ὅς ἐστιν Αδαρ.",
+     "giguet": "Et, en la douzième année du règne d'Artaxerxès, il prépara un édit, et il agita les sorts pour savoir le mois et le jour où il exterminerait en même temps la race de Mardochée, et le sort tomba sur le quatorzième du mois qui est appelé adar.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ ἐλάλησεν πρὸς τὸν βασιλέα Ἀρταξέρξην λέγων ὑπάρχει ἔθνος διεσπαρμένον ἐν τοῖς ἔθνεσιν ἐν πάσῃ τῇ βασιλείᾳ σου οἱ δὲ νόμοι αὐτῶν ἔξαλλοι παρὰ πάντα τὰ ἔθνη τῶν δὲ νόμων τοῦ βασιλέως παρακούουσιν καὶ οὐ συμφέρει τῷ βασιλεῖ ἐᾶσαι αὐτούς.",
+     "giguet": "Et il parla au roi disant&nbsp;: Il y a un peuple épars en toutes les provinces de ton royaume&nbsp;; leurs lois diffèrent de toutes les autres lois&nbsp;; ils n'obéissent point à celles du roi&nbsp;; il n'est pas à propos que le roi les laisse subsister.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "εἰ δοκεῖ τῷ βασιλεῖ δογματισάτω ἀπολέσαι αὐτούς κἀγὼ διαγράψω εἰς τὸ γαζοφυλάκιον τοῦ βασιλέως ἀργυρίου τάλαντα μύρια.",
+     "giguet": "S'il plaît au roi, qu'il décrète qu'on les détruise, et moi je ferai rentrer au trésor royal dix mille talents d'argent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ περιελόμενος ὁ βασιλεὺς τὸν δακτύλιον ἔδωκεν εἰς χεῖρα τῷ Αμαν σφραγίσαι κατὰ τῶν γεγραμμένων κατὰ τῶν Ιουδαίων.",
+     "giguet": "Et le roi ôtant son anneau le remit à Aman pour sceller l'édit contre les Juifs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ εἶπεν ὁ βασιλεὺς τῷ Αμαν τὸ μὲν ἀργύριον ἔχε τῷ δὲ ἔθνει χρῶ ὡς βούλει.",
+     "giguet": "Et le roi lui dit&nbsp;: L'argent sera pour toi, fais de ce peuple ce qu'il te plaît.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ἐκλήθησαν οἱ γραμματεῖς τοῦ βασιλέως μηνὶ πρώτῳ τῇ τρισκαιδεκάτῃ καὶ ἔγραψαν ὡς ἐπέταξεν Αμαν τοῖς στρατηγοῖς καὶ τοῖς ἄρχουσιν κατὰ πᾶσαν χώραν ἀπὸ Ἰνδικῆς ἕως τῆς Αἰθιοπίας ταῖς ἑκατὸν εἴκοσι ἑπτὰ χώραις τοῖς τε ἄρχουσι τῶν ἐθνῶν κατὰ τὴν αὐτῶν λέξιν δι' Ἀρταξέρξου τοῦ βασιλέως.",
+     "giguet": "Et, le treize du premier mois, les scribes du roi furent convoqués, et ils écrivirent, selon l'ordre d'Aman, aux généraux et aux gouverneurs des cent vingt-sept provinces de l'Inde à l'Éthiopie, et aux chefs des nations chacun en sa langue, de la part du roi Artaxerxès.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ἀπεστάλη διὰ βιβλιαφόρων εἰς τὴν Ἀρταξέρξου βασιλείαν ἀφανίσαι τὸ γένος τῶν Ιουδαίων ἐν ἡμέρᾳ μιᾷ μηνὸς δωδεκάτου ὅς ἐστιν Αδαρ καὶ διαρπάσαι τὰ ὑπάρχοντα αὐτῶν.",
+     "giguet": "Et des courriers portèrent dans tout le royaume le commandement de détruire en un seul jour, le premier du douzième mois, qui est adar, toute la race des Juifs, et de piller leurs biens.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13a",
+     "grec": "τῆς δὲ ἐπιστολῆς ἐστιν τὸ ἀντίγραφον τόδε βασιλεὺς μέγας Ἀρταξέρξης τοῖς ἀπὸ τῆς Ἰνδικῆς ἕως τῆς Αἰθιοπίας ἑκατὸν εἴκοσι ἑπτὰ χωρῶν ἄρχουσι καὶ τοπάρχαις ὑποτεταγμένοις τάδε γράφει.",
+     "giguet": "Or, voici la copie de la lettre&nbsp;: Le grand roi Artaxerxès aux gouverneurs des cent vingt-sept provinces assujetties à son empire, de l'Inde à l'Éthiopie, et à leurs lieutenants écrit ce qui suit&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13b",
+     "grec": "πολλῶν ἐπάρξας ἐθνῶν καὶ πάσης ἐπικρατήσας οἰκουμένης ἐβουλήθην μὴ τῷ θράσει τῆς ἐξουσίας ἐπαιρόμενος ἐπιεικέστερον δὲ καὶ μετὰ ἠπιότητος ἀεὶ διεξάγων τοὺς τῶν ὑποτεταγμένων ἀκυμάτους διὰ παντὸς καταστῆσαι βίους τήν τε βασιλείαν ἥμερον καὶ πορευτὴν μέχρι περάτων παρεξόμενος ἀνανεώσασθαί τε τὴν ποθουμένην τοῖς πᾶσιν ἀνθρώποις εἰρήνην.",
+     "giguet": "Roi d'une multitude de nations, maître de toute la terre habitable, j'ai eu en l'esprit, ne concevant aucun orgueil de l'étendue de ma puissance, me conduisant avec une extrême modération et une très grande douceur, d'assurer à mes sujets une vie toujours paisible, voulant faire jouir de l'ordre et du repos mon empire, jusqu'à ses extrêmes limites, et rétablir la paix que désirent tous les hommes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13c",
+     "grec": "πυθομένου δέ μου τῶν συμβούλων πῶς ἂν ἀχθείη τοῦτο ἐπὶ πέρας σωφροσύνῃ παρ' ἡμῖν διενέγκας καὶ ἐν τῇ εὐνοίᾳ ἀπαραλλάκτως καὶ βεβαίᾳ πίστει ἀποδεδειγμένος καὶ δεύτερον τῶν βασιλειῶν γέρας ἀπενηνεγμένος Αμαν.",
+     "giguet": "Quand j'ai demandé à mes conseillers comment ce but serait atteint, celui qui excelle auprès de nous en sagesse, dont on connaît la bonne volonté constante et la fidélité inébranlable, le second de mon royaume en honneurs, Aman,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13d",
+     "grec": "ἐπέδειξεν ἡμῖν ἐν πάσαις ταῖς κατὰ τὴν οἰκουμένην φυλαῖς ἀναμεμεῖχθαι δυσμενῆ λαόν τινα τοῖς νόμοις ἀντίθετον πρὸς πᾶν ἔθνος τά τε τῶν βασιλέων παραπέμποντας διηνεκῶς διατάγματα πρὸς τὸ μὴ κατατίθεσθαι τὴν ὑφ' ἡμῶν κατευθυνομένην ἀμέμπτως συναρχίαν.",
+     "giguet": "Nous a fait savoir qu'un peuple ennemi s'est mêlé parmi les tribus de la terre habitable, opposé en ses lois à toute autre nation&nbsp;; négligeant toujours les ordres du roi, de telle sorte que l'union des pouvoirs, qui a été réglée parmi nous d'une manière irréprochable, ne puisse être établie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13e",
+     "grec": "διειληφότες οὖν τόδε τὸ ἔθνος μονώτατον ἐν ἀντιπαραγωγῇ παντὶ διὰ παντὸς ἀνθρώπῳ κείμενον διαγωγὴν νόμων ξενίζουσαν παραλλάσσον καὶ δυσνοοῦν τοῖς ἡμετέροις πράγμασιν τὰ χείριστα συντελοῦν κακὰ καὶ πρὸς τὸ μὴ τὴν βασιλείαν εὐσταθείας τυγχάνειν.",
+     "giguet": "Ayant donc jugé que cette nation unique est toujours en opposition avec le reste des hommes, qu'elle diffère de nous par des lois étrangères, qu'elle est malveillante, complotant avec les pires intentions contre nos intérêts et contre la stabilité de l'empire,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13f",
+     "grec": "προστετάχαμεν οὖν τοὺς σημαινομένους ὑμῖν ἐν τοῖς γεγραμμένοις ὑπὸ Αμαν τοῦ τεταγμένου ἐπὶ τῶν πραγμάτων καὶ δευτέρου πατρὸς ἡμῶν πάντας σὺν γυναιξὶ καὶ τέκνοις ἀπολέσαι ὁλορριζεὶ ταῖς τῶν ἐχθρῶν μαχαίραις ἄνευ παντὸς οἴκτου καὶ φειδοῦς τῇ τεσσαρεσκαιδεκάτῃ τοῦ δωδεκάτου μηνὸς Αδαρ τοῦ ἐνεστῶτος ἔτους.",
+     "giguet": "Nous avons ordonné que ceux qui vous sont signalés dans les lettres à vous adressées, par mon second père, Aman, préposé aux affaires publiques, soient détruits radicalement avec leurs femmes et leurs enfants&nbsp;; qu'on les passe au fil de l'épée, sans pitié ni ménagements, le quatorzième jour du douzième mois, du mois d'adar de la présente année,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13g",
+     "grec": "ὅπως οἱ πάλαι καὶ νῦν δυσμενεῖς ἐν ἡμέρᾳ μιᾷ βιαίως εἰς τὸν ᾅδην κατελθόντες εἰς τὸν μετέπειτα χρόνον εὐσταθῆ καὶ ἀτάραχα παρέχωσιν ἡμῖν διὰ τέλους τὰ πράγματα.",
+     "giguet": "Pour qu'en une seule journée, ces ennemis anciens et actuels descendent violemment aux enfers, et qu'à l'avenir, et jusqu'à la fin, nos affaires soient stables, sans trouble.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "τὰ δὲ ἀντίγραφα τῶν ἐπιστολῶν ἐξετίθετο κατὰ χώραν καὶ προσετάγη πᾶσι τοῖς ἔθνεσιν ἑτοίμους εἶναι εἰς τὴν ἡμέραν ταύτην.",
+     "giguet": "Et les copies de ces lettres furent publiées en chaque province, et il fut enjoint à chaque nation de se tenir prête pour le jour indiqué.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ἐσπεύδετο δὲ τὸ πρᾶγμα καὶ εἰς Σουσαν ὁ δὲ βασιλεὺς καὶ Αμαν ἐκωθωνίζοντο ἐταράσσετο δὲ ἡ πόλις.",
+     "giguet": "On y avait mis de l'empressement à Suse, et le roi et Aman buvaient à pleines coupes&nbsp;; mais la ville était toute troublée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 4,
+   "libelle": "4",
+   "fichierToc": "EST/004.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ὁ δὲ Μαρδοχαῖος ἐπιγνοὺς τὸ συντελούμενον διέρρηξεν τὰ ἱμάτια αὐτοῦ καὶ ἐνεδύσατο σάκκον καὶ κατεπάσατο σποδὸν καὶ ἐκπηδήσας διὰ τῆς πλατείας τῆς πόλεως ἐβόα φωνῇ μεγάλῃ αἴρεται ἔθνος μηδὲν ἠδικηκός.",
+     "giguet": "Or, Mardochée, instruit de ce qu'on avait fait, déchira ses vêtements, se ceignit d'un cilice et se couvrit de cendre&nbsp;; puis, s'élançant par les rues de la ville, il cria à haute voix&nbsp;: Un peuple innocent périt.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ἦλθεν ἕως τῆς πύλης τοῦ βασιλέως καὶ ἔστη οὐ γὰρ ἦν ἐξὸν αὐτῷ εἰσελθεῖν εἰς τὴν αὐλὴν σάκκον ἔχοντι καὶ σποδόν.",
+     "giguet": "Et il arriva devant la porte du roi, et il s'y tint debout&nbsp;; car il ne lui était pas permis d'entrer dans la cour, ayant un cilice et de la cendre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἐν πάσῃ χώρᾳ οὗ ἐξετίθετο τὰ γράμματα κραυγὴ καὶ κοπετὸς καὶ πένθος μέγα τοῖς Ιουδαίοις σάκκον καὶ σποδὸν ἔστρωσαν ἑαυτοῖς.",
+     "giguet": "Et en toute province, où l'édit avait été publié, les Juifs s'étaient couverts de cilices et de cendres, et l'on n'entendait que des cris, des gémissements et des pleurs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ εἰσῆλθον αἱ ἅβραι καὶ οἱ εὐνοῦχοι τῆς βασιλίσσης καὶ ἀνήγγειλαν αὐτῇ καὶ ἐταράχθη ἀκούσασα τὸ γεγονὸς καὶ ἀπέστειλεν στολίσαι τὸν Μαρδοχαῖον καὶ ἀφελέσθαι αὐτοῦ τὸν σάκκον ὁ δὲ οὐκ ἐπείσθη.",
+     "giguet": "Et les servantes et les eunuques de la reine entrèrent, et lui dirent ce qui était advenu, et elle en fut troublée, et elle envoya prier Mardochée de se vêtir d'une robe et d'ôter son cilice, et il n'obéit pas.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ἡ δὲ Εσθηρ προσεκαλέσατο Αχραθαῖον τὸν εὐνοῦχον αὐτῆς ὃς παρειστήκει αὐτῇ καὶ ἀπέστειλεν μαθεῖν αὐτῇ παρὰ τοῦ Μαρδοχαίου τὸ ἀκριβές.",
+     "giguet": "Et Esther appela Achrathée, son eunuque, qui se tenait auprès d'elle, et elle l'envoya demander à Mardochée la vérité exacte.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "",
+     "giguet": "",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὁ δὲ Μαρδοχαῖος ὑπέδειξεν αὐτῷ τὸ γεγονὸς καὶ τὴν ἐπαγγελίαν ἣν ἐπηγγείλατο Αμαν τῷ βασιλεῖ εἰς τὴν γάζαν ταλάντων μυρίων ἵνα ἀπολέσῃ τοὺς Ιουδαίους.",
+     "giguet": "Et Mardochée lui fit connaître tout ce qui s'était passé, et la promesse qu'Aman avait faite au roi de verser au trésor dix mille talents d'argent, afin qu'il exterminât les Juifs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ τὸ ἀντίγραφον τὸ ἐν Σούσοις ἐκτεθὲν ὑπὲρ τοῦ ἀπολέσθαι αὐτοὺς ἔδωκεν αὐτῷ δεῖξαι τῇ Εσθηρ καὶ εἶπεν αὐτῷ ἐντείλασθαι αὐτῇ εἰσελθούσῃ παραιτήσασθαι τὸν βασιλέα καὶ ἀξιῶσαι αὐτὸν περὶ τοῦ λαοῦ μνησθεῖσα ἡμερῶν ταπεινώσεώς σου ὡς ἐτράφης ἐν χειρί μου διότι Αμαν ὁ δευτερεύων τῷ βασιλεῖ ἐλάλησεν καθ' ἡμῶν εἰς θάνατον ἐπικάλεσαι τὸν κύριον καὶ λάλησον τῷ βασιλεῖ περὶ ἡμῶν καὶ ῥῦσαι ἡμᾶς ἐκ θανάτου.",
+     "giguet": "Et il lui donna, pour le montrer à Esther, l'édit affiché dans Suse sur ce massacre, et il lui dit&nbsp;: Recommande à la reine d'entrer chez le roi, pour l'implorer et le supplier en faveur du peuple, dis-lui&nbsp;: Souviens-toi de ton humble état, quand je te nourrissais de ma main. Pourquoi Aman, le second après le roi, a-t-il parlé contre nous afin que nous périssions&nbsp;? Invoque le Seigneur&nbsp;; parle au roi pour nous sauver de la mort.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "εἰσελθὼν δὲ ὁ Αχραθαῖος ἐλάλησεν αὐτῇ πάντας τοὺς λόγους τούτους.",
+     "giguet": "Or, Achrathée, étant rentré, répéta toutes ces paroles à la reine.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "εἶπεν δὲ Εσθηρ πρὸς Αχραθαῖον πορεύθητι πρὸς Μαρδοχαῖον καὶ εἰπὸν ὅτι.",
+     "giguet": "Et Esther lui répondit&nbsp;: Va retrouver Mardochée, et dis-lui&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "τὰ ἔθνη πάντα τῆς βασιλείας γινώσκει ὅτι πᾶς ἄνθρωπος ἢ γυνή ὃς εἰσελεύσεται πρὸς τὸν βασιλέα εἰς τὴν αὐλὴν τὴν ἐσωτέραν ἄκλητος οὐκ ἔστιν αὐτῷ σωτηρία πλὴν ᾧ ἐκτείνει ὁ βασιλεὺς τὴν χρυσῆν ῥάβδον οὗτος σωθήσεται κἀγὼ οὐ κέκλημαι εἰσελθεῖν πρὸς τὸν βασιλέα εἰσὶν αὗται ἡμέραι τριάκοντα.",
+     "giguet": "Toutes les nations de l'empire savent que n'importe quel homme ou femme qui entre auprès du roi, dans l'intérieur du palais, sans y être appelé, n'a pas de salut à espérer&nbsp;; sauf celui sur qui le roi étend sa verge d'or&nbsp;; celui-là est sauvé. Et moi, voilà trente jours que je n'ai été appelée pour entrer chez le roi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ἀπήγγειλεν Αχραθαῖος Μαρδοχαίῳ πάντας τοὺς λόγους Εσθηρ.",
+     "giguet": "Et Achrathée rapporta toutes les paroles d'Esther à Mardochée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ εἶπεν Μαρδοχαῖος πρὸς Αχραθαῖον πορεύθητι καὶ εἰπὸν αὐτῇ Εσθηρ μὴ εἴπῃς σεαυτῇ ὅτι σωθήσῃ μόνη ἐν τῇ βασιλείᾳ παρὰ πάντας τοὺς Ιουδαίους.",
+     "giguet": "Et Mardochée lui répondit&nbsp;: Rentre, et dis-lui Esther, ne te dis pas à toi-même que dans tout le royaume, toi seule échapperais plutôt que tous les Juifs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ὡς ὅτι ἐὰν παρακούσῃς ἐν τούτῳ τῷ καιρῷ ἄλλοθεν βοήθεια καὶ σκέπη ἔσται τοῖς Ιουδαίοις σὺ δὲ καὶ ὁ οἶκος τοῦ πατρός σου ἀπολεῖσθε καὶ τίς οἶδεν εἰ εἰς τὸν καιρὸν τοῦτον ἐβασίλευσας.",
+     "giguet": "Si en ce moment tu me désobéis, le secours et la protection viendront d'ailleurs aux Juifs, et toi, et la maison de ton père, vous périrez. Et qui sait si ce n'est pas à cette occasion que tu règnes&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἐξαπέστειλεν Εσθηρ τὸν ἥκοντα πρὸς αὐτὴν πρὸς Μαρδοχαῖον λέγουσα.",
+     "giguet": "Et Esther renvoya à Mardochée l'homme qui était venu près d'elle, disant&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "βαδίσας ἐκκλησίασον τοὺς Ιουδαίους τοὺς ἐν Σούσοις καὶ νηστεύσατε ἐπ' ἐμοὶ καὶ μὴ φάγητε μηδὲ πίητε ἐπὶ ἡμέρας τρεῖς νύκτα καὶ ἡμέραν κἀγὼ δὲ καὶ αἱ ἅβραι μου ἀσιτήσομεν καὶ τότε εἰσελεύσομαι πρὸς τὸν βασιλέα παρὰ τὸν νόμον ἐὰν καὶ ἀπολέσθαι με ᾖ.",
+     "giguet": "Éloigne-toi, rassemble tous les Juifs qui sont à Suse, jeûnez pour moi&nbsp;; passez trois jours et trois nuits sans manger ni boire, et moi et mes suivantes, nous ne prendrons aucun aliment&nbsp;; alors j'entrerai chez le roi, contre la loi, dussé-je mourir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ βαδίσας Μαρδοχαῖος ἐποίησεν ὅσα ἐνετείλατο αὐτῷ Εσθηρ.",
+     "giguet": "Et Mardochée, s'étant éloigné, fit ce que lui avait prescrit Esther&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17a",
+     "grec": "καὶ ἐδεήθη κυρίου μνημονεύων πάντα τὰ ἔργα κυρίου καὶ εἶπεν.",
+     "giguet": "et il pria le Seigneur, se souvenant de toutes les œuvres de Dieu, et il dit&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17b",
+     "grec": "κύριε κύριε βασιλεῦ πάντων κρατῶν ὅτι ἐν ἐξουσίᾳ σου τὸ πᾶν ἐστιν καὶ οὐκ ἔστιν ὁ ἀντιδοξῶν σοι ἐν τῷ θέλειν σε σῶσαι τὸν Ισραηλ.",
+     "giguet": "Seigneur, Seigneur, Roi de tous les rois&nbsp;; il n'est rien qui ne soit en votre puissance, et nul ne vous contredira si votre volonté est de sauver Israël.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17c",
+     "grec": "ὅτι σὺ ἐποίησας τὸν οὐρανὸν καὶ τὴν γῆν καὶ πᾶν θαυμαζόμενον ἐν τῇ ὑπ' οὐρανὸν καὶ κύριος εἶ πάντων καὶ οὐκ ἔστιν ὃς ἀντιτάξεταί σοι τῷ κυρίῳ.",
+     "giguet": "Vous avez créé le ciel et la terre et toutes les merveilles qui sont sous les cieux, vous êtes le Seigneur de toutes choses, et nul ne peut s'opposer au Seigneur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17d",
+     "grec": "σὺ πάντα γινώσκεις σὺ οἶδας κύριε ὅτι οὐκ ἐν ὕβρει οὐδὲ ἐν ὑπερηφανίᾳ οὐδὲ ἐν φιλοδοξίᾳ ἐποίησα τοῦτο τὸ μὴ προσκυνεῖν τὸν ὑπερήφανον Αμαν ὅτι ηὐδόκουν φιλεῖν πέλματα ποδῶν αὐτοῦ πρὸς σωτηρίαν Ισραηλ.",
+     "giguet": "Rien ne vous est caché&nbsp;; vous savez, Seigneur, que ce n'est point par insolence, que ce n'est point par orgueil, que ce n'est point par vaine gloire, que j'ai refusé d'adorer le superbe Aman&nbsp;; car, pour le salut d'Israël,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17e",
+     "grec": "ἀλλὰ ἐποίησα τοῦτο ἵνα μὴ θῶ δόξαν ἀνθρώπου ὑπεράνω δόξης θεοῦ καὶ οὐ προσκυνήσω οὐδένα πλὴν σοῦ τοῦ κυρίου μου καὶ οὐ ποιήσω αὐτὰ ἐν ὑπερηφανίᾳ.",
+     "giguet": "Je lui eusse avec joie baisé la plante des pieds. Mais, je ne l'ai point adoré, de peur de mettre la gloire d'un homme au-dessus de la gloire de Dieu, et je n'adorerai personne hormis vous, mon Seigneur, et je ne ferai point de telles choses par orgueil.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17f",
+     "grec": "καὶ νῦν κύριε ὁ θεὸς ὁ βασιλεὺς ὁ θεὸς Αβρααμ φεῖσαι τοῦ λαοῦ σου ὅτι ἐπιβλέπουσιν ἡμῖν εἰς καταφθορὰν καὶ ἐπεθύμησαν ἀπολέσαι τὴν ἐξ ἀρχῆς κληρονομίαν σου.",
+     "giguet": "Et maintenant, Seigneur Dieu et Roi, Dieu d'Abraham, épargnez votre peuple, car ils nous regardent pour nous perdre, et dès l'origine ils ont désiré détruire votre héritage.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17g",
+     "grec": "μὴ ὑπερίδῃς τὴν μερίδα σου ἣν σεαυτῷ ἐλυτρώσω ἐκ γῆς Αἰγύπτου.",
+     "giguet": "Ne méprisez point votre peuple particulier que vous avez délivré de la terre d'Égypte&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17h",
+     "grec": "ἐπάκουσον τῆς δεήσεώς μου καὶ ἱλάσθητι τῷ κλήρῳ σου καὶ στρέψον τὸ πένθος ἡμῶν εἰς εὐωχίαν ἵνα ζῶντες ὑμνῶμέν σου τὸ ὄνομα κύριε καὶ μὴ ἀφανίσῃς στόμα αἰνούντων σοι.",
+     "giguet": "Exaucez ma prière, soyez propice à ceux que vous vous êtes réservés en partage&nbsp;; changez notre deuil en fêtes, afin que vivants nous chantions votre nom, ô Seigneur&nbsp;; ne fermez pas la bouche de ceux qui vous louent, ô Seigneur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17i",
+     "grec": "καὶ πᾶς Ισραηλ ἐκέκραξαν ἐξ ἰσχύος αὐτῶν ὅτι θάνατος αὐτῶν ἐν ὀφθαλμοῖς αὐτῶν.",
+     "giguet": "Et tout Israël jeta des cris de toute sa force, car ils avaient la mort devant les yeux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17k",
+     "grec": "καὶ Εσθηρ ἡ βασίλισσα κατέφυγεν ἐπὶ τὸν κύριον ἐν ἀγῶνι θανάτου κατειλημμένη καὶ ἀφελομένη τὰ ἱμάτια τῆς δόξης αὐτῆς ἐνεδύσατο ἱμάτια στενοχωρίας καὶ πένθους καὶ ἀντὶ τῶν ὑπερηφάνων ἡδυσμάτων σποδοῦ καὶ κοπριῶν ἔπλησεν τὴν κεφαλὴν αὐτῆς καὶ τὸ σῶμα αὐτῆς ἐταπείνωσεν σφόδρα καὶ πάντα τόπον κόσμου ἀγαλλιάματος αὐτῆς ἔπλησε στρεπτῶν τριχῶν αὐτῆς καὶ ἐδεῖτο κυρίου θεοῦ Ισραηλ καὶ εἶπεν.",
+     "giguet": "Cependant, la reine Esther, comme saisie par l'agonie de la mort, se réfugia vers le Seigneur&nbsp;; elle ôta ses vêtements de gloire pour prendre ceux du deuil et de la pauvreté, et au lieu des parfums des superbes, elle se couvrit la tête de poussière et de fange&nbsp;; elle se fit humble en toute sa personne, et tout le lieu où elle se parait en son allégresse, fut rempli des cheveux qu'elle s'arracha. Et elle pria le Seigneur Dieu d'Israël, et elle dit&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17l",
+     "grec": "κύριέ μου ὁ βασιλεὺς ἡμῶν σὺ εἶ μόνος βοήθησόν μοι τῇ μόνῃ καὶ μὴ ἐχούσῃ βοηθὸν εἰ μὴ σέ ὅτι κίνδυνός μου ἐν χειρί μου.",
+     "giguet": "O mon Seigneur, notre roi, vous êtes unique, secourez-moi, moi qui suis seule devant vous&nbsp;: je n'ai point de protecteur hormis vous, et mon danger est près de ma main.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17m",
+     "grec": "ἐγὼ ἤκουον ἐκ γενετῆς μου ἐν φυλῇ πατριᾶς μου ὅτι σύ κύριε ἔλαβες τὸν Ισραηλ ἐκ πάντων τῶν ἐθνῶν καὶ τοὺς πατέρας ἡμῶν ἐκ πάντων τῶν προγόνων αὐτῶν εἰς κληρονομίαν αἰώνιον καὶ ἐποίησας αὐτοῖς ὅσα ἐλάλησας.",
+     "giguet": "Dès ma naissance, j'ai appris, dans ma tribu paternelle, que vous, Seigneur, vous avez choisi Israël parmi toutes les nations, et nos pères plutôt que leurs ancêtres, pour qu'ils soient votre héritage éternel, et que vous avez fait pour eux tout ce que vous avez dit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17n",
+     "grec": "καὶ νῦν ἡμάρτομεν ἐνώπιόν σου καὶ παρέδωκας ἡμᾶς εἰς χεῖρας τῶν ἐχθρῶν ἡμῶν ἀνθ' ὧν ἐδοξάσαμεν τοὺς θεοὺς αὐτῶν δίκαιος εἶ κύριε.",
+     "giguet": "Et maintenant, nous avons péché devant vous, et vous nous avez livrés à nos ennemis, parce que nous avions glorifiés leurs dieux. Vous êtes juste, Seigneur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17o",
+     "grec": "καὶ νῦν οὐχ ἱκανώθησαν ἐν πικρασμῷ δουλείας ἡμῶν, ἀλλὰ ἔθηκαν τὰς χεῖρας αὐτῶν ἐπὶ τὰς χεῖρας τῶν εἰδώλων αὐτῶν ἐξᾶραι ὁρισμὸν στόματός σου καὶ ἀφανίσαι κληρονομίαν σου καὶ ἐμφράξαι στόμα αἰνούντων σοι καὶ σβέσαι δόξαν οἴκου σου καὶ θυσιαστήριόν σου",
+     "giguet": "Mais, l'amertume de notre esclavage ne leur a pas suffi&nbsp;; ils ont mis la main sur la main de leurs idoles, pour annuler le décret prononcé par vous, effacer votre héritage, fermer la bouche de ceux qui vous louent, éteindre la gloire de votre temple et de votre autel,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17p",
+     "grec": "καὶ ἀνοῖξαι στόμα ἐθνῶν εἰς ἀρετὰς ματαίων καὶ θαυμασθῆναι βασιλέα σάρκινον εἰς αἰῶνα.",
+     "giguet": "Ouvrir la bouche des gentils pour louer les vertus de leurs vaines idoles, et admirer à jamais un roi de chair.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17q",
+     "grec": "μὴ παραδῷς, κύριε, τὸ σκῆπτρόν σου τοῖς μὴ οὖσιν, καὶ μὴ καταγελασάτωσαν ἐν τῇ πτώσει ἡμῶν, ἀλλὰ στρέψον τὴν βουλὴν αὐτῶν ἐπ αὐτούς, τὸν δὲ ἀρξάμενον ἐφ ἡμᾶς παραδειγμάτισον.",
+     "giguet": "Seigneur, n'abandonnez pas votre sceptre à ceux qui ne sont point&nbsp;; que nos ennemis ne rient point de notre chute&nbsp;; tournez contre eux leurs conseils, faites un exemple de celui qui s'est élevé contre nous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17r",
+     "grec": "μνήσθητι, κύριε, γνώσθητι ἐν καιρῷ θλίψεως ἡμῶν καὶ ἐμὲ θάρσυνον, βασιλεῦ τῶν θεῶν καὶ πάσης ἀρχῆς ἐπικρατῶν·",
+     "giguet": "Souvenez-vous de nous, Seigneur&nbsp;; manifestez-vous au temps de notre affliction&nbsp;; rassurez-moi, Roi des dieux, Maître de toute domination.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17s",
+     "grec": "δὸς λόγον εὔρυθμον εἰς τὸ στόμα μου ἐνώπιον τοῦ λέοντος καὶ μετάθες τὴν καρδίαν αὐτοῦ εἰς μῖσος τοῦ πολεμοῦντος ἡμᾶς εἰς συντέλειαν αὐτοῦ καὶ τῶν ὁμονοούντων αὐτῷ·",
+     "giguet": "Faites sortir de ma bouche, en présence du lion, des paroles harmonieuses&nbsp;; changez son cœur, et qu'il prenne en haine notre ennemi&nbsp;; qu'il le perde, lui et ses complices.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17t",
+     "grec": "ἡμᾶς δὲ ῥῦσαι ἐν χειρί σου καὶ βοήθησόν μοι τῇ μόνῃ καὶ μὴ ἐχούσῃ εἰ μὴ σέ, κύριε.",
+     "giguet": "Sauvez-nous par votre main, secourez-moi, seule comme je suis, et sans autre appui que vous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17u",
+     "grec": "πάντων γνῶσιν ἔχεις καὶ οἶδας ὅτι ἐμίσησα δόξαν ἀνόμων καὶ βδελύσσομαι κοίτην ἀπεριτμήτων καὶ παντὸς ἀλλοτρίου.",
+     "giguet": "Rien ne vous est caché, et vous savez que je déteste la gloire des impies, que j'ai en abomination la couche des incirconcis et de tout étranger.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17w",
+     "grec": "σὺ οἶδας τὴν ἀνάγκην μου, ὅτι βδελύσσομαι τὸ σημεῖον τῆς ὑπερηφανίας μου, ὅ ἐστιν ἐπὶ τῆς κεφαλῆς μου ἐν ἡμέραις ὀπτασίας μου· βδελύσσομαι αὐτὸ ὡς ῥάκος καταμηνίων καὶ οὐ φορῶ αὐτὸ ἐν ἡμέραις ἡσυχίας μου.",
+     "giguet": "Vous n'ignorez pas la contrainte où je vis&nbsp;; car j'abhorre ce signe d'orgueil que je pose sur ma tête en mes jours d'apparat&nbsp;; je l'ai en horreur comme le haillon le plus vil, et je n'ai garde de le porter en mes jours de paix.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17x",
+     "grec": "καὶ οὐκ ἔφαγεν ἡ δούλη σου τράπεζαν Αμαν καὶ οὐκ ἐδόξασα συμπόσιον βασιλέως οὐδὲ ἔπιον οἶνον σπονδῶν·",
+     "giguet": "Et votre servante n'a point mangé à la table d'Aman, et je n'ai point honoré les banquets du roi, je n'ai point bu le vin des libations,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17y",
+     "grec": "καὶ οὐκ ηὐφράνθη ἡ δούλη σου ἀφ ἡμέρας μεταβολῆς μου μέχρι νῦν πλὴν ἐπὶ σοί, κύριε ὁ θεὸς Αβρααμ.",
+     "giguet": "Et votre servante n'a point eu de joie depuis le jour de son élévation jusqu'à ce moment, si ce n'est en vous Seigneur Dieu d'Abraham.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17z",
+     "grec": "ὁ θεὸς ὁ ἰσχύων ἐπὶ πάντας, εἰσάκουσον φωνὴν ἀπηλπισμένων καὶ ῥῦσαι ἡμᾶς ἐκ χειρὸς τῶν πονηρευομένων· καὶ ῥῦσαί με ἐκ τοῦ φόβου μου.",
+     "giguet": "O Dieu, vous pouvez plus que tous&nbsp;; écoutez la voix des désespérés, sauvez nous de la main des méchants, et sauvez-moi de ma terreur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 5,
+   "libelle": "5",
+   "fichierToc": "EST/005.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐγενήθη ἐν τῇ ἡμέρᾳ τῇ τρίτῃ ὡς ἐπαύσατο προσευχομένη ἐξεδύσατο τὰ ἱμάτια τῆς θεραπείας καὶ περιεβάλετο τὴν δόξαν αὐτῆς.",
+     "giguet": "Et le troisième jour, lorsqu'elle eut fini de prier, elle dépouilla les habits de la servitude et se revêtit de sa gloire,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1a",
+     "grec": "καὶ γενηθεῖσα ἐπιφανὴς ἐπικαλεσαμένη τὸν πάντων ἐπόπτην θεὸν καὶ σωτῆρα παρέλαβεν τὰς δύο ἅβρας καὶ τῇ μὲν μιᾷ ἐπηρείδετο ὡς τρυφερευομένη ἡ δὲ ἑτέρα ἐπηκολούθει κουφίζουσα τὴν ἔνδυσιν αὐτῆς.",
+     "giguet": "Et redevenue éclatante, après avoir invoqué le Dieu qui voit toutes choses et qui sauve, elle prit avec elle deux servantes&nbsp;; sur l'une elle s'appuya comme une femme délicate&nbsp;; l'autre la suivit allégeant le poids de son manteau&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1b",
+     "grec": "καὶ αὐτὴ ἐρυθριῶσα ἀκμῇ κάλλους αὐτῆς καὶ τὸ πρόσωπον αὐτῆς ἱλαρὸν ὡς προσφιλές ἡ δὲ καρδία αὐτῆς ἀπεστενωμένη ἀπὸ τοῦ φόβου.",
+     "giguet": "Et elle-même s'avança rougissant en la fraîcheur de sa beauté, le visage riant, plein de bienveillance, tandis que son cœur était oppressé par la crainte.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1c",
+     "grec": "καὶ εἰσελθοῦσα πάσας τὰς θύρας κατέστη ἐνώπιον τοῦ βασιλέως καὶ αὐτὸς ἐκάθητο ἐπὶ τοῦ θρόνου τῆς βασιλείας αὐτοῦ καὶ πᾶσαν στολὴν τῆς ἐπιφανείας αὐτοῦ ἐνεδεδύκει ὅλος διὰ χρυσοῦ καὶ λίθων πολυτελῶν καὶ ἦν φοβερὸς σφόδρα.",
+     "giguet": "Ayant franchi toutes les portes, elle s'arrêta devant le roi. Or, il était assis sur son trône royal, et il s'était revêtu de toute sa magnificence, et il était couvert d'or et de pierres précieuses, et il était terrible.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1d",
+     "grec": "καὶ ἄρας τὸ πρόσωπον αὐτοῦ πεπυρωμένον δόξῃ ἐν ἀκμῇ θυμοῦ ἔβλεψεν καὶ ἔπεσεν ἡ βασίλισσα καὶ μετέβαλεν τὸ χρῶμα αὐτῆς ἐν ἐκλύσει καὶ κατεπέκυψεν ἐπὶ τὴν κεφαλὴν τῆς ἅβρας τῆς προπορευομένης.",
+     "giguet": "Et quand il leva son front rayonnant de majesté, un éclair de fureur brilla dans son regard. Et la reine tomba, et son teint se changea en une mortelle pâleur, et elle se pencha sur la tête de la servante qui la précédait.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1e",
+     "grec": "καὶ μετέβαλεν ὁ θεὸς τὸ πνεῦμα τοῦ βασιλέως εἰς πραΰτητα καὶ ἀγωνιάσας ἀνεπήδησεν ἀπὸ τοῦ θρόνου αὐτοῦ καὶ ἀνέλαβεν αὐτὴν ἐπὶ τὰς ἀγκάλας αὐτοῦ μέχρις οὗ κατέστη καὶ παρεκάλει αὐτὴν λόγοις εἰρηνικοῖς καὶ εἶπεν αὐτῇ.",
+     "giguet": "Et Dieu adoucit l'esprit du roi&nbsp;; et saisi d'angoisse, Artaxerxès s'élança de son trône, et il la prit dans ses bras jusqu'à ce qu'elle revînt, et il la consola par des paroles caressantes,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "1f",
+     "grec": "τί ἐστιν Εσθηρ ἐγὼ ὁ ἀδελφός σου θάρσει οὐ μὴ ἀποθάνῃς ὅτι κοινὸν τὸ πρόσταγμα ἡμῶν ἐστιν πρόσελθε.",
+     "giguet": "Et il lui dit&nbsp;: Esther&nbsp;! qu'y a-t-il, je suis ton frère, rassure-toi, tu ne mourras point&nbsp;; mais notre loi est pour tous&nbsp;; approche.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ἄρας τὴν χρυσῆν ῥάβδον ἐπέθηκεν ἐπὶ τὸν τράχηλον αὐτῆς καὶ ἠσπάσατο αὐτὴν καὶ εἶπεν λάλησόν μοι.",
+     "giguet": "Et ayant levé sa verge d'or, il la posa sur son cou et l'embrassa, et il lui dit&nbsp;: Parle-moi,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2a",
+     "grec": "καὶ εἶπεν αὐτῷ εἶδόν σε κύριε ὡς ἄγγελον θεοῦ καὶ ἐταράχθη ἡ καρδία μου ἀπὸ φόβου τῆς δόξης σου ὅτι θαυμαστὸς εἶ κύριε καὶ τὸ πρόσωπόν σου χαρίτων μεστόν.",
+     "giguet": "Et elle répondit&nbsp;: Je t'ai vu, seigneur, comme l'ange de Dieu, et mon cœur a été troublé par la crainte de ta gloire, car tu frappes d'admiration, ô seigneur, et ton visage est l'arbitre des grâces.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2b",
+     "grec": "ἐν δὲ τῷ διαλέγεσθαι αὐτὴν ἔπεσεν ἀπὸ ἐκλύσεως αὐτῆς καὶ ὁ βασιλεὺς ἐταράσσετο καὶ πᾶσα ἡ θεραπεία αὐτοῦ παρεκάλει αὐτήν.",
+     "giguet": "Pendant qu'elle parlait, elle s'évanouit encore, et le roi fut troublé, et tous ses serviteurs la consolèrent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ εἶπεν ὁ βασιλεύς τί θέλεις Εσθηρ καὶ τί σού ἐστιν τὸ ἀξίωμα ἕως τοῦ ἡμίσους τῆς βασιλείας μου καὶ ἔσται σοι.",
+     "giguet": "Et le roi dit&nbsp;: Que veux-tu, Esther&nbsp;? quelle est ta demande&nbsp;? Serait-ce la moitié de mon royaume, elle sera à toi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "εἶπεν δὲ Εσθηρ ἡμέρα μου ἐπίσημος σήμερόν ἐστιν εἰ οὖν δοκεῖ τῷ βασιλεῖ ἐλθάτω καὶ αὐτὸς καὶ Αμαν εἰς τὴν δοχήν ἣν ποιήσω σήμερον.",
+     "giguet": "Et Esther dit&nbsp;: Ce jour est pour moi un jour spécial, s'il plaît au roi, qu'il vienne avec Aman à un festin que je fais aujourd'hui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ εἶπεν ὁ βασιλεύς κατασπεύσατε Αμαν ὅπως ποιήσωμεν τὸν λόγον Εσθηρ καὶ παραγίνονται ἀμφότεροι εἰς τὴν δοχήν ἣν εἶπεν Εσθηρ.",
+     "giguet": "Et le roi dit&nbsp;: Que l'on se hâte d'avertir Aman, afin que nous fassions selon la parole d'Esther. Et tous les deux assistèrent au festin qu'avait dit la reine.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἐν δὲ τῷ πότῳ εἶπεν ὁ βασιλεὺς πρὸς Εσθηρ τί ἐστιν βασίλισσα Εσθηρ καὶ ἔσται σοι ὅσα ἀξιοῖς.",
+     "giguet": "Et, pendant le repas, le roi lui dit&nbsp;: Qu'y a-t-il, reine Esther&nbsp;? Ce que tu demandes sera.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ εἶπεν τὸ αἴτημά μου καὶ τὸ ἀξίωμά μου.",
+     "giguet": "Et elle répondit&nbsp;: Ma requête et ma demande&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "εἰ εὗρον χάριν ἐνώπιον τοῦ βασιλέως ἐλθάτω ὁ βασιλεὺς καὶ Αμαν ἐπὶ τὴν αὔριον εἰς τὴν δοχήν ἣν ποιήσω αὐτοῖς καὶ αὔριον ποιήσω τὰ αὐτά.",
+     "giguet": "Si j'ai trouvé grâce devant le roi, que le roi vienne encore avec Aman demain au festin que je leur ferai, et demain je ferai ma requête et ma demande.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ ἐξῆλθεν ὁ Αμαν ἀπὸ τοῦ βασιλέως ὑπερχαρὴς εὐφραινόμενος ἐν δὲ τῷ ἰδεῖν Αμαν Μαρδοχαῖον τὸν Ιουδαῖον ἐν τῇ αὐλῇ ἐθυμώθη σφόδρα.",
+     "giguet": "Et Aman, au comble de la joie, sortit d'auprès de son maître&nbsp;; et en apercevant dans le parvis le Juif Mardochée, il fut grandement courroucé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ εἰσελθὼν εἰς τὰ ἴδια ἐκάλεσεν τοὺς φίλους καὶ Ζωσαραν τὴν γυναῖκα αὐτοῦ.",
+     "giguet": "Et aussitôt rentré chez lui, il convoqua ses amis et Zosara, sa femme,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ὑπέδειξεν αὐτοῖς τὸν πλοῦτον αὐτοῦ καὶ τὴν δόξαν ἣν ὁ βασιλεὺς αὐτῷ περιέθηκεν καὶ ὡς ἐποίησεν αὐτὸν πρωτεύειν καὶ ἡγεῖσθαι τῆς βασιλείας.",
+     "giguet": "Et il leur décrivit ses richesses et les honneurs dont le roi l'avait revêtu, et comme il l'avait placé à la tête du royaume.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ εἶπεν Αμαν οὐ κέκληκεν ἡ βασίλισσα μετὰ τοῦ βασιλέως οὐδένα εἰς τὴν δοχὴν ἀλλ' ἢ ἐμέ καὶ εἰς τὴν αὔριον κέκλημαι.",
+     "giguet": "Et il ajouta&nbsp;: La reine n'a invité personne au festin qu'elle vient de donner à son époux, si ce n'est moi, et je suis convié encore pour demain.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ταῦτά μοι οὐκ ἀρέσκει ὅταν ἴδω Μαρδοχαῖον τὸν Ιουδαῖον ἐν τῇ αὐλῇ.",
+     "giguet": "Mais rien de tout cela ne me charmera tant que je verrai dans le parvis le Juif Mardochée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ εἶπεν πρὸς αὐτὸν Ζωσαρα ἡ γυνὴ αὐτοῦ καὶ οἱ φίλοι κοπήτω σοι ξύλον πηχῶν πεντήκοντα ὄρθρου δὲ εἰπὸν τῷ βασιλεῖ καὶ κρεμασθήτω Μαρδοχαῖος ἐπὶ τοῦ ξύλου σὺ δὲ εἴσελθε εἰς τὴν δοχὴν σὺν τῷ βασιλεῖ καὶ εὐφραίνου καὶ ἤρεσεν τὸ ῥῆμα τῷ Αμαν καὶ ἡτοιμάσθη τὸ ξύλον.",
+     "giguet": "Et Zosara, sa femme, et ses amis lui dirent&nbsp;: Que l'on te fasse une potence de cinquante coudées&nbsp;; parles-en demain au roi dès l'aurore, et que Mardochée soit pendu à cette potence. Ensuite, va au festin avec ton maître, et sois joyeux. Et le conseil plut à Aman, et il fit dresser la potence.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 6,
+   "libelle": "6",
+   "fichierToc": "EST/006.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ὁ δὲ κύριος ἀπέστησεν τὸν ὕπνον ἀπὸ τοῦ βασιλέως τὴν νύκτα ἐκείνην καὶ εἶπεν τῷ διδασκάλῳ αὐτοῦ εἰσφέρειν γράμματα μνημόσυνα τῶν ἡμερῶν ἀναγινώσκειν αὐτῷ.",
+     "giguet": "Or, cette nuit-là, le Seigneur éloigna du roi le sommeil, et Artaxerxès dit à son professeur d'apporter le livre de ses archives et de le lui lire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "εὗρεν δὲ τὰ γράμματα τὰ γραφέντα περὶ Μαρδοχαίου ὡς ἀπήγγειλεν τῷ βασιλεῖ περὶ τῶν δύο εὐνούχων τοῦ βασιλέως ἐν τῷ φυλάσσειν αὐτοὺς καὶ ζητῆσαι ἐπιβαλεῖν τὰς χεῖρας Ἀρταξέρξῃ.",
+     "giguet": "Et il tomba sur ce qui était écrit concernant Mardochée, quand il avait fait connaître au roi le complot des deux eunuques qui le gardaient, et qui voulaient porter les mains sur Artaxerxès.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "εἶπεν δὲ ὁ βασιλεύς τίνα δόξαν ἢ χάριν ἐποιήσαμεν τῷ Μαρδοχαίῳ καὶ εἶπαν οἱ διάκονοι τοῦ βασιλέως οὐκ ἐποίησας αὐτῷ οὐδέν.",
+     "giguet": "Et le roi dit&nbsp;: Quels honneurs, quelle grâce Mardochée a-t-il reçus de moi&nbsp;? Et les serviteurs répondirent&nbsp;:Tu n'as rien fait pour lui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἐν δὲ τῷ πυνθάνεσθαι τὸν βασιλέα περὶ τῆς εὐνοίας Μαρδοχαίου ἰδοὺ Αμαν ἐν τῇ αὐλῇ εἶπεν δὲ ὁ βασιλεύς τίς ἐν τῇ αὐλῇ ὁ δὲ Αμαν εἰσῆλθεν εἰπεῖν τῷ βασιλεῖ κρεμάσαι τὸν Μαρδοχαῖον ἐπὶ τῷ ξύλῳ ᾧ ἡτοίμασεν.",
+     "giguet": "Pendant que le roi s'informait de la bienveillance de Mardochée, voici qu'Aman entra dans le parvis, et le roi dit&nbsp;: Y a-t-il quelqu'un dans le parvis&nbsp;? Or, Aman arrivait pour demander au roi de pendre Mardochée à la potence qu'il avait dressée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ εἶπαν οἱ διάκονοι τοῦ βασιλέως ἰδοὺ Αμαν ἕστηκεν ἐν τῇ αὐλῇ καὶ εἶπεν ὁ βασιλεύς καλέσατε αὐτόν.",
+     "giguet": "Et les serviteurs du roi répondirent&nbsp;: Voilà Aman dans le parvis. Et le roi dit&nbsp;: Appelez-le.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "εἶπεν δὲ ὁ βασιλεὺς τῷ Αμαν τί ποιήσω τῷ ἀνθρώπῳ ὃν ἐγὼ θέλω δοξάσαι εἶπεν δὲ ἐν ἑαυτῷ Αμαν τίνα θέλει ὁ βασιλεὺς δοξάσαι εἰ μὴ ἐμέ.",
+     "giguet": "Et le roi dit à Aman&nbsp;: Que ferai-je pour l'homme que je veux glorifier&nbsp;? Et Aman se dit&nbsp;: Qui donc le roi veut-il glorifier, si ce n'est moi&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "εἶπεν δὲ πρὸς τὸν βασιλέα ἄνθρωπον ὃν ὁ βασιλεὺς θέλει δοξάσαι.",
+     "giguet": "Et il répondit&nbsp;: Pour l'homme que le roi veut glorifier,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἐνεγκάτωσαν οἱ παῖδες τοῦ βασιλέως στολὴν βυσσίνην ἣν ὁ βασιλεὺς περιβάλλεται καὶ ἵππον ἐφ' ὃν ὁ βασιλεὺς ἐπιβαίνει.",
+     "giguet": "Que les serviteurs du roi apportent la robe de fin lin dont il se revêt, et le cheval qu'il monte.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ δότω ἑνὶ τῶν φίλων τοῦ βασιλέως τῶν ἐνδόξων καὶ στολισάτω τὸν ἄνθρωπον ὃν ὁ βασιλεὺς ἀγαπᾷ καὶ ἀναβιβασάτω αὐτὸν ἐπὶ τὸν ἵππον καὶ κηρυσσέτω διὰ τῆς πλατείας τῆς πόλεως λέγων οὕτως ἔσται παντὶ ἀνθρώπῳ ὃν ὁ βασιλεὺς δοξάζει.",
+     "giguet": "Que cela soit donné à l'un des amis du roi, parmi ceux du premier rang&nbsp;; qu'il habille l'homme que le roi aime, qu'il le fasse monter à cheval, que dans toutes les places de la ville il proclame ces mots&nbsp;: Ainsi sera-t-il fait à tout homme que le roi honore.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "εἶπεν δὲ ὁ βασιλεὺς τῷ Αμαν καθὼς ἐλάλησας οὕτως ποίησον τῷ Μαρδοχαίῳ τῷ Ιουδαίῳ τῷ θεραπεύοντι ἐν τῇ αὐλῇ καὶ μὴ παραπεσάτω σου λόγος ὧν ἐλάλησας.",
+     "giguet": "Et le roi dit à Aman&nbsp;: Tu as bien parlé&nbsp;; ainsi soit fait par toi au Juif Mardochée qui sert en mon parvis, et que rien ne soit négligé de ce que tu as dit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἔλαβεν δὲ Αμαν τὴν στολὴν καὶ τὸν ἵππον καὶ ἐστόλισεν τὸν Μαρδοχαῖον καὶ ἀνεβίβασεν αὐτὸν ἐπὶ τὸν ἵππον καὶ διῆλθεν διὰ τῆς πλατείας τῆς πόλεως καὶ ἐκήρυσσεν λέγων οὕτως ἔσται παντὶ ἀνθρώπῳ ὃν ὁ βασιλεὺς θέλει δοξάσαι.",
+     "giguet": "Aman prit donc la robe, et le cheval, et il habilla Mardochée, et il le fit monter à cheval, et il parcourut toutes les rues de la ville, et il proclama ces mots&nbsp;: Ainsi sera-t-il fait à tout homme que le roi voudra honorer.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἐπέστρεψεν δὲ ὁ Μαρδοχαῖος εἰς τὴν αὐλήν Αμαν δὲ ὑπέστρεψεν εἰς τὰ ἴδια λυπούμενος κατὰ κεφαλῆς.",
+     "giguet": "Et Mardochée revint au parvis, et Aman rentra en sa demeure avec un grand mal de tête.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ διηγήσατο Αμαν τὰ συμβεβηκότα αὐτῷ Ζωσαρα τῇ γυναικὶ αὐτοῦ καὶ τοῖς φίλοις καὶ εἶπαν πρὸς αὐτὸν οἱ φίλοι καὶ ἡ γυνή εἰ ἐκ γένους Ιουδαίων Μαρδοχαῖος ἦρξαι ταπεινοῦσθαι ἐνώπιον αὐτοῦ πεσὼν πεσῇ οὐ μὴ δύνῃ αὐτὸν ἀμύνασθαι ὅτι θεὸς ζῶν μετ' αὐτοῦ.",
+     "giguet": "Et il fit à Zosara, sa femme, et à ses amis, le récit de ce qui était advenu&nbsp;; et ses amis et sa femme lui dirent&nbsp;: Si Mardochée est de la race des Juifs, tu as commencé à être humilié devant lui&nbsp;; tu tomberas&nbsp;; et tu ne pourras te défendre contre lui&nbsp;; car le Dieu vivant est avec lui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἔτι αὐτῶν λαλούντων παραγίνονται οἱ εὐνοῦχοι ἐπισπεύδοντες τὸν Αμαν ἐπὶ τὸν πότον ὃν ἡτοίμασεν Εσθηρ.",
+     "giguet": "Comme ils parlaient encore, les eunuques vinrent presser Aman de se rendre au repas qu'Esther avait préparé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 7,
+   "libelle": "7",
+   "fichierToc": "EST/007.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "εἰσῆλθεν δὲ ὁ βασιλεὺς καὶ Αμαν συμπιεῖν τῇ βασιλίσσῃ.",
+     "giguet": "Le roi et Aman entrèrent pour boire avec la reine.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "εἶπεν δὲ ὁ βασιλεὺς Εσθηρ τῇ δευτέρᾳ ἡμέρᾳ ἐν τῷ πότῳ τί ἐστιν Εσθηρ βασίλισσα καὶ τί τὸ αἴτημά σου καὶ τί τὸ ἀξίωμά σου καὶ ἔστω σοι ἕως τοῦ ἡμίσους τῆς βασιλείας μου.",
+     "giguet": "Et, à ce second festin, le roi dit à Esther&nbsp;: Qu'y a-t-il, reine Esther&nbsp;? Quelle est ta requête, quelle est ta demande&nbsp;? Qu'il te soit accordé jusqu'à la moitié de mon royaume.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἀποκριθεῖσα εἶπεν εἰ εὗρον χάριν ἐνώπιον τοῦ βασιλέως δοθήτω ἡ ψυχή μου τῷ αἰτήματί μου καὶ ὁ λαός μου τῷ ἀξιώματί μου.",
+     "giguet": "Et elle répondit&nbsp;: Si j'ai trouvé grâce devant le roi, qu'il accorde à ma requête, ma vie, et à ma demande, mon peuple.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἐπράθημεν γὰρ ἐγώ τε καὶ ὁ λαός μου εἰς ἀπώλειαν καὶ διαρπαγὴν καὶ δουλείαν ἡμεῖς καὶ τὰ τέκνα ἡμῶν εἰς παῖδας καὶ παιδίσκας καὶ παρήκουσα οὐ γὰρ ἄξιος ὁ διάβολος τῆς αὐλῆς τοῦ βασιλέως.",
+     "giguet": "Car moi et mon peuple nous sommes voués à la destruction, au pillage, à l'esclavage, nous et nos enfants, nos serviteurs et nos servantes, et je n'ai pas voulu y croire&nbsp;; parce que l'accusateur n'est pas digne du palais du roi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "εἶπεν δὲ ὁ βασιλεύς τίς οὗτος ὅστις ἐτόλμησεν ποιῆσαι τὸ πρᾶγμα τοῦτο.",
+     "giguet": "Et le roi&nbsp;: Qui donc est celui qui a osé faire cette chose&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "εἶπεν δὲ Εσθηρ ἄνθρωπος ἐχθρὸς Αμαν ὁ πονηρὸς οὗτος Αμαν δὲ ἐταράχθη ἀπὸ τοῦ βασιλέως καὶ τῆς βασιλίσσης",
+     "giguet": "Et Esther dit&nbsp;: Notre ennemi c'est Aman, ce méchant homme. Or, Aman était plein de trouble à cause du roi et de la reine.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὁ δὲ βασιλεὺς ἐξανέστη ἐκ τοῦ συμποσίου εἰς τὸν κῆπον ὁ δὲ Αμαν παρῃτεῖτο τὴν βασίλισσαν ἑώρα γὰρ ἑαυτὸν ἐν κακοῖς ὄντα.",
+     "giguet": "Et le roi se leva de table pour aller dans le jardin, et Aman implora la reine&nbsp;; car il se voyait dans le malheur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἐπέστρεψεν δὲ ὁ βασιλεὺς ἐκ τοῦ κήπου Αμαν δὲ ἐπιπεπτώκει ἐπὶ τὴν κλίνην ἀξιῶν τὴν βασίλισσαν εἶπεν δὲ ὁ βασιλεύς ὥστε καὶ τὴν γυναῖκα βιάζῃ ἐν τῇ οἰκίᾳ μου Αμαν δὲ ἀκούσας διετράπη τῷ προσώπῳ.",
+     "giguet": "Et le roi rentra du jardin, et Aman était tombé sur le lit en suppliant la reine, et le roi s'écria&nbsp;: Va-t-il jusqu'à faire violence à ma femme dans mon palais&nbsp;? A ces mots, Aman eut le visage bouleversé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "εἶπεν δὲ Βουγαθαν εἷς τῶν εὐνούχων πρὸς τὸν βασιλέα ἰδοὺ καὶ ξύλον ἡτοίμασεν Αμαν Μαρδοχαίῳ τῷ λαλήσαντι περὶ τοῦ βασιλέως καὶ ὤρθωται ἐν τοῖς Αμαν ξύλον πηχῶν πεντήκοντα εἶπεν δὲ ὁ βασιλεύς σταυρωθήτω ἐπ' αὐτοῦ.",
+     "giguet": "Et Bugathan, l'un des eunuques, dit au roi&nbsp;: Aman a préparé pour Mardochée, qui a jadis averti le roi, une potence de cinquante coudées&nbsp;; elle est dressée dans sa maison. Et le roi dit&nbsp;: Qu'on l'y attache.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ ἐκρεμάσθη Αμαν ἐπὶ τοῦ ξύλου ὃ ἡτοίμασεν Μαρδοχαίῳ καὶ τότε ὁ βασιλεὺς ἐκόπασεν τοῦ θυμοῦ.",
+     "giguet": "Et Aman fut pendu à la potence qu'il tenait prête pour Mardochée, et la colère du roi s'apaisa.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 8,
+   "libelle": "8",
+   "fichierToc": "EST/008.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐν αὐτῇ τῇ ἡμέρᾳ ὁ βασιλεὺς Ἀρταξέρξης ἐδωρήσατο Εσθηρ ὅσα ὑπῆρχεν Αμαν τῷ διαβόλῳ καὶ Μαρδοχαῖος προσεκλήθη ὑπὸ τοῦ βασιλέως ὑπέδειξεν γὰρ Εσθηρ ὅτι ἐνοικείωται αὐτῇ.",
+     "giguet": "Et, en ce jour-là même, le roi Artaxerxès fit don à Esther de tout ce que possédait Aman l'accusateur&nbsp;; et Mardochée fut appelé par le roi, car Esther lui avait dit leur parenté.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἔλαβεν δὲ ὁ βασιλεὺς τὸν δακτύλιον ὃν ἀφείλατο Αμαν καὶ ἔδωκεν αὐτὸν Μαρδοχαίῳ καὶ κατέστησεν Εσθηρ Μαρδοχαῖον ἐπὶ πάντων τῶν Αμαν.",
+     "giguet": "Et le roi prit l'anneau qu'il avait ôté à Aman et il le remit à Mardochée&nbsp;; et Esther établit Mardochée sur tous les biens d'Aman.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ προσθεῖσα ἐλάλησεν πρὸς τὸν βασιλέα καὶ προσέπεσεν πρὸς τοὺς πόδας αὐτοῦ καὶ ἠξίου ἀφελεῖν τὴν Αμαν κακίαν καὶ ὅσα ἐποίησεν τοῖς Ιουδαίοις.",
+     "giguet": "Et, continuant de parler au roi, elle se jeta à ses pieds, et lui demanda de rendre nuls les mauvais desseins d'Aman, et ce qu'il avait fait contre les Juifs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἐξέτεινεν δὲ ὁ βασιλεὺς Εσθηρ τὴν ῥάβδον τὴν χρυσῆν ἐξηγέρθη δὲ Εσθηρ παρεστηκέναι τῷ βασιλεῖ.",
+     "giguet": "Et le roi étendit sur Esther sa verge d'or, et elle fut encouragée à se placer auprès de lui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ εἶπεν Εσθηρ εἰ δοκεῖ σοι καὶ εὗρον χάριν πεμφθήτω ἀποστραφῆναι τὰ γράμματα τὰ ἀπεσταλμένα ὑπὸ Αμαν τὰ γραφέντα ἀπολέσθαι τοὺς Ιουδαίους οἵ εἰσιν ἐν τῇ βασιλείᾳ σου.",
+     "giguet": "Et elle dit&nbsp;: S'il te plaît, si j'ai trouvé grâce, que l'on fasse révoquer les édits qu'a publiés Aman, ordonnant d'exterminer tous les Juifs qui sont en ton royaume.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "πῶς γὰρ δυνήσομαι ἰδεῖν τὴν κάκωσιν τοῦ λαοῦ μου καὶ πῶς δυνήσομαι σωθῆναι ἐν τῇ ἀπωλείᾳ τῆς πατρίδος μου.",
+     "giguet": "Car, comment pourrais-je voir la ruine de mon peuple&nbsp;? Comment pourrais-je survivre à la destruction de ma patrie&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ εἶπεν ὁ βασιλεὺς πρὸς Εσθηρ εἰ πάντα τὰ ὑπάρχοντα Αμαν ἔδωκα καὶ ἐχαρισάμην σοι καὶ αὐτὸν ἐκρέμασα ἐπὶ ξύλου ὅτι τὰς χεῖρας ἐπήνεγκε τοῖς Ιουδαίοις τί ἔτι ἐπιζητεῖς.",
+     "giguet": "Et le roi dit à Esther&nbsp;: Puisque je t'ai donné tous les biens d'Aman, et que je t'en ai gratifié&nbsp;; puisque je l'ai fait pendre lui-même pour avoir porté les mains sur les Juifs, que demandes-tu encore&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "γράψατε καὶ ὑμεῖς ἐκ τοῦ ὀνόματός μου ὡς δοκεῖ ὑμῖν καὶ σφραγίσατε τῷ δακτυλίῳ μου ὅσα γὰρ γράφεται τοῦ βασιλέως ἐπιτάξαντος καὶ σφραγισθῇ τῷ δακτυλίῳ μου οὐκ ἔστιν αὐτοῖς ἀντειπεῖν.",
+     "giguet": "Écrivez vous-mêmes en mon nom ce qu'il vous plaira, et scellez-le avec mon anneau&nbsp;; car nul ne peut contredire ce qui est écrit par l'ordre du roi, et revêtu de son scel.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἐκλήθησαν δὲ οἱ γραμματεῖς ἐν τῷ πρώτῳ μηνί ὅς ἐστι Νισα τρίτῃ καὶ εἰκάδι τοῦ αὐτοῦ ἔτους καὶ ἐγράφη τοῖς Ιουδαίοις ὅσα ἐνετείλατο τοῖς οἰκονόμοις καὶ τοῖς ἄρχουσιν τῶν σατραπῶν ἀπὸ τῆς Ἰνδικῆς ἕως τῆς Αἰθιοπίας ἑκατὸν εἴκοσι ἑπτὰ σατραπείαις κατὰ χώραν καὶ χώραν κατὰ τὴν ἑαυτῶν λέξιν.",
+     "giguet": "Les scribes furent donc convoqués le vingt-trois du premier mois, du mois de nisan, de la même année, et l'on écrivit ce qui était ordonné, concernant les Juifs, aux intendants et aux chefs des satrapes des cent vingt-sept provinces, depuis l'Inde jusqu'à l'Éthiopie, en la langue de chacune d'elles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἐγράφη δὲ διὰ τοῦ βασιλέως καὶ ἐσφραγίσθη τῷ δακτυλίῳ αὐτοῦ καὶ ἐξαπέστειλαν τὰ γράμματα διὰ βιβλιαφόρων.",
+     "giguet": "On écrivit au nom du roi, et on scella de son sceau les lettres, et on les expédia par des courriers.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ὡς ἐπέταξεν αὐτοῖς χρῆσθαι τοῖς νόμοις αὐτῶν ἐν πάσῃ πόλει βοηθῆσαί τε αὑτοῖς καὶ χρῆσθαι τοῖς ἀντιδίκοις αὐτῶν καὶ τοῖς ἀντικειμένοις αὐτῶν ὡς βούλονται.",
+     "giguet": "Elles prescrivaient de permettre aux Juifs, en chaque ville, de vivre selon leur loi, de leur porter secours, et de mettre à leur merci leurs ennemis et ceux qui résisteraient,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἐν ἡμέρᾳ μιᾷ ἐν πάσῃ τῇ βασιλείᾳ Ἀρταξέρξου τῇ τρισκαιδεκάτῃ τοῦ δωδεκάτου μηνός ὅς ἐστιν Αδαρ.",
+     "giguet": "Dans le royaume d'Artaxerxès, le treizième jour du douzième mois qui est adar.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12a",
+     "grec": "ὧν ἐστιν ἀντίγραφον τῆς ἐπιστολῆς τὰ ὑπογεγραμμένα.",
+     "giguet": "Ci-dessous, une copie de la lettre&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12b",
+     "grec": "βασιλεὺς μέγας Ἀρταξέρξης τοῖς ἀπὸ τῆς Ἰνδικῆς ἕως τῆς Αἰθιοπίας ἑκατὸν εἴκοσι ἑπτὰ σατραπείαις χωρῶν ἄρχουσι καὶ τοῖς τὰ ἡμέτερα φρονοῦσι χαίρειν.",
+     "giguet": "Le grand roi Artaxerxès aux satrapes des cent vingt-sept provinces, de l'Inde à l'Éthiopie, aux gouverneurs des districts, et aux hommes dévoués à mon service, salut.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12c",
+     "grec": "πολλοὶ τῇ πλείστῃ τῶν εὐεργετούντων χρηστότητι πυκνότερον τιμώμενοι μεῖζον ἐφρόνησαν καὶ οὐ μόνον τοὺς ὑποτεταγμένους ἡμῖν ζητοῦσι κακοποιεῖν τόν τε κόρον οὐ δυνάμενοι φέρειν καὶ τοῖς ἑαυτῶν εὐεργέταις ἐπιχειροῦσι μηχανᾶσθαι.",
+     "giguet": "Il arrive que plusieurs, après avoir été souvent honorés des bienfaits de la bonté, ambitionnent plus encore&nbsp;; non seulement ils cherchent à maltraiter nos sujets, mais, incapables de modérer leur orgueil, ils méditent de mauvais desseins contre leurs bienfaiteurs&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12d",
+     "grec": "καὶ τὴν εὐχαριστίαν οὐ μόνον ἐκ τῶν ἀνθρώπων ἀνταναιροῦντες ἀλλὰ καὶ τοῖς τῶν ἀπειραγάθων κόμποις ἐπαρθέντες τοῦ τὰ πάντα κατοπτεύοντος ἀεὶ θεοῦ μισοπόνηρον ὑπολαμβάνουσιν ἐκφεύξεσθαι δίκην.",
+     "giguet": "Non seulement ils veulent abolir la gratitude parmi les hommes, mais, exaltés par la vaine jactance de gens sans vertu, ils pensent se soustraire au jugement, fatal aux méchants, du Dieu qui voit toutes choses.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12e",
+     "grec": "πολλάκις δὲ καὶ πολλοὺς τῶν ἐπ' ἐξουσίαις τεταγμένων τῶν πιστευθέντων χειρίζειν φίλων τὰ πράγματα παραμυθία μεταιτίους αἱμάτων ἀθῴων καταστήσασα περιέβαλε συμφοραῖς ἀνηκέστοις.",
+     "giguet": "Maintes fois la flatterie a rendu complices du crime de verser le sang innocent, et enveloppé de maux intolérables plusieurs de ceux qui sont investis de l'autorité, à qui est confié le maniement des affaires de leurs amis&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12f",
+     "grec": "τῷ τῆς κακοηθείας ψευδεῖ παραλογισμῷ παραλογισαμένων τὴν τῶν ἐπικρατούντων ἀκέραιον εὐγνωμοσύνην.",
+     "giguet": "Certains hommes ayant trompé, par le faux raisonnement de la malice, la bienveillance sincère des puissants.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12g",
+     "grec": "σκοπεῖν δὲ ἔξεστιν οὐ τοσοῦτον ἐκ τῶν παλαιοτέρων ὧν παρεδώκαμεν ἱστοριῶν ὅσα ἐστὶν παρὰ πόδας ὑμᾶς ἐκζητοῦντας ἀνοσίως συντετελεσμένα τῇ τῶν ἀνάξια δυναστευόντων λοιμότητι.",
+     "giguet": "Cela se peut voir moins par les plus anciennes histoires, que nous nous transmettons, qu'en examinant, sous nos pieds, les choses accomplies d'une manière criminelle par la pestilence d'hommes indignement revêtus du pouvoir&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12h",
+     "grec": "καὶ προσέχειν εἰς τὰ μετὰ ταῦτα εἰς τὸ τὴν βασιλείαν ἀτάραχον τοῖς πᾶσιν ἀνθρώποις μετ' εἰρήνης παρεξόμεθα.",
+     "giguet": "Et il est de notre devoir, en vue de l'avenir, de préserver de trouble le royaume, et de donner la paix à tous les hommes,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12i",
+     "grec": "χρώμενοι ταῖς μεταβολαῖς τὰ δὲ ὑπὸ τὴν ὄψιν ἐρχόμενα διακρίνοντες ἀεὶ μετ' ἐπιεικεστέρας ἀπαντήσεως.",
+     "giguet": "En usant de changements utiles, en jugeant, avec l'à-propos le plus équitable, les choses qui surviennent sous nos yeux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12k",
+     "grec": "ὡς γὰρ Αμαν Αμαδαθου Μακεδών ταῖς ἀληθείαις ἀλλότριος τοῦ τῶν Περσῶν αἵματος καὶ πολὺ διεστηκὼς τῆς ἡμετέρας χρηστότητος ἐπιξενωθεὶς ἡμῖν.",
+     "giguet": "Aman, fils d'Amadathe, Macédonien en réalité, étranger au sang des Perses, bien éloigné de notre bonté naturelle, amicalement accueilli par nous,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12l",
+     "grec": "ἔτυχεν ἧς ἔχομεν πρὸς πᾶν ἔθνος φιλανθρωπίας ἐπὶ τοσοῦτον ὥστε ἀναγορεύεσθαι ἡμῶν πατέρα καὶ προσκυνούμενον ὑπὸ πάντων τὸ δεύτερον τοῦ βασιλικοῦ θρόνου πρόσωπον διατελεῖν.",
+     "giguet": "Eut de notre amour, que nous portons à tous les hommes, une telle part que nous l'appelions notre père, que nous le faisions adorer par tous, et que nous lui avions donné la seconde place du royaume.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12m",
+     "grec": "οὐκ ἐνέγκας δὲ τὴν ὑπερηφανίαν ἐπετήδευσεν τῆς ἀρχῆς στερῆσαι ἡμᾶς καὶ τοῦ πνεύματος.",
+     "giguet": "Mais, il ne put maîtriser son orgueil, et il entreprit de nous ôter la vie et le pouvoir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12n",
+     "grec": "τόν τε ἡμέτερον σωτῆρα καὶ διὰ παντὸς εὐεργέτην Μαρδοχαῖον καὶ τὴν ἄμεμπτον τῆς βασιλείας κοινωνὸν Εσθηρ σὺν παντὶ τῷ τούτων ἔθνει πολυπλόκοις μεθόδων παραλογισμοῖς αἰτησάμενος εἰς ἀπώλειαν.",
+     "giguet": "D'abord&nbsp;; il nous demanda de perdre notre sauveur Mardochée, notre bienfaiteur en toute circonstance, et la reine Esther, notre irréprochable compagne, et tout leur peuple&nbsp;; et il me surprit par un tissu d'accusations calomnieuses.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12o",
+     "grec": "διὰ γὰρ τῶν τρόπων τούτων ᾠήθη λαβὼν ἡμᾶς ἐρήμους τὴν τῶν Περσῶν ἐπικράτησιν εἰς τοὺς Μακεδόνας μετάξαι.",
+     "giguet": "Et il espérait par ses artifices dépeupler nos provinces, et faire passer aux Macédoniens l'empire des Perses.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12p",
+     "grec": "ἡμεῖς δὲ τοὺς ὑπὸ τοῦ τρισαλιτηρίου παραδεδομένους εἰς ἀφανισμὸν Ιουδαίους εὑρίσκομεν οὐ κακούργους ὄντας, δικαιοτάτοις δὲ πολιτευομένους νόμοις,",
+     "giguet": "Ce triple scélérat nous avait donc trahis au point de nous décider à exterminer les Juifs, quand nous avons reconnu que, loin d'être portés à mal faire, ils obéissaient aux lois les plus justes,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12q",
+     "grec": "ὄντας δὲ υἱοὺς τοῦ ὑψίστου μεγίστου ζῶντος θεοῦ τοῦ κατευθύνοντος ἡμῖν τε καὶ τοῖς προγόνοις ἡμῶν τὴν βασιλείαν ἐν τῇ καλλίστῃ διαθέσει.",
+     "giguet": "Qu'ils étaient les fils du Dieu vivant, très-grand et très-haut, qui nous a dirigés nous et nos ancêtres pour mettre notre royaume en la situation la plus florissante.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12r",
+     "grec": "καλῶς οὖν ποιήσετε μὴ προσχρησάμενοι τοῖς ὑπὸ Αμαν Αμαδαθου ἀποσταλεῖσι γράμμασιν διὰ τὸ αὐτὸν τὸν ταῦτα ἐξεργασάμενον πρὸς ταῖς Σούσων πύλαις ἐσταυρῶσθαι σὺν τῇ πανοικίᾳ, τὴν καταξίαν τοῦ τὰ πάντα ἐπικρατοῦντος θεοῦ διὰ τάχους ἀποδόντος αὐτῷ κρίσιν,",
+     "giguet": "En conséquence, vous agirez bien en n'exécutant pas l'édit que vous a envoyé Aman, fils d'Amadathe&nbsp;; car, pour ce qu'il a fait, il a été pendu avec toute sa famille devant les portes de Suse&nbsp;; Dieu lui-même, le maître de toutes choses, l'a promptement rétribué selon son mérite.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12s",
+     "grec": "τὸ δὲ ἀντίγραφον τῆς ἐπιστολῆς ταύτης ἐκθέντες ἐν παντὶ τόπῳ μετὰ παρρησίας ἐᾶν τοὺς Ιουδαίους χρῆσθαι τοῖς ἑαυτῶν νομίμοις καὶ συνεπισχύειν αὐτοῖς ὅπως τοὺς ἐν καιρῷ θλίψεως ἐπιθεμένους αὐτοῖς ἀμύνωνται τῇ τρισκαιδεκάτῃ τοῦ δωδεκάτου μηνὸς Αδαρ τῇ αὐτῇ ἡμέρᾳ·",
+     "giguet": "Que la présente copie de lettre soit affichée en tout lieu, assurant aux Juifs la liberté de suivre leurs lois et d'user de leurs richesses&nbsp;; qu'au temps marqué pour leur affliction, le treize du douzième mois, du mois d'adar, ils puissent se défendre eux-mêmes contre ceux qui les attaqueraient.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12t",
+     "grec": "ταύτην γὰρ ὁ πάντα δυναστεύων θεὸς ἀντ ὀλεθρίας τοῦ ἐκλεκτοῦ γένους ἐποίησεν αὐτοῖς εὐφροσύνην.",
+     "giguet": "Car Dieu, maître de toutes choses, a changé en un jour de joie le jour où devait périr la race qu'il a choisie&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12u",
+     "grec": "καὶ ὑμεῖς οὖν ἐν ταῖς ἐπωνύμοις ὑμῶν ἑορταῖς ἐπίσημον ἡμέραν μετὰ πάσης εὐωχίας ἄγετε, ὅπως καὶ νῦν καὶ μετὰ ταῦτα σωτηρία ᾖ ἡμῖν καὶ τοῖς εὐνοοῦσιν Πέρσαις, τοῖς δὲ ἡμῖν ἐπιβουλεύουσιν μνημόσυνον τῆς ἀπωλείας.",
+     "giguet": "Et vous-mêmes, vous le rangerez parmi vos fêtes solennelles, et vous le célébrerez par des festins universels&nbsp;; afin que, dès maintenant et à l'avenir, ce soit un jour de délivrance tant pour nous que pour les amis des Perses, et que, pour ceux qui conspirent contre nous, ce jour soit un mémorial de destruction.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12x",
+     "grec": "πᾶσα δὲ πόλις ἢ χώρα τὸ σύνολον, ἥτις κατὰ ταῦτα μὴ ποιήσῃ, δόρατι καὶ πυρὶ καταναλωθήσεται μετ ὀργῆς· οὐ μόνον ἀνθρώποις ἄβατος, ἀλλὰ καὶ θηρίοις καὶ πετεινοῖς εἰς τὸν ἅπαντα χρόνον ἔχθιστος κατασταθήσεται.",
+     "giguet": "Toute ville ou province qui désobéira aux présentes prescriptions, ressentira ma colère, et périra par le fer et la flamme&nbsp;; il ne suffira pas qu'elle devienne inaccessible aux hommes, les bêtes fauves et les oiseaux la haïront à jamais.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "τὰ δὲ ἀντίγραφα ἐκτιθέσθωσαν ὀφθαλμοφανῶς ἐν πάσῃ τῇ βασιλείᾳ ἑτοίμους τε εἶναι πάντας τοὺς Ιουδαίους εἰς ταύτην τὴν ἡμέραν πολεμῆσαι αὐτῶν τοὺς ὑπεναντίους.",
+     "giguet": "Et que l'on affiche cette copie en des places apparentes dans tout le royaume, et que, le jour indiqué, les Juifs se tiennent prêts à combattre leurs ennemis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "οἱ μὲν οὖν ἱππεῖς ἐξῆλθον σπεύδοντες τὰ ὑπὸ τοῦ βασιλέως λεγόμενα ἐπιτελεῖν ἐξετέθη δὲ τὸ πρόσταγμα καὶ ἐν Σούσοις.",
+     "giguet": "Les courriers se hâtèrent de partir pour porter les ordres du roi, et l'édit fut affiché dans Suse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ὁ δὲ Μαρδοχαῖος ἐξῆλθεν ἐστολισμένος τὴν βασιλικὴν στολὴν καὶ στέφανον ἔχων χρυσοῦν καὶ διάδημα βύσσινον πορφυροῦν ἰδόντες δὲ οἱ ἐν Σούσοις ἐχάρησαν.",
+     "giguet": "Et Mardochée sortit, revêtu d'une robe royale, ayant une couronne d'or et un diadème pourpre du lin le plus fin&nbsp;; et le peuple de Suse, l'ayant vu, se réjouit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "τοῖς δὲ Ιουδαίοις ἐγένετο φῶς καὶ εὐφροσύνη",
+     "giguet": "Et, pour les Juifs, il y eut lumière et allégresse",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "κατὰ πόλιν καὶ χώραν οὗ ἂν ἐξετέθη τὸ πρόσταγμα οὗ ἂν ἐξετέθη τὸ ἔκθεμα χαρὰ καὶ εὐφροσύνη τοῖς Ιουδαίοις κώθων καὶ εὐφροσύνη καὶ πολλοὶ τῶν ἐθνῶν περιετέμοντο καὶ ιουδάιζον διὰ τὸν φόβον τῶν Ιουδαίων.",
+     "giguet": "En toute ville et province où l'on afficha l'édit et où il fut proclamé, ils firent des réjouissances et se donnèrent des repas. Et, parmi les gentils, beaucoup se circoncirent et judaïsèrent par crainte des Juifs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 9,
+   "libelle": "9",
+   "fichierToc": "EST/009.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἐν γὰρ τῷ δωδεκάτῳ μηνὶ τρισκαιδεκάτῃ τοῦ μηνός ὅς ἐστιν Αδαρ παρῆν τὰ γράμματα τὰ γραφέντα ὑπὸ τοῦ βασιλέως.",
+     "giguet": "Le treize du douzième mois, du mois d'adar, l'édit du roi fut exécuté.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἐν αὐτῇ τῇ ἡμέρᾳ ἀπώλοντο οἱ ἀντικείμενοι τοῖς Ιουδαίοις οὐδεὶς γὰρ ἀντέστη φοβούμενος αὐτούς.",
+     "giguet": "Ce jour-là, les ennemis des Juifs&nbsp;; périrent, et nul ne se défendit à cause de la crainte qu'ils avaient d'eux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "οἱ γὰρ ἄρχοντες τῶν σατραπῶν καὶ οἱ τύραννοι καὶ οἱ βασιλικοὶ γραμματεῖς ἐτίμων τοὺς Ιουδαίους ὁ γὰρ φόβος Μαρδοχαίου ἐνέκειτο αὐτοῖς.",
+     "giguet": "Et les officiers des satrapes, et les rois, et les scribes royaux, honorèrent les Juifs&nbsp;; car ils redoutaient Mardochée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "προσέπεσεν γὰρ τὸ πρόσταγμα τοῦ βασιλέως ὀνομασθῆναι ἐν πάσῃ τῇ βασιλείᾳ.",
+     "giguet": "Et l'édit du roi en vint à être loué dans tout le royaume.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "&nbsp;",
+     "giguet": "",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἐν Σούσοις τῇ πόλει ἀπέκτειναν οἱ Ιουδαῖοι ἄνδρας πεντακοσίους.",
+     "giguet": "Et à Suse les Juifs tuèrent cinq cents hommes,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "τόν τε Φαρσαννεσταιν καὶ Δελφων καὶ Φασγα.",
+     "giguet": "Pharsannès, et Delphon, et Phasgas,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ Φαρδαθα καὶ Βαρεα καὶ Σαρβαχα.",
+     "giguet": "Et Phardathas, et Barcas, et Sarbacas,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ Μαρμασιμα καὶ Αρουφαιον καὶ Αρσαιον καὶ Ζαβουθαιθαν.",
+     "giguet": "Et Marmarinas, et Ruphès, et Arsès, et Zabuthis.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "τοὺς δέκα υἱοὺς Αμαν Αμαδαθου Βουγαίου τοῦ ἐχθροῦ τῶν Ιουδαίων καὶ διήρπασαν.",
+     "giguet": "Et ils enlevèrent les dix fils d'Aman, fils d'Amadathe le Bugéen, l'ennemi des Juifs, et ils pillèrent leurs maisons.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἐν αὐτῇ τῇ ἡμέρᾳ ἐπεδόθη ὁ ἀριθμὸς τῷ βασιλεῖ τῶν ἀπολωλότων ἐν Σούσοις.",
+     "giguet": "Ce même jour-là on remit au roi le dénombrement de ceux qui, à Suse, avaient péri.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "εἶπεν δὲ ὁ βασιλεὺς πρὸς Εσθηρ ἀπώλεσαν οἱ Ιουδαῖοι ἐν Σούσοις τῇ πόλει ἄνδρας πεντακοσίους ἐν δὲ τῇ περιχώρῳ πῶς οἴει ἐχρήσαντο τί οὖν ἀξιοῖς ἔτι καὶ ἔσται σοι.",
+     "giguet": "Et le roi dit à Esther&nbsp;: Les Juifs ont tué cinq cents hommes à Suse&nbsp;; combien penses-tu qu'ils en aient exterminé dans les provinces&nbsp;? Que demandes-tu encore, que te faut-il&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ εἶπεν Εσθηρ τῷ βασιλεῖ δοθήτω τοῖς Ιουδαίοις χρῆσθαι ὡσαύτως τὴν αὔριον ὥστε τοὺς δέκα υἱοὺς κρεμάσαι Αμαν.",
+     "giguet": "Et Esther répondit&nbsp;: Qu'il soit permis aux Juifs d'en user de même demain jusqu'à pendre les dix fils d'Aman.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐπέτρεψεν οὕτως γενέσθαι καὶ ἐξέθηκε τοῖς Ιουδαίοις τῆς πόλεως τὰ σώματα τῶν υἱῶν Αμαν κρεμάσαι.",
+     "giguet": "Et le roi le voulut ainsi&nbsp;; et les corps des fils d'Aman furent livrés aux Juifs de la ville pour être pendus.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ συνήχθησαν οἱ Ιουδαῖοι ἐν Σούσοις τῇ τεσσαρεσκαιδεκάτῃ τοῦ Αδαρ καὶ ἀπέκτειναν ἄνδρας τριακοσίους καὶ οὐδὲν διήρπασαν.",
+     "giguet": "Et les Juifs de Suse se réunirent le quatorze d'Adar, et ils tuèrent trois cents hommes, et ils ne prirent rien de leurs dépouilles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "οἱ δὲ λοιποὶ τῶν Ιουδαίων οἱ ἐν τῇ βασιλείᾳ συνήχθησαν καὶ ἑαυτοῖς ἐβοήθουν καὶ ἀνεπαύσαντο ἀπὸ τῶν πολεμίων ἀπώλεσαν γὰρ αὐτῶν μυρίους πεντακισχιλίους τῇ τρισκαιδεκάτῃ τοῦ Αδαρ καὶ οὐδὲν διήρπασαν.",
+     "giguet": "Les autres Juifs du royaume se réunirent et se prêtèrent un mutuel secours, et ils se débarrassèrent de leurs ennemis&nbsp;; car ils en tuèrent quinze mille, le treize d'adar, et ils ne prirent rien.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ἀνεπαύσαντο τῇ τεσσαρεσκαιδεκάτῃ τοῦ αὐτοῦ μηνὸς καὶ ἦγον αὐτὴν ἡμέραν ἀναπαύσεως μετὰ χαρᾶς καὶ εὐφροσύνης.",
+     "giguet": "Et ils restèrent en repos le quatorze du même mois, car ils fêtèrent ce jour de repos par de grandes réjouissances.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "οἱ δὲ Ιουδαῖοι οἱ ἐν Σούσοις τῇ πόλει συνήχθησαν καὶ τῇ τεσσαρεσκαιδεκάτῃ καὶ οὐκ ἀνεπαύσαντο ἦγον δὲ καὶ τὴν πεντεκαιδεκάτην μετὰ χαρᾶς καὶ εὐφροσύνης.",
+     "giguet": "Mais les Juifs de Suse ne cessèrent le massacre qu'à fin du quatorze&nbsp;; et ils passèrent le quinze à se réjouir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "διὰ τοῦτο οὖν οἱ Ιουδαῖοι οἱ διεσπαρμένοι ἐν πάσῃ χώρᾳ τῇ ἔξω ἄγουσιν τὴν τεσσαρεσκαιδεκάτην τοῦ Αδαρ ἡμέραν ἀγαθὴν μετ' εὐφροσύνης ἀποστέλλοντες μερίδας ἕκαστος τῷ πλησίον οἱ δὲ κατοικοῦντες ἐν ταῖς μητροπόλεσιν καὶ τὴν πεντεκαιδεκάτην τοῦ Αδαρ ἡμέραν εὐφροσύνην ἀγαθὴν ἄγουσιν ἐξαποστέλλοντες μερίδας τοῖς πλησίον.",
+     "giguet": "A cause de cela, les Juifs dispersés dans toutes les provinces ont coutume de fêter le quatorze d'adar, et chacun envoie des parts à son voisin. Mais ceux qui vivent au loin dans des grandes villes célèbrent la fête le quinze d'Adar, en envoyant des parts à leurs voisins.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "ἔγραψεν δὲ Μαρδοχαῖος τοὺς λόγους τούτους εἰς βιβλίον καὶ ἐξαπέστειλεν τοῖς Ιουδαίοις ὅσοι ἦσαν ἐν τῇ Ἀρταξέρξου βασιλείᾳ τοῖς ἐγγὺς καὶ τοῖς μακράν.",
+     "giguet": "Mardochée écrivit ces choses en un livre, et il envoya dire à tous les Juifs qui demeuraient dans le royaume d'Artaxerxès, soit près, soit loin,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "στῆσαι τὰς ἡμέρας ταύτας ἀγαθὰς ἄγειν τε τὴν τεσσαρεσκαιδεκάτην καὶ τὴν πεντεκαιδεκάτην τοῦ Αδαρ.",
+     "giguet": "D'instituer ces jours comme des jours heureux, et de fêter le quatorze et le quinze d'adar.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "ἐν γὰρ ταύταις ταῖς ἡμέραις ἀνεπαύσαντο οἱ Ιουδαῖοι ἀπὸ τῶν ἐχθρῶν αὐτῶν καὶ τὸν μῆνα ἐν ᾧ ἐστράφη αὐτοῖς ὃς ἦν Αδαρ ἀπὸ πένθους εἰς χαρὰν καὶ ἀπὸ ὀδύνης εἰς ἀγαθὴν ἡμέραν ἄγειν ὅλον ἀγαθὰς ἡμέρας γάμων καὶ εὐφροσύνης ἐξαποστέλλοντας μερίδας τοῖς φίλοις καὶ τοῖς πτωχοῖς.",
+     "giguet": "Car, en ces deux journées, les Juifs avaient été délivrés de leurs ennemis&nbsp;; et le mois, qui est adar, durant lequel ils avaient passé du deuil à la joie, et des douleurs à un jour heureux, fut consacré tout entier aux jours heureux des noces et des réjouissances&nbsp;; et chacun envoya des parts à ses amis et aux indigents.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "καὶ προσεδέξαντο οἱ Ιουδαῖοι καθὼς ἔγραψεν αὐτοῖς ὁ Μαρδοχαῖος.",
+     "giguet": "Et les Juifs se sont conformés depuis à ce qu'avait écrit Mardochée, leur faisant savoir&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "πῶς Αμαν Αμαδαθου ὁ Μακεδὼν ἐπολέμει αὐτούς καθὼς ἔθετο ψήφισμα καὶ κλῆρον ἀφανίσαι αὐτούς.",
+     "giguet": "Comme Aman, fils d'Amadathe le Macédonien, était devenu leur ennemi&nbsp;; comme il avait fait un édit, et agité les sorts pour les exterminer&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "καὶ ὡς εἰσῆλθεν πρὸς τὸν βασιλέα λέγων κρεμάσαι τὸν Μαρδοχαῖον ὅσα δὲ ἐπεχείρησεν ἐπάξαι ἐπὶ τοὺς Ιουδαίους κακά ἐπ' αὐτὸν ἐγένοντο καὶ ἐκρεμάσθη αὐτὸς καὶ τὰ τέκνα αὐτοῦ.",
+     "giguet": "Comme il était entré chez le roi, lui disant de faire pendre Mardochée&nbsp;; et comment tous les maux qu'il avait essayé de faire tomber sur les Juifs étaient tombés sur lui-même, qui avait été pendu ainsi que ses fils.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "26",
+     "grec": "διὰ τοῦτο ἐπεκλήθησαν αἱ ἡμέραι αὗται Φρουραι διὰ τοὺς κλήρους ὅτι τῇ διαλέκτῳ αὐτῶν καλοῦνται Φρουραι διὰ τοὺς λόγους τῆς ἐπιστολῆς ταύτης καὶ ὅσα πεπόνθασιν διὰ ταῦτα καὶ ὅσα αὐτοῖς ἐγένετο.",
+     "giguet": "A cause de cela, ces jours furent appelés Phrurées, à cause des sorts (car, dans leur dialecte, les sorts se traduisent par Phrurées)&nbsp;; à cause des paroles de ce livre de Mardochée, et à cause de ce qu'ils avaient souffert à ce sujet et de ce qui leur était advenu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "27",
+     "grec": "καὶ ἔστησεν καὶ προσεδέχοντο οἱ Ιουδαῖοι ἐφ' ἑαυτοῖς καὶ ἐπὶ τῷ σπέρματι αὐτῶν καὶ ἐπὶ τοῖς προστεθειμένοις ἐπ' αὐτῶν οὐδὲ μὴν ἄλλως χρήσονται αἱ δὲ ἡμέραι αὗται μνημόσυνον ἐπιτελούμενον κατὰ γενεὰν καὶ γενεὰν καὶ πόλιν καὶ πατριὰν καὶ χώραν.",
+     "giguet": "Et il régla les choses ainsi. Et les Juifs adoptèrent l'usage de ces fêtes pour eux et pour leur race, et pour ceux qui se joignirent à eux pour les observer, et ils ne feront jamais autrement&nbsp;; et ces jours sont un mémorial gardé de générations en générations en chaque ville, chaque famille, chaque province.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "28",
+     "grec": "αἱ δὲ ἡμέραι αὗται τῶν Φρουραι ἀχθήσονται εἰς τὸν ἅπαντα χρόνον καὶ τὸ μνημόσυνον αὐτῶν οὐ μὴ ἐκλίπῃ ἐκ τῶν γενεῶν.",
+     "giguet": "Et ces jours des Phrurées, disent-ils, seront gardés en tout temps, et le mémorial ne manquera à aucune génération.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "29",
+     "grec": "καὶ ἔγραψεν Εσθηρ ἡ βασίλισσα θυγάτηρ Αμιναδαβ καὶ Μαρδοχαῖος ὁ Ιουδαῖος ὅσα ἐποίησαν τό τε στερέωμα τῆς ἐπιστολῆς τῶν Φρουραι.",
+     "giguet": "Et la reine Esther, fille d'Aminadab, et le Juif Mardochée, écrivirent tout ce qu'ils avaient fait pour confirmer la lettre concernant les Phrurées.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "30",
+     "grec": "&nbsp;",
+     "giguet": "",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "31",
+     "grec": "καὶ Μαρδοχαῖος καὶ Εσθηρ ἡ βασίλισσα ἔστησαν ἑαυτοῖς καθ' ἑαυτῶν καὶ τότε στήσαντες κατὰ τῆς ὑγιείας αὐτῶν καὶ τὴν βουλὴν αὐτῶν.",
+     "giguet": "Et Mardochée et la reine Esther instituèrent pour eux-mêmes et les leurs, ces choses&nbsp;; et, en ce temps, ils établirent de leur propre autorité cette loi concernant leur délivrance.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "32",
+     "grec": "καὶ Εσθηρ λόγῳ ἔστησεν εἰς τὸν αἰῶνα καὶ ἐγράφη εἰς μνημόσυνον.",
+     "giguet": "Et Esther fit cela par un commandement pour toujours, et elle l'écrivit en un mémoire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 10,
+   "libelle": "10",
+   "fichierToc": "EST/010.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἔγραψεν δὲ ὁ βασιλεὺς τέλη ἐπὶ τὴν βασιλείαν τῆς τε γῆς καὶ τῆς θαλάσσης.",
+     "giguet": "Et le roi mit par écrit les taxes relatives au royaume de la terre et de la mer&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ τὴν ἰσχὺν αὐτοῦ καὶ ἀνδραγαθίαν πλοῦτόν τε καὶ δόξαν τῆς βασιλείας αὐτοῦ ἰδοὺ γέγραπται ἐν βιβλίῳ βασιλέων Περσῶν καὶ Μήδων εἰς μνημόσυνον.",
+     "giguet": "Et sa puissance, et sa valeur, et ses richesses, et sa gloire, sont décrites dans le livre des rois des Perses et des Mèdes, comme un mémorial.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ὁ δὲ Μαρδοχαῖος διεδέχετο τὸν βασιλέα Ἀρταξέρξην καὶ μέγας ἦν ἐν τῇ βασιλείᾳ καὶ δεδοξασμένος ὑπὸ τῶν Ιουδαίων καὶ φιλούμενος διηγεῖτο τὴν ἀγωγὴν παντὶ τῷ ἔθνει αὐτοῦ.",
+     "giguet": "Et Mardochée fut le lieutenant du roi Artaxerxès, et il fut grand dans le royaume, et il fut glorifié par les Juifs&nbsp;; et, aimé de tous, il exposa la suite de l'événement à tout son peuple.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3a",
+     "grec": "καὶ εἶπεν Μαρδοχαῖος παρὰ τοῦ θεοῦ ἐγένετο ταῦτα.",
+     "giguet": "Et Mardochée dit&nbsp;: Tout cela vient de Dieu&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3b",
+     "grec": "ἐμνήσθην γὰρ περὶ τοῦ ἐνυπνίου οὗ εἶδον περὶ τῶν λόγων τούτων οὐδὲ γὰρ παρῆλθεν ἀπ' αὐτῶν λόγος.",
+     "giguet": "Car je me souviens de la vision que j'ai eue au sujet de ces événements, et rien de ce qu'elle annonçait n'a manqué d'advenir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3c",
+     "grec": "ἡ μικρὰ πηγή ἣ ἐγένετο ποταμὸς καὶ ἦν φῶς καὶ ἥλιος καὶ ὕδωρ πολύ Εσθηρ ἐστὶν ὁ ποταμός ἣν ἐγάμησεν ὁ βασιλεὺς καὶ ἐποίησεν βασίλισσαν.",
+     "giguet": "La petite fontaine qui devint fleuve et qui fut lumière, soleil et onde abondante&nbsp;: c'est Esther, c'est elle qui est le fleuve&nbsp;; le roi l'a épousée et il l'a couronnée reine.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3d",
+     "grec": "οἱ δὲ δύο δράκοντες ἐγώ εἰμι καὶ Αμαν.",
+     "giguet": "Les deux dragons, c'est moi et Aman.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3e",
+     "grec": "τὰ δὲ ἔθνη τὰ ἐπισυναχθέντα ἀπολέσαι τὸ ὄνομα τῶν Ιουδαίων.",
+     "giguet": "Les nations, c'est la foule qui s'assembla pour effacer le nom des Juifs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3f",
+     "grec": "τὸ δὲ ἔθνος τὸ ἐμόν οὗτός ἐστιν Ισραηλ οἱ βοήσαντες πρὸς τὸν θεὸν καὶ σωθέντες καὶ ἔσωσεν κύριος τὸν λαὸν αὐτοῦ καὶ ἐρρύσατο κύριος ἡμᾶς ἐκ πάντων τῶν κακῶν τούτων καὶ ἐποίησεν ὁ θεὸς τὰ σημεῖα καὶ τὰ τέρατα τὰ μεγάλα ἃ οὐ γέγονεν ἐν τοῖς ἔθνεσιν.",
+     "giguet": "Et notre nation, c'est Israël qui invoqua Dieu et fut sauvé. Et le Seigneur a protégé son peuple, et il nous a délivrés de tous ces maux, et il a fait éclater des prodiges, et il a montré des signes, lequels ne sont jamais arrivés chez les nations.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3g",
+     "grec": "διὰ τοῦτο ἐποίησεν κλήρους δύο ἕνα τῷ λαῷ τοῦ θεοῦ καὶ ἕνα πᾶσι τοῖς ἔθνεσιν.",
+     "giguet": "A cause de cela, il à fait deux sorts&nbsp;: l'un pour son peuple, l'autre pour les autres nations.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3h",
+     "grec": "καὶ ἦλθον οἱ δύο κλῆροι οὗτοι εἰς ὥραν καὶ καιρὸν καὶ εἰς ἡμέραν κρίσεως ἐνώπιον τοῦ θεοῦ καὶ ἐν πᾶσι τοῖς ἔθνεσιν.",
+     "giguet": "Et les deux sorts ont comparu devant Dieu à l'heure, et au moment, et au jour où il devait juger toutes les nations.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3i",
+     "grec": "καὶ ἐμνήσθη ὁ θεὸς τοῦ λαοῦ αὐτοῦ καὶ ἐδικαίωσεν τὴν κληρονομίαν αὐτοῦ.",
+     "giguet": "Et Dieu s'est souvenu de son peuple, et il a vengé son héritage.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3k",
+     "grec": "καὶ ἔσονται αὐτοῖς αἱ ἡμέραι αὗται ἐν μηνὶ Αδαρ τῇ τεσσαρεσκαιδεκάτῃ καὶ τῇ πεντεκαιδεκάτῃ τοῦ αὐτοῦ μηνὸς μετὰ συναγωγῆς καὶ χαρᾶς καὶ εὐφροσύνης ἐνώπιον τοῦ θεοῦ κατὰ γενεὰς εἰς τὸν αἰῶνα ἐν τῷ λαῷ αὐτοῦ Ισραηλ.",
+     "giguet": "Et les jours d'adar, le quatorze et le quinze, seront célébrés devant Dieu par tout le peuple à jamais, par des réjouissances et des fêtes, en tout Israël.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3l",
+     "grec": "ἔτους τετάρτου βασιλεύοντος Πτολεμαίου καὶ Κλεοπάτρας εἰσήνεγκεν Δωσίθεος ὃς ἔφη εἶναι ἱερεὺς καὶ Λευίτης καὶ Πτολεμαῖος ὁ υἱὸς αὐτοῦ τὴν προκειμένην ἐπιστολὴν τῶν Φρουραι ἣν ἔφασαν εἶναι καὶ ἑρμηνευκέναι Λυσίμαχον Πτολεμαίου τῶν ἐν Ιερουσαλημ.",
+     "giguet": "La quatrième année du règne de Ptolémée et de Cléopâtre, Dosithée, qui dit être prêtre et lévite, accompagné de Ptolémée, son fils, apporta cette lettre sur les Phrurées&nbsp;; et, tous les deux, déclarèrent qu'elle avait été traduite à Jérusalem par Lysimaque, fils de Ptolémée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  }
+ ]
+}

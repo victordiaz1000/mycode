@@ -1,0 +1,459 @@
+{
+ "source": "C:\\Users\\laptek\\Documents\\Bible\\Biblia Universalis 3 (1.39)\\Ressources\\bibles\\SEF.xml",
+ "bible": {
+  "id": "SEF",
+  "titre": "Septuaginta",
+  "auteur": "Alfred Rahlfs",
+  "langue_source": "grec (Septante)",
+  "traductions_francaises": [
+   {
+    "nom": "Traduction française de Giguet",
+    "couleur_source": "darkblue",
+    "couverture": "tous les livres"
+   },
+   {
+    "nom": "Traduction française d'Alexandrie",
+    "couleur_source": "green",
+    "couverture": "partiel",
+    "livres": [
+     "1SA",
+     "DEU",
+     "ECC",
+     "EXO",
+     "GEN",
+     "HAB",
+     "HAG",
+     "HOS",
+     "ISA",
+     "JDG",
+     "JOL",
+     "JON",
+     "JOS",
+     "LEV",
+     "MAL",
+     "MIC",
+     "NAM",
+     "NUM",
+     "OBA",
+     "PRO",
+     "PSA",
+     "RUT",
+     "ZEC",
+     "ZEP"
+    ]
+   }
+  ],
+  "header_xml": "meta/header.xml"
+ },
+ "ordre_toc_livres": [
+  "1CH",
+  "1KI",
+  "1MA",
+  "1SA",
+  "2CH",
+  "2KI",
+  "2MA",
+  "2SA",
+  "AMO",
+  "BAR",
+  "DAN",
+  "DEU",
+  "ECC",
+  "EST",
+  "EXO",
+  "EZK",
+  "EZR",
+  "GEN",
+  "HAB",
+  "HAG",
+  "HOS",
+  "ISA",
+  "JDG",
+  "JDT",
+  "JER",
+  "JOB",
+  "JOL",
+  "JON",
+  "JOS",
+  "LAM",
+  "LEV",
+  "LJE",
+  "MAL",
+  "MIC",
+  "NAM",
+  "NEH",
+  "NUM",
+  "OBA",
+  "PRO",
+  "PSA",
+  "RUT",
+  "SIR",
+  "SNG",
+  "TOB",
+  "WIS",
+  "ZEC",
+  "ZEP"
+ ],
+ "livres": [
+  {
+   "code": "1CH",
+   "book": "1 Chroniques",
+   "nb_fichiers": 29,
+   "nb_chapitres": 29
+  },
+  {
+   "code": "1KI",
+   "book": "1 Rois",
+   "nb_fichiers": 23,
+   "nb_chapitres": 23
+  },
+  {
+   "code": "1MA",
+   "book": "1 Maccabées",
+   "nb_fichiers": 16,
+   "nb_chapitres": 16
+  },
+  {
+   "code": "1SA",
+   "book": "1 Samuel",
+   "nb_fichiers": 31,
+   "nb_chapitres": 31
+  },
+  {
+   "code": "2CH",
+   "book": "2 Chroniques",
+   "nb_fichiers": 36,
+   "nb_chapitres": 36
+  },
+  {
+   "code": "2KI",
+   "book": "2 Rois",
+   "nb_fichiers": 25,
+   "nb_chapitres": 25
+  },
+  {
+   "code": "2MA",
+   "book": "2 Maccabées",
+   "nb_fichiers": 15,
+   "nb_chapitres": 15
+  },
+  {
+   "code": "2SA",
+   "book": "2 Samuel",
+   "nb_fichiers": 24,
+   "nb_chapitres": 24
+  },
+  {
+   "code": "AMO",
+   "book": "Amos",
+   "nb_fichiers": 9,
+   "nb_chapitres": 9
+  },
+  {
+   "code": "BAR",
+   "book": "Baruch",
+   "nb_fichiers": 5,
+   "nb_chapitres": 5
+  },
+  {
+   "code": "DAN",
+   "book": "Daniel",
+   "nb_fichiers": 14,
+   "nb_chapitres": 14
+  },
+  {
+   "code": "DEU",
+   "book": "Deutéronome",
+   "nb_fichiers": 34,
+   "nb_chapitres": 34
+  },
+  {
+   "code": "ECC",
+   "book": "Ecclésiaste",
+   "nb_fichiers": 12,
+   "nb_chapitres": 12
+  },
+  {
+   "code": "EST",
+   "book": "Esther",
+   "nb_fichiers": 10,
+   "nb_chapitres": 10
+  },
+  {
+   "code": "EXO",
+   "book": "Exode",
+   "nb_fichiers": 40,
+   "nb_chapitres": 40
+  },
+  {
+   "code": "EZK",
+   "book": "Ézéchiel",
+   "nb_fichiers": 48,
+   "nb_chapitres": 48
+  },
+  {
+   "code": "EZR",
+   "book": "Esdras",
+   "nb_fichiers": 11,
+   "nb_chapitres": 20
+  },
+  {
+   "code": "GEN",
+   "book": "Genèse",
+   "nb_fichiers": 50,
+   "nb_chapitres": 50
+  },
+  {
+   "code": "HAB",
+   "book": "Habacuc",
+   "nb_fichiers": 3,
+   "nb_chapitres": 3
+  },
+  {
+   "code": "HAG",
+   "book": "Aggée",
+   "nb_fichiers": 2,
+   "nb_chapitres": 2
+  },
+  {
+   "code": "HOS",
+   "book": "Osée",
+   "nb_fichiers": 14,
+   "nb_chapitres": 14
+  },
+  {
+   "code": "ISA",
+   "book": "Isaïe",
+   "nb_fichiers": 66,
+   "nb_chapitres": 66
+  },
+  {
+   "code": "JDG",
+   "book": "Juges",
+   "nb_fichiers": 21,
+   "nb_chapitres": 21
+  },
+  {
+   "code": "JDT",
+   "book": "Judith",
+   "nb_fichiers": 16,
+   "nb_chapitres": 16
+  },
+  {
+   "code": "JER",
+   "book": "Jérémie",
+   "nb_fichiers": 52,
+   "nb_chapitres": 52
+  },
+  {
+   "code": "JOB",
+   "book": "Job",
+   "nb_fichiers": 42,
+   "nb_chapitres": 42
+  },
+  {
+   "code": "JOL",
+   "book": "Joël",
+   "nb_fichiers": 4,
+   "nb_chapitres": 4
+  },
+  {
+   "code": "JON",
+   "book": "Jonas",
+   "nb_fichiers": 4,
+   "nb_chapitres": 4
+  },
+  {
+   "code": "JOS",
+   "book": "Josué",
+   "nb_fichiers": 24,
+   "nb_chapitres": 24
+  },
+  {
+   "code": "LAM",
+   "book": "Lamentations",
+   "nb_fichiers": 5,
+   "nb_chapitres": 5
+  },
+  {
+   "code": "LEV",
+   "book": "Lévitique",
+   "nb_fichiers": 27,
+   "nb_chapitres": 27
+  },
+  {
+   "code": "LJE",
+   "book": "Lettre de Jérémie",
+   "nb_fichiers": 1,
+   "nb_chapitres": 1
+  },
+  {
+   "code": "MAL",
+   "book": "Malachie",
+   "nb_fichiers": 3,
+   "nb_chapitres": 3
+  },
+  {
+   "code": "MIC",
+   "book": "Michée",
+   "nb_fichiers": 7,
+   "nb_chapitres": 7
+  },
+  {
+   "code": "NAM",
+   "book": "Nahum",
+   "nb_fichiers": 3,
+   "nb_chapitres": 3
+  },
+  {
+   "code": "NEH",
+   "book": "Néhémie",
+   "nb_fichiers": 13,
+   "nb_chapitres": 13
+  },
+  {
+   "code": "NUM",
+   "book": "Nombres",
+   "nb_fichiers": 36,
+   "nb_chapitres": 36
+  },
+  {
+   "code": "OBA",
+   "book": "Abdias",
+   "nb_fichiers": 1,
+   "nb_chapitres": 1
+  },
+  {
+   "code": "PRO",
+   "book": "Proverbes",
+   "nb_fichiers": 31,
+   "nb_chapitres": 31
+  },
+  {
+   "code": "PSA",
+   "book": "Psaumes",
+   "nb_fichiers": 151,
+   "nb_chapitres": 152
+  },
+  {
+   "code": "RUT",
+   "book": "Ruth",
+   "nb_fichiers": 4,
+   "nb_chapitres": 4
+  },
+  {
+   "code": "SIR",
+   "book": "Siracide (Ecclésiastique)",
+   "nb_fichiers": 52,
+   "nb_chapitres": 53
+  },
+  {
+   "code": "SNG",
+   "book": "Cantique des Cantiques",
+   "nb_fichiers": 8,
+   "nb_chapitres": 8
+  },
+  {
+   "code": "TOB",
+   "book": "Tobie",
+   "nb_fichiers": 14,
+   "nb_chapitres": 14
+  },
+  {
+   "code": "WIS",
+   "book": "Sagesse",
+   "nb_fichiers": 19,
+   "nb_chapitres": 19
+  },
+  {
+   "code": "ZEC",
+   "book": "Zacharie",
+   "nb_fichiers": 14,
+   "nb_chapitres": 14
+  },
+  {
+   "code": "ZEP",
+   "book": "Sophonie",
+   "nb_fichiers": 3,
+   "nb_chapitres": 3
+  }
+ ],
+ "entrees_toc": {
+  "total": 1118,
+  "bible": 1072,
+  "glossaire": 44,
+  "autres": 2
+ },
+ "glossaire_map": {
+  "g*SEF*ABOMINATION": "glossaire/ABOMINATION.html",
+  "g*SEF*AME": "glossaire/AME.html",
+  "g*SEF*ANATHEME": "glossaire/ANATHEME.html",
+  "g*SEF*APAISEMENT": "glossaire/APAISEMENT.html",
+  "g*SEF*COMMUNAUTE": "glossaire/COMMUNAUTE.html",
+  "g*SEF*CONSACRER": "glossaire/CONSACRER.html",
+  "g*SEF*CULTE": "glossaire/CULTE.html",
+  "g*SEF*DECOUPAGE": "glossaire/DECOUPAGE.html",
+  "g*SEF*ESPRIT": "glossaire/ESPRIT.html",
+  "g*SEF*FACE": "glossaire/FACE.html",
+  "g*SEF*FAUTE": "glossaire/FAUTE.html",
+  "g*SEF*FETE": "glossaire/FETE.html",
+  "g*SEF*GIGUET_INTRODUCTION": "glossaire/GIGUET_INTRODUCTION.html",
+  "g*SEF*HAPAX": "glossaire/HAPAX.html",
+  "g*SEF*IMMIGRANT": "glossaire/IMMIGRANT.html",
+  "g*SEF*INDEX_GENERAL": "glossaire/INDEX_GENERAL.html",
+  "g*SEF*INDEX_GREC": "glossaire/INDEX_GREC.html",
+  "g*SEF*INDEX_NT": "glossaire/INDEX_NT.html",
+  "g*SEF*intro_EZR_NEH": "glossaire/intro_EZR_NEH.html",
+  "g*SEF*INTRODUCTION GENERALE": "glossaire/INTRODUCTION GENERALE.html",
+  "g*SEF*INTRODUCTION GENERALE1": "glossaire/INTRODUCTION GENERALE1.html",
+  "g*SEF*INTRODUCTION GENERALE10": "glossaire/INTRODUCTION GENERALE10.html",
+  "g*SEF*INTRODUCTION GENERALE2": "glossaire/INTRODUCTION GENERALE2.html",
+  "g*SEF*INTRODUCTION GENERALE3": "glossaire/INTRODUCTION GENERALE3.html",
+  "g*SEF*INTRODUCTION GENERALE4": "glossaire/INTRODUCTION GENERALE4.html",
+  "g*SEF*INTRODUCTION GENERALE5": "glossaire/INTRODUCTION GENERALE5.html",
+  "g*SEF*INTRODUCTION GENERALE6": "glossaire/INTRODUCTION GENERALE6.html",
+  "g*SEF*INTRODUCTION GENERALE7": "glossaire/INTRODUCTION GENERALE7.html",
+  "g*SEF*INTRODUCTION GENERALE8": "glossaire/INTRODUCTION GENERALE8.html",
+  "g*SEF*INTRODUCTION GENERALE9": "glossaire/INTRODUCTION GENERALE9.html",
+  "g*SEF*INTRODUCTION JUGES": "glossaire/INTRODUCTION JUGES.html",
+  "g*SEF*INTRODUCTION": "glossaire/INTRODUCTION.html",
+  "g*SEF*INVESTITURE": "glossaire/INVESTITURE.html",
+  "g*SEF*JEREMIE": "glossaire/JEREMIE.html",
+  "g*SEF*LETTRE_ARISTEE": "glossaire/LETTRE_ARISTEE.html",
+  "g*SEF*LOI": "glossaire/LOI.html",
+  "g*SEF*OFFRANDES": "glossaire/OFFRANDES.html",
+  "g*SEF*REMISSION": "glossaire/REMISSION.html",
+  "g*SEF*ROULEAU_DU_TEMPLE": "glossaire/ROULEAU_DU_TEMPLE.html",
+  "g*SEF*SEIGNEUR": "glossaire/SEIGNEUR.html",
+  "g*SEF*SERVICE": "glossaire/SERVICE.html",
+  "g*SEF*STIQUE": "glossaire/STIQUE.html",
+  "g*SEF*TEMOIGNAGE": "glossaire/TEMOIGNAGE.html",
+  "g*SEF*VISITE": "glossaire/VISITE.html"
+ },
+ "sections_extraites": {
+  "toc": "meta/toc.json",
+  "words": "meta/words.xml",
+  "words_parsed": "meta/words.jsonl",
+  "index": "meta/index-section.xml",
+  "addresses": "<files><addr>77</addr><size>19832534</size></files>\n<toc><addr>19832626</addr><size>69450</size></toc>\n<words><addr>19902083</addr><size>7052416</size></words>\n<index><addr>26954499</addr><size>6618</size></index>"
+ },
+ "stats": {
+  "versets_total": 28167,
+  "avec_grec": 28153,
+  "avec_giguet": 27880,
+  "avec_alexandrie": 12474,
+  "versets_vides": 12,
+  "chapitres_total": 1083,
+  "doublons": 3,
+  "sous_versets_non_numeriques": 247
+ },
+ "anomalies": [
+  "1KI/020b.html: en-tête Giguet/Alexandrie absent",
+  "1KI/020b.html chap. 20 [LXX : 21]: doublon de 1KI/020.html#20 [LXX : 21]",
+  "EZR/011.html: en-tête Giguet/Alexandrie absent",
+  "EZR/011.html: cn=\"1\" ≠ numéro TOC 11",
+  "PSA/151.html chap. 151 (LXX : 151): doublon de PSA/150.html#151 (LXX : 151)",
+  "SIR/052.html: en-tête Giguet/Alexandrie absent",
+  "SIR/052.html chap. 52: doublon de SIR/051.html#52"
+ ]
+}

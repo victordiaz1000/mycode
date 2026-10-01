@@ -1,0 +1,1738 @@
+{
+ "code": "HOS",
+ "book": "Osée",
+ "fichiersToc": [
+  "HOS/001.html",
+  "HOS/002.html",
+  "HOS/003.html",
+  "HOS/004.html",
+  "HOS/005.html",
+  "HOS/006.html",
+  "HOS/007.html",
+  "HOS/008.html",
+  "HOS/009.html",
+  "HOS/010.html",
+  "HOS/011.html",
+  "HOS/012.html",
+  "HOS/013.html",
+  "HOS/014.html"
+ ],
+ "chapitres": [
+  {
+   "chapitre": 1,
+   "libelle": "1",
+   "fichierToc": "HOS/001.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "λόγος κυρίου ὃς ἐγενήθη πρὸς Ωσηε τὸν τοῦ Βεηρι ἐν ἡμέραις Οζιου καὶ Ιωαθαμ καὶ Αχαζ καὶ Εζεκιου βασιλέων Ιουδα καὶ ἐν ἡμέραις Ιεροβοαμ υἱοῦ Ιωας βασιλέως Ισραηλ.",
+     "giguet": "Paroles du Seigneur qui vinrent à Osée, fils de Béeri, durant les jours d'Ozias, et de Joathan, et d'Achaz, et d'Ézéchias, rois de Juda, et durant les jours de Jéroboam, fils de Joas, roi d'Israël.",
+     "alexandrie": "Parole du Seigneur qui parvint à Osée, fils de Béeri, aux jours d’Ozias, de Joatham, d’Achaz et d’Ézékias, rois de Juda, et aux jours de Jéroboam, fils de Joas, roi d’Israël.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἀρχὴ λόγου κυρίου πρὸς Ωσηε καὶ εἶπεν κύριος πρὸς Ωσηε βάδιζε λαβὲ σεαυτῷ γυναῖκα πορνείας καὶ τέκνα πορνείας διότι ἐκπορνεύουσα ἐκπορνεύσει ἡ γῆ ἀπὸ ὄπισθεν τοῦ κυρίου.",
+     "giguet": "Commencement des paroles du Seigneur à Osée. Et le Seigneur dit à Osée&nbsp;: Va et prends pour toi une femme de prostitution&nbsp;; aie des enfants de la prostitution, parce que la terre se prostitue, et se prostituera en se retirant du Seigneur.",
+     "alexandrie": "Commencement de la parole du Seigneur par Osée&nbsp;: Et le Seigneur dit à Osée&nbsp;: «&nbsp;Va, prends pour toi une femme de prostitution et des enfants de prostitution, car le pays se prostituera totalement en quittant le Seigneur.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἐπορεύθη καὶ ἔλαβεν τὴν Γομερ θυγατέρα Δεβηλαιμ καὶ συνέλαβεν καὶ ἔτεκεν αὐτῷ υἱόν.",
+     "giguet": "Et il alla, et il prit Gomer, fille de Debélaïm, et elle conçut, et elle lui enfanta un fils.",
+     "alexandrie": "Et il alla et prit Gomer, fille de Debélaim, et elle conçut et lui enfanta un fils.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ εἶπεν κύριος πρὸς αὐτόν κάλεσον τὸ ὄνομα αὐτοῦ Ιεζραελ διότι ἔτι μικρὸν καὶ ἐκδικήσω τὸ αἷμα τοῦ Ιεζραελ ἐπὶ τὸν οἶκον Ιου καὶ καταπαύσω βασιλείαν οἴκου Ισραηλ.",
+     "giguet": "Et le Seigneur lui dit&nbsp;: Donne-lui le nom de Jezraël, parce que, encore un peu de temps, et je vengerai le sang de Jezraël sur la maison de Juda, et je ferai cesser la royauté de la maison d'Israël.",
+     "alexandrie": "Et le Seigneur lui dit&nbsp;: «&nbsp;Appelle-le du nom d’Izréel, car encore un peu et je tirerai vengeance du sang d’Izréel sur la maison de Jéhu, et je repousserai la royauté de la maison d’Israël.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ συντρίψω τὸ τόξον τοῦ Ισραηλ ἐν τῇ κοιλάδι τοῦ Ιεζραελ.",
+     "giguet": "Et il arrivera, en ce jour-là, que je briserai l'arc d'Israël dans la vallée de Jezraël.",
+     "alexandrie": "Et il adviendra en ce jour-là&nbsp;: je briserai l’arc d’Israël dans la vallée d’Izréel.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ συνέλαβεν ἔτι καὶ ἔτεκεν θυγατέρα καὶ εἶπεν αὐτῷ κάλεσον τὸ ὄνομα αὐτῆς Οὐκ-ἠλεημένη διότι οὐ μὴ προσθήσω ἔτι ἐλεῆσαι τὸν οἶκον τοῦ Ισραηλ ἀλλ' ἢ ἀντιτασσόμενος ἀντιτάξομαι αὐτοῖς.",
+     "giguet": "Et elle conçut encore, et elle enfanta une fille. Et le Seigneur dit à Osée&nbsp;: Donne-lui le nom de Sans-Pitié, parce que je ne continuerai plus d'avoir pitié de la maison d'Israël, mais je lui résisterai obstinément.",
+     "alexandrie": "Et elle conçut encore et enfanta une fille. Et il lui dit&nbsp;: «&nbsp;Appelle-la du nom de Celle-dont-on-n’a-pas-eu-pitié, car je ne continuerai plus à avoir pitié de la maison d’Israël&nbsp;; au contraire, je m’opposerai totalement à eux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "τοὺς δὲ υἱοὺς Ιουδα ἐλεήσω καὶ σώσω αὐτοὺς ἐν κυρίῳ θεῷ αὐτῶν καὶ οὐ σώσω αὐτοὺς ἐν τόξῳ οὐδὲ ἐν ῥομφαίᾳ οὐδὲ ἐν πολέμῳ οὐδὲ ἐν ἅρμασιν οὐδὲ ἐν ἵπποις οὐδὲ ἐν ἱππεῦσιν.",
+     "giguet": "Envers les fils de Juda je serai miséricordieux, et je les sauverai par le Seigneur leur Dieu&nbsp;; mais je ne les sauverai pas par l'arc, ni par le glaive, ni par la guerre, ni par les chevaux, ni par les cavaliers.",
+     "alexandrie": "Mais des fils de Juda j’aurai pitié et je les sauverai par le Seigneur leur Dieu&nbsp;; et je ne les sauverai ni par l’arc, ni par l’épée, ni par la guerre, ni par les chars, ni par les chevaux, ni par les cavaliers.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ ἀπεγαλάκτισεν τὴν Οὐκ-ἠλεημένην καὶ συνέλαβεν ἔτι καὶ ἔτεκεν υἱόν.",
+     "giguet": "Et elle sevra cette fille Sans-Pitié&nbsp;; et elle conçut encore, et elle enfanta un fils.",
+     "alexandrie": "Et elle sevra Celle-dont-on-n’a-pas-eu-pitié, et elle conçut encore et enfanta un fils.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ εἶπεν κάλεσον τὸ ὄνομα αὐτοῦ Οὐ-λαόσ-μου διότι ὑμεῖς οὐ λαός μου καὶ ἐγὼ οὔκ εἰμι ὑμῶν.",
+     "giguet": "Le Seigneur dit à Osée&nbsp;: Appelle-le Non-Mon-Peuple&nbsp;; parce que vous n'êtes plus mon peuple, et je ne suis plus votre Dieu.",
+     "alexandrie": "Et il lui dit&nbsp;: «&nbsp;Appelle-le du nom de Pas-mon-peuple, car vous n'êtes pas mon peuple, et moi, je ne suis pas vôtre.&nbsp;»",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 2,
+   "libelle": "2",
+   "fichierToc": "HOS/002.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἦν ὁ ἀριθμὸς τῶν υἱῶν Ισραηλ ὡς ἡ ἄμμος τῆς θαλάσσης ἣ οὐκ ἐκμετρηθήσεται οὐδὲ ἐξαριθμηθήσεται καὶ ἔσται ἐν τῷ τόπῳ οὗ ἐρρέθη αὐτοῖς οὐ λαός μου ὑμεῖς ἐκεῖ κληθήσονται υἱοὶ θεοῦ ζῶντος.",
+     "giguet": "Et le nombre des fils d'Israël a été comme le sable de la mer, que l'on ne peut ni mesurer ni compter&nbsp;; et ceci arrivera dans le lieu même où il leur a été dit&nbsp;: Vous n'êtes plus mon peuple&nbsp;; et ils seront appelés fils du Dieu vivant.",
+     "alexandrie": "Et le nombre des fils d’Israël était comme le sable de la mer, qui ne peut être mesuré ni dénombré&nbsp;; et il adviendra&nbsp;: dans le lieu où il leur avait été dit&nbsp;: «&nbsp;Vous êtes Pas-mon-peuple&nbsp;», ils seront appelés eux aussi «&nbsp;fils du Dieu vivant&nbsp;».",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ συναχθήσονται οἱ υἱοὶ Ιουδα καὶ οἱ υἱοὶ Ισραηλ ἐπὶ τὸ αὐτὸ καὶ θήσονται ἑαυτοῖς ἀρχὴν μίαν καὶ ἀναβήσονται ἐκ τῆς γῆς ὅτι μεγάλη ἡ ἡμέρα τοῦ Ιεζραελ.",
+     "giguet": "Et les fils de Juda se réuniront, et en même temps ceux d'Israël, et ils institueront pour eux une seule principauté, et ils se répandront sur la terre, parce que le jour de Jezraël est grand.",
+     "alexandrie": "Et les fils de Juda et les fils d’Israël seront réunis ensemble, et ils se donneront une autorité unique, et ils monteront hors du pays, car grand est le jour d’Izréel.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "εἴπατε τῷ ἀδελφῷ ὑμῶν Λαόσ-μου καὶ τῇ ἀδελφῇ ὑμῶν Ἠλεημένη.",
+     "giguet": "Dites à votre frère, Mon-Peuple, et à votre sœur Pitié",
+     "alexandrie": "Dites à votre frère&nbsp;: «&nbsp;Mon peuple&nbsp;», et à votre sœur&nbsp;: «&nbsp;Celle dont on a eu pitié&nbsp;».",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "κρίθητε πρὸς τὴν μητέρα ὑμῶν κρίθητε ὅτι αὐτὴ οὐ γυνή μου καὶ ἐγὼ οὐκ ἀνὴρ αὐτῆς καὶ ἐξαρῶ τὴν πορνείαν αὐτῆς ἐκ προσώπου μου καὶ τὴν μοιχείαν αὐτῆς ἐκ μέσου μαστῶν αὐτῆς.",
+     "giguet": "Plaidez contre votre mère&nbsp;; car elle n'est point ma femme, et je ne suis point son Mari. Et j'ôterai de devant ma face sa prostitution, et son adultère du milieu de ses mamelles,",
+     "alexandrie": "Intentez une action contre votre mère, intentez une action&nbsp;; car elle n’est pas ma femme, et moi je ne suis pas son mari. Et j ôterai sa prostitution de ma face et son adultère d’entre ses seins,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ὅπως ἂν ἐκδύσω αὐτὴν γυμνὴν καὶ ἀποκαταστήσω αὐτὴν καθὼς ἡμέρᾳ γενέσεως αὐτῆς καὶ θήσομαι αὐτὴν ὡς ἔρημον καὶ τάξω αὐτὴν ὡς γῆν ἄνυδρον καὶ ἀποκτενῶ αὐτὴν ἐν δίψει.",
+     "giguet": "Afin de la mettre nue, et de la remettre comme elle était le jour de sa naissance&nbsp;; et je ferai d'elle un désert, et je la traiterai comme une terre aride&nbsp;; et je la tuerai par la soif&nbsp;;",
+     "alexandrie": "afin que je la déshabille nue et la rétablisse comme au jour de sa naissance. Et je la rendrai comme un désert et la disposerai comme une terre sans eau, et je la tuerai par la soif.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ τὰ τέκνα αὐτῆς οὐ μὴ ἐλεήσω ὅτι τέκνα πορνείας ἐστίν.",
+     "giguet": "Et je n'aurai point pitié de ses enfants&nbsp;; car ce sont des enfants de prostitution.",
+     "alexandrie": "Et de ses enfants je n’aurai pas pitié, car ce sont des enfants de prostitution.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὅτι ἐξεπόρνευσεν ἡ μήτηρ αὐτῶν κατῄσχυνεν ἡ τεκοῦσα αὐτά εἶπεν γάρ ἀκολουθήσω ὀπίσω τῶν ἐραστῶν μου τῶν διδόντων μοι τοὺς ἄρτους μου καὶ τὸ ὕδωρ μου καὶ τὰ ἱμάτιά μου καὶ τὰ ὀθόνιά μου καὶ τὸ ἔλαιόν μου καὶ πάντα ὅσα μοι καθήκει.",
+     "giguet": "Leur mère s'est prostituée&nbsp;; celle qui les a portés les a couverts de honte&nbsp;; elle a dit&nbsp;: je m'en irai après mes amants qui me donnent mon pain, et mon eau, et mes vêtements, et mon linge, et mon huile, et tout ce qui m'est nécessaire.",
+     "alexandrie": "Car leur mère s’est prostituée, celle qui les a enfantés les a déshonorés car elle a dit&nbsp;: «&nbsp;J’irai derrière mes amants qui me donnent mon pain, mon eau, mes vêtements, mes étoffes de lin, mon huile et tout ce qui me convient.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "διὰ τοῦτο ἰδοὺ ἐγὼ φράσσω τὴν ὁδὸν αὐτῆς ἐν σκόλοψιν καὶ ἀνοικοδομήσω τὰς ὁδοὺς αὐτῆς καὶ τὴν τρίβον αὐτῆς οὐ μὴ εὕρῃ.",
+     "giguet": "C'est pourquoi je ferme sa voie avec des épines, et je bâtirai sur ses routes&nbsp;; elle ne retrouvera plus son sentier.",
+     "alexandrie": "C'est pourquoi voici, moi, j’obstrue son chemin avec des épines et je barricaderai ses chemins, et elle ne trouvera plus son sentier.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ καταδιώξεται τοὺς ἐραστὰς αὐτῆς καὶ οὐ μὴ καταλάβῃ αὐτούς καὶ ζητήσει αὐτοὺς καὶ οὐ μὴ εὕρῃ αὐτούς καὶ ἐρεῖ πορεύσομαι καὶ ἐπιστρέψω πρὸς τὸν ἄνδρα μου τὸν πρότερον ὅτι καλῶς μοι ἦν τότε ἢ νῦν.",
+     "giguet": "Elle poursuivra ses amants, et ne les atteindra pas&nbsp;; elle les cherchera, et ne les trouvera pas. Et elle dira&nbsp;: je vais partir, je vais retourner auprès de mon premier mari&nbsp;; car, pour moi, il faisait meilleur alors que maintenant.",
+     "alexandrie": "Et elle poursuivra ses amants et ne les rattrapera pas, et elle les cherchera et ne les trouvera pas. Et elle dira&nbsp;: «&nbsp;J’irai et je retournerai vers mon premier mari, car alors, j’allais mieux que maintenant.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ αὐτὴ οὐκ ἔγνω ὅτι ἐγὼ δέδωκα αὐτῇ τὸν σῖτον καὶ τὸν οἶνον καὶ τὸ ἔλαιον καὶ ἀργύριον ἐπλήθυνα αὐτῇ αὐτὴ δὲ ἀργυρᾶ καὶ χρυσᾶ ἐποίησεν τῇ Βααλ.",
+     "giguet": "Et elle n'a point connu que je lui avais donné du pain, du vin et de l'huile, et que je l'avais comblée d'argent, et elle a fait à Baal des idoles d'argent et d'or.",
+     "alexandrie": "Et elle n’a pas su que c’était moi qui lui avais donné le blé, le vin et l’huile&nbsp;; et j’ai multiplié l’argent pour elle, mais elle a fait des choses en argent et en or pour la Baal.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "διὰ τοῦτο ἐπιστρέψω καὶ κομιοῦμαι τὸν σῖτόν μου καθ' ὥραν αὐτοῦ καὶ τὸν οἶνόν μου ἐν καιρῷ αὐτοῦ καὶ ἀφελοῦμαι τὰ ἱμάτιά μου καὶ τὰ ὀθόνιά μου τοῦ μὴ καλύπτειν τὴν ἀσχημοσύνην αὐτῆς.",
+     "giguet": "À cause de cela, je m'en retournerai, je prendrai mon blé lors de la moisson, et mon vin lors de la vendange&nbsp;; et je reprendrai mes vêtements et mon linge, pour ne plus couvrir sa nudité.",
+     "alexandrie": "C’est pourquoi je retournerai et reprendrai mon blé à son heure et mon vin en son temps, et j’enlèverai mes vêtements et mes tissus de lin pour ne plus voiler son indécence.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ νῦν ἀποκαλύψω τὴν ἀκαθαρσίαν αὐτῆς ἐνώπιον τῶν ἐραστῶν αὐτῆς καὶ οὐδεὶς οὐ μὴ ἐξέληται αὐτὴν ἐκ χειρός μου.",
+     "giguet": "Et désormais je révélerai à ses amants son impureté, et nul ne la délivrera de mes mains.",
+     "alexandrie": "Et maintenant je vais dévoiler son impureté devant ses amants et personne ne l’arrachera de ma main.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ἀποστρέψω πάσας τὰς εὐφροσύνας αὐτῆς ἑορτὰς αὐτῆς καὶ τὰς νουμηνίας αὐτῆς καὶ τὰ σάββατα αὐτῆς καὶ πάσας τὰς πανηγύρεις αὐτῆς.",
+     "giguet": "Et je supprimerai toutes ses joies, toutes ses fêtes, toutes ses nouvelles lunes, ses sabbats et toutes ses solennités.",
+     "alexandrie": "Et je repousserai toutes ses réjouissances, ses fêtes, ses néoménies, ses sabbats et toutes ses assemblées solennelles.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἀφανιῶ ἄμπελον αὐτῆς καὶ τὰς συκᾶς αὐτῆς ὅσα εἶπεν μισθώματά μου ταῦτά ἐστιν ἃ ἔδωκάν μοι οἱ ἐρασταί μου καὶ θήσομαι αὐτὰ εἰς μαρτύριον καὶ καταφάγεται αὐτὰ τὰ θηρία τοῦ ἀγροῦ καὶ τὰ πετεινὰ τοῦ οὐρανοῦ καὶ τὰ ἑρπετὰ τῆς γῆς.",
+     "giguet": "Et je détruirai sa vigne et ses figuiers, parce qu'elle a dit&nbsp;: Ce sont les salaires que m'ont donné mes amants. Et moi, j'en ferai un témoignage&nbsp;; les bêtes des champs viendront y paître, et les oiseaux du ciel, et les reptiles de la terre.",
+     "alexandrie": "Et je détruirai sa vigne et ses figuiers, tout ce dont elle a dit&nbsp;: «&nbsp;Ce sont mes gages que m’ont donnés mes amants.&nbsp;» Et j’en ferai un témoignage et les bêtes des champs les dévoreront et les oiseaux du ciel et les bestioles de la terre.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἐκδικήσω ἐπ' αὐτὴν τὰς ἡμέρας τῶν Βααλιμ ἐν αἷς ἐπέθυεν αὐτοῖς καὶ περιετίθετο τὰ ἐνώτια αὐτῆς καὶ τὰ καθόρμια αὐτῆς καὶ ἐπορεύετο ὀπίσω τῶν ἐραστῶν αὐτῆς ἐμοῦ δὲ ἐπελάθετο λέγει κύριος.",
+     "giguet": "Je lui ferai expier les jours où elle a sacrifié à Baal, et où elle a mis ses pendants d'oreilles et ses colliers pour s'en aller après son amant. Et elle m'a oublié, dit le Seigneur.",
+     "alexandrie": "Et je tirerai vengeance sur elle des jours des Baalim durant lesquels elle leur sacrifiait, mettait ses boucles d’oreilles et ses colliers et allait derrière ses amants&nbsp;; mais moi, elle m’a oublié, dit le Seigneur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "διὰ τοῦτο ἰδοὺ ἐγὼ πλανῶ αὐτὴν καὶ τάξω αὐτὴν εἰς ἔρημον καὶ λαλήσω ἐπὶ τὴν καρδίαν αὐτῆς.",
+     "giguet": "C'est pourquoi je l'égarerai et je l'enverrai dans le désert, et je parlerai à son cœur.",
+     "alexandrie": "C’est pourquoi voici, moi, je l’égare et je la ferai descendre au désert et parlerai sur son cœur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ δώσω αὐτῇ τὰ κτήματα αὐτῆς ἐκεῖθεν καὶ τὴν κοιλάδα Αχωρ διανοῖξαι σύνεσιν αὐτῆς καὶ ταπεινωθήσεται ἐκεῖ κατὰ τὰς ἡμέρας νηπιότητος αὐτῆς καὶ κατὰ τὰς ἡμέρας ἀναβάσεως αὐτῆς ἐκ γῆς Αἰγύπτου.",
+     "giguet": "Et de là je lui rendrai ses possessions et la vallée d'Achor, pour lui ouvrir l'intelligence. Et là elle s'humiliera autant de jours qu'a duré sa jeunesse, et autant de jours qu'elle a mis à revenir de la terre d'Égypte.",
+     "alexandrie": "Et je lui donnerai ses possessions de là et la vallée d’Achor pour ouvrir son intelligence, et là elle sera humiliée selon les jours de sa petite enfance et selon les jours de sa montée du pays d’Égypte.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ ἔσται ἐν ἐκείνῃ τῇ ἡμέρᾳ λέγει κύριος καλέσει με ὁ ἀνήρ μου καὶ οὐ καλέσει με ἔτι Βααλιμ.",
+     "giguet": "Et ceci arrivera en ce jour-là, dit le Seigneur&nbsp;; elle m'appellera mon époux, et elle ne m'appellera plus Baal.",
+     "alexandrie": "Et il adviendra en ce jour-là, dit le Seigneur&nbsp;: elle m’appellera Mon mari et ne m’appellera plus Baalim.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ ἐξαρῶ τὰ ὀνόματα τῶν Βααλιμ ἐκ στόματος αὐτῆς καὶ οὐ μὴ μνησθῶσιν οὐκέτι τὰ ὀνόματα αὐτῶν.",
+     "giguet": "Et j'ôterai de sa bouche les noms de Baal, et l'on ne s'en souviendra plus.",
+     "alexandrie": "Et j’ôterai les noms des Baalim de sa bouche et leurs noms ne seront plus mentionnés.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ διαθήσομαι αὐτοῖς ἐν ἐκείνῃ τῇ ἡμέρᾳ διαθήκην μετὰ τῶν θηρίων τοῦ ἀγροῦ καὶ μετὰ τῶν πετεινῶν τοῦ οὐρανοῦ καὶ μετὰ τῶν ἑρπετῶν τῆς γῆς καὶ τόξον καὶ ῥομφαίαν καὶ πόλεμον συντρίψω ἀπὸ τῆς γῆς καὶ κατοικιῶ σε ἐπ' ἐλπίδι.",
+     "giguet": "Et en ce jour-là j'établirai une alliance entre eux et les bêtes sauvages, et les oiseaux du ciel, et les reptiles de la terre&nbsp;; et je briserai sur la terre l'arc, le glaive et les armes de guerre, et je t'y installerai avec l'espérance.",
+     "alexandrie": "Et je conclurai pour eux une alliance en ce jour-là avec les bêtes des champs, avec les oiseaux du ciel et avec les bestioles de la terre, et l’arc, l’épée et la guerre je les briserai en les éloignant du pays&nbsp;; et je te ferai habiter avec espérance.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ μνηστεύσομαί σε ἐμαυτῷ εἰς τὸν αἰῶνα καὶ μνηστεύσομαί σε ἐμαυτῷ ἐν δικαιοσύνῃ καὶ ἐν κρίματι καὶ ἐν ἐλέει καὶ ἐν οἰκτιρμοῖς.",
+     "giguet": "Et je te prendrai pour épouse dans tous les siècles, et je te prendrai pour épouse en mon équité, en mes jugements, en ma pitié, en ma miséricorde.",
+     "alexandrie": "Et je te fiancerai à moi à jamais, et je te fiancerai à moi dans la justice, dans le jugement, dans la pitié et dans les sentiments de compassion.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ μνηστεύσομαί σε ἐμαυτῷ ἐν πίστει καὶ ἐπιγνώσῃ τὸν κύριον.",
+     "giguet": "Et je te prendrai pour épouse avec confiance, et tu reconnaîtras le Seigneur.",
+     "alexandrie": "Et je te fiancerai à moi dans la fidélité, et tu reconnaîtras le Seigneur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "καὶ ἔσται ἐν ἐκείνῃ τῇ ἡμέρᾳ λέγει κύριος ἐπακούσομαι τῷ οὐρανῷ καὶ ὁ οὐρανὸς ἐπακούσεται τῇ γῇ.",
+     "giguet": "Et il arrivera en ce jour-là, dit le Seigneur, que j'exaucerai le ciel, et le ciel exaucera la terre.",
+     "alexandrie": "Et il adviendra en ce jour-là, dit le Seigneur&nbsp;: j’exaucerai le ciel et lui exaucera la terre.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "24",
+     "grec": "καὶ ἡ γῆ ἐπακούσεται τὸν σῖτον καὶ τὸν οἶνον καὶ τὸ ἔλαιον καὶ αὐτὰ ἐπακούσεται τῷ Ιεζραελ.",
+     "giguet": "Et la terre exaucera le blé, et le vin, et l'huile, et toutes ces choses exauceront Jezraël.",
+     "alexandrie": "Et la terre exaucera le blé, le vin et l’huile et eux exauceront Izréel.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "25",
+     "grec": "καὶ σπερῶ αὐτὴν ἐμαυτῷ ἐπὶ τῆς γῆς καὶ ἐλεήσω τὴν Οὐκ-ἠλεημένην καὶ ἐρῶ τῷ Οὐ-λαῷ-μου λαός μου εἶ σύ καὶ αὐτὸς ἐρεῖ κύριος ὁ θεός μου εἶ σύ.",
+     "giguet": "Et je la sèmerai pour moi sur la terre, et j'aimerai celle que je n'aimais pas. Et je dirai à Non-Mon-Peuple&nbsp;: Tu es mon peuple&nbsp;; et il dira&nbsp;: Tu es le Seigneur mon Dieu.",
+     "alexandrie": "Et je la sèmerai pour moi sur la terre, et j’aurai pitié de Celle-dont-on-n’a-pas-eu-pitié, et je dirai a Pas-mon-peuple&nbsp;: «&nbsp;Toi tu es mon peuple&nbsp;», et lui dira&nbsp;: «&nbsp;Toi tu es le Seigneur mon Dieu.&nbsp;»",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 3,
+   "libelle": "3",
+   "fichierToc": "HOS/003.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ εἶπεν κύριος πρός με ἔτι πορεύθητι καὶ ἀγάπησον γυναῖκα ἀγαπῶσαν πονηρὰ καὶ μοιχαλίν καθὼς ἀγαπᾷ ὁ θεὸς τοὺς υἱοὺς Ισραηλ καὶ αὐτοὶ ἀποβλέπουσιν ἐπὶ θεοὺς ἀλλοτρίους καὶ φιλοῦσιν πέμματα μετὰ σταφίδων.",
+     "giguet": "Et le Seigneur m'a dit&nbsp;: Pars encore, aime une femme qui aime le mal, une femme adultère, comme Dieu aime les fils d'Israël, tandis qu'ils regardent les dieux étrangers, et se régalent de pâtes aux raisins.",
+     "alexandrie": "Et le Seigneur me dit&nbsp;: «&nbsp;Va encore et aime une femme qui aime les choses mauvaises et adultère, comme Dieu aime les fils d’Israël et eux détournent le regard vers des dieux étrangers et affectionnent les gâteaux aux raisins.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ἐμισθωσάμην ἐμαυτῷ πεντεκαίδεκα ἀργυρίου καὶ γομορ κριθῶν καὶ νεβελ οἴνου.",
+     "giguet": "Et moi, j'ai loué une telle femme quinze sicles d'argent et un gomor d'orge, et un nebel d'huile.",
+     "alexandrie": "Et je l’engageai pour moi pour quinze pièces d’argent, un gomor d’orge et un nebel de vin.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ εἶπα πρὸς αὐτήν ἡμέρας πολλὰς καθήσῃ ἐπ' ἐμοὶ καὶ οὐ μὴ πορνεύσῃς οὐδὲ μὴ γένῃ ἀνδρὶ ἑτέρῳ καὶ ἐγὼ ἐπὶ σοί.",
+     "giguet": "Et je lui ai dit&nbsp;: Tu te tiendras tranquille avec moi bien des jours&nbsp;; garde-toi de te prostituer&nbsp;; ne sois pas à un autre homme, et je te serai attaché.",
+     "alexandrie": "Et je lui dis&nbsp;: «&nbsp;De nombreux jours tu seras assise près de moi - et tu ne te prostitueras pas et tu ne seras pas à un homme - et moi près de toi.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "διότι ἡμέρας πολλὰς καθήσονται οἱ υἱοὶ Ισραηλ οὐκ ὄντος βασιλέως οὐδὲ ὄντος ἄρχοντος οὐδὲ οὔσης θυσίας οὐδὲ ὄντος θυσιαστηρίου οὐδὲ ἱερατείας οὐδὲ δήλων.",
+     "giguet": "Car les fils d'Israël seront bien des jours sans roi, sans chef, sans sacrifices, sans autels, sans sacerdoce, sans manifestation.",
+     "alexandrie": "Car de nombreux jours les fils d’Israël seront assis sans qu’il y ait de roi, sans qu’il y ait de chef, sans qu’il y ait de sacrifice, et sans qu’il y ait d’autel ni de sacerdoce ni de clartés.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ μετὰ ταῦτα ἐπιστρέψουσιν οἱ υἱοὶ Ισραηλ καὶ ἐπιζητήσουσιν κύριον τὸν θεὸν αὐτῶν καὶ Δαυιδ τὸν βασιλέα αὐτῶν καὶ ἐκστήσονται ἐπὶ τῷ κυρίῳ καὶ ἐπὶ τοῖς ἀγαθοῖς αὐτοῦ ἐπ' ἐσχάτων τῶν ἡμερῶν.",
+     "giguet": "Et, après cela, les fils d'Israël se convertiront, et ils chercheront le Seigneur leur Dieu, et David leur roi, et ils seront pleins d'admiration, sur les derniers jours, pour le Seigneur et ses bienfaits.",
+     "alexandrie": "Et après cela les fils d’Israël retourneront et rechercheront le Seigneur leur Dieu et David leur roi, et ils seront stupéfaits du Seigneur et de ses bontés aux derniers jours.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 4,
+   "libelle": "4",
+   "fichierToc": "HOS/004.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἀκούσατε λόγον κυρίου υἱοὶ Ισραηλ διότι κρίσις τῷ κυρίῳ πρὸς τοὺς κατοικοῦντας τὴν γῆν διότι οὐκ ἔστιν ἀλήθεια οὐδὲ ἔλεος οὐδὲ ἐπίγνωσις θεοῦ ἐπὶ τῆς γῆς.",
+     "giguet": "Écoutez la parole du Seigneur, ô fils d'Israël&nbsp;; car le Seigneur va entrer en jugement avec les habitants de la terre, parce qu'il n'existe plus sur la terre ni vérité, ni miséricorde, ni connaissance de Dieu.",
+     "alexandrie": "Écoutez la parole du Seigneur, fils d’Israël, car il y a jugement pour le Seigneur contre ceux qui habitent le pays, car il n’y a pas de vérité, ni de pitié, ni de connaissance de Dieu dans le pays.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἀρὰ καὶ ψεῦδος καὶ φόνος καὶ κλοπὴ καὶ μοιχεία κέχυται ἐπὶ τῆς γῆς καὶ αἵματα ἐφ' αἵμασιν μίσγουσιν.",
+     "giguet": "Les malédictions, le mensonge, le meurtre, le vol, l'adultère, sont répandus sur la terre, et le sang se mêle au sang.",
+     "alexandrie": "Malédiction, mensonge, meurtre, vol et adultère se sont déversés sur la terre, et on mêle le sang au sang.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "διὰ τοῦτο πενθήσει ἡ γῆ καὶ σμικρυνθήσεται σὺν πᾶσιν τοῖς κατοικοῦσιν αὐτήν σὺν τοῖς θηρίοις τοῦ ἀγροῦ καὶ σὺν τοῖς ἑρπετοῖς τῆς γῆς καὶ σὺν τοῖς πετεινοῖς τοῦ οὐρανοῦ καὶ οἱ ἰχθύες τῆς θαλάσσης ἐκλείψουσιν.",
+     "giguet": "C'est pourquoi la terre sera en deuil, et elle sera affaiblie avec tout ce qui l'habite, avec les bêtes des champs, les reptiles et les oiseaux du ciel&nbsp;; et même les poissons de la mer dépériront.",
+     "alexandrie": "C’est pourquoi le pays mènera le deuil [et sera amoindri] avec tous ceux qui l’habitent&nbsp;: avec les bêtes des champs, avec les bestioles de la terre et avec les oiseaux du ciel, et les poissons de la mer disparaîtront,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ὅπως μηδεὶς μήτε δικάζηται μήτε ἐλέγχῃ μηδείς ὁ δὲ λαός μου ὡς ἀντιλεγόμενος ἱερεύς.",
+     "giguet": "Que nul n'ait de contestation, que nul ne reprenne autrui. Mon peuple est comme un peuple révolté contre ses prêtres.",
+     "alexandrie": "pour que nul ne plaide et nul ne requière&nbsp;; mais mon peuple est comme un prêtre contesté.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἀσθενήσεις ἡμέρας καὶ ἀσθενήσει καὶ προφήτης μετὰ σοῦ νυκτὶ ὡμοίωσα τὴν μητέρα σου.",
+     "giguet": "Et il perdra sa force de jour en jour, et, avec toi, le prophète aussi perdra sa force. J'ai comparé ta mère à la nuit.",
+     "alexandrie": "Et tu seras affaibli de jour, et le prophète aussi sera affaibli avec toi&nbsp;; j’ai assimilé ta mère à la nuit.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ὡμοιώθη ὁ λαός μου ὡς οὐκ ἔχων γνῶσιν ὅτι σὺ ἐπίγνωσιν ἀπώσω κἀγὼ ἀπώσομαι σὲ τοῦ μὴ ἱερατεύειν μοι καὶ ἐπελάθου νόμον θεοῦ σου κἀγὼ ἐπιλήσομαι τέκνων σου.",
+     "giguet": "Mon peuple est comme s'il ne savait rien&nbsp;; car tu as repoussé la science, et moi je te repousserai à mon tour, pour que tu n'aies plus mon sacerdoce&nbsp;; tu as oublié la loi de Dieu, et moi j'oublierai tes enfants.",
+     "alexandrie": "Mon peuple a été assimilé à quelqu’un qui n’a pas de connaissance&nbsp;; car toi tu as rejeté la connaissance&nbsp;: moi aussi je te rejetterai de sorte que tu ne sois plus prêtre pour moi, et tu as oublié la loi de ton Dieu&nbsp;: moi aussi j’oublierai tes enfants.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "κατὰ τὸ πλῆθος αὐτῶν οὕτως ἥμαρτόν μοι τὴν δόξαν αὐτῶν εἰς ἀτιμίαν θήσομαι.",
+     "giguet": "Plus ils se sont multipliés, plus ils ont péché contre moi&nbsp;; je changerai leur gloire en opprobre.",
+     "alexandrie": "Conformément à leur grand nombre, ainsi ils ont péché contre moi, de leur gloire je ferai un déshonneur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἁμαρτίας λαοῦ μου φάγονται καὶ ἐν ταῖς ἀδικίαις αὐτῶν λήμψονται τὰς ψυχὰς αὐτῶν.",
+     "giguet": "Ils se nourriront des péchés de mon peuple, et ils mettront leurs âmes en leurs iniquités.",
+     "alexandrie": "Ils mangeront les péchés de mon peuple, et dans leurs injustices ils prendront leurs âmes.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ ἔσται καθὼς ὁ λαὸς οὕτως καὶ ὁ ἱερεύς καὶ ἐκδικήσω ἐπ' αὐτὸν τὰς ὁδοὺς αὐτοῦ καὶ τὰ διαβούλια αὐτοῦ ἀνταποδώσω αὐτῷ.",
+     "giguet": "Et tel sera le peuple, tel sera la prêtre&nbsp;; et sur eux je tirerai vengeance de leurs voies, et je les rétribuerai selon leurs conseils.",
+     "alexandrie": "Et comme sera le peuple, de même aussi le prêtre, et je tirerai vengeance sur lui de ses chemins, et ses projets, je les lui rendrai.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ φάγονται καὶ οὐ μὴ ἐμπλησθῶσιν ἐπόρνευσαν καὶ οὐ μὴ κατευθύνωσιν διότι τὸν κύριον ἐγκατέλιπον τοῦ φυλάξαι.",
+     "giguet": "Ils mangeront, et ne seront pas rassasiés&nbsp;; ils se sont prostitués, et ne prospèrent point, parce qu'ils ont cessé de prendre garde au Seigneur.",
+     "alexandrie": "Et ils mangeront et ne seront pas rassasiés, ils se sont prostitués et ne marcheront pas droit, car ils ont abandonné le pour observer",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "πορνείαν καὶ οἶνον καὶ μέθυσμα ἐδέξατο καρδία λαοῦ μου.",
+     "giguet": "Le cœur de mon peuple s'est complu dans la prostitution, le vin et l'ivresse.",
+     "alexandrie": "la prostitution. Et le cœur de mon peuple a accepté vin et boisson enivrante.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ἐν συμβόλοις ἐπηρώτων καὶ ἐν ῥάβδοις αὐτοῦ ἀπήγγελλον αὐτῷ πνεύματι πορνείας ἐπλανήθησαν καὶ ἐξεπόρνευσαν ἀπὸ τοῦ θεοῦ αὐτῶν.",
+     "giguet": "Ils ont consulté des présages, et avec des baguettes on leur a fait des prédictions&nbsp;; ils ont été égarés en un esprit de débauche, et ils se sont prostitués en s'éloignant de leur Dieu.",
+     "alexandrie": "Par des signes ils consultaient et par ses bâtons ils lui annonçaient&nbsp;; par un esprit de prostitution ils ont été égarés et se sont prostitués en quittant leur Dieu.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἐπὶ τὰς κορυφὰς τῶν ὀρέων ἐθυσίαζον καὶ ἐπὶ τοὺς βουνοὺς ἔθυον ὑποκάτω δρυὸς καὶ λεύκης καὶ δένδρου συσκιάζοντος ὅτι καλὸν σκέπη διὰ τοῦτο ἐκπορνεύσουσιν αἱ θυγατέρες ὑμῶν καὶ αἱ νύμφαι ὑμῶν μοιχεύσουσιν.",
+     "giguet": "Ils ont sacrifié sur les hauts lieux&nbsp;; ils ont brûlé de l'encens sur des collines, sous un chêne ou sous un peuplier, ou sous tout arbre touffu, parce qu'ils se plaisent à l'ombre. À cause de cela, vos filles se prostitueront, et vos femmes seront adultères.",
+     "alexandrie": "Sur les sommets des montagnes ils offraient des sacrifices et sur les collines ils sacrifiaient, sous le chêne et le peuplier et l’arbre qui fait de l’ombre car un abri est une belle chose. C’est pourquoi vos filles se prostitueront et vos belles-filles commettront l’adultère.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ οὐ μὴ ἐπισκέψωμαι ἐπὶ τὰς θυγατέρας ὑμῶν ὅταν πορνεύωσιν καὶ ἐπὶ τὰς νύμφας ὑμῶν ὅταν μοιχεύωσιν διότι καὶ αὐτοὶ μετὰ τῶν πορνῶν συνεφύροντο καὶ μετὰ τῶν τετελεσμένων ἔθυον καὶ ὁ λαὸς ὁ συνίων συνεπλέκετο μετὰ πόρνης.",
+     "giguet": "Et je ne visiterai plus vos filles quand elles se prostitueront, ni vos femmes quand elles seront adultères, parce que vous-mêmes vous vous êtes souillés avec des prostituées, et que vous avez sacrifié avec des initiés, et que le peuple (un peuple intelligent&nbsp;!) s'est laissé prendre aux filets d'une prostituée.",
+     "alexandrie": "Et je ne visiterai pas vos filles quand elles se prostitueront, ni vos belles-filles quand elles commettront l’adultère, car eux aussi frayaient avec des prostituées et sacrifiaient avec des personnes initiées. Et le peuple, sans comprendre, était enlacé",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "σὺ δέ Ισραηλ μὴ ἀγνόει καὶ Ιουδα μὴ εἰσπορεύεσθε εἰς Γαλγαλα καὶ μὴ ἀναβαίνετε εἰς τὸν οἶκον Ων καὶ μὴ ὀμνύετε ζῶντα κύριον.",
+     "giguet": "Or sache-le bien, toi, Israël, et toi, Juda&nbsp;: n'allez point en Galgala, ne montez point à la maison de On, et ne jurez point par le Dieu vivant.",
+     "alexandrie": "à une prostituée. Mais toi, Israël, ne sois pas ignorant, et Juda — n’allez pas à Gilgal et ne montez pas à la Maison de On, et ne jurez pas par le Seigneur vivant.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ὅτι ὡς δάμαλις παροιστρῶσα παροίστρησεν Ισραηλ νῦν νεμήσει αὐτοὺς κύριος ὡς ἀμνὸν ἐν εὐρυχώρῳ.",
+     "giguet": "Car Israël, comme une génisse aiguillonnée par un taon, a eu des transports frénétiques, et maintenant le Seigneur le fera paître comme un agneau dans un lieu spacieux.",
+     "alexandrie": "Car telle une génisse enragée, Israël a été enragé&nbsp;; maintenant le Seigneur les fera paître comme un agneau dans un large espace.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "μέτοχος εἰδώλων Εφραιμ ἔθηκεν ἑαυτῷ σκάνδαλα.",
+     "giguet": "Éphraïm, qui participe aux idoles, a mis devant lui des pierres d'achoppement.",
+     "alexandrie": "Prenant part aux idoles, Ephraïm a mis pour lui-même des pierres d achoppement&nbsp;: il a choisi des Cananéens.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ᾑρέτισεν Χαναναίους πορνεύοντες ἐξεπόρνευσαν ἠγάπησαν ἀτιμίαν ἐκ φρυάγματος αὐτῶν.",
+     "giguet": "Il a provoqué les Chananéens&nbsp;; ils se sont prostitués et prostitués, et ils ont aimé l'ignominie et ses rugissements.",
+     "alexandrie": "Ils se sont totalement prostitués, ils ont aimé le déshonneur par suite de leur arrogance.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "συστροφὴ πνεύματος σὺ εἶ ἐν ταῖς πτέρυξιν αὐτῆς καὶ καταισχυνθήσονται ἐκ τῶν θυσιαστηρίων αὐτῶν.",
+     "giguet": "Seigneur, Tu es un tourbillon de vent emporté sur ses ailes&nbsp;; pour eux, ils seront confondus à cause de leurs autels.",
+     "alexandrie": "Toi tu es un tourbillon de vent dans ses ailes, et ils auront honte de leurs autels.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 5,
+   "libelle": "5",
+   "fichierToc": "HOS/005.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἀκούσατε ταῦτα οἱ ἱερεῖς καὶ προσέχετε οἶκος Ισραηλ καὶ ὁ οἶκος τοῦ βασιλέως ἐνωτίζεσθε διότι πρὸς ὑμᾶς ἐστιν τὸ κρίμα ὅτι παγὶς ἐγενήθητε τῇ σκοπιᾷ καὶ ὡς δίκτυον ἐκτεταμένον ἐπὶ τὸ ἰταβύριον.",
+     "giguet": "Ô prêtres, écoutez ce que je vais vous dire, recueillez-le&nbsp;; maison d'Israël, maison du roi, prêtez-moi une oreille attentive&nbsp;: le jugement est près de vous&nbsp;; car vous êtes comme un filet vers l'affût, comme un lacs tendu sur le Thabor,",
+     "alexandrie": "Écoutez ceci, prêtres, et soyez attentifs, maison d’Israël, et maison du roi . prêtez l’oreille, car c’est contre vous qu’est le jugement. Car vous êtes devenus un piège pour le point d’observation, et comme un filet tendu sur l’Itabyrion,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὃ οἱ ἀγρεύοντες τὴν θήραν κατέπηξαν ἐγὼ δὲ παιδευτὴς ὑμῶν.",
+     "giguet": "Et que des chasseurs ont attaché&nbsp;; et moi, je suis Celui qui vous instruit.",
+     "alexandrie": "que ceux qui chassent le gibier ont fixé&nbsp;; mais moi je suis votre éducateur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἐγὼ ἔγνων τὸν Εφραιμ καὶ Ισραηλ οὐκ ἄπεστιν ἀπ' ἐμοῦ διότι νῦν ἐξεπόρνευσεν Εφραιμ ἐμιάνθη Ισραηλ.",
+     "giguet": "Je connais Éphraïm, et Israël ne m'a point échappé&nbsp;; parce que maintenant Éphraïm s'est prostitué, et qu'Israël s'est couvert de souillures,",
+     "alexandrie": "Moi, j’ai connu Ephraïm, et Israël n’est pas loin de moi, car maintenant Ephraïm s’est prostitué, Israël a été souillé.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "οὐκ ἔδωκαν τὰ διαβούλια αὐτῶν τοῦ ἐπιστρέψαι πρὸς τὸν θεὸν αὐτῶν ὅτι πνεῦμα πορνείας ἐν αὐτοῖς ἐστιν τὸν δὲ κύριον οὐκ ἐπέγνωσαν.",
+     "giguet": "Ils n'ont point pensé, en leur conseil, à se convertir à Dieu&nbsp;; car l'esprit de prostitution est en eux, et ils ne connaissent point le Seigneur.",
+     "alexandrie": "Ils n’ont pas établi leurs projets pour retourner vers leur Dieu, car un esprit de prostitution est en eux, et ils n’ont pas reconnu le Seigneur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ταπεινωθήσεται ἡ ὕβρις τοῦ Ισραηλ εἰς πρόσωπον αὐτοῦ καὶ Ισραηλ καὶ Εφραιμ ἀσθενήσουσιν ἐν ταῖς ἀδικίαις αὐτῶν καὶ ἀσθενήσει καὶ Ιουδας μετ' αὐτῶν.",
+     "giguet": "Et l'orgueil d'Israël sera abaissé en sa face, et Israël et Éphraïm trébucheront en leurs iniquités, et Juda aussi tombera avec eux.",
+     "alexandrie": "Et la démesure d’Israël sera humiliée à sa face, et Israël et Ephraïm seront affaiblis dans leurs injustices et Juda aussi sera affaibli avec eux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "μετὰ προβάτων καὶ μόσχων πορεύσονται τοῦ ἐκζητῆσαι τὸν κύριον καὶ οὐ μὴ εὕρωσιν αὐτόν ὅτι ἐξέκλινεν ἀπ' αὐτῶν.",
+     "giguet": "Ils s'en iront, avec leurs bœufs et leurs brebis, pour chercher le Seigneur, et ils ne le trouveront pas&nbsp;; car Il s'est éloigné d'eux&nbsp;;",
+     "alexandrie": "Avec des moutons et des taurillons ils iront rechercher le Seigneur et ne le trouveront pas, car il s’est détourné d’eux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὅτι τὸν κύριον ἐγκατέλιπον ὅτι τέκνα ἀλλότρια ἐγεννήθησαν αὐτοῖς νῦν καταφάγεται αὐτοὺς ἡ ἐρυσίβη καὶ τοὺς κλήρους αὐτῶν.",
+     "giguet": "Parce qu'ils l'ont abandonné et qu'il leur est né des fils d'étrangères, maintenant la nielle les dévorera eux et leurs enfants.",
+     "alexandrie": "Car ils ont abandonné le Seigneur, car des enfants étrangers leur sont nés&nbsp;; maintenant la rouille du blé va les dévorer, eux et leurs lots d’héritage.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "σαλπίσατε σάλπιγγι ἐπὶ τοὺς βουνούς ἠχήσατε ἐπὶ τῶν ὑψηλῶν κηρύξατε ἐν τῷ οἴκῳ Ων ἐξέστη Βενιαμιν.",
+     "giguet": "Trompettes, sonnez sur les collines, retentissez sur les hauts lieux&nbsp;; annoncez comme des hérauts en la maison de On. Benjamin est dans la stupeur&nbsp;;",
+     "alexandrie": "Sonnez du cor sur les collines, faites du bruit sur les hauteurs, proclamez dans la maison de On. Benjamin a défailli,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "Εφραιμ εἰς ἀφανισμὸν ἐγένετο ἐν ἡμέραις ἐλέγχου ἐν ταῖς φυλαῖς τοῦ Ισραηλ ἔδειξα πιστά.",
+     "giguet": "Éphraïm a été effacé au jour du châtiment. J'ai montré aux tribus d'Israël des choses dignes de foi.",
+     "alexandrie": "Éphraïm a connu la destruction aux jours du reproche&nbsp;; dans les tribus d’Israël j’ai montré des choses certaines.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἐγένοντο οἱ ἄρχοντες Ιουδα ὡς μετατιθέντες ὅρια ἐπ' αὐτοὺς ἐκχεῶ ὡς ὕδωρ τὸ ὅρμημά μου.",
+     "giguet": "Les chefs de Juda sont devenus comme ceux qui déplacent les bornes des champs, je répandrai sur eux ma fureur comme un torrent.",
+     "alexandrie": "Les chefs de Juda sont devenus comme des gens qui déplacent des bornes, sur eux je déverserai mon emportement comme de l’eau.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "κατεδυνάστευσεν Εφραιμ τὸν ἀντίδικον αὐτοῦ κατεπάτησεν κρίμα ὅτι ἤρξατο πορεύεσθαι ὀπίσω τῶν ματαίων.",
+     "giguet": "Éphraïm a prévalu sur son adversaire&nbsp;; il a foulé aux pieds le jugement, parce qu'il avait commencé à adorer des choses vaines.",
+     "alexandrie": "Éphraïm a opprimé son adversaire, foulé aux pieds le jugement, car il a commencé à aller derrière les choses vaines.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ἐγὼ ὡς ταραχὴ τῷ Εφραιμ καὶ ὡς κέντρον τῷ οἴκῳ Ιουδα.",
+     "giguet": "Et moi je suis comme une épouvante pour Éphraïm, comme un aiguillon pour la maison de Juda.",
+     "alexandrie": "Et moi, je suis comme un trouble pour Éphraïm et comme un aiguillon pour la maison de Juda.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ εἶδεν Εφραιμ τὴν νόσον αὐτοῦ καὶ Ιουδας τὴν ὀδύνην αὐτοῦ καὶ ἐπορεύθη Εφραιμ πρὸς Ἀσσυρίους καὶ ἀπέστειλεν πρέσβεις πρὸς βασιλέα Ιαριμ καὶ αὐτὸς οὐκ ἠδυνάσθη ἰάσασθαι ὑμᾶς καὶ οὐ μὴ διαπαύσῃ ἐξ ὑμῶν ὀδύνη.",
+     "giguet": "Et Éphraïm a subi son infirmité, et Juda sa douleur. Et Éphraïm est allé aux Assyriens, et il a envoyé ses anciens chez le roi Jarim. Mais celui-ci n'a pu vous guérir, et vos douleurs ne se sont point calmées&nbsp;;",
+     "alexandrie": "Et Éphraïm a vu sa maladie et Juda sa douleur. Et Éphraïm est allé vers les Assyriens et a envoyé des ambassadeurs vers le roi larim, et lui n’a pas pu vous guérir et la douleur ne vous quittera pas.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "διότι ἐγώ εἰμι ὡς πανθὴρ τῷ Εφραιμ καὶ ὡς λέων τῷ οἴκῳ Ιουδα καὶ ἐγὼ ἁρπῶμαι καὶ πορεύσομαι καὶ λήμψομαι καὶ οὐκ ἔσται ὁ ἐξαιρούμενος.",
+     "giguet": "Parce que je suis comme une panthère pour Éphraïm, et comme un lion pour Juda&nbsp;; et je m'élancerai, et je saisirai et ravirai ma proie, et nul ne pourra Me l'arracher.",
+     "alexandrie": "Car moi, je suis comme une panthère pour Éphraïm et comme un lion pour la maison de Juda, c’est moi qui saisirai, j’irai et je prendrai, et il n’y aura personne pour délivrer.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "πορεύσομαι καὶ ἐπιστρέψω εἰς τὸν τόπον μου ἕως οὗ ἀφανισθῶσιν καὶ ἐπιζητήσουσιν τὸ πρόσωπόν μου ἐν θλίψει αὐτῶν ὀρθριοῦσι πρός με λέγοντες.",
+     "giguet": "Et je partirai, et je retournerai en ma demeure, jusqu'à ce qu'ils soient exténués et qu'ils recherchent ma présence. Dans leur tribulation, ils se lèveront de grand matin, et viendront à moi, en disant&nbsp;:",
+     "alexandrie": "J’irai et retournerai dans mon lieu jusqu’à ce qu’ils soient détruits. Et ils rechercheront ma face.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 6,
+   "libelle": "6",
+   "fichierToc": "HOS/006.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "πορευθῶμεν καὶ ἐπιστρέψωμεν πρὸς κύριον τὸν θεὸν ἡμῶν ὅτι αὐτὸς ἥρπακεν καὶ ἰάσεται ἡμᾶς πατάξει καὶ μοτώσει ἡμᾶς.",
+     "giguet": "Allons et retournons au Seigneur notre Dieu&nbsp;; car c'est Lui qui nous a pris, et Il nous guérira&nbsp;; Il nous a frappés, et Il pansera nos blessures.",
+     "alexandrie": "Dans leur affliction ils viendront vers moi dès l’aurore en disant&nbsp;: «&nbsp;Allons et retournons vers le Seigneur notre Dieu, car il nous a saisis et il nous guérira, il nous frappera et il nous pansera.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὑγιάσει ἡμᾶς μετὰ δύο ἡμέρας ἐν τῇ ἡμέρᾳ τῇ τρίτῃ ἀναστησόμεθα καὶ ζησόμεθα ἐνώπιον αὐτοῦ.",
+     "giguet": "En deux jours, Il nous rendra la santé&nbsp;; le troisième jour, nous nous lèveront et nous vivrons devant Lui,",
+     "alexandrie": "Il nous rendra sains après deux jours, au troisième jour nous nous lèverons et vivrons devant lui,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ γνωσόμεθα διώξομεν τοῦ γνῶναι τὸν κύριον ὡς ὄρθρον ἕτοιμον εὑρήσομεν αὐτόν καὶ ἥξει ὡς ὑετὸς ἡμῖν πρόιμος καὶ ὄψιμος τῇ γῇ.",
+     "giguet": "Et nous le connaîtrons&nbsp;; notre désir sera de connaître le Seigneur&nbsp;; nous le trouverons prêt dès l'aurore&nbsp;; Il viendra à nous, comme à la terre les pluies du matin et du soir.",
+     "alexandrie": "et nous connaîtrons. Nous poursuivrons pour connaître le Seigneur&nbsp;; comme une aurore certaine nous le trouverons, et il arrivera comme une pluie pour nous, précoce et tardive pour la terre.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "τί σοι ποιήσω Εφραιμ τί σοι ποιήσω Ιουδα τὸ δὲ ἔλεος ὑμῶν ὡς νεφέλη πρωινὴ καὶ ὡς δρόσος ὀρθρινὴ πορευομένη.",
+     "giguet": "Que te ferai-je, Éphraïm&nbsp;? Que te ferai-je, Juda&nbsp;? Ta miséricorde est comme le brouillard de matin, comme la rosée du soir.",
+     "alexandrie": "Que te ferai-je, Éphraïm, que te ferai-je, Juda&nbsp;? Votre pitié est en effet comme nuée matinale, et comme rosée aurorale qui s’en va.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "διὰ τοῦτο ἀπεθέρισα τοὺς προφήτας ὑμῶν ἀπέκτεινα αὐτοὺς ἐν ῥήμασιν στόματός μου καὶ τὸ κρίμα μου ὡς φῶς ἐξελεύσεται.",
+     "giguet": "À cause de cela j'ai moissonné vos prophètes&nbsp;; je les ai tués d'un mot de ma bouche, et mon jugement apparaîtra comme la lumière,",
+     "alexandrie": "C’est pourquoi j’ai fauché vos prophètes, je les ai tués des paroles de ma bouche, et mon jugement comme la lumière sortira.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "διότι ἔλεος θέλω καὶ οὐ θυσίαν καὶ ἐπίγνωσιν θεοῦ ἢ ὁλοκαυτώματα.",
+     "giguet": "Parce que je préfère la miséricorde aux sacrifices, et la connaissance de Dieu aux holocaustes.",
+     "alexandrie": "Car je veux la pitié et non le sacrifice, et la connaissance de Dieu plus que les holocaustes.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "αὐτοὶ δέ εἰσιν ὡς ἄνθρωπος παραβαίνων διαθήκην ἐκεῖ κατεφρόνησέν μου.",
+     "giguet": "Mais ils sont comme l'homme qui viole l'alliance&nbsp;; c'est là que m'a méprisé",
+     "alexandrie": "Mais eux sont comme un homme transgressant une alliance&nbsp;; là il m’a méprisé.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "Γαλααδ πόλις ἐργαζομένη μάταια ταράσσουσα ὕδωρ.",
+     "giguet": "Galaad, ville qui fabrique des choses vaines, ville qui trouble l'eau,",
+     "alexandrie": "Galaad est une ville qui produit des choses vaines, qui trouble l’eau.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ ἡ ἰσχύς σου ἀνδρὸς πειρατοῦ ἔκρυψαν ἱερεῖς ὁδὸν κυρίου ἐφόνευσαν Σικιμα ὅτι ἀνομίαν ἐποίησαν.",
+     "giguet": "Et sa force est celle d'un pirate. Les prêtres ont caché des embûches sur la voie&nbsp;; ils ont tué Sichem&nbsp;; ils ont commis des crimes",
+     "alexandrie": "Et ta force est celle d’un brigand d’homme&nbsp;; des prêtres ont caché le chemin, assassiné Sikima, car ils avaient fait ce qui est contre la loi.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἐν τῷ οἴκῳ Ισραηλ εἶδον φρικώδη ἐκεῖ πορνείαν τοῦ Εφραιμ ἐμιάνθη Ισραηλ καὶ Ιουδα.",
+     "giguet": "En la maison d'Israël&nbsp;; là j'ai vu des choses horribles&nbsp;: la prostitution d'Éphraïm, la souillure d'Israël et de Juda.",
+     "alexandrie": "Dans la maison d’Israël j’ai vu des horreurs, là j’ai vu la prostitution d’Éphraïm, Israël s’est souillé, ainsi que Juda.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἄρχου τρυγᾶν σεαυτῷ ἐν τῷ ἐπιστρέφειν με τὴν αἰχμαλωσίαν τοῦ λαοῦ μου.",
+     "giguet": "Commence à vendanger pour toi-même, tandis que je ramènerai mon peuple de la captivité.",
+     "alexandrie": "Commence à moissonner pour toi quand je ferai retourner la captivité de mon peuple,",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 7,
+   "libelle": "7",
+   "fichierToc": "HOS/007.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἐν τῷ ἰάσασθαί με τὸν Ισραηλ καὶ ἀποκαλυφθήσεται ἡ ἀδικία Εφραιμ καὶ ἡ κακία Σαμαρείας ὅτι ἠργάσαντο ψευδῆ καὶ κλέπτης πρὸς αὐτὸν εἰσελεύσεται ἐκδιδύσκων λῃστὴς ἐν τῇ ὁδῷ αὐτοῦ.",
+     "giguet": "Pendant que je guérissais Israël, l'iniquité d'Éphraïm et la méchanceté de Samarie ont été révélées&nbsp;; car ils étaient ouvriers de mensonges. Et le larron entrera chez Éphraïm, et le brigand le pillera dans ses chemins,",
+     "alexandrie": "quand je guérirai Israël. Et l’injustice d’Éphraïm sera dévoilée, et la méchanceté de Samarie&nbsp;; car ils ont fait œuvre de mensonge. Et un voleur entrera chez lui pour détrousser, un bandit est sut son chemin,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὅπως συνᾴδωσιν ὡς συνᾴδοντες τῇ καρδίᾳ αὐτῶν πάσας τὰς κακίας αὐτῶν ἐμνήσθην νῦν ἐκύκλωσεν αὐτοὺς τὰ διαβούλια αὐτῶν ἀπέναντι τοῦ προσώπου μου ἐγένοντο.",
+     "giguet": "Comme des chanteurs qui s'accordent entre eux. Je me suis souvenu de toute leur malice&nbsp;; et maintenant leurs pensées les ont enveloppés, et elles sont venues devant ma face.",
+     "alexandrie": "afin qu’ils soient en accord comme gens en accord dans leur cœur. De toutes leurs méchancetés je me suis souvenu, maintenant leurs projets les ont encerclés, devant ma face ils sont venus.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἐν ταῖς κακίαις αὐτῶν εὔφραναν βασιλεῖς καὶ ἐν τοῖς ψεύδεσιν αὐτῶν ἄρχοντας.",
+     "giguet": "Ils ont réjoui les rois par leur perversité, et les princes par leurs mensonges.",
+     "alexandrie": "De leurs méchancetés ils ont réjoui des rois, et de leurs mensonges des chefs&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "πάντες μοιχεύοντες ὡς κλίβανος καιόμενος εἰς πέψιν κατακαύματος ἀπὸ τῆς φλογός ἀπὸ φυράσεως στέατος ἕως τοῦ ζυμωθῆναι αὐτό.",
+     "giguet": "Ils sont tous adultères&nbsp;; ils sont comme un feu brûlant pour la cuisson, tout échauffé par la flamme, lorsque l'on a pétri la pâte, jusqu'à ce qu'elle ait fermenté.",
+     "alexandrie": "tous des adultères, comme un four allumé pour une cuisson de destruction du fait de la flamme. Du pétrissage de la pâte jusqu’à ce qu’elle lève,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "αἱ ἡμέραι τῶν βασιλέων ὑμῶν ἤρξαντο οἱ ἄρχοντες θυμοῦσθαι ἐξ οἴνου ἐξέτεινεν τὴν χεῖρα αὐτοῦ μετὰ λοιμῶν.",
+     "giguet": "Du temps de vos rois, vos princes commençaient la journée par s'enflammer avec le vin&nbsp;; le roi lui-même étendait la main avec des hommes de pestilence.",
+     "alexandrie": "voilà les jours de nos rois. Les chefs se sont mis en colère sous l’effet du vin, il a tendu la main avec des pernicieux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "διότι ἀνεκαύθησαν ὡς κλίβανος αἱ καρδίαι αὐτῶν ἐν τῷ καταράσσειν αὐτούς ὅλην τὴν νύκτα ὕπνου Εφραιμ ἐνεπλήσθη πρωὶ ἐγενήθη ἀνεκαύθη ὡς πυρὸς φέγγος.",
+     "giguet": "Parce que leurs cœurs étaient brûlants comme un four pendant qu'ils s'exaltaient, Éphraïm se rassasiait de sommeil toute la nuit&nbsp;; et quand venait l'aurore il brûlait encore comme la flamme du feu.",
+     "alexandrie": "Car leurs cœurs se sont allumés comme un four quand ils jetaient à terre&nbsp;; toute la nuit Éphraïm a été rempli de sommeil, l’aube est venue, il s’est allumé comme lueur de feu.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "πάντες ἐθερμάνθησαν ὡς κλίβανος καὶ κατέφαγον τοὺς κριτὰς αὐτῶν πάντες οἱ βασιλεῖς αὐτῶν ἔπεσαν οὐκ ἦν ὁ ἐπικαλούμενος ἐν αὐτοῖς πρός με.",
+     "giguet": "Ils étaient tous échauffés comme un four, et ils dévorèrent leurs juges&nbsp;; tous leurs rois tombèrent, et nul ne fut parmi eux pour m'invoquer.",
+     "alexandrie": "Tous se sont échauffés comme un four et ont dévoré leurs juges. Tous leurs rois sont tombés, il n’était personne parmi eux pour m’invoquer.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "Εφραιμ ἐν τοῖς λαοῖς αὐτοῦ συνανεμείγνυτο Εφραιμ ἐγένετο ἐγκρυφίας οὐ μεταστρεφόμενος.",
+     "giguet": "Éphraïm se mêla à leurs peuples&nbsp;; Éphraïm devint comme un gâteau cuit sous la cendre et qu'on n'a pas retourné.",
+     "alexandrie": "Éphraïm s’est lui-même mêlé dans les peuples&nbsp;; Éphraïm est devenu un gâteau non retourné.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "κατέφαγον ἀλλότριοι τὴν ἰσχὺν αὐτοῦ αὐτὸς δὲ οὐκ ἐπέγνω καὶ πολιαὶ ἐξήνθησαν αὐτῷ καὶ αὐτὸς οὐκ ἔγνω.",
+     "giguet": "Les étrangers dévorèrent sa force, et il n'en sut rien&nbsp;; ses cheveux blanchirent, et il ne le sut pas.",
+     "alexandrie": "Des étrangers ont dévoré sa force, mais lui ne l’a pas su&nbsp;; et des cheveux blancs lui sont venus, et lui ne l’a pas su.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ ταπεινωθήσεται ἡ ὕβρις Ισραηλ εἰς πρόσωπον αὐτοῦ καὶ οὐκ ἐπέστρεψαν πρὸς κύριον τὸν θεὸν αὐτῶν καὶ οὐκ ἐξεζήτησαν αὐτὸν ἐν πᾶσι τούτοις.",
+     "giguet": "Et l'orgueil d'Israël sera humilié en sa face&nbsp;; et ils ne sont point revenus au Seigneur leur Dieu, et ils ne l'ont point cherché dans tous leurs malheurs.",
+     "alexandrie": "Et la démesure d’Israël sera humiliée à sa face, et ils ne sont pas retournés vers le Seigneur leur Dieu et ne l’ont pas recherché en tout cela.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἦν Εφραιμ ὡς περιστερὰ ἄνους οὐκ ἔχουσα καρδίαν Αἴγυπτον ἐπεκαλεῖτο καὶ εἰς Ἀσσυρίους ἐπορεύθησαν.",
+     "giguet": "Et Éphraïm demeura comme une colombe insensée et sans cœur. Il invoqua l'Égypte, et alla aux Assyriens.",
+     "alexandrie": "Et Éphraïm était comme une colombe insensée qui n’a pas de cœur, il invoquait l’Égypte, et ils sont allés vers les Assyriens.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καθὼς ἂν πορεύωνται ἐπιβαλῶ ἐπ' αὐτοὺς τὸ δίκτυόν μου καθὼς τὰ πετεινὰ τοῦ οὐρανοῦ κατάξω αὐτούς παιδεύσω αὐτοὺς ἐν τῇ ἀκοῇ τῆς θλίψεως αὐτῶν.",
+     "giguet": "Tandis qu'ils chemineront, je jetterai sur eux mon filet, je les ramènerai comme des oiseaux du ciel&nbsp;; je les punirai avec la rumeur même de leurs afflictions.",
+     "alexandrie": "Comme ils iront je jetterai sur eux mon filet, comme les oiseaux du ciel je les ferai descendre, je les éduquerai par l’écoute de leur affliction.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "οὐαὶ αὐτοῖς ὅτι ἀπεπήδησαν ἀπ' ἐμοῦ δείλαιοί εἰσιν ὅτι ἠσέβησαν εἰς ἐμέ ἐγὼ δὲ ἐλυτρωσάμην αὐτούς αὐτοὶ δὲ κατελάλησαν κατ' ἐμοῦ ψεύδη.",
+     "giguet": "Malheur à eux parce qu'ils se sont retirés de moi&nbsp;! Les voilà tous craintifs parce qu'ils ont péché contre moi. Je les avais rachetés, et ils ont dit des mensonges contre moi.",
+     "alexandrie": "Malheur à eux car ils se sont élancés loin de moi, ils sont misérables car ils ont commis une impiété à mon égard. Mais moi je les ai rachetés, mais eux ont proféré contre moi des mensonges.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ οὐκ ἐβόησαν πρός με αἱ καρδίαι αὐτῶν ἀλλ' ἢ ὠλόλυζον ἐν ταῖς κοίταις αὐτῶν ἐπὶ σίτῳ καὶ οἴνῳ κατετέμνοντο ἐπαιδεύθησαν ἐν ἐμοί.",
+     "giguet": "Et leurs cœurs n'ont point crié vers moi&nbsp;; et ils ont hurlé sur leurs couches&nbsp;; ils ont séché faute de pain et de vin. Et ils ont été instruits par moi,",
+     "alexandrie": "Et leurs cœurs n’ont pas crié vers moi, mais ils hurlaient dans leurs lits, pour du pain et du vin ils se sont fait des incisions. Ils ont été éduqués avec moi.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "κἀγὼ κατίσχυσα τοὺς βραχίονας αὐτῶν καὶ εἰς ἐμὲ ἐλογίσαντο πονηρά.",
+     "giguet": "Et j'ai fortifié leurs mains&nbsp;; et ils ont eu contre moi des pensées de malice.",
+     "alexandrie": "Et moi j’ai rendu forts leurs bras, et à mon égard ils ont tramé des choses mauvaises.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἀπεστράφησαν εἰς οὐθέν ἐγένοντο ὡς τόξον ἐντεταμένον πεσοῦνται ἐν ῥομφαίᾳ οἱ ἄρχοντες αὐτῶν δι' ἀπαιδευσίαν γλώσσης αὐτῶν οὗτος ὁ φαυλισμὸς αὐτῶν ἐν γῇ Αἰγύπτῳ.",
+     "giguet": "Ils se sont tournés vers le néant&nbsp;; les voilà comme un arc détendu&nbsp;; leurs princes tomberont sous le glaive à cause de l'intempérance de leur langue&nbsp;; tel est leur avilissement dans la terre d'Égypte.",
+     "alexandrie": "Ils se sont détournés vers rien, sont devenus comme un arc tendu&nbsp;; leurs chefs tomberont par l’épée à cause du manque d’éducation de leur langue. Telle est leur bassesse au pays d’Egypte.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 8,
+   "libelle": "8",
+   "fichierToc": "HOS/008.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "εἰς κόλπον αὐτῶν ὡς γῆ ὡς ἀετὸς ἐπ' οἶκον κυρίου ἀνθ' ὧν παρέβησαν τὴν διαθήκην μου καὶ κατὰ τοῦ νόμου μου ἠσέβησαν.",
+     "giguet": "Ils seront frappés au sein d'un coup rapide contre terre, ou comme l'aigle s'abattant sur la maison du Seigneur, parce qu'ils ont transgressé mon alliance et péché contre ma loi.",
+     "alexandrie": "Vers leur sein comme la terre, comme un aigle sur la maison du Seigneur, attendu qu’ils ont transgressé mon alliance et ont commis une impiété contre ma loi.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἐμὲ κεκράξονται ὁ θεός ἐγνώκαμέν σε.",
+     "giguet": "Et ils crieront vers moi, en disant&nbsp;: Ô Dieu, nous Te reconnaissons&nbsp;!",
+     "alexandrie": "Ils me réclameront à grands cris&nbsp;: «&nbsp;Dieu, nous t’avons connu&nbsp;!&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ὅτι Ισραηλ ἀπεστρέψατο ἀγαθά ἐχθρὸν κατεδίωξαν.",
+     "giguet": "Israël a pris en haine le bien&nbsp;; ils m'ont poursuivi comme un ennemi.",
+     "alexandrie": "Parce que Israël a rejeté de bonnes choses, ils ont poursuivi un ennemi.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἑαυτοῖς ἐβασίλευσαν καὶ οὐ δι' ἐμοῦ ἦρξαν καὶ οὐκ ἐγνώρισάν μοι τὸ ἀργύριον αὐτῶν καὶ τὸ χρυσίον αὐτῶν ἐποίησαν ἑαυτοῖς εἴδωλα ὅπως ἐξολεθρευθῶσιν.",
+     "giguet": "Ils ont fait pour eux, et non pour moi, des rois qui ont régné, sans me les faire connaître&nbsp;; avec leur argent et leur or, ils se sont fabriqué des idoles, et c'est pour cela qu'ils ont été exterminés.",
+     "alexandrie": "C’est pour eux qu’ils ont régné et non pas grâce à moi, ils ont commandé et ne me l’ont pas fait connaître. De leur argent et de leur or ils se sont fait des idoles, pour qu’on les extermine.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ἀπότριψαι τὸν μόσχον σου Σαμάρεια παρωξύνθη ὁ θυμός μου ἐπ' αὐτούς ἕως τίνος οὐ μὴ δύνωνται καθαρισθῆναι.",
+     "giguet": "Répudie ton veau, Samarie&nbsp;; ma colère est exaspérée contre eux&nbsp;: jusques à quand sera-t-il impossible qu'ils soient purifiés en Israël&nbsp;?",
+     "alexandrie": "Débarrasse-toi de ton taurillon, Samarie&nbsp;; ma colère s’est exaspérée contre eux. Jusques à quand ne pourront-ils être purifiés en Israël&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἐν τῷ Ισραηλ καὶ αὐτὸ τέκτων ἐποίησεν καὶ οὐ θεός ἐστιν διότι πλανῶν ἦν ὁ μόσχος σου Σαμάρεια.",
+     "giguet": "C'est un artisan qui l'a fait&nbsp;; il n'est point Dieu&nbsp;; c'est pourquoi ton veau t'a égaré, Samarie.",
+     "alexandrie": "Et ça, un artisan l’a fait, et ce n’est pas un dieu&nbsp;; car ton taurillon égarait, Samarie.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ὅτι ἀνεμόφθορα ἔσπειραν καὶ ἡ καταστροφὴ αὐτῶν ἐκδέξεται αὐτά δράγμα οὐκ ἔχον ἰσχὺν τοῦ ποιῆσαι ἄλευρον ἐὰν δὲ καὶ ποιήσῃ ἀλλότριοι καταφάγονται αὐτό.",
+     "giguet": "Ils ont semé du grain éventé, et leur destruction en fera la récolte. Ils n'ont pas une gerbe dont on puisse faire de la farine, et s'il y en a, les étrangers la mangeront.",
+     "alexandrie": "Car ils ont semé ce qui était gâté par le vent, et leur renversement recueillera cela&nbsp;; une gerbe dépourvue de force pour faire de la farine, et même si elle en faisait, des étrangers la dévoreront.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "κατεπόθη Ισραηλ νῦν ἐγένετο ἐν τοῖς ἔθνεσιν ὡς σκεῦος ἄχρηστον.",
+     "giguet": "Israël a été dévoré&nbsp;; il est maintenant parmi les nations comme un vase inutile,",
+     "alexandrie": "Israël a été englouti&nbsp;; maintenant ils sont devenus comme un objet inutile parmi les nations.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ὅτι αὐτοὶ ἀνέβησαν εἰς Ἀσσυρίους ἀνέθαλεν καθ' ἑαυτὸν Εφραιμ δῶρα ἠγάπησαν.",
+     "giguet": "Parce qu'ils sont allés aux Assyriens. Éphraïm a refleuri contre lui-même&nbsp;; ils ont aimé les présents.",
+     "alexandrie": "Car d’eux-mêmes ils sont montés vers les Assyriens. Éphraïm a refleuri tout seul&nbsp;; ils ont aimé des cadeaux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "διὰ τοῦτο παραδοθήσονται ἐν τοῖς ἔθνεσιν νῦν εἰσδέξομαι αὐτούς καὶ κοπάσουσιν μικρὸν τοῦ χρίειν βασιλέα καὶ ἄρχοντας.",
+     "giguet": "Et c'est pourquoi ils seront livrés aux gentils&nbsp;; alors je les recevrai, et ils cesseront en peu de temps d'oindre des rois et des princes.",
+     "alexandrie": "C'est pourquoi ils seront livrés parmi les nations. Maintenant je vais les rassembler, et ils cesseront un peu d’oindre un roi et des chefs.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ὅτι ἐπλήθυνεν Εφραιμ θυσιαστήρια εἰς ἁμαρτίας ἐγένοντο αὐτῷ θυσιαστήρια ἠγαπημένα.",
+     "giguet": "Car Éphraïm avait multiplié les autels&nbsp;; mais ceux qu'il a aimés étaient des autels de péché.",
+     "alexandrie": "Car Éphraïm a multiplié les autels&nbsp;: objet de péchés sont devenus pour lui les autels bien-aimés.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καταγράψω αὐτῷ πλῆθος καὶ τὰ νόμιμα αὐτοῦ εἰς ἀλλότρια ἐλογίσθησαν θυσιαστήρια τὰ ἠγαπημένα.",
+     "giguet": "J'avais écrit pour lui une multitude de préceptes&nbsp;; mais ces lois ont été réputés par lui comme étrangères, même les autels qu'il aime.",
+     "alexandrie": "J’inscrirai pour lui une multitude et ses règles&nbsp;; ils ont été comptés comme étrangers, les autels bien-aimés.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "διότι ἐὰν θύσωσιν θυσίαν καὶ φάγωσιν κρέα κύριος οὐ προσδέξεται αὐτά νῦν μνησθήσεται τὰς ἀδικίας αὐτῶν καὶ ἐκδικήσει τὰς ἁμαρτίας αὐτῶν αὐτοὶ εἰς Αἴγυπτον ἀπέστρεψαν καὶ ἐν Ἀσσυρίοις ἀκάθαρτα φάγονται.",
+     "giguet": "Aussi quand ils immoleront une victime et en mangeront les chairs, le Seigneur ne les agréera pas. Alors Il se souviendra de leur iniquité, et tirera vengeance de leurs crimes. Ils seront retournés en Égypte, et ils mangeront des viandes impures chez les Assyriens.",
+     "alexandrie": "Car s’ils offrent un sacrifice et mangent de la viande, le Seigneur ne l'acceptera pas. Maintenant il va se rappeler leurs injustices et tirer vengeance de leurs péchés. D’eux-mêmes ils sont retournés en Égypte, et parmi les Assyriens ils mangeront des choses impures.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐπελάθετο Ισραηλ τοῦ ποιήσαντος αὐτὸν καὶ ᾠκοδόμησαν τεμένη καὶ Ιουδας ἐπλήθυνεν πόλεις τετειχισμένας καὶ ἐξαποστελῶ πῦρ εἰς τὰς πόλεις αὐτοῦ καὶ καταφάγεται τὰ θεμέλια αὐτῶν.",
+     "giguet": "Tel Israël aussi a oublié son Créateur, et ils ont planté des bois sacrés, et Juda a multiplié les villes fortifiées&nbsp;; mais sur ces villes j'enverrai la flamme, et elles seront dévorées jusqu'aux fondations.",
+     "alexandrie": "Et Israël a oublié celui qui l’a fait, il a construit des sanctuaires, et Juda a multiplié les villes fortifiées&nbsp;; et j’enverrai le feu dans leurs villes, et il dévorera leurs fondations.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 9,
+   "libelle": "9",
+   "fichierToc": "HOS/009.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "μὴ χαῖρε Ισραηλ μηδὲ εὐφραίνου καθὼς οἱ λαοί διότι ἐπόρνευσας ἀπὸ τοῦ θεοῦ σου ἠγάπησας δόματα ἐπὶ πάντα ἅλωνα σίτου.",
+     "giguet": "Ne te réjouis pas, Israël, ne te mets pas en fête, comme les gentils, parce que tu t'es prostitué en t'éloignant de ton Dieu, tu as aimé les dons plus que des aires pleines de blé.",
+     "alexandrie": "Ne te réjouis pas, Israël, et ne sois pas dans l’allégresse comme les peuples, car tu t’es prostitué en quittant ton Dieu, tu as aimé des dons sur toute aire à blé.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἅλων καὶ ληνὸς οὐκ ἔγνω αὐτούς καὶ ὁ οἶνος ἐψεύσατο αὐτούς.",
+     "giguet": "Mais l'aire et le pressoir les ont méconnus, et le vin les a trompés.",
+     "alexandrie": "Aire,et pressoir ne les ont pas connus, et le vin les a trompés.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "οὐ κατῴκησαν ἐν τῇ γῇ τοῦ κυρίου κατῴκησεν Εφραιμ εἰς Αἴγυπτον καὶ ἐν Ἀσσυρίοις ἀκάθαρτα φάγονται.",
+     "giguet": "Ils ne sont point restés en la terre du Seigneur&nbsp;; Éphraïm a demeuré en Égypte, et ils mangeront des viandes impures chez les Assyriens.",
+     "alexandrie": "Ils n’ont pas habité dans le pays du Seigneur&nbsp;: Éphraïm est allé habiter en Égypte, et parmi les Assyriens ils mangeront des choses impures.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "οὐκ ἔσπεισαν τῷ κυρίῳ οἶνον καὶ οὐχ ἥδυναν αὐτῷ αἱ θυσίαι αὐτῶν ὡς ἄρτος πένθους αὐτοῖς πάντες οἱ ἔσθοντες αὐτὰ μιανθήσονται διότι οἱ ἄρτοι αὐτῶν ταῖς ψυχαῖς αὐτῶν οὐκ εἰσελεύσονται εἰς τὸν οἶκον κυρίου.",
+     "giguet": "Ils n'ont point fait au Seigneur des libations de vin, et ils ne lui ont point été agréables. Leurs victimes sont pour eux comme des pains d'affliction&nbsp;; tous ceux qui en mangent seront souillés, parce que leurs pains, s'ils soutiennent la vie, n'entreront point dans la maison du Seigneur.",
+     "alexandrie": "Ils n’ont pas fait de libations de vin pour le Seigneur et ne lui ont pas été agréables. Leurs sacrifices sont comme un pain de deuil pour eux, tous ceux qui en mangent seront souillés, car leur pain, pour leur vie, n’entrera pas dans la maison du Seigneur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "τί ποιήσετε ἐν ἡμέρᾳ πανηγύρεως καὶ ἐν ἡμέρᾳ ἑορτῆς τοῦ κυρίου.",
+     "giguet": "Que ferez-vous les jours de réunions solennelles, et les jours de fête du Seigneur&nbsp;?",
+     "alexandrie": "Que ferez-vous au jour de l’assemblée solennelle et au jour de la fête du Seigneur&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "διὰ τοῦτο ἰδοὺ πορεύσονται ἐκ ταλαιπωρίας Αἰγύπτου καὶ ἐκδέξεται αὐτοὺς Μέμφις καὶ θάψει αὐτοὺς Μαχμας τὸ ἀργύριον αὐτῶν ὄλεθρος κληρονομήσει ἄκανθαι ἐν τοῖς σκηνώμασιν αὐτῶν.",
+     "giguet": "À cause de cela, voilà qu'ils sortent des misères de l'Égypte, et Memphis les recevra, et Machmas les ensevelira. Quant à leur argent, la dévastation en héritera, et les ronces pousseront dans leurs demeures.",
+     "alexandrie": "C’est pourquoi voici, ils sortent de la misère d’Égypte, et Memphis les recueillera et Machmas les enterrera. Leur argent, la destruction en héritera&nbsp;; dans leurs tentes, des ronces.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἥκασιν αἱ ἡμέραι τῆς ἐκδικήσεως ἥκασιν αἱ ἡμέραι τῆς ἀνταποδόσεώς σου καὶ κακωθήσεται Ισραηλ ὥσπερ ὁ προφήτης ὁ παρεξεστηκώς ἄνθρωπος ὁ πνευματοφόρος ὑπὸ τοῦ πλήθους τῶν ἀδικιῶν σου ἐπληθύνθη μανία σου.",
+     "giguet": "Ils sont venus les jours de la vengeance, ils sont venus les jours de rétribution, et Israël sera maltraité, comme un prophète en délire, comme un homme possédé par un malin esprit. Tes folies se sont multipliées à cause de la multitude de tes iniquités.",
+     "alexandrie": "Ils sont venus, les jours de la vengeance&nbsp;; ils sont venus, les jours de ta rétribution, et Israël sera mis à mal. Comme le prophète qui déraisonne, l’homme emporté par un esprit, ta folie a abondé par l’abondance de tes injustices.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "σκοπὸς Εφραιμ μετὰ θεοῦ προφήτης παγὶς σκολιὰ ἐπὶ πάσας τὰς ὁδοὺς αὐτοῦ μανίαν ἐν οἴκῳ κυρίου κατέπηξαν.",
+     "giguet": "La sentinelle d'Éphraïm était avec Dieu&nbsp;; mais un faux prophète a été comme un lacs tortueux sur toutes ses voies, et ils ont transplanté leur folie dans la maison du Seigneur.",
+     "alexandrie": "Le guetteur d Éphraïm est avec Dieu&nbsp;: un prophète, un piège tordu sur tous ses chemins. Ils ont fixé la folie dans la maison du Seigneur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἐφθάρησαν κατὰ τὰς ἡμέρας τοῦ βουνοῦ μνησθήσεται ἀδικίας αὐτοῦ ἐκδικήσει ἁμαρτίας αὐτοῦ.",
+     "giguet": "Ils se sont perdus comme aux jours de la colline&nbsp;; mais Dieu se souviendra de leurs iniquités, et Il tirera vengeance de leurs crimes.",
+     "alexandrie": "Ils se sont corrompus comme aux jours de la colline. Il se souviendra de leurs injustices, il tirera vengeance de leurs péchés.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ὡς σταφυλὴν ἐν ἐρήμῳ εὗρον τὸν Ισραηλ καὶ ὡς σκοπὸν ἐν συκῇ πρόιμον εἶδον πατέρας αὐτῶν αὐτοὶ εἰσῆλθον πρὸς τὸν Βεελφεγωρ καὶ ἀπηλλοτριώθησαν εἰς αἰσχύνην καὶ ἐγένοντο οἱ ἠγαπημένοι ὡς οἱ ἐβδελυγμένοι.",
+     "giguet": "J'ai aimé Israël comme une grappe de raisin dans le désert, et j'ai vu leurs pères comme un fruit mûr dans un figuier. Pour eux, ils se sont approchés de Béelphégor, et dans leur opprobre ils se sont détournés de moi, et ils me sont devenus abominables autant qu'ils m'avaient été chers.",
+     "alexandrie": "Comme une grappe dans le désert j’ai trouvé Israël, et comme un «&nbsp;guetteur&nbsp;» précoce sur un figuier j’ai vu leurs pères. Eux sont entrés près de Beelphégor, et se sont aliénés dans la honte. Et les abominés sont devenus comme les bien-aimés.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "Εφραιμ ὡς ὄρνεον ἐξεπετάσθη αἱ δόξαι αὐτῶν ἐκ τόκων καὶ ὠδίνων καὶ συλλήμψεων.",
+     "giguet": "Éphraïm s'est envolé comme l'oiseau, et, à peine nées, ses gloires se sont évanouies, ou pendant l'enfantement, ou aussitôt conçues&nbsp;;",
+     "alexandrie": "Éphraïm comme un oiseau s’est envolé. Leurs trésors issus d’enfantements, de douleurs et de conceptions&nbsp;:",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "διότι καὶ ἐὰν ἐκθρέψωσιν τὰ τέκνα αὐτῶν ἀτεκνωθήσονται ἐξ ἀνθρώπων διότι καὶ οὐαὶ αὐτοῖς ἐστιν σάρξ μου ἐξ αὐτῶν.",
+     "giguet": "Car, eût-il élevé ses enfants, il n'en sera pas moins sans postérité&nbsp;: malheur donc à lui, ma chair n'est plus avec eux&nbsp;!",
+     "alexandrie": "car même s’ils élèvent leurs enfants ils seront privés d’enfants du fait des hommes. Car aussi, c’est malheur à eux, ma chair est issue d’eux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "Εφραιμ ὃν τρόπον εἶδον εἰς θήραν παρέστησαν τὰ τέκνα αὐτῶν καὶ Εφραιμ τοῦ ἐξαγαγεῖν εἰς ἀποκέντησιν τὰ τέκνα αὐτοῦ.",
+     "giguet": "Éphraïm, je l'ai vu, a fait une proie de ses enfants&nbsp;; Éphraïm a exposé ses fils à la mort.",
+     "alexandrie": "Éphraïm, de la façon dont je l’ai vu, ils ont placé leurs enfants pour la chasse, oui Éphraïm, afin de faire sortir ses enfants pour le transpercement.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "δὸς αὐτοῖς κύριε τί δώσεις αὐτοῖς δὸς αὐτοῖς μήτραν ἀτεκνοῦσαν καὶ μαστοὺς ξηρούς.",
+     "giguet": "Donne-leur, ô mon Dieu&nbsp;; mais que peux-Tu leur donner&nbsp;? Donne-leur un sein stérile et des mamelles taries.",
+     "alexandrie": "Donne-leur, Seigneur&nbsp;! Que leur donneras tu&nbsp;? Donne-leur une matrice privée d’enfants et des seins desséchés.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "πᾶσαι αἱ κακίαι αὐτῶν εἰς Γαλγαλ ὅτι ἐκεῖ αὐτοὺς ἐμίσησα διὰ τὰς κακίας τῶν ἐπιτηδευμάτων αὐτῶν ἐκ τοῦ οἴκου μου ἐκβαλῶ αὐτούς οὐ μὴ προσθήσω τοῦ ἀγαπῆσαι αὐτούς πάντες οἱ ἄρχοντες αὐτῶν ἀπειθοῦντες.",
+     "giguet": "Toutes leurs méchancetés se font en Gagala&nbsp;; c'est là que je les ai pris en haine pour leurs inventions abominables. Je les chasserai de ma maison, et je ne les aimerai plus, car tous leurs princes sont indociles.",
+     "alexandrie": "Toutes leurs méchancetés vont à Galgal, car là je les ai haïs. A cause de la méchanceté de leurs mœurs, de ma maison je les expulserai&nbsp;; je ne continuerai plus à les aimer, tous leurs chefs sont désobéissants.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἐπόνεσεν Εφραιμ τὰς ῥίζας αὐτοῦ ἐξηράνθη καρπὸν οὐκέτι μὴ ἐνέγκῃ διότι καὶ ἐὰν γεννήσωσιν ἀποκτενῶ τὰ ἐπιθυμήματα κοιλίας αὐτῶν.",
+     "giguet": "Éphraïm s'est épuisé&nbsp;; il a desséché ses racines&nbsp;; il ne portera plus de fruits, et, dût-il en naître, je ferai mourir les fruits désirés de leurs entrailles.",
+     "alexandrie": "Éphraïm souffre dans ses racines, il s’est desséché. Il ne portera plus de fruit car même s’ils engendrent, je tuerai les désirs de leurs ventres.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ἀπώσεται αὐτοὺς ὁ θεός ὅτι οὐκ εἰσήκουσαν αὐτοῦ καὶ ἔσονται πλανῆται ἐν τοῖς ἔθνεσιν.",
+     "giguet": "Dieu les a repoussés parce qu'ils ne Lui ont point obéi, et ils seront errants parmi les nations.",
+     "alexandrie": "Dieu les repoussera car ils ne l’ont pas écouté, et ils seront des égarés parmi les nations.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 10,
+   "libelle": "10",
+   "fichierToc": "HOS/010.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἄμπελος εὐκληματοῦσα Ισραηλ ὁ καρπὸς αὐτῆς εὐθηνῶν κατὰ τὸ πλῆθος τῶν καρπῶν αὐτοῦ ἐπλήθυνεν τὰ θυσιαστήρια κατὰ τὰ ἀγαθὰ τῆς γῆς αὐτοῦ ᾠκοδόμησεν στήλας.",
+     "giguet": "Israël était une vigne riche en sarments, abondante en fruits&nbsp;; mais plus ses grappes se sont multipliées, plus il a multiplié ses autels, et plus il a recueilli les biens de la terre, plus il a élevé de colonnes.",
+     "alexandrie": "C’est une vigne aux beaux sarments qu’Israël, son fruit est florissant&nbsp;; conformément à la multitude de ses fruits il a multiplié les autels, conformément aux bonnes choses de sa terre il a construit des stèles.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἐμέρισαν καρδίας αὐτῶν νῦν ἀφανισθήσονται αὐτὸς κατασκάψει τὰ θυσιαστήρια αὐτῶν ταλαιπωρήσουσιν αἱ στῆλαι αὐτῶν.",
+     "giguet": "Ils ont partagé leur cœur, et maintenant ils périront&nbsp;; Dieu Lui-même renversera leurs autels, et leurs colonnes s'écrouleront.",
+     "alexandrie": "Ils ont divisé leurs cœurs, maintenant ils vont être détruits&nbsp;; lui rasera leurs autels, misérables seront leurs stèles.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "διότι νῦν ἐροῦσιν οὐκ ἔστιν βασιλεὺς ἡμῖν ὅτι οὐκ ἐφοβήθημεν τὸν κύριον ὁ δὲ βασιλεὺς τί ποιήσει ἡμῖν.",
+     "giguet": "Et alors ils diront&nbsp;: Nous n'avons point de roi, parce que nous n'avons pas craint le Seigneur&nbsp;; et un roi, que fera-t-il pour nous&nbsp;?",
+     "alexandrie": "Car maintenant ils vont dire&nbsp;: «&nbsp;Il n’y a pas de roi pour nous, car nous n’avons pas craint le Seigneur&nbsp;; mais le roi, que nous fera-t-il&nbsp;?&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "λαλῶν ῥήματα προφάσεις ψευδεῖς διαθήσεται διαθήκην ἀνατελεῖ ὡς ἄγρωστις κρίμα ἐπὶ χέρσον ἀγροῦ.",
+     "giguet": "Il dira de vaines paroles et des raisons mensongères&nbsp;; il fera une alliance perverse, et les jugements de Dieu abonderont comme l'herbe sauvage dans les champs.",
+     "alexandrie": "En disant des paroles, prétextes fallacieux, il conclura une alliance&nbsp;; le jugement poussera comme de l’herbe sur un champ sec.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "τῷ μόσχῳ τοῦ οἴκου Ων παροικήσουσιν οἱ κατοικοῦντες Σαμάρειαν ὅτι ἐπένθησεν ὁ λαὸς αὐτοῦ ἐπ' αὐτόν καὶ καθὼς παρεπίκραναν αὐτόν ἐπιχαροῦνται ἐπὶ τὴν δόξαν αὐτοῦ ὅτι μετῳκίσθη ἀπ' αὐτοῦ.",
+     "giguet": "Ceux de Samarie habiteront auprès du veau de la maison de On, car son peuple a pleuré sur lui. Et autant ils avaient irrité le Seigneur, autant ils se réjouiront de sa gloire, parce qu'Il s'était éloigné d'eux.",
+     "alexandrie": "Auprès du taurillon de la maison de On séjourneront les habitants de Samarie, car son peuple a mené le deuil pour lui&nbsp;; et de même qu’ils l’avaient exaspéré ils se réjouiront de sa gloire, car elle a été exilée loin de lui.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ αὐτὸν εἰς Ἀσσυρίους δήσαντες ἀπήνεγκαν ξένια τῷ βασιλεῖ Ιαριμ ἐν δόματι Εφραιμ δέξεται καὶ αἰσχυνθήσεται Ισραηλ ἐν τῇ βουλῇ αὐτοῦ.",
+     "giguet": "Et, après l'avoir lié pour les Assyriens, ils l'ont offert en présent au roi Jarim. Et il recevra en sa demeure Éphraïm, et Israël en ses conseils sera confondu.",
+     "alexandrie": "Et lui, l’ayant lié, on l’a mené chez les Assyriens, en présent pour le roi de larim&nbsp;; avec un don il recevra Éphraïm, et Israël aura honte de son dessein.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἀπέρριψεν Σαμάρεια βασιλέα αὐτῆς ὡς φρύγανον ἐπὶ προσώπου ὕδατος.",
+     "giguet": "Samarie a renversé son roi comme un fétu qu'emporte le courant de l'eau.",
+     "alexandrie": "Samarie a jeté au loin son roi, comme du bois sec sur la surface de l’eau.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ ἐξαρθήσονται βωμοὶ Ων ἁμαρτήματα τοῦ Ισραηλ ἄκανθαι καὶ τρίβολοι ἀναβήσονται ἐπὶ τὰ θυσιαστήρια αὐτῶν καὶ ἐροῦσιν τοῖς ὄρεσιν καλύψατε ἡμᾶς καὶ τοῖς βουνοῖς πέσατε ἐφ' ἡμᾶς.",
+     "giguet": "Et les autels d'or, péchés d'Israël, seront détruits, et les ronces et les mauvaises herbes pousseront sur leurs autels. Et ils diront aux montagnes&nbsp;: Cachez-nous&nbsp;; et aux collines&nbsp;: Écroulez-vous sur nous.",
+     "alexandrie": "Et les tertres de On seront enlevés, péchés d’Israël, chardons et ronces monteront sur leurs autels. Et ils diront aux montagnes&nbsp;: «&nbsp;Couvrez-nous&nbsp;», et aux collines&nbsp;: «&nbsp;Tombez sur nous.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἀφ' οὗ οἱ βουνοί ἥμαρτεν Ισραηλ ἐκεῖ ἔστησαν οὐ μὴ καταλάβῃ αὐτοὺς ἐν τῷ βουνῷ πόλεμος ἐπὶ τὰ τέκνα ἀδικίας.",
+     "giguet": "Depuis qu'il y a des collines, Israël a péché, et c'est là qu'ils se sont arrêtés&nbsp;; mais la guerre que l'on fera aux fils de l'iniquité",
+     "alexandrie": "Depuis, Collines, qu’Israël a péché, là ils se sont mis. La guerre contre les enfants d’injustice ne les rattrapera-t-elle pas sur la colline&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἦλθεν παιδεῦσαι αὐτούς καὶ συναχθήσονται ἐπ' αὐτοὺς λαοὶ ἐν τῷ παιδεύεσθαι αὐτοὺς ἐν ταῖς δυσὶν ἀδικίαις αὐτῶν.",
+     "giguet": "Ne se bornera pas à les surprendre sur une colline pour les châtier. Les peuples se réuniront contre eux, pour qu'ils soient punis de leur double péché.",
+     "alexandrie": "II est venu les éduquer, et des peuples se rassembleront contre eux quand ils seront éduqués pour leurs deux injustices.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "Εφραιμ δάμαλις δεδιδαγμένη ἀγαπᾶν νεῖκος ἐγὼ δὲ ἐπελεύσομαι ἐπὶ τὸ κάλλιστον τοῦ τραχήλου αὐτῆς ἐπιβιβῶ Εφραιμ καὶ παρασιωπήσομαι Ιουδαν ἐνισχύσει αὐτῷ Ιακωβ.",
+     "giguet": "Éphraïm est une génisse instruite à aimer la révolte&nbsp;; mais moi je tomberai sur son cou superbe&nbsp;; je monterai sur Éphraïm, je forcerai Juda au silence&nbsp;; Jacob prévaudra contre lui.",
+     "alexandrie": "Éphraïm est une génisse dressée à aimer la dispute&nbsp;; mais moi je viendrai sur le plus bel endroit de son cou. Je ferai monter Éphraïm et passerai Juda sous silence. Jacob lui donnera force.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "σπείρατε ἑαυτοῖς εἰς δικαιοσύνην τρυγήσατε εἰς καρπὸν ζωῆς φωτίσατε ἑαυτοῖς φῶς γνώσεως ἐκζητήσατε τὸν κύριον ἕως τοῦ ἐλθεῖν γενήματα δικαιοσύνης ὑμῖν.",
+     "giguet": "Semez pour vous-mêmes avec équité&nbsp;; recueillez les fruits de la vie&nbsp;; éclairez-vous de la lumière de la science, et cherchez le Seigneur jusqu'à ce que les fruits de la justice vous arrivent.",
+     "alexandrie": "Semez pour vous en vue de la justice, moissonnez en vue d’un fruit de vie. Faites luire pour vous une lumière de connaissance, recherchez le Seigneur jusqu’à ce que vous viennent des produits de justice.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἵνα τί παρεσιωπήσατε ἀσέβειαν καὶ τὰς ἀδικίας αὐτῆς ἐτρυγήσατε ἐφάγετε καρπὸν ψευδῆ ὅτι ἤλπισας ἐν τοῖς ἅρμασίν σου ἐν πλήθει δυνάμεώς σου.",
+     "giguet": "Mais pourquoi gardez-vous le silence sur votre impiété et récoltez-vous des injustices&nbsp;? Tu as mangé le fruit du mensonge, parce que tu as mis ton espérance en tes péchés et dans la multitude de tes forces.",
+     "alexandrie": "Dans quel but avez-vous passé l’impiété sous silence et moissonné ses injustices, mangé un fruit mensonger&nbsp;? Car tu as espéré en tes chars, dans la multitude de ton armée.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐξαναστήσεται ἀπώλεια ἐν τῷ λαῷ σου καὶ πάντα τὰ περιτετειχισμένα σου οἰχήσεται ὡς ἄρχων Σαλαμαν ἐκ τοῦ οἴκου Ιεροβααλ ἐν ἡμέραις πολέμου μητέρα ἐπὶ τέκνοις ἠδάφισαν.",
+     "giguet": "Mais la perdition s'élèvera parmi ton peuple, et tous les remparts disparaîtront. Comme le prince Salaman partit de la maison de Jéroboam durant les jours de la guerre, et jeta à terre avec violence les mères sur les enfants.",
+     "alexandrie": "Et la perdition se dressera dans ton peuple et tous tes ouvrages fortifiés partiront, comme le chef Salaman hors de la maison de lérobaal. Aux jours de la guerre ils ont écrasé la mère sur les enfants.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "οὕτως ποιήσω ὑμῖν οἶκος τοῦ Ισραηλ ἀπὸ προσώπου κακιῶν ὑμῶν ὄρθρου ἀπερρίφησαν ἀπερρίφη βασιλεὺς Ισραηλ.",
+     "giguet": "De même je te traiterai, ô maison d'Israël, à la vue de tes injustices et de tes méchancetés. Ils sont tombés dès l'aurore&nbsp;: le roi d'Israël est tombé.",
+     "alexandrie": "Ainsi vous ferai-je, maison d’Israël, face à vos méchancetés. A l’aurore ils ont été jetés au loin, jeté au loin a été le roi d’Israël.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 11,
+   "libelle": "11",
+   "fichierToc": "HOS/011.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "διότι νήπιος Ισραηλ καὶ ἐγὼ ἠγάπησα αὐτὸν καὶ ἐξ Αἰγύπτου μετεκάλεσα τὰ τέκνα αὐτοῦ.",
+     "giguet": "Israël est un enfant, et moi je l'aimais, et j'ai rappelé ses fils de l'Égypte.",
+     "alexandrie": "Puisque Israël est un tout-petit, moi aussi je l’ai aimé, et d’Egypte j’ai rappelé ses enfants.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καθὼς μετεκάλεσα αὐτούς οὕτως ἀπῴχοντο ἐκ προσώπου μου αὐτοὶ τοῖς Βααλιμ ἔθυον καὶ τοῖς γλυπτοῖς ἐθυμίων.",
+     "giguet": "Autant je les ai rappelés, autant ils sont éloignés de moi&nbsp;; ils ont sacrifié à Baal, et ils ont encensé des idoles.",
+     "alexandrie": "Comme je les ai rappelés, ainsi ils sont partis de ma face&nbsp;; eux ils sacrifiaient aux Baalim, et brûlaient de l’encens aux sculptures.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἐγὼ συνεπόδισα τὸν Εφραιμ ἀνέλαβον αὐτὸν ἐπὶ τὸν βραχίονά μου καὶ οὐκ ἔγνωσαν ὅτι ἴαμαι αὐτούς.",
+     "giguet": "Et moi j'ai bandé les pieds d'Éphraïm, et je l'ai pris dans mes bras, et ils n'ont point connu que je les guérissais.",
+     "alexandrie": "Et moi j’ai lié les pieds d’Éphraïm, je l’ai pris sur mon bras&nbsp;; et ils n’ont pas su que je les ai guéris.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἐν διαφθορᾷ ἀνθρώπων ἐξέτεινα αὐτοὺς ἐν δεσμοῖς ἀγαπήσεώς μου καὶ ἔσομαι αὐτοῖς ὡς ῥαπίζων ἄνθρωπος ἐπὶ τὰς σιαγόνας αὐτοῦ καὶ ἐπιβλέψομαι πρὸς αὐτόν δυνήσομαι αὐτῷ.",
+     "giguet": "Au milieu de la perdition des hommes, je les ai enveloppés dans les nuages de mon amour, et maintenant je serai pour eux comme un homme qui en frappe un autre à la joue, et je me retournerai sur Éphraïm, et je prévaudrai contre lui.",
+     "alexandrie": "Dans la corruption des hommes je les ai déployés dans les liens de mon amour. Et je serai pour eux comme un homme qui donne une gifle sur ses joues et je tournerai mon regard vers lui&nbsp;; j’aurai pouvoir sur lui.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "κατῴκησεν Εφραιμ ἐν Αἰγύπτῳ καὶ Ασσουρ αὐτὸς βασιλεὺς αὐτοῦ ὅτι οὐκ ἠθέλησεν ἐπιστρέψαι.",
+     "giguet": "Éphraïm a demeuré en Égypte, et Assur lui-même a été son roi, parce qu'il n'a pas voulu se convertir.",
+     "alexandrie": "Éphraïm est allé habiter en Égypte&nbsp;; et Assur, il est son roi, car il n’a pas voulu retourner.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἠσθένησεν ῥομφαία ἐν ταῖς πόλεσιν αὐτοῦ καὶ κατέπαυσεν ἐν ταῖς χερσὶν αὐτοῦ καὶ φάγονται ἐκ τῶν διαβουλίων αὐτῶν.",
+     "giguet": "Et dans ses villes il a été vaincu par le glaive, et il a cessé de le tenir en ses mains&nbsp;; et ils se nourriront des fruits de leurs conseils.",
+     "alexandrie": "Et l’épée s’est affaiblie dans ses villes et s’est arrêtée dans ses mains, et ils mangeront de leurs projets.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ὁ λαὸς αὐτοῦ ἐπικρεμάμενος ἐκ τῆς κατοικίας αὐτοῦ καὶ ὁ θεὸς ἐπὶ τὰ τίμια αὐτοῦ θυμωθήσεται καὶ οὐ μὴ ὑψώσῃ αὐτόν.",
+     "giguet": "Et le peuple de Dieu sera en suspens dans le lieu de son exil, et Dieu s'irritera des choses mêmes qu'ils estiment le plus, et Il ne l'exaltera point.",
+     "alexandrie": "Et son peuple, suspendu hors de son habitation... et Dieu contre ses choses précieuses se mettra en colère, et il ne l’élèvera plus.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "τί σε διαθῶ Εφραιμ ὑπερασπιῶ σου Ισραηλ τί σε διαθῶ ὡς Αδαμα θήσομαί σε καὶ ὡς Σεβωιμ μετεστράφη ἡ καρδία μου ἐν τῷ αὐτῷ συνεταράχθη ἡ μεταμέλειά μου.",
+     "giguet": "Que ferai-je avec toi, Éphraïm&nbsp;? Serai-je ton protecteur&nbsp;? Ô Israël, que ferai-je avec toi&nbsp;? je te traiterai comme Adama et Seboïm. Mon cœur a changé pour toi, et tu as excité tous mes regrets.",
+     "alexandrie": "Comment dois-je en disposer avec toi, Éphraïm, te serai-je un bouclier, Israël&nbsp;? Comment dois-je en disposer avec toi&nbsp;? Comme Adama je te rendrai et comme Séboïm. Mon cœur sur lui-même s’est retourné, mon regret s’est troublé.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "οὐ μὴ ποιήσω κατὰ τὴν ὀργὴν τοῦ θυμοῦ μου οὐ μὴ ἐγκαταλίπω τοῦ ἐξαλειφθῆναι τὸν Εφραιμ διότι θεὸς ἐγώ εἰμι καὶ οὐκ ἄνθρωπος ἐν σοὶ ἅγιος καὶ οὐκ εἰσελεύσομαι εἰς πόλιν.",
+     "giguet": "Mais je n'agirai point selon le courroux de mon âme&nbsp;; je n'abandonnerai point Éphraïm, pour qu'il soit effacé&nbsp;; car je suis Dieu, et non un homme&nbsp;; un Saint est en toi, et je n'entrerai pas dans ta ville.",
+     "alexandrie": "Je ne ferai plus selon la rage de ma colère&nbsp;; je n’abandonnerai pas Éphraïm au point qu’il soit effacé. Car Dieu moi je suis - et non un homme -, saint parmi toi, et je n’entrerai pas dans une ville.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ὀπίσω κυρίου πορεύσομαι ὡς λέων ἐρεύξεται ὅτι αὐτὸς ὠρύσεται καὶ ἐκστήσονται τέκνα ὑδάτων.",
+     "giguet": "Je marcherai après le Seigneur. Il rugira comme un lion&nbsp;; il rugira, et les enfants des eaux seront saisis de stupeur.",
+     "alexandrie": "Derrière le Seigneur je marcherai, comme un lion il hurlera, car lui rugira et les enfants des eaux seront stupéfaits.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἐκστήσονται ὡς ὄρνεον ἐξ Αἰγύπτου καὶ ὡς περιστερὰ ἐκ γῆς Ἀσσυρίων καὶ ἀποκαταστήσω αὐτοὺς εἰς τοὺς οἴκους αὐτῶν λέγει κύριος.",
+     "giguet": "Les enfants de mon peuple aussi seront saisis de stupeur, et fuiront de l'Égypte comme un oiseau, et de la terre des Assyriens comme une colombe, et je les ferai rentrer dans leurs demeures, dit le Seigneur.",
+     "alexandrie": "Et ils seront stupéfaits comme un oiseau venant d’Égypte et comme une colombe venant du pays des Assyriens, et je les rétablirai dans leurs maisons, dit le Seigneur.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 12,
+   "libelle": "12",
+   "fichierToc": "HOS/012.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἐκύκλωσέν με ἐν ψεύδει Εφραιμ καὶ ἐν ἀσεβείαις οἶκος Ισραηλ καὶ Ιουδα νῦν ἔγνω αὐτοὺς ὁ θεός καὶ λαὸς ἅγιος κεκλήσεται θεοῦ.",
+     "giguet": "Éphraïm m'a entouré de ses mensonges, Israël et Juda de leurs impiétés&nbsp;; maintenant Dieu les connaît, et le peuple saint s'appellera le peuple de Dieu.",
+     "alexandrie": "Ephraïm m’avait encerclé de mensonge, et la maison d’Israël et de Juda, d’impiété. Maintenant Dieu les a connus, et ils seront appelés «&nbsp;peuple saint de Dieu&nbsp;».",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὁ δὲ Εφραιμ πονηρὸν πνεῦμα ἐδίωξεν καύσωνα ὅλην τὴν ἡμέραν κενὰ καὶ μάταια ἐπλήθυνεν καὶ διαθήκην μετὰ Ἀσσυρίων διέθετο καὶ ἔλαιον εἰς Αἴγυπτον ἐνεπορεύετο.",
+     "giguet": "Éphraïm a poursuivi un vent funeste qui a fait durer tout le jour l'ardente chaleur&nbsp;; il a multiplié les vanités et les folies&nbsp;; il a fait alliance avec les Assyriens&nbsp;; il a vendu de l'huile en Égypte.",
+     "alexandrie": "Mais Ephraïm, esprit mauvais, a poursuivi le vent brûlant toute la journée. Il a multiplié les choses vides et vaines, avec les Assyriens a conclu une alliance, et en Égypte importait de l’huile.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ κρίσις τῷ κυρίῳ πρὸς Ιουδαν τοῦ ἐκδικῆσαι τὸν Ιακωβ κατὰ τὰς ὁδοὺς αὐτοῦ καὶ κατὰ τὰ ἐπιτηδεύματα αὐτοῦ ἀνταποδώσει αὐτῷ.",
+     "giguet": "Et le Seigneur entrera en jugement avec Juda, afin de punir Jacob&nbsp;; et Il le rétribuera selon ses voies et ses œuvres.",
+     "alexandrie": "Et il y a jugement pour le Seigneur contre Juda, pour tirer vengeance de Jacob selon ses chemins, et selon ses mœurs il lui rendra son dû.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἐν τῇ κοιλίᾳ ἐπτέρνισεν τὸν ἀδελφὸν αὐτοῦ καὶ ἐν κόποις αὐτοῦ ἐνίσχυσεν πρὸς θεὸν.",
+     "giguet": "Dans les entrailles de sa mère, il supplanta son frère, et, de ses travaux, il fut fort contre Dieu.",
+     "alexandrie": "Dans le ventre il saisit le talon de son frère, et dans ses souffrances il fut fort contre Dieu.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἐνίσχυσεν μετὰ ἀγγέλου καὶ ἠδυνάσθη ἔκλαυσαν καὶ ἐδεήθησάν μου ἐν τῷ οἴκῳ Ων εὕροσάν με καὶ ἐκεῖ ἐλαλήθη πρὸς αὐτόν.",
+     "giguet": "Il fut fort avec un ange, et il prévalut&nbsp;; et ils pleurèrent, et ils me prièrent, ils me trouvèrent en la maison d'On&nbsp;; et là il leur fut parlé.",
+     "alexandrie": "Et il fut fort avec un ange et l’emporta. Ils ont pleuré et m’ont prié, dans la maison de On ils m’ont trouvé et là on lui a parlé.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ὁ δὲ κύριος ὁ θεὸς ὁ παντοκράτωρ ἔσται μνημόσυνον αὐτοῦ.",
+     "giguet": "Et le Seigneur Dieu Tout-Puissant sera son mémorial.",
+     "alexandrie": "Mais le Seigneur, le Dieu Tout-Puissant, sera son mémorial.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ σὺ ἐν θεῷ σου ἐπιστρέψεις ἔλεον καὶ κρίμα φυλάσσου καὶ ἔγγιζε πρὸς τὸν θεόν σου διὰ παντός.",
+     "giguet": "Et toi, Éphraïm, tu te convertiras à ton Dieu&nbsp;; garde donc sa miséricorde et sa justice, et approche-toi toujours de ton Dieu.",
+     "alexandrie": "Et toi, par ton Dieu tu te retourneras, observe pitié et jugement et approche-toi de ton Dieu, toujours.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "Χανααν ἐν χειρὶ αὐτοῦ ζυγὸς ἀδικίας καταδυναστεύειν ἠγάπησε.",
+     "giguet": "Chanaan tient dans sa main une balance d'iniquité&nbsp;; il a aimé à opprimer avec violence.",
+     "alexandrie": "Canaan, dans sa main une balance d’injustice, a aimé opprimer.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ εἶπεν Εφραιμ πλὴν πεπλούτηκα εὕρηκα ἀναψυχὴν ἐμαυτῷ πάντες οἱ πόνοι αὐτοῦ οὐχ εὑρεθήσονται αὐτῷ δι' ἀδικίας ἃς ἥμαρτεν.",
+     "giguet": "Et Éphraïm a dit&nbsp;: Cependant je me suis enrichi, je me suis acquis le repos. Mais aucun de ses labeurs ne lui sera compté, à cause des injustices qu'il a commises.",
+     "alexandrie": "Et Ephraïm a dit&nbsp;: «&nbsp;Au moins je me suis enrichi, j’ai trouvé un répit pour moi-même.&nbsp;» Aucun de ses efforts ne lui profitera à cause des injustices par lesquelles il a péché.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἐγὼ δὲ κύριος ὁ θεός σου ἀνήγαγόν σε ἐκ γῆς Αἰγύπτου ἔτι κατοικιῶ σε ἐν σκηναῖς καθὼς ἡμέρᾳ ἑορτῆς.",
+     "giguet": "Moi, le Seigneur ton Dieu, je t'ai fait sortir de l'Égypte&nbsp;; je te ferai encore camper sous des tentes, comme dans les jours de fête.",
+     "alexandrie": "Mais moi, le Seigneur ton Dieu, je t’ai fait monter du pays d’Egypte&nbsp;: «&nbsp;Je te ferai encore habiter dans des tentes comme en un jour de fête,",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ λαλήσω πρὸς προφήτας καὶ ἐγὼ ὁράσεις ἐπλήθυνα καὶ ἐν χερσὶν προφητῶν ὡμοιώθην.",
+     "giguet": "J'ai parlé aux prophètes, et j'ai multiplié les visions, et j'ai parlé par la bouche des prophètes.",
+     "alexandrie": "et je parlerai à des prophètes.&nbsp;» Et moi j’ai multiplié les visions, et par la main de prophètes j’ai fait l’objet de comparaisons.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "εἰ μὴ Γαλααδ ἔστιν ἄρα ψευδεῖς ἦσαν ἐν Γαλγαλ ἄρχοντες θυσιάζοντες καὶ τὰ θυσιαστήρια αὐτῶν ὡς χελῶναι ἐπὶ χέρσον ἀγροῦ.",
+     "giguet": "Si Galaad n'est plus, c'est qu'il y avait en Galaad des princes menteurs faisant des sacrifices, et leurs autels sont comme des amas de pierres dans un champ.",
+     "alexandrie": "Si Galaad ne l’est pas, il y avait donc des menteurs à Galgal, des chefs qui sacrifiaient, et leurs autels comme des tortues dans un champ sec.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ἀνεχώρησεν Ιακωβ εἰς πεδίον Συρίας καὶ ἐδούλευσεν Ισραηλ ἐν γυναικὶ καὶ ἐν γυναικὶ ἐφυλάξατο.",
+     "giguet": "Et Jacob se retira en Syrie, et Israël servit pour une femme, et pour une femme il garda les troupeaux.",
+     "alexandrie": "Et Jacob se retira dans la plaine de Syrie, et Israël fut esclave pour une femme, et pour une femme fut gardien.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐν προφήτῃ ἀνήγαγεν κύριος τὸν Ισραηλ ἐξ Αἰγύπτου καὶ ἐν προφήτῃ διεφυλάχθη.",
+     "giguet": "Et par son prophète le Seigneur conduisit Israël hors de la terre d'Égypte, et c'est encore par son prophète qu'Il le sauva.",
+     "alexandrie": "Et par un prophète le Seigneur a fait monter Israël d’Égypte, et par un prophète il a été bien gardé.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ἐθύμωσεν Εφραιμ καὶ παρώργισεν καὶ τὸ αἷμα αὐτοῦ ἐπ' αὐτὸν ἐκχυθήσεται καὶ τὸν ὀνειδισμὸν αὐτοῦ ἀνταποδώσει αὐτῷ κύριος.",
+     "giguet": "Et Éphraïm le provoqua et souleva sa colère; mais le sang versé par Éphraïm retombera sur sa tête, et le Seigneur le rétribuera selon son opprobre.",
+     "alexandrie": "Éphraïm a provoqué la colère et l’exaspération et son sang se déversera sur lui, et le Seigneur lui rendra son outrage.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 13,
+   "libelle": "13",
+   "fichierToc": "HOS/013.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "κατὰ τὸν λόγον Εφραιμ δικαιώματα αὐτὸς ἔλαβεν ἐν τῷ Ισραηλ καὶ ἔθετο αὐτὰ τῇ Βααλ καὶ ἀπέθανεν.",
+     "giguet": "À la parole de Jéroboam, Éphraïm a pris lui-même des commandements en Israël et les a mis devant Baal, et Éphraïm est mort.",
+     "alexandrie": "Selon la parole d’Éphraïm il a lui-même reçu des règles de droit en Israël, il les a déposées pour la Baal et il est mort.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ προσέθετο τοῦ ἁμαρτάνειν ἔτι καὶ ἐποίησαν ἑαυτοῖς χώνευμα ἐκ τοῦ ἀργυρίου αὐτῶν κατ' εἰκόνα εἰδώλων ἔργα τεκτόνων συντετελεσμένα αὐτοῖς αὐτοὶ λέγουσιν θύσατε ἀνθρώπους μόσχοι γὰρ ἐκλελοίπασιν.",
+     "giguet": "Et maintenant ils continuent de pécher, et ils se sont fait de leur argent des statues en fonte à l'image des idoles, œuvres accomplies d'un artiste&nbsp;; et ils se disent entre eux&nbsp;: Sacrifiez des hommes, car il y a disette de bœufs&nbsp;!",
+     "alexandrie": "Et ils ont continué à pécher et se sont fait un objet en métal fondu de leur argent, selon une image d’idoles, ouvrages d artisans achevés par eux. Eux disent&nbsp;: «&nbsp;Sacrifiez des hommes car les taurillons manquent.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "διὰ τοῦτο ἔσονται ὡς νεφέλη πρωινὴ καὶ ὡς δρόσος ὀρθρινὴ πορευομένη ὥσπερ χνοῦς ἀποφυσώμενος ἀφ' ἅλωνος καὶ ὡς ἀτμὶς ἀπὸ ἀκρίδων.",
+     "giguet": "À cause de cela, ils seront comme le nuage du matin, comme la rosée qui vient à l'aurore, comme la poudre que le vent emporte hors de l'aire, comme une vapeur de sauterelles.",
+     "alexandrie": "C’est pourquoi ils seront comme nuée matinale et comme rosée aurorale qui s’en va, comme baie s’envolant loin de l’aire et comme vapeur, loin des sauterelles.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἐγὼ δὲ κύριος ὁ θεός σου στερεῶν οὐρανὸν καὶ κτίζων γῆν οὗ αἱ χεῖρες ἔκτισαν πᾶσαν τὴν στρατιὰν τοῦ οὐρανοῦ καὶ οὐ παρέδειξά σοι αὐτὰ τοῦ πορεύεσθαι ὀπίσω αὐτῶν καὶ ἐγὼ ἀνήγαγόν σε ἐκ γῆς Αἰγύπτου καὶ θεὸν πλὴν ἐμοῦ οὐ γνώσῃ καὶ σῴζων οὐκ ἔστιν πάρεξ ἐμοῦ.",
+     "giguet": "Moi, le Seigneur ton Dieu, qui ai affermi le ciel&nbsp;; moi, le Créateur de la terre, moi, dont les mains ont créé toute l'armée céleste, je ne t'ai point montré ces créatures pour que tu chemines après elles&nbsp;; c'est moi qui t'ai délivré de la terre d'Égypte, et tu ne connaîtras point d'autre Dieu que moi, et nul autre que moi ne sauve.",
+     "alexandrie": "Mais moi, le Seigneur ton Dieu, qui affermis le ciel et crée la terre, dont les mains ont créé toute l’armée du ciel&nbsp;; eh bien, je ne t’ai pas montré ces choses pour aller derrière elles. Et moi je t’ai fait monter du pays d’Egypte&nbsp;: «&nbsp;Et de Dieu en dehors de moi tu ne connaîtras pas, et de sauveur il n’en est pas à part moi.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ἐγὼ ἐποίμαινόν σε ἐν τῇ ἐρήμῳ ἐν γῇ ἀοικήτῳ.",
+     "giguet": "J'ai été ton pasteur dans le désert, en une terre inhabitée",
+     "alexandrie": "C’est moi qui te faisais paître dans le désert, dans un pays inhabité, le long de leurs pâturages.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "κατὰ τὰς νομὰς αὐτῶν καὶ ἐνεπλήσθησαν εἰς πλησμονήν καὶ ὑψώθησαν αἱ καρδίαι αὐτῶν ἕνεκα τούτου ἐπελάθοντό μου.",
+     "giguet": "Et sans pâturages&nbsp;; et ils s'y sont rassasiés et remplis, et leurs cœurs se sont enorgueillis, et à cause de cela ils m'ont oublié.",
+     "alexandrie": "Et ils se sont rassasiés à satiété et leurs cœurs se sont élevés, à cause de cela ils m’ont oublié.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἔσομαι αὐτοῖς ὡς πανθὴρ καὶ ὡς πάρδαλις κατὰ τὴν ὁδὸν Ἀσσυρίων.",
+     "giguet": "Et je serai pour eux comme une panthère et comme un léopard, sur la route de l'Assyrie.",
+     "alexandrie": "Et je serai pour eux comme une panthère et comme un léopard, le long du chemin des Assyriens.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἀπαντήσομαι αὐτοῖς ὡς ἄρκος ἀπορουμένη καὶ διαρρήξω συγκλεισμὸν καρδίας αὐτῶν καὶ καταφάγονται αὐτοὺς ἐκεῖ σκύμνοι δρυμοῦ θηρία ἀγροῦ διασπάσει αὐτούς.",
+     "giguet": "J'accourrai au-devant d'eux comme une ourse affamée, et je briserai l'enveloppe de leurs cœurs, et les lionceaux de la forêt les dévoreront, et les bête fauves les mettront en lambeaux.",
+     "alexandrie": "J’irai à leur rencontre comme un ours acculé, je fendrai l’enfermement de leur cœur&nbsp;; et les lionceaux du fourré les dévoreront là, les bêtes des champs les mettront en pièces.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "τῇ διαφθορᾷ σου Ισραηλ τίς βοηθήσει.",
+     "giguet": "En ta destruction, ô Israël, qui te portera secours&nbsp;?",
+     "alexandrie": "À ta corruption, Israël, qui portera secours&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ποῦ ὁ βασιλεύς σου οὗτος καὶ διασωσάτω σε ἐν πάσαις ταῖς πόλεσίν σου κρινάτω σε ὃν εἶπας δός μοι βασιλέα καὶ ἄρχοντα.",
+     "giguet": "Où est celui-là&nbsp;? Est-ce ton roi&nbsp;? Qu'il te sauve en toutes tes villes&nbsp;; qu'il te juge celui à qui tu as dit&nbsp;: Donne-moi un roi et un prince&nbsp;!",
+     "alexandrie": "Où est ce roi qui est le tien&nbsp;? Alors, qu’il te sauve dans toutes tes villes&nbsp;; qu’il te juge, celui dont tu as dit&nbsp;: «&nbsp;Donne-moi un roi et un chef.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἔδωκά σοι βασιλέα ἐν ὀργῇ μου καὶ ἔσχον ἐν τῷ θυμῷ μου.",
+     "giguet": "Je t'ai donné un roi dans ma colère, et je t'ai traité dans mon courroux.",
+     "alexandrie": "Et je t’ai donné un roi dans ma rage, et ils ont eu dans ma colère un complot d’injustice.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "συστροφὴν ἀδικίας Εφραιμ ἐγκεκρυμμένη ἡ ἁμαρτία αὐτοῦ.",
+     "giguet": "Éphraïm a fait un complot d'iniquité&nbsp;; son impiété a été cachée.",
+     "alexandrie": "Éphraïm, enfoui est son péché.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ὠδῖνες ὡς τικτούσης ἥξουσιν αὐτῷ οὗτος ὁ υἱός σου οὐ φρόνιμος διότι οὐ μὴ ὑποστῇ ἐν συντριβῇ τέκνων.",
+     "giguet": "Les douleurs de la femme qui enfante lui viendront. celui-là est ton fils, le Sage, parce qu'il ne se tiendra pas immobile pendant le massacre de tes enfants.",
+     "alexandrie": "Des douleurs lui arriveront comme celles d’une femme qui enfante. Ce fils n’est pas avisé car il ne subsistera pas dans la ruine des enfants.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἐκ χειρὸς ᾅδου ῥύσομαι αὐτοὺς καὶ ἐκ θανάτου λυτρώσομαι αὐτούς ποῦ ἡ δίκη σου θάνατε ποῦ τὸ κέντρον σου ᾅδη παράκλησις κέκρυπται ἀπὸ ὀφθαλμῶν μου.",
+     "giguet": "Je les tirerai de l'enfer, dira-t-il; je les affranchirai tous de la mort. Ô mort, où est ta sentence&nbsp;? Enfer, où est ton aiguillon&nbsp;? Mais cette consolation est cachée à mes yeux.",
+     "alexandrie": "De la main de l’Hadès je les délivrerai et de la mort je les rachèterai. Où est ta sentence, Mort&nbsp;? où ton aiguillon, Hadès&nbsp;? Le réconfort est caché loin de mes yeux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "διότι οὗτος ἀνὰ μέσον ἀδελφῶν διαστελεῖ ἐπάξει ἄνεμον καύσωνα κύριος ἐκ τῆς ἐρήμου ἐπ' αὐτόν καὶ ἀναξηρανεῖ τὰς φλέβας αὐτοῦ ἐξερημώσει τὰς πηγὰς αὐτοῦ αὐτὸς καταξηρανεῖ τὴν γῆν αὐτοῦ καὶ πάντα τὰ σκεύη τὰ ἐπιθυμητὰ αὐτοῦ.",
+     "giguet": "Et quand l'enfer sèmera la division entre les frères, le Seigneur enverra contre lui un vent brûlant du désert, et Il desséchera les veines de la mort, et Il tarira ses sources&nbsp;; Lui-même fera de ses champs une terre aride, et enlèvera ses vases les plus précieux.",
+     "alexandrie": "Car celui-ci au milieu des frères fera une distinction&nbsp;; le Seigneur fera venir un vent brûlant depuis le désert contre lui, desséchera ses fontaines et désolera ses sources, lui-même asséchera sa terre et tous les objets de son désir.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 14,
+   "libelle": "14",
+   "fichierToc": "HOS/014.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἀφανισθήσεται Σαμάρεια ὅτι ἀντέστη πρὸς τὸν θεὸν αὐτῆς ἐν ῥομφαίᾳ πεσοῦνται αὐτοί καὶ τὰ ὑποτίτθια αὐτῶν ἐδαφισθήσονται καὶ αἱ ἐν γαστρὶ ἔχουσαι αὐτῶν διαρραγήσονται.",
+     "giguet": "Samarie sera détruite, parce qu'elle s'est révoltée contre son Dieu. Ils périront par le glaive&nbsp;; tous ses enfants à la mamelle seront écrasés à terre, et les femmes enceintes seront déchirées.",
+     "alexandrie": "Samarie sera détruite car elle s’est dressée contre son Dieu, par l’épée eux tomberont, leurs nourrissons seront écrasés et leurs femmes enceintes éventrées.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἐπιστράφητι Ισραηλ πρὸς κύριον τὸν θεόν σου διότι ἠσθένησας ἐν ταῖς ἀδικίαις σου.",
+     "giguet": "Israël, reviens à ton Dieu&nbsp;; car tes fils s'énervent, à cause de tes iniquités.",
+     "alexandrie": "Retourne, Israël, vers le Seigneur ton Dieu car tu as été affaibli dans tes injustices.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "λάβετε μεθ' ἑαυτῶν λόγους καὶ ἐπιστράφητε πρὸς κύριον τὸν θεὸν ὑμῶν εἴπατε αὐτῷ ὅπως μὴ λάβητε ἀδικίαν καὶ λάβητε ἀγαθά καὶ ἀνταποδώσομεν καρπὸν χειλέων ἡμῶν.",
+     "giguet": "Prenez avec vous de bonnes paroles, et convertissez-vous au Seigneur votre Dieu&nbsp;: dites-Lui que vous renoncez aux récompenses de l'iniquité pour choisir le bien&nbsp;; dites-Lui&nbsp;: Nous t'offrons les fruits de nos lèvres&nbsp;!",
+     "alexandrie": "Prenez avec vous des paroles et retournez vers le Seigneur votre Dieu. Dites-lui, afin de ne pas recevoir de l’injustice et de recevoir de bonnes choses&nbsp;: «&nbsp;Et nous rendrons le fruit de nos lèvres.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "Ασσουρ οὐ μὴ σώσῃ ἡμᾶς ἐφ' ἵππον οὐκ ἀναβησόμεθα οὐκέτι μὴ εἴπωμεν θεοὶ ἡμῶν τοῖς ἔργοις τῶν χειρῶν ἡμῶν ὁ ἐν σοὶ ἐλεήσει ὀρφανόν.",
+     "giguet": "Assur ne nous sauvera pas&nbsp;; nous ne monterons plus à cheval&nbsp;; nous ne dirons plus aux œuvres de nos mains&nbsp;: Vous êtes nos dieux&nbsp;; celui qui est en toi, Seigneur, aura pitié de l'orphelin&nbsp;!",
+     "alexandrie": "Assur ne nous sauvera pas, sur un cheval nous ne monterons pas&nbsp;; jamais plus nous ne dirons “Nos dieux” aux ouvrages de nos mains. Celui qui est en toi aura pitié de l’orphelin.&nbsp;»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "ἰάσομαι τὰς κατοικίας αὐτῶν ἀγαπήσω αὐτοὺς ὁμολόγως ὅτι ἀπέστρεψεν ἡ ὀργή μου ἀπ' αὐτῶν.",
+     "giguet": "Le Seigneur a dit&nbsp;: je restaurerai leurs demeures, je les aimerai manifestement, parce qu'ils ont détourné d'eux ma colère.",
+     "alexandrie": "Je guérirai leurs habitations, je les aimerai ouvertement car ma rage s’est détournée d’eux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἔσομαι ὡς δρόσος τῷ Ισραηλ ἀνθήσει ὡς κρίνον καὶ βαλεῖ τὰς ῥίζας αὐτοῦ ὡς ὁ Λίβανος.",
+     "giguet": "Je serai pour Israël comme la rosée&nbsp;; il fleurira comme le lis, et il jettera ses racines comme le cèdre du Liban.",
+     "alexandrie": "Je serai comme la rosée pour Israël, il fleurira comme le lys et jettera ses racines comme l’arbre à encens.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "πορεύσονται οἱ κλάδοι αὐτοῦ καὶ ἔσται ὡς ἐλαία κατάκαρπος καὶ ἡ ὀσφρασία αὐτοῦ ὡς Λιβάνου.",
+     "giguet": "Ses rameaux s'étendront&nbsp;; il sera chargé de fruits comme un olivier, et il répandra ses parfum comme l'encens.",
+     "alexandrie": "Ses branches s’avanceront, il sera comme un olivier ployant sous les fruits et ses effluves seront comme ceux de l’encens.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἐπιστρέψουσιν καὶ καθιοῦνται ὑπὸ τὴν σκέπην αὐτοῦ ζήσονται καὶ μεθυσθήσονται σίτῳ καὶ ἐξανθήσει ὡς ἄμπελος τὸ μνημόσυνον αὐτοῦ ὡς οἶνος Λιβάνου.",
+     "giguet": "Les peuples se convertiront et viendront s'asseoir sous son ombre&nbsp;; ils vivront et se rassasieront de son pain&nbsp;; et son mémorial fleurira comme une vigne, comme le vin du Liban",
+     "alexandrie": "Ils retourneront et s’assiéront sous son abri, ils vivront et s’enivreront de blé, et son mémorial comme une vigne se couvrira de fleurs, comme le vin du Liban.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "τῷ Εφραιμ τί αὐτῷ ἔτι καὶ εἰδώλοις ἐγὼ ἐταπείνωσα αὐτόν καὶ ἐγὼ κατισχύσω αὐτόν ἐγὼ ὡς ἄρκευθος πυκάζουσα ἐξ ἐμοῦ ὁ καρπός σου εὕρηται.",
+     "giguet": "En Éphraïm, qu''y a-t-il encore de commun entre lui et les idoles&nbsp;? je l'ai humilié, et je rétablirai ses forces. Je suis comme un genièvre touffu&nbsp;; c'est de moi que viennent tes fruits.",
+     "alexandrie": "Éphraïm, qu’y a-t-il encore entre lui et les idoles&nbsp;? C’est moi qui l’ai humilié et c’est moi qui le rendrai fort. Je suis comme un genévrier touffu, c’est venant de moi que ton fruit a été trouvé.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "τίς σοφὸς καὶ συνήσει ταῦτα ἢ συνετὸς καὶ ἐπιγνώσεται αὐτά διότι εὐθεῖαι αἱ ὁδοὶ τοῦ κυρίου καὶ δίκαιοι πορεύσονται ἐν αὐταῖς οἱ δὲ ἀσεβεῖς ἀσθενήσουσιν ἐν αὐταῖς.",
+     "giguet": "Qui est sage et comprendra ces choses&nbsp;? Qui est savant et les connaîtra&nbsp;? Les voies du Seigneur sont étroites&nbsp;; les justes y marchent, les impies y trébucheront.",
+     "alexandrie": "Qui est sage et en aura l’intelligence&nbsp;? Qui est intelligent et le reconnaîtra&nbsp;? Car droits sont les chemins du Seigneur et les justes y marcheront, mais les impies y seront affaiblis.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  }
+ ]
+}

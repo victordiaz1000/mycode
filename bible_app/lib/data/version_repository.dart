@@ -26,6 +26,24 @@ class BookNotDownloaded implements Exception {
   String toString() => message;
 }
 
+/// Le livre n'existe pas dans le canon de la version — pas un téléchargement
+/// manquant : il n'y a rien à télécharger.
+///
+/// Sous-classe de [BookNotDownloaded] exprès : chaque écran qui sait gérer
+/// « pas encore téléchargé » (lecteur, comparateur, recherche) comprend aussi
+/// ce cas sans code supplémentaire — seul le libellé change, et il doit
+/// changer : « Terminez le téléchargement » serait faux pour un livre que la
+/// version ne contient jamais. Le seul cas actuel est SEF, dont le canon
+/// s'arrête à l'Ancien Testament.
+class BookNotInVersion extends BookNotDownloaded {
+  const BookNotInVersion(super.code, super.bymIndex);
+
+  @override
+  String get message =>
+      '${catalogEntry(bymIndex).shortName} n\'existe pas en $code '
+      '(Ancien Testament uniquement).';
+}
+
 /// Lit un livre dans la version active : la BYM embarquée via
 /// [LocalRepository], une version téléchargée via [LibraryStore].
 ///
@@ -77,6 +95,14 @@ class VersionRepository {
     final cached = _cache[key];
     if (cached != null) return cached;
 
+    // Hors canon de la version : lever « pas téléchargé » laisserait croire à
+    // un téléchargement possible (Bibliothèque, reprise) alors que le livre
+    // n'existe pas dans cette version — SEF s'arrête à Malachie.
+    final entry = versionByCode(code);
+    if (entry != null && !entry.containsBook(bymIndex)) {
+      throw BookNotInVersion(code, bymIndex);
+    }
+
     final raw = await _store.loadBook(code, bymIndex);
     if (raw == null) throw BookNotDownloaded(code, bymIndex);
 
@@ -84,9 +110,11 @@ class VersionRepository {
     // schéma il porte. La BYM embarquée les confondait, étant seule à porter le
     // format riche ; une version au format BYM servie d'ailleurs les sépare.
     // Défaut prudent : format inconnu → getbible, le schéma le plus pauvre.
-    final book = versionByCode(code)?.format == VersionFormat.bym
-        ? BibleBook.fromJson(raw, number: bymIndex)
-        : bookFromGetbible(raw, bymIndex: bymIndex);
+    final book = switch (entry?.format ?? VersionFormat.getbible) {
+      VersionFormat.bym => BibleBook.fromJson(raw, number: bymIndex),
+      VersionFormat.sef => bookFromSef(raw, bymIndex: bymIndex),
+      _ => bookFromGetbible(raw, bymIndex: bymIndex),
+    };
     _cache[key] = book;
     return book;
   }
@@ -140,6 +168,68 @@ class VersionRepository {
 BibleBook bookFromGetbible(
   Map<String, dynamic> json, {
   required int bymIndex,
+}) =>
+    _bookFromChapters(
+      json,
+      bymIndex: bymIndex,
+      buildVerse: (chapter, raw) {
+        final text = (raw['text'] as String? ?? '').trim();
+        if (text.isEmpty) return null;
+        // `textWithNotes` = le texte nu : les notes et le lexique viennent des
+        // fichiers BYM, une traduction téléchargée n'en a aucune.
+        return Verse(
+          verse: '$chapter:${_asInt(raw['verse'])}',
+          text: text,
+          textWithNotes: text,
+        );
+      },
+    );
+
+/// Convertit un livre SEF (Septuaginta) vers le modèle de l'application.
+///
+/// Schéma d'entrée : celui de getbible enrichi — `verses[].text` porte le
+/// français affiché (Giguet), `grec` la ligne grecque affichée au-dessus,
+/// `alexandrie` la seconde traduction quand elle existe, `notes` les pieds de
+/// page (liste de chaînes, sans ancrage mot — à distinguer des `notes`
+/// ancrées de la BYM) et `section` le titre de section de la source.
+///
+/// Un verset sans français comme sans grec est ignoré ; un verset sans
+/// français garde sa ligne grecque, seule à l'écran (trous du corpus bleu :
+/// Jérémie, Esdras, 1 Rois…).
+BibleBook bookFromSef(
+  Map<String, dynamic> json, {
+  required int bymIndex,
+}) =>
+    _bookFromChapters(
+      json,
+      bymIndex: bymIndex,
+      buildVerse: (chapter, raw) {
+        final text = (raw['text'] as String? ?? '').trim();
+        final grec = (raw['grec'] as String? ?? '').trim();
+        if (text.isEmpty && grec.isEmpty) return null;
+        final notes = [
+          for (final n in raw['notes'] as List<dynamic>? ?? const [])
+            if (n is String && n.trim().isNotEmpty) n.trim(),
+        ];
+        final section = (raw['section'] as String? ?? '').trim();
+        return Verse(
+          verse: '$chapter:${_asInt(raw['verse'])}',
+          text: text,
+          textWithNotes: text,
+          grec: grec.isEmpty ? null : grec,
+          note: notes.isEmpty ? null : '• ${notes.join('\n• ')}',
+          section: section.isEmpty ? null : section,
+        );
+      },
+    );
+
+/// Le corps commun des parseurs de versions téléchargées : chapitres triés,
+/// versets construits par [buildVerse] (`null` = verset ignoré), nom de livre
+/// pris au catalogue BYM — la version fournit le texte, pas le vocabulaire.
+BibleBook _bookFromChapters(
+  Map<String, dynamic> json, {
+  required int bymIndex,
+  required Verse? Function(int chapter, Map raw) buildVerse,
 }) {
   final entry = catalogEntry(bymIndex);
   final chapters = <Chapter>[];
@@ -151,15 +241,8 @@ BibleBook bookFromGetbible(
 
     for (final rawVerse in rawChapter['verses'] as List<dynamic>? ?? const []) {
       if (rawVerse is! Map) continue;
-      final text = (rawVerse['text'] as String? ?? '').trim();
-      if (text.isEmpty) continue;
-      // `textWithNotes` = le texte nu : les notes et le lexique viennent des
-      // fichiers BYM, une traduction téléchargée n'en a aucune.
-      verses.add(Verse(
-        verse: '$number:${_asInt(rawVerse['verse'])}',
-        text: text,
-        textWithNotes: text,
-      ));
+      final verse = buildVerse(number, rawVerse);
+      if (verse != null) verses.add(verse);
     }
     chapters.add(Chapter(chapter: number, verses: verses));
   }

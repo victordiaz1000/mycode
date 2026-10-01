@@ -23,12 +23,23 @@ class Verse {
   final String textWithNotes;
   final List<VerseNote> notes;
 
+  /// Greek source line of a Septuagint version (SEF), rendered above the
+  /// translation. Null on every other version.
+  final String? grec;
+
+  /// Footnotes the version attaches to this verse without anchoring them to a
+  /// word (SEF: the source's `•` footnote paragraphs, unlike [notes] which
+  /// are word-anchored). Rendered as a small line under the verse.
+  final String? note;
+
   const Verse({
     required this.verse,
     this.section,
     required this.text,
     required this.textWithNotes,
     this.notes = const [],
+    this.grec,
+    this.note,
   });
 
   factory Verse.fromJson(Map<String, dynamic> json) => Verse(
@@ -39,6 +50,8 @@ class Verse {
         notes: (json['notes'] as List<dynamic>? ?? [])
             .map((e) => VerseNote.fromJson(e as Map<String, dynamic>))
             .toList(),
+        grec: json['grec'] as String?,
+        note: json['note'] as String?,
       );
 
   /// Position (1-based) of this verse within its chapter.

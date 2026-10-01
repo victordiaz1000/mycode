@@ -112,7 +112,7 @@ void main() {
     await openVersionSheet(tester, 'BYM');
 
     expect(find.text('Bible Darby'), findsNothing);
-    expect(find.text('13 autres versions à télécharger'), findsOneWidget,
+    expect(find.text('14 autres versions à télécharger'), findsOneWidget,
         reason: 'the Bibliothèque holds the rest');
     expect(inBar('BYM'), findsOneWidget, reason: 'the pill does not move');
   });

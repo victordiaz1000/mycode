@@ -1,0 +1,2146 @@
+{
+ "code": "TOB",
+ "book": "Tobie",
+ "fichiersToc": [
+  "TOB/001.html",
+  "TOB/002.html",
+  "TOB/003.html",
+  "TOB/004.html",
+  "TOB/005.html",
+  "TOB/006.html",
+  "TOB/007.html",
+  "TOB/008.html",
+  "TOB/009.html",
+  "TOB/010.html",
+  "TOB/011.html",
+  "TOB/012.html",
+  "TOB/013.html",
+  "TOB/014.html"
+ ],
+ "chapitres": [
+  {
+   "chapitre": 1,
+   "libelle": "1",
+   "fichierToc": "TOB/001.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "βίβλος λόγων Τωβιτ τοῦ Τωβιηλ τοῦ Ανανιηλ τοῦ Αδουηλ τοῦ Γαβαηλ ἐκ τοῦ σπέρματος Ασιηλ ἐκ τῆς φυλῆς Νεφθαλιμ.",
+     "giguet": "Livre des paroles de Tobit, fils de Tobiel, fils d'Ananiel, fils d'Aduel, fils de Gabaël, de la race d'Asiel, de la tribu de Nephthali,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὃς ᾐχμαλωτεύθη ἐν ἡμέραις Ενεμεσσαρου τοῦ βασιλέως Ἀσσυρίων ἐκ Θισβης ἥ ἐστιν ἐκ δεξιῶν Κυδιως τῆς Νεφθαλιμ ἐν τῇ Γαλιλαίᾳ ὑπεράνω Ασηρ.",
+     "giguet": "Qui fut emmené captif, du temps d'Enemessar, roi d'Assyrie&nbsp;; de Thisbès qui est à droite de Cydios en Nephthali, dans la Galilée, au-dessus d'Aser.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἐγὼ Τωβιτ ὁδοῖς ἀληθείας ἐπορευόμην καὶ δικαιοσύνης πάσας τὰς ἡμέρας τῆς ζωῆς μου καὶ ἐλεημοσύνας πολλὰς ἐποίησα τοῖς ἀδελφοῖς μου καὶ τῷ ἔθνει τοῖς συμπορευθεῖσιν μετ' ἐμοῦ εἰς χώραν Ἀσσυρίων εἰς Νινευη.",
+     "giguet": "Moi, Tobit, j'ai marché dans les voies de la vérité et de la justice, tous les jours de ma vie, et j'ai fait beaucoup d'aumônes à mes frères et à mon peuple, partis avec moi pour Ninive en Assyrie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ὅτε ἤμην ἐν τῇ χώρᾳ μου ἐν τῇ γῇ Ισραηλ νεωτέρου μου ὄντος πᾶσα φυλὴ τοῦ Νεφθαλιμ τοῦ πατρός μου ἀπέστη ἀπὸ τοῦ οἴκου Ιεροσολύμων τῆς ἐκλεγείσης ἀπὸ πασῶν τῶν φυλῶν Ισραηλ εἰς τὸ θυσιάζειν πάσας τὰς φυλάς καὶ ἡγιάσθη ὁ ναὸς τῆς κατασκηνώσεως τοῦ ὑψίστου καὶ ᾠκοδομήθη εἰς πάσας τὰς γενεὰς τοῦ αἰῶνος.",
+     "giguet": "Et lorsque j'étais dans mon pays en la terre d'Israël, enfant encore, tout Nephthali, la tribu de mon père, se sépara du temple de Jérusalem, ville choisie entre toutes les tribus d'Israël, pour que toutes y vinssent sacrifier. Or, le temple où résidait le Très-Haut avait été sanctifié, et il avait été bâti pour toutes les générations, à jamais.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ πᾶσαι αἱ φυλαὶ αἱ συναποστᾶσαι ἔθυον τῇ Βααλ τῇ δαμάλει καὶ ὁ οἶκος Νεφθαλιμ τοῦ πατρός μου.",
+     "giguet": "Et toutes les tribus qui s'en étaient séparées sacrifiaient à Baal et à la génisse&nbsp;; et Nephthali, la tribu de mon père, aussi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "κἀγὼ μόνος ἐπορευόμην πλεονάκις εἰς Ιεροσόλυμα ἐν ταῖς ἑορταῖς καθὼς γέγραπται παντὶ τῷ Ισραηλ ἐν προστάγματι αἰωνίῳ τὰς ἀπαρχὰς καὶ τὰς δεκάτας τῶν γενημάτων καὶ τὰς πρωτοκουρίας ἔχων.",
+     "giguet": "Et moi seul j'allai bien des fois à Jérusalem les jours de fête, selon qu'il est écrit pour tout le peuple en la loi éternelle, portant avec moi les prémices et les dîmes des fruits de mes champs et la première tonte de mes agneaux&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ἐδίδουν αὐτὰς τοῖς ἱερεῦσιν τοῖς υἱοῖς Ααρων πρὸς τὸ θυσιαστήριον πάντων τῶν γενημάτων τὴν δεκάτην ἐδίδουν τοῖς υἱοῖς Λευι τοῖς θεραπεύουσιν ἐν Ιερουσαλημ καὶ τὴν δευτέραν δεκάτην ἀπεπρατιζόμην καὶ ἐπορευόμην καὶ ἐδαπάνων αὐτὰ ἐν Ιεροσολύμοις καθ' ἕκαστον ἐνιαυτόν.",
+     "giguet": "Et je les donnais aux prêtres, fils d'Aaron, devant l'autel. De tous mes produits, je donnais la dîme aux fils de Lévi, employés à Jérusalem&nbsp;; et je vendais la seconde dîme, et je m'en allais, et j'en dépensais le prix à Jérusalem tous les ans,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ τὴν τρίτην ἐδίδουν οἷς καθήκει καθὼς ἐνετείλατο Δεββωρα ἡ μήτηρ τοῦ πατρός μου διότι ὀρφανὸς κατελείφθην ὑπὸ τοῦ πατρός μου.",
+     "giguet": "Et je donnais la troisième dîme à qui je devais la donner, pour obéir aux ordres de Débora, mère de mon père&nbsp;; car mon père m'avait laissé orphelin.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ ὅτε ἐγενόμην ἀνήρ ἔλαβον Ανναν γυναῖκα ἐκ τοῦ σπέρματος τῆς πατριᾶς ἡμῶν καὶ ἐγέννησα ἐξ αὐτῆς Τωβιαν.",
+     "giguet": "Et quand je fus un homme, j'épousai Anne, de la tribu de mon père, et j'eus d'elle Tobie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ ὅτε ᾐχμαλωτίσθην εἰς Νινευη πάντες οἱ ἀδελφοί μου καὶ οἱ ἐκ τοῦ γένους μου ἤσθιον ἐκ τῶν ἄρτων τῶν ἐθνῶν.",
+     "giguet": "Et lorsque je fus emmené captif à Ninive, tous mes frères, et ceux de ma race, mangeaient de tous les aliments des gentils&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἐγὼ δὲ συνετήρησα τὴν ψυχήν μου μὴ φαγεῖν.",
+     "giguet": "Et moi je gardais mon âme pour n'en point manger,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καθότι ἐμεμνήμην τοῦ θεοῦ ἐν ὅλῃ τῇ ψυχῇ μου.",
+     "giguet": "Me souvenant de Dieu de toute mon âme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ἔδωκεν ὁ ὕψιστος χάριν καὶ μορφὴν ἐνώπιον Ενεμεσσαρου καὶ ἤμην αὐτοῦ ἀγοραστής.",
+     "giguet": "Et le Très-Haut me donna grâce et beauté devant Enemessar, et je fus pourvoyeur de sa maison.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐπορευόμην εἰς τὴν Μηδίαν καὶ παρεθέμην Γαβαήλῳ τῷ ἀδελφῷ Γαβρια ἐν Ραγοις τῆς Μηδίας ἀργυρίου τάλαντα δέκα.",
+     "giguet": "Et j'allai en Médie, et je déposai dix talents d'argent entre les mains de Gabaël, frère de Gabrias, à Ragès en Médie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ὅτε ἀπέθανεν Ενεμεσσαρος ἐβασίλευσεν Σενναχηριμ ὁ υἱὸς αὐτοῦ ἀντ' αὐτοῦ καὶ αἱ ὁδοὶ αὐτοῦ ἠκαταστάτησαν καὶ οὐκέτι ἠδυνάσθην πορευθῆναι εἰς τὴν Μηδίαν.",
+     "giguet": "Et lorsque Enemessar mourut, Sennachérib, son fils, régna à sa place&nbsp;; et ses voies furent mauvaises, et je ne pus continuer d'aller en Médie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ ἐν ταῖς ἡμέραις Ενεμεσσαρου ἐλεημοσύνας πολλὰς ἐποίουν τοῖς ἀδελφοῖς μου.",
+     "giguet": "Et, du temps d'Enemessar, j'avais fait beaucoup d'aumônes à mes frères&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "τοὺς ἄρτους μου ἐδίδουν τοῖς πεινῶσιν καὶ τὰ ἱμάτιά μου τοῖς γυμνοῖς καὶ εἴ τινα ἐκ τοῦ γένους μου ἐθεώρουν τεθνηκότα καὶ ἐρριμμένον ὀπίσω τοῦ τείχους Νινευη ἔθαπτον αὐτόν.",
+     "giguet": "J'avais donné de mes pains aux affamés, de mes vêtements aux nus, et, si je voyais le cadavre de l'un de mes frères gisant derrière les murailles de Ninive, je l'ensevelissais.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ εἴ τινα ἀπέκτεινεν Σενναχηριμ ὁ βασιλεύς ὅτε ἦλθεν φεύγων ἐκ τῆς Ιουδαίας ἔθαψα αὐτοὺς κλέπτων πολλοὺς γὰρ ἀπέκτεινεν ἐν τῷ θυμῷ αὐτοῦ καὶ ἐζητήθη ὑπὸ τοῦ βασιλέως τὰ σώματα καὶ οὐχ εὑρέθη.",
+     "giguet": "Et si Sennachérib, après qu'il fut revenu de la Judée en fugitif, faisait périr l'un d'eux, je l'ensevelissais à la dérobée. Car, dans sa fureur, il en tua beaucoup&nbsp;; et lorsque le roi fit chercher leurs corps, on ne les trouva plus.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "πορευθεὶς δὲ εἷς τῶν ἐν Νινευη ὑπέδειξε τῷ βασιλεῖ περὶ ἐμοῦ ὅτι θάπτω αὐτούς καὶ ἐκρύβην ἐπιγνοὺς δὲ ὅτι ζητοῦμαι ἀποθανεῖν φοβηθεὶς ἀνεχώρησα.",
+     "giguet": "Et l'un de ceux de Ninive s'en alla dénoncer au roi que c'était moi qui les inhumais, et je me cachai&nbsp;; mais ayant appris que l'on me cherchait pour me mettre à mort, j'eus peur, et je m'éloignai.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ διηρπάγη πάντα τὰ ὑπάρχοντά μου καὶ οὐ κατελείφθη μοι οὐδὲν πλὴν Αννας τῆς γυναικός μου καὶ Τωβιου τοῦ υἱοῦ μου.",
+     "giguet": "Et tous mes biens furent pillés, et il ne me resta rien que ma femme Anne et mon fils Tobie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ οὐ διῆλθον ἡμέραι πεντήκοντα ἕως οὗ ἀπέκτειναν αὐτὸν οἱ δύο υἱοὶ αὐτοῦ καὶ ἔφυγον εἰς τὰ ὄρη Αραρατ καὶ ἐβασίλευσεν Σαχερδονος ὁ υἱὸς αὐτοῦ ἀντ' αὐτοῦ καὶ ἔταξεν Αχιαχαρον τὸν Αναηλ υἱὸν τοῦ ἀδελφοῦ μου ἐπὶ πᾶσαν τὴν ἐκλογιστίαν τῆς βασιλείας αὐτοῦ καὶ ἐπὶ πᾶσαν τὴν διοίκησιν.",
+     "giguet": "Or, cinquante jours n'étaient point passés, que deux de ses fils le tuèrent, et ils se réfugièrent au mont Ararat&nbsp;; et Sacherdon, son fils, régna à sa place, et il mit à la tête des finances royales Achiachare, fils de mon oncle Anaël, et à la tête de toutes ses affaires.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ ἠξίωσεν Αχιαχαρος περὶ ἐμοῦ καὶ ἦλθον εἰς Νινευη Αχιαχαρος δὲ ἦν ὁ οἰνοχόος καὶ ἐπὶ τοῦ δακτυλίου καὶ διοικητὴς καὶ ἐκλογιστής καὶ κατέστησεν αὐτὸν ὁ Σαχερδονος ἐκ δευτέρας ἦν δὲ ἐξάδελφός μου.",
+     "giguet": "Et Achiachare réclama en ma faveur, et je revins à Ninive. Or, Achiachare était échanson, garde du scel royal, intendant et maître des comptes&nbsp;; et il avait la seconde place du royaume, et il était mon cousin germain.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 2,
+   "libelle": "2",
+   "fichierToc": "TOB/002.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ὅτε δὲ κατῆλθον εἰς τὸν οἶκόν μου καὶ ἀπεδόθη μοι Αννα ἡ γυνή μου καὶ Τωβιας ὁ υἱός μου ἐν τῇ πεντηκοστῇ τῇ ἑορτῇ ἥ ἐστιν ἁγία ἑπτὰ ἑβδομάδων ἐγενήθη ἄριστον καλόν μοι καὶ ἀνέπεσα τοῦ φαγεῖν.",
+     "giguet": "Après mon retour à ma maison, quand ma femme Anne et mon fils Tobie m'eurent été rendus, vint la fête du cinquantième jour, qui est sanctifié à la fin des sept semaines, et il y eut chez moi un beau festin, et je me mis à table.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ἐθεασάμην ὄψα πολλὰ καὶ εἶπα τῷ υἱῷ μου βάδισον καὶ ἄγαγε ὃν ἐὰν εὕρῃς τῶν ἀδελφῶν ἡμῶν ἐνδεῆ ὃς μέμνηται τοῦ κυρίου καὶ ἰδοὺ μενῶ σε.",
+     "giguet": "Et, apercevant quantité d'aliments, je dis à mon fils&nbsp;: Va, et amène-moi le premier de nos frères indigents que tu pourras trouver, pourvu qu'il se souvienne du Seigneur&nbsp;; tu vois, je t'attends.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἐλθὼν εἶπεν πάτερ εἷς ἐκ τοῦ γένους ἡμῶν ἐστραγγαλωμένος ἔρριπται ἐν τῇ ἀγορᾷ.",
+     "giguet": "Et il rentra, et il dit&nbsp;: Père, un homme de notre peuple gît étranglé sur la place.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "κἀγὼ πρὶν ἢ γεύσασθαί με ἀναπηδήσας ἀνειλόμην αὐτὸν εἴς τι οἴκημα ἕως οὗ ἔδυ ὁ ἥλιος.",
+     "giguet": "Et moi, avant de goûter de rien, je ne fis qu'un saut, et je l'emportai dans la maison pour le garder jusqu'au coucher du soleil.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἐπιστρέψας ἐλουσάμην καὶ ἤσθιον τὸν ἄρτον μου ἐν λύπῃ.",
+     "giguet": "Après cela, je me lavai, et je pris mon repas dans la tristesse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἐμνήσθην τῆς προφητείας Αμως καθὼς εἶπεν στραφήσονται αἱ ἑορταὶ ὑμῶν εἰς πένθος καὶ πᾶσαι αἱ εὐφροσύναι ὑμῶν εἰς θρῆνον καὶ ἔκλαυσα.",
+     "giguet": "Et je me souvins de la prophétie d'Amos, lorsqu'il a dit&nbsp;: Vos fêtes se changeront en deuil, et toutes vos joies en lamentations.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ὅτε ἔδυ ὁ ἥλιος ᾠχόμην καὶ ὀρύξας ἔθαψα αὐτόν.",
+     "giguet": "Et je pleurai, et, lorsque le soleil fut couché, je m'en allai creuser une fosse, et j'inhumai mon frère.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ οἱ πλησίον ἐπεγέλων λέγοντες οὐκέτι φοβεῖται φονευθῆναι περὶ τοῦ πράγματος τούτου καὶ ἀπέδρα καὶ ἰδοὺ πάλιν θάπτει τοὺς νεκρούς.",
+     "giguet": "Et mes voisins me raillèrent, disant&nbsp;: Il ne craint donc plus d'être mis à mort pour ce sujet&nbsp;? il s'est déjà enfui, et le voilà qui se remet à ensevelir les morts.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ ἐν αὐτῇ τῇ νυκτὶ ἀνέλυσα θάψας καὶ ἐκοιμήθην μεμιαμμένος παρὰ τὸν τοῖχον τῆς αὐλῆς καὶ τὸ πρόσωπόν μου ἀκάλυπτον ἦν.",
+     "giguet": "Et cette nuit même, quand j'eus achevé la sépulture, comme j'étais souillé, je me couchai contre le mur de ma cour&nbsp;; or, j'avais le visage découvert&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ οὐκ ᾔδειν ὅτι στρουθία ἐν τῷ τοίχῳ ἐστίν καὶ τῶν ὀφθαλμῶν μου ἀνεῳγότων ἀφώδευσαν τὰ στρουθία θερμὸν εἰς τοὺς ὀφθαλμούς μου καὶ ἐγενήθη λευκώματα εἰς τοὺς ὀφθαλμούς μου καὶ ἐπορεύθην πρὸς ἰατρούς καὶ οὐκ ὠφέλησάν με Αχιαχαρος δὲ ἔτρεφέν με ἕως οὗ ἐπορεύθη εἰς τὴν Ἐλυμαΐδα.",
+     "giguet": "Et je ne savais pas qu'il y eût des passereaux dans le mur&nbsp;; et, comme mes yeux étaient ouverts, les passereaux firent tomber sur mes yeux leur fiente chaude, et il me vint des taies aux yeux&nbsp;; et j'allai aux médecins, et ils ne me servirent de rien, et Achiachare me nourrit jusqu'à ce que je partisse pour l'Elymaïs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἡ γυνή μου Αννα ἠριθεύετο ἐν τοῖς γυναικείοις.",
+     "giguet": "Cependant, ma femme Anne alla travailler la laine dans les gynécées.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ἀπέστελλε τοῖς κυρίοις καὶ ἀπέδωκαν αὐτῇ καὶ αὐτοὶ τὸν μισθὸν προσδόντες καὶ ἔριφον.",
+     "giguet": "Et elle envoya son travail aux maîtres qui, en retour, lui donnèrent un salaire, auquel ils ajoutèrent un chevreau.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ὅτε δὲ ἦλθεν πρός με ἤρξατο κράζειν καὶ εἶπα αὐτῇ πόθεν τὸ ἐρίφιον μὴ κλεψιμαῖόν ἐστιν ἀπόδος αὐτὸ τοῖς κυρίοις οὐ γὰρ θεμιτόν ἐστιν φαγεῖν κλεψιμαῖον.",
+     "giguet": "Or, lorsqu'elle revint vers moi, il se mit à crier, et je lui dis&nbsp;: D'où vient ce chevreau&nbsp;? N'est-il pas volé&nbsp;? Rends-le à ses maîtres, car il n'est pas juste de manger ce que l'on dérobe.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἡ δὲ εἶπεν δῶρον δέδοταί μοι ἐπὶ τῷ μισθῷ καὶ οὐκ ἐπίστευον αὐτῇ καὶ ἔλεγον ἀποδιδόναι αὐτὸ τοῖς κυρίοις καὶ ἠρυθρίων πρὸς αὐτήν ἡ δὲ ἀποκριθεῖσα εἶπέν μοι ποῦ εἰσιν αἱ ἐλεημοσύναι σου καὶ αἱ δικαιοσύναι σου ἰδοὺ γνωστὰ πάντα μετὰ σοῦ.",
+     "giguet": "Et elle répondit&nbsp;: On me l'a donné outre mon salaire. Et je ne la crus pas, et je lui dis de le reporter aux maîtres, et je rougis d'elle. Et elle reprit&nbsp;: Où sont tes aumônes et tes œuvres de justice&nbsp;? Comme elles se révèlent toutes en toi&nbsp;!",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 3,
+   "libelle": "3",
+   "fichierToc": "TOB/003.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ λυπηθεὶς ἔκλαυσα καὶ προσευξάμην μετ' ὀδύνης λέγων.",
+     "giguet": "Et, le cœur contristé, je versai des larmes, et je priai dans ma douleur, disant&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "δίκαιος εἶ κύριε καὶ πάντα τὰ ἔργα σου καὶ πᾶσαι αἱ ὁδοί σου ἐλεημοσύναι καὶ ἀλήθεια καὶ κρίσιν ἀληθινὴν καὶ δικαίαν σὺ κρίνεις εἰς τὸν αἰῶνα.",
+     "giguet": "Vous êtes juste, ô Seigneur&nbsp;; toutes vos voies, toutes vos œuvres sont miséricorde et vérité&nbsp;; et vous jugez avec vérité et justice dans tous les siècles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "μνήσθητί μου καὶ ἐπίβλεψον ἐπ' ἐμέ μή με ἐκδικήσῃς ταῖς ἁμαρτίαις μου καὶ τοῖς ἀγνοήμασίν μου καὶ τῶν πατέρων μου ἃ ἥμαρτον ἐνώπιόν σου.",
+     "giguet": "Souvenez-vous de moi, jetez sur moi vos regards&nbsp;; ne me punissez pas de mes péchés, ni de mes inadvertances, ni des péchés que mes pères ont commis devant vous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "παρήκουσαν γὰρ τῶν ἐντολῶν σου ἔδωκας ἡμᾶς εἰς διαρπαγὴν καὶ αἰχμαλωσίαν καὶ θάνατον καὶ παραβολὴν ὀνειδισμοῦ πᾶσιν τοῖς ἔθνεσιν ἐν οἷς ἐσκορπίσμεθα.",
+     "giguet": "Car ils ont désobéi à vos commandements, et vous nous avez livrés au pillage, à la captivité, à la mort, et nous sommes la fable et le jouet de toutes les nations chez qui vous nous avez dispersés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ νῦν πολλαὶ αἱ κρίσεις σού εἰσιν ἀληθιναὶ ἐξ ἐμοῦ ποιῆσαι περὶ τῶν ἁμαρτιῶν μου καὶ τῶν πατέρων μου ὅτι οὐκ ἐποιήσαμεν τὰς ἐντολάς σου οὐ γὰρ ἐπορεύθημεν ἐν ἀληθείᾳ ἐνώπιόν σου.",
+     "giguet": "Mais vos jugements sont nombreux et irréprochables&nbsp;; ils peuvent me traiter selon mes péchés et ceux de mes pères, parce que nous n'avions point été fidèles à votre loi, et que nous n'avions point marché devant vous dans la vérité.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ νῦν κατὰ τὸ ἀρεστὸν ἐνώπιόν σου ποίησον μετ' ἐμοῦ ἐπίταξον ἀναλαβεῖν τὸ πνεῦμά μου ὅπως ἀπολυθῶ καὶ γένωμαι γῆ διότι λυσιτελεῖ μοι ἀποθανεῖν ἢ ζῆν ὅτι ὀνειδισμοὺς ψευδεῖς ἤκουσα καὶ λύπη ἐστὶν πολλὴ ἐν ἐμοί ἐπίταξον ἀπολυθῆναί με τῆς ἀνάγκης ἤδη εἰς τὸν αἰώνιον τόπον μὴ ἀποστρέψῃς τὸ πρόσωπόν σου ἀπ' ἐμοῦ.",
+     "giguet": "Faites donc de moi ce que bon vous semble&nbsp;; ordonnez que le souffle me soit ôté, que je sois affranchi, que je devienne terre&nbsp;; car, mieux vaut pour moi mourir que vivre, puisque j'ai subi d'injustes reproches et qu'il est en moi une grande tristesse&nbsp;; ordonnez donc que dès maintenant je sois délivré de mes maux pour entrer dans le lieu éternel&nbsp;; ne détournez point de moi votre face.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἐν τῇ αὐτῇ ἡμέρᾳ συνέβη τῇ θυγατρὶ Ραγουηλ Σαρρα ἐν Ἐκβατάνοις τῆς Μηδίας καὶ ταύτην ὀνειδισθῆναι ὑπὸ παιδισκῶν πατρὸς αὐτῆς.",
+     "giguet": "Or, ce même jour-là, il advint que Sara, fille de Raguel, d'Ecbatane en Médie, fut outragée par les servantes de son père,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ὅτι ἦν δεδομένη ἀνδράσιν ἑπτά καὶ Ασμοδαυς τὸ πονηρὸν δαιμόνιον ἀπέκτεινεν αὐτοὺς πρὶν ἢ γενέσθαι αὐτοὺς μετ' αὐτῆς ὡς ἐν γυναιξίν καὶ εἶπαν αὐτῇ οὐ συνίεις ἀποπνίγουσά σου τοὺς ἄνδρας ἤδη ἑπτὰ ἔσχες καὶ ἑνὸς αὐτῶν οὐκ ὠνάσθης.",
+     "giguet": "Parce qu'elle avait été mariée à sept hommes, et que le mauvais démon Asmodée les avait tous fait périr avant qu'ils eussent été avec elle comme avec une femme. Et les servantes lui dirent&nbsp;: Ne vois-tu pas que c'est toi qui suffoques ces hommes&nbsp;? Tu en as eu déjà sept, et il n'en est pas un seul dont tu portes le nom.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "τί ἡμᾶς μαστιγοῖς εἰ ἀπέθαναν βάδιζε μετ' αὐτῶν μὴ ἴδοιμέν σου υἱὸν ἢ θυγατέρα εἰς τὸν αἰῶνα.",
+     "giguet": "Pourquoi nous fouettes-tu&nbsp;? Puisqu'ils sont morts, va les rejoindre&nbsp;; que jamais nous ne voyions de toi ni fils ni fille.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ταῦτα ἀκούσασα ἐλυπήθη σφόδρα ὥστε ἀπάγξασθαι καὶ εἶπεν μία μέν εἰμι τῷ πατρί μου ἐὰν ποιήσω τοῦτο ὄνειδος αὐτῷ ἐστιν καὶ τὸ γῆρας αὐτοῦ κατάξω μετ' ὀδύνης εἰς ᾅδου.",
+     "giguet": "A ces paroles, elle ressentit une douleur violente jusqu'à penser à s'étrangler&nbsp;; mais elle dit&nbsp;: Mon père n'a que moi&nbsp;: si je fais cela, je serai son opprobre&nbsp;; et, de tristesse, je conduirai sa vieillesse au tombeau.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἐδεήθη πρὸς τῇ θυρίδι καὶ εἶπεν εὐλογητὸς εἶ κύριε ὁ θεός μου καὶ εὐλογητὸν τὸ ὄνομά σου τὸ ἅγιον καὶ ἔντιμον εἰς τοὺς αἰῶνας εὐλογήσαισάν σε πάντα τὰ ἔργα σου εἰς τὸν αἰῶνα.",
+     "giguet": "Et elle pria devant sa fenêtre, et elle dit&nbsp;: Béni soyez-vous, ô Seigneur mon Dieu&nbsp;; béni soit dans tous les siècles votre nom glorieux et saint&nbsp;; que toutes vos œuvres vous bénissent à jamais.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ νῦν κύριε τοὺς ὀφθαλμούς μου καὶ τὸ πρόσωπόν μου εἰς σὲ δέδωκα.",
+     "giguet": "Et maintenant, Seigneur, je tourne vers vous mes yeux et mon visage.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "εἰπὸν ἀπολῦσαί με ἀπὸ τῆς γῆς καὶ μὴ ἀκοῦσαί με μηκέτι ὀνειδισμόν.",
+     "giguet": "J'ai dit&nbsp;: Délivrez-moi des liens de cette terre&nbsp;; que je n'entende plus de tels outrages.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "σὺ γινώσκεις κύριε ὅτι καθαρά εἰμι ἀπὸ πάσης ἁμαρτίας ἀνδρὸς.",
+     "giguet": "Vous savez, Seigneur, que je suis pure de tout péché avec l'homme,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ οὐκ ἐμόλυνα τὸ ὄνομά μου οὐδὲ τὸ ὄνομα τοῦ πατρός μου ἐν τῇ γῇ τῆς αἰχμαλωσίας μου μονογενής εἰμι τῷ πατρί μου καὶ οὐχ ὑπάρχει αὐτῷ παιδίον ὃ κληρονομήσει αὐτόν οὐδὲ ἀδελφὸς ἐγγὺς οὐδὲ ὑπάρχων αὐτῷ υἱός ἵνα συντηρήσω ἐμαυτὴν αὐτῷ γυναῖκα ἤδη ἀπώλοντό μοι ἑπτά ἵνα τί μοι ζῆν καὶ εἰ μὴ δοκεῖ σοι ἀποκτεῖναί με ἐπίταξον ἐπιβλέψαι ἐπ' ἐμὲ καὶ ἐλεῆσαί με καὶ μηκέτι ἀκοῦσαί με ὀνειδισμόν.",
+     "giguet": "Et que je n'ai point souillé, en cette terre de la captivité, mon nom ni le nom de mon père. Je suis fille unique, et mon père n'a point de fils pour recueillir son héritage, ni de proche parent qui ait un fils auquel je doive me réserver pour être sa femme, et déjà j'ai perdu sept maris. Pourquoi vivrais-je encore&nbsp;? Et s'il ne vous plaît pas de me faire mourir, ordonnez que l'on me considère, que l'on ait compassion de moi, que je n'entende plus de pareils outrages.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ εἰσηκούσθη ἡ προσευχὴ ἀμφοτέρων ἐνώπιον τῆς δόξης τοῦ μεγάλου Ραφαηλ.",
+     "giguet": "Or, les prières de tous les deux furent entendues en même temps devant la gloire du grand Raphaël.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ἀπεστάλη ἰάσασθαι τοὺς δύο τοῦ Τωβιτ λεπίσαι τὰ λευκώματα καὶ Σαρραν τὴν τοῦ Ραγουηλ δοῦναι Τωβια τῷ υἱῷ Τωβιτ γυναῖκα καὶ δῆσαι Ασμοδαυν τὸ πονηρὸν δαιμόνιον διότι Τωβια ἐπιβάλλει κληρονομῆσαι αὐτήν ἐν αὐτῷ τῷ καιρῷ ἐπιστρέψας Τωβιτ εἰσῆλθεν εἰς τὸν οἶκον αὐτοῦ καὶ Σαρρα ἡ τοῦ Ραγουηλ κατέβη ἐκ τοῦ ὑπερῴου αὐτῆς.",
+     "giguet": "Et il fut envoyé pour guérir les deux affligés&nbsp;: pour enlever les taies de Tobit, pour donner en mariage à Tobie, fils de Tobit, Sara, fille de Raguel, et pour enchaîner Asmodée le mauvais démon&nbsp;; car c'est à Tobie qu'elle devait appartenir. Au même instant Tobit entra dans sa maison&nbsp;; et Sara, fille de Raguel, descendit de sa chambre à coucher.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 4,
+   "libelle": "4",
+   "fichierToc": "TOB/004.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ἐν τῇ ἡμέρᾳ ἐκείνῃ ἐμνήσθη Τωβιτ περὶ τοῦ ἀργυρίου οὗ παρέθετο Γαβαηλ ἐν Ῥάγοις τῆς Μηδίας.",
+     "giguet": "En ces jours-là, Tobit se souvint de l'argent qu'il avait déposé chez Gabaël, à Ragès en Médie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ εἶπεν ἐν ἑαυτῷ ἐγὼ ᾐτησάμην θάνατον τί οὐ καλῶ Τωβιαν τὸν υἱόν μου ἵνα αὐτῷ ὑποδείξω πρὶν ἀποθανεῖν με.",
+     "giguet": "Et il se dit&nbsp;: J'ai demandé la mort&nbsp;: pourquoi ne pas appeler mon fils Tobie, afin, qu'avant de mourir, je lui prescrive ce qu'il aura à faire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ καλέσας αὐτὸν εἶπεν παιδίον ἐὰν ἀποθάνω θάψον με καὶ μὴ ὑπερίδῃς τὴν μητέρα σου τίμα αὐτὴν πάσας τὰς ἡμέρας τῆς ζωῆς σου καὶ ποίει τὸ ἀρεστὸν αὐτῇ καὶ μὴ λυπήσῃς αὐτήν.",
+     "giguet": "Et, l'ayant appelé, il lui dit&nbsp;: Mon enfant, si je meurs, ensevelis-moi, et ne méprise pas ta mère&nbsp;: honore-la tous les jours de ta vie, fais ce qui lui sera agréable, et garde-toi de l'affliger.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "μνήσθητι παιδίον ὅτι πολλοὺς κινδύνους ἑόρακεν ἐπὶ σοὶ ἐν τῇ κοιλίᾳ ὅταν ἀποθάνῃ θάψον αὐτὴν παρ' ἐμοὶ ἐν ἑνὶ τάφῳ.",
+     "giguet": "N'oublie pas, mon enfant, les nombreux dangers qu'elle a courus, à cause de toi, quand tu étais dans ses entrailles&nbsp;; lorsqu'elle mourra, ensevelis-la, à mes côtés, dans le même sépulcre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "πάσας τὰς ἡμέρας παιδίον κυρίου τοῦ θεοῦ ἡμῶν μνημόνευε καὶ μὴ θελήσῃς ἁμαρτάνειν καὶ παραβῆναι τὰς ἐντολὰς αὐτοῦ δικαιοσύνην ποίει πάσας τὰς ἡμέρας τῆς ζωῆς σου καὶ μὴ πορευθῇς ταῖς ὁδοῖς τῆς ἀδικίας.",
+     "giguet": "Tous les jours, mon enfant, souviens-toi du Seigneur ton Dieu, ne consens pas à pécher ni à transgresser ses commandent. Fais la justice toute la vie, et ne marche jamais dans les voies de l'iniquité.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "διότι ποιοῦντός σου τὴν ἀλήθειαν εὐοδίαι ἔσονται ἐν τοῖς ἔργοις σου.",
+     "giguet": "Car, si tu fais la vérité, le succès s'en suivra en tous tes travaux, comme il advient à tous ceux qui font la justice.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ πᾶσι τοῖς ποιοῦσι τὴν δικαιοσύνην ἐκ τῶν ὑπαρχόντων σοι ποίει ἐλεημοσύνην καὶ μὴ φθονεσάτω σου ὁ ὀφθαλμὸς ἐν τῷ ποιεῖν σε ἐλεημοσύνην μὴ ἀποστρέψῃς τὸ πρόσωπόν σου ἀπὸ παντὸς πτωχοῦ καὶ ἀπὸ σοῦ οὐ μὴ ἀποστραφῇ τὸ πρόσωπον τοῦ θεοῦ.",
+     "giguet": "Donne en aumône une part de tes biens, et que ton œil ne te porte pas envie lorsque tu feras l'aumône. Ne détourne pas ton visage du mendiant, et le visage de Dieu ne se détournera pas de toi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ὡς σοὶ ὑπάρχει κατὰ τὸ πλῆθος ποίησον ἐξ αὐτῶν ἐλεημοσύνην ἐὰν ὀλίγον σοι ὑπάρχῃ κατὰ τὸ ὀλίγον μὴ φοβοῦ ποιεῖν ἐλεημοσύνην.",
+     "giguet": "Si tu as abondance de richesses, fais l'aumône en conséquence&nbsp;; si tu possèdes peu, ne crains pas de donner en aumône une part de ce peu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "θέμα γὰρ ἀγαθὸν θησαυρίζεις σεαυτῷ εἰς ἡμέραν ἀνάγκης.",
+     "giguet": "Ainsi, tu t'amasseras un trésor précieux pour le jour de la nécessité.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "διότι ἐλεημοσύνη ἐκ θανάτου ῥύεται καὶ οὐκ ἐᾷ εἰσελθεῖν εἰς τὸ σκότος.",
+     "giguet": "Car l'aumône délivre de la mort&nbsp;; elle empêche qu'on n'entre dans les ténèbres.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "δῶρον γὰρ ἀγαθόν ἐστιν ἐλεημοσύνη πᾶσι τοῖς ποιοῦσιν αὐτὴν ἐνώπιον τοῦ ὑψίστου.",
+     "giguet": "L'aumône est un précieux présent devant le Très-Haut, pour tous ceux qui la font.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "πρόσεχε σεαυτῷ παιδίον ἀπὸ πάσης πορνείας καὶ γυναῖκα πρῶτον λαβὲ ἀπὸ τοῦ σπέρματος τῶν πατέρων σου μὴ λάβῃς γυναῖκα ἀλλοτρίαν ἣ οὐκ ἔστιν ἐκ τῆς φυλῆς τοῦ πατρός σου διότι υἱοὶ προφητῶν ἐσμεν Νωε Αβρααμ Ισαακ Ιακωβ οἱ πατέρες ἡμῶν ἀπὸ τοῦ αἰῶνος μνήσθητι παιδίον ὅτι οὗτοι πάντες ἔλαβον γυναῖκας ἐκ τῶν ἀδελφῶν αὐτῶν καὶ εὐλογήθησαν ἐν τοῖς τέκνοις αὐτῶν καὶ τὸ σπέρμα αὐτῶν κληρονομήσει γῆν.",
+     "giguet": "Veille, mon enfant, sur toi-même pour ne t'adonner à aucune prostitution&nbsp;; et, d'abord, prends femme en la race de tes pères&nbsp;; n'épouse pas une femme étrangère qui ne serait pas de la tribu de ton père, car nous sommes fils des prophètes&nbsp;; Noé, Abraham, Isaac, sont nos premiers pères. N'oublie pas, mon enfant, qu'ils ont toujours pris femme parmi leurs frères&nbsp;; aussi, ils ont été bénis en leurs enfants, et leur postérité héritera de la terre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ νῦν παιδίον ἀγάπα τοὺς ἀδελφούς σου καὶ μὴ ὑπερηφανεύου τῇ καρδίᾳ σου ἀπὸ τῶν ἀδελφῶν σου καὶ τῶν υἱῶν καὶ θυγατέρων τοῦ λαοῦ σου λαβεῖν σεαυτῷ ἐξ αὐτῶν γυναῖκα διότι ἐν τῇ ὑπερηφανίᾳ ἀπώλεια καὶ ἀκαταστασία πολλή καὶ ἐν τῇ ἀχρειότητι ἐλάττωσις καὶ ἔνδεια μεγάλη ἡ γὰρ ἀχρειότης μήτηρ ἐστὶν τοῦ λιμοῦ.",
+     "giguet": "Maintenant donc, mon enfant, aime tes frères, et ne va pas, dans l'orgueil de ton cœur, te détourner de tes frères, des fils et des filles de ton peuple, et dédaigner de prendre femme chez eux&nbsp;; car l'orgueil entraîne le désordre extrême et la perdition, la vanité entraîne l'abaissement et la grande pénurie, la vanité est la mère de la faim.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "μισθὸς παντὸς ἀνθρώπου ὃς ἐὰν ἐργάσηται παρὰ σοὶ μὴ αὐλισθήτω ἀλλὰ ἀπόδος αὐτῷ παραυτίκα καὶ ἐὰν δουλεύσῃς τῷ θεῷ ἀποδοθήσεταί σοι πρόσεχε σεαυτῷ παιδίον ἐν πᾶσι τοῖς ἔργοις σου καὶ ἴσθι πεπαιδευμένος ἐν πάσῃ ἀναστροφῇ σου.",
+     "giguet": "Que le salaire de l'homme, qui aura travaillé pour toi, ne demeure point chez toi la nuit, donne-le-lui sur-le-champ. Dieu te paiera de même si tu le sers. Veille sur toi-même, mon enfant, dans toutes tes œuvres, et sois discipliné en toutes tes démarches.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ὃ μισεῖς μηδενὶ ποιήσῃς οἶνον εἰς μέθην μὴ πίῃς καὶ μὴ πορευθήτω μετὰ σοῦ μέθη ἐν τῇ ὁδῷ σου.",
+     "giguet": "Et ce que tu hais, ne le fais à personne&nbsp;; ne bois pas de vin jusqu'à t'enivrer, et que jamais l'ivresse ne marche avec toi dans ton chemin.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "ἐκ τοῦ ἄρτου σου δίδου πεινῶντι καὶ ἐκ τῶν ἱματίων σου τοῖς γυμνοῖς πᾶν ὃ ἐὰν περισσεύσῃ σοι ποίει ἐλεημοσύνην καὶ μὴ φθονεσάτω σου ὁ ὀφθαλμὸς ἐν τῷ ποιεῖν σε ἐλεημοσύνην.",
+     "giguet": "Donne de tes mets aux affamés, et de tes vêtements aux nus&nbsp;; donne en aumône tout ton superflu, et que ton œil ne te porte pas envie quand tu feras l'aumône.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ἔκχεον τοὺς ἄρτους σου ἐπὶ τὸν τάφον τῶν δικαίων καὶ μὴ δῷς τοῖς ἁμαρτωλοῖς.",
+     "giguet": "Distribue ton pain sur la tombe des justes, n'en donne pas aux pécheurs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "συμβουλίαν παρὰ παντὸς φρονίμου ζήτησον καὶ μὴ καταφρονήσῃς ἐπὶ πάσης συμβουλίας χρησίμης.",
+     "giguet": "Prends conseil de tout homme sensé, et ne dédaigne aucun avis salutaire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ ἐν παντὶ καιρῷ εὐλόγει κύριον τὸν θεὸν καὶ παρ' αὐτοῦ αἴτησον ὅπως αἱ ὁδοί σου εὐθεῖαι γένωνται καὶ πᾶσαι αἱ τρίβοι καὶ βουλαὶ εὐοδωθῶσιν διότι πᾶν ἔθνος οὐκ ἔχει βουλήν ἀλλὰ αὐτὸς ὁ κύριος δίδωσιν πάντα τὰ ἀγαθὰ καὶ ὃν ἐὰν θέλῃ ταπεινοῖ καθὼς βούλεται καὶ νῦν παιδίον μνημόνευε τῶν ἐντολῶν μου καὶ μὴ ἐξαλειφθήτωσαν ἐκ τῆς καρδίας σου.",
+     "giguet": "En tout temps, bénis le Seigneur Dieu, et demande lui que tes voies soient droites, que tous tes sentiers et toutes tes résolutions te mènent à bien. Car nulle nation ne possède le conseil, et c'est le Seigneur qui donne tous les biens&nbsp;; il humilie qui il veut et comme il veut. Et maintenant, mon enfant, souviens-toi de mes préceptes, et qu'ils ne s'effacent jamais de ton cœur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ νῦν ὑποδεικνύω σοι τὰ δέκα τάλαντα τοῦ ἀργυρίου ἃ παρεθέμην Γαβαήλῳ τῷ τοῦ Γαβρια ἐν Ῥάγοις τῆς Μηδίας.",
+     "giguet": "Je t'indique aujourd'hui les dix talents d'argent que j'ai déposés chez Gabaël, frère de Gabrias, à Ragès en Médie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ μὴ φοβοῦ παιδίον ὅτι ἐπτωχεύσαμεν ὑπάρχει σοι πολλά ἐὰν φοβηθῇς τὸν θεὸν καὶ ἀποστῇς ἀπὸ πάσης ἁμαρτίας καὶ ποιήσῃς τὸ ἀρεστὸν ἐνώπιον αὐτοῦ.",
+     "giguet": "N'aie point crainte, mon enfant, de ce que nous sommes devenus pauvres&nbsp;; tu possèdes beaucoup si tu crains Dieu, si tu te détournes du péché, si tu fais ce qui est agréable au Seigneur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 5,
+   "libelle": "5",
+   "fichierToc": "TOB/005.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἀποκριθεὶς Τωβιας εἶπεν αὐτῷ πάτερ ποιήσω πάντα ὅσα ἐντέταλσαί μοι.",
+     "giguet": "Et Tobie répondit&nbsp;: Père, je ferai tout ce que tu m'as recommandé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἀλλὰ πῶς δυνήσομαι λαβεῖν τὸ ἀργύριον καὶ οὐ γινώσκω αὐτόν.",
+     "giguet": "Mais, comment pourrai-je recevoir l'argent&nbsp;? Je ne connais point l'homme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἔδωκεν αὐτῷ τὸ χειρόγραφον καὶ εἶπεν αὐτῷ ζήτησον σεαυτῷ ἄνθρωπον ὃς συμπορεύσεταί σοι καὶ δώσω αὐτῷ μισθόν ἕως ζῶ καὶ λαβὲ πορευθεὶς τὸ ἀργύριον.",
+     "giguet": "Et son père lui remit la cédule, et il lui dit&nbsp;: Cherche quelqu'un qui t'accompagne, et je lui donnerai un salaire, si je vis encore&nbsp;; et toi, va recevoir l'argent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ἐπορεύθη ζητῆσαι ἄνθρωπον καὶ εὗρεν τὸν Ραφαηλ ὃς ἦν ἄγγελος καὶ οὐκ ᾔδει.",
+     "giguet": "Et il sortit pour chercher un homme, et il trouva Raphaël, qui était un ange. Mais il ne le savait pas.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ εἶπεν αὐτῷ εἰ δύναμαι πορευθῆναι μετὰ σοῦ ἐν Ῥάγοις τῆς Μηδίας καὶ εἰ ἔμπειρος εἶ τῶν τόπων.",
+     "giguet": "Et il lui dit&nbsp;: Puis-je aller avec toi à Ragès en Médie, et connais-tu le pays&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ εἶπεν αὐτῷ ὁ ἄγγελος πορεύσομαι μετὰ σοῦ καὶ τῆς ὁδοῦ ἐμπειρῶ καὶ παρὰ Γαβαηλ τὸν ἀδελφὸν ἡμῶν ηὐλίσθην.",
+     "giguet": "Et l'ange lui répondit&nbsp;: Je partirai avec toi, et je sais le chemin&nbsp;; j'ai même séjourné chez mon frère Raguel.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ εἶπεν αὐτῷ Τωβιας ὑπόμεινόν με καὶ ἐρῶ τῷ πατρί μου.",
+     "giguet": "Et Tobie reprit&nbsp;: Attends-moi, je vais le dire à mon père.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ εἶπεν αὐτῷ πορεύου καὶ μὴ χρονίσῃς.",
+     "giguet": "Et l'ange lui dit&nbsp;: Va, et ne sois pas longtemps.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ εἰσελθὼν εἶπεν τῷ πατρί ἰδοὺ εὕρηκα ὃς συμπορεύσεταί μοι ὁ δὲ εἶπεν φώνησον αὐτὸν πρός με ἵνα ἐπιγνῶ ποίας φυλῆς ἐστιν καὶ εἰ πιστὸς τοῦ πορευθῆναι μετὰ σοῦ.",
+     "giguet": "Et, étant rentré, Tobie dit à son père&nbsp;: Voilà que j'ai trouvé quelqu'un pour venir avec moi. Et Tobit répondit&nbsp;: Appelle-le près de moi, que je sache de quelle tribu il est, et s'il y a sûreté à voyager avec lui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ ἐκάλεσεν αὐτόν καὶ εἰσῆλθεν καὶ ἠσπάσαντο ἀλλήλους.",
+     "giguet": "Et il l'appela, et l'ange entra, et ils se saluèrent mutuellement.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ εἶπεν αὐτῷ Τωβιτ ἄδελφε ἐκ ποίας φυλῆς καὶ ἐκ ποίας πατρίδος σὺ εἶ ὑπόδειξόν μοι.",
+     "giguet": "Et Tobit lui dit&nbsp;: Frère, de quelle tribu et de quelle famille paternelle es-tu&nbsp;? Fais-le-moi connaître.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ εἶπεν αὐτῷ φυλὴν καὶ πατριὰν σὺ ζητεῖς ἢ μίσθιον ὃς συμπορεύσεται μετὰ τοῦ υἱοῦ σου καὶ εἶπεν αὐτῷ Τωβιτ βούλομαι ἄδελφε ἐπιγνῶναι τὸ γένος σου καὶ τὸ ὄνομα.",
+     "giguet": "Et l'ange répondit&nbsp;: Est-ce ma tribu et ma famille que tu demandes, ou bien un serviteur qui aille avec ton fils&nbsp;? Et Tobit reprit&nbsp;: Je désire, frère, connaître ta famille et ton nom.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ὁ δὲ εἶπεν ἐγὼ Αζαριας Ανανιου τοῦ μεγάλου τῶν ἀδελφῶν σου.",
+     "giguet": "Et l'ange dit&nbsp;: Je suis Azarias, fils du grand Ananias, l'un de tes frères.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ εἶπεν αὐτῷ ὑγιαίνων ἔλθοις ἄδελφε καὶ μή μοι ὀργισθῇς ὅτι ἐζήτησα τὴν φυλήν σου καὶ τὴν πατριάν σου ἐπιγνῶναι καὶ σὺ τυγχάνεις ἀδελφός μου ἐκ τῆς καλῆς καὶ ἀγαθῆς γενεᾶς ἐπεγίνωσκον γὰρ ἐγὼ Ανανιαν καὶ Ιαθαν τοὺς υἱοὺς Σεμειου τοῦ μεγάλου ὡς ἐπορευόμεθα κοινῶς εἰς Ιεροσόλυμα προσκυνεῖν ἀναφέροντες τὰ πρωτότοκα καὶ τὰς δεκάτας τῶν γενημάτων καὶ οὐκ ἐπλανήθησαν ἐν τῇ πλάνῃ τῶν ἀδελφῶν ἡμῶν ἐκ ῥίζης καλῆς εἶ ἄδελφε.",
+     "giguet": "Et Tobit dit&nbsp;: Sois le bienvenu, frère, et ne te fâche pas de ce que j'ai demandé à connaître ta tribu et ta famille&nbsp;; il se rencontre que tu es mon frère, et que tu sors d'une belle et bonne maison. Car j'ai connu Ananias et Jonathas, fils de Sémeï le Grand, lorsque nous allions ensemble adorer à Jérusalem, et offrir la dîme de nos récoltes et les premiers-nés de nos troupeaux&nbsp;; ils ne tombaient point dans l'égarement de nos frères&nbsp;; frère, tu es d'une bien bonne souche.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ἀλλ' εἰπόν μοι τίνα σοι ἔσομαι μισθὸν διδόναι δραχμὴν τῆς ἡμέρας καὶ τὰ δέοντά σοι ὡς καὶ τῷ υἱῷ μου.",
+     "giguet": "Mais dis-moi quel salaire j'aurai à te donner&nbsp;? Une drachme par jour, et ce qui sera nécessaire à toi comme à mon fils.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ ἔτι προσθήσω σοι ἐπὶ τὸν μισθόν ἐὰν ὑγιαίνοντες ἐπιστρέψητε.",
+     "giguet": "Et j'ajouterai encore à ta récompense, si vous revenez sains et saufs.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ εὐδόκησαν οὕτως καὶ εἶπεν πρὸς Τωβιαν ἕτοιμος γίνου πρὸς τὴν ὁδόν καὶ εὐοδωθείητε καὶ ἡτοίμασεν ὁ υἱὸς αὐτοῦ τὰ πρὸς τὴν ὁδόν καὶ εἶπεν αὐτῷ ὁ πατὴρ αὐτοῦ πορεύου μετὰ τοῦ ἀνθρώπου ὁ δὲ ἐν τῷ οὐρανῷ οἰκῶν θεὸς εὐοδώσει τὴν ὁδὸν ὑμῶν καὶ ὁ ἄγγελος αὐτοῦ συμπορευθήτω ὑμῖν καὶ ἐξῆλθαν ἀμφότεροι ἀπελθεῖν καὶ ὁ κύων τοῦ παιδαρίου μετ' αὐτῶν.",
+     "giguet": "Et il leur plut ainsi&nbsp;; et Tobit dit à son fils&nbsp;: Dispose-toi à partir, et bon succès. Et Tobie prépara ce qu'il lui fallait pour la route, et son père lui dit&nbsp;: Va avec cet homme, et que Dieu, qui habite le ciel, vous guide en chemin, que son ange vous guide en chemin. Et ils sortirent tous les deux, et le chien du jeune homme le suivit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἔκλαυσεν δὲ Αννα ἡ μήτηρ αὐτοῦ καὶ εἶπεν πρὸς Τωβιτ τί ἐξαπέστειλας τὸ παιδίον ἡμῶν ἢ οὐχὶ ἡ ῥάβδος τῆς χειρὸς ἡμῶν ἐστιν ἐν τῷ εἰσπορεύεσθαι αὐτὸν καὶ ἐκπορεύεσθαι ἐνώπιον ἡμῶν.",
+     "giguet": "Or, Anne, sa mère, pleura, et elle dit à Tobit&nbsp;: Pourquoi as-tu envoyé là notre enfant&nbsp;? N'est-ce point le bâton sur lequel s'appuyaient nos mains, quand il allait et venait devant nous&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "ἀργύριον τῷ ἀργυρίῳ μὴ φθάσαι ἀλλὰ περίψημα τοῦ παιδίου ἡμῶν γένοιτο.",
+     "giguet": "Puisse cet argent ne plus avoir cours&nbsp;; puisse-t-il être changé en l'ordure de notre fils&nbsp;!",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "ὡς γὰρ δέδοται ἡμῖν ζῆν παρὰ τοῦ κυρίου τοῦτο ἱκανὸν ἡμῖν ὑπάρχει.",
+     "giguet": "Ce que le Seigneur nous avait donné pour vivre nous suffisait bien.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ εἶπεν αὐτῇ Τωβιτ μὴ λόγον ἔχε ἀδελφή ὑγιαίνων ἐλεύσεται καὶ οἱ ὀφθαλμοί σου ὄψονται αὐτόν.",
+     "giguet": "Et Tobit lui dit&nbsp;: N'aie pas d'inquiétude, ma sœur, il reviendra sain et sauf, et tes yeux le verront.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "ἄγγελος γὰρ ἀγαθὸς συμπορεύσεται αὐτῷ καὶ εὐοδωθήσεται ἡ ὁδὸς αὐτοῦ καὶ ὑποστρέψει ὑγιαίνων.",
+     "giguet": "Car un bon ange l'accompagne, et son voyage réussira, et il reviendra sain et sauf.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "23",
+     "grec": "καὶ ἐπαύσατο κλαίουσα.",
+     "giguet": "Et elle cessa de pleurer.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 6,
+   "libelle": "6",
+   "fichierToc": "TOB/006.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "οἱ δὲ πορευόμενοι τὴν ὁδὸν ἦλθον ἑσπέρας ἐπὶ τὸν Τίγριν ποταμὸν καὶ ηὐλίζοντο ἐκεῖ.",
+     "giguet": "Et, poursuivant leur route, les voyageurs arrivèrent le soir sur les bords du Tigre, et ils y passèrent la nuit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "τὸ δὲ παιδάριον κατέβη περικλύσασθαι καὶ ἀνεπήδησεν ἰχθὺς ἀπὸ τοῦ ποταμοῦ καὶ ἐβουλήθη καταπιεῖν τὸ παιδάριον.",
+     "giguet": "Or, le jeune homme descendit pour se baigner, et un poisson s'élança hors du fleuve, et il voulut dévorer le jeune homme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ὁ δὲ ἄγγελος εἶπεν αὐτῷ ἐπιλαβοῦ τοῦ ἰχθύος καὶ ἐκράτησεν τὸν ἰχθὺν τὸ παιδάριον καὶ ἀνέβαλεν αὐτὸν ἐπὶ τὴν γῆν.",
+     "giguet": "Mais l'ange lui dit&nbsp;: Saisis-toi du poisson. Et le jeune homme saisit le poisson, et il le jeta sur la rive.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ εἶπεν αὐτῷ ὁ ἄγγελος ἀνάτεμε τὸν ἰχθὺν καὶ λαβὼν τὴν καρδίαν καὶ τὸ ἧπαρ καὶ τὴν χολὴν θὲς ἀσφαλῶς.",
+     "giguet": "Et l'ange lui dit&nbsp;: Ouvre le poisson, prends-en le cœur, le foie et le fiel, et conserve-les avec soin.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἐποίησεν τὸ παιδάριον ὡς εἶπεν αὐτῷ ὁ ἄγγελος τὸν δὲ ἰχθὺν ὀπτήσαντες ἔφαγον.",
+     "giguet": "Et le jeune homme fit ce que lui avait dit l'ange&nbsp;; puis, ayant fait rôtir le poisson, ils en mangèrent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ὥδευον ἀμφότεροι ἕως ἤγγισαν ἐν Ἐκβατάνοις.",
+     "giguet": "Ensuite, ils marchèrent, l'un et l'autre, jusqu'aux portes d'Ecbatane.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ εἶπεν τὸ παιδάριον τῷ ἀγγέλῳ Αζαρια ἄδελφε τί ἐστιν τὸ ἧπαρ καὶ ἡ καρδία καὶ ἡ χολὴ τοῦ ἰχθύος.",
+     "giguet": "Et, en marchant, le jeune homme dit à l'ange&nbsp;: Frère Azarias, à quoi servent le cœur, le foie et le fiel du poisson&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ εἶπεν αὐτῷ ἡ καρδία καὶ τὸ ἧπαρ ἐάν τινα ὀχλῇ δαιμόνιον ἢ πνεῦμα πονηρόν ταῦτα δεῖ καπνίσαι ἐνώπιον ἀνθρώπου ἢ γυναικός καὶ οὐκέτι οὐ μὴ ὀχληθῇ.",
+     "giguet": "Et l'ange répondit&nbsp;: Si quelqu'un, homme ou femme, est tourmenté par un démon ou un malin esprit, il faut brûler le cœur et le foie devant lui, et il ne sera plus tourmenté.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἡ δὲ χολή ἐγχρῖσαι ἄνθρωπον ὃς ἔχει λευκώματα ἐν τοῖς ὀφθαλμοῖς καὶ ἰαθήσεται.",
+     "giguet": "Et si avec le fiel on oint un homme qui a des taies aux yeux, il sera guéri.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ὡς δὲ προσήγγισαν τῇ Ραγη.",
+     "giguet": "Auprès de la ville.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "εἶπεν ὁ ἄγγελος τῷ παιδαρίῳ ἄδελφε σήμερον αὐλισθησόμεθα παρὰ Ραγουηλ καὶ αὐτὸς συγγενής σού ἐστιν καὶ ἔστιν αὐτῷ θυγάτηρ μονογενὴς ὀνόματι Σαρρα.",
+     "giguet": "L'ange dit au jeune homme&nbsp;: Frère, nous passerons cette nuit chez Raguel, qui est de ta famille, et a une fille qu'on appelle Sara.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "λαλήσω περὶ αὐτῆς τοῦ δοθῆναί σοι αὐτὴν εἰς γυναῖκα ὅτι σοὶ ἐπιβάλλει ἡ κληρονομία αὐτῆς καὶ σὺ μόνος εἶ ἐκ τοῦ γένους αὐτῆς καὶ τὸ κοράσιον καλὸν καὶ φρόνιμόν ἐστιν.",
+     "giguet": "Je lui parlerai d'elle, afin qu'il te la donne pour femme&nbsp;; l'héritage de Sara te revient, car tu es le seul de sa famille, et la jeune vierge est belle et prudente.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ νῦν ἄκουσόν μου καὶ λαλήσω τῷ πατρὶ αὐτῆς καὶ ὅταν ὑποστρέψωμεν ἐκ Ῥάγων ποιήσομεν τὸν γάμον διότι ἐπίσταμαι Ραγουηλ ὅτι οὐ μὴ δῷ αὐτὴν ἀνδρὶ ἑτέρῳ κατὰ τὸν νόμον Μωυσῆ ἢ ὀφειλέσει θάνατον ὅτι τὴν κληρονομίαν σοὶ καθήκει λαβεῖν ἢ πάντα ἄνθρωπον.",
+     "giguet": "Suis mon conseil, et je parlerai à son père, et quand nous reviendrons de Ragès nous ferons le mariage. Je sais que Raguel ne la donnera pas à un homme autre que celui que prescrit la loi de Moïse&nbsp;; sinon il exposerait cet homme à la mort, car il t'appartient de recueillir son héritage à l'exclusion de tout autre.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "τότε εἶπεν τὸ παιδάριον τῷ ἀγγέλῳ Αζαρια ἄδελφε ἀκήκοα ἐγὼ τὸ κοράσιον δεδόσθαι ἑπτὰ ἀνδράσιν καὶ πάντας ἐν τῷ νυμφῶνι ἀπολωλότας.",
+     "giguet": "Alors, le jeune homme dit à l'ange&nbsp;: Mon frère Azarias, j'ai ouï dire que la jeune tille a été donnée à sept maris, et que tous sont morts dans la chambre nuptiale.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ νῦν ἐγὼ μόνος εἰμὶ τῷ πατρὶ καὶ φοβοῦμαι μὴ εἰσελθὼν ἀποθάνω καθὼς καὶ οἱ πρότεροι ὅτι δαιμόνιον φιλεῖ αὐτήν ὃ οὐκ ἀδικεῖ οὐδένα πλὴν τῶν προσαγόντων αὐτῇ καὶ νῦν ἐγὼ φοβοῦμαι μὴ ἀποθάνω καὶ κατάξω τὴν ζωὴν τοῦ πατρός μου καὶ τῆς μητρός μου μετ' ὀδύνης ἐπ' ἐμοὶ εἰς τὸν τάφον αὐτῶν καὶ υἱὸς ἕτερος οὐχ ὑπάρχει αὐτοῖς ὃς θάψει αὐτούς.",
+     "giguet": "Or, je suis le seul enfant de mon père, et j'ai peur en l'épousant de mourir comme les premiers&nbsp;; car un démon l'aime, et il ne fait de mal à personne, sinon à ceux qui s'approchent d'elle. Et je crains de périr et de conduire au tombeau dans la tristesse la vie de mon père et de ma mère, et ils n'ont point d'autre fils pour les ensevelir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "εἶπεν δὲ αὐτῷ ὁ ἄγγελος οὐ μέμνησαι τῶν λόγων ὧν ἐνετείλατό σοι ὁ πατήρ σου ὑπὲρ τοῦ λαβεῖν σε γυναῖκα ἐκ τοῦ γένους σου καὶ νῦν ἄκουσόν μου ἄδελφε διότι σοὶ ἔσται εἰς γυναῖκα καὶ τοῦ δαιμονίου μηδένα λόγον ἔχε ὅτι τὴν νύκτα ταύτην δοθήσεταί σοι αὕτη εἰς γυναῖκα.",
+     "giguet": "Et l'ange lui dit&nbsp;: Ne te souviens-tu pas que ton père t'a recommandé de prendre femme en ta famille&nbsp;? Écoute-moi donc, frère, car elle sera ta femme, et ne t'inquiète nullement du démon&nbsp;; cette nuit même elle te sera donnée pour femme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ἐὰν εἰσέλθῃς εἰς τὸν νυμφῶνα λήμψῃ τέφραν θυμιαμάτων καὶ ἐπιθήσεις ἀπὸ τῆς καρδίας καὶ τοῦ ἥπατος τοῦ ἰχθύος καὶ καπνίσεις καὶ ὀσφρανθήσεται τὸ δαιμόνιον καὶ φεύξεται καὶ οὐκ ἐπανελεύσεται τὸν αἰῶνα τοῦ αἰῶνος.",
+     "giguet": "Et quand tu entreras dans la chambre nuptiale, prends le brasier aux parfums&nbsp;: jette, sur la cendre chaude, le cœur et le foie du poisson, et réduis-les en fumée. Et le démon en sentira l'odeur, et il s'enfuira, et il ne reviendra plus dans les siècles des siècles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ὅταν δὲ προσπορεύῃ αὐτῇ ἐγέρθητε ἀμφότεροι καὶ βοήσατε πρὸς τὸν ἐλεήμονα θεόν καὶ σώσει ὑμᾶς καὶ ἐλεήσει μὴ φοβοῦ ὅτι σοὶ αὐτὴ ἡτοιμασμένη ἦν ἀπὸ τοῦ αἰῶνος καὶ σὺ αὐτὴν σώσεις καὶ πορεύσεται μετὰ σοῦ καὶ ὑπολαμβάνω ὅτι σοὶ ἔσται ἐξ αὐτῆς παιδία.",
+     "giguet": "Lorsque tu viendras ensuite auprès de la femme, restez levés tous les deux, et criez au Dieu de miséricorde, et il vous sauvera, et il aura compassion de vous. N'aie point crainte, elle t'est de tout temps destinée, et tu la sauveras, et elle te suivra, et j'espère que tu auras d'elle des enfants.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ ὡς ἤκουσεν Τωβιας ταῦτα ἐφίλησεν αὐτήν καὶ ἡ ψυχὴ αὐτοῦ ἐκολλήθη αὐτῇ σφόδρα.",
+     "giguet": "Et, en entendant ces paroles, Tobie aima Sara, et son cœur s'attacha vivement à elle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 7,
+   "libelle": "7",
+   "fichierToc": "TOB/007.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἦλθον εἰς Ἐκβάτανα καὶ παρεγένοντο εἰς τὴν οἰκίαν Ραγουηλ Σαρρα δὲ ὑπήντησεν αὐτοῖς καὶ ἐχαιρέτισεν αὐτοὺς καὶ αὐτοὶ αὐτήν καὶ εἰσήγαγεν αὐτοὺς εἰς τὴν οἰκίαν.",
+     "giguet": "Et il entra dans Ecbatane, il arriva devant la maison de Raguel, et Sara vint à sa rencontre&nbsp;; elle souhaita le bonjour au jeune homme, et son père à tous les deux&nbsp;; puis, il les introduisit en sa maison.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ εἶπεν Ραγουηλ Εδνα τῇ γυναικὶ αὐτοῦ ὡς ὅμοιος ὁ νεανίσκος Τωβιτ τῷ ἀνεψιῷ μου.",
+     "giguet": "Et Raguel dit à Edna, sa femme&nbsp;: Comme ce jeune homme ressemble à mon cousin Tobit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἠρώτησεν αὐτοὺς Ραγουηλ πόθεν ἐστέ ἀδελφοί καὶ εἶπαν αὐτῷ ἐκ τῶν υἱῶν Νεφθαλι τῶν αἰχμαλώτων ἐν Νινευη.",
+     "giguet": "Et Raguel leur fit cette question&nbsp;: D'où êtes-vous, frères&nbsp;? Et ils lui répondirent&nbsp;: Nous sommes des fils de Nephthali, de ceux qui sont captifs à Ninive.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ εἶπεν αὐτοῖς γινώσκετε Τωβιτ τὸν ἀδελφὸν ἡμῶν οἱ δὲ εἶπαν γινώσκομεν.",
+     "giguet": "Et il reprit&nbsp;: Connaissez-vous mon frère Tobit&nbsp;? Et ils dirent&nbsp;: Nous le connaissons. Et il reprit&nbsp;: Est-il en bonne santé&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ εἶπεν αὐτοῖς ὑγιαίνει οἱ δὲ εἶπαν καὶ ζῇ καὶ ὑγιαίνει καὶ εἶπεν Τωβιας πατήρ μού ἐστιν.",
+     "giguet": "Et ils répondirent&nbsp;: Il vit et se porte bien. Et Tobie ajouta&nbsp;: Il est mon père.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ἀνεπήδησεν Ραγουηλ καὶ κατεφίλησεν αὐτὸν καὶ ἔκλαυσε καὶ εὐλόγησεν αὐτὸν καὶ εἶπεν αὐτῷ ὁ τοῦ καλοῦ καὶ ἀγαθοῦ ἀνθρώπου καὶ ἀκούσας ὅτι Τωβιτ ἀπώλεσεν τοὺς ὀφθαλμοὺς αὐτοῦ ἐλυπήθη καὶ ἔκλαυσεν.",
+     "giguet": "Et il s'élança, et il l'embrassa, et il se prit à pleurer. Et il le bénit, et il s'écria&nbsp;: Ô fils d'un homme honorable et bon. Puis, apprenant que Tobit avait perdu la vue, il fut contristé, et il pleura.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ Εδνα ἡ γυνὴ αὐτοῦ καὶ Σαρρα ἡ θυγάτηρ αὐτοῦ ἔκλαυσαν καὶ ὑπεδέξαντο αὐτοὺς προθύμως.",
+     "giguet": "Et Edna, sa femme, et Sara, sa fille, pleurèrent&nbsp;; ensuite, ils leur firent l'accueil le plus empressé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ ἔθυσαν κριὸν προβάτων καὶ παρέθηκαν ὄψα πλείονα.",
+     "giguet": "Ils sacrifièrent un bélier, et ils servirent des mets en abondance.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "εἶπεν δὲ Τωβιας τῷ Ραφαηλ Αζαρια ἄδελφε λάλησον ὑπὲρ ὧν ἔλεγες ἐν τῇ πορείᾳ καὶ τελεσθήτω τὸ πρᾶγμα.",
+     "giguet": "Et Tobie dit à Raphaël&nbsp;: Frère Azarias, parle à Raguel de ce que tu m'as dit en chemin, et que l'affaire s'accomplisse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ μετέδωκεν τὸν λόγον τῷ Ραγουηλ καὶ εἶπεν Ραγουηλ πρὸς Τωβιαν φάγε καὶ πίε καὶ ἡδέως γίνου σοὶ γὰρ καθήκει τὸ παιδίον μου λαβεῖν πλὴν ὑποδείξω σοι τὴν ἀλήθειαν.",
+     "giguet": "Et Raphaël parla à Raguel, et celui-ci dit à Tobie&nbsp;: Mange et bois, et tiens-toi joyeux. Il t'appartient d'épouser mon enfant&nbsp;; mais je te déclarerai la vérité.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἔδωκα τὸ παιδίον μου ἑπτὰ ἀνδράσιν καὶ ὁπότε ἐὰν εἰσεπορεύοντο πρὸς αὐτήν ἀπεθνῄσκοσαν ὑπὸ τὴν νύκτα ἀλλὰ τὸ νῦν ἔχων ἡδέως γίνου.",
+     "giguet": "J'ai donné ma fille à sept maris, et, lorsqu'ils s'approchèrent d'elle, ils moururent pendant la nuit. Pour le moment, tiens-toi joyeux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ εἶπεν Τωβιας οὐ γεύσομαι οὐδὲν ὧδε ἕως ἂν στήσητε καὶ σταθῆτε πρός με καὶ εἶπεν Ραγουηλ κομίζου αὐτὴν ἀπὸ τοῦ νῦν κατὰ τὴν κρίσιν σὺ δὲ ἀδελφὸς εἶ αὐτῆς καὶ αὐτή σού ἐστιν ὁ δὲ ἐλεήμων θεὸς εὐοδώσει ὑμῖν τὰ κάλλιστα.",
+     "giguet": "Et Tobie reprit&nbsp;: Je ne goûterai de rien que vous ne vous leviez et décidiez en ma faveur. Et Raguel lui dit&nbsp;: Prends-la dès maintenant, comme la loi le veut&nbsp;; tu es son frère, et elle est à toi&nbsp;; le Dieu de miséricorde pour vous mènera tout au mieux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ἐκάλεσεν Σαρραν τὴν θυγατέρα αὐτοῦ καὶ λαβὼν τῆς χειρὸς αὐτῆς παρέδωκεν αὐτὴν τῷ Τωβια γυναῖκα καὶ εἶπεν ἰδοὺ κατὰ τὸν νόμον Μωυσέως κομίζου αὐτὴν καὶ ἄπαγε πρὸς τὸν πατέρα σου καὶ εὐλόγησεν αὐτούς.",
+     "giguet": "Et il appela Sara sa fille, et lui prenant la main il la donna pour femme à Tobie, et il dit&nbsp;: Emmène-la, selon la loi de Moïse, et conduis-la à ton père. Et il les bénit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐκάλεσεν Εδναν τὴν γυναῖκα αὐτοῦ καὶ λαβὼν βιβλίον ἔγραψεν συγγραφήν καὶ ἐσφραγίσαντο καὶ ἤρξαντο ἐσθίειν.",
+     "giguet": "Et il appela Edna sa femme, et prenant un livre il écrivit le contrat, et il y apposa son scel. Et ils commencèrent à manger.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἐκάλεσεν Ραγουηλ Εδναν τὴν γυναῖκα αὐτοῦ καὶ εἶπεν αὐτῇ ἀδελφή ἑτοίμασον τὸ ἕτερον ταμίειον καὶ εἰσάγαγε αὐτήν.",
+     "giguet": "Et Raguel rappela Edna sa femme, et il lui dit&nbsp;: Sœur, prépare une nouvelle chambre à coucher, et mènes-y Sara.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ ἐποίησεν ὡς εἶπεν καὶ εἰσήγαγεν αὐτὴν ἐκεῖ καὶ ἔκλαυσεν καὶ ἀπεδέξατο τὰ δάκρυα τῆς θυγατρὸς αὐτῆς καὶ εἶπεν αὐτῇ.",
+     "giguet": "Et elle la prépara comme il avait dit, et elle y fit entrer sa fille, qui se mit à pleurer. Et elle vit couler les larmes de sa fille, et elle lui dit&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "θάρσει τέκνον ὁ κύριος τοῦ οὐρανοῦ καὶ τῆς γῆς δῴη σοι χάριν ἀντὶ τῆς λύπης σου ταύτης θάρσει θύγατερ.",
+     "giguet": "Aie confiance, mon enfant&nbsp;; puisse le Seigneur du ciel et de la terre t'accorder sa grâce en échange de cette affliction&nbsp;; aie confiance, ma fille.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 8,
+   "libelle": "8",
+   "fichierToc": "TOB/008.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ὅτε δὲ συνετέλεσαν δειπνοῦντες εἰσήγαγον Τωβιαν πρὸς αὐτήν.",
+     "giguet": "Lorsqu'ils eurent fini leur repas, ils conduisirent Tobie auprès d'elle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ὁ δὲ πορευόμενος ἐμνήσθη τῶν λόγων Ραφαηλ καὶ ἔλαβεν τὴν τέφραν τῶν θυμιαμάτων καὶ ἐπέθηκεν τὴν καρδίαν τοῦ ἰχθύος καὶ τὸ ἧπαρ καὶ ἐκάπνισεν.",
+     "giguet": "Or, en marchant, il se souvint des paroles de Raphaël&nbsp;: il prit donc le brasier aux parfums, et il mit sur la cendre chaude le cœur et le foie du poisson, et il les réduisit en fumée.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ὅτε δὲ ὠσφράνθη τὸ δαιμόνιον τῆς ὀσμῆς ἔφυγεν εἰς τὰ ἀνώτατα Αἰγύπτου καὶ ἔδησεν αὐτὸ ὁ ἄγγελος.",
+     "giguet": "Et dès que le démon sentit l'odeur, il s'enfuit au fond de la haute Egypte, où l'ange l'enchaîna.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ὡς δὲ συνεκλείσθησαν ἀμφότεροι ἀνέστη Τωβιας ἀπὸ τῆς κλίνης καὶ εἶπεν ἀνάστηθι ἀδελφή καὶ προσευξώμεθα ἵνα ἡμᾶς ἐλεήσῃ ὁ κύριος.",
+     "giguet": "Lorsque les deux époux furent enfermés, Tobie se leva du lit, et il dit&nbsp;: Lève-toi, sœur, et prions, afin que le Seigneur ait pitié de nous.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἤρξατο Τωβιας λέγειν εὐλογητὸς εἶ ὁ θεὸς τῶν πατέρων ἡμῶν καὶ εὐλογητὸν τὸ ὄνομά σου τὸ ἅγιον καὶ ἔνδοξον εἰς τοὺς αἰῶνας εὐλογησάτωσάν σε οἱ οὐρανοὶ καὶ πᾶσαι αἱ κτίσεις σου.",
+     "giguet": "Et Tobie commença, disant&nbsp;: Béni soyez-vous, Dieu de nos pères, béni soit à jamais votre nom saint et glorieux&nbsp;; béni soyez-vous du ciel et de toute créature.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "σὺ ἐποίησας Αδαμ καὶ ἔδωκας αὐτῷ βοηθὸν Ευαν στήριγμα τὴν γυναῖκα αὐτοῦ ἐκ τούτων ἐγενήθη τὸ ἀνθρώπων σπέρμα σὺ εἶπας οὐ καλὸν εἶναι τὸν ἄνθρωπον μόνον ποιήσωμεν αὐτῷ βοηθὸν ὅμοιον αὐτῷ.",
+     "giguet": "Vous avez fait Adam, et vous lui avez donné pour aide et pour appui Eve sa femme&nbsp;; c'est d'eux qu'est née la race des hommes&nbsp;; c'est vous qui aviez dit&nbsp;: Il n'est point bon que l'homme soit seul, faisons-Lui un aide à son image.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ νῦν κύριε οὐ διὰ πορνείαν ἐγὼ λαμβάνω τὴν ἀδελφήν μου ταύτην ἀλλ' ἐπ' ἀληθείας ἐπίταξον ἐλεῆσαί με καὶ ταύτῃ συγκαταγηρᾶσαι.",
+     "giguet": "Et maintenant, Seigneur, ce n'est point par concupiscence que j'épouse ma sœur que voici, mais en esprit de vérité&nbsp;; envoyez-moi votre miséricorde, faites que nous vieillissions ensemble.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ εἶπεν μετ' αὐτοῦ αμην.",
+     "giguet": "Et Sara dit avec lui&nbsp;: Ainsi soit-il.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ ἐκοιμήθησαν ἀμφότεροι τὴν νύκτα.",
+     "giguet": "Et ils dormirent ensemble la nuit, et Raguel, s'étant levé, sortit, et il creusa une fosse,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ ἀναστὰς Ραγουηλ ἐπορεύθη καὶ ὤρυξεν τάφον λέγων μὴ καὶ οὗτος ἀποθάνῃ.",
+     "giguet": "En se disant&nbsp;: Celui-là ne sera-t-il pas mort aussi&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἦλθεν Ραγουηλ εἰς τὴν οἰκίαν ἑαυτοῦ.",
+     "giguet": "Et Raguel rentra dans sa maison,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ εἶπεν Εδνα τῇ γυναικὶ αὐτοῦ ἀπόστειλον μίαν τῶν παιδισκῶν καὶ ἰδέτωσαν εἰ ζῇ εἰ δὲ μή ἵνα θάψωμεν αὐτὸν καὶ μηδεὶς γνῷ.",
+     "giguet": "Et il dit à Edna sa femme&nbsp;: Envoie l'une de tes servantes, que l'on s'assure s'il vit&nbsp;; sinon, nous l'inhumerons sans que personne le sache.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ εἰσῆλθεν ἡ παιδίσκη ἀνοίξασα τὴν θύραν καὶ εὗρεν τοὺς δύο καθεύδοντας.",
+     "giguet": "Et la servante, ayant ouvert la porte, entra, et elle les trouva tous les deux endormis&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἐξελθοῦσα ἀπήγγειλεν αὐτοῖς ὅτι ζῇ.",
+     "giguet": "Et elle descendit, et elle annonça qu'il était vivant.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ εὐλόγησεν Ραγουηλ τὸν θεὸν λέγων εὐλογητὸς εἶ σύ ὁ θεός ἐν πάσῃ εὐλογίᾳ καθαρᾷ καὶ ἁγίᾳ καὶ εὐλογείτωσάν σε οἱ ἅγιοί σου καὶ πᾶσαι αἱ κτίσεις σου καὶ πάντες οἱ ἄγγελοί σου καὶ οἱ ἐκλεκτοί σου εὐλογείτωσάν σε εἰς πάντας τοὺς αἰῶνας.",
+     "giguet": "Et Raguel bénit Dieu, et il s'écria&nbsp;: Béni soyez-vous, ô Dieu, recevez toute bénédiction pure et sainte&nbsp;; que vos saints vous bénissent, et toutes vos créatures, et tous vos anges, et vos élus&nbsp;; qu'ils vous bénissent dans tous les siècles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "εὐλογητὸς εἶ ὅτι ηὔφρανάς με καὶ οὐκ ἐγένετό μοι καθὼς ὑπενόουν ἀλλὰ κατὰ τὸ πολὺ ἔλεός σου ἐποίησας μεθ' ἡμῶν.",
+     "giguet": "Béni soyez-vous, parce que vous m'avez réjoui, et que, au lieu de ce que je craignais, vous avez agi envers moi, selon votre inépuisable miséricorde.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "εὐλογητὸς εἶ ὅτι ἠλέησας δύο μονογενεῖς ποίησον αὐτοῖς δέσποτα ἔλεος συντέλεσον τὴν ζωὴν αὐτῶν ἐν ὑγιείᾳ μετὰ εὐφροσύνης καὶ ἐλέους.",
+     "giguet": "Béni soyez-vous, parce que vous avez eu compassion de deux enfants uniques tous les deux&nbsp;; accordez-leur, ô Maître, votre pitié&nbsp;; qu'ils achèvent leur vie en santé dans l'allégresse et la miséricorde.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ἐκέλευσεν δὲ τοῖς οἰκέταις χῶσαι τὸν τάφον.",
+     "giguet": "Et il ordonna à ses serviteurs de combler la fosse,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ ἐποίησεν αὐτοῖς γάμον ἡμερῶν δέκα τεσσάρων.",
+     "giguet": "Et il fêta leurs noces pendant quatorze jours.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ εἶπεν αὐτῷ Ραγουηλ πρὶν ἢ συντελεσθῆναι τὰς ἡμέρας τοῦ γάμου ἐνόρκως μὴ ἐξελθεῖν αὐτόν ἐὰν μὴ πληρωθῶσιν αἱ δέκα τέσσαρες ἡμέραι τοῦ γάμου.",
+     "giguet": "Et Raguel les adjura de ne point partir que les deux semaines de noces fussent accomplies.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ τότε λαβόντα τὸ ἥμισυ τῶν ὑπαρχόντων αὐτοῦ πορεύεσθαι μετὰ ὑγιείας πρὸς τὸν πατέρα καὶ τὰ λοιπά ὅταν ἀποθάνω καὶ ἡ γυνή μου.",
+     "giguet": "Après quoi, dit-il, tu prendras la moitié de mes biens, et tu t'en retourneras sain et sauf auprès de ton père. Tu auras le reste, ajouta-t-il, après ma mort et celle de ma femme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 9,
+   "libelle": "9",
+   "fichierToc": "TOB/009.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐκάλεσεν Τωβιας τὸν Ραφαηλ καὶ εἶπεν αὐτῷ.",
+     "giguet": "Et Tobie appela Raphaël, et il lui dit&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "Αζαρια ἄδελφε λαβὲ μετὰ σεαυτοῦ παῖδα καὶ δύο καμήλους καὶ πορεύθητι ἐν Ῥάγοις τῆς Μηδίας παρὰ Γαβαηλ καὶ κόμισαί μοι τὸ ἀργύριον καὶ αὐτὸν ἄγε εἰς τὸν γάμον.",
+     "giguet": "Frère Azarias, prends avec toi ton serviteur et deux chameaux&nbsp;; va à Ragès en Médie chez Gabaël&nbsp;; touche pour moi l'argent, et amène Gabaël à mes noces.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "διότι ὀμώμοκεν Ραγουηλ μὴ ἐξελθεῖν με.",
+     "giguet": "Car Raguel m'a adjuré de ne point m'en aller&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ ὁ πατήρ μου ἀριθμεῖ τὰς ἡμέρας καὶ ἐὰν χρονίσω μέγα ὀδυνηθήσεται λίαν.",
+     "giguet": "Et mon père compte les jours, et si je tarde beaucoup, grande sera sa tristesse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἐπορεύθη Ραφαηλ καὶ ηὐλίσθη παρὰ Γαβαήλῳ καὶ ἔδωκεν αὐτῷ τὸ χειρόγραφον ὃς δὲ προήνεγκεν τὰ θυλάκια ἐν ταῖς σφραγῖσιν καὶ ἔδωκεν αὐτῷ.",
+     "giguet": "Et Raphaël partit, et il logea chez Gabaël, et il lui remit la cédule, et l'autre apporta les sacs qui étaient encore scellés, et il les lui livra.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ ὤρθρευσαν κοινῶς καὶ ἤλθοσαν εἰς τὸν γάμον καὶ εὐλόγησεν Τωβιας τὴν γυναῖκα αὐτοῦ.",
+     "giguet": "Et ils se levèrent tous deux de grand matin, et ils vinrent aux noces, et Tobie bénit sa femme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 10,
+   "libelle": "10",
+   "fichierToc": "TOB/010.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ Τωβιτ ὁ πατὴρ αὐτοῦ ἐλογίζετο ἑκάστης ἡμέρας καὶ ὡς ἐπληρώθησαν αἱ ἡμέραι τῆς πορείας καὶ οὐκ ἤρχοντο.",
+     "giguet": "Cependant, Tobit son père comptait les jours, et lorsque les jours du voyage furent accomplis, voyant qu'il ne revenait pas,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "εἶπεν μήποτε κατῄσχυνται ἢ μήποτε ἀπέθανεν Γαβαηλ καὶ οὐδεὶς δίδωσιν αὐτῷ τὸ ἀργύριον.",
+     "giguet": "Il dit&nbsp;: Est-ce qu'il aurait été confondu&nbsp;? Ou bien Gabaël serait-il mort, et personne ne serait-il là pour rendre l'argent&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "καὶ ἐλυπεῖτο λίαν.",
+     "giguet": "Et il tomba dans une grande tristesse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "εἶπεν δὲ αὐτῷ ἡ γυνή ἀπώλετο τὸ παιδίον διότι κεχρόνικεν καὶ ἤρξατο θρηνεῖν αὐτὸν καὶ εἶπεν.",
+     "giguet": "Et sa femme lui dit&nbsp;: L'enfant est mort, car le temps du retour est passé. Et elle commença à pleurer, et elle dit&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "οὐ μέλει μοι τέκνον ὅτι ἀφῆκά σε τὸ φῶς τῶν ὀφθαλμῶν μου.",
+     "giguet": "Je n'ai pas à me reprocher, mon enfant, de t'avoir congédié, toi la lumière de mes yeux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ Τωβιτ λέγει αὐτῇ σίγα μὴ λόγον ἔχε ὑγιαίνει.",
+     "giguet": "Et Tobit lui dit&nbsp;: Tais-toi, ne t'inquiète pas, il se porte bien.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ εἶπεν αὐτῷ σίγα μὴ πλάνα με ἀπώλετο τὸ παιδίον μου καὶ ἐπορεύετο καθ' ἡμέραν εἰς τὴν ὁδὸν ἔξω οἵας ἀπῆλθεν ἡμέρας τε ἄρτον οὐκ ἤσθιεν τὰς δὲ νύκτας οὐ διελίμπανεν θρηνοῦσα Τωβιαν τὸν υἱὸν αὐτῆς ἕως οὗ συνετελέσθησαν αἱ δέκα τέσσαρες ἡμέραι τοῦ γάμου ἃς ὤμοσεν Ραγουηλ ποιῆσαι αὐτὸν ἐκεῖ.",
+     "giguet": "Et elle reprit&nbsp;: Tais-toi, ne m'abuse pas, mon enfant est mort. Et tous les jours elle allait sur la route par laquelle il était parti. Et le jour elle ne prenait pas de nourriture, et la nuit elle ne cessait pas de pleurer Tobie. Enfin les quatorze journées que celui-ci avait juré de passer avec Raguel s'écoulèrent.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "εἶπεν δὲ Τωβιας τῷ Ραγουηλ ἐξαπόστειλόν με ὅτι ὁ πατήρ μου καὶ ἡ μήτηρ μου οὐκέτι ἐλπίζουσιν ὄψεσθαί με.",
+     "giguet": "Et Tobie dit à Raguel&nbsp;: Congédie-moi, car mon père et ma mère n'espèrent plus me revoir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "εἶπεν δὲ αὐτῷ ὁ πενθερὸς αὐτοῦ μεῖνον παρ' ἐμοί κἀγὼ ἐξαποστελῶ πρὸς τὸν πατέρα σου καὶ δηλώσουσιν αὐτῷ τὰ κατὰ σέ καὶ Τωβιας λέγει οὐχί ἀλλὰ ἐξαπόστειλόν με πρὸς τὸν πατέρα μου.",
+     "giguet": "Et le beau-père repartit&nbsp;: Demeure auprès de moi, et j'enverrai chez ton père, et je l'informerai de ce qui te concerne. Et Tobie reprit&nbsp;: Laisse-moi retourner chez mon père.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "ἀναστὰς δὲ Ραγουηλ ἔδωκεν αὐτῷ Σαρραν τὴν γυναῖκα αὐτοῦ καὶ τὰ ἥμισυ τῶν ὑπαρχόντων σώματα καὶ κτήνη καὶ ἀργύριον.",
+     "giguet": "Et Raguel, s'étant levé, lui donna Sara sa femme, et lui donna la moitié de ses biens, en esclaves, en argent et en bétail.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ εὐλογήσας αὐτοὺς ἐξαπέστειλεν λέγων εὐοδώσει ὑμᾶς τέκνα ὁ θεὸς τοῦ οὐρανοῦ πρὸ τοῦ με ἀποθανεῖν.",
+     "giguet": "Et, l'ayant béni, il le congédia, disant&nbsp;: Que le Dieu du ciel vous fasse prospérer, enfants, tant que je vivrai.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ εἶπεν τῇ θυγατρὶ αὐτοῦ τίμα τοὺς πενθερούς σου αὐτοὶ νῦν γονεῖς σού εἰσιν ἀκούσαιμί σου ἀκοὴν καλήν καὶ ἐφίλησεν αὐτήν.",
+     "giguet": "Et il dit à sa fille&nbsp;: Honore ton beau-père et ta belle-mère&nbsp;; ils sont désormais tes parents&nbsp;; que j'entende de toi bonne renommée&nbsp;; et il l'embrassa.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ Εδνα εἶπεν πρὸς Τωβιαν ἄδελφε ἀγαπητέ ἀποκαταστήσαι σε ὁ κύριος τοῦ οὐρανοῦ καὶ δῴη μοι ἰδεῖν σου παιδία ἐκ Σαρρας τῆς θυγατρός μου ἵνα εὐφρανθῶ ἐνώπιον τοῦ κυρίου καὶ ἰδοὺ παρατίθεμαί σοι τὴν θυγατέρα μου ἐν παρακαταθήκῃ μὴ λυπήσῃς αὐτήν.",
+     "giguet": "Et Edna dit à Tobie&nbsp;: Frère bien-aimé, que le Seigneur Dieu du ciel te conserve, qu'il m'accorde de te voir des enfants de Sara ma fille, afin que je me réjouisse devant le Seigneur. Voilà que je te confie ma fille, en disant&nbsp;: Garde-toi de la jamais affliger.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "μετὰ ταῦτα ἐπορεύετο Τωβιας εὐλογῶν τὸν θεόν ὅτι εὐόδωσεν τὴν ὁδὸν αὐτοῦ καὶ κατευλόγει Ραγουηλ καὶ Εδναν τὴν γυναῖκα αὐτοῦ.",
+     "giguet": "Après cela, Tobie partit bénissant Dieu qui lui avait fait faire un si heureux voyage&nbsp;; et il bénissait Raguel et Edna sa femme.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 11,
+   "libelle": "11",
+   "fichierToc": "TOB/011.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐπορεύετο μέχρις οὗ ἐγγίσαι αὐτοὺς εἰς Νινευη καὶ εἶπεν Ραφαηλ πρὸς Τωβιαν.",
+     "giguet": "Et il allait, jusqu'à ce qu'ils fussent près de Ninive. Et Raphaël dit à Tobie&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "οὐ γινώσκεις ἄδελφε πῶς ἀφῆκας τὸν πατέρα σου.",
+     "giguet": "Ne sais-tu pas, frère, comment tu as laissé ton père&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "προδράμωμεν ἔμπροσθεν τῆς γυναικός σου καὶ ἑτοιμάσωμεν τὴν οἰκίαν.",
+     "giguet": "Prenons l'avance sur ta femme, et préparons la maison.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "λαβὲ δὲ παρὰ χεῖρα τὴν χολὴν τοῦ ἰχθύος καὶ ἐπορεύθησαν καὶ συνῆλθεν ὁ κύων ὄπισθεν αὐτῶν.",
+     "giguet": "N'oublie pas d'emporter le fiel du poisson. Et ils pressèrent le pas, et le chien les suivit.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ Αννα ἐκάθητο περιβλεπομένη εἰς τὴν ὁδὸν τὸν παῖδα αὐτῆς.",
+     "giguet": "Et Anne était assise, cherchant des yeux son fils sur la route.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ προσενόησεν αὐτὸν ἐρχόμενον καὶ εἶπεν τῷ πατρὶ αὐτοῦ ἰδοὺ ὁ υἱός σου ἔρχεται καὶ ὁ ἄνθρωπος ὁ πορευθεὶς μετ' αὐτοῦ.",
+     "giguet": "Et elle l'aperçut qui venait, et elle cria à Tobit&nbsp;: Voilà mon fils qui vient, et l'homme qui est parti avec lui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ Ραφαηλ εἶπεν ἐπίσταμαι ἐγὼ ὅτι ἀνοίξει τοὺς ὀφθαλμοὺς ὁ πατήρ σου.",
+     "giguet": "Et Raphaël dit&nbsp;: Je sais que ton père ouvrira les yeux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "σὺ οὖν ἔγχρισον τὴν χολὴν εἰς τοὺς ὀφθαλμοὺς αὐτοῦ καὶ δηχθεὶς διατρίψει καὶ ἀποβαλεῖ τὰ λευκώματα καὶ ὄψεταί σε.",
+     "giguet": "Fais couler dans ses yeux le fiel du poisson&nbsp;; mordu par la douleur, il se frottera avec force, il fera tomber les taies, et il te verra.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ προσδραμοῦσα Αννα ἐπέπεσεν ἐπὶ τὸν τράχηλον τοῦ υἱοῦ αὐτῆς καὶ εἶπεν αὐτῷ εἶδόν σε παιδίον ἀπὸ τοῦ νῦν ἀποθανοῦμαι καὶ ἔκλαυσαν ἀμφότεροι.",
+     "giguet": "Or, Anne s'était mise à courir, et elle sauta au cou de son fils, et elle dit&nbsp;: Je t'ai revu, mon enfant&nbsp;; de ce moment je puis mourir. Et ils pleurèrent tous les deux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "καὶ Τωβιτ ἐξήρχετο πρὸς τὴν θύραν καὶ προσέκοπτεν ὁ δὲ υἱὸς προσέδραμεν αὐτῷ.",
+     "giguet": "Et Tobit était sorti de sa maison, et il tomba, et son fils s'élança vers lui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ ἐπελάβετο τοῦ πατρὸς αὐτοῦ καὶ προσέπασεν τὴν χολὴν ἐπὶ τοὺς ὀφθαλμοὺς τοῦ πατρὸς αὐτοῦ λέγων θάρσει πάτερ.",
+     "giguet": "Et relevant son père, il fit couler dans ses yeux le fiel du poisson, disant&nbsp;: Aie confiance, père.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "ὡς δὲ συνεδήχθησαν διέτριψε τοὺς ὀφθαλμοὺς αὐτοῦ καὶ ἐλεπίσθη ἀπὸ τῶν κανθῶν τῶν ὀφθαλμῶν αὐτοῦ τὰ λευκώματα.",
+     "giguet": "Et pendant que les yeux lui cuisaient, Tobit se les frotta avec force, et les taies se détachèrent, comme des écailles, par chaque coin d'œil.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ἰδὼν τὸν υἱὸν αὐτοῦ ἐπέπεσεν ἐπὶ τὸν τράχηλον αὐτοῦ καὶ ἔκλαυσεν καὶ εἶπεν.",
+     "giguet": "Et en voyant son fils, il lui sauta au cou.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "εὐλογητὸς εἶ ὁ θεός καὶ εὐλογητὸν τὸ ὄνομά σου εἰς τοὺς αἰῶνας καὶ εὐλογημένοι πάντες οἱ ἅγιοί σου ἄγγελοι ὅτι ἐμαστίγωσας καὶ ἠλέησάς με ἰδοὺ βλέπω Τωβιαν τὸν υἱόν μου.",
+     "giguet": "Et il pleura et il dit&nbsp;: Béni soyez-vous, ô mon Dieu, béni soit votre nom dans tous les siècles, bénis soient tous vos saints anges&nbsp;; car, après m'avoir châtié, vous avez eu pitié de moi&nbsp;; voilà que je vois Tobie mon fils.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ εἰσῆλθεν ὁ υἱὸς αὐτοῦ χαίρων καὶ ἀπήγγειλεν τῷ πατρὶ αὐτοῦ τὰ μεγαλεῖα τὰ γενόμενα αὐτῷ ἐν τῇ Μηδίᾳ.",
+     "giguet": "Et Tobie entra tout joyeux, et il fit à son père le récit des grandes choses qui lui étaient arrivées en Médie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ ἐξῆλθεν Τωβιτ εἰς συνάντησιν τῇ νύμφῃ αὐτοῦ χαίρων καὶ εὐλογῶν τὸν θεὸν πρὸς τῇ πύλῃ Νινευη καὶ ἐθαύμαζον οἱ θεωροῦντες αὐτὸν πορευόμενον ὅτι ἔβλεψεν καὶ Τωβιτ ἐξωμολογεῖτο ἐνώπιον αὐτῶν ὅτι ἠλέησεν αὐτὸν ὁ θεός.",
+     "giguet": "Et Tobit s'avança à la rencontre de sa bru, plein de joie et bénissant le Seigneur, et il alla jusqu'à la porte de Ninive. Et les passants s'émerveillaient à le voir marcher, parce qu'il voyait. Et Tobit, à chaque pas, glorifiait devant eux le Seigneur, parce que Dieu avait eu pitié de lui.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ ὡς ἤγγισεν Τωβιτ Σαρρα τῇ νύμφῃ αὐτοῦ κατευλόγησεν αὐτὴν λέγων ἔλθοις ὑγιαίνουσα θύγατερ εὐλογητὸς ὁ θεός ὃς ἤγαγέν σε πρὸς ἡμᾶς καὶ ὁ πατήρ σου καὶ ἡ μήτηρ σου.",
+     "giguet": "Et lorsqu'il arriva près de Sara sa bru, il la bénit, disant&nbsp;: Dieu veuille, que tu sois en bonne santé, ma fille. Béni soit Dieu qui t'a conduite à nous&nbsp;; bénis soient ton père et ta mère.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ ἐγένετο χαρὰ πᾶσι τοῖς ἐν Νινευη ἀδελφοῖς αὐτοῦ.",
+     "giguet": "Et il y eut grande joie à Ninive parmi tous ses frères.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ παρεγένετο Αχιαχαρος καὶ Νασβας ὁ ἐξάδελφος αὐτοῦ καὶ ἤχθη ὁ γάμος Τωβια μετ' εὐφροσύνης ἑπτὰ ἡμέρας.",
+     "giguet": "Et Achiachare et Nabbas ses cousins germains survinrent. Et l'on célébra avec de grandes réjouissances les noces de Tobie, pendant sept jours.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 12,
+   "libelle": "12",
+   "fichierToc": "TOB/012.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐκάλεσεν Τωβιτ Τωβιαν τὸν υἱὸν αὐτοῦ καὶ εἶπεν αὐτῷ ὅρα τέκνον μισθὸν τῷ ἀνθρώπῳ τῷ συνελθόντι σοι καὶ προσθεῖναι αὐτῷ δεῖ.",
+     "giguet": "Et Tobit appela son fils, et il lui dit&nbsp;: Songe, mon enfant, à la récompense de l'homme qui est venu avec toi&nbsp;; il convient de l'augmenter.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ εἶπεν αὐτῷ πάτερ οὐ βλάπτομαι δοὺς αὐτῷ τὸ ἥμισυ ὧν ἐνήνοχα.",
+     "giguet": "Et il répondit&nbsp;: Père, je ne vois que justice à lui donner la moitié de ce que j'ai apporté.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ὅτι με ἀγείοχέν σοι ὑγιῆ καὶ τὴν γυναῖκά μου ἐθεράπευσεν καὶ τὸ ἀργύριόν μου ἤνεγκεν καὶ σὲ ὁμοίως ἐθεράπευσεν.",
+     "giguet": "Car il m'a ramené sain et sauf, il a guéri ma femme&nbsp;; il m'a apporté mon argent, et il t'a guéri pareillement.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "καὶ εἶπεν ὁ πρεσβύτης δικαιοῦται αὐτῷ.",
+     "giguet": "Et le vieillard reprit&nbsp;: Cette moitié lui est due.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ ἐκάλεσεν τὸν ἄγγελον καὶ εἶπεν αὐτῷ λαβὲ τὸ ἥμισυ πάντων ὧν ἐνηνόχατε.",
+     "giguet": "Et il appela l'ange et il lui dit&nbsp;: Accepte la moitié de ce que vous avez apporté, prends-la, et porte-toi bien.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "τότε καλέσας τοὺς δύο κρυπτῶς εἶπεν αὐτοῖς εὐλογεῖτε τὸν θεὸν καὶ αὐτῷ ἐξομολογεῖσθε μεγαλωσύνην δίδοτε αὐτῷ καὶ ἐξομολογεῖσθε ἐνώπιον πάντων τῶν ζώντων περὶ ὧν ἐποίησεν μεθ' ὑμῶν ἀγαθὸν τὸ εὐλογεῖν τὸν θεὸν καὶ ὑψοῦν τὸ ὄνομα αὐτοῦ τοὺς λόγους τῶν ἔργων τοῦ θεοῦ ἐντίμως ὑποδεικνύοντες καὶ μὴ ὀκνεῖτε ἐξομολογεῖσθαι αὐτῷ.",
+     "giguet": "Alors, l'ange les tira tous les deux à part, et leur dit&nbsp;: Bénissez Dieu&nbsp;; rendez-lui gloire, reconnaissez sa munificence et confessez son nom devant toutes ses créatures, à cause de ce qu'il a fait pour vous. Il est bon de bénir le Seigneur, d'exalter son nom, et de célébrer avec honneur les œuvres de Dieu&nbsp;; ne mettez donc pas de lenteur à chanter ses louanges.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "μυστήριον βασιλέως καλὸν κρύψαι τὰ δὲ ἔργα τοῦ θεοῦ ἀνακαλύπτειν ἐνδόξως ἀγαθὸν ποιήσατε καὶ κακὸν οὐχ εὑρήσει ὑμᾶς.",
+     "giguet": "Il est louable de garder le secret des rois&nbsp;; mais pour les œuvres du Seigneur, il est glorieux de les révéler. Faites ce qui est bien, et le mal ne vous atteindra pas.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἀγαθὸν προσευχὴ μετὰ νηστείας καὶ ἐλεημοσύνης καὶ δικαιοσύνης ἀγαθὸν τὸ ὀλίγον μετὰ δικαιοσύνης ἢ πολὺ μετὰ ἀδικίας καλὸν ποιῆσαι ἐλεημοσύνην ἢ θησαυρίσαι χρυσίον.",
+     "giguet": "Précieuse est la prière unie au jeûne, à l'aumône et à la justice. Mieux vaut la médiocrité avec la justice que l'abondance avec l'iniquité&nbsp;; mieux vaut faire l'aumône qu'amasser de l'or.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "ἐλεημοσύνη γὰρ ἐκ θανάτου ῥύεται καὶ αὐτὴ ἀποκαθαριεῖ πᾶσαν ἁμαρτίαν οἱ ποιοῦντες ἐλεημοσύνας καὶ δικαιοσύνας πλησθήσονται ζωῆς.",
+     "giguet": "Car l'aumône délivre de la mort&nbsp;; elle purifie de tous les péchés&nbsp;; ceux qui font l'aumône et la justice, la vie les remplira&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "οἱ δὲ ἁμαρτάνοντες πολέμιοί εἰσιν τῆς ἑαυτῶν ζωῆς.",
+     "giguet": "Mais les pécheurs sont les ennemis de leur propre vie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "οὐ μὴ κρύψω ἀφ' ὑμῶν πᾶν ῥῆμα εἴρηκα δή μυστήριον βασιλέως κρύψαι καλόν τὰ δὲ ἔργα τοῦ θεοῦ ἀνακαλύπτειν ἐνδόξως.",
+     "giguet": "Je ne veux rien tous celer, et je viens de dire&nbsp;: Il est louable de garder le secret des rois&nbsp;; mais, pour les œuvres du Seigneur, il est glorieux de les révéler.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ νῦν ὅτε προσηύξω σὺ καὶ ἡ νύμφη σου Σαρρα ἐγὼ προσήγαγον τὸ μνημόσυνον τῆς προσευχῆς ὑμῶν ἐνώπιον τοῦ ἁγίου καὶ ὅτε ἔθαπτες τοὺς νεκρούς ὡσαύτως συμπαρήμην σοι.",
+     "giguet": "Eh bien&nbsp;! tandis que tu priais, en même temps que Sara ta bru, je transportais devant le Saint le souvenir de vos prières&nbsp;; et lorsque tu ensevelissais les morts, j'étais de même auprès de toi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ὅτε οὐκ ὤκνησας ἀναστῆναι καὶ καταλιπεῖν τὸ ἄριστόν σου ὅπως ἀπελθὼν περιστείλῃς τὸν νεκρόν οὐκ ἔλαθές με ἀγαθοποιῶν ἀλλὰ σὺν σοὶ ἤμην.",
+     "giguet": "Et lorsque tu n'as pas hésité à te lever et à quitter ton repas, afin d'aller ensevelir un mort, ta bonne action ne m'est pas restée cachée, et j'étais près de toi.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ νῦν ἀπέστειλέν με ὁ θεὸς ἰάσασθαί σε καὶ τὴν νύμφην σου Σαρραν.",
+     "giguet": "Or, maintenant Dieu m'a envoyé pour te guérir, toi et Sara, ta bru.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "ἐγώ εἰμι Ραφαηλ εἷς ἐκ τῶν ἑπτὰ ἁγίων ἀγγέλων οἳ προσαναφέρουσιν τὰς προσευχὰς τῶν ἁγίων καὶ εἰσπορεύονται ἐνώπιον τῆς δόξης τοῦ ἁγίου.",
+     "giguet": "Je suis Raphaël, l'un des sept anges saints, qui transportent les prières des saints et qui pénètrent jusqu'en face de la gloire du Saint des saints.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "καὶ ἐταράχθησαν οἱ δύο καὶ ἔπεσον ἐπὶ πρόσωπον ὅτι ἐφοβήθησαν.",
+     "giguet": "Et les deux hommes furent troublés, et ils tombèrent la face contre terre, car ils avaient grande crainte.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "καὶ εἶπεν αὐτοῖς μὴ φοβεῖσθε εἰρήνη ὑμῖν ἔσται τὸν δὲ θεὸν εὐλογεῖτε εἰς τὸν αἰῶνα.",
+     "giguet": "Et l'ange leur dit&nbsp;: Ne craignez rien, la paix soit avec vous&nbsp;; et bénissez à jamais le Seigneur,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "ὅτι οὐ τῇ ἐμαυτοῦ χάριτι ἀλλὰ τῇ θελήσει τοῦ θεοῦ ἡμῶν ἦλθον ὅθεν εὐλογεῖτε αὐτὸν εἰς τὸν αἰῶνα.",
+     "giguet": "Car ce n'est point par ma grâce à moi, maïs par la volonté de notre Dieu, que je suis venu&nbsp;; bénissez-le donc dans tous les siècles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "πάσας τὰς ἡμέρας ὠπτανόμην ὑμῖν καὶ οὐκ ἔφαγον οὐδὲ ἔπιον ἀλλὰ ὅρασιν ὑμεῖς ἐθεωρεῖτε.",
+     "giguet": "Durant tous ces jours, bien que je parusse le faire, je ne mangeais, ni ne buvais, mais c'était une vision que vous aviez sous les yeux.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ νῦν ἐξομολογεῖσθε τῷ θεῷ διότι ἀναβαίνω πρὸς τὸν ἀποστείλαντά με καὶ γράψατε πάντα τὰ συντελεσθέντα εἰς βιβλίον.",
+     "giguet": "Rendez gloire à Dieu&nbsp;; car, pour moi, je remonte vers celui qui m'a envoyé, et écrivez en un livre tout ce qui s'est accompli.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ ἀνέστησαν καὶ οὐκέτι εἶδον αὐτόν.",
+     "giguet": "Et ils se relevèrent, et ils ne le virent plus.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "22",
+     "grec": "καὶ ἐξωμολογοῦντο τὰ ἔργα τὰ μεγάλα καὶ θαυμαστὰ τοῦ θεοῦ καὶ ὡς ὤφθη αὐτοῖς ὁ ἄγγελος κυρίου.",
+     "giguet": "Et ils racontaient les œuvres grandes et merveilleuses du Seigneur, disant comment son ange leur était apparu.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 13,
+   "libelle": "13",
+   "fichierToc": "TOB/013.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ Τωβιτ ἔγραψεν προσευχὴν εἰς ἀγαλλίασιν καὶ εἶπεν.",
+     "giguet": "Et dans le transport de sa joie, Tobit écrivit une prière, et il dit&nbsp;:",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "εὐλογητὸς ὁ θεὸς ὁ ζῶν εἰς τοὺς αἰῶνας καὶ ἡ βασιλεία αὐτοῦ ὅτι αὐτὸς μαστιγοῖ καὶ ἐλεᾷ κατάγει εἰς ᾅδην καὶ ἀνάγει καὶ οὐκ ἔστιν ὃς ἐκφεύξεται τὴν χεῖρα αὐτοῦ.",
+     "giguet": "Bénis soient dans tous les siècles le Dieu vivant et son règne&nbsp;! C'est lui qui châtie et fait miséricorde&nbsp;; il conduit aux enfers et il en ramène, et nul ne peut éviter sa main.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ἐξομολογεῖσθε αὐτῷ οἱ υἱοὶ Ισραηλ ἐνώπιον τῶν ἐθνῶν ὅτι αὐτὸς διέσπειρεν ἡμᾶς ἐν αὐτοῖς.",
+     "giguet": "Rendez-lui gloire, ô fils d'Israël, à la face des nations, car c'est lui qui chez elles vous a dispersés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἐκεῖ ὑποδείξατε τὴν μεγαλωσύνην αὐτοῦ ὑψοῦτε αὐτὸν ἐνώπιον παντὸς ζῶντος καθότι αὐτὸς κύριος ἡμῶν καὶ θεός αὐτὸς πατὴρ ἡμῶν εἰς πάντας τοὺς αἰῶνας.",
+     "giguet": "Montrez aux Gentils sa magnificence, glorifiez-le devant tout ce qui a vie, parce qu'il est notre Seigneur, et le Dieu notre Père, dans les siècles des siècles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ μαστιγώσει ἡμᾶς ἐν ταῖς ἀδικίαις ἡμῶν καὶ πάλιν ἐλεήσει καὶ συνάξει ἡμᾶς ἐκ πάντων τῶν ἐθνῶν οὗ ἐὰν σκορπισθῆτε ἐν αὐτοῖς.",
+     "giguet": "Et il nous flagellera à cause de nos iniquités, et il sera miséricordieux encore, et il nous réunira du milieu de toutes les nations chez qui vous aurez été dispersés.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "ἐὰν ἐπιστρέψητε πρὸς αὐτὸν ἐν ὅλῃ καρδίᾳ ὑμῶν καὶ ἐν ὅλῃ τῇ ψυχῇ ποιῆσαι ἐνώπιον αὐτοῦ ἀλήθειαν τότε ἐπιστρέψει πρὸς ὑμᾶς καὶ οὐ μὴ κρύψῃ τὸ πρόσωπον αὐτοῦ ἀφ' ὑμῶν.",
+     "giguet": "Si vous retournez à lui de tout votre cœur et de toute votre âme pour faire la vérité en sa présence, lui-même reviendra à vous, et il ne vous cachera plus sa face.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ θεάσασθε ἃ ποιήσει μεθ' ὑμῶν καὶ ἐξομολογήσασθε αὐτῷ ἐν ὅλῳ τῷ στόματι ὑμῶν καὶ εὐλογήσατε τὸν κύριον τῆς δικαιοσύνης καὶ ὑψώσατε τὸν βασιλέα τῶν αἰώνων.",
+     "giguet": "Voyez ce qu'il a fait pour vous&nbsp;; rendez-lui gloire à pleine voix&nbsp;; bénissez le Seigneur de la justice, exaltez le Roi des siècles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἐγὼ ἐν τῇ γῇ τῆς αἰχμαλωσίας μου ἐξομολογοῦμαι αὐτῷ καὶ δεικνύω τὴν ἰσχὺν καὶ τὴν μεγαλωσύνην αὐτοῦ ἔθνει ἁμαρτωλῶν ἐπιστρέψατε ἁμαρτωλοί καὶ ποιήσατε δικαιοσύνην ἐνώπιον αὐτοῦ τίς γινώσκει εἰ θελήσει ὑμᾶς καὶ ποιήσει ἐλεημοσύνην ὑμῖν.",
+     "giguet": "Pour moi, en la terre où je suis captif, je lui rends gloire, et je fais voir au peuple des pécheurs sa force et sa magnificence. Convertissez-vous, pécheurs&nbsp;; et faites la justice en sa présence&nbsp;; qui sait s'il vous sera favorable, s'il vous fera miséricorde&nbsp;?",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "τὸν θεόν μου ὑψῶ καὶ ἡ ψυχή μου τὸν βασιλέα τοῦ οὐρανοῦ καὶ ἀγαλλιάσεται τὴν μεγαλωσύνην αὐτοῦ.",
+     "giguet": "J'exalte mon Dieu&nbsp;; mon âme est au Roi du ciel, elle se glorifiera de sa magnificence.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "λεγέτωσαν πάντες καὶ ἐξομολογείσθωσαν αὐτῷ ἐν Ιεροσολύμοις Ιεροσόλυμα πόλις ἁγία μαστιγώσει ἐπὶ τὰ ἔργα τῶν υἱῶν σου καὶ πάλιν ἐλεήσει τοὺς υἱοὺς τῶν δικαίων.",
+     "giguet": "Proclamez-le tous&nbsp;; rendez-lui gloire dans Jérusalem.Jérusalem, ville du Saint, il te flagellera à cause des œuvres de tes enfants, et il fera miséricorde aux fils des justes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἐξομολογοῦ τῷ κυρίῳ ἀγαθῶς καὶ εὐλόγει τὸν βασιλέα τῶν αἰώνων ἵνα πάλιν ἡ σκηνὴ αὐτοῦ οἰκοδομηθῇ σοι μετὰ χαρᾶς.",
+     "giguet": "Rends au Seigneur une grande gloire&nbsp;; bénis le Roi des siècles&nbsp;; afin qu'en toi son tabernacle soit relevé avec allégresse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ εὐφράναι ἐν σοὶ τοὺς αἰχμαλώτους καὶ ἀγαπήσαι ἐν σοὶ τοὺς ταλαιπώρους εἰς πάσας τὰς γενεὰς τοῦ αἰῶνος.",
+     "giguet": "Qu'il y comble de joie les captifs, qu'il y aime les affligés dans toutes les générations du siècle.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "ἔθνη πολλὰ μακρόθεν ἥξει πρὸς τὸ ὄνομα κυρίου τοῦ θεοῦ δῶρα ἐν χερσὶν ἔχοντες καὶ δῶρα τῷ βασιλεῖ τοῦ οὐρανοῦ γενεαὶ γενεῶν δώσουσίν σοι ἀγαλλίαμα.",
+     "giguet": "Nombre de nations lointaines viendront vers le nom du Seigneur Dieu, portant en leurs mains des présents, des présents pour le Roi du ciel&nbsp;; les générations des générations te causeront des transports d'allégresse.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "ἐπικατάρατοι πάντες οἱ μισοῦντές σε εὐλογημένοι ἔσονται πάντες οἱ ἀγαπῶντές σε εἰς τὸν αἰῶνα.",
+     "giguet": "Maudits soient tous ceux qui te haïssent&nbsp;! Bénis soient à jamais ceux qui t'aiment&nbsp;!",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "χάρηθι καὶ ἀγαλλίασαι ἐπὶ τοῖς υἱοῖς τῶν δικαίων ὅτι συναχθήσονται καὶ εὐλογήσουσιν τὸν κύριον τῶν δικαίων ὦ μακάριοι οἱ ἀγαπῶντές σε χαρήσονται ἐπὶ τῇ εἰρήνῃ σου.",
+     "giguet": "Réjouis-toi, tressaille d'allégresse, au sujet des fils des justes, car ils seront réunis, et ils béniront le Seigneur. O heureux ceux qui t'aiment&nbsp;! ils mettront leur joie dans ta paix&nbsp;;",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "μακάριοι ὅσοι ἐλυπήθησαν ἐπὶ πάσαις ταῖς μάστιξίν σου ὅτι ἐπὶ σοὶ χαρήσονται θεασάμενοι πᾶσαν τὴν δόξαν σου καὶ εὐφρανθήσονται εἰς τὸν αἰῶνα ἡ ψυχή μου εὐλογείτω τὸν θεὸν τὸν βασιλέα τὸν μέγαν.",
+     "giguet": "Heureux tous ceux qui se sont affligés de tes fléaux nombreux, car ils se réjouiront en contemplant toute ta gloire, et leur allégresse sera éternelle&nbsp;! Que mon âme bénisse Dieu, le grand Roi,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ὅτι οἰκοδομηθήσεται Ιερουσαλημ σαπφείρῳ καὶ σμαράγδῳ καὶ λίθῳ ἐντίμῳ τὰ τείχη σου καὶ οἱ πύργοι καὶ οἱ προμαχῶνες ἐν χρυσίῳ καθαρῷ καὶ αἱ πλατεῖαι Ιερουσαλημ βηρύλλῳ καὶ ἄνθρακι καὶ λίθῳ ἐκ Σουφιρ ψηφολογηθήσονται.",
+     "giguet": "Parce qu'il rebâtira Jérusalem en émeraudes et en saphirs, parce qu'il l'entourera d'une muraille de pierres précieuses, et qu'il la couronnera de tours et de créneaux de l'or le plus pur&nbsp;; parce qu'il pavera d'anthrax et de béril les places de Jérusalem, et qu'il les ornera de mosaïques en pierres d'Ophir.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ ἐροῦσιν πᾶσαι αἱ ῥῦμαι αὐτῆς αλληλουια καὶ αἰνέσουσιν λέγοντες εὐλογητὸς ὁ θεός ὃς ὕψωσεν πάντας τοὺς αἰῶνας.",
+     "giguet": "Et toutes ses rues diront&nbsp;: Alléluia, louange à Dieu, et elles répéteront&nbsp;: Béni soit le Dieu qui a exalté tous les siècles&nbsp;!",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  },
+  {
+   "chapitre": 14,
+   "libelle": "14",
+   "fichierToc": "TOB/014.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "καὶ ἐπαύσατο ἐξομολογούμενος Τωβιτ.",
+     "giguet": "Et Tobit cessa de célébrer le Seigneur.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "καὶ ἦν ἐτῶν πεντήκοντα ὀκτώ ὅτε ἀπώλεσεν τὰς ὄψεις καὶ μετὰ ἔτη ὀκτὼ ἀνέβλεψεν καὶ ἐποίει ἐλεημοσύνας καὶ προσέθετο φοβεῖσθαι κύριον τὸν θεὸν καὶ ἐξομολογεῖσθαι αὐτῷ.",
+     "giguet": "Il avait cinquante-huit ans quand il perdit la vue, et il la recouvra huit ans après&nbsp;; et il fit de nombreuses aumônes&nbsp;; et il continua de craindre le Seigneur Dieu et de lui rendre gloire.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "μεγάλως δὲ ἐγήρασεν καὶ ἐκάλεσεν τὸν υἱὸν αὐτοῦ καὶ τοὺς υἱοὺς αὐτοῦ καὶ εἶπεν αὐτῷ τέκνον λαβὲ τοὺς υἱούς σου ἰδοὺ γεγήρακα καὶ πρὸς τὸ ἀποτρέχειν ἐκ τοῦ ζῆν εἰμι.",
+     "giguet": "Et il atteignit une extrême vieillesse&nbsp;; et il appela son fils et les fils de son fils, et il dit à Tobie&nbsp;: Enfant, prends tes fils&nbsp;; voilà que je suis bien vieux et près de quitter la vie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἄπελθε εἰς τὴν Μηδίαν τέκνον ὅτι πέπεισμαι ὅσα ἐλάλησεν Ιωνας ὁ προφήτης περὶ Νινευη ὅτι καταστραφήσεται ἐν δὲ τῇ Μηδίᾳ ἔσται εἰρήνη μᾶλλον ἕως καιροῦ καὶ ὅτι οἱ ἀδελφοὶ ἡμῶν ἐν τῇ γῇ σκορπισθήσονται ἀπὸ τῆς ἀγαθῆς γῆς καὶ Ιεροσόλυμα ἔσται ἔρημος καὶ ὁ οἶκος τοῦ θεοῦ ἐν αὐτῇ κατακαήσεται καὶ ἔρημος ἔσται μέχρι χρόνου.",
+     "giguet": "Pars pour la Médie, mon enfant, car je crois tout ce qu'a dit sur Ninive le prophète Jonas&nbsp;; elle sera détruite&nbsp;; la Médie restera en paix plus longtemps. Or, mes frères seront dispersés loin de leur terre féconde, et Jérusalem deviendra un désert, et, dans son enceinte, le temple de Dieu sera livré aux flammes, et il restera longtemps désolé.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "καὶ πάλιν ἐλεήσει αὐτοὺς ὁ θεὸς καὶ ἐπιστρέψει αὐτοὺς εἰς τὴν γῆν καὶ οἰκοδομήσουσιν τὸν οἶκον οὐχ οἷος ὁ πρότερος ἕως πληρωθῶσιν καιροὶ τοῦ αἰῶνος καὶ μετὰ ταῦτα ἐπιστρέψουσιν ἐκ τῶν αἰχμαλωσιῶν καὶ οἰκοδομήσουσιν Ιερουσαλημ ἐντίμως καὶ ὁ οἶκος τοῦ θεοῦ ἐν αὐτῇ οἰκοδομηθήσεται εἰς πάσας τὰς γενεὰς τοῦ αἰῶνος οἰκοδομῇ ἐνδόξῳ καθὼς ἐλάλησαν περὶ αὐτῆς οἱ προφῆται.",
+     "giguet": "Et Dieu leur fera encore miséricorde, et il les ramènera dans leur terre, et ils rebâtiront le temple, non comme le premier, jusqu'à ce que les temps soient accomplis. Puis, ils reviendront de la captivité, et ils bâtiront une riche Jérusalem, et dans ses murs ils rebâtiront à Dieu un temple plein de gloire, comme l'ont prédit les prophètes.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "καὶ πάντα τὰ ἔθνη ἐπιστρέψουσιν ἀληθινῶς φοβεῖσθαι κύριον τὸν θεὸν καὶ κατορύξουσιν τὰ εἴδωλα αὐτῶν καὶ εὐλογήσουσιν πάντα τὰ ἔθνη τὸν κύριον.",
+     "giguet": "Et tous les Gentils se convertiront sincèrement à la crainte du Seigneur, et ils enfouiront leurs idoles. Et toutes les nations béniront le Seigneur,",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "καὶ ὁ λαὸς αὐτοῦ ἐξομολογήσεται τῷ θεῷ καὶ ὑψώσει κύριος τὸν λαὸν αὐτοῦ καὶ χαρήσονται πάντες οἱ ἀγαπῶντες κύριον τὸν θεὸν ἐν ἀληθείᾳ καὶ δικαιοσύνῃ ποιοῦντες ἔλεος τοῖς ἀδελφοῖς ἡμῶν.",
+     "giguet": "Et son peuple rendra gloire à Dieu, et le Seigneur glorifiera son peuple, et tous ceux qui aiment le Seigneur Dieu dans la vérité et la justice tressailliront d'allégresse, et ils seront miséricordieux pour nos frères.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "καὶ νῦν τέκνον ἄπελθε ἀπὸ Νινευη ὅτι πάντως ἔσται ἃ ἐλάλησεν ὁ προφήτης Ιωνας.",
+     "giguet": "Maintenant donc, mon enfant, abandonne Ninive&nbsp;; car tout ce qu'a prédit le prophète Jonas arrivera.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "σὺ δὲ τήρησον τὸν νόμον καὶ τὰ προστάγματα καὶ γίνου φιλελεήμων καὶ δίκαιος ἵνα σοι καλῶς ᾖ καὶ θάψον με καλῶς καὶ τὴν μητέρα σου μετ' ἐμοῦ καὶ μηκέτι αὐλισθῆτε εἰς Νινευη.",
+     "giguet": "Et toi observe la loi et les commandements, et ne cesse pas d'être juste et miséricordieux, afin de trouver le bien. Et ensevelis-moi avec honneur, et auprès de moi ta mère, et ne restez pas à Ninive.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "τέκνον ἰδὲ τί ἐποίησεν Αμαν Αχιαχάρῳ τῷ θρέψαντι αὐτόν ὡς ἐκ τοῦ φωτὸς ἤγαγεν αὐτὸν εἰς τὸ σκότος καὶ ὅσα ἀνταπέδωκεν αὐτῷ καὶ Αχιαχαρος μὲν ἐσώθη ἐκείνῳ δὲ τὸ ἀνταπόδομα ἀπεδόθη καὶ αὐτὸς κατέβη εἰς τὸ σκότος Μανασσης ἐποίησεν ἐλεημοσύνην καὶ ἐσώθη ἐκ παγίδος θανάτου ἧς ἔπηξεν αὐτῷ Αμαν δὲ ἐνέπεσεν εἰς τὴν παγίδα καὶ ἀπώλετο.",
+     "giguet": "Enfant, vois comme Aman a traité Achiachare qui l'avait élevé&nbsp;; comme de la lumière il l'a conduit aux ténèbres, et quelle reconnaissance il a eue pour lui. Toutefois Achiachare a été sauvé&nbsp;; il a obtenu ce qui lui a été rendu&nbsp;; et Aman lui-même est descendu dans les ténèbres. Manassès a fait la miséricorde&nbsp;: Achiachare a été tiré du piège de mort qu'on lui avait tendu&nbsp;; Aman est tombé dans le piège et y a péri.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "καὶ νῦν παιδία ἴδετε τί ἐλεημοσύνη ποιεῖ καὶ τί δικαιοσύνη ῥύεται καὶ ταῦτα αὐτοῦ λέγοντος ἐξέλιπεν αὐτοῦ ἡ ψυχὴ ἐπὶ τῆς κλίνης ἦν δὲ ἐτῶν ἑκατὸν πεντήκοντα ὀκτώ καὶ ἔθαψεν αὐτὸν ἐνδόξως.",
+     "giguet": "Vous voyez donc, mes enfants, ce que fait l'aumône et comment nous sauve la justice. Et tandis qu'il leur parlait, son âme l'abandonna sur son lit, et il avait cent cinquante-huit ans&nbsp;; et ils lui firent de belles funérailles.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ ὅτε ἀπέθανεν Αννα ἔθαψεν αὐτὴν μετὰ τοῦ πατρὸς αὐτοῦ ἀπῆλθεν δὲ Τωβιας μετὰ τῆς γυναικὸς αὐτοῦ καὶ τῶν υἱῶν αὐτοῦ εἰς Ἐκβάτανα πρὸς Ραγουηλ τὸν πενθερὸν αὐτοῦ.",
+     "giguet": "Et lorsque Anne mourut, Tobie l'ensevelit auprès de son père&nbsp;; et il partit avec sa femme et ses enfants pour Ecbatane, où il demeura chez Raguel son beau-père.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "καὶ ἐγήρασεν ἐντίμως καὶ ἔθαψεν τοὺς πενθεροὺς αὐτοῦ ἐνδόξως καὶ ἐκληρονόμησεν τὴν οὐσίαν αὐτῶν καὶ Τωβιτ τοῦ πατρὸς αὐτοῦ.",
+     "giguet": "Et il eut une honorable vieillesse, et il ensevelit avec honneur son beau-père, et il hérita de tout leur bien, comme de celui de Tobit, son père.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "καὶ ἀπέθανεν ἐτῶν ἑκατὸν εἴκοσι ἑπτὰ ἐν Ἐκβατάνοις τῆς Μηδίας.",
+     "giguet": "Et il mourut âgé de cent vingt-sept ans à Ecbatane, en Médie.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "καὶ ἤκουσεν πρὶν ἢ ἀποθανεῖν αὐτὸν τὴν ἀπώλειαν Νινευη ἣν ᾐχμαλώτισεν Ναβουχοδονοσορ καὶ Ασυηρος ἐχάρη πρὸ τοῦ ἀποθανεῖν ἐπὶ Νινευη.",
+     "giguet": "Et, avant de mourir, il apprit la ruine de Ninive que prit Nabuchodonosor, avec Asuéros, et il eut cette joie, avant de mourir, au sujet de Ninive.",
+     "alexandrie": "",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  }
+ ]
+}

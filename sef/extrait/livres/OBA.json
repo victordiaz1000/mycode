@@ -1,0 +1,187 @@
+{
+ "code": "OBA",
+ "book": "Abdias",
+ "fichiersToc": [
+  "OBA/001.html"
+ ],
+ "chapitres": [
+  {
+   "chapitre": 1,
+   "libelle": "1",
+   "fichierToc": "OBA/001.html",
+   "groupe": null,
+   "introduction": [],
+   "versets": [
+    {
+     "verset": "1",
+     "grec": "ὅρασις Αβδιου τάδε λέγει κύριος ὁ θεὸς τῇ Ιδουμαίᾳ ἀκοὴν ἤκουσα παρὰ κυρίου καὶ περιοχὴν εἰς τὰ ἔθνη ἐξαπέστειλεν ἀνάστητε καὶ ἐξαναστῶμεν ἐπ' αὐτὴν εἰς πόλεμον.",
+     "giguet": "Vision d'Abdias. Voici ce que le Seigneur dit à l'Idumée j'ai entendu la parole du Seigneur, et il a envoyé un message aux nations, disant&nbsp;: Levez-vous, et allons la combattre&nbsp;!",
+     "alexandrie": "Voici que je t’ai rendu tout petit parmi les nations, te voilà tout à fait méprisé.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "2",
+     "grec": "ἰδοὺ ὀλιγοστὸν δέδωκά σε ἐν τοῖς ἔθνεσιν ἠτιμωμένος σὺ εἶ σφόδρα.",
+     "giguet": "Voilà que je t'ai réduit à un petit nombre parmi les peuples&nbsp;; et tu es maintenant très déshonorée.",
+     "alexandrie": "L’arrogance de ton cœur t’a exalté, toi qui résides dans les creux des rochers&nbsp;; il place haut sa demeure, disant en son cœur&nbsp;: «&nbsp;Qui me fera descendre vers la terre&nbsp;?»",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "3",
+     "grec": "ὑπερηφανία τῆς καρδίας σου ἐπῆρέν σε κατασκηνοῦντα ἐν ταῖς ὀπαῖς τῶν πετρῶν ὑψῶν κατοικίαν αὐτοῦ λέγων ἐν καρδίᾳ αὐτοῦ τίς με κατάξει ἐπὶ τὴν γῆν.",
+     "giguet": "L'orgueil de ton cœur t'avait enivré, toi qui résides dans les trous des rochers&nbsp;; élevant ta demeure sur les hauts lieux, tu disais&nbsp;: Qui me fera descendre à terre&nbsp;?",
+     "alexandrie": "Si tu te tiens dans les airs comme un aigle et si, au milieu des astres, tu établis ton nid, je t’en ferai descendre, dit le Seigneur.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "4",
+     "grec": "ἐὰν μετεωρισθῇς ὡς ἀετὸς καὶ ἐὰν ἀνὰ μέσον τῶν ἄστρων θῇς νοσσιάν σου ἐκεῖθεν κατάξω σε λέγει κύριος.",
+     "giguet": "Quand même tu te serais élevé autant que l'aigle, quand tu aurais placé ton nid au milieu des étoiles, je t'en précipiterais, dit le Seigneur.",
+     "alexandrie": "Si des voleurs avaient pénétré chez toi, ou des brigands de nuit, où aurais-tu été précipité&nbsp;? N’auraient-ils pas volé leur content&nbsp;? Et si des vendangeurs avaient pénétré chez toi, n’auraient-ils pas laissé juste un grap-pillon&nbsp;?",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "5",
+     "grec": "εἰ κλέπται εἰσῆλθον πρὸς σὲ ἢ λῃσταὶ νυκτός ποῦ ἂν ἀπερρίφης οὐκ ἂν ἔκλεψαν τὰ ἱκανὰ ἑαυτοῖς καὶ εἰ τρυγηταὶ εἰσῆλθον πρὸς σέ οὐκ ἂν ὑπελίποντο ἐπιφυλλίδα.",
+     "giguet": "Si des larrons ou des voleurs de nuit étaient entrés chez toi, à quel point t'auraient-ils abattu&nbsp;? N'auraient-ils pas seulement enlevé ce qui leur eût convenu&nbsp;? Et si des vendangeurs étaient entrés en ta vigne, ne t'auraient-ils pas laissé au moins un grappillon&nbsp;?",
+     "alexandrie": "Ésaü a été fouillé et ce qu’il avait caché a été saisi, et de quelle manière&nbsp;!",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "6",
+     "grec": "πῶς ἐξηρευνήθη Ησαυ καὶ κατελήμφθη αὐτοῦ τὰ κεκρυμμένα.",
+     "giguet": "Comment Ésaü a-t-il été fouillé, et comment lui a-t-on pris ce qu'il cachait&nbsp;?",
+     "alexandrie": "Jusqu’aux frontières ils t’ont renvoyé, tous les hommes de ton alliance, ils se sont dressés contre toi, ils ont été puissants à ton encontre, les hommes en paix avec toi, ils ont placé une embuscade sous toi&nbsp;: il n’y a pas d’intelligence en lui.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "7",
+     "grec": "ἕως τῶν ὁρίων σου ἐξαπέστειλάν σε πάντες οἱ ἄνδρες τῆς διαθήκης σου ἀντέστησάν σοι ἠδυνάσθησαν πρὸς σὲ ἄνδρες εἰρηνικοί σου ἔθηκαν ἔνεδρα ὑποκάτω σου οὐκ ἔστιν σύνεσις αὐτοῖς.",
+     "giguet": "Ils t'ont chassé jusqu'à tes extrêmes limites&nbsp;; tous tes alliés sont devenus tes ennemis&nbsp;; des hommes pacifiques avec qui tu vivais en paix ont prévalu contre toi&nbsp;; ils ont placé des pièges sous tes pas&nbsp;; ils n'ont aucune compréhension.",
+     "alexandrie": "En ce jour-là, dit le Seigneur, je ferai disparaître d’Idumée les sages, et de la montagne d’Ésaü l’intelligence.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "8",
+     "grec": "ἐν ἐκείνῃ τῇ ἡμέρᾳ λέγει κύριος ἀπολῶ σοφοὺς ἐκ τῆς Ιδουμαίας καὶ σύνεσιν ἐξ ὄρους Ησαυ.",
+     "giguet": "Ce jour-là, dit le Seigneur, je détruirai les sages de l'Idumée, et je bannirai l'intelligence des montagnes d'Ésaü.",
+     "alexandrie": "Et ils seront pris d’effroi, tes combattants, ceux de Thaiman, en sorte que tout homme soit enlevé de la montagne d’Ésaü",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "9",
+     "grec": "καὶ πτοηθήσονται οἱ μαχηταί σου οἱ ἐκ Θαιμαν ὅπως ἐξαρθῇ ἄνθρωπος ἐξ ὄρους Ησαυ.",
+     "giguet": "Et tes guerriers de Théman trembleront de peur, afin que tout homme soit exterminé sur le mont d'Ésaü.",
+     "alexandrie": "à cause de l’égorgement et à cause de l’impiété à l’égard de ton frère Jacob&nbsp;; et la honte te couvrira et tu seras enlevé à jamais.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "10",
+     "grec": "διὰ τὴν σφαγὴν καὶ τὴν ἀσέβειαν τὴν εἰς τὸν ἀδελφόν σου Ιακωβ καὶ καλύψει σε αἰσχύνη καὶ ἐξαρθήσῃ εἰς τὸν αἰῶνα.",
+     "giguet": "À cause de tes meurtres, et de tes péchés contre ton frère Jacob, tu seras couvert de confusion, et tu seras effacé pour jamais.",
+     "alexandrie": "Depuis le jour où tu t’es dressé en opposition, au jour où des gens d’une autre origine capturaient son armée, où des étrangers ont pénétré dans ses portes, où ils ont mis au sort Jérusalem, toi aussi tu étais comme l’un d’entre eux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "11",
+     "grec": "ἀφ' ἧς ἡμέρας ἀντέστης ἐξ ἐναντίας ἐν ἡμέρᾳ αἰχμαλωτευόντων ἀλλογενῶν δύναμιν αὐτοῦ καὶ ἀλλότριοι εἰσῆλθον εἰς πύλας αὐτοῦ καὶ ἐπὶ Ιερουσαλημ ἔβαλον κλήρους καὶ σὺ ἦς ὡς εἷς ἐξ αὐτῶν.",
+     "giguet": "Du jour où tu t'es élevé contre lui, quand des peuples étrangers emmenèrent son armée captive, quand ils franchirent ses portes, et tirèrent au sort les richesses de Jérusalem, dès lors tu fus comme l'un d'eux.",
+     "alexandrie": "Et ne porte pas ton regard sur le jour de ton frère au jour des étrangers, n’aie pas de joie maligne contre les fils de Juda au jour de leur destruction, n’enfle pas la bouche au jour de l’oppression.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "12",
+     "grec": "καὶ μὴ ἐπίδῃς ἡμέραν ἀδελφοῦ σου ἐν ἡμέρᾳ ἀλλοτρίων καὶ μὴ ἐπιχαρῇς ἐπὶ τοὺς υἱοὺς Ιουδα ἐν ἡμέρᾳ ἀπωλείας αὐτῶν καὶ μὴ μεγαλορρημονήσῃς ἐν ἡμέρᾳ θλίψεως.",
+     "giguet": "Ne méprise pas la chute de ton frère au jour des étrangers ne te raille pas des fils de Juda au jour de leur ruine&nbsp;; ne te gonfle pas d'orgueil au jour de leur angoisse.",
+     "alexandrie": "Ne pénètre pas dans les portes des peuples au jour de leurs peines, ne porte pas ton regard, toi non plus, sur leur rassemblement au jour de leur anéantissement, ne te joins pas à l’attaque contre leur armée au jour de leur destruction.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "13",
+     "grec": "μηδὲ εἰσέλθῃς εἰς πύλας λαῶν ἐν ἡμέρᾳ πόνων αὐτῶν μηδὲ ἐπίδῃς καὶ σὺ τὴν συναγωγὴν αὐτῶν ἐν ἡμέρᾳ ὀλέθρου αὐτῶν μηδὲ συνεπιθῇ ἐπὶ τὴν δύναμιν αὐτῶν ἐν ἡμέρᾳ ἀπωλείας αὐτῶν.",
+     "giguet": "N'entre point par les portes de mon peuple au jour de ses souffrances&nbsp;; ne surveille pas sa synagogue au jour de sa destruction&nbsp;; n'attaque pas son armée le jour où ils périront.",
+     "alexandrie": "Ne surgis pas dans leurs passages pour anéantir ceux qui essaient de se sauver, n’enferme pas ceux qui cherchent à s’échapper au jour de l’oppression.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "14",
+     "grec": "μηδὲ ἐπιστῇς ἐπὶ τὰς διεκβολὰς αὐτῶν τοῦ ἐξολεθρεῦσαι τοὺς ἀνασῳζομένους αὐτῶν μηδὲ συγκλείσῃς τοὺς φεύγοντας ἐξ αὐτῶν ἐν ἡμέρᾳ θλίψεως.",
+     "giguet": "Ne te tiens pas sur leur chemin pour massacrer ceux qui se sont échappés&nbsp;; n'enferme pas leurs fuyards au jour de la désolation.",
+     "alexandrie": "Car proche est le jour du Seigneur contre toutes les nations&nbsp;; selon la façon dont tu as agi, il en sera ainsi pour toi&nbsp;: le paiement qui t’est dû te sera payé sur ta tête&nbsp;!",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "15",
+     "grec": "διότι ἐγγὺς ἡμέρα κυρίου ἐπὶ πάντα τὰ ἔθνη ὃν τρόπον ἐποίησας οὕτως ἔσται σοι τὸ ἀνταπόδομά σου ἀνταποδοθήσεται εἰς κεφαλήν σου.",
+     "giguet": "Car le jour du Seigneur est proche pour toutes les nations&nbsp;; comme tu as fait à autrui, Il te fera à toi-même&nbsp;; ta rétribution retombera sur ta tête.",
+     "alexandrie": "Car selon la façon dont tu as bu sur la montagne, mon lieu saint, toutes les nations boiront le vin&nbsp;: ils boiront, descendront et seront comme s’ils n’existaient pas.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "16",
+     "grec": "διότι ὃν τρόπον ἔπιες ἐπὶ τὸ ὄρος τὸ ἅγιόν μου πίονται πάντα τὰ ἔθνη οἶνον πίονται καὶ καταβήσονται καὶ ἔσονται καθὼς οὐχ ὑπάρχοντες.",
+     "giguet": "Car de même que tu auras bu sur ma montagne sainte, ainsi toutes les nations boiront le vin de ma colère&nbsp;; elles boiront, et elles tomberont, et elles seront comme ceux qui ne sont plus.",
+     "alexandrie": "Mais dans la montagne de Sion sera le salut, et elle sera un lieu saint&nbsp;; et ceux de la maison de Jacob hériteront de ceux qui auront hérité d’eux.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "17",
+     "grec": "ἐν δὲ τῷ ὄρει Σιων ἔσται ἡ σωτηρία καὶ ἔσται ἅγιον καὶ κατακληρονομήσουσιν ὁ οἶκος Ιακωβ τοὺς κατακληρονομήσαντας αὐτούς.",
+     "giguet": "Et le salut sera en la montagne de Sion, et elle sera sainte, et la maison de Jacob possédera ceux qui l'auront possédée.",
+     "alexandrie": "Et la maison de Jacob sera feu, la maison de Joseph flamme, la maison d’Ésaü deviendra du chaume, l’incendie sera sur eux et ils les dévoreront, et il n’y aura pas de porte-feu dans la maison d’Ésaü, car le Seigneur a parlé.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "18",
+     "grec": "καὶ ἔσται ὁ οἶκος Ιακωβ πῦρ ὁ δὲ οἶκος Ιωσηφ φλόξ ὁ δὲ οἶκος Ησαυ εἰς καλάμην καὶ ἐκκαυθήσονται εἰς αὐτοὺς καὶ καταφάγονται αὐτούς καὶ οὐκ ἔσται πυροφόρος ἐν τῷ οἴκῳ Ησαυ διότι κύριος ἐλάλησεν.",
+     "giguet": "Et la maison de Jacob sera un feu, et la maison de Joseph une flamme&nbsp;; et la maison d'Ésaü sera comme un chaume&nbsp;; et ceux d'Israël porteront chez elle l'incendie, et ils la dévoreront&nbsp;; et il n'y aura plus un champ qui porte du blé, en la maison d'Ésaü&nbsp;; car le Seigneur a parlé.",
+     "alexandrie": "Et ceux du Nageb hériteront de la montagne d’Ésaü, ceux de la Séphèla des Étrangers et ils hériteront de la montagne d’Ephraïm, de la plaine de Samarie, ainsi que Benjamin du pays de Galaad.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "19",
+     "grec": "καὶ κατακληρονομήσουσιν οἱ ἐν Ναγεβ τὸ ὄρος τὸ Ησαυ καὶ οἱ ἐν τῇ Σεφηλα τοὺς ἀλλοφύλους καὶ κατακληρονομήσουσιν τὸ ὄρος Εφραιμ καὶ τὸ πεδίον Σαμαρείας καὶ Βενιαμιν καὶ τὴν Γαλααδῖτιν.",
+     "giguet": "Et ceux de Nageb auront pour héritage la montagne d'Ésaü, et ceux de Sephéla le pays des Philistins&nbsp;; et ils auront aussi pour héritage la montagne d'Éphraïm, et la plaine de Samarie, et Benjamin et Galaad.",
+     "alexandrie": "Et ceux du Nageb hériteront de la montagne d’Ésaü, ceux de la Séphèla des Étrangers et ils hériteront de la montagne d’Ephraïm, de la plaine de Samarie, ainsi que Benjamin du pays de Galaad.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "20",
+     "grec": "καὶ τῆς μετοικεσίας ἡ ἀρχὴ αὕτη τοῖς υἱοῖς Ισραηλ γῆ τῶν Χαναναίων ἕως Σαρεπτων καὶ ἡ μετοικεσία Ιερουσαλημ ἕως Εφραθα καὶ κληρονομήσουσιν τὰς πόλεις τοῦ Ναγεβ.",
+     "giguet": "Et voici le domaine des fils d'Israël qui reviendront de la captivité la terre des Chananéens jusqu'à Sarepta&nbsp;; ceux de Jérusalem posséderont jusqu'à Éphratha&nbsp;; ils auront les cités de Nageb.",
+     "alexandrie": "Et tel est l’empire de la transplantation&nbsp;: aux fils  d’Israël la terre des Cananéens jusqu’à Sarepta, et ce sera la transplantation de Jérusalem jusqu’à Sephratha, et ils hériteront des villes du Nageb.",
+     "autres": [],
+     "titres": []
+    },
+    {
+     "verset": "21",
+     "grec": "καὶ ἀναβήσονται ἄνδρες σεσῳσμένοι ἐξ ὄρους Σιων τοῦ ἐκδικῆσαι τὸ ὄρος Ησαυ καὶ ἔσται τῷ κυρίῳ ἡ βασιλεία.",
+     "giguet": "Et ceux de la montagne de Sion qui auront été sauvés monteront pour punir la montagne d'Ésaü&nbsp;; et alors arrivera le règne du Seigneur.",
+     "alexandrie": "Et les hommes sauvés monteront depuis la montagne de Sion, pour tirer vengeance de la montagne d’Ésaü, et la royauté appartiendra au Seigneur.",
+     "autres": [],
+     "titres": []
+    }
+   ],
+   "brut": []
+  }
+ ]
+}

@@ -1890,8 +1890,12 @@ class _MissingBookPanel extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                'Terminez le téléchargement depuis la Bibliothèque pour lire ce '
-                'livre en ${error.code}.',
+                error is BookNotInVersion
+                    ? '${versionByCode(error.code)?.name ?? error.code} ne '
+                        'contient que l\'Ancien Testament : il n\'y a rien à '
+                        'télécharger pour ce livre.'
+                    : 'Terminez le téléchargement depuis la Bibliothèque pour '
+                        'lire ce livre en ${error.code}.',
                 textAlign: TextAlign.center,
                 style: premiumText(
                   context,
@@ -1911,7 +1915,9 @@ class _MissingBookPanel extends StatelessWidget {
                     onPressed: onReadEmbedded,
                     child: const Text('Lire en BYM'),
                   ),
-                  if (onOpenLibrary != null)
+                  // Inutile pour un livre hors canon : la Bibliothèque n'a
+                  // rien à télécharger non plus.
+                  if (onOpenLibrary != null && error is! BookNotInVersion)
                     TextButton.icon(
                       onPressed: onOpenLibrary,
                       icon: const Icon(Icons.download_outlined, size: 18),
