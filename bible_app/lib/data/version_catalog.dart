@@ -21,8 +21,9 @@ enum VersionFormat {
   getbible,
 
   /// The SEF schema: getbible's fields plus a Greek line (`grec`), a second
-  /// French translation (`alexandrie`), unanchored footnotes (`notes`) and
-  /// the source's section titles (`section`). Read by `bookFromSef`.
+  /// French translation (`alexandrie`) and the source's section titles
+  /// (`section`); the source's footnotes (`notes`) stay in the files, unread.
+  /// Read by `bookFromSef`.
   sef,
 }
 
@@ -52,6 +53,11 @@ class VersionEntry {
 
   /// Date + licence line under the name.
   final String rights;
+
+  /// Who translated the text, when that name deserves its own line under
+  /// [rights] (SEF: the two French translations — the source names them, the
+  /// copyright line doesn't). Null on every other version: shown only then.
+  final String? attribution;
 
   /// Whether we can serve it, and how.
   final VersionAvailability availability;
@@ -96,6 +102,7 @@ class VersionEntry {
     required this.code,
     required this.name,
     required this.rights,
+    this.attribution,
     this.availability = VersionAvailability.unavailable,
     this.format = VersionFormat.getbible,
     this.getbibleId,
@@ -291,6 +298,16 @@ const List<VersionGroup> versionCatalog = [
       // logiciel, Biblia Universalis 3 — même mention dans les fichiers.
       rights: '© 1935, 1979 Deutsche Bibelgesellschaft (grec) · '
           '© Biblia Universalis 3 (traductions)',
+      // Les traducteurs tels que la source les nomme elle-même : Pierre
+      // Giguet d'après son introduction (« GIGUET_INTRODUCTION »), et
+      // l'équipe de la Bible d'Alexandrie d'après l'Avertissement du corpus
+      // (Éditions du Cerf, direction Marguerite Harl, Gilles Dorival,
+      // Olivier Munnich, concours Cécile Dogniez). Ligne affichée sous le
+      // copyright sur la carte de la Bibliothèque.
+      attribution: 'Traductions : Pierre Giguet (1794-1883) · '
+          'La Bible d\'Alexandrie (Éditions du Cerf), sous la direction de '
+          'Marguerite Harl, Gilles Dorival, Olivier Munnich et '
+          'Cécile Dogniez',
       availability: VersionAvailability.downloadable,
       // Hébergement GitHub identique à OST / NCL, sous-dossier propre —
       // produit par `sef/sef_to_json.py`. Grec + deux traductions françaises,

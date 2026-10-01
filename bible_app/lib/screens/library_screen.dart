@@ -573,6 +573,19 @@ class _VersionTile extends StatelessWidget {
                             p.textGrey,
                           ),
                         ),
+                        // Les traducteurs, quand la version en nomme (SEF :
+                        // Giguet et la Bible d'Alexandrie) — sous le copyright,
+                        // même gris, l'ordre de lecture de la carte.
+                        if (version.attribution != null)
+                          Text(
+                            version.attribution!,
+                            style: premiumText(
+                              context,
+                              12,
+                              FontWeight.w500,
+                              p.textGrey,
+                            ),
+                          ),
                       ],
                     ),
                   ),

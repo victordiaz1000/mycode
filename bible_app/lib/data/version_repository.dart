@@ -189,9 +189,11 @@ BibleBook bookFromGetbible(
 ///
 /// Schéma d'entrée : celui de getbible enrichi — `verses[].text` porte le
 /// français affiché (Giguet), `grec` la ligne grecque affichée au-dessus,
-/// `alexandrie` la seconde traduction quand elle existe, `notes` les pieds de
-/// page (liste de chaînes, sans ancrage mot — à distinguer des `notes`
-/// ancrées de la BYM) et `section` le titre de section de la source.
+/// `alexandrie` la seconde traduction française affichée dessous (le
+/// convertisseur ne l'écrit que lorsqu'elle diffère du `text` — jamais de
+/// doublon), `notes` les pieds de page de la source — restés en données
+/// dans les fichiers, jamais montrés à l'écran — et `section` le titre de
+/// section de la source.
 ///
 /// Un verset sans français comme sans grec est ignoré ; un verset sans
 /// français garde sa ligne grecque, seule à l'écran (trous du corpus bleu :
@@ -207,17 +209,14 @@ BibleBook bookFromSef(
         final text = (raw['text'] as String? ?? '').trim();
         final grec = (raw['grec'] as String? ?? '').trim();
         if (text.isEmpty && grec.isEmpty) return null;
-        final notes = [
-          for (final n in raw['notes'] as List<dynamic>? ?? const [])
-            if (n is String && n.trim().isNotEmpty) n.trim(),
-        ];
+        final alexandrie = (raw['alexandrie'] as String? ?? '').trim();
         final section = (raw['section'] as String? ?? '').trim();
         return Verse(
           verse: '$chapter:${_asInt(raw['verse'])}',
           text: text,
           textWithNotes: text,
           grec: grec.isEmpty ? null : grec,
-          note: notes.isEmpty ? null : '• ${notes.join('\n• ')}',
+          alexandrie: alexandrie.isEmpty ? null : alexandrie,
           section: section.isEmpty ? null : section,
         );
       },

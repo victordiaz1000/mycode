@@ -221,8 +221,9 @@ class VerseTile extends StatelessWidget {
                     ),
                     Expanded(
                       // SEF: the Greek line rides above the translation and the
-                      // source's footnotes sit under it — both extra to the BYM
-                      // note machinery, both data-gated (null = nothing drawn).
+                      // second French translation trails it — both extra to
+                      // the BYM note machinery, both data-gated (null =
+                      // nothing drawn).
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -266,17 +267,17 @@ class VerseTile extends StatelessWidget {
                                   onStrongTap: onStrongTap,
                                   textAlign: textAlign,
                                 ),
-                          if (verse.note != null)
+                          if (verse.alexandrie != null)
                             Padding(
                               padding: EdgeInsets.only(top: 3 * rhythm.s),
                               child: Text(
-                                verse.note!,
+                                verse.alexandrie!,
                                 textAlign: textAlign,
                                 style:
                                     materialTheme.textTheme.bodyLarge?.copyWith(
-                                  fontSize: rhythm.fontSize * .81,
+                                  fontSize: rhythm.fontSize * .88,
                                   color: theme.noteColor,
-                                  height: 1.4,
+                                  height: 1.35,
                                 ),
                               ),
                             ),
@@ -1312,12 +1313,19 @@ class _ParagraphBlockState extends State<_ParagraphBlock>
         push(verse.text, body);
       }
 
-      // SEF: unanchored footnotes trail the verse in the note style the
-      // continuous layout already uses for BYM's woven-in notes.
-      final note = verse.note;
-      if (note != null && note.isNotEmpty) {
-        push(' ', body);
-        push(note, noteStyle);
+      // SEF: the second French translation takes its own line under the main
+      // one, in the muted style of the Greek line above. It then hands a line
+      // break to the next verse, which would otherwise trail it — see the
+      // separator at the end of this loop.
+      final alexandrie = verse.alexandrie;
+      var lineBreakAfter = false;
+      if (alexandrie != null && alexandrie.isNotEmpty) {
+        push('\n', body);
+        push(
+          alexandrie,
+          body.copyWith(fontSize: baseSize * .88, color: theme.noteColor),
+        );
+        lineBreakAfter = true;
       }
 
       // End-of-verse markers: user favourite / user note as tiny icons. The
@@ -1355,7 +1363,14 @@ class _ParagraphBlockState extends State<_ParagraphBlock>
         );
         contentChars += 1;
       }
-      push(' ', body);
+      // Verse separator: a space inside the flow — except after a verse that
+      // ended on its own line (second translation), which passes a line break
+      // so the next verse's number doesn't trail the translation. The last
+      // verse keeps the trailing space, as every verse did before.
+      push(
+        lineBreakAfter && idx < widget.segment.verses.length - 1 ? '\n' : ' ',
+        body,
+      );
 
       children.add(
         TextSpan(

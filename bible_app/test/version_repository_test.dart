@@ -272,6 +272,10 @@ void main() {
       // hoped for — same rule as CHO and KJF.
       expect(sef.rights, contains('©'));
       expect(sef.rights, contains('Deutsche Bibelgesellschaft'));
+      // Les deux traducteurs, nommés par la source elle-même (introductions
+      // du corpus) : la Bibliothèque les affiche sous le copyright.
+      expect(sef.attribution, contains('Pierre Giguet'));
+      expect(sef.attribution, contains('Marguerite Harl'));
       expect(sef.languageCode, 'FR');
     });
 
@@ -291,7 +295,7 @@ void main() {
           throwsA(isA<BookNotDownloaded>()));
     });
 
-    test('parses grec, notes and section, keeping a Greek-only verse', () {
+    test('parses grec, alexandrie and section, keeping a Greek-only verse', () {
       final book = bookFromSef({
         'chapters': [
           {
@@ -302,7 +306,10 @@ void main() {
                 'verse': '1',
                 'text': 'Au commencement…',
                 'grec': 'Ἐν ἀρχῇ…',
-                'notes': ['Première note', 'Seconde note'],
+                'alexandrie': 'Au commencement, Dieu fit…',
+                // Les pieds de page voyagent dans le fichier : le parseur ne
+                // doit en faire ni une note ancrée ni quoi que ce soit d'autre.
+                'notes': ['Pied de page resté en données'],
                 'section': 'Le décalogue',
               },
               {'chapter': '1', 'verse': '2', 'grec': 'Καὶ ἡ γῆ…'},
@@ -316,12 +323,13 @@ void main() {
       expect(verses, hasLength(2), reason: 'the double-empty verse is dropped');
       expect(verses[0].text, 'Au commencement…');
       expect(verses[0].grec, 'Ἐν ἀρχῇ…');
-      expect(verses[0].note, '• Première note\n• Seconde note');
+      expect(verses[0].alexandrie, 'Au commencement, Dieu fit…');
       expect(verses[0].section, 'Le décalogue');
       expect(verses[0].textWithNotes, verses[0].text);
-      expect(verses[0].notes, isEmpty, reason: 'SEF footnotes are not anchored');
+      expect(verses[0].notes, isEmpty,
+          reason: 'SEF footnotes stay in the file, unanchored and unread');
       expect(verses[1].text, '', reason: 'a French hole keeps its Greek line');
-      expect(verses[1].note, isNull);
+      expect(verses[1].alexandrie, isNull);
     });
   });
 }

@@ -27,10 +27,10 @@ class Verse {
   /// translation. Null on every other version.
   final String? grec;
 
-  /// Footnotes the version attaches to this verse without anchoring them to a
-  /// word (SEF: the source's `•` footnote paragraphs, unlike [notes] which
-  /// are word-anchored). Rendered as a small line under the verse.
-  final String? note;
+  /// Second French translation the Septuagint version carries (SEF: the
+  /// Bible d'Alexandrie, only where it differs from [text]), rendered under
+  /// the main translation in the same muted line as [grec].
+  final String? alexandrie;
 
   const Verse({
     required this.verse,
@@ -39,7 +39,7 @@ class Verse {
     required this.textWithNotes,
     this.notes = const [],
     this.grec,
-    this.note,
+    this.alexandrie,
   });
 
   factory Verse.fromJson(Map<String, dynamic> json) => Verse(
@@ -51,7 +51,7 @@ class Verse {
             .map((e) => VerseNote.fromJson(e as Map<String, dynamic>))
             .toList(),
         grec: json['grec'] as String?,
-        note: json['note'] as String?,
+        alexandrie: json['alexandrie'] as String?,
       );
 
   /// Position (1-based) of this verse within its chapter.

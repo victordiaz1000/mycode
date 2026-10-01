@@ -223,6 +223,31 @@ void main() {
               'boutons Android (à partir de 740).');
     });
 
+    testWidgets('la carte de la Septuaginta nomme ses deux traducteurs',
+        (tester) async {
+      await pumpLibrary(
+        tester,
+        store: FakeStore(),
+        service: FakeService(FakeStore()),
+      );
+
+      expect(
+        find.text('Septuaginta — la Septante en français'),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining('Pierre Giguet'),
+        findsOneWidget,
+        reason: 'Le traducteur de la première version française, sous le '
+            'copyright de la carte',
+      );
+      expect(
+        find.textContaining('Marguerite Harl'),
+        findsOneWidget,
+        reason: 'La direction de la Bible d\'Alexandrie, seconde traduction',
+      );
+    });
+
     testWidgets('le téléchargement se détache sur une pastille d\'action',
         (tester) async {
       await pumpLibrary(
