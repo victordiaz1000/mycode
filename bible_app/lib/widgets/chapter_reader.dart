@@ -903,6 +903,28 @@ class _ChapterReaderState extends State<ChapterReader> {
                       },
               ),
               const SizedBox(height: 12),
+              // Sur les écrans où l'icône a quitté la barre, « Trouver »
+              // rejoint les actions de la feuille : cacher le bouton ne doit
+              // jamais cacher la recherche.
+              if (!_findIconInBar)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                  child: OutlinedButton.icon(
+                    onPressed: () {
+                      Navigator.of(sheetContext).pop();
+                      _openFind();
+                    },
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(
+                        color: Theme.of(context).colorScheme.primary,
+                        width: 1.5,
+                      ),
+                      foregroundColor: Theme.of(context).colorScheme.primary,
+                    ),
+                    icon: const Icon(Icons.search, size: 18),
+                    label: const Text('Trouver dans le chapitre'),
+                  ),
+                ),
               // The two-versions side-by-side reading: a mode, not a display
               // knob — it lives at the bottom of the sheet and closes it.
               Padding(
@@ -958,12 +980,16 @@ class _ChapterReaderState extends State<ChapterReader> {
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    IconButton(
-                      tooltip: 'Trouver dans le chapitre',
-                      icon: const Icon(Icons.search),
-                      onPressed: _openFind,
-                      visualDensity: VisualDensity.compact,
-                    ),
+                    // Caché sur les petits écrans (voir [_findIconInBar]) :
+                    // la feuille ⋯ en propose l'accès à la place, la barre
+                    // garde le bouton d'affichage seule.
+                    if (_findIconInBar)
+                      IconButton(
+                        tooltip: 'Trouver dans le chapitre',
+                        icon: const Icon(Icons.search),
+                        onPressed: _openFind,
+                        visualDensity: VisualDensity.compact,
+                      ),
                     IconButton(
                       tooltip: 'Affichage du texte',
                       icon: const Icon(Icons.more_vert),
@@ -1592,6 +1618,13 @@ class _ChapterReaderState extends State<ChapterReader> {
   }
 
   // ---- Find in chapter ----
+
+  /// La barre d'un téléphone en portrait n'a plus la place pour l'icône de
+  /// recherche à côté du ⋯ : sous 480 de large elle quitte le `trailing` et
+  /// « Trouver dans le chapitre » vit dans la feuille ⋯ à la place — la
+  /// fonction ne part jamais, seul l'endroit change. Au-delà (grand
+  /// téléphone en paysage, tablette, bureau) la barre reste intacte.
+  bool get _findIconInBar => MediaQuery.sizeOf(context).width >= 480;
 
   void _openFind() {
     setState(() => _findOpen = true);

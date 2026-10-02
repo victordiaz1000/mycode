@@ -300,6 +300,42 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('Trouver dans le chapitre'), findsNothing);
     });
+
+    testWidgets('sur petit écran l\'icône quitte la barre pour la feuille ⋯', (
+      tester,
+    ) async {
+      // Pas `pumpReader` : ce helper impose 800 de large, qui est justement
+      // la largeur où l'icône DOIT être là. Téléphone en portrait.
+      tester.view.physicalSize = const Size(390, 844);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(body: ChapterReader(bookIndex: 1, chapter: 1)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // 390 de large : l'icône de recherche ne tient plus dans la barre.
+      expect(find.byIcon(Icons.search), findsNothing);
+
+      // La fonction, elle, ne part pas : elle rejoint la feuille ⋯.
+      await tester.tap(find.byIcon(Icons.more_vert));
+      await tester.pumpAndSettle();
+      final entry = find.widgetWithText(
+        OutlinedButton,
+        'Trouver dans le chapitre',
+      );
+      expect(entry, findsOneWidget);
+      await tester.tap(entry);
+      await tester.pumpAndSettle();
+
+      // La feuille s'est refermée : le champ de recherche s'est ouvert —
+      // même libellé, cette fois en indice de champ.
+      expect(find.byType(TextField), findsOneWidget);
+      expect(find.text('Trouver dans le chapitre'), findsOneWidget);
+    });
   });
 
   group('continue to the next chapter', () {

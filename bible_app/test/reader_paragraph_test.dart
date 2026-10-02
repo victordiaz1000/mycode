@@ -57,6 +57,35 @@ void main() {
     expect(find.text('Verset de test Ge. 1:1.'), findsOneWidget);
   });
 
+  testWidgets('le titre de section suit la taille du texte', (tester) async {
+    // Corps par défaut « très grand » (22) : le titre aussi, au lieu du 16
+    // figé de `titleMedium` — c'était plus petit que le corps dès le défaut.
+    await pumpReader(tester);
+    expect(
+      tester.widget<Text>(find.text('Section 1')).style?.fontSize,
+      ReadingTextSize.extraLarge.fontSize,
+    );
+
+    // Un corps plus petit, un titre plus petit — relu à la remontée, comme
+    // la taille du corps elle-même.
+    final prefs = await AppPreferences.load();
+    prefs.fontSize = ReadingTextSize.small.fontSize;
+    await prefs.save();
+    await pumpReader(tester);
+    expect(
+      tester.widget<Text>(find.text('Section 1')).style?.fontSize,
+      ReadingTextSize.small.fontSize,
+    );
+
+    // …et le moteur du texte continu, qui rend ses titres ailleurs, obéit
+    // au même cran.
+    await pickDisplay(tester, 'Texte continu');
+    expect(
+      tester.widget<Text>(find.text('Section 1')).style?.fontSize,
+      ReadingTextSize.small.fontSize,
+    );
+  });
+
   testWidgets('switching to « Texte continu » flows the chapter as blocks', (
     tester,
   ) async {

@@ -183,6 +183,11 @@ class VerseTile extends StatelessWidget {
                       verse.section!,
                       textAlign: textAlign,
                       style: materialTheme.textTheme.titleMedium?.copyWith(
+                        // Le titre suit « Taille du texte » : posé sur le 16
+                        // de `titleMedium`, il tombait sous le corps dès
+                        // « très grand » (22) — l'écart d'origine était de
+                        // titre égal au corps, à corps choisi.
+                        fontSize: rhythm.fontSize,
                         color: theme.titleColor,
                         fontWeight: FontWeight.w600,
                       ),
@@ -685,6 +690,9 @@ class ChapterVerseListState extends State<ChapterVerseList> {
             child: Text(
               segments[s].title!,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                // Idem la tuile : le titre prend le corps choisi, pas le 16
+                // figé de `titleMedium`.
+                fontSize: rhythm.fontSize,
                 color: theme.titleColor,
                 fontWeight: FontWeight.w600,
                 fontFamily: family,
