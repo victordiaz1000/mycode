@@ -511,6 +511,12 @@ class ReadingPercentSlider extends StatelessWidget {
 /// Les six crans (« petit »…« géant ») disaient un adjectif : il fallait le
 /// connaître pour s'y retrouver. Le pourcentage dit le saut exact, et la
 /// barre donne la taille à la mesure où on la veut.
+///
+/// [divisions] est calé sur celui de l'Opacité : 20 crans, les mêmes
+/// pointillés sur la piste, le même nombre de détentes à parcourir. Les deux
+/// dials se lisent du regard, côte à côte dans la même feuille — ils doivent
+/// se ressembler au trait, et 150 crans fusionnaient en une piste lisse,
+/// sans pointillés, à côté d'une opacité pointillée.
 class ReadingSizeSlider extends StatelessWidget {
   final double fontSize;
 
@@ -534,7 +540,7 @@ class ReadingSizeSlider extends StatelessWidget {
       percent: (fontSize / base) * 100,
       min: 50.0,
       max: 200.0,
-      divisions: 150,
+      divisions: 20,
       onPercent: (percent) => onChanged(base * percent / 100),
       onPercentEnd: onChangeEnd == null
           ? null
