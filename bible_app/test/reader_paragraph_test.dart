@@ -249,6 +249,29 @@ void main() {
       // Never cards in the flow — they would chop the printed-text feel.
       expect(find.byType(NoteCard), findsNothing);
       expect(blockText(tester), contains('(Note de test 2:1.'));
+
+      // Le mot noté garde le corps du texte : ni couleur, ni soulignage,
+      // ni surlignage — il se lit comme le reste du verset, la note qui
+      // suit (parenthèses colorées) seule marque l'endroit.
+      final spans = <TextSpan>[];
+      void walk(InlineSpan span) {
+        if (span is! TextSpan) return;
+        spans.add(span);
+        span.children?.forEach(walk);
+      }
+
+      for (final rich in tester.widgetList<RichText>(find.byType(RichText))) {
+        walk(rich.text);
+      }
+      final word = spans.firstWhere((s) => s.text == 'Verset');
+      final plain = spans.firstWhere(
+          (s) => s.text?.contains('de test Ge. 2:1.') ?? false);
+      expect(word.style?.color, plain.style?.color,
+          reason: 'le mot noté reprend la couleur du corps');
+      expect(word.style?.decoration, isNull,
+          reason: 'le mot noté perd son soulignage');
+      expect(word.style?.backgroundColor, isNull,
+          reason: 'le mot noté perd son surlignage');
     });
   }
 

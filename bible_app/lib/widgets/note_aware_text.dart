@@ -83,16 +83,13 @@ class _NoteAwareVerseTextState extends State<NoteAwareVerseText> {
       if (r.start > cursor) {
         spans.add(TextSpan(text: text.substring(cursor, r.start)));
       }
+      // Le mot noté reste au corps du texte : ni surlignage, ni
+      // soulignage, ni couleur. La graisse seule le signale dans la
+      // phrase — la couleur est réservée à l'exposant qui suit.
       spans.add(
         TextSpan(
           text: text.substring(r.start, r.end),
-          style: TextStyle(
-            color: accent,
-            fontWeight: FontWeight.bold,
-            decoration: TextDecoration.underline,
-            decorationStyle: TextDecorationStyle.dotted,
-            backgroundColor: accent.withValues(alpha: .12),
-          ),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
       );
       if (widget.disposition == NoteDisposition.below) {

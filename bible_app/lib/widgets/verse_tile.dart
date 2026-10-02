@@ -1253,13 +1253,10 @@ class _ParagraphBlockState extends State<_ParagraphBlock>
         push('\n', body);
       }
 
-      final notedStyle = body.copyWith(
-        color: theme.linkColor,
-        fontWeight: FontWeight.bold,
-        decoration: TextDecoration.underline,
-        decorationStyle: TextDecorationStyle.dotted,
-        backgroundColor: theme.linkColor.withValues(alpha: .12),
-      );
+      // Le mot noté garde le corps du texte : ni surlignage, ni
+      // soulignage, ni couleur. La graisse seule le signale — le flux n'a
+      // pas d'exposant, la note entre parenthèses marque l'endroit.
+      final notedStyle = body.copyWith(fontWeight: FontWeight.bold);
       final noteStyle = body.copyWith(
         fontSize: baseSize * .81,
         color: theme.noteColor,

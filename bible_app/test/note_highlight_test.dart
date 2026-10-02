@@ -29,7 +29,7 @@ void main() {
     }
   });
 
-  testWidgets('a noted verse renders its text highlighted + notes listed',
+  testWidgets('a noted verse renders its text with its notes listed',
       (WidgetTester tester) async {
     const verse = Verse(
       verse: '1:2',
@@ -46,6 +46,43 @@ void main() {
     ));
     expect(find.textContaining('La Terre'), findsOneWidget);
     expect(find.textContaining('Voir Es. 45:18.'), findsOneWidget);
+  });
+
+  testWidgets('the noted word loses its paint, its index keeps the colour', (
+    WidgetTester tester,
+  ) async {
+    const verse = Verse(
+      verse: '1:2',
+      text: 'La Terre devint tohu et bohu.',
+      textWithNotes: '',
+      notes: [
+        VerseNote(word: 'devint', position: 9, note: 'Note de test.'),
+      ],
+    );
+    for (final disposition in NoteDisposition.values) {
+      await tester.pumpWidget(MaterialApp(
+        home: Scaffold(
+          body: NoteAwareVerseText(verse: verse, disposition: disposition),
+        ),
+      ));
+
+      final spans = _renderedSpans(tester);
+      final word = spans.firstWhere((s) => s.text == 'devint');
+      expect(word.style?.color, isNull,
+          reason: '$disposition : le mot noté perd sa couleur');
+      expect(word.style?.decoration, isNull,
+          reason: '$disposition : le mot noté perd son soulignage');
+      expect(word.style?.backgroundColor, isNull,
+          reason: '$disposition : le mot noté perd son surlignage');
+      expect(word.style?.fontWeight, FontWeight.bold,
+          reason: '$disposition : la graisse seule reste, sans peinture');
+
+      if (disposition == NoteDisposition.below) {
+        final index = spans.firstWhere((s) => s.text == '1');
+        expect(index.style?.color, isNotNull,
+            reason: "« sous le verset » : l'exposant garde la couleur");
+      }
+    }
   });
 
   testWidgets('a « \\ » pair in a note becomes a real line break',
@@ -99,3 +136,18 @@ void main() {
 
 bool ok(bool inBounds, String extracted, String word) =>
     inBounds && extracted == word;
+
+/// Tous les [TextSpan] rendus à l'écran, enfants inclus.
+List<TextSpan> _renderedSpans(WidgetTester tester) {
+  final spans = <TextSpan>[];
+  void walk(InlineSpan span) {
+    if (span is! TextSpan) return;
+    spans.add(span);
+    span.children?.forEach(walk);
+  }
+
+  for (final rich in tester.widgetList<RichText>(find.byType(RichText))) {
+    walk(rich.text);
+  }
+  return spans;
+}
