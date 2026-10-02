@@ -33,8 +33,9 @@ void main() {
       const small = ReadingRhythm(fontSize: 16);
       const giant = ReadingRhythm(fontSize: 30);
 
-      expect(small.lineHeight, closeTo(1.5, 1e-9));
-      expect(giant.lineHeight, closeTo(1.5 + 0.12, 1e-9));
+      // Base 1.6 : la mesure de la maquette de lecture (1.62 à 19 pt).
+      expect(small.lineHeight, closeTo(1.6, 1e-9));
+      expect(giant.lineHeight, closeTo(1.6 + 0.12, 1e-9));
       expect(
         ReadingRhythm(fontSize: 22).lineHeight,
         inInclusiveRange(small.lineHeight, giant.lineHeight),
@@ -75,7 +76,7 @@ void main() {
 
     test('normal leaves the size-derived rhythm untouched', () {
       const sized = ReadingRhythm(fontSize: 26, spacing: ReadingSpacing.normal);
-      expect(sized.lineHeight, closeTo(1.5 + 0.12 * (10 / 14), 1e-9));
+      expect(sized.lineHeight, closeTo(1.6 + 0.12 * (10 / 14), 1e-9));
     });
   });
 }

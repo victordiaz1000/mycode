@@ -342,7 +342,10 @@ class ChapterLoadingSkeleton extends StatelessWidget {
       // est lui aussi défilable : rien ne saute.
       child: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+        // Origine exacte du vrai texte : la marge 8 du panneau + son padding
+        // (20/16/20/26). L'ancien 16/20 laissait le chapitre arriver décalé
+        // de 8 px sur les côtés à l'arrivée des versets.
+        padding: const EdgeInsets.fromLTRB(28, 24, 28, 34),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

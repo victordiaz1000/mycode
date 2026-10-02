@@ -33,8 +33,14 @@ IconButton arrow(WidgetTester tester, IconData icon) =>
     tester.widget<IconButton>(find.widgetWithIcon(IconButton, icon));
 
 /// Rendered point size of the first verse of the fake Genèse 1.
-double? verseFontSize(WidgetTester tester) =>
-    tester.widget<Text>(find.text('Verset de test Ge. 1:1.')).style?.fontSize;
+///
+/// `skipOffstage: false` : à « géant », l'en-tête du livre plus haut pousse
+/// le verset au-delà de la fenêtre de test, et le finder le sauterait — le
+/// widget est bien monté, c'est ce qu'on lit ici.
+double? verseFontSize(WidgetTester tester) => tester
+    .widget<Text>(find.text('Verset de test Ge. 1:1.', skipOffstage: false))
+    .style
+    ?.fontSize;
 
 void main() {
   setUp(() {
@@ -710,8 +716,12 @@ void main() {
   testWidgets('the Settings screen changes the aération and the reader follows', (
     tester,
   ) async {
-    double? verseHeight(WidgetTester tester) =>
-        tester.widget<Text>(find.text('Verset de test Ge. 1:1.')).style?.height;
+    // Idem `verseFontSize` : le finder lit le widget même quand l'en-tête
+    // l'a poussé au-delà de la fenêtre de test.
+    double? verseHeight(WidgetTester tester) => tester
+        .widget<Text>(find.text('Verset de test Ge. 1:1.', skipOffstage: false))
+        .style
+        ?.height;
 
     await pumpReader(tester);
     final before = verseHeight(tester)!;

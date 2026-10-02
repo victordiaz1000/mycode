@@ -53,11 +53,12 @@ class ReadingRhythm {
   /// Normal) — the getters below reproduce those exact pixel values there.
   double get s => (fontSize / _baseSize) * spacing.gapFactor;
 
-  /// Body line height: Material's comfortable 1.5 at the default size, a
-  /// touch looser as glyphs grow (large type reads better with extra
-  /// leading), modulated by the aération choice.
+  /// Body line height: the reading measure of the Qwen maquette (1.62 at its
+  /// 19 pt) written as a base of 1.6 that loosens a touch as glyphs grow
+  /// (large type reads better with extra leading), modulated by the aération
+  /// choice.
   double get lineHeight =>
-      (1.5 + 0.12 * ((fontSize - _baseSize) / 14).clamp(0.0, 1.0)) *
+      (1.6 + 0.12 * ((fontSize - _baseSize) / 14).clamp(0.0, 1.0)) *
       spacing.leadingFactor;
 
   /// Tracking follows the size too: the theme's absolute letter spacing reads
@@ -204,6 +205,12 @@ class VerseTile extends StatelessWidget {
                           Text(
                             '$verseNumber',
                             style: materialTheme.textTheme.bodySmall?.copyWith(
+                              // Comme tout le rythme, le chiffre suit la
+                              // taille du texte (×0.7, borné 11–16) : figé à
+                              // 12, il tombait à 0.55× le corps au défaut de
+                              // 22 et ne bougeait plus avec « Texte ».
+                              fontSize:
+                                  (rhythm.fontSize * .7).clamp(11.0, 16.0),
                               color: theme.verseNumColor,
                               fontWeight: FontWeight.bold,
                             ),
@@ -821,7 +828,13 @@ class ChapterVerseListState extends State<ChapterVerseList> {
         child: Align(
           alignment: Alignment.topCenter,
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 820),
+            // La mesure, pas la largeur : ~74 signes par ligne à toutes les
+            // tailles. 820 figés donnaient 102 signes à 16 pt sur grand
+            // écran et suivaient mal le corps. Sur téléphone la fenêtre
+            // décide, la contrainte ne s'applique jamais.
+            constraints: BoxConstraints(
+              maxWidth: (fontSize * 37).clamp(600.0, 860.0),
+            ),
             child: Container(
               margin: const EdgeInsets.all(8),
               decoration: BoxDecoration(
@@ -834,7 +847,11 @@ class ChapterVerseListState extends State<ChapterVerseList> {
                   ListView.builder(
                     // Pas de ValueKey ici non plus : il détruirait le ScrollPosition.
                     controller: controller,
-                    padding: const EdgeInsets.all(16),
+                    // Marge de texte : 20 aux côtés, comme partout ailleurs
+                    // dans l'app (feuilles, réglages), 16 en haut et 26 en
+                    // bas pour que le dernier verset respire — le maquette
+                    // Qwen donne 16/24/26.
+                    padding: const EdgeInsets.fromLTRB(20, 16, 20, 26),
                     itemCount: layout == ReadingLayout.paragraph
                         ? paragraphItemCount + (footer != null ? 1 : 0)
                         : chapter.verses.length +
@@ -1179,12 +1196,13 @@ class _ParagraphBlockState extends State<_ParagraphBlock>
           height: widget.lineHeight,
         );
     final baseSize = body.fontSize ?? 16;
-    // Exposant number: deliberately lighter than the tile gutter digits'
-    // bold — inline, a heavy digit every verse reads as bold text.
+    // Exposant number: the maquette sets its verse numbers at w800 — 700 is
+    // the serif reading of that weight, present enough to anchor each verse
+    // without turning the whole line bold.
     final numStyle = body.copyWith(
       fontSize: baseSize * .58,
       color: theme.verseNumColor,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w700,
     );
 
     final children = <InlineSpan>[];
