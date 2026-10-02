@@ -927,6 +927,8 @@ class _ChapterReaderState extends State<ChapterReader> {
                 ),
               // The two-versions side-by-side reading: a mode, not a display
               // knob — it lives at the bottom of the sheet and closes it.
+              // À partir de 600 la barre en porte aussi un, sur la rangée de
+              // la recherche ; cette entrée reste la voie des téléphones.
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
                 child: OutlinedButton.icon(
@@ -988,6 +990,17 @@ class _ChapterReaderState extends State<ChapterReader> {
                         tooltip: 'Trouver dans le chapitre',
                         icon: const Icon(Icons.search),
                         onPressed: _openFind,
+                        visualDensity: VisualDensity.compact,
+                      ),
+                    // La lecture parallèle a besoin de largeur : sur la même
+                    // rangée que la recherche, mais seulement à partir de 600 —
+                    // les tablettes et au-dessus. Les téléphones la gardent au
+                    // fond de la feuille ⋯.
+                    if (_parallelInBar)
+                      IconButton(
+                        tooltip: 'Lecture parallèle — deux versions',
+                        icon: const Icon(Icons.vertical_split),
+                        onPressed: _openParallel,
                         visualDensity: VisualDensity.compact,
                       ),
                     IconButton(
@@ -1625,6 +1638,12 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// fonction ne part jamais, seul l'endroit change. Au-delà (grand
   /// téléphone en paysage, tablette, bureau) la barre reste intacte.
   bool get _findIconInBar => MediaQuery.sizeOf(context).width >= 480;
+
+  /// La lecture parallèle side-by-side vit de la largeur : la barre ne
+  /// propose son bouton direct qu'à partir de 600 de large — les tablettes et
+  /// au-dessus. En deçà elle reste atteignable par la feuille ⋯, au fond, que
+  /// son `SingleChildScrollView` ne coupe jamais.
+  bool get _parallelInBar => MediaQuery.sizeOf(context).width >= 600;
 
   void _openFind() {
     setState(() => _findOpen = true);

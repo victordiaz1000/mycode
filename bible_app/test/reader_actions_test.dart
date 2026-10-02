@@ -6,6 +6,7 @@ import 'package:bible_app/data/app_preferences.dart';
 import 'package:bible_app/data/library_store.dart';
 import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/screens/reader_screen.dart';
+import 'package:bible_app/screens/parallel_reading_screen.dart';
 import 'package:bible_app/screens/settings_screen.dart';
 import 'package:bible_app/widgets/bible_theme_scope.dart';
 import 'package:bible_app/widgets/chapter_reader.dart';
@@ -596,6 +597,62 @@ void main() {
         reason: '"${sections[i]}" must sit above "${sections[i + 1]}"',
       );
     }
+  });
+
+  testWidgets('en tablette, la parallèle rejoint la rangée de recherche', (
+    tester,
+  ) async {
+    // Surface par défaut : 800 de large, donc ≥ 600.
+    await pumpReader(tester);
+
+    final parallel = find.byTooltip('Lecture parallèle — deux versions');
+    expect(parallel, findsOneWidget);
+    expect(find.byIcon(Icons.search), findsOneWidget);
+    expect(
+      tester.getRect(find.byIcon(Icons.vertical_split)).center.dy,
+      moreOrLessEquals(
+        tester.getRect(find.byIcon(Icons.search)).center.dy,
+        epsilon: 0.5,
+      ),
+      reason: 'même ligne que le bouton recherche',
+    );
+
+    // Le bouton ouvre l'écran de lecture parallèle. Pumps fixes : l'écran
+    // garde un spinner indéterminé vivant qui affame `pumpAndSettle`
+    // (même astuce que parallel_reading_test).
+    await tester.tap(parallel);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.byType(ParallelReadingScreen), findsOneWidget);
+  });
+
+  testWidgets('sur téléphone, la parallèle reste dans la feuille ⋯', (
+    tester,
+  ) async {
+    // Pas `pumpReader` : taille téléphone explicite, 390 < 480 < 600.
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(body: ChapterReader(bookIndex: 1, chapter: 1)),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    // Pas de bouton direct dans la barre…
+    expect(
+      find.byTooltip('Lecture parallèle — deux versions'),
+      findsNothing,
+    );
+
+    // …mais la feuille ⋯ l'offre toujours : cacher un bouton ne cache
+    // jamais la fonction.
+    await tester.tap(find.byIcon(Icons.more_vert));
+    await tester.pumpAndSettle();
+    expect(find.text('Lecture parallèle — deux versions'), findsOneWidget);
   });
 
   testWidgets('no-tab home shows the Livres pill with the chevron disabled', (
