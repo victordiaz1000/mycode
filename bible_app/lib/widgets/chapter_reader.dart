@@ -735,10 +735,14 @@ class _ChapterReaderState extends State<ChapterReader> {
     await _savePrefs();
   }
 
-  Future<void> _setFontSize(double value) async {
+  /// Live dial from the ⋯ sheet's slider: the reader rebuilds behind the open
+  /// sheet so the text resizes while the thumb moves. The preference itself
+  /// is written once, by [_savePrefs] when the drag ends — writing every tick
+  /// would hammer the preferences a dozen times per gesture. The regime of
+  /// [_setPanelOpacity] / the opacity dial, for the same reason.
+  void _setFontSize(double value) {
     if (_prefs.fontSize == value) return;
     setState(() => _prefs.fontSize = value);
-    await _savePrefs();
   }
 
   Future<void> _setNotesMode(bool value) async {
@@ -832,10 +836,16 @@ class _ChapterReaderState extends State<ChapterReader> {
                 // 100 % = la taille par défaut de la lecture (22 pt) :
                 // « 136 % » est l'ancien « géant », et le curseur va au-delà.
                 base: ReadingTextSize.extraLarge.fontSize,
-                onChanged: (value) async {
-                  await _setFontSize(value);
+                // Le texte grandit derrière la feuille à chaque tic — le
+                // curseur est son propre sous-arbre, `setSheet` le suit, et
+                // les préférences ne s'écrivent qu'au relâcher. Le régime
+                // exact du panneau d'opacité dessous, pour la raison exacte
+                // qui y est écrite.
+                onChanged: (value) {
+                  _setFontSize(value);
                   setSheet(() {});
                 },
+                onChangeEnd: (_) => _savePrefs(),
               ),
               const SizedBox(height: 12),
               // Notes, with their disposition. The continuous flow weaves the

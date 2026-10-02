@@ -697,14 +697,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       _SettingsRow(
                         icon: Icons.format_size,
                         title: 'Taille du texte',
-                        // La rangée dit, comme les trois suivantes, quel choix
-                        // est en cours — en pourcentage, la même lecture que
-                        // le curseur dessous.
-                        subtitle: _sizePercent(_p.fontSize),
+                        // Pas de sous-ligne : le curseur porte son propre
+                        // affichage, imprimer « 100 % » deux fois dans la
+                        // même rangée est du bruit — le choix écrit en
+                        // face, à côté de l'Opacité du panneau.
                         below: ReadingSizeSlider(
                           fontSize: _p.fontSize,
                           base: ReadingTextSize.extraLarge.fontSize,
                           onChanged: (value) {
+                            setState(() => _p.fontSize = value);
+                          },
+                          // Écrit au relâcher, comme l'opacité : glisser ne
+                          // doit pas marteler les préférences.
+                          onChangeEnd: (value) {
                             setState(() => _p.fontSize = value);
                             _save();
                           },
@@ -995,11 +1000,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final entry = versionByCode(code);
     return entry?.name ?? code;
   }
-
-  /// « 136 % » — la taille rapportée à la valeur par défaut de la lecture
-  /// (100 % = 22 pt) : l'unité que le curseur affiche, reprise par la rangée.
-  String _sizePercent(double fontSize) =>
-      '${(fontSize / ReadingTextSize.extraLarge.fontSize * 100).round()} %';
 }
 
 String _formatBytes(int bytes) {

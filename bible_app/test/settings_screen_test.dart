@@ -164,7 +164,7 @@ void main() {
     await pumpSettings(tester);
 
     // La taille se lit en pourcentage de la valeur par défaut (22 pt) :
-    // 100 % au repos, sur la rangée comme sur le curseur dessous.
+    // 100 % au repos, sur l'affichage du curseur.
     expect(find.text('100 %'), findsWidgets);
 
     final curseur = find.descendant(
@@ -174,8 +174,10 @@ void main() {
     expect(curseur, findsOneWidget);
 
     // 136 % ≈ « géant » (30) — l'ancien plus grand cran, atteint au
-    // pourcentage.
-    tester.widget<Slider>(curseur).onChanged!(136);
+    // pourcentage. L'écriture a lieu au relâcher, comme pour l'opacité.
+    final slider = tester.widget<Slider>(curseur);
+    slider.onChanged!(136);
+    slider.onChangeEnd!(136);
     await tester.pump();
 
     final prefs = await AppPreferences.load();
@@ -201,7 +203,7 @@ void main() {
     expect(
       find.text('100 %'),
       findsWidgets,
-      reason: 'le pourcentage en cours se lit sur la rangée et sur le curseur',
+      reason: 'le pourcentage en cours se lit sur le curseur',
     );
 
     final separes = tester.getRect(find.text('Séparés'));

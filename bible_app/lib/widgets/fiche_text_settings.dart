@@ -452,90 +452,93 @@ class ReadingChoiceBar<T> extends StatelessWidget {
   }
 }
 
-/// La taille du texte en pourcentage : une barre horizontale qui se glisse de
-/// 50 % à 200 % de [base], avec l'aperçu « A » à la taille réelle et le
-/// pourcentage en cours.
+/// Le curseur à pourcentage — la grammaire commune des feuilles de réglages,
+/// reprise telle quelle du panneau d'Opacité : l'affichage en haut à droite,
+/// le curseur à crans dont l'étiquette suit le pouce. Un seul widget pour
+/// l'opacité et la taille : les deux ne peuvent pas dériver l'un de l'autre.
+class ReadingPercentSlider extends StatelessWidget {
+  /// La valeur affichée, en pourcentage. Hors bornes possible : l'affichage
+  /// dit la vérité, le pouce reste aux butoirs.
+  final double percent;
+  final double min;
+  final double max;
+  final int divisions;
+  final ValueChanged<double> onPercent;
+
+  /// Sépare, comme pour l'opacité, le vivant de l'écriture : on pendant le
+  /// glissement, ce appelé au relâcher pour ne pas marteler les préférences.
+  final ValueChanged<double>? onPercentEnd;
+
+  const ReadingPercentSlider({
+    super.key,
+    required this.percent,
+    required this.min,
+    required this.max,
+    required this.divisions,
+    required this.onPercent,
+    this.onPercentEnd,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final label = '${percent.round()} %';
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Align(
+          alignment: Alignment.centerRight,
+          child: Text(label, style: Theme.of(context).textTheme.bodySmall),
+        ),
+        Slider(
+          value: percent.clamp(min, max).toDouble(),
+          min: min,
+          max: max,
+          divisions: divisions,
+          label: label,
+          onChanged: onPercent,
+          onChangeEnd: onPercentEnd,
+        ),
+      ],
+    );
+  }
+}
+
+/// La taille du texte en pourcentage, sur le modèle exact du curseur
+/// d'Opacité de la même feuille : 100 % est la valeur par défaut de la
+/// famille en cours — 22 pt pour la lecture, 16 pt pour les fiches — et le
+/// curseur va de 50 % à 200 %.
 ///
 /// Les six crans (« petit »…« géant ») disaient un adjectif : il fallait le
-/// connaître pour s'y retrouver, et ils sautaient par paliers. Le
-/// pourcentage dit le saut exact — 100 % est la valeur par défaut de la
-/// famille en cours — et le curseur donne la taille à la mesure où on la
-/// veut, sans jamais empiler ses pastilles sur un téléphone.
+/// connaître pour s'y retrouver. Le pourcentage dit le saut exact, et la
+/// barre donne la taille à la mesure où on la veut.
 class ReadingSizeSlider extends StatelessWidget {
   final double fontSize;
 
   /// La taille lue à 100 % : le défaut de la famille de préférences
-  /// desservie (22 pt pour la lecture, 16 pt pour les fiches). Un
-  /// pourcentage ne dit rien sans sa référence.
+  /// desservie. Un pourcentage ne dit rien sans sa référence.
   final double base;
   final ValueChanged<double> onChanged;
+  final ValueChanged<double>? onChangeEnd;
 
   const ReadingSizeSlider({
     super.key,
     required this.fontSize,
     required this.base,
     required this.onChanged,
+    this.onChangeEnd,
   });
-
-  /// « 136 % » — la taille rapportée à la référence, à l'entier près, comme
-  /// l'étiquette qui suit le pouce.
-  String get _percent => '${((fontSize / base) * 100).round()} %';
-
-  /// La position du pouce : le pourcentage, borné à la course de la barre.
-  /// Une valeur stockée hors bornes reste lisible, le pouce reste aux
-  /// butoirs.
-  double get _value =>
-      ((fontSize / base) * 100).clamp(50.0, 200.0).toDouble();
 
   @override
   Widget build(BuildContext context) {
-    final p = premiumPalette(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            // L'aperçu dit « à quoi ça ressemble », le pourcentage dit « de
-            // combien » : les deux lisent la même valeur.
-            Text(
-              'A',
-              style: TextStyle(
-                fontSize: fontSize > 30.0 ? 30.0 : fontSize,
-                fontWeight: FontWeight.w700,
-                color: p.textDark,
-              ),
-            ),
-            const Spacer(),
-            Text(
-              _percent,
-              style: premiumText(context, 15, FontWeight.w800, p.primary),
-            ),
-          ],
-        ),
-        // La barre suit la palette premium : piste épaisse, pouce large, la
-        // teinte d'accent au lieu du bleu système.
-        Tooltip(
-          message: 'Taille du texte : $_percent',
-          child: SliderTheme(
-            data: SliderTheme.of(context).copyWith(
-              activeTrackColor: p.primary,
-              inactiveTrackColor: p.primarySoft,
-              thumbColor: p.primary,
-              thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 9),
-              overlayShape: const RoundSliderOverlayShape(overlayRadius: 18),
-              trackHeight: 6,
-            ),
-            child: Slider(
-              value: _value,
-              min: 50.0,
-              max: 200.0,
-              divisions: 150,
-              label: _percent,
-              onChanged: (percent) => onChanged(base * percent / 100),
-            ),
-          ),
-        ),
-      ],
+    return ReadingPercentSlider(
+      percent: (fontSize / base) * 100,
+      min: 50.0,
+      max: 200.0,
+      divisions: 150,
+      onPercent: (percent) => onChanged(base * percent / 100),
+      onPercentEnd: onChangeEnd == null
+          ? null
+          : (percent) => onChangeEnd!(base * percent / 100),
     );
   }
 }
@@ -659,26 +662,15 @@ class ReadingOpacitySlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Align(
-          alignment: Alignment.centerRight,
-          child: Text(
-            '${(value * 100).round()} %',
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-        ),
-        Slider(
-          value: value,
-          min: 0.0,
-          max: 1.0,
-          divisions: 20,
-          label: '${(value * 100).round()} %',
-          onChanged: onChanged,
-          onChangeEnd: onChangeEnd,
-        ),
-      ],
+    return ReadingPercentSlider(
+      percent: value * 100,
+      min: 0,
+      max: 100,
+      divisions: 20,
+      onPercent: (percent) => onChanged(percent / 100),
+      onPercentEnd: onChangeEnd == null
+          ? null
+          : (percent) => onChangeEnd!(percent / 100),
     );
   }
 }
@@ -730,8 +722,10 @@ class ReadingTextColorSwatches extends StatelessWidget {
 // ─────────────────────────────────────────────────────────────────────────────
 
 /// The size as one slider that reports itself in percent, in a
-/// [DisplayCard]. [base] is the size read at 100 % — each preference
-/// family's own default, so the percentage starts where the reader starts.
+/// [DisplayCard] — the same control and the same grammar as the opacity
+/// dial. [base] is the size read at 100 %: each preference family's own
+/// default, so the percentage starts where the reader starts. [onChangeEnd]
+/// separates the live value from the write, as on the opacity dial.
 class DisplaySizeSection extends StatelessWidget {
   final double fontSize;
 
@@ -739,12 +733,14 @@ class DisplaySizeSection extends StatelessWidget {
   /// lecture, 16 pt sur les fiches).
   final double base;
   final ValueChanged<double> onChanged;
+  final ValueChanged<double>? onChangeEnd;
 
   const DisplaySizeSection({
     super.key,
     required this.fontSize,
     required this.base,
     required this.onChanged,
+    this.onChangeEnd,
   });
 
   @override
@@ -756,6 +752,7 @@ class DisplaySizeSection extends StatelessWidget {
         fontSize: fontSize,
         base: base,
         onChanged: onChanged,
+        onChangeEnd: onChangeEnd,
       ),
     );
   }

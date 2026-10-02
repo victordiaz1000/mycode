@@ -794,7 +794,8 @@ void main() {
     expect(tester.getBottomLeft(curseur).dy, lessThan(screen));
 
     // 136 % ≈ « géant » (30) — the ladder's largest step, dialled by percent.
-    tester.widget<Slider>(curseur).onChanged!(136);
+    final slider = tester.widget<Slider>(curseur);
+    slider.onChanged!(136);
     await tester.pumpAndSettle();
     expect(verseFontSize(tester), closeTo(ReadingTextSize.giant.fontSize, .5));
     expect(
@@ -806,7 +807,10 @@ void main() {
       reason: 'le pourcentage suit la valeur en cours',
     );
 
-    // Remounting reads the size back from shared_preferences.
+    // Released: the preference is written once, on release — the regime of
+    // the opacity dial — and a remount reads it back.
+    slider.onChangeEnd!(136);
+    await tester.pumpAndSettle();
     await pumpReader(tester);
     expect(verseFontSize(tester), closeTo(ReadingTextSize.giant.fontSize, .5));
   });
