@@ -49,6 +49,17 @@ class BookEntry {
   /// « 1 Chroniques », and the pill has the same width either way.
   String get hebrewBarLabel => _compact(hebrewName);
 
+  /// The book in the books-sheet register: BYM name first, French in
+  /// parentheses — `Bereshit (Genèse)` where [name] already reads that way,
+  /// `Mattithyah (Matthieu)`, `Roma (Romains)`, `Nahoum (Nahum)` where the
+  /// catalog carries French alone (all of Évangiles and Testament de Yehoshoua,
+  /// plus Amos, Nahum, Habakuk, Esther and Daniel). The BYM's own files title
+  /// their books this way (`40-Matthieu.json` → « Mattithyah (Matthieu) »);
+  /// [bymName] is what holds the head for the books whose markdown title line
+  /// was French-only. The sheet reads every row through it, so no section
+  /// speaks French alone anymore.
+  String get bilingualName => '$hebrewName ($shortName)';
+
   static const _long = <String, String>{
     // French
     '1 Thessaloniciens': '1 Thess.',

@@ -214,6 +214,45 @@ void main() {
     },
   );
 
+  testWidgets(
+    'la feuille Livres nomme Évangiles et Testament de Yehoshoua en BYM',
+    (tester) async {
+      await pumpReader(tester);
+
+      await tester.tap(inBar('Bereshit 1'));
+      await tester.pumpAndSettle();
+
+      Finder inSheet(Finder f) => find.descendant(
+            of: find.byType(BottomSheet),
+            matching: f,
+          );
+      final sheetScroll = find.descendant(
+        of: find.byType(BottomSheet),
+        matching: find.byType(Scrollable),
+      );
+
+      // La première rangée est déjà bilingue — elle ne bouge pas.
+      expect(inSheet(find.text('Bereshit (Genèse)')), findsOneWidget);
+
+      // Les deux sections que le catalogue ne portait qu'en français
+      // affichent leur tête BYM, le nom que le fichier source lui-même
+      // donne au livre (« Mattithyah (Matthieu) » dans 40-Matthieu.json).
+      await tester.scrollUntilVisible(
+        find.text('Mattithyah (Matthieu)'),
+        240,
+        scrollable: sheetScroll,
+      );
+      expect(inSheet(find.text('Mattithyah (Matthieu)')), findsOneWidget);
+
+      await tester.scrollUntilVisible(
+        find.text('Roma (Romains)'),
+        240,
+        scrollable: sheetScroll,
+      );
+      expect(inSheet(find.text('Roma (Romains)')), findsOneWidget);
+    },
+  );
+
   testWidgets('picking a chapter in the Livres sheet reports it and closes', (
     tester,
   ) async {

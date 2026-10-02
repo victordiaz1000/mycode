@@ -45,6 +45,26 @@ void main() {
       }
     });
 
+    test('la forme bilingue double chaque rangée de la feuille Livres', () {
+      // La feuille lit `bilingualName` : chaque ligne porte la tête BYM puis
+      // le français entre parenthèses. Sans elle, Évangiles et Testament de
+      // Yehoshoua — les deux sections que le catalogue ne nommait qu'en
+      // français — affichaient du français seul.
+      for (var i = 1; i <= 66; i++) {
+        final entry = catalogEntry(i);
+        expect(
+          entry.bilingualName,
+          '${entry.hebrewName} (${entry.shortName})',
+          reason: 'livre $i',
+        );
+      }
+      expect(catalogEntry(1).bilingualName, 'Bereshit (Genèse)');
+      expect(catalogEntry(21).bilingualName, 'Nahoum (Nahum)');
+      expect(catalogEntry(40).bilingualName, 'Mattithyah (Matthieu)');
+      expect(catalogEntry(51).bilingualName, 'Roma (Romains)');
+      expect(catalogEntry(62).bilingualName, 'Ivriyim (Hébreux)');
+    });
+
     test('un nom BYM trop long pour la pastille est raccourci', () {
       // The pill has one width for every book. `Divrei Hayamim 1` is wider than
       // « 1 Chroniques », so without this the reading bar overflows on the BYM —

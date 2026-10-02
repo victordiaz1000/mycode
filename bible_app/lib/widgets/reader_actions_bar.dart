@@ -409,9 +409,13 @@ class _BooksSheetState extends State<_BooksSheet> {
                       // Le nom BYM complet (« Bereshit (Genèse) »), pas le
                       // raccourci français : cette feuille est la table des
                       // matières DE LA VERSION BYM, ses intitulés font partie
-                      // du texte. La pilule de référence, elle, garde le
+                      // du texte. `bilingualName` complète les livres que le
+                      // catalogue ne portait qu'en français — tout Évangiles
+                      // et Testament de Yehoshoua, Amos → Daniel — de leur
+                      // tête BYM (« Mattithyah (Matthieu) », « Roma
+                      // (Romains) »). La pilule de référence, elle, garde le
                       // compact [BookEntry.barLabel] pour ne pas déborder.
-                      catalogEntry(bymIndex).name,
+                      catalogEntry(bymIndex).bilingualName,
                       style: premiumText(
                         context,
                         15,
