@@ -64,20 +64,25 @@ void main() {
     expect(find.text('80 %'), findsOneWidget);
 
     // The slider sits inside its card: bring it into view through the sheet's
-    // own scrollable (the reader behind holds another one).
+    // own scrollable (the reader behind holds another one). Scoped to the
+    // opacity card — the size slider shares the sheet and would answer first.
     final sheetScrollable = find.descendant(
       of: find.byType(DisplaySettingsSheetLayout),
       matching: find.byType(Scrollable),
     );
+    final opacitySlider = find.descendant(
+      of: find.byType(DisplayOpacitySection),
+      matching: find.byType(Slider),
+    );
     await tester.scrollUntilVisible(
-      find.byType(Slider),
+      opacitySlider,
       80,
       scrollable: sheetScrollable,
     );
     await tester.pumpAndSettle();
 
     // Drag the thumb left: the label follows live, the reader behind rebuilds.
-    await tester.drag(find.byType(Slider), const Offset(-120, 0));
+    await tester.drag(opacitySlider, const Offset(-120, 0));
     await tester.pumpAndSettle();
     final live = (await AppPreferences.load()).panelOpacity;
     expect(live, lessThan(.80), reason: 'the dial moved the value down');
@@ -116,9 +121,15 @@ void main() {
     expect(find.text('Opacité du panneau'), findsOneWidget);
     expect(find.text('80 %'), findsOneWidget);
 
-    await tester.scrollUntilVisible(find.byType(Slider), 80);
+    // Scoped to the opacity dial: the size row now carries a slider too, and
+    // an unscoped finder would answer with whichever the tree lists first.
+    final opacitySlider = find.descendant(
+      of: find.byType(ReadingOpacitySlider),
+      matching: find.byType(Slider),
+    );
+    await tester.scrollUntilVisible(opacitySlider, 80);
     await tester.pumpAndSettle();
-    await tester.drag(find.byType(Slider), const Offset(-120, 0));
+    await tester.drag(opacitySlider, const Offset(-120, 0));
     await tester.pumpAndSettle();
 
     final stored = (await SharedPreferences.getInstance()).getDouble(

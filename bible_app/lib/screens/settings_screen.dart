@@ -698,11 +698,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         icon: Icons.format_size,
                         title: 'Taille du texte',
                         // La rangée dit, comme les trois suivantes, quel choix
-                        // est en cours — l'échelle de « A » seule ne le dit pas
-                        // à qui ne la regarde pas attentivement.
-                        subtitle: _sizeLabel(_p.fontSize),
-                        below: ReadingSizeChips(
+                        // est en cours — en pourcentage, la même lecture que
+                        // le curseur dessous.
+                        subtitle: _sizePercent(_p.fontSize),
+                        below: ReadingSizeSlider(
                           fontSize: _p.fontSize,
+                          base: ReadingTextSize.extraLarge.fontSize,
                           onChanged: (value) {
                             setState(() => _p.fontSize = value);
                             _save();
@@ -995,13 +996,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return entry?.name ?? code;
   }
 
-  /// « Très grand » — l'adjectif de l'échelle, mis en forme pour la
-  /// sous-ligne d'une rangée (l'enum le stocke en minuscules).
-  String _sizeLabel(double fontSize) {
-    final label = ReadingTextSize.nearest(fontSize).label;
-    if (label.isEmpty) return label;
-    return label[0].toUpperCase() + label.substring(1);
-  }
+  /// « 136 % » — la taille rapportée à la valeur par défaut de la lecture
+  /// (100 % = 22 pt) : l'unité que le curseur affiche, reprise par la rangée.
+  String _sizePercent(double fontSize) =>
+      '${(fontSize / ReadingTextSize.extraLarge.fontSize * 100).round()} %';
 }
 
 String _formatBytes(int bytes) {

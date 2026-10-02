@@ -186,10 +186,14 @@ void main() {
 
     await tester.tap(find.byIcon(Icons.more_vert));
     await tester.pumpAndSettle();
-    // The size row sits inside its card, below the fold of the scrollable
-    // sheet on the test surface — bring it into view before tapping.
+    // The size slider sits inside its card, below the fold of the scrollable
+    // sheet on the test surface — bring it into view before driving it.
+    final curseur = find.descendant(
+      of: find.byType(DisplaySizeSection),
+      matching: find.byType(Slider),
+    );
     await tester.scrollUntilVisible(
-      find.byTooltip('Taille du texte énorme'),
+      curseur,
       80,
       scrollable: find.descendant(
         of: find.byType(DisplaySettingsSheetLayout),
@@ -197,7 +201,8 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.byTooltip('Taille du texte énorme'));
+    // 200 % — la borne haute du curseur : deux fois la taille par défaut.
+    tester.widget<Slider>(curseur).onChanged!(200);
     await tester.pumpAndSettle();
     await tester.tapAt(const Offset(10, 10));
     await tester.pumpAndSettle();

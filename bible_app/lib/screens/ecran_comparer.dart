@@ -68,12 +68,12 @@ class _ComparerScreenState extends State<ComparerScreen> {
   AppPreferences? _prefs;
 
   /// Point size of a compared verse. The cards stack vertically, so they read
-  /// one notch below the reader itself — the ratio is set so the default step
-  /// (22 pt) lands on the 15 pt this screen has always used.
+  /// one notch below the reader itself — the ratio is set so the default size
+  /// (22 pt) lands on the 15 pt this screen has always used. The stored size
+  /// can sit anywhere on the slider's range, so it is read as it is, never
+  /// rounded to a step of the old ladder.
   double get _verseFontSize =>
-      ReadingTextSize.nearest(_prefs?.fontSize ?? ReadingTextSize.extraLarge.fontSize)
-          .fontSize *
-      .68;
+      (_prefs?.fontSize ?? ReadingTextSize.extraLarge.fontSize) * .68;
 
   @override
   void initState() {

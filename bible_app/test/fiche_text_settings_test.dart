@@ -55,8 +55,16 @@ void main() {
     await tester.tap(find.byTooltip('Affichage'));
     await tester.pumpAndSettle();
 
-    // Taille « géant » (30).
-    await tester.tap(find.byTooltip('Taille du texte géant'));
+    // Taille à 30 : le curseur compte en pourcentage des 16 pt par défaut
+    // des fiches — 187,5 %.
+    tester
+        .widget<Slider>(
+          find.descendant(
+            of: find.byType(DisplaySizeSection),
+            matching: find.byType(Slider),
+          ),
+        )
+        .onChanged!(187.5);
     await tester.pump();
 
     // Alignement à droite.
@@ -113,7 +121,15 @@ void main() {
     // Change the ETUDE settings through its own button.
     await tester.tap(find.byTooltip('Affichage'));
     await tester.pumpAndSettle();
-    await tester.tap(find.byTooltip('Taille du texte géant'));
+    // 30 = 187,5 % des 16 pt par défaut de la portée étude.
+    tester
+        .widget<Slider>(
+          find.descendant(
+            of: find.byType(DisplaySizeSection),
+            matching: find.byType(Slider),
+          ),
+        )
+        .onChanged!(187.5);
     await tester.pumpAndSettle();
 
     expect(seen!.fontSize, 30.0,

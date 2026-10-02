@@ -6,6 +6,7 @@ import 'package:bible_app/data/app_preferences.dart';
 import 'package:bible_app/data/bym_update_service.dart';
 import 'package:bible_app/data/version_repository.dart';
 import 'package:bible_app/screens/settings_screen.dart';
+import 'package:bible_app/widgets/fiche_text_settings.dart';
 
 /// The settings screen edits the persisted [AppPreferences] the reader reads:
 /// a setting changed here must survive a reload, and controls that answer
@@ -159,16 +160,27 @@ void main() {
     expect(find.text('55 %'), findsOneWidget);
   });
 
-  testWidgets('a size chip sets the default text size', (tester) async {
+  testWidgets('le curseur de taille fixe la valeur par défaut', (tester) async {
     await pumpSettings(tester);
 
-    // « Géant » chip — the largest of the six sizes. Its tooltip comes from the
-    // control shared with the reader's ⋯ sheet, hence the wording.
-    await tester.tap(find.byTooltip('Taille du texte géant'));
+    // La taille se lit en pourcentage de la valeur par défaut (22 pt) :
+    // 100 % au repos, sur la rangée comme sur le curseur dessous.
+    expect(find.text('100 %'), findsWidgets);
+
+    final curseur = find.descendant(
+      of: find.byType(ReadingSizeSlider),
+      matching: find.byType(Slider),
+    );
+    expect(curseur, findsOneWidget);
+
+    // 136 % ≈ « géant » (30) — l'ancien plus grand cran, atteint au
+    // pourcentage.
+    tester.widget<Slider>(curseur).onChanged!(136);
     await tester.pump();
 
     final prefs = await AppPreferences.load();
-    expect(prefs.fontSize, ReadingTextSize.giant.fontSize);
+    expect(prefs.fontSize, closeTo(ReadingTextSize.giant.fontSize, .5));
+    expect(find.text('136 %'), findsWidgets);
   });
 
   testWidgets('les choix du texte se lisent en une barre, jamais en pile', (
@@ -177,14 +189,20 @@ void main() {
     // 412 px, la largeur d'un téléphone : les six tailles arrivaient en 4 + 2
     // et chaque bouton de disposition s'étirait sur toute la carte pour se
     // retrouver empilé sous le suivant — trois écrans de réglages pour deux
-    // valeurs.
+    // valeurs. La taille n'est plus que six pastilles : un curseur, d'une
+    // seule ligne, qui ne peut pas s'empiler.
     await pumpSettingsAt(tester, 412);
 
-    final lignes = {
-      for (final size in ReadingTextSize.values)
-        tester.getCenter(find.byTooltip('Taille du texte ${size.label}')).dy,
-    };
-    expect(lignes.length, 1, reason: 'les six tailles sur une seule ligne');
+    final curseur = find.descendant(
+      of: find.byType(ReadingSizeSlider),
+      matching: find.byType(Slider),
+    );
+    expect(curseur, findsOneWidget);
+    expect(
+      find.text('100 %'),
+      findsWidgets,
+      reason: 'le pourcentage en cours se lit sur la rangée et sur le curseur',
+    );
 
     final separes = tester.getRect(find.text('Séparés'));
     final continu = tester.getRect(find.text('Continu'));

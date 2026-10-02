@@ -219,6 +219,9 @@ class _FicheDisplaySheetState extends State<_FicheDisplaySheet> {
       children: [
         DisplaySizeSection(
           fontSize: _fontSize,
+          // Les fiches partent de 16 pt : c'est leur 100 %, pas celui de la
+          // lecture — le pourcentage se lit rapporté à la famille en cours.
+          base: ReadingTextSize.medium.fontSize,
           onChanged: (value) {
             setState(() => _fontSize = value);
             _apply();
@@ -449,37 +452,90 @@ class ReadingChoiceBar<T> extends StatelessWidget {
   }
 }
 
-/// The size ladder as a bar of « A » drawn at the size they select, capped so
-/// « géant » fits. [sizes] lets a caller offer only its large-print steps.
-class ReadingSizeChips extends StatelessWidget {
+/// La taille du texte en pourcentage : une barre horizontale qui se glisse de
+/// 50 % à 200 % de [base], avec l'aperçu « A » à la taille réelle et le
+/// pourcentage en cours.
+///
+/// Les six crans (« petit »…« géant ») disaient un adjectif : il fallait le
+/// connaître pour s'y retrouver, et ils sautaient par paliers. Le
+/// pourcentage dit le saut exact — 100 % est la valeur par défaut de la
+/// famille en cours — et le curseur donne la taille à la mesure où on la
+/// veut, sans jamais empiler ses pastilles sur un téléphone.
+class ReadingSizeSlider extends StatelessWidget {
   final double fontSize;
-  final List<ReadingTextSize> sizes;
+
+  /// La taille lue à 100 % : le défaut de la famille de préférences
+  /// desservie (22 pt pour la lecture, 16 pt pour les fiches). Un
+  /// pourcentage ne dit rien sans sa référence.
+  final double base;
   final ValueChanged<double> onChanged;
 
-  const ReadingSizeChips({
+  const ReadingSizeSlider({
     super.key,
     required this.fontSize,
+    required this.base,
     required this.onChanged,
-    this.sizes = ReadingTextSize.values,
   });
+
+  /// « 136 % » — la taille rapportée à la référence, à l'entier près, comme
+  /// l'étiquette qui suit le pouce.
+  String get _percent => '${((fontSize / base) * 100).round()} %';
+
+  /// La position du pouce : le pourcentage, borné à la course de la barre.
+  /// Une valeur stockée hors bornes reste lisible, le pouce reste aux
+  /// butoirs.
+  double get _value =>
+      ((fontSize / base) * 100).clamp(50.0, 200.0).toDouble();
 
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
-    return ReadingChoiceBar<ReadingTextSize>(
-      options: sizes,
-      labelOf: (size) => size.label,
-      selected: ReadingTextSize.nearest(fontSize),
-      onChanged: (size) => onChanged(size.fontSize),
-      tooltipOf: (size) => 'Taille du texte ${size.label}',
-      segmentOf: (context, size, selected) => Text(
-        'A',
-        style: TextStyle(
-          fontSize: size.fontSize > 24 ? 24 : size.fontSize,
-          fontWeight: FontWeight.w700,
-          color: selected ? p.onPrimary : p.textDark,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            // L'aperçu dit « à quoi ça ressemble », le pourcentage dit « de
+            // combien » : les deux lisent la même valeur.
+            Text(
+              'A',
+              style: TextStyle(
+                fontSize: fontSize > 30.0 ? 30.0 : fontSize,
+                fontWeight: FontWeight.w700,
+                color: p.textDark,
+              ),
+            ),
+            const Spacer(),
+            Text(
+              _percent,
+              style: premiumText(context, 15, FontWeight.w800, p.primary),
+            ),
+          ],
         ),
-      ),
+        // La barre suit la palette premium : piste épaisse, pouce large, la
+        // teinte d'accent au lieu du bleu système.
+        Tooltip(
+          message: 'Taille du texte : $_percent',
+          child: SliderTheme(
+            data: SliderTheme.of(context).copyWith(
+              activeTrackColor: p.primary,
+              inactiveTrackColor: p.primarySoft,
+              thumbColor: p.primary,
+              thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 9),
+              overlayShape: const RoundSliderOverlayShape(overlayRadius: 18),
+              trackHeight: 6,
+            ),
+            child: Slider(
+              value: _value,
+              min: 50.0,
+              max: 200.0,
+              divisions: 150,
+              label: _percent,
+              onChanged: (percent) => onChanged(base * percent / 100),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -673,19 +729,22 @@ class ReadingTextColorSwatches extends StatelessWidget {
 // Sections cadrées — la langue des feuilles
 // ─────────────────────────────────────────────────────────────────────────────
 
-/// The size ladder as one row of preview chips, in a [DisplayCard].
+/// The size as one slider that reports itself in percent, in a
+/// [DisplayCard]. [base] is the size read at 100 % — each preference
+/// family's own default, so the percentage starts where the reader starts.
 class DisplaySizeSection extends StatelessWidget {
   final double fontSize;
 
-  /// Which steps to offer; defaults to every one of them.
-  final List<ReadingTextSize> sizes;
+  /// La taille lue à 100 % : le défaut de la famille desservie (22 pt en
+  /// lecture, 16 pt sur les fiches).
+  final double base;
   final ValueChanged<double> onChanged;
 
   const DisplaySizeSection({
     super.key,
     required this.fontSize,
+    required this.base,
     required this.onChanged,
-    this.sizes = ReadingTextSize.values,
   });
 
   @override
@@ -693,7 +752,11 @@ class DisplaySizeSection extends StatelessWidget {
     return DisplayCard(
       label: 'Taille du texte',
       icon: Icons.format_size,
-      child: ReadingSizeChips(fontSize: fontSize, sizes: sizes, onChanged: onChanged),
+      child: ReadingSizeSlider(
+        fontSize: fontSize,
+        base: base,
+        onChanged: onChanged,
+      ),
     );
   }
 }

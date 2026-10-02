@@ -829,10 +829,9 @@ class _ChapterReaderState extends State<ChapterReader> {
               const SizedBox(height: 12),
               DisplaySizeSection(
                 fontSize: _prefs.fontSize,
-                // L'échelle complète : « petit » à « géant ». La restriction
-                // aux trois derniers crans faisait perdre le choix fin aux
-                // lecteurs qui n'ont pas besoin du très grand.
-                sizes: ReadingTextSize.values,
+                // 100 % = la taille par défaut de la lecture (22 pt) :
+                // « 136 % » est l'ancien « géant », et le curseur va au-delà.
+                base: ReadingTextSize.extraLarge.fontSize,
                 onChanged: (value) async {
                   await _setFontSize(value);
                   setSheet(() {});
@@ -956,10 +955,12 @@ class _ChapterReaderState extends State<ChapterReader> {
 
   @override
   Widget build(BuildContext context) {
-    // Nominal size only: the narrow-screen reduction rides on the ambient
-    // `textScaler` posed in `main.dart`, so applying a second width-keyed
-    // ladder here would shrink the body twice.
-    final bodyFontSize = ReadingTextSize.nearest(_prefs.fontSize).fontSize;
+    // Read straight from the preference: the size slider stores any point of
+    // its range, and rounding it back to the ladder's nearest step would put
+    // the body one notch away from what the reader dialled. The narrow-screen
+    // reduction rides on the ambient `textScaler` posed in `main.dart`, so
+    // no second width-keyed ladder is applied here.
+    final bodyFontSize = _prefs.fontSize;
     // Immersion: only the text remains. The find bar and the action bar are
     // the reader's own; the shells above hide theirs on the same preference.
     final immersive = _prefs.immersion;

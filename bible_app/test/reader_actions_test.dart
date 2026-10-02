@@ -10,6 +10,7 @@ import 'package:bible_app/screens/parallel_reading_screen.dart';
 import 'package:bible_app/screens/settings_screen.dart';
 import 'package:bible_app/widgets/bible_theme_scope.dart';
 import 'package:bible_app/widgets/chapter_reader.dart';
+import 'package:bible_app/widgets/fiche_text_settings.dart';
 import 'package:bible_app/widgets/premium_style.dart';
 import 'package:bible_app/widgets/reader_actions_bar.dart';
 import 'package:bible_app/widgets/verse_tile.dart';
@@ -761,38 +762,53 @@ void main() {
   ) async {
     await pumpReader(tester);
 
-    // Default is « très grand » (22) — ReadingTextSize.extraLarge.
+    // Default is 100 % of « très grand » (22) — ReadingTextSize.extraLarge.
     expect(verseFontSize(tester), 22);
 
     await tester.tap(find.byIcon(Icons.more_vert));
     await tester.pumpAndSettle();
-    // The ladder is a row of « A » chips, labelled for screen readers.
     expect(find.text('TAILLE DU TEXTE'), findsOneWidget);
-    // The full ladder is offered, « petit » through « géant ».
-    expect(find.byTooltip('Taille du texte petit'), findsOneWidget);
-    expect(find.byTooltip('Taille du texte moyen'), findsOneWidget);
-    expect(find.byTooltip('Taille du texte grand'), findsOneWidget);
-    expect(find.byTooltip('Taille du texte très grand'), findsOneWidget);
-    expect(find.byTooltip('Taille du texte énorme'), findsOneWidget);
-    expect(find.byTooltip('Taille du texte géant'), findsOneWidget);
-    // The sheet scrolls if needed, but « géant » must stay reachable without
-    // hunting: it fits inside the viewport of a standard test surface.
-    final screen =
-        tester.view.physicalSize.height / tester.view.devicePixelRatio;
-    await tester.ensureVisible(find.byTooltip('Taille du texte géant'));
-    await tester.pumpAndSettle();
+
+    // The size is one horizontal slider that reports itself in percent —
+    // 100 % at rest, the reference being the reading's default.
+    final curseur = find.descendant(
+      of: find.byType(DisplaySizeSection),
+      matching: find.byType(Slider),
+    );
+    expect(curseur, findsOneWidget);
     expect(
-      tester.getBottomLeft(find.byTooltip('Taille du texte géant')).dy,
-      lessThan(screen),
+      find.descendant(
+        of: find.byType(DisplaySizeSection),
+        matching: find.text('100 %'),
+      ),
+      findsOneWidget,
+      reason: 'le curseur dit la taille en pourcentage de la référence',
     );
 
-    await tester.tap(find.byTooltip('Taille du texte géant'));
+    // The sheet scrolls if needed, but the control must stay reachable
+    // without hunting: it fits inside the viewport of a standard test surface.
+    final screen =
+        tester.view.physicalSize.height / tester.view.devicePixelRatio;
+    await tester.ensureVisible(curseur);
     await tester.pumpAndSettle();
-    expect(verseFontSize(tester), 30);
+    expect(tester.getBottomLeft(curseur).dy, lessThan(screen));
+
+    // 136 % ≈ « géant » (30) — the ladder's largest step, dialled by percent.
+    tester.widget<Slider>(curseur).onChanged!(136);
+    await tester.pumpAndSettle();
+    expect(verseFontSize(tester), closeTo(ReadingTextSize.giant.fontSize, .5));
+    expect(
+      find.descendant(
+        of: find.byType(DisplaySizeSection),
+        matching: find.text('136 %'),
+      ),
+      findsOneWidget,
+      reason: 'le pourcentage suit la valeur en cours',
+    );
 
     // Remounting reads the size back from shared_preferences.
     await pumpReader(tester);
-    expect(verseFontSize(tester), 30);
+    expect(verseFontSize(tester), closeTo(ReadingTextSize.giant.fontSize, .5));
   });
   testWidgets('the ⋯ sheet has a labelled close button', (tester) async {
     await pumpReader(tester);

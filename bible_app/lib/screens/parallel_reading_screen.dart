@@ -176,9 +176,10 @@ class _ParallelReadingScreenState extends State<ParallelReadingScreen> {
     // columns of 22 pt read like shouting. The narrow-screen reduction itself
     // comes from the ambient `textScaler` (`main.dart`), so it is NOT re-applied
     // here; feeding a half-width into a second ladder cut these panes by up to
-    // 29 % of the size the reader picked.
+    // 29 % of the size the reader picked. The stored size can sit anywhere on
+    // the slider's range, so it is read as it is, never rounded to a step.
     final baseSize =
-        ReadingTextSize.nearest(_prefs?.fontSize ?? 22).fontSize * .88;
+        (_prefs?.fontSize ?? ReadingTextSize.extraLarge.fontSize) * .88;
     // Same rhythm as the single reader: gaps and leading follow the size so
     // the half-width panes stay as airy as the full one.
     final rhythm = ReadingRhythm(
