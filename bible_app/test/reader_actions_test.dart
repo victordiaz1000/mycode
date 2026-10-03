@@ -795,6 +795,19 @@ void main() {
 
     // 136 % ≈ « géant » (30) — the ladder's largest step, dialled by percent.
     final slider = tester.widget<Slider>(curseur);
+
+    // 100 % — le défaut — doit tomber PILE sur un cran : au pas de 7,5 %
+    // des 20 crans, la grille passait à côté (95 puis 102,5) et le pouce
+    // ne pouvait plus revenir au défaut. 110 %, la valeur relue sur
+    // l'appareil, doit l'être aussi.
+    for (final p in const [100.0, 110.0]) {
+      final ticks =
+          (p - slider.min) / (slider.max - slider.min) * slider.divisions!;
+      expect(ticks, ticks.roundToDouble(),
+          reason: '$p % doit tomber sur un cran du curseur');
+    }
+
+    // 136 % ≈ « géant » (30) — the ladder's largest step, dialled by percent.
     slider.onChanged!(136);
     await tester.pumpAndSettle();
     expect(verseFontSize(tester), closeTo(ReadingTextSize.giant.fontSize, .5));
