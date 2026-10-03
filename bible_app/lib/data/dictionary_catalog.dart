@@ -1,7 +1,7 @@
 ﻿/// How a dictionary can actually be consulted.
 enum DictionaryAvailability {
-  /// Shipped inside the app, readable offline — the BYM lexicon, Strong FR and
-  /// Westphal 1932.
+  /// Shipped inside the app, readable offline — the Dictionnaire Strong
+  /// français and Westphal 1932.
   embedded,
 
   /// Not bundled but servable from a direct URL (décision 7 — Filebase, or any
@@ -54,31 +54,25 @@ class DictionaryEntry {
 
 /// The dictionaries of the Bibliothèque.
 ///
-/// Three are embedded (Strong FR, Westphal 1932 + the SWORD source note) :
+/// Two are embedded — the Dictionnaire Strong français and Westphal 1932 :
 /// le lexique « Notes BYM Lexique » a été débranché du catalogue comme de la
-/// recherche (demande utilisateur). Nave has no source yet (« À venir »). The
-/// downloadable entries appear when their [DictionaryEntry.url] is filled in —
-/// the mechanism is wired, the hosting is manual (décision 8).
+/// recherche (demande utilisateur), et le rang « Modules SWORD » n'affichait
+/// rien d'ouvrable : retiré de l'interface. Nave has no source yet
+/// (« À venir »). The downloadable entries appear when their
+/// [DictionaryEntry.url] is filled in — the mechanism is wired, the hosting is
+/// manual (décision 8).
 const List<DictionaryEntry> dictionaryCatalog = [
   DictionaryEntry(
     code: 'STRONG_FR',
-    name: 'Strong FR',
+    name: 'Dictionnaire Strong français',
     rights: 'CrossWire/SWORD · libre',
     description: 'Lexique Strong français embarqué depuis CrossWire/SWORD.',
     availability: DictionaryAvailability.embedded,
   ),
   DictionaryEntry(
-    code: 'SWORD',
-    name: 'Modules SWORD',
-    rights: 'Source hébreu et grec',
-    description:
-        'Source Strong hébreu et grec utilisée pour le lexique et la recherche.',
-    availability: DictionaryAvailability.embedded,
-  ),
-  DictionaryEntry(
     code: 'FREDAW',
     name: 'Westphal 1932',
-    rights: 'A. Westphal · 1932 · libre',
+    rights: 'Dictionnaire encyclopédique de la Bible · A. Westphal · 1932 · libre',
     description:
         'Dictionnaire encyclopédique de la Bible A. Westphal (1932) embarqué localement.',
     availability: DictionaryAvailability.embedded,

@@ -298,7 +298,7 @@ void main() {
       expect(find.byKey(const Key('libraryDictionaries')), findsOneWidget);
       // Le lexique « Notes BYM Lexique » a été débranché du catalogue.
       expect(find.text('Notes BYM Lexique'), findsNothing);
-      expect(find.text('Strong FR'), findsOneWidget);
+      expect(find.text('Dictionnaire Strong français'), findsOneWidget);
       expect(find.text('Westphal 1932'), findsOneWidget);
       // Nave reste sans source : elle s'affiche « Bientôt disponible ».
       expect(find.text('Bientôt disponible'), findsOneWidget);
@@ -331,7 +331,8 @@ void main() {
     // « Notes BYM Lexique » n'est plus dans le catalogue : il n'y a plus de
     // rangée à ouvrir (verrouillé par le test de liste ci-dessus).
 
-    testWidgets('tapping Strong FR opens the Strong index, not a stub',
+    testWidgets('tapping the Strong français tile opens the Strong index, '
+        'not a stub',
         (tester) async {
       final store = FakeStore();
       await pumpLibrary(tester, store: store, service: FakeService(store));
@@ -341,7 +342,7 @@ void main() {
 
       await tester.tap(find.text('Dictionnaires'));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('Strong FR'));
+      await tester.tap(find.text('Dictionnaire Strong français'));
       await tester.pumpAndSettle();
 
       expect(find.text('Dictionnaire Strong'), findsOneWidget);

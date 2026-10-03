@@ -1042,9 +1042,9 @@ class _DictionariesTabState extends State<_DictionariesTab> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            'Le lexique BYM, le Strong FR et le dictionnaire FreDAW sont déjà '
-            'embarqué·e·s. Les autres dictionnaires se téléchargent dès que '
-            'leur fichier JSON est publié et son URL renseignée.',
+            'Le Dictionnaire Strong français et le dictionnaire Westphal 1932 '
+            'sont déjà embarqué·e·s. Les autres dictionnaires se téléchargent '
+            'dès que leur fichier JSON est publié et son URL renseignée.',
             textAlign: TextAlign.center,
             style: premiumText(
               context,
