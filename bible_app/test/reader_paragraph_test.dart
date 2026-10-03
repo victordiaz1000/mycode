@@ -250,9 +250,9 @@ void main() {
       expect(find.byType(NoteCard), findsNothing);
       expect(blockText(tester), contains('(Note de test 2:1.'));
 
-      // Le mot noté garde le corps du texte : ni couleur, ni soulignage,
-      // ni surlignage — il se lit comme le reste du verset, la note qui
-      // suit (parenthèses colorées) seule marque l'endroit.
+      // Le mot noté garde le corps du texte : ni couleur, ni graisse, ni
+      // surlignage — un souligné en pointillé le signale, et la note entre
+      // parenthèses (colorées) situe l'endroit.
       final spans = <TextSpan>[];
       void walk(InlineSpan span) {
         if (span is! TextSpan) return;
@@ -268,10 +268,14 @@ void main() {
           (s) => s.text?.contains('de test Ge. 2:1.') ?? false);
       expect(word.style?.color, plain.style?.color,
           reason: 'le mot noté reprend la couleur du corps');
-      expect(word.style?.decoration, isNull,
-          reason: 'le mot noté perd son soulignage');
+      expect(word.style?.fontWeight, plain.style?.fontWeight,
+          reason: 'le mot noté reprend la graisse du corps');
       expect(word.style?.backgroundColor, isNull,
           reason: 'le mot noté perd son surlignage');
+      expect(word.style?.decoration, TextDecoration.underline,
+          reason: 'le mot noté se souligne');
+      expect(word.style?.decorationStyle, TextDecorationStyle.dotted,
+          reason: '…en pointillé, pas en trait plein');
     });
   }
 

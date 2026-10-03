@@ -48,7 +48,7 @@ void main() {
     expect(find.textContaining('Voir Es. 45:18.'), findsOneWidget);
   });
 
-  testWidgets('the noted word loses its paint, its index keeps the colour', (
+  testWidgets('the noted word is dotted, its index keeps the colour', (
     WidgetTester tester,
   ) async {
     const verse = Verse(
@@ -70,12 +70,14 @@ void main() {
       final word = spans.firstWhere((s) => s.text == 'devint');
       expect(word.style?.color, isNull,
           reason: '$disposition : le mot noté perd sa couleur');
-      expect(word.style?.decoration, isNull,
-          reason: '$disposition : le mot noté perd son soulignage');
       expect(word.style?.backgroundColor, isNull,
           reason: '$disposition : le mot noté perd son surlignage');
-      expect(word.style?.fontWeight, FontWeight.bold,
-          reason: '$disposition : la graisse seule reste, sans peinture');
+      expect(word.style?.decoration, TextDecoration.underline,
+          reason: '$disposition : le mot noté se souligne');
+      expect(word.style?.decorationStyle, TextDecorationStyle.dotted,
+          reason: '$disposition : …en pointillé, pas en trait plein');
+      expect(word.style?.fontWeight, isNot(FontWeight.bold),
+          reason: '$disposition : plus de graisse sur le mot noté');
 
       if (disposition == NoteDisposition.below) {
         final index = spans.firstWhere((s) => s.text == '1');
