@@ -17,6 +17,18 @@ appCodebar/sg1910_json/
 # Doublon compressé du corpus CSV source : le dossier `Sg1910-csv/` fait foi.
 Sg1910-csv.zip
 
+# Sorties régénérables de l'extraction Biblia. `python
+# extraction/extract_heb_grc.py` reconstruit `extraction/HEB/` et
+# `extraction/GRC/` (dumps HTML des dictionnaires + entries.json) depuis les XML
+# de Biblia Universalis 3, et `python extraction/fusion_strong_v2.py` refait la
+# fusion. Ce sont les scripts et les deux rapports qui portent l'information —
+# pas les 14 000 pages intermédiaires, seulement le risque de diverger.
+extraction/HEB/
+extraction/GRC/
+# La fusion n'est pas embarquée : elle sort dans extraction/ pour rester hors du
+# bundle (le pubspec y liste assets/lexicon/ en entier). Régénérable.
+extraction/strong_fr_v2.json
+
 # Systèmes de fichiers
 Thumbs.db
 .DS_Store
