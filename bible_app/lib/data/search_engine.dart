@@ -227,9 +227,17 @@ class ReferenceHit {
     required this.versionCode,
   });
 
-  /// "Jean 3:16" — the full book name, as the maquette prints it.
+  /// « Bereshit 1:1 », « Genèse 1:1 » — the full book name, as the maquette
+  /// prints it, in the version the card is actually serving: the BYM keeps its
+  /// own Hebrew and Greek names, a downloaded translation reads French. The
+  /// fallback is not cosmetic either — a card that dropped to BYM because the
+  /// book was never downloaded must not label itself in French.
   String get label {
-    final name = catalogEntry(bookIndex).shortName;
+    final name = bookDisplayName(
+      bookIndex,
+      code: versionCode,
+      embeddedCode: VersionRepository.embeddedCode,
+    );
     if (verse == null) return '$name $chapter';
     if (verseEnd != null) return '$name $chapter:$verse-$verseEnd';
     return '$name $chapter:$verse';
@@ -501,8 +509,11 @@ class SearchEngine {
           for (final m in shown)
             SearchHit(
               category: SearchCategory.passages,
-              title: '${catalogEntry(m.bookIndex).shortName} '
-                  '${m.chapter}:${m.verseNumber}',
+              title: '${bookDisplayName(
+                m.bookIndex,
+                code: filters.versionCode,
+                embeddedCode: VersionRepository.embeddedCode,
+              )} ${m.chapter}:${m.verseNumber}',
               subtitle: m.text,
               badge: filters.versionCode,
               bookIndex: m.bookIndex,
@@ -542,6 +553,11 @@ class SearchEngine {
           for (final n in shown)
             SearchHit(
               category: SearchCategory.notes,
+              // French on purpose: a note belongs to no version — it was
+              // written over a Darby highlight as often as over a BYM one —
+              // and the Notes screen prints it the same way. Only the surfaces
+              // that *are* read in a version (the reference card, the
+              // passages) follow it.
               title: '${catalogEntry(n.bookIndex).shortName} '
                   '${n.chapter}:${n.verse}',
               subtitle: n.text,
@@ -572,7 +588,12 @@ class SearchEngine {
       final kept = [
         for (final e in entries)
           if (filters.allows(e.bookIndex) &&
-              (normalizeForSearch(e.bookName).contains(q) ||
+              // The bilingual name, not `e.bookName`: history lists what the
+              // row prints, and a reader looking for their Matthew chapters
+              // under « Mattithyah » finds them the same way they would under
+              // « Matthieu ».
+              (normalizeForSearch(catalogEntry(e.bookIndex).bilingualName)
+                      .contains(q) ||
                   normalizeForSearch(e.label).contains(q)))
             e,
       ];
@@ -590,7 +611,11 @@ class SearchEngine {
           for (final e in shown)
             SearchHit(
               category: SearchCategory.etudes,
-              title: '${e.bookName} ${e.chapter}',
+              // History records a position, not a version, so it speaks the
+              // register of the books sheet: BYM head first, French behind —
+              // « Mattithyah (Matthieu) » where the catalogue prints French
+              // alone. Never French only, wherever the chapter was read.
+              title: '${catalogEntry(e.bookIndex).bilingualName} ${e.chapter}',
               subtitle: 'Chapitre déjà étudié',
               badge: 'Étude',
               bookIndex: e.bookIndex,

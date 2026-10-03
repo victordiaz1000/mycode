@@ -118,6 +118,11 @@ void main() {
     expect(find.text('Que cherchez-vous ?'), findsOneWidget);
     expect(find.text('Chercher une référence'), findsOneWidget);
     expect(find.text('Jean 3:16'), findsOneWidget);
+
+    // Le titre annonce les trois registres du champ, exemples à l'appui.
+    expect(find.textContaining('noms de la BYM'), findsOneWidget);
+    expect(find.text('Mattithyah 5'), findsOneWidget);
+    expect(find.text('Ps 23'), findsOneWidget);
   });
 
   testWidgets('the seven categories of the maquette are listed',
@@ -192,7 +197,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Passages'), findsWidgets);
-    expect(find.text('Genèse 1:1'), findsOneWidget);
+    // La BYM est la version par défaut : le titre porte son nom de livre.
+    expect(find.text('Bereshit 1:1'), findsOneWidget);
     expect(find.textContaining('Verset de test'), findsWidgets);
   });
 
@@ -204,7 +210,7 @@ void main() {
     ));
 
     await type(tester, 'verset');
-    await tester.tap(find.text('Genèse 1:1'));
+    await tester.tap(find.text('Bereshit 1:1'));
     await tester.pumpAndSettle();
 
     expect(opened, isNotEmpty);
@@ -275,7 +281,7 @@ void main() {
 
     expect(find.textContaining('Index thématique Nave'), findsOneWidget);
     // Passages are still listed: the disabled chip did not filter anything.
-    expect(find.text('Genèse 1:1'), findsOneWidget);
+    expect(find.text('Bereshit 1:1'), findsOneWidget);
   });
 
   testWidgets('the Strong category lists the French definitions',
@@ -402,26 +408,26 @@ void main() {
       (tester) async {
     await tester.pumpWidget(app());
     await type(tester, 'verset');
-    expect(find.text('Genèse 1:1'), findsOneWidget);
+    expect(find.text('Bereshit 1:1'), findsOneWidget);
 
     await tapChip(tester, 'Nave');
     await tester.pumpAndSettle();
 
     // The chip was ignored: the query was not rerun with a Nave-only filter.
-    expect(find.text('Genèse 1:1'), findsOneWidget);
+    expect(find.text('Bereshit 1:1'), findsOneWidget);
   });
 
   testWidgets('selecting a category narrows the results to it', (tester) async {
     await tester.pumpWidget(app());
     await type(tester, 'verset');
-    expect(find.text('Genèse 1:1'), findsOneWidget);
+    expect(find.text('Bereshit 1:1'), findsOneWidget);
 
     // « Dictionnaire » alone: the fake bundle notes are anchored on "Verset",
     // so the word matches there too, but no passage row may remain.
     await tapChip(tester, 'Dictionnaire');
     await tester.pumpAndSettle();
 
-    expect(find.text('Genèse 1:1'), findsNothing);
+    expect(find.text('Bereshit 1:1'), findsNothing);
     expect(find.text('Verset'), findsWidgets);
   });
 
@@ -549,8 +555,8 @@ void main() {
     // 5 rows a group shows by default.
     await type(tester, 'verset');
 
-    expect(find.text('Genèse 1:1'), findsOneWidget);
-    expect(find.text('Exode 1:1'), findsNothing);
+    expect(find.text('Bereshit 1:1'), findsOneWidget);
+    expect(find.text('Shemot 1:1'), findsNothing);
 
     // The chip sits at the end of the passages group, below the fold.
     await tester.scrollUntilVisible(find.text('Voir plus'), 120,
@@ -560,12 +566,12 @@ void main() {
     await tester.tap(find.text('Voir plus').first);
     await tester.pumpAndSettle();
 
-    // Genèse fills 6 rows (2 chapters × 3 verses), so Exode starts below the
+    // Bereshit fills 6 rows (2 chapters × 3 verses), so Shemot starts below the
     // fold once the group is unfolded.
-    await tester.scrollUntilVisible(find.text('Exode 1:1').first, 120,
+    await tester.scrollUntilVisible(find.text('Shemot 1:1').first, 120,
         scrollable: resultList());
     await tester.pumpAndSettle();
-    expect(find.text('Exode 1:1'), findsWidgets);
+    expect(find.text('Shemot 1:1'), findsWidgets);
   });
 
   testWidgets('clearing the field returns to the empty state', (tester) async {

@@ -116,37 +116,138 @@ String normalizeForSearch(String input) {
   );
 }
 
+/// The catalogue folded once. [searchBooks] runs per keystroke and once per
+/// reference found in a page of text; these three spellings of 66 books never
+/// change at runtime, so they are not paid for on every call.
+final List<({String abbr, List<String> names})> _bookKeys = [
+  for (final entry in bookCatalog)
+    (
+      // Spaces and periods dropped: « 1 Co. » must answer to « 1Co ».
+      abbr: normalizeForSearch(entry.abbreviation).replaceAll(' ', ''),
+      names: <String>{
+        // The catalogue name, bilingual where the BYM heads it —
+        // « Bereshit (Genèse) », « Bereshit ».
+        normalizeForSearch(entry.name),
+        // The French name alone, so an exact « Genèse » outranks a book that
+        // merely starts with the same letters.
+        normalizeForSearch(entry.shortName),
+        // The name the BYM gives the book — the only spelling that reaches the
+        // twenty-odd books whose BYM name is carried apart from [name]
+        // (Mattithyah, Roma, Ivriyim, Diakonos).
+        normalizeForSearch(entry.hebrewName),
+      }.toList(),
+    ),
+];
+
+/// One book's strict score against [query], or null when it does not match:
+/// exact name > name prefix > word prefix > substring.
+int? _matchName(String name, String query) {
+  if (name == query) return 1;
+  if (name.startsWith(query)) return 2;
+  if (name.split(' ').any((w) => w.startsWith(query))) return 3;
+  if (name.contains(query)) return 4;
+  return null;
+}
+
 /// Book indices matching [query] by name or abbreviation, best match first.
 ///
-/// Ranking: exact abbreviation > name prefix > word prefix > substring.
+/// Every spelling the app itself prints is accepted: the catalogue
+/// abbreviation (« Mt », « 1Co », « Ps »), the full catalogue name
+/// (« Bereshit (Genèse) »), the French name (« Genèse ») and the name the BYM
+/// gives the book (« Mattithyah », « Roma », « Ivriyim » — Hebrew for the Old
+/// Testament, Greek for the Gospels and the Epistles).
+///
+/// Ranking: exact abbreviation > exact name > name prefix > word prefix >
+/// substring > abbreviation prefix.
+///
+/// When *nothing* matches, a second pass compares by edit distance, because a
+/// transliteration is not a word a French reader spells from memory
+/// (« Berchit », « Mattityah », « Psames »). It only ever runs on an empty
+/// first pass: a typo must never outrank a real name.
+///
 /// An empty query returns nothing (the caller shows its own default list).
 List<int> searchBooks(String query) {
   final q = normalizeForSearch(query);
   if (q.isEmpty) return const [];
+  // The query without its spaces, for keys the app prints with some: an
+  // abbreviation (« 1Co ») and a BYM name (« Shir Hashirim ») are both typed
+  // in one breath.
+  final tight = q.replaceAll(' ', '');
 
   final scored = <({int book, int score})>[];
-  for (var i = 1; i <= bookCatalog.length; i++) {
-    final entry = bookCatalog[i - 1];
-    final name = normalizeForSearch(entry.name);
-    final abbr = normalizeForSearch(entry.abbreviation);
+  final close = <({int book, int distance})>[];
 
+  for (var i = 1; i <= bookCatalog.length; i++) {
+    final keys = _bookKeys[i - 1];
     int? score;
-    if (abbr == q) {
+    if (keys.abbr == tight) {
       score = 0;
-    } else if (name.startsWith(q)) {
-      score = 1;
-    } else if (name.split(' ').any((w) => w.startsWith(q))) {
-      score = 2;
-    } else if (name.contains(q)) {
-      score = 3;
-    } else if (abbr.startsWith(q)) {
-      score = 4;
+    } else {
+      for (final name in keys.names) {
+        final s = _matchName(name, q);
+        if (s != null && (score == null || s < score)) score = s;
+      }
+      if (score == null && keys.abbr.startsWith(tight)) score = 5;
     }
-    if (score != null) scored.add((book: i, score: score));
+    if (score != null) {
+      scored.add((book: i, score: score));
+      continue;
+    }
+
+    // A typo needs letters to hide in: under four, tolerance would match half
+    // the catalogue and the first pass would have been pointless.
+    if (tight.length < 4) continue;
+    final budget = _typoBudget(tight.length);
+    int? best;
+    for (final name in keys.names) {
+      final d = _distanceWithin(name, tight, budget);
+      if (d != null && (best == null || d < best)) best = d;
+    }
+    if (best != null) close.add((book: i, distance: best));
   }
-  scored.sort((a, b) =>
-      a.score != b.score ? a.score - b.score : a.book - b.book);
-  return [for (final s in scored) s.book];
+
+  if (scored.isNotEmpty) {
+    scored.sort(
+        (a, b) => a.score != b.score ? a.score - b.score : a.book - b.book);
+    return [for (final s in scored) s.book];
+  }
+  close.sort((a, b) =>
+      a.distance != b.distance ? a.distance - b.distance : a.book - b.book);
+  return [for (final c in close) c.book];
+}
+
+/// Misspelling slack, by query length: one slip up to four letters, two up to
+/// seven, three beyond.
+int _typoBudget(int length) => length <= 4 ? 1 : length <= 7 ? 2 : 3;
+
+/// Levenshtein distance between [a] and [b], abandoned as soon as it passes
+/// [max]: a row whose cheapest cell is already above [max] can never come back
+/// down, so the rest of the table is not worth computing. Null when the
+/// distance exceeds [max].
+int? _distanceWithin(String a, String b, int max) {
+  if ((a.length - b.length).abs() > max) return null;
+  var prev = List<int>.generate(b.length + 1, (j) => j);
+  var curr = List<int>.filled(b.length + 1, 0);
+  for (var i = 1; i <= a.length; i++) {
+    curr[0] = i;
+    var rowMin = curr[0];
+    for (var j = 1; j <= b.length; j++) {
+      final cost = a.codeUnitAt(i - 1) == b.codeUnitAt(j - 1) ? 0 : 1;
+      final deletion = prev[j] + 1;
+      final insertion = curr[j - 1] + 1;
+      final substitution = prev[j - 1] + cost;
+      final cell = deletion < insertion
+          ? (deletion < substitution ? deletion : substitution)
+          : (insertion < substitution ? insertion : substitution);
+      curr[j] = cell;
+      if (cell < rowMin) rowMin = cell;
+    }
+    if (rowMin > max) return null;
+    final swap = prev;
+    prev = curr;
+    curr = swap;
+  }
+  return prev[b.length] <= max ? prev[b.length] : null;
 }
 
 /// Trailing "3:16", "3.16", "3 16", "3:16-18" or "3" — chapter and optional
@@ -186,8 +287,9 @@ final RegExp _trailingNumbers =
 }
 
 /// Parses a free-text reference such as "Jean 3:16", "Ge 1", "1 Samuel 3.4",
-/// "Exode 4:5-10" or just "Psaumes". Returns null when no book can be
-/// identified.
+/// "Exode 4:5-10" or just "Psaumes" — and the same references under the BYM's
+/// own names ("Mattithyah 5", "Roma 8:1", "Bereshit"), a misspelling of them
+/// included ("Psames 23"). Returns null when no book can be identified.
 BibleReference? parseReference(String query) {
   final parts = splitReference(query);
   final books = searchBooks(parts.bookQuery);

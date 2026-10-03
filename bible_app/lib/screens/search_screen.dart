@@ -1206,15 +1206,18 @@ class _EmptyState extends StatelessWidget {
 
   const _EmptyState({required this.onPick});
 
+  /// Les exemples disent les registres que le champ accepte vraiment :
+  /// français, nom BYM (hébreu pour l'Ancien Testament, grec pour le Nouveau)
+  /// et abréviation — chacun des groupes « référence » et « livre » en porte un.
   static const List<({String title, List<String> queries})> _suggestions = [
     (
       title: 'Chercher une référence',
-      queries: ['Jean 3:16', 'Psaume 23', 'Exode 4:5-10'],
+      queries: ['Jean 3:16', 'Mattithyah 5', 'Ps 23'],
     ),
     (title: 'Chercher un verset', queries: ['Jésus pleura', 'Au commencement']),
     (title: 'Chercher un mot', queries: ['amour', 'grâce', 'alliance']),
     (title: 'Chercher un mot Strong', queries: ['H0430', 'G2316', 'agapao']),
-    (title: 'Chercher un livre', queries: ['Apocalypse', 'Bereshit']),
+    (title: 'Chercher un livre', queries: ['Genèse', 'Bereshit', 'Mattithyah']),
   ];
 
   @override
@@ -1260,7 +1263,26 @@ class _EmptyState extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 28),
+        const SizedBox(height: 8),
+        // Le champ dit d'avance ce qu'il comprend : les trois registres que
+        // `searchBooks` accepte, exemples à l'appui, et que la faute de
+        // frappe ne ferme pas la porte.
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Text(
+            'En français, en abrégé (« Ps 23 ») ou sous les noms de la BYM '
+            '(« Mattithyah 5 ») — même mal orthographié.',
+            textAlign: TextAlign.center,
+            style: premiumText(
+              context,
+              13,
+              FontWeight.w500,
+              bibleTheme.textColor.withValues(alpha: .72),
+              height: 1.4,
+            ),
+          ),
+        ),
+        const SizedBox(height: 24),
         for (final group in _suggestions) ...[
           Text(
             group.title,

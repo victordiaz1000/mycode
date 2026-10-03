@@ -144,7 +144,9 @@ void main() {
       expect(outcome.reference!.bookIndex, 43);
       expect(outcome.reference!.chapter, 1);
       expect(outcome.reference!.verse, 2);
-      expect(outcome.reference!.label, 'Jean 1:2');
+      // La BYM sert ce verset : l'étiquette porte son nom de livre, pas le
+      // français de la maquette.
+      expect(outcome.reference!.label, 'Yohanan 1:2');
       expect(outcome.reference!.text, contains('Jn. 1:2'));
     });
 
@@ -194,7 +196,7 @@ void main() {
       expect(outcome.reference!.chapter, 4);
       expect(outcome.reference!.verse, 5);
       expect(outcome.reference!.verseEnd, 10);
-      expect(outcome.reference!.label, 'Exode 4:5-10');
+      expect(outcome.reference!.label, 'Shemot 4:5-10');
       expect(outcome.reference!.text, contains('Ex. 4:5'));
     });
 
@@ -206,7 +208,7 @@ void main() {
       expect(outcome.reference!.chapter, 1);
       expect(outcome.reference!.verse, isNull);
       expect(outcome.reference!.verseEnd, isNull);
-      expect(outcome.reference!.label, 'Matthieu 1');
+      expect(outcome.reference!.label, 'Mattithyah 1');
     });
 
     test('the book filter restricts the passage rows', () async {
@@ -428,9 +430,36 @@ void main() {
 
       final etudes =
           outcome.groups.firstWhere((g) => g.category == SearchCategory.etudes);
-      expect(etudes.hits.first.title, 'Jean 1');
+      // L'historique n'a pas de version : il parle le registre de la feuille
+      // Livres, tête BYM puis français.
+      expect(etudes.hits.first.title, 'Yohanan (Jean) 1');
       expect(etudes.hits.first.bookIndex, 43);
       expect(etudes.hits.first.canOpen, isTrue);
+    });
+
+    test('études answer to the BYM name of their book as well', () async {
+      final history = ReadingHistory();
+      await history.record(43, 1);
+
+      // Le lecteur cherche sous le nom BYM — l'historique doit répondre, et
+      // avec le titre bilingue déjà vérifié plus haut.
+      final outcome = await SearchEngine(history: history).search('Yohanan');
+      final etudes =
+          outcome.groups.firstWhere((g) => g.category == SearchCategory.etudes);
+      expect(etudes.hits.first.bookIndex, 43);
+
+      // Et sous le nom que le catalogue ne porte que dans `bymName`.
+      final matthieu = ReadingHistory();
+      await matthieu.record(40, 2);
+      final bym = await SearchEngine(history: matthieu).search('Mattithyah');
+      expect(
+        bym.groups
+            .firstWhere((g) => g.category == SearchCategory.etudes)
+            .hits
+            .first
+            .title,
+        'Mattithyah (Matthieu) 2',
+      );
     });
 
     test('groups keep the declaration order of their categories', () async {
