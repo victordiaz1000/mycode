@@ -1,5 +1,27 @@
 import 'package:flutter/material.dart';
 
+import 'bible_theme_scope.dart';
+
+/// Fond des cartes du squelette : blanc à 46 %.
+///
+/// Le masque de [LoadingSkeleton] est en `srcATop` : le dégradé remplace la
+/// couleur du contenu et ne garde que son alpha. Cartes et barres étaient
+/// toutes deux opaques, elles recevaient donc la *même* teinte et la structure
+/// du squelette (titre, lignes, pastilles) fusionnait dans une masse grise
+/// uniforme. Les cartes passent à 46 %, les [SkeletonBox] restent opaques :
+/// panneau clair, barres pleines — et le balayage vient se poser dessus.
+const Color kSkeletonCardFill = Color(0x76FFFFFF);
+
+/// Animated placeholder shell for every loading state of the app.
+///
+/// A soft diagonal sweep, its middle tinted by the theme accent, over shapes
+/// whose *opacity* carries the structure (see [kSkeletonCardFill]).
+///
+/// The sweep goes there and back (`repeat(reverse: true)`) instead of a plain
+/// `repeat()`, which snapped from one end to the other on every cycle, and it
+/// eases with [Curves.easeInOutSine]. A widget asked to honour reduced motion
+/// freezes the halo at mid-course — the controller then never runs, so no
+/// ticker is ever started for a skeleton that does not move.
 class LoadingSkeleton extends StatefulWidget {
   final Widget child;
   const LoadingSkeleton({super.key, required this.child});
@@ -12,8 +34,26 @@ class _LoadingSkeletonState extends State<LoadingSkeleton>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 1250),
-  )..repeat();
+    duration: const Duration(milliseconds: 1900),
+    // La vague naît à mi-écran : le premier affichage n'attend pas un cycle
+    // complet pour se montrer.
+    value: .5,
+  );
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // `MediaQuery` n'est pas lisible dans `initState`, d'où ce réglage ici —
+    // appelé avant le premier build, puis à chaque dépendance qui change.
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _controller.stop();
+    } else if (!_controller.isAnimating) {
+      // Le garde-fou `isAnimating` évite de remettre le balayage à zéro à
+      // chaque changement de dépendance : on relance seulement ce qui est
+      // resté figé.
+      _controller.repeat(reverse: true);
+    }
+  }
 
   @override
   void dispose() {
@@ -23,29 +63,55 @@ class _LoadingSkeletonState extends State<LoadingSkeleton>
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    final base = Color.lerp(scheme.surface, scheme.onSurface, .09)!;
-    final shine = Color.lerp(scheme.surface, scheme.onSurface, .025)!;
+    final reduced = MediaQuery.disableAnimationsOf(context);
     return AnimatedBuilder(
       animation: _controller,
       child: widget.child,
-      builder: (context, child) => ShaderMask(
-        blendMode: BlendMode.srcATop,
-        shaderCallback: (bounds) {
-          final travel = _controller.value * 2.8 - 1.4;
-          return LinearGradient(
-            begin: Alignment(travel - .8, 0),
-            end: Alignment(travel + .8, 0),
-            colors: [base, shine, base],
-            stops: const [0.25, 0.5, 0.75],
-          ).createShader(bounds);
-        },
-        child: child,
+      builder: (context, child) => _SkeletonSweep(
+        // Lu à chaque frame, jamais figé dans la fermeture : c'est la valeur
+        // du contrôleur qui bouge, pas l'état du squelette.
+        progress: reduced ? .5 : _controller.value,
+        child: child!,
       ),
     );
   }
 }
 
+/// The sweep itself — the gradient `LoadingSkeleton` masks its content with.
+class _SkeletonSweep extends StatelessWidget {
+  const _SkeletonSweep({required this.progress, required this.child});
+
+  /// 0 → 1 across a whole there-and-back, or fixed at .5 under reduced motion.
+  final double progress;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final accent = BibleThemeScope.of(context).accentColor;
+    final base = Color.lerp(scheme.surface, scheme.onSurface, .11)!;
+    final rest = Color.lerp(scheme.surface, scheme.onSurface, .055)!;
+    final glow = Color.lerp(rest, accent, .45)!;
+    final travel = Curves.easeInOutSine.transform(progress) * 3.2 - 1.6;
+    return ShaderMask(
+      blendMode: BlendMode.srcATop,
+      shaderCallback: (bounds) => LinearGradient(
+        // En diagonale, du haut-gauche au bas-droite : la vague se pose sur
+        // les cartes au lieu de traverser en néon.
+        begin: Alignment(travel - .8, -.3),
+        end: Alignment(travel + .8, .3),
+        colors: [base, rest, glow, rest, base],
+        stops: const [0, .36, .5, .64, 1],
+      ).createShader(bounds),
+      child: child,
+    );
+  }
+}
+
+/// A bar, a dot or a chip of the skeleton — opaque on purpose: under the
+/// [LoadingSkeleton] mask it is what carries the full tint, while the cards
+/// only keep half of it ([kSkeletonCardFill]). That gap is what makes the
+/// structure readable.
 class SkeletonBox extends StatelessWidget {
   final double? width;
   final double height;
@@ -89,7 +155,7 @@ class DictionaryBrowseLoadingSkeleton extends StatelessWidget {
             height: 48,
             padding: const EdgeInsets.symmetric(horizontal: 14),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: kSkeletonCardFill,
               borderRadius: BorderRadius.circular(16),
             ),
             child: Row(
@@ -129,7 +195,7 @@ class DictionaryBrowseLoadingSkeleton extends StatelessWidget {
                   vertical: 14,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: kSkeletonCardFill,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Row(
@@ -185,7 +251,7 @@ class HomeLoadingSkeleton extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(22),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: kSkeletonCardFill,
               borderRadius: BorderRadius.circular(28),
             ),
             child: Column(
@@ -225,7 +291,7 @@ class HomeLoadingSkeleton extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: kSkeletonCardFill,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -280,7 +346,7 @@ class ListLoadingSkeleton extends StatelessWidget {
       itemBuilder: (context, index) => Container(
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: kSkeletonCardFill,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(
@@ -354,7 +420,7 @@ class ChapterLoadingSkeleton extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(18),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: kSkeletonCardFill,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Column(
@@ -434,7 +500,7 @@ class CardsLoadingSkeleton extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: kSkeletonCardFill,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
@@ -459,7 +525,7 @@ class CardsLoadingSkeleton extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: kSkeletonCardFill,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Column(
