@@ -49,6 +49,25 @@ void main() {
     expect(find.text('Aucune note pour l’instant'), findsOneWidget);
   });
 
+  testWidgets('l\'état vide ne déborde pas en paysage étroit', (tester) async {
+    // Capture 2026-10-02 (téléphone tenu en paysage) : sous « Aucune note pour
+    // l'instant », la barre jaune BOTTOM OVERFLOWED BY 15 PIXELS. Reproduite ici
+    // en 820×356 dp avec une taille de texte ×1,3 (14 px de débordement à la
+    // virgule près). L'état vide est la seule branche de « Mes notes » qui ne
+    // défile pas, donc la seule à pouvoir déborder quand la tête fixe
+    // (recherche + sélecteur + compteur) mange presque toute la hauteur.
+    tester.view.physicalSize = const Size(1640, 713); // 820×356 dp @2.0
+    tester.view.devicePixelRatio = 2.0;
+    addTearDown(tester.view.reset);
+    tester.platformDispatcher.textScaleFactorTestValue = 1.3;
+    addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+
+    await pumpNotes(tester, _FakeDb());
+
+    expect(find.text('Aucune note pour l’instant'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('a note written while the screen is open appears by itself',
       (tester) async {
     final db = _FakeDb();

@@ -425,30 +425,46 @@ class _NotesScreenState extends State<NotesScreen> {
   Widget _buildEmpty(BuildContext context) {
     final p = premiumPalette(context);
     final hasNotes = _notes.isNotEmpty;
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(Icons.note_alt_outlined,
-              size: 56, color: p.textGrey.withValues(alpha: .4)),
-          const SizedBox(height: 12),
-          Text(
-            hasNotes ? 'Aucun résultat' : 'Aucune note pour l’instant',
-            style: premiumText(context, 16, FontWeight.w800, p.textDark),
+    final content = Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(Icons.note_alt_outlined,
+            size: 56, color: p.textGrey.withValues(alpha: .4)),
+        const SizedBox(height: 12),
+        Text(
+          hasNotes ? 'Aucun résultat' : 'Aucune note pour l’instant',
+          style: premiumText(context, 16, FontWeight.w800, p.textDark),
+        ),
+        const SizedBox(height: 6),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40),
+          child: Text(
+            hasNotes
+                ? 'Aucune note ne correspond à cette recherche.'
+                : 'Appuyez sur un verset puis sur « Note » pour en créer une. Vos notes apparaîtront ici.',
+            style: premiumText(context, 13, FontWeight.w500, p.textGrey,
+                height: 1.5),
+            textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 6),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: Text(
-              hasNotes
-                  ? 'Aucune note ne correspond à cette recherche.'
-                  : 'Appuyez sur un verset puis sur « Note » pour en créer une. Vos notes apparaîtront ici.',
-              style: premiumText(context, 13, FontWeight.w500, p.textGrey,
-                  height: 1.5),
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ],
+        ),
+      ],
+    );
+
+    // En paysage (capture du 02/10/2026), la tête fixe — recherche,
+    // sélecteur, compteur — ne laisse que ~115 dp à ce bloc, qui en demande
+    // ~130 avec une taille de texte ×1,3 : la colonne débordait alors de
+    // 14 px, cette barre jaune de bas d'écran. Le bloc est donc mis à
+    // l'échelle de la place réelle : taille naturelle quand tout tient,
+    // réduit quand la hauteur manque, jamais débordant, toujours centré.
+    // La largeur est figée à celle de la zone : `FittedBox` donne sinon des
+    // contraintes infinies à son enfant, et le texte se tendrait sur une
+    // seule ligne — perdant ses retours avant d'être réduit.
+    return LayoutBuilder(
+      builder: (context, limits) => Center(
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: SizedBox(width: limits.maxWidth, child: content),
+        ),
       ),
     );
   }

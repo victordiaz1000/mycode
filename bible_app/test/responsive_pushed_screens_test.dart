@@ -228,6 +228,10 @@ void main() {
       reader: DictionaryReader.fromJson(sampleData()),
     ),
     'Notes': () => NotesScreen(db: _FakeDb()),
+    // Variante vide : l'état « Aucune note pour l'instant » est la seule
+    // branche de Notes qui ne défile pas — c'est elle qui débordait en
+    // paysage (capture du 02/10/2026), et une base pleine ne l'exerçait pas.
+    'Notes (vides)': () => NotesScreen(db: _VideDb()),
     'Favoris': () => FavorisScreen(db: _FakeDb()),
   };
 
@@ -481,4 +485,17 @@ class _FakeDb extends AppDatabase {
     UserFavorite(bookIndex: 43, chapter: 3, verse: 16),
     UserFavorite(bookIndex: 23, chapter: 40, verse: 2),
   ];
+}
+
+/// Base vide — l'état « Aucune note pour l'instant », qui ne défile pas.
+class _VideDb extends AppDatabase {
+  @override
+  Future<List<UserNote>> allNotes() async => const [];
+
+  @override
+  Future<List<UserNote>> notesForVerse(int book, int chapter, int verse) async =>
+      const [];
+
+  @override
+  Future<List<UserFavorite>> allFavorites() async => const [];
 }
