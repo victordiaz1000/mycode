@@ -13,6 +13,7 @@ import 'screens/search_screen.dart';
 import 'screens/settings_screen.dart';
 import 'widgets/bible_theme_scope.dart';
 import 'widgets/chapter_reader.dart';
+import 'widgets/holy_icons.dart';
 import 'widgets/loading_skeleton.dart';
 import 'widgets/responsive_text_scaling.dart';
 import 'data/app_preferences.dart';
@@ -368,32 +369,31 @@ class _HomeShellState extends State<HomeShell> {
       backgroundColor: p.surface,
       leading: Padding(
         padding: const EdgeInsets.only(bottom: 18),
-        child: Icon(Icons.menu_book_rounded, color: p.primary, size: 26),
+        // L'emblème du rail, dans la même famille que les onglets.
+        child: IconTheme(
+          data: IconThemeData(color: p.primary),
+          child: const HolyIcon(HolyGlyph.livre, size: 32),
+        ),
       ),
       destinations: [
         const NavigationRailDestination(
-          icon: Icon(Icons.home_outlined),
-          selectedIcon: Icon(Icons.home),
+          icon: HolyIcon(HolyGlyph.tables, size: 30),
           label: Text('Accueil'),
         ),
         const NavigationRailDestination(
-          icon: Icon(Icons.menu_book_outlined),
-          selectedIcon: Icon(Icons.menu_book),
+          icon: HolyIcon(HolyGlyph.livre, size: 30),
           label: Text('Lecture'),
         ),
         const NavigationRailDestination(
-          icon: Icon(Icons.search_outlined),
-          selectedIcon: Icon(Icons.search),
+          icon: HolyIcon(HolyGlyph.menorah, size: 30),
           label: Text('Recherche'),
         ),
         const NavigationRailDestination(
-          icon: Icon(Icons.download_outlined),
-          selectedIcon: Icon(Icons.download),
+          icon: HolyIcon(HolyGlyph.arche, size: 30),
           label: Text('Bibliothèque'),
         ),
-        NavigationRailDestination(
-          icon: Icon(Icons.settings_outlined),
-          selectedIcon: Icon(Icons.settings),
+        const NavigationRailDestination(
+          icon: HolyIcon(HolyGlyph.etoile, size: 30),
           label: Text('Réglages'),
         ),
       ],
@@ -451,28 +451,23 @@ class _HomeShellState extends State<HomeShell> {
           },
           destinations: [
             const NavigationDestination(
-              icon: Icon(Icons.home_outlined),
-              selectedIcon: Icon(Icons.home),
+              icon: HolyIcon(HolyGlyph.tables, size: 30),
               label: 'Accueil',
             ),
             const NavigationDestination(
-              icon: Icon(Icons.menu_book_outlined),
-              selectedIcon: Icon(Icons.menu_book),
+              icon: HolyIcon(HolyGlyph.livre, size: 30),
               label: 'Lecture',
             ),
             const NavigationDestination(
-              icon: Icon(Icons.search_outlined),
-              selectedIcon: Icon(Icons.search),
+              icon: HolyIcon(HolyGlyph.menorah, size: 30),
               label: 'Recherche',
             ),
             const NavigationDestination(
-              icon: Icon(Icons.download_outlined),
-              selectedIcon: Icon(Icons.download),
+              icon: HolyIcon(HolyGlyph.arche, size: 30),
               label: 'Bibliothèque',
             ),
             const NavigationDestination(
-              icon: Icon(Icons.settings_outlined),
-              selectedIcon: Icon(Icons.settings),
+              icon: HolyIcon(HolyGlyph.etoile, size: 30),
               label: 'Réglages',
             ),
           ],

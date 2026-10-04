@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/main.dart';
+import 'package:bible_app/widgets/holy_icons.dart';
 
 import 'support/fake_bible_bundle.dart';
 
@@ -20,10 +21,14 @@ import 'support/fake_bible_bundle.dart';
 ///    l'Accueil vivent dans une `ListView` paresseuse : une section basse n'est
 ///    ni mise en page ni peinte avant d'entrer dans le viewport, donc son
 ///    débordement reste invisible. D'où [_paintWholeScroll].
-/// 2. La page déjà sélectionnée porte l'icône *pleine* (`Icons.home`), pas
-///    l'icône contour cherchée pour la taper. Sauter une destination dont
-///    l'icône contour est absente laissait l'Accueil — la page la plus longue et
-///    la plus riche — entièrement hors audit.
+/// 2. L'onglet se cherche à son **motif dessiné** (`HolyIcon`), jamais à une
+///    icône Material : depuis que la barre peint ses cinq glyphes, le
+///    `find.byIcon(Icons…)` d'origine est revenu vide et, sous son garde-fou
+///    `if (tab.evaluate().isNotEmpty)`, le test a sauté les cinq destinations
+///    **en restant vert** — l'audit ne visitait plus que l'écran de démarrage.
+///    Le finder est donc désormais exigé, l'onglet est amené dans le champ par
+///    `ensureVisible`, et le tap est contrôlé sur l'indice que la barre
+///    affiche : aucune des trois étapes ne peut passer en silence.
 ///
 /// Vérifié en plantant un débordement volontaire bas dans l'Accueil : le test le
 /// signale. Sans les deux points ci-dessus, il ne le voyait pas.
@@ -40,14 +45,31 @@ const _devices = <String, Size>{
   '800x360 telephone paysage': Size(800, 360),
 };
 
-/// Icône *contour* de chaque destination du shell, celle de l'onglet inactif.
-const _destinations = <String, IconData>{
-  'Accueil': Icons.home_outlined,
-  'Lecture': Icons.menu_book_outlined,
-  'Recherche': Icons.search_outlined,
-  'Bibliothèque': Icons.download_outlined,
-  'Réglages': Icons.settings_outlined,
+/// Le motif dessiné de chaque destination du shell, dans l'ordre de la barre :
+/// ce sont les `HolyIcon` que `main.dart` pose dans la barre du bas comme dans
+/// le rail — la barre ne montre plus aucune icône Material.
+const _destinations = <String, HolyGlyph>{
+  'Accueil': HolyGlyph.tables,
+  'Lecture': HolyGlyph.livre,
+  'Recherche': HolyGlyph.menorah,
+  'Bibliothèque': HolyGlyph.arche,
+  'Réglages': HolyGlyph.etoile,
 };
+
+/// L'indice que la barre affiche : le rail sur tablette (≥ 600 px), la barre du
+/// bas ailleurs. Il n'y en a jamais deux, mais il faut lire le bon type.
+int _selectedIndex(WidgetTester tester) {
+  final rail = find.byType(NavigationRail);
+  if (rail.evaluate().isNotEmpty) {
+    // `NavigationRail.selectedIndex` est facultatif — un rail sans sélection
+    // est permis par Flutter. Le shell en pose toujours un ; l'affirmer ici
+    // fait échouer le test sur un message clair plutôt que sur un `null`.
+    final index = tester.widget<NavigationRail>(rail).selectedIndex;
+    expect(index, isNotNull, reason: 'le rail du shell porte une sélection');
+    return index!;
+  }
+  return tester.widget<NavigationBar>(find.byType(NavigationBar)).selectedIndex;
+}
 
 void main() {
   setUp(() {
@@ -126,14 +148,44 @@ void main() {
         await settle();
         collect('démarrage');
 
+        var index = 0;
         for (final destination in _destinations.entries) {
-          final tab = find.byIcon(destination.value);
-          if (tab.evaluate().isNotEmpty) {
-            await tester.tap(tab.first, warnIfMissed: false);
-            await settle();
-          }
+          final tab = find.descendant(
+            of: find.byWidgetPredicate(
+              (w) => w is NavigationBar || w is NavigationRail,
+              description: 'barre de navigation du shell',
+            ),
+            matching: find.byWidgetPredicate(
+              (w) => w is HolyIcon && w.glyph == destination.value,
+              description: 'onglet « ${destination.key} »',
+            ),
+          );
+          // Aucun garde-fou `if (… isNotEmpty)` : un onglet introuvable doit
+          // échouer ici, sinon le balayage file sans jamais visiter la page.
+          expect(
+            tab,
+            findsWidgets,
+            reason: 'l\'onglet « ${destination.key} » n\'est pas dans la barre',
+          );
+          // Le rail ouvre ses destinations d'un emblème qui porte lui aussi
+          // `HolyGlyph.livre` : le dernier match est l'onglet, jamais
+          // l'emblème. `paintWholeScroll` a pu en plus pousser la barre au bout
+          // de son défilement — on ramène l'onglet, puis on le touche.
+          await tester.ensureVisible(tab.last);
+          await settle();
+          await tester.tap(tab.last, warnIfMissed: false);
+          await settle();
+          expect(
+            _selectedIndex(tester),
+            index,
+            reason:
+                'la barre n\'a pas retenu « ${destination.key} » : le tap n\'a '
+                'pas atteint son onglet, « ${destination.key} » n\'est donc '
+                'pas audité',
+          );
           collect(destination.key);
           await paintWholeScroll(destination.key);
+          index++;
 
           // La Recherche n'a de mise en page à éprouver qu'avec des résultats :
           // l'état vide ne dit rien des lignes de versets.
