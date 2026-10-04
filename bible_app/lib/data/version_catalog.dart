@@ -25,6 +25,18 @@ enum VersionFormat {
   /// (`section`); the source's footnotes (`notes`) stay in the files, unread.
   /// Read by `bookFromSef`.
   sef,
+
+  /// The ATI schema — tokenised word by word rather than verse by verse, the
+  /// only format here that is not a line of text: each word carries its Strong
+  /// number, transliteration, pointed Hebrew, morphological split, French
+  /// gloss, grammatical analysis and glossary reference. Produced by
+  /// `ATI/ati_to_json.py`, read by `bookFromAti`.
+  ///
+  /// Like LSGS it must be flattened to reach [BibleBook], whose `Verse.text` is
+  /// a single String: `bookFromAti` joins the French glosses so that search,
+  /// sharing and Comparer keep working on plain text. The full word data stays
+  /// in the file for the interlinear rendering.
+  ati,
 }
 
 /// How a version can actually be consulted from the reading « Version » sheet.
@@ -162,9 +174,12 @@ class VersionGroup {
 ///   host ([VersionEntry.urlTemplate], produced by
 ///   `appCodebar/ostervald_to_json.py` and `appCodebar/html_verses_to_json.py`),
 ///   plus the Septuaginta (SEF: grec + deux traductions françaises, Ancien
-///   Testament seul, produced by `sef/sef_to_json.py`) ;
+///   Testament seul, produced by `sef/sef_to_json.py`) and the Ancien Testament
+///   Interlinéaire (ATI: sept champs par mot hébreu, Ancien Testament seul,
+///   produced by `ATI/ati_to_json.py`) ;
 /// - **unavailable** : copyright / sourceless versions shown greyed for parity
-///   with the maquette (NBS, NEG79, NVS78P, S21, INT).
+///   with the maquette (NBS, NEG79, NVS78P, S21).
+
 ///
 /// **A version under rights carries its copyright on the card.** CHO and KJF
 /// are served because their corpus is published, not because they are free :
@@ -224,9 +239,31 @@ const List<VersionGroup> versionCatalog = [
   ]),
   VersionGroup('Autres versions', [
     VersionEntry(
-      code: 'INT',
-      name: 'Bible Interlinéaire',
-      rights: '©',
+      code: 'ATI',
+      name: 'Ancien Testament Interlinéaire',
+      // Le corpus vient de Biblia Universalis 3, qui le signe : même mention
+      // que les traductions françaises de la SEF, qui sortent du même logiciel.
+      rights: '© Biblia Universalis',
+      availability: VersionAvailability.downloadable,
+      // Même hébergement que OST / NCL / SEF, sous-dossier propre — produit par
+      // `ATI/ati_to_json.py` depuis l'ATI.xml de Biblia Universalis 3. Chaque
+      // mot hébreu porte sept champs, d'où un format à part.
+      //
+      // Ancien Testament seul, et c'est définitif : un interlinéaire hébreu
+      // n'a pas de Nouveau Testament. `otOnly` fait compter la Bibliothèque
+      // sur 39 et évite d'offrir le téléchargement d'un Matthieu inexistant.
+      format: VersionFormat.ati,
+      otOnly: true,
+      // `hasStrong` reste faux, bien que le corpus porte un numéro Strong par
+      // mot : le drapeau ne décrit pas le corpus mais le **texte aplati**, où
+      // `verse_tile` va chercher des codes insérés dans la chaîne à la façon de
+      // la LSGS (« AA H7225 », cf. `LsgsRepository.joinTokens`). `bookFromAti`
+      // n'y joint que les gloses françaises : l'activer ferait chercher des
+      // codes qui n'y sont pas. Les numéros deviendront cliquables avec le
+      // rendu interlinéaire, qui lira les mots directement au lieu d'une
+      // chaîne.
+      urlTemplate:
+          'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/main/ati/{book}.json',
     ),
     VersionEntry(
       code: 'CHO',

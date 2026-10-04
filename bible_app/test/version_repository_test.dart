@@ -188,13 +188,23 @@ void main() {
           reason: 'LSGS gives Strong tokens but no BYM metadata or introduction');
     });
 
-    test('everything downloadable is text-only with a named source', () {
+    test('everything downloadable has its own parser and a named source', () {
       // The flag is not free-standing: `loadBook` chooses its parser from it, so
       // a downloadable entry left on the wrong format would parse to an empty
-      // book at the first download rather than fail loudly. Both text schemas
-      // are legal — getbible for the bare corpus, SEF for the Septuagint's
-      // Greek + French — what a downloadable entry can never claim is the BYM
-      // schema, whose metadata its files do not carry.
+      // book at the first download rather than fail loudly. Three schemas are
+      // legal — getbible for the bare corpus, SEF for the Septuagint's Greek +
+      // French, ATI for the word-by-word interlinear, which `bookFromAti`
+      // flattens to a line of French glosses. What a downloadable entry can
+      // never claim is the BYM schema, whose metadata its files do not carry.
+      //
+      // The list is enumerated rather than written « anything but bym » on
+      // purpose: a fourth format must be added here deliberately, once someone
+      // has checked that `loadBook` has an arm for it.
+      const servables = {
+        VersionFormat.getbible,
+        VersionFormat.sef,
+        VersionFormat.ati,
+      };
       final downloadable = [
         for (final group in versionCatalog)
           for (final version in group.versions)
@@ -203,10 +213,9 @@ void main() {
       expect(downloadable, isNotEmpty);
       for (final version in downloadable) {
         expect(
-          version.format == VersionFormat.getbible ||
-              version.format == VersionFormat.sef,
+          servables.contains(version.format),
           isTrue,
-          reason: '${version.code} must parse as a downloaded text schema',
+          reason: '${version.code} must name a parser `loadBook` can reach',
         );
         expect(version.fetchable, isTrue, reason: version.code);
         expect(version.getbibleId != null || version.urlTemplate != null, isTrue,

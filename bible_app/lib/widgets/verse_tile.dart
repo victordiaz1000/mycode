@@ -9,6 +9,7 @@ import '../data/theme_catalog.dart';
 import '../models/chapter.dart';
 import '../models/verse.dart';
 import '../utils/hex_color.dart';
+import 'ati_interlinear.dart';
 import 'note_aware_text.dart';
 
 /// The inline Strong codes of an LSGS verse (`G2316`, `H0430`), bounded by
@@ -253,14 +254,28 @@ class VerseTile extends StatelessWidget {
                                 ),
                               ),
                             ),
-                          showNotes
-                              ? NoteAwareVerseText(
+                          // L'interlinéaire remplace la ligne : ses colonnes
+                          // portent déjà les gloses du verset, et l'ATI ne
+                          // porte pas de notes BYM (`carriesNotes` y est
+                          // faux), de sorte que `showNotes` ne peut pas
+                          // entrer en conflit avec lui. Donnée d'abord, comme
+                          // `verse.grec` au-dessus — aucun savoir sur la
+                          // version active n'est nécessaire ici.
+                          if (verse.mots?.isNotEmpty ?? false)
+                            AtiInterlinear(
+                              words: verse.mots!,
+                              rhythm: rhythm,
+                              theme: theme,
+                            )
+                          else if (showNotes)
+                            NoteAwareVerseText(
                                   verse: verse,
                                   disposition: disposition,
                                   onReferenceTap: onReferenceTap,
                                   textAlign: textAlign,
                                 )
-                              : _StrongAwareText(
+                          else
+                            _StrongAwareText(
                                   text: verse.text,
                                   style: materialTheme.textTheme.bodyLarge,
                                   strongStyle:

@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -127,7 +126,11 @@ void main() {
       await store.saveBook('DBY', 1, fakeBook(1));
       final size = await store.sizeOnDisk('DBY');
       expect(size, greaterThan(0));
-      expect(size, jsonEncode(fakeBook(1)).length);
+      // Le poids du fichier tel qu'il est stocké, et non celui du JSON en
+      // clair : les livres sont écrits en gzip (cf. `library_store_gzip_test`),
+      // et la carte de la Bibliothèque annonce ce que la version occupe
+      // vraiment.
+      expect(size, await (await store.bookFile('DBY', 1)).length());
     });
 
     test('a corrupt registry degrades to empty instead of throwing', () async {

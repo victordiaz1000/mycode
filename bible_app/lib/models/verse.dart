@@ -1,3 +1,5 @@
+import 'ati.dart';
+
 class VerseNote {
   final String word;
   final int position;
@@ -32,6 +34,15 @@ class Verse {
   /// the main translation in the same muted line as [grec].
   final String? alexandrie;
 
+  /// The words of an interlinear verse, kept whole (ATI: seven fields per
+  /// Hebrew word, laid out one column per word, right to left).
+  ///
+  /// Null on every version but the interlinear ones, and on any verse rebuilt
+  /// from JSON — a favourite or a history entry carries no words, so the
+  /// reader falls back to [text], the joined glosses, which every consumer
+  /// (search, share, Comparer) already reads.
+  final List<AtiWord>? mots;
+
   const Verse({
     required this.verse,
     this.section,
@@ -40,6 +51,7 @@ class Verse {
     this.notes = const [],
     this.grec,
     this.alexandrie,
+    this.mots,
   });
 
   factory Verse.fromJson(Map<String, dynamic> json) => Verse(
@@ -52,6 +64,8 @@ class Verse {
             .toList(),
         grec: json['grec'] as String?,
         alexandrie: json['alexandrie'] as String?,
+        // No schema carries the words: they are built from the source file by
+        // `bookFromAti`, and a restored verse renders its [text].
       );
 
   /// Position (1-based) of this verse within its chapter.

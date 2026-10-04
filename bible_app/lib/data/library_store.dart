@@ -60,13 +60,16 @@ class InstalledVersion {
 
 /// Files and registry of the versions downloaded on the device (décision 6).
 ///
-/// A book lands as one JSON file under
-/// `<documents>/versions/<code>/<bymIndex>.json`, and the registry in
+/// A book lands as one gzip-compressed JSON file under
+/// `<documents>/versions/<code>/<bymIndex>.json.gz`, and the registry in
 /// shared_preferences records which ones arrived. That is what makes an install
 /// resumable: a download that dies at book 40 keeps its 39 files, and the next
 /// attempt fetches only what is missing. With 66 requests per version, one
 /// failing partway through is the normal case on a phone network, not the
 /// exception.
+///
+/// Les installations antérieures à la compression portent le nom en clair
+/// `<bymIndex>.json` ; [loadBook] lit les deux régimes, cf. [legacyBookFile].
 class LibraryStore {
   static const String registryKey = 'library.installed';
   static const String versionsDirectory = 'versions';
@@ -165,7 +168,22 @@ class LibraryStore {
   Future<Directory> versionDirectory(String code) async =>
       Directory(p.join((await root()).path, versionsDirectory, code));
 
+  /// Where [saveBook] writes: gzip, `$bookIndex.json.gz`.
+  ///
+  /// Le JSON d'une version est très compressible — du texte, des clés répétées
+  /// à chaque verset. L'ATI le rend décisif : 35 Mo en clair, 7 Mo en gzip, et
+  /// c'est le second chiffre qu'on peut demander à un téléphone. Les autres
+  /// versions y gagnent aussi, sans rien changer d'autre que ce nom de fichier.
   Future<File> bookFile(String code, int bookIndex) async =>
+      File(p.join((await versionDirectory(code)).path, '$bookIndex.json.gz'));
+
+  /// L'ancien nom, en clair — lu, jamais écrit.
+  ///
+  /// Les versions déjà installées sur l'appareil portent ce nom. Les relire
+  /// plutôt que les réécrire évite une migration : rien à exécuter au premier
+  /// lancement, rien qui puisse échouer à moitié. Une version ne passe en gzip
+  /// qu'à sa réinstallation.
+  Future<File> legacyBookFile(String code, int bookIndex) async =>
       File(p.join((await versionDirectory(code)).path, '$bookIndex.json'));
 
   /// Writes one downloaded book and records it in the registry.
@@ -180,7 +198,12 @@ class LibraryStore {
   ) async {
     final file = await bookFile(code, bookIndex);
     await file.parent.create(recursive: true);
-    await file.writeAsString(jsonEncode(json));
+    await file.writeAsBytes(gzip.encode(utf8.encode(jsonEncode(json))));
+
+    // Un livre réinstallé laisserait sinon son ancienne copie en clair derrière
+    // lui : deux fichiers pour un livre, et `sizeOnDisk` annoncerait le double.
+    final legacy = await legacyBookFile(code, bookIndex);
+    if (await legacy.exists()) await legacy.delete();
 
     final registry = await _readRegistry();
     registry.putIfAbsent(code, () => <int>{}).add(bookIndex);
@@ -189,11 +212,19 @@ class LibraryStore {
   }
 
   /// Reads back a downloaded book, or null when it is not on the device.
+  ///
+  /// Les deux régimes, gzip d'abord : une installation d'avant la compression
+  /// continue de se lire telle quelle.
   Future<Map<String, dynamic>?> loadBook(String code, int bookIndex) async {
     try {
       final file = await bookFile(code, bookIndex);
-      if (!await file.exists()) return null;
-      return jsonDecode(await file.readAsString()) as Map<String, dynamic>;
+      if (await file.exists()) {
+        final texte = utf8.decode(gzip.decode(await file.readAsBytes()));
+        return jsonDecode(texte) as Map<String, dynamic>;
+      }
+      final legacy = await legacyBookFile(code, bookIndex);
+      if (!await legacy.exists()) return null;
+      return jsonDecode(await legacy.readAsString()) as Map<String, dynamic>;
     } catch (_) {
       return null;
     }

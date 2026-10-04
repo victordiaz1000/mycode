@@ -1,3 +1,4 @@
+import '../models/ati.dart';
 import '../models/bible_book.dart';
 import '../models/chapter.dart';
 import '../models/lsgs.dart';
@@ -113,6 +114,7 @@ class VersionRepository {
     final book = switch (entry?.format ?? VersionFormat.getbible) {
       VersionFormat.bym => BibleBook.fromJson(raw, number: bymIndex),
       VersionFormat.sef => bookFromSef(raw, bymIndex: bymIndex),
+      VersionFormat.ati => bookFromAti(raw, bymIndex: bymIndex),
       _ => bookFromGetbible(raw, bymIndex: bymIndex),
     };
     _cache[key] = book;
@@ -222,7 +224,83 @@ BibleBook bookFromSef(
       },
     );
 
+/// Convertit un livre ATI (Ancien Testament Interlinéaire) vers le modèle de
+/// l'application, en portant chaque verset sur ses gloses françaises **et** sur
+/// ses mots.
+///
+/// Passe par [AtiBook] plutôt que de lire le JSON directement, exactement comme
+/// [LsgsRepository.toBibleBook] passe par `LsgsBook` : le modèle porte les sept
+/// champs de chaque mot, dont le rendu interlinéaire a besoin. Faire servir ce
+/// qu'on a chargé une fois l'éprouve au lieu de le laisser attendre, non
+/// exercé, d'être utilisé un jour.
+///
+/// [Verse.text] reste une chaîne — sept champs par mot n'y tiennent pas — et
+/// c'est elle que lisent la recherche, le partage et Comparer : une ligne de
+/// gloses jointes. [Verse.mots] garde la donnée complète à côté pour
+/// `verse_tile`, qui pose les colonnes interlinéaires quand elle est là.
+BibleBook bookFromAti(
+  Map<String, dynamic> json, {
+  required int bymIndex,
+}) =>
+    _bookFromAtiBook(AtiBook.fromJson(json), bymIndex: bymIndex);
+
+BibleBook _bookFromAtiBook(AtiBook book, {required int bymIndex}) {
+  final entry = catalogEntry(bymIndex);
+  final chapters = book.chapters
+      .map((chapter) => Chapter(
+            chapter: chapter.chapter,
+            verses: chapter.verses.map((verse) {
+              final text = joinAtiGlosses(verse.words);
+              return Verse(
+                verse: '${chapter.chapter}:${verse.verse}',
+                text: text,
+                textWithNotes: text,
+                // Les colonnes interlinéaires lisent les mots ici, jamais la
+                // chaîne : sept champs ne tiennent pas dans un texte.
+                mots: verse.words,
+              );
+            }).toList(),
+          ))
+      .toList()
+    ..sort((a, b) => a.chapter.compareTo(b.chapter));
+
+  // Le nom vient du catalogue BYM, comme pour les autres formats téléchargés :
+  // la version fournit le texte, pas le vocabulaire.
+  return BibleBook(
+    number: bymIndex,
+    book: entry.shortName,
+    abbreviation: entry.abbreviation,
+    metadata: const BookMetadata(
+        signification: '', auteur: '', theme: '', date: ''),
+    introduction: '',
+    chapters: chapters,
+  );
+}
+
+/// Joint les gloses françaises d'un verset en une ligne lisible.
+///
+/// Le nettoyage lui-même vit sur [AtiWord.readableGloss] : les marqueurs `*` et
+/// `-` de la source y sautent, l'interlinéaire posant sous chaque mot exactement
+/// ce que cette ligne joint. Un mot dont la glose n'est qu'un marqueur disparaît
+/// de la ligne — il reste entier dans le fichier, avec son hébreu.
+///
+/// Restent les quatre mots dont la source ne porte aucune glose — cellule rouge
+/// vide ou absente (Genèse 9:11, Lévitique 14:27, Nombres 1:18 et 1:52) : ils
+/// sont absents de la ligne par construction, comme les marqueurs, et restent
+/// entiers dans le fichier. Aucun verset n'en est entièrement privé — le
+/// convertisseur en ferait une anomalie.
+String joinAtiGlosses(List<AtiWord> words) {
+  final pieces = <String>[];
+  for (final word in words) {
+    final kept = word.readableGloss;
+    if (kept == null) continue;
+    pieces.add(kept);
+  }
+  return pieces.join(' ');
+}
+
 /// Le corps commun des parseurs de versions téléchargées : chapitres triés,
+
 /// versets construits par [buildVerse] (`null` = verset ignoré), nom de livre
 /// pris au catalogue BYM — la version fournit le texte, pas le vocabulaire.
 BibleBook _bookFromChapters(
