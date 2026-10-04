@@ -11,6 +11,7 @@ import 'reading_history.dart';
 import 'reference_parser.dart';
 import 'fredaw_lexicon.dart';
 import 'strong_lexicon.dart';
+import 'version_catalog.dart';
 import 'version_repository.dart';
 
 /// The families a unified search looks into — the chip row of the maquette
@@ -433,8 +434,11 @@ class SearchEngine {
     final index = _indexFor(code);
     if (!index.isBuilt) return null;
     final books = index.indexedBooks;
-    if (books >= bookCatalog.length) return null;
-    return '$code — $books/${bookCatalog.length} livres téléchargés, '
+    // Le total est celui de la version : l'ATI couvre 39 livres et un
+    // téléchargement complet ne doit pas se voir reprocher les 27 autres.
+    final total = versionByCode(code)?.bookCount ?? bookCatalog.length;
+    if (books >= total) return null;
+    return '$code — $books/$total livres téléchargés, '
         'la recherche ne couvre qu\'eux.';
   }
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../data/book_catalog.dart';
 import '../data/bym_update_service.dart';
 import '../data/dictionary_catalog.dart';
 import '../data/dictionary_download_service.dart';
@@ -132,7 +131,9 @@ class _LibraryScreenState extends State<LibraryScreen> {
       _progress = DownloadProgress(
         code: entry.code,
         done: _stateOf(entry.code).bookCount,
-        total: bookCatalog.length,
+        // Le total est celui de la version, pas le canon des 66 : l'ATI en
+        // compte 39, et une barre « 12/66 » mentirait dès le premier cadre.
+        total: entry.bookCount,
       );
     });
 
@@ -527,7 +528,7 @@ class _VersionTile extends StatelessWidget {
       return '${state.bookCount} livres · ${_formatSize(sizeOnDisk)}';
     }
     if (state.isPartial) {
-      return '${state.bookCount}/${bookCatalog.length} livres — '
+      return '${state.bookCount}/${version.bookCount} livres — '
           'téléchargement à reprendre';
     }
     return null;

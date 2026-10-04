@@ -922,7 +922,7 @@ class _FilterBar extends StatelessWidget {
     final state = installed[version.code];
     if (state == null || state.isEmpty) return version.name;
     if (state.isComplete) return '${version.name} · téléchargée';
-    return '${version.name} · ${state.bookCount}/${bookCatalog.length} livres';
+    return '${version.name} · ${state.bookCount}/${version.bookCount} livres';
   }
 }
 

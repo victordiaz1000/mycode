@@ -820,7 +820,8 @@ class _VersionRow extends StatelessWidget {
     final s = state;
     if (s == null || s.isEmpty) return null;
     if (s.isComplete) return 'Téléchargée · ${s.bookCount} livres';
-    return 'Téléchargée en partie · ${s.bookCount}/${bookCatalog.length} livres';
+    return 'Téléchargée en partie · '
+        '${s.bookCount}/${version.bookCount} livres';
   }
 
   @override

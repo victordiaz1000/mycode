@@ -124,7 +124,10 @@ class FakeService extends DownloadService {
     void Function(DownloadProgress)? onProgress,
   }) async {
     installed.add(entry.code);
-    final total = bookCatalog.length;
+    // Le vrai service prend son total dans l'entrée (download_service.dart
+    // `entry.bookCount`) : le fake en fait autant, sinon un install ATI
+    // rendrait un done/66 que l'écran affichait tel quel.
+    final total = entry.bookCount;
     onProgress?.call(DownloadProgress(
         code: entry.code, done: 0, total: total, currentBook: 1));
     if (hold) await gate.future;
@@ -479,6 +482,25 @@ void main() {
 
       expect(service.installed, ['DBY']);
       expect(find.text('${bookCatalog.length} livres · 2,5 Mo'), findsOneWidget);
+    });
+
+    testWidgets('an OT-only version counts its own books, not 66',
+        (tester) async {
+      final store = FakeStore({'ATI': {1, 2, 3}});
+      final service = FakeService(store, booksObtained: 39);
+      await pumpLibrary(tester, store: store, service: service);
+
+      // « 3/66 » sur l'ATI dirait qu'un téléchargement complet en est à son
+      // tiers : le total est celui du canon de la version.
+      expect(
+        find.text('3/39 livres — téléchargement à reprendre'),
+        findsOneWidget,
+      );
+
+      await tester.tap(find.byKey(const Key('download-ATI')));
+      await tester.pumpAndSettle();
+
+      expect(find.text('39 livres · 1,5 Mo'), findsOneWidget);
     });
 
     testWidgets('a failed download keeps what landed and says so',
