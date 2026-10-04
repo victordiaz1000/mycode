@@ -51,3 +51,9 @@ rendu_ecran_cliquable_lsgstrong/
 
 # Bases SQLite jetables d'une session de bureau.
 bible_app/.freebuff/
+
+# Sortie régénérable de l'extraction ATI. `python ATI/extract_ati.py` reconstruit
+# `ATI/extrait/` depuis ATI.xml de Biblia Universalis 3 : 972 fichiers, 308 Mo
+# dont 285 Mo de pages HTML brutes. C'est le script qui porte l'information.
+ATI/extrait/
+ATI/__pycache__/

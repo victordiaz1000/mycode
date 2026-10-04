@@ -1,0 +1,72 @@
+<!doctype html><html lang='fr'><head><meta charset='utf-8'><title>Rendu ATI — prototype</title><style>
+* { box-sizing: border-box; }
+body { font-family: Georgia, 'Times New Roman', serif; margin: 0; padding: 32px;
+  background: #faf7f1; color: #1d1a16; line-height: 1.5; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 17px; margin: 34px 0 2px; padding-top: 18px; border-top: 1px solid #ddd3c2; }
+.ligne { color: #6b6155; font-size: 13.5px; margin: 0 0 14px; font-family: system-ui, sans-serif; }
+.carte { background: #fff; border: 1px solid #e6ddd0; border-radius: 10px;
+  padding: 18px 20px; }
+.verset { position: relative; padding: 10px 0 14px 34px;
+  border-bottom: 1px dotted #e6ddd0; }
+.verset:last-child { border-bottom: 0; }
+.num { position: absolute; left: 0; top: 12px; font-size: 12px; color: #9a8f80;
+  font-family: system-ui, sans-serif; }
+.rtl { direction: rtl; text-align: right; display: flex; flex-wrap: wrap;
+  gap: 4px 14px; justify-content: flex-start; }
+.rtl.grand { font-size: 27px; line-height: 1.75; display: block; }
+.col { direction: ltr; unicode-bidi: isolate; text-align: center; min-width: 46px; }
+.he { display: block; font-size: 25px; color: #141414; }
+.tr { display: block; font-size: 11.5px; color: #9a8f80; font-family: system-ui, sans-serif; }
+.gl { display: block; font-size: 15.5px; color: #1d1a16; }
+.cat { display: block; font-size: 10.5px; color: #2f7a4a; font-family: system-ui, sans-serif; }
+.fr { direction: ltr; font-size: 17px; margin-top: 6px; }
+.fr.grand { margin-top: 2px; }
+.fr.gros { font-size: 19px; }
+.analyses { font-size: 11.5px; color: #7b7164; font-family: system-ui, sans-serif;
+  margin-top: 7px; }
+.puce { background: #f0ece3; border-radius: 4px; padding: 1px 5px; }
+.chip { font-family: system-ui, sans-serif; font-size: 10px; color: #8a5a12;
+  background: #fdf1d8; border: 1px solid #f0dcb2; border-radius: 9px;
+  padding: 0 5px; cursor: pointer; }
+.rtl .chip { display: block; margin-top: 3px; }
+#note { margin-top: 10px; font-family: system-ui, sans-serif; font-size: 13.5px;
+  background: #fdf7ea; border-left: 3px solid #e0b355; padding: 8px 12px;
+  display: none; }
+.legendes { font-family: system-ui, sans-serif; font-size: 13px; color: #6b6155;
+  margin-top: 6px; }
+</style></head><body>
+<h1>ATI — trois rendus possibles</h1>
+<p class="ligne">Données réelles : Genèse 1:1-3, sorties de
+<code>ATI/json/1.json</code>. Un clic sur une pastille de note affiche son titre.
+Ce que l'app affiche aujourd'hui correspond à la <b>maquette C, sans les notes</b>.</p>
+
+<h2>A. Interlinéaire en colonnes — le rendu prévu à l'étape 2</h2>
+<p class="ligne">« Une tuile de verset en colonnes de mots, hébreu droite-à-gauche,
+sept champs empilés ». Colonnes de droite à gauche, gloses en ltr à l'intérieur de
+chaque colonne. Encombrement : ~40 colonnes pour un verset comme Exode 34:6.</p>
+<div class="carte"><div class="verset"><span class="num">1</span><div class="rtl"><div class="col"><span class="he">בְּרֵאשִׁ֖ית</span><span class="tr">bə·rê·šîṯ</span><span class="gl">En un commencement</span><span class="cat">Nom</span><span class="chip" data-note="n12" title="Mot rare, hapax (mot utilisé une seule fois dans la Bible), ou traduction incertaine">n12</span></div><div class="col"><span class="he">בָּרָ֣א</span><span class="tr">bā·rā</span><span class="gl">créa</span><span class="cat">Verbe</span></div><div class="col"><span class="he">אֱלֹהִ֑ים</span><span class="tr">’ĕ·lō·hîm;</span><span class="gl">Dieu</span><span class="cat">Nom</span></div><div class="col"><span class="he">אֵ֥ת</span><span class="tr">’êṯ</span><span class="cat">Accusatif</span><span class="chip" data-note="r2" title="Certaines particules comme אֵת־אֶת־) אֵת)">r2</span></div><div class="col"><span class="he">הַשָּׁמַ֖יִם</span><span class="tr">haš·šā·ma·yim</span><span class="gl">les cieux</span><span class="cat">Nom</span></div><div class="col"><span class="he">וְאֵ֥ת</span><span class="tr">wə·’êṯ</span><span class="gl">et</span><span class="cat">Accusatif</span></div><div class="col"><span class="he">הָאָֽרֶץ׃</span><span class="tr">hā·’ā·reṣ.</span><span class="gl">la terre.</span><span class="cat">Nom</span></div></div></div><div class="verset"><span class="num">2</span><div class="rtl"><div class="col"><span class="he">וְהָאָ֗רֶץ</span><span class="tr">wə·hā·’ā·reṣ,</span><span class="gl">Et la terre</span><span class="cat">Nom</span></div><div class="col"><span class="he">הָיְתָ֥ה</span><span class="tr">hā·yə·ṯāh</span><span class="gl">était</span><span class="cat">Verbe</span></div><div class="col"><span class="he">תֹ֙הוּ֙</span><span class="tr">ṯō·hū</span><span class="gl">vide</span><span class="cat">Nom</span></div><div class="col"><span class="he">וָבֹ֔הוּ</span><span class="tr">wā·ḇō·hū,</span><span class="gl">et néant</span><span class="cat">Nom</span></div><div class="col"><span class="he">וְחֹ֖שֶׁךְ</span><span class="tr">wə·ḥō·šeḵ</span><span class="gl">et une obscurité</span><span class="cat">Nom</span></div><div class="col"><span class="he">עַל־</span><span class="tr">‘al-</span><span class="gl">sur</span><span class="cat">Préposition</span></div><div class="col"><span class="he">פְּנֵ֣י</span><span class="tr">pə·nê</span><span class="gl">la face de</span><span class="cat">Nom</span></div><div class="col"><span class="he">תְה֑וֹם</span><span class="tr">ṯə·hō·wm;</span><span class="gl">l&#x27;abîme</span><span class="cat">Nom</span></div><div class="col"><span class="he">וְר֣וּחַ</span><span class="tr">wə·rū·aḥ</span><span class="gl">et le souffle de</span><span class="cat">Nom</span></div><div class="col"><span class="he">אֱלֹהִ֔ים</span><span class="tr">’ĕ·lō·hîm,</span><span class="gl">Dieu</span><span class="cat">Nom</span></div><div class="col"><span class="he">מְרַחֶ֖פֶת</span><span class="tr">mə·ra·ḥe·p̄eṯ</span><span class="gl">planant</span><span class="cat">Verbe</span></div><div class="col"><span class="he">עַל־</span><span class="tr">‘al-</span><span class="gl">sur</span><span class="cat">Préposition</span></div><div class="col"><span class="he">פְּנֵ֥י</span><span class="tr">pə·nê</span><span class="gl">la face de</span><span class="cat">Nom</span></div><div class="col"><span class="he">הַמָּֽיִם׃</span><span class="tr">ham·mā·yim.</span><span class="gl">les eaux.</span><span class="cat">Nom</span></div></div></div><div class="verset"><span class="num">3</span><div class="rtl"><div class="col"><span class="he">וַיֹּ֥אמֶר</span><span class="tr">way·yō·mer</span><span class="gl">Et dit</span><span class="cat">Verbe</span></div><div class="col"><span class="he">אֱלֹהִ֖ים</span><span class="tr">’ĕ·lō·hîm</span><span class="gl">Dieu :</span><span class="cat">Nom</span></div><div class="col"><span class="he">יְהִ֣י</span><span class="tr">yə·hî</span><span class="gl">Que soit</span><span class="cat">Verbe</span></div><div class="col"><span class="he">א֑וֹר</span><span class="tr">’ō·wr;</span><span class="gl">lumière</span><span class="cat">Nom</span></div><div class="col"><span class="he">וַֽיְהִי־</span><span class="tr">way·hî-</span><span class="gl">et fut</span><span class="cat">Verbe</span></div><div class="col"><span class="he">אֽוֹר׃</span><span class="tr">’ō·wr.</span><span class="gl">lumière.</span><span class="cat">Nom</span></div></div></div></div>
+<h2>B. Bilingue : hébreu au-dessus, français en dessous</h2>
+<p class="ligne">L'hébreu garde son sens de lecture, le français se lit comme une
+phrase normale. Deux lignes par verset, pas de colonnes à aligner — plus sobre sur
+petit écran, mais on perd la correspondance mot à mot.</p>
+<div class="carte"><div class="verset"><span class="num">1</span><div class="rtl grand">בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃</div><div class="fr">En un commencement créa Dieu les cieux et la terre.</div></div><div class="verset"><span class="num">2</span><div class="rtl grand">וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־ פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־ פְּנֵ֥י הַמָּֽיִם׃</div><div class="fr">Et la terre était vide et néant et une obscurité sur la face de l&#x27;abîme et le souffle de Dieu planant sur la face de les eaux.</div></div><div class="verset"><span class="num">3</span><div class="rtl grand">וַיֹּ֥אמֶר אֱלֹהִ֖ים יְהִ֣י א֑וֹר וַֽיְהִי־ אֽוֹר׃</div><div class="fr">Et dit Dieu : Que soit lumière et fut lumière.</div></div></div>
+<h2>C. Texte de gloses (actuel) + notes résolues</h2>
+<p class="ligne">Aucun changement de mise en page : la ligne de gloses jointes que
+le lecteur affiche déjà, plus les pastilles de notes — <code>notes.json</code> est
+publié mais jamais lu pour l'instant. L'analyse grammaticale du verset est posée
+en dessous.</p>
+<div class="carte" id="c"><div class="verset"><span class="num">1</span><div class="fr gros">En un commencement <sup class="chip" data-note="n12" title="Mot rare, hapax (mot utilisé une seule fois dans la Bible), ou traduction incertaine">n12</sup> créa Dieu les cieux et la terre.</div><div class="analyses"><span class="puce">H7225</span> Nom commun· féminin singulier· état absolu— Préposition · <span class="puce">H1254</span> Verbe qal parfait (qatal)· 3ᵉ masculin singulier · <span class="puce">H430</span> Nom commun· masculin pluriel· état absolu · <span class="puce">H8064</span> Nom commun· masculin pluriel· état absolu— Particule article défini · <span class="puce">H853</span> Particule marqueur d’objet direct— Conjonction · <span class="puce">H776</span> Nom commun· féminin et masculin singulier· état absolu— Particule article défini</div></div><div class="verset"><span class="num">2</span><div class="fr gros">Et la terre était vide et néant et une obscurité sur la face de l&#x27;abîme et le souffle de Dieu planant sur la face de les eaux.</div><div class="analyses"><span class="puce">H776</span> Nom commun· féminin et masculin singulier· état absolu— Particule article défini— Conjonction · <span class="puce">H1961</span> Verbe qal parfait (qatal)· 3ᵉ féminin singulier · <span class="puce">H8414</span> Nom commun· masculin singulier· état absolu · <span class="puce">H922</span> Nom commun· masculin singulier· état absolu— Conjonction · <span class="puce">H2822</span> Nom commun· masculin singulier· état absolu— Conjonction · <span class="puce">H5921</span> Préposition · <span class="puce">H6440</span> Nom commun· féminin et masculin pluriel· état construit · <span class="puce">H8415</span> Nom commun· féminin et masculin singulier· état absolu · <span class="puce">H7307</span> Nom commun· féminin et masculin singulier· état construit— Conjonction · <span class="puce">H430</span> Nom commun· masculin pluriel· état absolu · <span class="puce">H8840</span> Verbe piel participe actif· féminin singulier· état absolu · <span class="puce">H5921</span> Préposition · <span class="puce">H6440</span> Nom commun· féminin et masculin pluriel· état construit · <span class="puce">H4325</span> Nom commun· masculin pluriel· état absolu— Particule· article défini</div></div><div class="verset"><span class="num">3</span><div class="fr gros">Et dit Dieu : Que soit lumière et fut lumière.</div><div class="analyses"><span class="puce">H559</span> Verbe qal imparfait séquentiel (wayyiqtol)· 3ᵉ masculin singulier— Conjonction · <span class="puce">H430</span> Nom commun· masculin pluriel· état absolu · <span class="puce">H1961</span> Verbe qal jussif· 3ᵉ masculin singulier · <span class="puce">H216</span> Nom commun· féminin et masculin singulier· état absolu · <span class="puce">H1961</span> Verbe qal imparfait séquentiel (wayyiqtol)· 3ᵉ masculin singulier— Conjonction · <span class="puce">H216</span> Nom commun· féminin et masculin singulier· état absolu</div></div><div id="note"></div></div>
+<p class="legendes">Les trois maquettes lisent les mêmes sept champs : hébreu,
+translittération, glose française, découpage morphologique, analyse grammaticale
+(<code>cg</code>/<code>ca</code>), renvoi de note. La police Cardo est déjà
+embarquée dans l'app et couvre les points-voyelles du corpus.</p>
+<script>
+document.querySelectorAll('.chip').forEach(function (c) {
+  c.addEventListener('click', function () {
+    var n = document.getElementById('note');
+    n.style.display = 'block';
+    n.innerHTML = '<b>' + c.dataset.note + '</b> — ' + c.title;
+  });
+});
+</script></body></html>
