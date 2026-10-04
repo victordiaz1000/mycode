@@ -104,9 +104,20 @@ Genèse 9:11, Lévitique 14:27, Nombres 1:18 et 1:52), 298 876 avec analyse,
    `entry.bookCount` comme le vrai. **`flutter analyze` sans remarque, 805 tests
    verts** (1 sauté : E2E réseau). Touche aussi SEF au passage, qui était dans le
    même cas.
-3. **`bym3` rien commité** : `ATI/` non suivi, 8 fichiers modifiés
-   (`library_store`, `version_catalog`, `version_repository`, `main`, tests…),
-   `ati.dart`, `holy_icons`, goldens, + mes correctifs. Préparer un commit ?
+3. ~~**`bym3` rien commité**~~ **→ fait, dépôt propre** (`git status` vide).
+   Quatre commits posés sur `42918e6`, locaux seulement, rien poussé :
+
+   | Hash | Sujet |
+   |---|---|
+   | `eb6e7fb` | Icônes : la barre et le rail passent aux cinq glyphes bibliques |
+   | `c9c5cbd` | ATI : extraction Biblia et conversion des 39 livres en JSON publié |
+   | `66c8e10` | ATI : téléchargement, lecture et rendu interlinéaire en colonnes |
+   | `fa1d746` | Bibliothèque : une version Ancien Testament compte 39 livres, pas 66 |
+
+   Les 36 Mo de `ATI/json/` sont versionnés (décision prise), `ATI/extrait/` et
+   `ATI/__pycache__/` sont ignorés dans le même commit. Les icônes sont un
+   sujet à part, le correctif 39/66 aussi : quatre features, quatre commits, et
+   aucun fichier partagé entre deux.
 
 ## 5. Reprendre par ici
 
