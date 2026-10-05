@@ -18,10 +18,11 @@ import 'support/fake_fredaw_bundle.dart';
 import 'support/fake_lsgs_bundle.dart';
 import 'support/fake_strong_lexicon_bundle.dart';
 
-/// The LSGS reading contract: a Strong code in the verse is tappable and opens
-/// the complete Strong detail screen; the words elsewhere keep opening the
-/// study sheet, whose Lexique button is off — the reader already sees the
-/// Strong text word by word.
+/// The LSGS reading contract: a Strong code in the verse opens the extract
+/// sheet — what the entry is, with a button to the complete fiche — while a
+/// tap on the verse itself opens nothing: the study sheet (Note, Comparer,
+/// Partager…) belongs to versions read as a continuous text, and LSGS reads
+/// word by word. The long press still selects the verse.
 void main() {
   setUp(() {
     SharedPreferences.setMockInitialValues({});
@@ -78,23 +79,35 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('tapping a Strong code opens the Strong detail screen', (
-    tester,
-  ) async {
+  testWidgets('tapping a Strong code opens the extract sheet', (tester) async {
     await pumpLsgsReader(tester);
 
-    // The Strong span opens the same complete fiche as the Strong dictionary,
-    // not the study sheet or the old quick modal.
+    // The Strong span opens the extract sheet — the entry read at a glance —
+    // not the study sheet, and not the complete fiche either: a first look is
+    // not a study.
     await tapStrongCode(tester);
 
     expect(find.byType(EtudeVersetScreen), findsNothing);
+    expect(find.byType(StrongDetailScreen), findsNothing,
+        reason: 'the extract comes first, the fiche comes after');
+    // The extract names the entry: the code, and the short definition the
+    // fake lexicon serves for H7225.
+    expect(find.text('Voir la fiche complète'), findsOneWidget);
+    expect(
+      find.text('Définition test de H7225.'),
+      findsOneWidget,
+      reason: 'the extract carries the brief definition',
+    );
+
+    // The button closes the sheet and pushes the complete fiche behind it.
+    await tester.tap(find.text('Voir la fiche complète'));
+    await tester.pumpAndSettle();
+
     expect(find.byType(StrongDetailScreen), findsOneWidget);
-    // The fake lexicon serves a definition for H7225.
-    expect(find.text('H7225'), findsWidgets);
     expect(
       find.text('Définition test de H7225.'),
       findsWidgets,
-      reason: 'the Strong code opens the complete detail screen',
+      reason: 'the fiche shows the same definition, complete',
     );
   });
 
@@ -104,6 +117,8 @@ void main() {
     await pumpLsgsReader(tester);
 
     await tapStrongCode(tester);
+    await tester.tap(find.text('Voir la fiche complète'));
+    await tester.pumpAndSettle();
     expect(find.byType(StrongDetailScreen), findsOneWidget);
 
     // The fake corpus indexes H7225 at Genèse 1:1 — the very verse the reader
@@ -120,48 +135,28 @@ void main() {
         reason: 'the standalone fallback opens the referenced chapter');
   });
 
-  testWidgets(
-    'the Lexique button of the study sheet is off in LSGS',
-    (tester) async {
-      await pumpLsgsReader(tester);
-
-      // Verse 2 bears no Strong code — the study sheet opens on tap.
-      await tester.tap(find.text('Au commencement'));
-      await tester.pumpAndSettle();
-
-      // LSGS already renders every Strong code word by word, so the Lexique
-      // button stays off rather than open a screen the reader already sees.
-      final lexiqueButton = find.widgetWithText(
-        OutlinedButton,
-        'Lexique & Dictionnaire — verset mot à mot',
-      );
-      await tester.ensureVisible(lexiqueButton);
-      await tester.pumpAndSettle();
-      final button = tester.widget<OutlinedButton>(lexiqueButton);
-      expect(button.onPressed, isNull);
-      expect(find.byType(EtudeVersetScreen), findsNothing);
-
-      // Et il le *montre* : hors BYM le bouton n'est pas seulement sourd, il est
-      // grisé et dit où le mot à mot s'ouvre. Vérifié depuis le lecteur, donc en
-      // passant par le vrai garde-fou (`carriesNotes`) et pas par un drapeau
-      // posé à la main comme dans `study_sheet_test.dart`.
-      expect(find.text('Disponible depuis le texte BYM.'), findsOneWidget);
-    },
-  );
-
-  testWidgets('the Lexique button is off on the LSGS verse', (tester) async {
+  testWidgets('the study sheet never opens on an LSGS verse', (tester) async {
     await pumpLsgsReader(tester);
 
+    // Verse 2 bears no Strong code: the tap reaches the tile and finds
+    // nothing to open — Note, Comparer, Partager & co. belong to versions
+    // read as a continuous text, and this one is already word by word.
     await tester.tap(find.text('Au commencement'));
     await tester.pumpAndSettle();
 
-    final button = tester.widget<OutlinedButton>(
-      find.widgetWithText(
-        OutlinedButton,
-        'Lexique & Dictionnaire — verset mot à mot',
-      ),
+    expect(find.text('ACTIONS'), findsNothing);
+    expect(find.text('Références'), findsNothing);
+    expect(find.byType(EtudeVersetScreen), findsNothing);
+
+    // The tile is alive all the same — the gesture machinery is there, only
+    // the sheet is gone: a long press still selects the verse.
+    await tester.longPress(find.text('Au commencement'));
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('selection-bar')),
+      findsOneWidget,
+      reason: 'la sélection multiple reste la voie du verset',
     );
-    expect(button.onPressed, isNull,
-        reason: 'LSGS is already the word-by-word Strong rendering');
   });
 }

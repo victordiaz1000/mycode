@@ -33,6 +33,7 @@ import 'loading_skeleton.dart';
 import 'reader_actions_bar.dart';
 import 'ati_word_sheet.dart';
 import 'note_editor_sheet.dart';
+import 'strong_extract_sheet.dart';
 import 'study_sheet.dart';
 import 'verse_tile.dart';
 import 'bible_theme_scope.dart';
@@ -1171,7 +1172,7 @@ class _ChapterReaderState extends State<ChapterReader> {
                           : _buildContinueFooter(),
                       onVerseTap: _onVerseTap,
                       onVerseLongPress: _onVerseLongPress,
-                      onStrongTap: _hasStrong ? _onStrongTap : null,
+                      onStrongTap: _hasStrong ? _onStrongInText : null,
                         onAtiWordTap: _onAtiWordTap,
                       onReferenceTap: _onReferenceTap,
                     ),
@@ -1297,15 +1298,23 @@ class _ChapterReaderState extends State<ChapterReader> {
       });
       return;
     }
+    // La feuille d'étude est fermée là où le texte se lit mot à mot : sur
+    // l'ATI (colonnes de champs) et sur la LSGS (chaque code Strong déjà
+    // cliquable). Note, Comparer, Renvois, Copier, Partager parlent d'un
+    // verset lu dans un texte continu ; ici la seule porte est le mot lui-
+    // même — la fiche d'une cellule sur l'ATI, l'extrait d'un code sur la
+    // LSGS. La sélection multiple, elle, est décidée plus haut et reste
+    // servie : un long appui suffit toujours à la lancer.
+    if (_interlinear || _hasStrong) return;
     final vn = verse.number;
     // The Lexique button proposes the same verse in the embedded LSGS Strong
     // rendering — a property of the BYM canon, not of the notes the version
     // happens to carry, so the gate asks the FORMAT (the same predicate as the
     // book header and the notes toggle) rather than the code: a future
     // BYM-format version keeps the button where `code == 'BYM'` would drop it.
-    // It is off for LSGS itself (the reader already sees the Strong text word
-    // by word) and for bare-text translations, rather than offer a Strong verse
-    // that may not match their own versification.
+    // LSGS itself no longer reaches this sheet — the gate above takes it out —
+    // what stays off here are the bare-text translations, rather than offer a
+    // Strong verse that may not match their own versification.
     final lexiqueEnabled = versionByCode(_versionCode)?.carriesNotes ?? false;
     final action = await showStudySheet(
       context,
@@ -1930,11 +1939,33 @@ class _ChapterReaderState extends State<ChapterReader> {
     );
   }
 
+  /// Tapping a Strong code in the LSGS text opens the **extract** sheet first
+  /// — the same gesture as a tap on an ATI word: what the entry is, on the
+  /// spot, with the complete fiche one button away. Going straight to the full
+  /// screen meant a whole route for a first look, where the reader only wanted
+  /// to know which word this was.
+  Future<void> _onStrongInText(Verse _, String strong) async {
+    final definition = await StrongLexicon.instance.lookup(strong);
+    if (!mounted) return;
+    await showStrongExtractSheet(
+      context,
+      strong: definition,
+      onOpenFull: () => _openStrongFiche(definition),
+    );
+  }
+
   /// Tapping a Strong code in a version that carries them (LSGS) opens the
   /// complete Strong word detail screen used by the rest of the app. Tapping
   /// an occurrence verse there targets that verse in the reading screen.
   Future<void> _onStrongTap(Verse _, String strong) async {
     final definition = await StrongLexicon.instance.lookup(strong);
+    await _openStrongFiche(definition);
+  }
+
+  /// La fiche complète : la route que pousse tout lien Strong du lecteur —
+  /// l'extrait de la LSGS, le Strong d'un mot ATI, le lien d'une note — au
+  /// même endroit, avec les occurrences et leur retour au verset.
+  Future<void> _openStrongFiche(StrongDefinition definition) async {
     if (!mounted) return;
     await Navigator.of(context).push(
       MaterialPageRoute(

@@ -8,8 +8,10 @@
 
 - **Étape 2 terminée** : `notes.json` lu dans l'app, chaque renvoi s'ouvre, un
   mot du rendu A donne sa fiche (sept champs, Strong cliquable), et **« Texte
-  continu » est désactivé avec l'ATI**. Détail en §7 :
-  `flutter analyze` sans remarque, **858 tests verts** (1 sauté), E2E vert.
+  continu » est désactivé avec l'ATI**. Détail en §7, puis **§8 : les deux
+  correctifs qui font que chaque code Strong de l'ATI ouvre sa fiche** et
+  **§9 : la feuille d'étude fermée sur l'ATI, l'extrait Strong sur la LSGS** —
+  `flutter analyze` sans remarque, **861 tests verts** (1 sauté), E2E vert.
 - **Étape 1 terminée** : convertisseur, publication, bout en bout.
   - `ATI/ati_parse.py` corrigé — `CELLULE_RE` accepte `<td[^>]*>` ; les cellules
     de glose/analyse du dernier verset de chaque chapitre étaient en
@@ -205,7 +207,7 @@ vert (39/39 téléchargés, réseau réel).
 | `lib/widgets/ati_interlinear.dart` | `onWordTap` sur chaque cellule (l'ancien `TapGestureRecognizer` à libérer est sorti du jeu : `InkWell` + `WidgetSpan`) |
 | `lib/widgets/verse_tile.dart` → `chapter_reader.dart` | la chaîne `onAtiWordTap` jusqu'au lecteur, qui ouvre la fiche puis `AtiNoteScreen.push` |
 | `test/support/fake_ati_notes_bundle.dart` | le vrai fichier lu depuis le disque : dans `testWidgets`, `rootBundle` ne complète pas (zone fake-async) |
-| tests | `ati_note_html_test.dart` (15), `ati_notes_test.dart` (8), `ati_note_screen_test.dart` (8), `ati_word_sheet_test.dart` (5), `ati_texte_continu_test.dart` (6) |
+| tests | `ati_note_html_test.dart` (15), `ati_notes_test.dart` (8), `ati_note_screen_test.dart` (8), `ati_word_sheet_test.dart` (6), `ati_texte_continu_test.dart` (6) |
 
 ### Décisions prises en route
 
@@ -244,3 +246,117 @@ vert (39/39 téléchargés, réseau réel).
    chaque volet — à juger sur un écran réel.
 2. **Vérification réelle** : aucun émulateur, aucune cible desktop, le web est
    exclu (`dart:io`) — le golden reste la seule image obtenable ici.
+
+## 8. Codes Strong de l'ATI : les deux correctifs — fait
+
+Un mot ATI dont le code n'ouvrait pas de fiche le devait à deux endroits, et
+**aucun des deux n'était le dictionnaire**.
+
+### Ce qui était cassé
+
+1. **Le parseur prenait le badge de morphologie pour le Strong.** `STRONG_RE`
+   (`ATI/ati_parse.py`) ne demandait que `f=Hxxxx"`, et la dernière cellule de
+   la ligne — le badge de Biblia (`►Hi`, `►Pt`, `►InCs`, `►Imp`…, marqueur `K`)
+   — **écrasait** le numéro de la première rangée. Résultat : 37 753 mots
+   affichaient un code qui n'en est pas un, 19 distincts (`H8675` … `H8852`).
+2. **Le lexique range `H0853`, l'ATI écrit `H914`.** Sans canonicalisation,
+   tout code sans ses zéros restait muet même quand l'entrée existait — la LSGS
+   écrit `H0853`, l'ATI `H914`, le lexique a 14 195 clés toutes `^[HG]\d{4}$`.
+
+### Les deux correctifs
+
+| Où | Quoi |
+|---|---|
+| `ATI/ati_parse.py` | `STRONG_RE` = `<a [^>]*f=([HG]\d+)"[^>]*title="` : le lien lexical porte sa glose (`title="• badal ➔ séparer…"`), le badge non. Mesuré sur la source : 300 126 balises avec glose, 44 478 sans, jamais l'inverse. Le 4ᵉ piège de ce parseur est documenté en tête de module. |
+| `bible_app/lib/data/strong_lexicon.dart` | `StrongLexicon.canonique()` (`H853` → `H0853`, `h7225` → `H7225`, nombre nu inchangé), appliqué dans `codesOf` → `contains` **et** dans `lookup` |
+
+Le dictionnaire embarqué, lui, **n'a pas bougé** : les 19 « codes » ne sont pas
+des entrées Strong, ce sont des badges de morphologie de Biblia — la cause a été
+corrigée à la source, pas masquée dans le lexique. `git status --` sur
+`bible_app/assets/lexicon/` est vide.
+
+### Avant / après — 39 livres régénérés, 309 972 mots
+
+| Codes des mots portant un `s` | direct | après padding | muets |
+|---|---|---|---|
+| **avant** | 198 065 (66,0 %) | 64 402 (21,5 %) | 37 753 (12,6 %) |
+| **après** | 231 907 (77,3 %) | 68 119 (22,7 %) | **0 (0,0 %)** |
+
+37 753 mots changés (tous « badge remplacé »), 272 219 identiques, 0 badge
+restant, codes distincts 7 970 → 8 592. **Zéro code muet : tous les Strong de
+l'ATI ouvrent une fiche.**
+
+### Les 194 mots qui « perdent » leur `s`
+
+Ce sont les colonnes **Ketiv** (`K`) : Biblia n'y donne pas de Strong, la
+colonne jumelle **Qere** le porte — Genèse 8:17, `K` sans numéro, `Q` = `H3318`.
+Rien n'est perdu : un champ vide vaut mieux qu'un faux code. `sans s`
+9 752 → 9 946. Anciens badges de ces 194 mots : `H8675` (128), `H8810` (28),
+`H8676` (27), `H8818` (4), `H8813` (4), `H8812` (2), `H8815` (1).
+
+### Contrôles
+
+- `python ATI/ati_to_json.py` → **aucune anomalie**, 39/39 livres, 929
+  chapitres, 309 972 mots ; `notes.json` inchangé.
+- `flutter analyze` sans remarque, **861 tests verts** (1 sauté). Deux tests
+  portent le correctif : `strong_lexicon_test.dart` (`H853` → `H0853`, `H8818`
+  inconnu) et `ati_word_sheet_test.dart` (« un code écrit sans ses zéros reste
+  cliquable »).
+
+### Ce qui reste à décider / à faire
+
+1. **Republier le corpus** : les 39 `ATI/json/*.json` vers
+   `C:\Users\laptek\Desktop\bym-bibles\ati\`, commit puis push — c'est la
+   publication qui rend le correctif visible dans l'app, les livres étant
+   téléchargés (`urlTemplate` `…/-bym-bibles/main/ati/{book}.json`), pas
+   embarqués.
+2. Après la republiation : `BYM_E2E=1 flutter test test/e2e_ati_reseau_test.dart`
+   — le corpus servi en réel est le corrigé.
+
+## 9. Feuille d'étude fermée sur l'ATI et la LSGS, extrait Strong : fait
+
+Trois gestes demandés ensemble, parce qu'ils se répondent : plus de feuille
+d'étude au tap verset sur l'ATI, puis sur la LSGS ; et sur la LSGS le tap sur
+un code Strong ne doit plus jeter sur l'écran complet.
+
+### Le tap verset n'ouvre plus rien — ATI **et** LSGS
+
+`chapter_reader._onVerseTap` sort immédiatement si `_interlinear || _hasStrong`,
+**après** le bloc sélection multiple — la sélection multiple reste servie, un
+long appui suffit toujours à la lancer. Note, Comparer, Renvois, Copier,
+Partager et Lexique parlent d'un verset lu dans un texte continu ; là le texte
+se lit mot à mot, et la seule porte est le mot lui-même : la fiche d'une
+cellule sur l'ATI (§7), l'extrait d'un code sur la LSGS (ci-dessous).
+
+Effet de bord assumé : sur ces deux versions on n'écrit plus de note BYM ni de
+surlignage **en un tap** — les deux restent dans la barre de sélection
+multiple. Le bouton Lexique, lui, n'est plus jamais atteint depuis la LSGS (la
+raison pour laquelle il y était déjà gris « LSGS voit déjà le mot à mot »), et
+son garde-fou `carriesNotes` ne s'exerce plus depuis le lecteur que depuis une
+version téléchargée au texte nu.
+
+### La LSGS : un extrait d'abord, la fiche ensuite
+
+Nouveau `lib/widgets/strong_extract_sheet.dart` — `showStrongExtractSheet`,
+même chrome que la feuille d'un mot ATI : badges langue et nature, lemma rendu
+par `StrongLemma` (le même composant que la fiche), translittération, numéro et
+prononciation de part et d'autre d'un filet, `Définition brève` et
+`Signification` quand la source les porte, puis le bouton **« Voir la fiche
+complète »** qui ferme la feuille *avant* de pousser `StrongDetailScreen` —
+sens développés, origine, occurrences, retour au verset.
+
+La poussée est factorisée dans `_openStrongFiche`, que partagent désormais
+l'extrait, le Strong d'un mot ATI et les liens des notes.
+
+**Portée : le texte de la LSGS seulement.** Écran d'étude, liens des notes,
+recherche et index dictionnaire poussent toujours l'écran complet — extension
+non décidée pour l'instant.
+
+### Tests
+
+| Fichier | Ce qu'il dit |
+|---|---|
+| `test/ati_study_sheet_test.dart` (2) | sur l'ATI le tap verset n'ouvre aucune feuille **et** le tap mot ouvre encore la fiche — témoin dans la même lecture ; témoin BYM : le même tap ouvre la feuille |
+| `test/lsgs_reader_test.dart` (3) | le tap Strong ouvre l'extrait, la fiche n'est là qu'après le bouton ; le scénario occurrence est enchaîné sur ce bouton ; sur la LSGS le tap verset n'ouvre rien **et** le long appui sélectionne toujours (le témoin que la tuile répond) |
+
+`flutter analyze` sans remarque, **861 tests verts** (1 sauté).
