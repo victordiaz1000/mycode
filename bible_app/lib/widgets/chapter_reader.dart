@@ -16,10 +16,12 @@ import '../data/strong_lexicon.dart';
 import '../data/theme_catalog.dart';
 import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
+import '../models/ati.dart';
 import '../models/bible_book.dart';
 import '../models/chapter.dart';
 import '../models/user_data.dart';
 import '../models/verse.dart';
+import '../screens/ati_note_screen.dart';
 import '../screens/chapter_screen.dart';
 import '../screens/ecran_comparer.dart';
 import '../screens/etude_verset_screen.dart';
@@ -29,6 +31,7 @@ import '../utils/hex_color.dart';
 import 'fiche_text_settings.dart';
 import 'loading_skeleton.dart';
 import 'reader_actions_bar.dart';
+import 'ati_word_sheet.dart';
 import 'note_editor_sheet.dart';
 import 'study_sheet.dart';
 import 'verse_tile.dart';
@@ -389,7 +392,7 @@ class _ChapterReaderState extends State<ChapterReader> {
       // is off.
       final metrics = ChapterVerseList.jumpMetricsFor(
         chapter: chapter,
-        layout: _prefs.layout,
+        layout: _layout,
         hasHeader: _showsBookHeader,
         verseNumber: verseNumber,
       );
@@ -491,7 +494,7 @@ class _ChapterReaderState extends State<ChapterReader> {
     // Continuous layout: ask the list itself — its blocks know their own
     // geometry, and one block can span the whole chapter so item fractions
     // carry no verse meaning.
-    if (_prefs.layout == ReadingLayout.paragraph) {
+    if (_layout == ReadingLayout.paragraph) {
       final verse = _listKey.currentState?.verseNearViewportTop();
       if (verse != null) {
         _reportVerse(verse);
@@ -585,6 +588,18 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// Whether the version being read embeds Strong codes per word (LSGS): their
   /// display becomes tappable and tapping one opens its French definition.
   bool get _hasStrong => versionByCode(_versionCode)?.hasStrong ?? false;
+
+  /// Whether the version on screen is the ATI interlinear — a grid of word
+  /// columns, dont « Texte continu » n'a aucun sens.
+  bool get _interlinear => versionByCode(_versionCode)?.interlinear ?? false;
+
+  /// The layout this reader actually renders.
+  ///
+  /// Deliberately a *display* read, like [_supportsNotes], never a write: the
+  /// « Continu » choice stays in the preference for the versions that know
+  /// what to do with it, and is found again when the reading leaves the ATI.
+  ReadingLayout get _layout =>
+      _interlinear ? ReadingLayout.tiles : _prefs.layout;
 
   /// Notes actually displayed. « Texte + notes » is enough: the disposition is
   /// a tiles-only choice.
@@ -731,6 +746,10 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// two surfaces cannot disagree.
   Future<void> _setLayout(ReadingLayout value) async {
     if (_prefs.layout == value) return;
+    // L'ATI n'a pas de texte continu : la feuille désactive déjà le segment,
+    // et cette garde couvre une feuille ouverte pendant un changement de
+    // version — la préférence ne s'écrit pas pour un rendu qui l'ignorera.
+    if (_interlinear && value == ReadingLayout.paragraph) return;
     setState(() => _prefs.layout = value);
     await _savePrefs();
   }
@@ -824,7 +843,11 @@ class _ChapterReaderState extends State<ChapterReader> {
               ),
               const SizedBox(height: 12),
               DisplayLayoutSection(
-                layout: _prefs.layout,
+                // L'ATI n'a pas de texte continu : le segment « Continu » se
+                // lit délavé et ne se prend pas, et la barre annonce
+                // « Séparés » — c'est ce que le lecteur est en train de montrer.
+                layout: _layout,
+                paragraphAvailable: !_interlinear,
                 onChanged: (value) async {
                   await _setLayout(value);
                   setSheet(() {});
@@ -856,7 +879,7 @@ class _ChapterReaderState extends State<ChapterReader> {
                 DisplayNotesSection(
                   notesMode: _prefs.notesMode,
                   disposition: _prefs.disposition,
-                  belowAvailable: _prefs.layout != ReadingLayout.paragraph,
+                  belowAvailable: _layout != ReadingLayout.paragraph,
                   onNotesMode: (value) async {
                     await _setNotesMode(value);
                     setSheet(() {});
@@ -877,8 +900,12 @@ class _ChapterReaderState extends State<ChapterReader> {
                       Expanded(
                         child: Text(
                           'Texte BYM uniquement',
-                          style: premiumText(context, 12.5, FontWeight.w500,
-                              premiumPalette(context).textGrey),
+                          style: premiumText(
+                            context,
+                            12.5,
+                            FontWeight.w500,
+                            premiumPalette(context).textGrey,
+                          ),
                         ),
                       ),
                     ],
@@ -1113,7 +1140,7 @@ class _ChapterReaderState extends State<ChapterReader> {
                       chapter: chapter,
                       showNotes: _effectiveShowNotes,
                       disposition: _prefs.disposition,
-                      layout: _prefs.layout,
+                        layout: _layout,
                       fontWeight: _prefs.fontWeight.weight,
                       spacing: _prefs.spacing,
                       fontSize: bodyFontSize,
@@ -1145,6 +1172,7 @@ class _ChapterReaderState extends State<ChapterReader> {
                       onVerseTap: _onVerseTap,
                       onVerseLongPress: _onVerseLongPress,
                       onStrongTap: _hasStrong ? _onStrongTap : null,
+                        onAtiWordTap: _onAtiWordTap,
                       onReferenceTap: _onReferenceTap,
                     ),
                   );
@@ -1186,7 +1214,8 @@ class _ChapterReaderState extends State<ChapterReader> {
     final next = _next;
     if (next == null) return null;
     return _ContinueChapterTile(
-      label: '${bookDisplayLabel(next.$1, code: _versionCode, embeddedCode: VersionRepository.embeddedCode)} ${next.$2}',
+      label:
+          '${bookDisplayLabel(next.$1, code: _versionCode, embeddedCode: VersionRepository.embeddedCode)} ${next.$2}',
       onTap: () => _openChapter(next.$1, next.$2),
     );
   }
@@ -1277,8 +1306,7 @@ class _ChapterReaderState extends State<ChapterReader> {
     // It is off for LSGS itself (the reader already sees the Strong text word
     // by word) and for bare-text translations, rather than offer a Strong verse
     // that may not match their own versification.
-    final lexiqueEnabled =
-        versionByCode(_versionCode)?.carriesNotes ?? false;
+    final lexiqueEnabled = versionByCode(_versionCode)?.carriesNotes ?? false;
     final action = await showStudySheet(
       context,
       reference:
@@ -1405,7 +1433,9 @@ class _ChapterReaderState extends State<ChapterReader> {
   }
 
   Future<void> _applyFavorite(int verseNumber, bool value) async {
-    _persist(_db.setFavorite(widget.bookIndex, widget.chapter, verseNumber, value));
+    _persist(
+      _db.setFavorite(widget.bookIndex, widget.chapter, verseNumber, value),
+    );
     if (!mounted) return;
     setState(() {
       if (value) {
@@ -1433,9 +1463,7 @@ class _ChapterReaderState extends State<ChapterReader> {
       }
     });
     for (final vn in targets) {
-      _persist(
-        _db.setHighlight(widget.bookIndex, widget.chapter, vn, color),
-      );
+      _persist(_db.setHighlight(widget.bookIndex, widget.chapter, vn, color));
     }
     _snack(
       color == null || color.isEmpty
@@ -1474,7 +1502,9 @@ class _ChapterReaderState extends State<ChapterReader> {
     );
     if (!mounted) return;
     setState(_selected.clear);
-    _snack('${passages.length} verset${passages.length > 1 ? 's' : ''} copié${passages.length > 1 ? 's' : ''}.');
+    _snack(
+      '${passages.length} verset${passages.length > 1 ? 's' : ''} copié${passages.length > 1 ? 's' : ''}.',
+    );
   }
 
   /// Hands the selection to the system share sheet, in the same reading order
@@ -1722,8 +1752,7 @@ class _ChapterReaderState extends State<ChapterReader> {
   }
 
   /// The counter between the arrows — « 3/12 », or « 0 » while nothing matches.
-  String get _findCounter =>
-      _findMatches.isEmpty || _findIndex < 0
+  String get _findCounter => _findMatches.isEmpty || _findIndex < 0
       ? (_findQuery.trim().isEmpty ? '' : '0')
       : '${_findIndex + 1}/${_findMatches.length}';
 
@@ -1744,8 +1773,11 @@ class _ChapterReaderState extends State<ChapterReader> {
       return;
     }
     refs.sort(
-      (a, b) => Object.hash(a.bookIndex, a.chapter ?? 0, a.verse ?? 0)
-          .compareTo(Object.hash(b.bookIndex, b.chapter ?? 0, b.verse ?? 0)),
+      (a, b) => Object.hash(
+        a.bookIndex,
+        a.chapter ?? 0,
+        a.verse ?? 0,
+      ).compareTo(Object.hash(b.bookIndex, b.chapter ?? 0, b.verse ?? 0)),
     );
     await showModalBottomSheet<void>(
       context: context,
@@ -1759,7 +1791,12 @@ class _ChapterReaderState extends State<ChapterReader> {
             children: [
               Text(
                 'Références — ${catalogEntry(widget.bookIndex).abbreviation} ${verse.verse}',
-                style: premiumText(sheetContext, 15, FontWeight.w800, p.textDark),
+                style: premiumText(
+                  sheetContext,
+                  15,
+                  FontWeight.w800,
+                  p.textDark,
+                ),
               ),
               const SizedBox(height: 8),
               for (final ref in refs)
@@ -1865,6 +1902,31 @@ class _ChapterReaderState extends State<ChapterReader> {
   void _snack(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message), duration: const Duration(seconds: 2)),
+    );
+  }
+
+  /// Le tap sur un mot de l'interlinéaire ouvre sa fiche : les champs que le
+  /// mot porte, et les deux liens qui en sortent — le Strong vers la fiche du
+  /// lexique, le renvoi vers la page de `notes.json` qui le résout.
+  ///
+  /// Le Strong y est proposé **même quand [_hasStrong] est faux** : ce
+  /// drapeau décrit le texte aplati de la LSGS, où les codes sont cherchés
+  /// dans la chaîne (`VerseTile.strongCodePattern`); ici le code vient du mot
+  /// lui-même, et le lexique le sert de la même façon. Le gate, c'est
+  /// `StrongLexicon.contains`, tenu par la feuille avant d'offrir le lien.
+  Future<void> _onAtiWordTap(Verse verse, AtiWord word) async {
+    final reference =
+        '${catalogEntry(widget.bookIndex).abbreviation} ${verse.verse}';
+    await showAtiWordSheet(
+      context,
+      reference: reference,
+      word: word,
+      onStrongTap: (strong) => _onStrongTap(verse, strong),
+      onNoteTap: (noteId) => AtiNoteScreen.push(
+        context,
+        noteId,
+        onStrongTap: (strong) => _onStrongTap(verse, strong),
+      ),
     );
   }
 
@@ -2028,8 +2090,13 @@ class _AllSettingsRow extends StatelessWidget {
         ),
         subtitle: Text(
           'Police, alignement, graisse, aération, couleur, notes, thème…',
-          style: premiumText(context, 11.5, FontWeight.w500, p.textGrey,
-              height: 1.3),
+          style: premiumText(
+            context,
+            11.5,
+            FontWeight.w500,
+            p.textGrey,
+            height: 1.3,
+          ),
         ),
         trailing: Icon(Icons.chevron_right, color: p.textGrey),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -2083,15 +2150,25 @@ class _SelectionBar extends StatelessWidget {
                 style: premiumText(context, 14, FontWeight.w700, p.textDark),
               ),
               const SizedBox(width: 6),
-              Container(width: 1, height: 22, color: p.primary.withValues(alpha: .2)),
+              Container(
+                width: 1,
+                height: 22,
+                color: p.primary.withValues(alpha: .2),
+              ),
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _action(Icons.format_color_fill,
-                        'Surligner la sélection', onHighlight),
                     _action(
-                        Icons.star_border, 'Favoris sur la sélection', onFavorite),
+                      Icons.format_color_fill,
+                      'Surligner la sélection',
+                      onHighlight,
+                    ),
+                    _action(
+                      Icons.star_border,
+                      'Favoris sur la sélection',
+                      onFavorite,
+                    ),
                     _action(Icons.copy_all, 'Copier les versets', onCopy),
                     _action(Icons.ios_share, 'Partager les versets', onShare),
                     _action(Icons.close, 'Terminer la sélection', onDone),
@@ -2137,17 +2214,21 @@ class _ContinueChapterTile extends StatelessWidget {
         children: [
           Row(
             children: [
-              Expanded(child: Container(height: 1, color: theme.panelBorderColor)),
+              Expanded(
+                child: Container(height: 1, color: theme.panelBorderColor),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: Text(
                   'Fin du chapitre',
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: theme.verseNumColor,
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodySmall?.copyWith(color: theme.verseNumColor),
                   ),
                 ),
+              Expanded(
+                child: Container(height: 1, color: theme.panelBorderColor),
               ),
-              Expanded(child: Container(height: 1, color: theme.panelBorderColor)),
             ],
           ),
           const SizedBox(height: 16),
@@ -2178,10 +2259,7 @@ class _BookHeader extends StatefulWidget {
   /// use): the introduction is body prose and must be size-identical to the
   /// text that follows, in every layout.
   final TextStyle introStyle;
-  const _BookHeader({
-    required this.book,
-    required this.introStyle,
-  });
+  const _BookHeader({required this.book, required this.introStyle});
 
   @override
   State<_BookHeader> createState() => _BookHeaderState();
@@ -2274,10 +2352,7 @@ class _BookHeaderState extends State<_BookHeader> {
                     color: accent.withValues(alpha: .18),
                   ),
                 ),
-                Text(
-                  book.introduction,
-                  style: widget.introStyle,
-                ),
+                Text(book.introduction, style: widget.introStyle),
               ],
             ],
           ],
@@ -2326,4 +2401,3 @@ class _BookHeaderState extends State<_BookHeader> {
     );
   }
 }
-

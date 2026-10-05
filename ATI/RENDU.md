@@ -6,6 +6,10 @@
 
 ## 1. Où on en est
 
+- **Étape 2 terminée** : `notes.json` lu dans l'app, chaque renvoi s'ouvre, un
+  mot du rendu A donne sa fiche (sept champs, Strong cliquable), et **« Texte
+  continu » est désactivé avec l'ATI**. Détail en §7 :
+  `flutter analyze` sans remarque, **858 tests verts** (1 sauté), E2E vert.
 - **Étape 1 terminée** : convertisseur, publication, bout en bout.
   - `ATI/ati_parse.py` corrigé — `CELLULE_RE` accepte `<td[^>]*>` ; les cellules
     de glose/analyse du dernier verset de chaque chapitre étaient en
@@ -23,12 +27,17 @@
   - App : `flutter analyze` sans remarque, **804 tests verts** (1 sauté :
     l'E2E réseau, opt-in `BYM_E2E=1`), E2E vert avec **Genèse 1:31** lisible.
 
-**Ce que l'app affiche aujourd'hui** = « texte de gloses aplati » — le plan le
-dit lui-même : *« pas encore en colonnes interlinéaires »*
-(`staged-imagining-pnueli.md:27`). L'interlinéaire est l'étape 2
-(`staged-imagining-pnueli.md:163`) : *« une tuile de verset en colonnes de mots,
-hébreu droite-à-gauche, sept champs empilés, pilotée par un drapeau sur
-`VersionEntry` comme `hasStrong` pilote `strong_code_text.dart` »*.
+**Ce que l'app affiche aujourd'hui** = l'interlinéaire en colonnes (§6), avec
+les notes résolues et le tap sur un mot (§7). Le plan décrivait l'étape 2
+comme *« une tuile de verset en colonnes de mots, hébreu droite-à-gauche,
+sept champs empilés, pilotée par un drapeau sur `VersionEntry` comme
+`hasStrong` pilote `strong_code_text.dart` »*
+(`staged-imagining-pnueli.md:163`) — c'est fait, mais **piloté par
+`verse.mots`** plutôt que par un drapeau : voir §6, « Décisions prises en
+route ». La ligne jointe (`joinAtiGlosses`) reste dans `Verse.text` pour la
+recherche, le partage et Comparer, mais ne se lit plus nulle part : la
+colonne la remplace, et « Texte continu » est désactivé sur cette version
+(§7).
 
 ## 2. Les trois rendus proposés
 
@@ -165,17 +174,73 @@ Cardo. Se régénère par
 
 ### Ce qui reste à décider / à faire
 
-1. **Le renvoi de glossaire est affiché (`n12`) mais muet** — `notes.json` est
-   publié, jamais lu. Tant que le contenu n'est pas là, il vaut mieux un
-   renvoi honnête qu'un bouton mort. Brancher les pages + le tap sur un mot
-   (fiche des sept champs, Strong cliquable comme sur la LSGS) = étape 2.
-2. **« Texte continu » (`ReadingLayout.paragraph`) garde la ligne jointe.** Le
-   flux `_ParagraphBlock` est construit en `InlineSpan` : des colonnes ne s'y
-   posent pas. Le choix est par défaut sur « Versets séparés », donc
-   l'interlinéaire est ce qu'on voit tout de suite ; forcer les tuiles pour
-   l'ATI, ou laisser le lecteur sur du texte aplati, reste à trancher.
+1. ~~**Le renvoi de glossaire affiché mais muet**~~ — **soldé, §7 : les 37
+   pages sont lues et le tap donne la fiche.**
+2. ~~**« Texte continu » garde la ligne jointe**~~ — **tranché, §7 : l'option
+   se désactive avec l'ATI.**
 3. **Lecture parallèle** (`parallel_reading_screen.dart`) passe par
    `VerseTile` : l'interlinéaire y apparaît aussi, colonnes comprimées dans
    chaque volet — à juger sur un écran réel.
 4. **Vérification réelle** : aucun émulateur, aucune cible desktop, le web est
    exclu (`dart:io`) — le golden est la seule image obtenable ici.
+
+## 7. Étape 2 — notes résolues + tap sur un mot : fait
+
+`notes.json` est lu pour de vrai, chaque renvoi s'ouvre, et un mot du rendu A
+donne sa fiche. Contrôles : `flutter analyze` sans remarque, **858 tests
+verts** (1 sauté), et `BYM_E2E=1 flutter test test/e2e_ati_reseau_test.dart`
+vert (39/39 téléchargés, réseau réel).
+
+### Ce qui est en place
+
+| Fichier | Rôle |
+|---|---|
+| `assets/ati/notes.json` | les 37 pages, **embarquées** (306 168 o, copié depuis `ATI/json/notes.json`) |
+| `pubspec.yaml` | l'asset + le commentaire qui dit pourquoi il est embarqué |
+| `lib/data/ati_notes.dart` | chargeur : `load` (bundle), `lookup(page, ancre)`, `lookupByName` (glossaire), `headingOf`, `useBundle` pour les tests |
+| `lib/data/ati_note_html.dart` | démontage : `AtiNoteDocument.parse` — blocs (paragraphe, titre, liste, tableau, image) et liens (Strong, page de glossaire, verset), tolérants à ce que le HTML réserve |
+| `lib/widgets/ati_note_view.dart` | les blocs → widgets, tableaux à colonnes fixées ou flexibles |
+| `lib/screens/ati_note_screen.dart` | l'écran de page + la mention de droits |
+| `lib/widgets/ati_word_sheet.dart` | la fiche des sept champs : tous les champs présents sont montrés, le Strong n'est cliquable que si `StrongLexicon` le connaît |
+| `lib/widgets/ati_interlinear.dart` | `onWordTap` sur chaque cellule (l'ancien `TapGestureRecognizer` à libérer est sorti du jeu : `InkWell` + `WidgetSpan`) |
+| `lib/widgets/verse_tile.dart` → `chapter_reader.dart` | la chaîne `onAtiWordTap` jusqu'au lecteur, qui ouvre la fiche puis `AtiNoteScreen.push` |
+| `test/support/fake_ati_notes_bundle.dart` | le vrai fichier lu depuis le disque : dans `testWidgets`, `rootBundle` ne complète pas (zone fake-async) |
+| tests | `ati_note_html_test.dart` (15), `ati_notes_test.dart` (8), `ati_note_screen_test.dart` (8), `ati_word_sheet_test.dart` (5), `ati_texte_continu_test.dart` (6) |
+
+### Décisions prises en route
+
+- **`notes.json` est embarqué, pas téléchargé.** Un asset ne dépend d'aucune
+  panne réseau, se vérifie au démarrage et pèse 0,3 Mo dans un binaire qui en
+  pèse bien plus ; aller chercher un fichier de notes au milieu d'une lecture
+  pour devoir gérer l'échec par-dessus n'avait rien à y gagner. Le rationale
+  est écrit dans le commentaire du `pubspec.yaml`.
+- **Liens** : Strong → fiche, page de glossaire → `AtiNoteScreen`, renvoi de
+  verset (`r.php`) affiché en texte simple — le lecteur ne fournit pas
+  `onVerseTap` (v1 : situer une autre référence demanderait une recherche que
+  le lecteur ne fait pas encore). Liens en `WidgetSpan` + `GestureDetector`
+  (rien à libérer), et la fiche **ferme la feuille avant** de pousser la
+  route.
+- **Assertions hébreu** : on compare au `html` source, pas à l'affiché — les
+  cantillations ne survivent pas au copier-coller du test, elles passent par
+  `html`.
+- **`Uri.decodeQueryComponent` refuse les accents bruts** (`Illegal percent
+  encoding in URI`) : `_pageOf` garde la chaîne brute et ne décode que si elle
+  contient un `%`, en `try/catch`.
+- **Texte continu désactivé avec l'ATI.** L'option ne disparaît pas : elle se
+  lit délavée avec le rappel « Indisponible avec l'interlinéaire ATI »,
+  `enabledOf` rendant le tap muet et `selected` affichant « Séparés » — le
+  même traitement que « Sous » en texte continu. Trois niveaux le tiennent :
+  le réglage n'offre plus le choix (écran Réglages **et** feuille
+  « Affichage »), `_setLayout` refuse de l'écrire, et `ChapterVerseList`
+  force les colonnes dès qu'un verset porte `mots` — le contrat vaut pour
+  n'importe quel appelant. La préférence globale **n'est jamais réécrite** :
+  « Continu » revient tout seul en sortant de l'ATI. La sémantique vit dans
+  `VersionEntry.interlinear`.
+
+### Ce qui reste à décider / à faire
+
+1. **Lecture parallèle** (`parallel_reading_screen.dart`) passe par
+   `VerseTile` : l'interlinéaire y apparaît aussi, colonnes comprimées dans
+   chaque volet — à juger sur un écran réel.
+2. **Vérification réelle** : aucun émulateur, aucune cible desktop, le web est
+   exclu (`dart:io`) — le golden reste la seule image obtenable ici.

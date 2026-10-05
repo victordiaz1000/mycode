@@ -86,6 +86,10 @@ flutter:
     - assets/bible/lsgs/
     - assets/lexicon/
     - assets/themes/
+    # Les 37 pages du glossaire de l'ATI (renvois `n12`, `d12`, `r2`, `abr`).
+    # Embarqué plutôt que téléchargé avec le corpus : 306 Ko, static, et le
+    # renvoi doit s'ouvrir même sans réseau — voir `data/ati_notes.dart`.
+    - assets/ati/notes.json
     # `assets/fonts/` n'est PAS listé ici : la section `fonts:` plus bas embarque
     # déjà ces fichiers. Le dossier n'y figurait que pour que google_fonts les
     # retrouve dans le manifest d'assets — dépendance supprimée, l'application

@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import '../data/app_preferences.dart';
 import '../data/reference_parser.dart';
 import '../data/theme_catalog.dart';
+import '../models/ati.dart';
 import '../models/chapter.dart';
 import '../models/verse.dart';
 import '../utils/hex_color.dart';
@@ -85,6 +86,11 @@ class VerseTile extends StatelessWidget {
   /// clickable). Null on versions whose text has no Strong numbers.
   final void Function(String strong)? onStrongTap;
 
+  /// Le tap sur un mot de l'interlinéaire, avec son verset — c'est la fiche
+  /// des sept champs qui s'ouvre, et elle demande la référence pour se
+  /// nommer. `null` : les cellules ATI ne sont pas cliquables.
+  final void Function(Verse verse, AtiWord word)? onAtiWordTap;
+
   /// Called with a [BibleReference] when the reader taps a reference embedded
   /// in a note (« Voir Es. 45:18. »). Null renders the references as plain text.
   final ValueChanged<BibleReference>? onReferenceTap;
@@ -122,6 +128,7 @@ class VerseTile extends StatelessWidget {
     this.onTap,
     this.onLongPress,
     this.onStrongTap,
+    this.onAtiWordTap,
     this.onReferenceTap,
     this.highlightColor,
     this.isFavorite = false,
@@ -277,6 +284,9 @@ class VerseTile extends StatelessWidget {
                               words: verse.mots!,
                               rhythm: rhythm,
                               theme: theme,
+                                onWordTap: onAtiWordTap == null
+                                    ? null
+                                    : (word) => onAtiWordTap!(verse, word),
                             )
                           else if (showNotes)
                             NoteAwareVerseText(
@@ -438,6 +448,10 @@ class ChapterVerseList extends StatefulWidget {
   /// versions without Strong numbers.
   final void Function(Verse verse, String strong)? onStrongTap;
 
+  /// Le tap sur un mot de l'interlinéaire (ATI) : la fiche des sept champs,
+  /// avec le verset pour la nommer. `null` : pas de tap du tout.
+  final void Function(Verse verse, AtiWord word)? onAtiWordTap;
+
   /// Called with a [BibleReference] when the reader taps a reference embedded
   /// in a note. Null renders the references as plain text.
   final ValueChanged<BibleReference>? onReferenceTap;
@@ -511,6 +525,7 @@ class ChapterVerseList extends StatefulWidget {
     this.onVerseTap,
     this.onVerseLongPress,
     this.onStrongTap,
+    this.onAtiWordTap,
     this.onReferenceTap,
     this.highlightOf,
     this.isFavoriteOf,
@@ -784,8 +799,19 @@ class ChapterVerseListState extends State<ChapterVerseList> {
     final onVerseTap = w.onVerseTap;
     final onVerseLongPress = w.onVerseLongPress;
     final onStrongTap = w.onStrongTap;
+    final onAtiWordTap = w.onAtiWordTap;
     final onReferenceTap = w.onReferenceTap;
     final layout = w.layout;
+    // L'interlinéaire n'a pas de texte continu : un verset ATI est une grille
+    // de colonnes, pas une ligne qui coule — et `Verse.text`, pour cette
+    // version, n'est que la glose française jointe. La coercition vit ici, au
+    // point de rendu : le lecteur désactive déjà l'option sur l'ATI, cette
+    // ligne garantit le contrat du widget à n'importe quel appelant.
+    final flow =
+        layout == ReadingLayout.paragraph &&
+            chapter.verses.any((verse) => verse.mots?.isNotEmpty ?? false)
+        ? ReadingLayout.tiles
+        : layout;
     final fontWeight = w.fontWeight;
     final spacing = w.spacing;
     final bodyStyle = w.bodyStyle;
@@ -794,7 +820,7 @@ class ChapterVerseListState extends State<ChapterVerseList> {
     // Paragraph layout: cut the chapter into continuous runs between section
     // titles, then precompute which list slot holds each title / block. The
     // lazy builder stays a flat indexed list — only the mapping changes.
-    final segments = layout == ReadingLayout.paragraph
+    final segments = flow == ReadingLayout.paragraph
         ? paragraphSegments(chapter)
         : <ParagraphSegment>[];
     _syncBlockKeys(segments.length);
@@ -886,13 +912,13 @@ class ChapterVerseListState extends State<ChapterVerseList> {
                     // bas pour que le dernier verset respire — le maquette
                     // Qwen donne 16/24/26.
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 26),
-                    itemCount: layout == ReadingLayout.paragraph
+                    itemCount: flow == ReadingLayout.paragraph
                         ? paragraphItemCount + (footer != null ? 1 : 0)
                         : chapter.verses.length +
                               (header != null ? 1 : 0) +
                               (footer != null ? 1 : 0),
                     itemBuilder: (context, i) {
-                      if (layout == ReadingLayout.paragraph) {
+                      if (flow == ReadingLayout.paragraph) {
                         return _buildParagraphItem(
                           i,
                           header: header,
@@ -963,6 +989,7 @@ class ChapterVerseListState extends State<ChapterVerseList> {
                         onStrongTap: onStrongTap == null
                             ? null
                             : (strong) => onStrongTap(verse, strong),
+                        onAtiWordTap: onAtiWordTap,
                         onReferenceTap: onReferenceTap,
                         highlightColor: highlightOf?.call(vn),
                         isFavorite: isFavoriteOf?.call(vn) ?? false,

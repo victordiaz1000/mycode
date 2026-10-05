@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 import '../data/app_preferences.dart';
 import 'bible_theme_scope.dart';
@@ -37,10 +37,18 @@ Future<FicheTextStyle> _read(DisplayGroup group) async {
   switch (group) {
     case DisplayGroup.fiches:
       final p = await FichePreferences.load();
-      return FicheTextStyle(p.fontSize, p.readingFont.fontFamily, p.textAlign.align);
+      return FicheTextStyle(
+        p.fontSize,
+        p.readingFont.fontFamily,
+        p.textAlign.align,
+      );
     case DisplayGroup.etude:
       final p = await EtudePreferences.load();
-      return FicheTextStyle(p.fontSize, p.readingFont.fontFamily, p.textAlign.align);
+      return FicheTextStyle(
+        p.fontSize,
+        p.readingFont.fontFamily,
+        p.textAlign.align,
+      );
   }
 }
 
@@ -414,7 +422,8 @@ class ReadingChoiceBar<T> extends StatelessWidget {
   Widget _segment(BuildContext context, T option, PremiumPalette p) {
     final enabled = enabledOf?.call(option) ?? true;
     final current = option == selected && enabled;
-    final Widget content = segmentOf?.call(context, option, current) ??
+    final Widget content =
+        segmentOf?.call(context, option, current) ??
         Text(
           labelOf(option),
           maxLines: 1,
@@ -812,10 +821,18 @@ class DisplayLayoutSection extends StatelessWidget {
   final ReadingLayout layout;
   final ValueChanged<ReadingLayout> onChanged;
 
+  /// False quand la version à l'écran n'a pas de texte continu — l'ATI
+  /// interlinéaire, dont les versets sont des colonnes de mots. Le segment
+  /// « Continu » reste visible mais se lit délavé, ne se prend pas au tap et
+  /// dit pourquoi au survol : voir qu'une option existe et ce qui la bloque
+  /// vaut mieux que la voir disparaître.
+  final bool paragraphAvailable;
+
   const DisplayLayoutSection({
     super.key,
     required this.layout,
     required this.onChanged,
+    this.paragraphAvailable = true,
   });
 
   @override
@@ -826,7 +843,16 @@ class DisplayLayoutSection extends StatelessWidget {
       child: ReadingOptionBar<ReadingLayout>(
         options: ReadingLayout.values,
         labelOf: (option) => option.label,
-        selected: layout,
+        // Sans texte continu, le choix affiché est « Séparés » même si la
+        // préférence porte « Continu » : elle attend une version qui sache s'en
+        // servir, et l'écran ne doit pas annoncer ce qu'il ne montre pas.
+        selected: paragraphAvailable ? layout : ReadingLayout.tiles,
+        tooltipOf: (option) =>
+            option == ReadingLayout.paragraph && !paragraphAvailable
+            ? 'Indisponible avec l’interlinéaire ATI'
+            : option.label,
+        enabledOf: (option) =>
+            paragraphAvailable || option != ReadingLayout.paragraph,
         onChanged: onChanged,
       ),
     );
@@ -1138,8 +1164,13 @@ class DisplayToggleCard extends StatelessWidget {
                         const SizedBox(height: 2),
                         Text(
                           subtitle,
-                          style: premiumText(context, 11.5, FontWeight.w500,
-                              p.textGrey, height: 1.3),
+                          style: premiumText(
+                            context,
+                            11.5,
+                            FontWeight.w500,
+                            p.textGrey,
+                            height: 1.3,
+                          ),
                         ),
                       ],
                     ),
@@ -1221,7 +1252,8 @@ class _TextColorSwatch extends StatelessWidget {
   }
 }
 
-class _FontChip extends StatelessWidget {  final ReadingFont font;
+class _FontChip extends StatelessWidget {
+  final ReadingFont font;
   final bool selected;
   final VoidCallback onTap;
 

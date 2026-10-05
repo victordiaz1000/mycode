@@ -144,10 +144,21 @@ class VersionEntry {
   /// a BYM-format version downloaded from elsewhere keep its notes.
   bool get carriesNotes => format == VersionFormat.bym;
 
+  /// True when the version reads as a grid of words instead of prose — the ATI
+  /// interlinear, where a verse is a stack of columns.
+  ///
+  /// C'est la clé de « Texte continu » : une colonne de sept champs ne coule
+  /// pas, et `Verse.text` d'une telle version n'est que la glose française
+  /// posée de bout en bout — la ligne que chercher et partager utilisent,
+  /// jamais un texte fait pour se lire d'un trait. L'option se désactive donc
+  /// sur cette version plutôt que de faire semblant.
+  bool get interlinear => format == VersionFormat.ati;
+
   /// BYM indexes (1..66) the version can hold: all of them, or 1..39 for an
   /// Old Testament-only version (the BYM order puts Malachie at 39 and
   /// Matthieu at 40).
-  bool containsBook(int bymIndex) => bymIndex >= 1 &&
+  bool containsBook(int bymIndex) =>
+      bymIndex >= 1 &&
       (otOnly ? bymIndex <= 39 : bymIndex <= bookCatalog.length);
 
   /// How many books a complete install holds — the denominator of the
@@ -333,7 +344,8 @@ const List<VersionGroup> versionCatalog = [
       // sous droits Deutsche Bibelgesellschaft (meta/header.xml), et les deux
       // traductions françaises (Giguet, Alexandrie) portent le nom du
       // logiciel, Biblia Universalis 3 — même mention dans les fichiers.
-      rights: '© 1935, 1979 Deutsche Bibelgesellschaft (grec) · '
+      rights:
+          '© 1935, 1979 Deutsche Bibelgesellschaft (grec) · '
           '© Biblia Universalis 3 (traductions)',
       // Les traducteurs tels que la source les nomme elle-même : Pierre
       // Giguet d'après son introduction (« GIGUET_INTRODUCTION »), et
@@ -341,7 +353,8 @@ const List<VersionGroup> versionCatalog = [
       // (Éditions du Cerf, direction Marguerite Harl, Gilles Dorival,
       // Olivier Munnich, concours Cécile Dogniez). Ligne affichée sous le
       // copyright sur la carte de la Bibliothèque.
-      attribution: 'Traductions : Pierre Giguet (1794-1883) · '
+      attribution:
+          'Traductions : Pierre Giguet (1794-1883) · '
           'La Bible d\'Alexandrie (Éditions du Cerf), sous la direction de '
           'Marguerite Harl, Gilles Dorival, Olivier Munnich et '
           'Cécile Dogniez',

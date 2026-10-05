@@ -34,10 +34,11 @@ import 'verse_tile.dart';
 ///
 /// Ce que ce widget ne fait pas encore :
 ///
-/// - **pas de tap sur un mot.** Le lexique Strong est déjà cliquable sur la
-///   LSGS par un autre chemin (`onStrongTap`) ; brancher l'ATI dessus et y
-///   accrocher les renvois de glossaire viendront avec la résolution des
-///   notes, quand `notes.json` sera lu.
+/// - **pas l'analyse développée (`ca`)** : la source la montre en `▶Hi` à
+///   côté de l'étiquette, mais la nôtre est une phrase (« Verbe qal parfait
+///   (qatal)· 3ᵉ masculin singulier ») qui exploserait la largeur des
+///   cellules et, avec elle, l'alignement. Elle appartient à la fiche — celle
+///   qu'ouvre le tap sur le mot.
 /// - **pas d'alignement de texte.** `VerseTile.textAlign` règle la ligne
 ///   courante ; un flux de colonnes a un sens de lecture, pas une
 ///   justification — l'ignorer est plus honnête que le simuler.
@@ -47,6 +48,7 @@ class AtiInterlinear extends StatelessWidget {
     required this.words,
     required this.rhythm,
     required this.theme,
+    this.onWordTap,
   });
 
   /// Les mots du verset, dans l'ordre du texte source.
@@ -59,6 +61,11 @@ class AtiInterlinear extends StatelessWidget {
 
   /// Les couleurs du thème de lecture en cours.
   final BibleTheme theme;
+
+  /// Le tap sur un mot ouvre sa fiche. `null` : les cellules ne sont pas
+  /// cliquables du tout — pas de zone morte à appui pour rien, et pas de
+  /// feuille à ouvrir pour un mot qu'on n'a pas demandé.
+  final void Function(AtiWord word)? onWordTap;
 
   /// La seule famille embarquée qui couvre les points-voyelles hébraïques.
   static const String cardoFamily = 'Cardo';
@@ -110,6 +117,7 @@ class AtiInterlinear extends StatelessWidget {
               lignes: lignes,
               gap: rhythm.s,
               theme: theme,
+              onTap: onWordTap == null ? null : () => onWordTap!(word),
             ),
         ],
       ),
@@ -146,6 +154,7 @@ class _WordCell extends StatelessWidget {
     required this.lignes,
     required this.gap,
     required this.theme,
+    this.onTap,
   });
 
   final AtiWord word;
@@ -153,6 +162,9 @@ class _WordCell extends StatelessWidget {
   final _Lignes lignes;
   final double gap;
   final BibleTheme theme;
+
+  /// Ouvre la fiche du mot — `null` quand personne ne l'attend.
+  final VoidCallback? onTap;
 
   /// Une ligne de la cellule : hauteur donnée, contenu posé dedans — ou rien,
   /// mais **la hauteur est quand même posée**, sinon les lignes suivantes
@@ -307,6 +319,11 @@ class _WordCell extends StatelessWidget {
         ],
       ),
     );
-    return cell;
+
+    if (onTap == null) return cell;
+    // Cellule cliquable sur toute sa hauteur : c'est le **mot** qu'on demande
+    // à voir, pas l'un de ses champs. L'appui ne déforme rien au rendu — sans
+    // tap, pas d'encre, la colonne reste telle qu'imprimée.
+    return InkWell(onTap: onTap, child: cell);
   }
 }

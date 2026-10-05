@@ -54,12 +54,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
   /// « Notes sous le verset » is a tiles-only choice: the continuous flow weaves
   /// the notes into the sentence. Gated on display, never by rewriting the
   /// stored disposition — which is what keeps it intact for the tiles layout.
-  bool get _belowAvailable => _prefs?.layout != ReadingLayout.paragraph;
+  ///
+  /// L'ATI rend des tuiles quoi qu'il en soit, puisqu'il n'a pas de texte
+  /// continu : le choix « Sous » lui revient sur cette version.
+  bool get _belowAvailable =>
+      _interlinear || _prefs?.layout != ReadingLayout.paragraph;
+
+  /// L'interlinéaire ATI n'a pas de texte continu : ses versets sont des
+  /// colonnes de mots, et la ligne jointe que `Verse.text` porte n'est que la
+  /// glose française posée de bout en bout — le texte que chercher et
+  /// partager utilisent. Le segment « Continu » se désactive donc ici, et la
+  /// barre affiche « Séparés » : jamais la préférence n'est réécrite, elle
+  /// attend une version qui sache s'en servir.
+  bool get _interlinear =>
+      versionByCode(_prefs?.versionCode ?? '')?.interlinear ?? false;
 
   /// Mise à jour du texte BYM. Le service ne crée son client HTTP qu'au premier
   /// appel : le tenir en champ ne coûte donc rien tant qu'on ne vérifie pas.
-  late final BymUpdateService _updates = widget.updateService ??
-      BymUpdateService();
+  late final BymUpdateService _updates =
+      widget.updateService ?? BymUpdateService();
 
   /// Date du texte en vigueur (mise à jour installée, sinon embarquée). Null
   /// quand `_source.json` manque des assets — voir `unconfigured`.
@@ -175,10 +188,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
     await prefs.save();
   }
 
-  void _snack(String message, {Duration duration = const Duration(seconds: 2)}) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), duration: duration),
-    );
+  void _snack(
+    String message, {
+    Duration duration = const Duration(seconds: 2),
+  }) {
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message), duration: duration));
   }
 
   void _pickDefaultVersion() {
@@ -522,7 +538,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (_textDate == null) {
       stateLine = 'Date indéterminée';
     } else if (installedCommit == null) {
-      stateLine = 'Texte du ${_dayMonthYear(_textDate!)} · embarqué dans '
+      stateLine =
+          'Texte du ${_dayMonthYear(_textDate!)} · embarqué dans '
           'l’application';
     } else {
       stateLine = [
@@ -719,7 +736,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       _SettingsRow(
                         icon: Icons.segment,
                         title: 'Disposition du texte',
-                        subtitle: _p.layout.label,
+                        // Affichage, jamais la préférence : sur l'ATI le lecteur
+                        // est sur « Séparés », et « Continu » attend une version
+                        // qui sache s'en servir.
+                        subtitle: _interlinear
+                            ? ReadingLayout.tiles.label
+                            : _p.layout.label,
                         // Below, not trailing: the `trailing` slot is not
                         // bounded, and a bar of segments would swallow the
                         // title whole on a 320-px phone.
@@ -728,10 +750,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           // La barre n'a pas la place pour « Versets séparés »
                           // à l'échelle système maximale : le segment
                           // raccourcit, la version complète reste au survol.
-                          labelOf: (option) =>
-                              option == ReadingLayout.tiles ? 'Séparés' : 'Continu',
-                          tooltipOf: (option) => option.label,
-                          selected: _p.layout,
+                          labelOf: (option) => option == ReadingLayout.tiles
+                              ? 'Séparés'
+                              : 'Continu',
+                          tooltipOf: (option) =>
+                              option == ReadingLayout.paragraph && _interlinear
+                              ? 'Indisponible avec l’interlinéaire ATI'
+                              : option.label,
+                          selected: _interlinear
+                              ? ReadingLayout.tiles
+                              : _p.layout,
+                          enabledOf: (option) =>
+                              !_interlinear ||
+                              option != ReadingLayout.paragraph,
                           onChanged: (value) {
                             setState(() => _p.layout = value);
                             _save();
@@ -801,8 +832,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         below: ReadingTextColorSwatches(
                           selectedArgb: _p.textColorOverride,
                           onChanged: (value) {
-                            setState(() =>
-                                _p.textColorOverride = value?.toString());
+                            setState(
+                              () => _p.textColorOverride = value?.toString(),
+                            );
                             _save();
                           },
                         ),
@@ -1154,10 +1186,7 @@ class _SettingsRow extends StatelessWidget {
             ),
             if (below != null) ...[
               const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.only(left: 50),
-                child: below!,
-              ),
+              Padding(padding: const EdgeInsets.only(left: 50), child: below!),
             ],
           ],
         ),
@@ -1223,8 +1252,7 @@ class _DispositionPicker extends StatelessWidget {
               ? 'Notes sous le verset'
               : 'Indisponible en texte continu')
           : 'Notes à la suite',
-      enabledOf: (option) =>
-          option != NoteDisposition.below || belowAvailable,
+      enabledOf: (option) => option != NoteDisposition.below || belowAvailable,
       onChanged: onChanged,
     );
   }
