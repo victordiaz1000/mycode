@@ -197,6 +197,15 @@ class VerseTile extends StatelessWidget {
                 ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: rhythm.textPadV),
+                child: Directionality(
+                  // L'interlinéaire se lit de la droite : la gouttière du
+                  // numéro part avec lui et vient se poser à droite du
+                  // premier mot, comme la source l'imprime. Les autres
+                  // versions — et le reste de la tuile, titre de section
+                  // compris — gardent leur sens inchangé.
+                  textDirection: (verse.mots?.isNotEmpty ?? false)
+                      ? TextDirection.rtl
+                      : TextDirection.ltr,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -215,8 +224,10 @@ class VerseTile extends StatelessWidget {
                               // taille du texte (×0.7, borné 11–16) : figé à
                               // 12, il tombait à 0.55× le corps au défaut de
                               // 22 et ne bougeait plus avec « Texte ».
-                              fontSize:
-                                  (rhythm.fontSize * .7).clamp(11.0, 16.0),
+                                fontSize: (rhythm.fontSize * .7).clamp(
+                                  11.0,
+                                  16.0,
+                                ),
                               color: theme.verseNumColor,
                               fontWeight: FontWeight.bold,
                             ),
@@ -246,8 +257,8 @@ class VerseTile extends StatelessWidget {
                               child: Text(
                                 verse.grec!,
                                 textAlign: textAlign,
-                                style:
-                                    materialTheme.textTheme.bodyLarge?.copyWith(
+                                  style: materialTheme.textTheme.bodyLarge
+                                      ?.copyWith(
                                   fontSize: rhythm.fontSize * .88,
                                   color: theme.noteColor,
                                   height: 1.35,
@@ -278,8 +289,7 @@ class VerseTile extends StatelessWidget {
                             _StrongAwareText(
                                   text: verse.text,
                                   style: materialTheme.textTheme.bodyLarge,
-                                  strongStyle:
-                                      materialTheme.textTheme.bodyLarge
+                                strongStyle: materialTheme.textTheme.bodyLarge
                                           ?.copyWith(
                                             fontSize:
                                                 (materialTheme
@@ -300,8 +310,8 @@ class VerseTile extends StatelessWidget {
                               child: Text(
                                 verse.alexandrie!,
                                 textAlign: textAlign,
-                                style:
-                                    materialTheme.textTheme.bodyLarge?.copyWith(
+                                  style: materialTheme.textTheme.bodyLarge
+                                      ?.copyWith(
                                   fontSize: rhythm.fontSize * .88,
                                   color: theme.noteColor,
                                   height: 1.35,
@@ -330,6 +340,7 @@ class VerseTile extends StatelessWidget {
                       ),
                   ],
                 ),
+              ),
               ),
             ],
           ),

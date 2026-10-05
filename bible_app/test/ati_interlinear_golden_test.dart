@@ -6,23 +6,33 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:bible_app/data/theme_catalog.dart';
 import 'package:bible_app/models/ati.dart';
+import 'package:bible_app/models/chapter.dart';
 import 'package:bible_app/models/verse.dart';
 import 'package:bible_app/widgets/bible_theme_scope.dart';
 import 'package:bible_app/widgets/verse_tile.dart';
 
 /// L'interlinéaire de l'ATI, tel qu'il doit paraître dans le lecteur :
-/// Genèse 1:1-2 en colonnes de mots, de droite à gauche, hébreu Cardo au-dessus
-/// des gloses — et non plus la ligne de gloses aplatie, que la tuile ne pose
-/// plus pour cette version.
+/// Genèse 1:1-2 en colonnes de mots, de droite à gauche, aligné en lignes
+/// — et non la ligne de gloses aplatie, que la tuile ne pose plus pour
+/// cette version.
+///
+/// **Le chemin est celui du lecteur** : `ChapterVerseList`, pas un
+/// `VerseTile` posé nu. C'est la liste qui pose le thème de lecture — la
+/// police de lecture (Crimson Pro par défaut), le corps, la gouttière — et le
+/// panneau arrondi sur lequel les versets se lisent. Un `VerseTile` isolé
+/// hérite du `MaterialApp` nu, c'est-à-dire de Roboto : la suite ne charge pas
+/// cette famille et `flutter test` dessine alors chaque glyphe en carré plein,
+/// d'où un PNG qui ne jugeait rien du tout.
 ///
 /// Un golden et non un détail de tracé : ce qui est jugé ici est l'image —
-/// le sens de lecture, l'alignement des lignes d'hébreu, la tenue du retour
-/// à la ligne sur un écran de téléphone, la lisibilité des quatre niveaux.
+/// le sens de lecture, l'alignement des cinq lignes d'une colonne à l'autre,
+/// les filets, les couleurs de la source (glose rouge, étiquette verte, Strong
+/// bleu), le retour à la ligne sur un écran de téléphone.
 ///
 /// Se régénère par
 /// `flutter test --update-goldens test/ati_interlinear_golden_test.dart`.
 
-/// Genèse 1:1-2, copiés depuis `ATI/json/1.json` (comme dans
+/// Genèse 1:1, copiée depuis `ATI/json/1.json` (comme dans
 /// `ati_format_test.dart`) : les tables `cg` / `ca` sont résolues d'avance,
 /// le modèle ne voit que des libellés.
 const motsVerset1 = [
@@ -66,7 +76,8 @@ const motsVerset1 = [
     hebrew: 'הַשָּׁמַ֖יִם',
     gloss: 'les cieux',
     grammar: 'Nom',
-    analysis: 'Nom commun· masculin pluriel· état absolu— '
+    analysis:
+        'Nom commun· masculin pluriel· état absolu— '
         'Particule article défini',
   ),
   AtiWord(
@@ -83,7 +94,8 @@ const motsVerset1 = [
     hebrew: 'הָאָֽרֶץ׃',
     gloss: 'la terre.',
     grammar: 'Nom',
-    analysis: 'Nom commun· féminin et masculin singulier· état absolu— '
+    analysis:
+        'Nom commun· féminin et masculin singulier· état absolu— '
         'Particule article défini',
   ),
 ];
@@ -95,7 +107,8 @@ const motsVerset2 = [
     hebrew: 'וְהָאָ֗רֶץ',
     gloss: 'Et la terre',
     grammar: 'Nom',
-    analysis: 'Nom commun· féminin et masculin singulier· état absolu— '
+    analysis:
+        'Nom commun· féminin et masculin singulier· état absolu— '
         'Particule article défini',
   ),
   AtiWord(
@@ -108,18 +121,41 @@ const motsVerset2 = [
   ),
 ];
 
-/// Cardo ne fait pas partie des deux familles que la suite charge d'office
-/// (`flutter_test_config.dart`) : ici elle est indispensable, puisque c'est
-/// elle qui compose l'hébreu — sans elle le golden jugerait des carrés.
-Future<void> _chargerCardo() async {
-  final manifest = json.decode(
-    await rootBundle.loadString('FontManifest.json'),
-  ) as List<dynamic>;
+const verset1 = Verse(
+  verse: '1:1',
+  text: 'En un commencement créa Dieu les cieux et la terre.',
+  textWithNotes: 'En un commencement créa Dieu les cieux et la terre.',
+  mots: motsVerset1,
+);
+
+const verset2 = Verse(
+  verse: '1:2',
+  text: 'Et la terre était',
+  textWithNotes: 'Et la terre était',
+  mots: motsVerset2,
+);
+
+/// Les familles que ce golden juge, et qu'aucune autre suite ne charge :
+/// Cardo compose l'hébreu, Crimson Pro — police de lecture par défaut de
+/// l'écran (`app_preferences.dart`, repli de `reading.fontFamily`) — compose
+/// les champs latins, et MaterialIcons dessine la flèche du renvoi de
+/// glossaire. Sans elles, `flutter test` dessine chaque glyphe en carré plein :
+/// le PNG montre des blocs au lieu de lettres, et ne juge rien.
+///
+/// Le chargement est ici plutôt que dans `flutter_test_config.dart` : la
+/// suite partagée ne charge que les familles dont l'interface dépend, pour ne
+/// pas payer ~15 Mo à chaque fichier de test.
+Future<void> _chargerPolicesDuGolden() async {
+  const familles = {'Cardo', 'Crimson Pro', 'MaterialIcons'};
+  final manifest =
+      json.decode(await rootBundle.loadString('FontManifest.json'))
+          as List<dynamic>;
   for (final entry in manifest.cast<Map<String, dynamic>>()) {
-    if (entry['family'] != 'Cardo') continue;
-    final loader = FontLoader('Cardo');
-    for (final font in (entry['fonts'] as List<dynamic>)
-        .cast<Map<String, dynamic>>()) {
+    final famille = entry['family'] as String;
+    if (!familles.contains(famille)) continue;
+    final loader = FontLoader(famille);
+    for (final font
+        in (entry['fonts'] as List<dynamic>).cast<Map<String, dynamic>>()) {
       loader.addFont(rootBundle.load(font['asset'] as String));
     }
     await loader.load();
@@ -127,16 +163,17 @@ Future<void> _chargerCardo() async {
 }
 
 void main() {
-  testWidgets('Genèse 1:1-2 en colonnes de mots, sur un écran de téléphone',
-      (tester) async {
+  testWidgets('Genèse 1:1-2 en colonnes de mots, sur un écran de téléphone', (
+    tester,
+  ) async {
     // `runAsync` : le chargement de police lit de vrais fichiers, et une
     // boucle *fake async* de `testWidgets` ne laisse jamais ces futures se
     // terminer — d'où un blocage sans erreur ni échec.
-    await tester.runAsync(_chargerCardo);
+    await tester.runAsync(_chargerPolicesDuGolden);
 
     // Largeur de téléphone : le retour à la ligne des colonnes fait partie
-    // de ce que l'image juge.
-    tester.view.physicalSize = const Size(390, 560);
+    // de ce que l'image juge. Assez haut pour que le panneau tienne debout.
+    tester.view.physicalSize = const Size(390, 620);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.reset);
 
@@ -146,35 +183,10 @@ void main() {
         home: BibleThemeScope(
           child: Scaffold(
             backgroundColor: const Color(0xFFFAF7F0),
-            body: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  VerseTile(
-                    verse: const Verse(
-                      verse: '1:1',
-                      text: 'En un commencement créa Dieu les cieux et la terre.',
-                      textWithNotes:
-                          'En un commencement créa Dieu les cieux et la terre.',
-                      mots: motsVerset1,
-                    ),
-                    showNotes: false,
-                    verseNumber: 1,
-                    theme: bibleThemes.first,
-                  ),
-                  VerseTile(
-                    verse: const Verse(
-                      verse: '1:2',
-                      text: 'Et la terre était',
-                      textWithNotes: 'Et la terre était',
-                      mots: motsVerset2,
-                    ),
-                    showNotes: false,
-                    verseNumber: 2,
-                    theme: bibleThemes.first,
-                  ),
-                ],
-              ),
+            body: ChapterVerseList(
+              chapter: const Chapter(chapter: 1, verses: [verset1, verset2]),
+              showNotes: false,
+              theme: bibleThemes.first,
             ),
           ),
         ),
