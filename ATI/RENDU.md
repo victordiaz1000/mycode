@@ -303,15 +303,20 @@ Rien n'est perdu : un champ vide vaut mieux qu'un faux code. `sans s`
   inconnu) et `ati_word_sheet_test.dart` (« un code écrit sans ses zéros reste
   cliquable »).
 
-### Ce qui reste à décider / à faire
+### Publication (faite)
 
-1. **Republier le corpus** : les 39 `ATI/json/*.json` vers
-   `C:\Users\laptek\Desktop\bym-bibles\ati\`, commit puis push — c'est la
-   publication qui rend le correctif visible dans l'app, les livres étant
-   téléchargés (`urlTemplate` `…/-bym-bibles/main/ati/{book}.json`), pas
-   embarqués.
-2. Après la republiation : `BYM_E2E=1 flutter test test/e2e_ati_reseau_test.dart`
-   — le corpus servi en réel est le corrigé.
+1. **Corpus republié** : les 39 `ATI/json/*.json` vers
+   `C:\Users\laptek\Desktop\bym-bibles\ati\`, commit `940d076` poussé sur
+   `origin/main` (`16913f9..940d076`). C'est la publication qui rend le
+   correctif visible dans l'app, les livres étant téléchargés (`urlTemplate`
+   `…/-bym-bibles/main/ati/{book}.json`), pas embarqués. Contrôles avant
+   commit : pour les 39 livres, `HEAD` et la version neuve sont identiques **en
+   ignorant `s`** — la publication ne bouge que les numéros — et chaque fichier
+   copié est octet à octet identique à la source ; `notes.json` inchangé.
+2. **E2E réseau vert** : `BYM_E2E=1 flutter test test/e2e_ati_reseau_test.dart`
+   → `All tests passed`, 39/39 livres téléchargés depuis GitHub, 7,1 Mo sur
+   disque, Genèse 1:1 et 1:31 lues. Le corpus servi en réel est bien le
+   corrigé.
 
 ## 9. Feuille d'étude fermée sur l'ATI et la LSGS, extrait Strong : fait
 
