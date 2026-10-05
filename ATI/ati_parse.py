@@ -44,8 +44,21 @@ et découpage, mais perd sa glose, et le verset sort **blanc** dans le lecteur.
 929 versets, 12 964 mots, 4,2 % du corpus — l'équivalent d'un chapitre sur
 vingt-quatre qui s'efface. On lit donc `<td[^>]*>`, attributs acceptés.
 
+**Le badge de stem n'est pas un Strong.** La rangée d'analyse finit parfois par un lien
+`<a class="glossaire" href="h.php?c=STR&f=H8818"><span title="Hif‘il">►Hi</span></a>` : le
+badge de conduit (`►Hi`, `►Pt`, `►Pi`, `►InCs`, `►Imp`, `►Ni`) pointe vers `f=Hxxxx`
+comme un vrai numéro, mais son `<a>` ne porte aucune glose. Ces codes — H8675, puis
+H8810 à H8852 — n'existent ni dans `strong_fr.json` ni dans le dictionnaire HEB, qui
+s'arrête à H8674 : ce sont des étiquettes de morphologie, pas des entrées de
+concordance. Une regexp qui lit n'importe quel `f=Hxxxx` les prend pour le numéro du mot
+et **écrasent** celui de la première rangée : 37 753 mots sur 300 220 arrivaient donc
+dans l'app avec un code muet, ni cliquable ni défini, quand la même cellule portait
+H914 à côté. Mesuré sur le corpus : 300 126 balises portent leur glose, 44 478 n'en
+portent pas, et jamais l'inverse — on n'accepte donc que le lien qui en porte une.
+
 Les gloses Strong que le HTML porte en attribut `title` ne sont PAS extraites :
-`StrongLexicon` les sert déjà depuis `assets/lexicon/`.
+`StrongLexicon` les sert déjà depuis `assets/lexicon/`. Le `title` ne sert ici qu'à
+distinguer le numéro du badge.
 """
 import html
 import re
@@ -56,7 +69,10 @@ COLONNE_RE = re.compile(r'<table style="display: inline-table;.*?</table>', re.S
 # `<td[^>]*>` et non `<td>` : les cellules de glose et d'analyse du dernier verset
 # de chaque chapitre portent `align="right" dir="ltr"` (voir le troisième piège).
 CELLULE_RE = re.compile(r"<td[^>]*>(.*?)</td>", re.S)
-STRONG_RE = re.compile(r'f=([HG]\d+)"')
+# Le numéro Strong : le lien à glose, et lui seul — `title` dans la même balise.
+# Lire n'importe quel `f=Hxxxx` prend le badge de stem pour le numéro du mot
+# (voir le quatrième piège, en tête de module).
+STRONG_RE = re.compile(r'<a [^>]*f=([HG]\d+)"[^>]*title="')
 GRIS_RE = re.compile(r'<font color="grey">(.*?)</font>', re.S)
 ROUGE_RE = re.compile(r'<font color="red">(.*?)</font>', re.S)
 VERT_RE = re.compile(r'<font color="green">(.*?)</font>', re.S)

@@ -132,6 +132,38 @@ void main() {
     );
   });
 
+  testWidgets('un code écrit sans ses zéros reste cliquable', (tester) async {
+    // L'ATI imprime « H430 » comme sa source, le lexique range « H0430 » :
+    // la fiche ne se tait pas sur un code qu'elle connaît pourtant.
+    String? opened;
+    await pumpMot(
+      tester,
+      mot: const AtiWord(strong: 'H430', hebrew: 'וְ', gloss: 'et'),
+      onStrongTap: (strong) async => opened = strong,
+    );
+    await tester.tap(find.text('et'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('H430'), findsOneWidget);
+    expect(
+      find.byIcon(Icons.chevron_right_rounded),
+      findsOneWidget,
+      reason: 'le code existe au lexique, la flèche le dit',
+    );
+
+    await tester.ensureVisible(find.text('H430'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('H430'));
+    await tester.pumpAndSettle();
+
+    expect(
+      opened,
+      'H430',
+      reason: "on ouvre avec le code tel que la source l'écrit, le lexique "
+          'le ramène à H0430',
+    );
+  });
+
   testWidgets('le Strong ouvre la fiche du lexique, la feuille se ferme', (
     tester,
   ) async {

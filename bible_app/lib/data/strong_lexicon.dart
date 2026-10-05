@@ -194,13 +194,30 @@ class StrongLexicon {
     }
   }
 
-  /// The Strong codes written in [strong], in order. A corpus token may carry
-  /// two of them for a single word — « G3588 G4674 » for Jean 18.35 — and the
-  /// lexicon holds one entry per code.
+  /// The Strong codes written in [strong], in order, in the form the lexicon
+  /// ranges them — see [canonique]. A corpus token may carry two of them for a
+  /// single word — « G3588 G4674 » for Jean 18.35 — and the lexicon holds one
+  /// entry per code.
   static List<String> codesOf(String strong) => [
         for (final part in strong.split(RegExp(r'\s+')))
-          if (part.trim().isNotEmpty) part.trim().toUpperCase(),
+          if (part.trim().isNotEmpty) canonique(part),
       ];
+
+  /// La forme canonique d'un code — celle que le lexique range : une lettre
+  /// majuscule suivie de quatre chiffres (`H853` → `H0853`, `h7225` → `H7225`).
+  ///
+  /// Les corpus ne s'accordent pas : la LSGS imprime `H0853`, l'ATI écrit
+  /// `H853` comme sa source l'affiche. Sans cette borne, un code
+  /// parfaitement valide d'une version est introuvable dans l'autre — et la
+  /// fiche se tait sur un mot qui a pourtant son entrée. Un code d'une autre
+  /// facture (un nombre nu, une suite) passe tel quel : c'est à l'appelant
+  /// de savoir ce qu'il tient.
+  static String canonique(String code) {
+    final brut = code.trim().toUpperCase();
+    final appariement = RegExp(r'^([A-Z])(\d{1,4})$').firstMatch(brut);
+    if (appariement == null) return brut;
+    return '${appariement.group(1)}${appariement.group(2)!.padLeft(4, '0')}';
+  }
 
   Future<StrongDefinition> lookup(String strong) async {
     await _ensureLoaded();

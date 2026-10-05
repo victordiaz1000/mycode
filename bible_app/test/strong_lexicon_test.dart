@@ -30,6 +30,32 @@ void main() {
     expect(g2316.definition, contains('Dieu'));
   });
 
+  test('a code written without its zero still finds its entry', () async {
+    // L'ATI imprime « H853 » comme sa source l'affiche, la LSGS imprime
+    // « H0853 » : mêmes chiffres, deux écritures, une seule entrée au
+    // lexique. Sans cette borne, un code valide d'une version est introuvable
+    // dans l'autre et la fiche se tait — 21 % des mots de l'ATI perdaient
+    // leur lien pour une histoire de zéros.
+    expect(StrongLexicon.canonique('h853'), 'H0853');
+    expect(StrongLexicon.canonique('H4236'), 'H4236');
+    expect(StrongLexicon.canonique('H7225'), 'H7225');
+    expect(StrongLexicon.canonique('5975'), '5975',
+        reason: "un nombre nu n'a pas de lettre à compléter");
+    expect(StrongLexicon.codesOf('H853 H7225'), ['H0853', 'H7225']);
+
+    final lexicon = StrongLexicon.instance;
+    expect(await lexicon.contains('H853'), isTrue);
+    final definition = await lexicon.lookup('H853');
+    expect(definition.strong, 'H0853');
+    expect(definition.definition, isNotEmpty);
+
+    // Ce que le lexique ne porte pas le reste inconnu : H8818 n'y est pas —
+    // c'est l'étiquette de conduit « ►Hi » que l'ATI mettait à la place du
+    // numéro, pas un numéro de concordance (le corpus ne l'émet plus depuis
+    // la correction du parseur).
+    expect(await lexicon.contains('H8818'), isFalse);
+  });
+
   test('the gloss the exporter used to drop is back as a signification',
       () async {
     final lexicon = StrongLexicon.instance;
