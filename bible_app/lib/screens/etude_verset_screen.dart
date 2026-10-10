@@ -2,9 +2,13 @@
 
 import '../data/app_preferences.dart';
 import '../data/book_catalog.dart';
+import '../data/dictionary_catalog.dart';
+import '../data/dictionary_reader.dart';
+import '../data/dictionary_store.dart';
 import '../data/fredaw_lexicon.dart';
 import '../data/lsgs_repository.dart';
 import '../data/strong_lexicon.dart';
+import '../data/verse_dictionary.dart';
 import '../data/version_repository.dart';
 import '../models/lsgs.dart';
 import '../widgets/fiche_text_settings.dart';
@@ -12,6 +16,7 @@ import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
 import '../widgets/strong_lemma.dart';
 import '../widgets/strong_senses.dart';
+import 'dictionary_entry_screen.dart';
 import 'fredaw_entry_screen.dart';
 import 'strong_detail_screen.dart';
 
@@ -47,13 +52,15 @@ class EntreeLexique {
 }
 
 /// Entrée de la bibliothèque du mode DICTIONNAIRE : le terme repéré dans le
-/// verset et l'article Westphal qui le définit.
+/// verset et l'article qui le définit — quelle que soit la source, le
+/// Westphal embarqué ou un dictionnaire téléchargé (les deux ne portent que
+/// le terme et sa définition).
 class EntreeDico {
   final String texte;
   final String titre;
   final String section;
   final String extrait;
-  final FreDawEntry fiche;
+  final DictionaryArticle fiche;
 
   const EntreeDico({
     required this.texte,
@@ -91,10 +98,12 @@ class SegmentVerset {
 ///
 /// Le verset est rendu mot à mot, cliquable dans les deux modes :
 /// - **Lexique** : les mots porteurs d'un numéro Strong ouvrent la fiche
-///   Strong française (hébreu/grec) ; les cartes sont swipables.
+///   Strong française (hébreu/grec) ; les cartes sont swipables. Le corpus
+///   dont viennent les codes se choisit dans l'AppBar — la LSS ou la LSGS.
 /// - **Dictionnaire** : les mots qui sont des articles du dictionnaire
-///   (Westphal 1932, `FredawLexicon.linkPattern`) ouvrent un aperçu de
-///   l'article, avec accès à la fiche complète.
+///   ouvrent un aperçu de l'article, avec accès à la fiche complète. Le
+///   dictionnaire se choisit dans l'AppBar, lui aussi : le Westphal 1932
+///   embarqué, ou un dictionnaire téléchargé depuis la Bibliothèque.
 ///
 /// Au goût premium : fond crème, cartes blanches à ombre douce, accents du
 /// thème actif.
@@ -121,6 +130,12 @@ class EtudeVersetScreen extends StatefulWidget {
   /// occurrences de la fiche restent en lecture seule.
   final void Function(int bookIndex, int chapter, int verse)? onOpenVerse;
 
+  /// Où les dictionnaires téléchargés par la Bibliothèque sont lus, pour le
+  /// choix du dictionnaire. Null hors coquille : l'écran prend le store de
+  /// l'appareil ; les tests en injectent un en mémoire, `path_provider`
+  /// ne répondant jamais dans le zone fake-async des tests.
+  final DictionaryStore? dictionaryStore;
+
   const EtudeVersetScreen({
     super.key,
     required this.bookIndex,
@@ -131,6 +146,7 @@ class EtudeVersetScreen extends StatefulWidget {
     this.verseNumbers,
     this.loadVerseTokens,
     this.onOpenVerse,
+    this.dictionaryStore,
   });
 
   @override
@@ -156,6 +172,13 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
   /// relit la préférence à chaque navigation, c'est ce champ qui pilote le
   /// rechargement.
   String _corpus = EtudePreferences.defaultVersionCode;
+
+  /// Dictionnaire du mode DICTIONNAIRE — le Westphal 1932 embarqué par
+  /// défaut, ou un dictionnaire téléchargé depuis la Bibliothèque, ouvert
+  /// depuis [EtudePreferences.dictionaryCode]. Un fichier supprimé depuis la
+  /// Bibliothèque retombe ici sur l'embarqué : le choix enregistré reste
+  /// écrit, et revient tout seul quand le fichier revient.
+  VerseDictionary _dictionnaire = const WestphalVerseDictionary();
 
   late int _verseNumber;
   late List<LsgsToken> _tokens;
@@ -184,7 +207,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
     _tokens = widget.tokens;
     _readCorpus();
     _buildLexique();
-    _buildDico();
+    _openDictionnaire();
   }
 
   /// Le corpus enregistré — affiché au-dessus de la fiche et relut à chaque
@@ -193,6 +216,28 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
     final prefs = await EtudePreferences.load();
     if (!mounted || prefs.versionCode == _corpus) return;
     setState(() => _corpus = prefs.versionCode);
+  }
+
+  /// Ouvre le dictionnaire choisi — [code] passé par le sélecteur, sinon
+  /// l'enregistrement de l'utilisateur — puis reconstruit les cartes du
+  /// verset dessus.
+  ///
+  /// Un code que [verseDictionaryFor] ne peut pas servir (fichier supprimé
+  /// depuis la Bibliothèque, dictionnaire jamais téléchargé) retombe sur le
+  /// Westphal embarqué, qui est le dictionnaire de tous les jours.
+  Future<void> _openDictionnaire({String? code}) async {
+    final stored = code ?? (await EtudePreferences.load()).dictionaryCode;
+    final dictionnaire = await verseDictionaryFor(
+          stored,
+          store: widget.dictionaryStore,
+        ) ??
+        const WestphalVerseDictionary();
+    if (!mounted) return;
+    setState(() {
+      _dictionnaire = dictionnaire;
+      _dicoReady = false;
+    });
+    await _buildDico();
   }
 
   /// Nombre de cartes affichées côte à côte selon la largeur de l'écran.
@@ -308,10 +353,15 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
 
   /// Construit la bibliothèque et les segments du mode DICTIONNAIRE : le texte
   /// nu du verset est découpé sur les termes que le dictionnaire connaît
-  /// ([FreDawLexicon.linkPattern]), chaque terme devenant un mot cliquable.
+  /// ([VerseDictionary.linkPattern]), chaque terme devenant un mot cliquable.
+  ///
+  /// Le dictionnaire vient de [_dictionnaire] — le Westphal ou un téléchargé
+  /// — et c'est lui qui donne le visage des cartes : un mot que l'un connaît
+  /// peut être inconnu de l'autre.
   Future<void> _buildDico() async {
+    final dictionnaire = _dictionnaire;
     final plain = LsgsRepository.joinTokens(_tokens);
-    final pattern = await FreDawLexicon.instance.linkPattern();
+    final pattern = await dictionnaire.linkPattern();
     if (!mounted) return;
     final entries = <EntreeDico>[];
     final segments = <SegmentVerset>[];
@@ -326,10 +376,20 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
           );
         }
         final term = match.group(0)!;
-        final entry = await FreDawLexicon.instance.lookup(term);
+        final article = await dictionnaire.lookup(term);
         if (!mounted) return;
+        if (article == null) {
+          // Le motif d'un dictionnaire téléchargé ne devrait jamais proposer
+          // un mot qu'il n'a pas : si le fichier est tronqué, le verset
+          // garde ce mot en texte nu plutôt qu'une fiche muette.
+          segments.add(
+            SegmentVerset.plain(plain.substring(cursor, match.end)),
+          );
+          cursor = match.end;
+          continue;
+        }
         final index = entries.length;
-        entries.add(_dicoEntry(term, entry));
+        entries.add(_dicoEntry(term, article));
         segments.add(SegmentVerset.mot(term, index));
         cursor = match.end;
       }
@@ -345,10 +405,10 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
     });
   }
 
-  /// Découpe la définition Westphal : le premier paragraphe fait office de
-  /// section (« 1. Introduction. »), le reste est l'extrait défilable.
-  EntreeDico _dicoEntry(String term, FreDawEntry entry) {
-    final paragraphs = entry.definition
+  /// Découpe la définition : le premier paragraphe fait office de section
+  /// (« 1. Introduction. » chez Westphal), le reste est l'extrait défilable.
+  EntreeDico _dicoEntry(String term, DictionaryArticle article) {
+    final paragraphs = article.definition
         .split(RegExp(r'\n{2,}'))
         .map((p) => p.trim())
         .where((p) => p.isNotEmpty)
@@ -356,13 +416,13 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
     final section = paragraphs.length > 1 ? paragraphs.first : '';
     final extrait = paragraphs.length > 1
         ? paragraphs.skip(1).join('\n\n')
-        : entry.definition;
+        : article.definition;
     return EntreeDico(
       texte: term,
-      titre: entry.term,
+      titre: article.term,
       section: section,
       extrait: extrait,
-      fiche: entry,
+      fiche: article,
     );
   }
 
@@ -459,7 +519,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                 ),
               ),
               for (final option in options)
-                _CorpusOption(
+                _OptionLigne(
                   name: option.name,
                   note: option.note,
                   selected: option.code == _corpus,
@@ -496,6 +556,95 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
     setState(() => _tokens = tokens ?? _tokens);
     _buildLexique();
     _buildDico();
+  }
+
+  /// Choix du dictionnaire du mode DICTIONNAIRE.
+  ///
+  /// Il n'y en a que deux sortes : le Westphal 1932 embarqué, et ce que la
+  /// Bibliothèque a téléchargé sur l'appareil — la même honnêteté que le
+  /// sélecteur de version de la lecture, qui ne propose que ce qui a du
+  /// texte à servir. Le catalogue entier ne serait pas vrai : un
+  /// dictionnaire non téléchargé n'a rien à ouvrir, Nave n'a aucune source,
+  /// et le Strong français est indexé par numéro et non par mot — sa place
+  /// est l'onglet Lexique.
+  Future<void> _pickDictionnaire() async {
+    final p = premiumPalette(context);
+    final dictionnaires = await availableVerseDictionaries(
+      store: widget.dictionaryStore,
+    );
+    if (!mounted || dictionnaires.isEmpty) return;
+    final catalogue = {
+      for (final entry in dictionaryCatalog) entry.code: entry,
+    };
+
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      isScrollControlled: true,
+      backgroundColor: premiumBackground(context),
+      builder: (context) => SafeArea(
+        top: false,
+        child: Container(
+          decoration: premiumSurface(context, radius: 24, depth: 1.3),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                child: Text(
+                  'Dictionnaire de l\'étude',
+                  style: premiumText(context, 16, FontWeight.w800, p.textDark),
+                ),
+              ),
+              for (final dictionnaire in dictionnaires)
+                _OptionLigne(
+                  name: dictionnaire.name,
+                  note: '${catalogue[dictionnaire.code]?.rights ?? ''} — '
+                      '${dictionnaire.embedded ? 'embarqué, hors ligne' : 'téléchargé sur l\'appareil'}.',
+                  selected: dictionnaire.code == _dictionnaire.code,
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    _useDictionnaire(dictionnaire.code);
+                  },
+                ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+                child: Text(
+                  'D\'autres dictionnaires se téléchargent depuis la '
+                  'Bibliothèque, puis se choisissent ici.',
+                  style: premiumText(
+                    context,
+                    12,
+                    FontWeight.w500,
+                    p.textGrey,
+                    height: 1.4,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Enregistre le dictionnaire choisi et reconstruit le verset dessus.
+  Future<void> _useDictionnaire(String code) async {
+    if (code == _dictionnaire.code) return;
+    final prefs = await EtudePreferences.load();
+    prefs.dictionaryCode = code;
+    await prefs.save();
+    if (!mounted) return;
+    setState(() => _entreeCourante = 0);
+    // Même chemin que « ouvrir » : c'est lui qui relit le store, donc un
+    // téléchargement qui vient d'atterrir est déjà ouvrable.
+    await _openDictionnaire(code: code);
+    if (mounted) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (_pageController.hasClients) _pageController.jumpToPage(0);
+      });
+    }
   }
 
   void _stubSnack(String label) {
@@ -539,11 +688,23 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
           ),
         ),
         actions: [
-          _CorpusButton(
-            corpus: _corpus,
-            onTap: _pickCorpus,
-            accent: accent,
-          ),
+          // Le bouton suit le mode : corpus du lexique dans l'onglet
+          // Lexique, dictionnaire dans l'onglet Dictionnaire. Ce sont les
+          // deux mêmes pilules — le code en libellé, l'infobulle dit ce
+          // qu'elles choisissent.
+          _mode == ModeEtude.lexique
+              ? _CorpusButton(
+                  code: _corpus,
+                  tooltip: 'Corpus du lexique',
+                  onTap: _pickCorpus,
+                  accent: accent,
+                )
+              : _CorpusButton(
+                  code: _dictionnaire.code,
+                  tooltip: 'Dictionnaire de l\'étude',
+                  onTap: _pickDictionnaire,
+                  accent: accent,
+                ),
           const FicheDisplayMenuButton(group: DisplayGroup.etude),
         ],
         title: Column(
@@ -1028,15 +1189,34 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
     );
   }
 
+  /// La fiche complète de l'article courant — chaque famille porte la sienne.
+  ///
+  /// Le Westphal a son écran ([FredawEntryScreen]), avec ses renvois internes
+  /// au lexique ; un dictionnaire téléchargé le générique
+  /// ([DictionaryEntryScreen]), dont les renvois remontent son propre
+  /// fichier. Le verset n'a rien à faire de ces détails : c'est le mot
+  /// cliqué qui décide.
   void _openFicheComplett(EntreeDico e) {
+    final dictionnaire = _dictionnaire;
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) => FredawEntryScreen(
-          entry: e.fiche,
-          // Le callback de l'écran d'étude (fourni par le lecteur) vide déjà
-          // la pile de fiches avant le saut lecture : on le transmet tel quel.
-          onOpenVerse: widget.onOpenVerse,
-        ),
+        builder: (_) => dictionnaire is DownloadedVerseDictionary
+            ? DictionaryEntryScreen(
+                entry: dictionnaire.entry,
+                article: e.fiche,
+                reader: dictionnaire.reader,
+                // Le callback de l'écran d'étude (fourni par le lecteur) vide
+                // déjà la pile de fiches avant le saut lecture : on le
+                // transmet tel quel.
+                onOpenVerse: widget.onOpenVerse,
+              )
+            : FredawEntryScreen(
+                entry: FreDawEntry(
+                  term: e.fiche.term,
+                  definition: e.fiche.definition,
+                ),
+                onOpenVerse: widget.onOpenVerse,
+              ),
       ),
     );
   }
@@ -1246,18 +1426,21 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
   }
 }
 
-/// Le corpus en vigueur, dans l'AppBar de l'étude — tappable pour en changer.
+/// La source en vigueur, dans l'AppBar de l'étude — tappable pour en changer :
+/// le corpus du lexique, ou le dictionnaire selon l'onglet ouvert.
 ///
-/// Le libellé est le code de la version (« LSS », « LSGS ») : trois lettres
+/// Le libellé est le code (« LSS », « FREDAW », « GBM ») : quelques lettres
 /// tiennent dans une barre d'actions où le bouton d'affichage occupe déjà la
 /// droite, et c'est la même écriture que la fiche.
 class _CorpusButton extends StatelessWidget {
-  final String corpus;
+  final String code;
+  final String tooltip;
   final VoidCallback onTap;
   final Color accent;
 
   const _CorpusButton({
-    required this.corpus,
+    required this.code,
+    required this.tooltip,
     required this.onTap,
     required this.accent,
   });
@@ -1265,7 +1448,7 @@ class _CorpusButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      tooltip: 'Corpus du lexique',
+      tooltip: tooltip,
       onPressed: onTap,
       icon: Container(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -1274,7 +1457,7 @@ class _CorpusButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: Text(
-          corpus,
+          code,
           style: premiumText(context, 11, FontWeight.w800, accent),
         ),
       ),
@@ -1282,14 +1465,15 @@ class _CorpusButton extends StatelessWidget {
   }
 }
 
-/// Une ligne du sélecteur de corpus : nom, note, et l'état sélectionné.
-class _CorpusOption extends StatelessWidget {
+/// Une ligne d'un sélecteur de source — corpus du lexique, dictionnaire de
+/// l'étude : nom, note, et l'état sélectionné.
+class _OptionLigne extends StatelessWidget {
   final String name;
   final String note;
   final bool selected;
   final VoidCallback onTap;
 
-  const _CorpusOption({
+  const _OptionLigne({
     required this.name,
     required this.note,
     required this.selected,

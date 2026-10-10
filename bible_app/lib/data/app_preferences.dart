@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 
 import 'theme_catalog.dart';
 import 'custom_background.dart';
+import 'verse_dictionary.dart';
 import 'version_repository.dart';
 
 /// Persisted user preferences for the reading screen (maquette v3/v4):
@@ -402,6 +403,7 @@ class EtudePreferences {
   static const _kTextAlign = 'etude.textAlign';
   static const _kFontFamily = 'etude.fontFamily';
   static const _kVersionCode = 'etude.versionCode';
+  static const _kDictionnaireCode = 'etude.dictionnaireCode';
 
   /// Le corpus Strong par défaut de l'étude de verset — la **LSS** de Biblia,
   /// qui numérote les particules que la LSGS ignore (116 567 codes sans mot
@@ -410,6 +412,15 @@ class EtudePreferences {
   /// viendra se poser sur cette clé.
   static const String defaultVersionCode = 'LSS';
 
+  /// Le dictionnaire du mode DICTIONNAIRE de l'étude de verset — le **Westphal
+  /// 1932** embarqué par défaut, ou un dictionnaire téléchargé depuis la
+  /// Bibliothèque. Même mécanique que [defaultVersionCode] : le choix de
+  /// l'utilisateur se pose sur cette clé, et [verseDictionaryFor] en décide
+  /// à l'ouverture — un fichier supprimé depuis la Bibliothèque retombe sur
+  /// l'embarqué.
+  static const String defaultDictionnaireCode =
+      WestphalVerseDictionary.defaultCode;
+
   /// Emitted after every save so the open scopes rebuild.
   static final ValueNotifier<int> revision = ValueNotifier<int>(0);
 
@@ -417,14 +428,17 @@ class EtudePreferences {
   ReadingTextAlign textAlign;
   ReadingFont readingFont;
   String versionCode;
+  String dictionaryCode;
 
   EtudePreferences({
     double? fontSize,
     this.textAlign = ReadingTextAlign.left,
     this.readingFont = ReadingFont.jakarta,
     String? versionCode,
+    String? dictionaryCode,
   })  : fontSize = fontSize ?? ReadingTextSize.medium.fontSize,
-        versionCode = versionCode ?? defaultVersionCode;
+        versionCode = versionCode ?? defaultVersionCode,
+        dictionaryCode = dictionaryCode ?? defaultDictionnaireCode;
 
   static Future<EtudePreferences> load() async {
     final sp = await SharedPreferences.getInstance();
@@ -438,6 +452,7 @@ class EtudePreferences {
         fallback: ReadingFont.jakarta,
       ),
       versionCode: sp.getString(_kVersionCode) ?? defaultVersionCode,
+      dictionaryCode: sp.getString(_kDictionnaireCode) ?? defaultDictionnaireCode,
     );
   }
 
@@ -447,6 +462,7 @@ class EtudePreferences {
     await sp.setString(_kTextAlign, textAlign.name);
     await sp.setString(_kFontFamily, readingFont.name);
     await sp.setString(_kVersionCode, versionCode);
+    await sp.setString(_kDictionnaireCode, dictionaryCode);
     revision.value++;
   }
 }

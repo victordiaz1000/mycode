@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:bible_app/data/app_preferences.dart';
 import 'package:bible_app/data/fredaw_lexicon.dart';
 import 'package:bible_app/data/strong_lexicon.dart';
 import 'package:bible_app/models/lsgs.dart';
@@ -9,6 +10,7 @@ import 'package:bible_app/screens/etude_verset_screen.dart';
 
 import 'support/fake_fredaw_bundle.dart';
 import 'support/fake_strong_lexicon_bundle.dart';
+import 'support/memory_dictionary_store.dart';
 
 void main() {
   setUp(() {
@@ -30,6 +32,7 @@ void main() {
       LsgsToken(text: 'ABBA ', strong: null),
       LsgsToken(text: 'Dieu.', strong: 'H0430'),
     ],
+    MemoryDictionaryStore? dictionaryStore,
   }) async {
     await tester.pumpWidget(MaterialApp(
       home: EtudeVersetScreen(
@@ -37,6 +40,7 @@ void main() {
         chapter: 1,
         verseNumber: 1,
         tokens: tokens,
+        dictionaryStore: dictionaryStore,
       ),
     ));
     await tester.pumpAndSettle();
@@ -273,6 +277,98 @@ void main() {
 
     // The full-article link is present on the dico card.
     expect(find.text('Ouvrir la fiche complète →'), findsOneWidget);
+  });
+
+  testWidgets('the study sheet offers a choice of dictionary', (tester) async {
+    // Le Glossaire Martin a été téléchargé depuis la Bibliothèque : il doit
+    // rejoindre le Westphal embarqué dans le sélecteur.
+    final store = MemoryDictionaryStore({
+      'GBM': {
+        'entries': {'ABBA': 'Père, en araméen — définition Glossaire Martin.'},
+      },
+    });
+    await pumpScreen(tester, dictionaryStore: store);
+
+    await tester.tap(find.text('Dictionnaire'));
+    await tester.pumpAndSettle();
+
+    // Le dictionnaire en vigueur — le Westphal — tient dans l'AppBar, sous
+    // son code, comme le corpus du lexique tient dans l'autre onglet.
+    expect(find.text('FREDAW'), findsOneWidget);
+    expect(find.byTooltip('Dictionnaire de l\'étude'), findsOneWidget);
+
+    await tester.tap(find.byTooltip('Dictionnaire de l\'étude'));
+    await tester.pumpAndSettle();
+
+    // Deux sortes : l'embarqué, et ce que la Bibliothèque a téléchargé. Le
+    // Strong français n'y est pas — indexé par numéro et non par mot, il ne
+    // pourrait trouver aucun terme dans un verset : sa place est le Lexique.
+    expect(find.text('Dictionnaire de l\'étude'), findsOneWidget);
+    expect(find.text('Westphal 1932'), findsOneWidget);
+    expect(find.text('Glossaire Martin 1744'), findsOneWidget);
+    expect(find.text('Dictionnaire Strong français'), findsNothing);
+
+    await tester.tap(find.text('Glossaire Martin 1744'));
+    await tester.pumpAndSettle();
+
+    // Le verset est reconstruit sur le dictionnaire choisi : c'est sa
+    // définition qui sert la carte, plus celle de Westphal.
+    expect(find.text('GBM'), findsOneWidget);
+    expect(find.text('FREDAW'), findsNothing);
+    expect(find.textContaining('définition Glossaire Martin'), findsOneWidget);
+    expect(find.textContaining('Définition test FreDAW'), findsNothing);
+
+    // Le choix est enregistré, comme le corpus du lexique : il tient d'une
+    // ouverture de l'écran à l'autre.
+    final prefs = await EtudePreferences.load();
+    expect(prefs.dictionaryCode, 'GBM');
+  });
+
+  testWidgets('a downloaded dictionary opens its own full-article screen',
+      (tester) async {
+    final store = MemoryDictionaryStore({
+      'GBM': {
+        'entries': {'ABBA': 'Père, en araméen — définition Glossaire Martin.'},
+      },
+    });
+    await pumpScreen(
+      tester,
+      dictionaryStore: store,
+      tokens: const [LsgsToken(text: 'ABBA', strong: null)],
+    );
+
+    await tester.tap(find.text('Dictionnaire'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Dictionnaire de l\'étude'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Glossaire Martin 1744'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.byTooltip('Fiche complète du dictionnaire'));
+    await tester.pumpAndSettle();
+
+    // La fiche d'un téléchargement porte le nom de son dictionnaire — la
+    // fiche Westphal, elle, ne nomme que FreDAW. C'est aussi la preuve que
+    // la bonne famille d'écran a été ouverte.
+    expect(find.text('Glossaire Martin 1744'), findsWidgets);
+    expect(find.textContaining('définition Glossaire Martin'), findsWidgets);
+  });
+
+  testWidgets(
+      'a dictionary deleted from the Bibliothèque falls back to Westphal',
+      (tester) async {
+    // L'utilisateur avait choisi le Glossaire Martin, puis la Bibliothèque a
+    // retiré le fichier. Le choix reste enregistré — il revient seul quand
+    // le fichier revient — mais l'écran s'ouvre sur ce qui a encore du texte.
+    SharedPreferences.setMockInitialValues({'etude.dictionnaireCode': 'GBM'});
+    await pumpScreen(tester, dictionaryStore: MemoryDictionaryStore());
+
+    await tester.tap(find.text('Dictionnaire'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('FREDAW'), findsOneWidget);
+    expect(find.textContaining('Définition test FreDAW de ABBA'),
+        findsOneWidget);
   });
 
   testWidgets('verse navigation loads the neighbouring verse tokens',
