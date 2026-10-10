@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:bible_app/data/fredaw_lexicon.dart';
 import 'package:bible_app/data/strong_lexicon.dart';
@@ -11,6 +12,8 @@ import 'support/fake_strong_lexicon_bundle.dart';
 
 void main() {
   setUp(() {
+    // L'écran lit `EtudePreferences` (corpus du lexique) dès son ouverture.
+    SharedPreferences.setMockInitialValues({});
     StrongLexicon.useBundle(FakeStrongLexiconBundle());
     FreDawLexicon.useBundle(FakeFreDawBundle());
   });
@@ -53,6 +56,31 @@ void main() {
     // The first Strong card shows the definition of the selected word.
     expect(find.text('Définition - H7225'), findsOneWidget);
     expect(find.textContaining('Définition test de H7225'), findsWidgets);
+  });
+
+  testWidgets('the study sheet offers a choice of Strong corpus',
+      (tester) async {
+    await pumpScreen(tester);
+
+    // Le corpus en vigueur tient dans l'AppBar, sous son code.
+    expect(find.text('LSS'), findsOneWidget);
+    expect(find.byTooltip('Corpus du lexique'), findsOneWidget);
+
+    await tester.tap(find.byTooltip('Corpus du lexique'));
+    await tester.pumpAndSettle();
+
+    // Il n'y en a que deux : ceux que `tokensFor` sait lire. Proposer le
+    // catalogue entier serait trompeur, une version sans ancre Strong
+    // retombant en silence sur la LSGS.
+    expect(find.text('Corpus du lexique'), findsOneWidget);
+    expect(find.text('LSS — Segond Louis + Strong'), findsOneWidget);
+    expect(find.text('LSGS — Segond 1910 + Strongs'), findsOneWidget);
+
+    await tester.tap(find.text('LSGS — Segond 1910 + Strongs'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('LSGS'), findsOneWidget);
+    expect(find.text('LSS'), findsNothing);
   });
 
   testWidgets('tapping a Strong word shows its card', (tester) async {

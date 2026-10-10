@@ -1,9 +1,11 @@
 ﻿import 'package:flutter/material.dart';
 
+import '../data/app_preferences.dart';
 import '../data/book_catalog.dart';
 import '../data/fredaw_lexicon.dart';
 import '../data/lsgs_repository.dart';
 import '../data/strong_lexicon.dart';
+import '../data/version_repository.dart';
 import '../models/lsgs.dart';
 import '../widgets/fiche_text_settings.dart';
 import '../widgets/loading_skeleton.dart';
@@ -149,6 +151,12 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
   ModeEtude _mode = ModeEtude.lexique;
   int _entreeCourante = 0;
 
+  /// Corpus dont viennent les tokens affichés — la **LSS** de Biblia par
+  /// défaut, la LSGS en repli. L'écran le choisit lui-même ; le lecteur
+  /// relit la préférence à chaque navigation, c'est ce champ qui pilote le
+  /// rechargement.
+  String _corpus = EtudePreferences.defaultVersionCode;
+
   late int _verseNumber;
   late List<LsgsToken> _tokens;
 
@@ -174,8 +182,17 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
     super.initState();
     _verseNumber = widget.verseNumber;
     _tokens = widget.tokens;
+    _readCorpus();
     _buildLexique();
     _buildDico();
+  }
+
+  /// Le corpus enregistré — affiché au-dessus de la fiche et relut à chaque
+  /// changement, l'écran pouvant le modifier lui-même.
+  Future<void> _readCorpus() async {
+    final prefs = await EtudePreferences.load();
+    if (!mounted || prefs.versionCode == _corpus) return;
+    setState(() => _corpus = prefs.versionCode);
   }
 
   /// Nombre de cartes affichées côte à côte selon la largeur de l'écran.
@@ -398,6 +415,89 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
     return numbers.indexOf(_verseNumber);
   }
 
+  /// Choix du corpus dont vient la fiche.
+  ///
+  /// Il n'y en a que deux, et c'est [VersionRepository.tokensFor] qui en
+  /// décide : la LSS de Biblia, qui numérote les particules que la LSGS
+  /// ignore, et la LSGS que lit le texte. Proposer le catalogue entier serait
+  /// trompeur — une version sans ancre Strong retomberait en silence sur la
+  /// LSGS, sans que le choix de l'utilisateur ait rien changé.
+  Future<void> _pickCorpus() async {
+    final p = premiumPalette(context);
+    final options = [
+      (
+        code: VersionRepository.lssCode,
+        name: 'LSS — Segond Louis + Strong',
+        note: 'Ancre aussi les particules que la traduction ne rend pas '
+            '(waw, article, préfixes) : c\'est le lexique le plus complet.',
+      ),
+      (
+        code: VersionRepository.lsgsCode,
+        name: 'LSGS — Segond 1910 + Strongs',
+        note: 'Le texte que vous lisez, ancre par ancre.',
+      ),
+    ];
+
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      isScrollControlled: true,
+      backgroundColor: premiumBackground(context),
+      builder: (context) => SafeArea(
+        top: false,
+        child: Container(
+          decoration: premiumSurface(context, radius: 24, depth: 1.3),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                child: Text(
+                  'Corpus du lexique',
+                  style: premiumText(context, 16, FontWeight.w800, p.textDark),
+                ),
+              ),
+              for (final option in options)
+                _CorpusOption(
+                  name: option.name,
+                  note: option.note,
+                  selected: option.code == _corpus,
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    _useCorpus(option.code);
+                  },
+                ),
+              const SizedBox(height: 12),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Enregistre le corpus choisi et recharge le verset courant dessus.
+  Future<void> _useCorpus(String code) async {
+    if (code == _corpus) return;
+    final prefs = await EtudePreferences.load();
+    prefs.versionCode = code;
+    await prefs.save();
+    if (!mounted) return;
+    setState(() {
+      _corpus = code;
+      _entreeCourante = 0;
+      _lexiqueReady = false;
+      _dicoReady = false;
+    });
+    // Le lecteur relit la préférence à chaque navigation : c'est donc le même
+    // chemin que « verset suivant », qui recharge depuis le corpus choisi.
+    final tokens = await widget.loadVerseTokens?.call(_verseNumber);
+    if (!mounted) return;
+    setState(() => _tokens = tokens ?? _tokens);
+    _buildLexique();
+    _buildDico();
+  }
+
   void _stubSnack(String label) {
     ScaffoldMessenger.of(
       context,
@@ -438,7 +538,14 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
             ),
           ),
         ),
-        actions: const [FicheDisplayMenuButton(group: DisplayGroup.etude)],
+        actions: [
+          _CorpusButton(
+            corpus: _corpus,
+            onTap: _pickCorpus,
+            accent: accent,
+          ),
+          const FicheDisplayMenuButton(group: DisplayGroup.etude),
+        ],
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -1133,6 +1240,99 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Le corpus en vigueur, dans l'AppBar de l'étude — tappable pour en changer.
+///
+/// Le libellé est le code de la version (« LSS », « LSGS ») : trois lettres
+/// tiennent dans une barre d'actions où le bouton d'affichage occupe déjà la
+/// droite, et c'est la même écriture que la fiche.
+class _CorpusButton extends StatelessWidget {
+  final String corpus;
+  final VoidCallback onTap;
+  final Color accent;
+
+  const _CorpusButton({
+    required this.corpus,
+    required this.onTap,
+    required this.accent,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      tooltip: 'Corpus du lexique',
+      onPressed: onTap,
+      icon: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          color: accent.withValues(alpha: .14),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Text(
+          corpus,
+          style: premiumText(context, 11, FontWeight.w800, accent),
+        ),
+      ),
+    );
+  }
+}
+
+/// Une ligne du sélecteur de corpus : nom, note, et l'état sélectionné.
+class _CorpusOption extends StatelessWidget {
+  final String name;
+  final String note;
+  final bool selected;
+  final VoidCallback onTap;
+
+  const _CorpusOption({
+    required this.name,
+    required this.note,
+    required this.selected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(
+              selected
+                  ? Icons.check_circle_rounded
+                  : Icons.radio_button_unchecked_rounded,
+              size: 20,
+              color: selected ? p.primary : p.textGrey,
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: premiumText(
+                        context, 14, FontWeight.w700, p.textDark),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    note,
+                    style: premiumText(
+                        context, 12, FontWeight.w500, p.textGrey),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

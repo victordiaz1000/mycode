@@ -1887,12 +1887,18 @@ class _ChapterReaderState extends State<ChapterReader> {
           verseNumber: verseNumber,
           tokens: tokens,
           verseNumbers: verseNumbers,
-          loadVerseTokens: (v) => _versions.tokensFor(
-            corpus,
-            widget.bookIndex,
-            widget.chapter,
-            v,
-          ),
+          loadVerseTokens: (v) async {
+            // Relue à chaque appel, non capturée à l'ouverture : le corpus se
+            // choisit depuis l'écran d'étude lui-même, et la navigation
+            // précédent / suivant doit suivre sans rouvrir l'écran.
+            final etude = await EtudePreferences.load();
+            return _versions.tokensFor(
+              etude.versionCode,
+              widget.bookIndex,
+              widget.chapter,
+              v,
+            );
+          },
           onOpenVerse: _openStrongOccurrence,
         ),
       ),
