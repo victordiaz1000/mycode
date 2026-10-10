@@ -401,6 +401,14 @@ class EtudePreferences {
   static const _kFontSize = 'etude.fontSize';
   static const _kTextAlign = 'etude.textAlign';
   static const _kFontFamily = 'etude.fontFamily';
+  static const _kVersionCode = 'etude.versionCode';
+
+  /// Le corpus Strong par défaut de l'étude de verset — la **LSS** de Biblia,
+  /// qui numérote les particules que la LSGS ignore (116 567 codes sans mot
+  /// français, dont le waw et l'article) : c'est ce qui donne au lexique ses
+  /// codes en plus. La LSGS reste le repli, et le choix de l'utilisateur
+  /// viendra se poser sur cette clé.
+  static const String defaultVersionCode = 'LSS';
 
   /// Emitted after every save so the open scopes rebuild.
   static final ValueNotifier<int> revision = ValueNotifier<int>(0);
@@ -408,12 +416,15 @@ class EtudePreferences {
   double fontSize;
   ReadingTextAlign textAlign;
   ReadingFont readingFont;
+  String versionCode;
 
   EtudePreferences({
     double? fontSize,
     this.textAlign = ReadingTextAlign.left,
     this.readingFont = ReadingFont.jakarta,
-  }) : fontSize = fontSize ?? ReadingTextSize.medium.fontSize;
+    String? versionCode,
+  })  : fontSize = fontSize ?? ReadingTextSize.medium.fontSize,
+        versionCode = versionCode ?? defaultVersionCode;
 
   static Future<EtudePreferences> load() async {
     final sp = await SharedPreferences.getInstance();
@@ -426,6 +437,7 @@ class EtudePreferences {
         sp.getString(_kFontFamily),
         fallback: ReadingFont.jakarta,
       ),
+      versionCode: sp.getString(_kVersionCode) ?? defaultVersionCode,
     );
   }
 
@@ -434,6 +446,7 @@ class EtudePreferences {
     await sp.setDouble(_kFontSize, fontSize);
     await sp.setString(_kTextAlign, textAlign.name);
     await sp.setString(_kFontFamily, readingFont.name);
+    await sp.setString(_kVersionCode, versionCode);
     revision.value++;
   }
 }

@@ -54,15 +54,25 @@ class VersionRepository {
   VersionRepository({LocalRepository? local, LibraryStore? store})
       : _local = local ?? LocalRepository(),
         _store = store ?? LibraryStore(),
-        _lsgs = LsgsRepository();
+        _lsgs = LsgsRepository(),
+        _lss = LsgsRepository.strong();
 
   final LocalRepository _local;
   final LibraryStore _store;
   final LsgsRepository _lsgs;
+  final LsgsRepository _lss;
 
   /// The embedded default version (decision 3).
   static const String embeddedCode = 'BYM';
   static const String lsgsCode = 'LSGS';
+
+  /// Le corpus Strong de Biblia (« Segond Louis + Strong »), embarqué dans
+  /// `assets/bible/lss/` : même schéma que la LSGS, ancres plus denses — il
+  /// numérote les particules que la LSGS ignore (waw, article, préfixes), ce
+  /// qui lui vaut 116 567 codes sans mot français. C'est lui que lit le
+  /// lexique de l'étude de verset ; il n'est pas une version de lecture et ne
+  /// figure donc ni au catalogue ni au sélecteur.
+  static const String lssCode = 'LSS';
 
   /// Livres téléchargés déjà convertis, par `code|index`. [LocalRepository]
   /// garde le même genre de cache pour la BYM : un chapitre est relu plusieurs
@@ -134,8 +144,13 @@ class VersionRepository {
   /// La BYM et les versions téléchargées n'en ont pas : `toBibleBook` aplatit
   /// les tokens en texte nu, et seule la LSGS embarquée porte les numéros.
   Future<List<LsgsToken>> lsgsTokens(
-      int bymIndex, int chapter, int verseNumber) async {
-    final book = await _lsgs.loadBook(bymIndex);
+          int bymIndex, int chapter, int verseNumber) =>
+      _verseTokens(_lsgs, bymIndex, chapter, verseNumber);
+
+  /// Les tokens du verset dans [repo], `const []` quand ce verset n'y est pas.
+  Future<List<LsgsToken>> _verseTokens(LsgsRepository repo, int bymIndex,
+      int chapter, int verseNumber) async {
+    final book = await repo.loadBook(bymIndex);
     for (final ch in book.chapters) {
       if (ch.chapter != chapter) continue;
       for (final verse in ch.verses) {
@@ -143,6 +158,25 @@ class VersionRepository {
       }
     }
     return const [];
+  }
+
+  /// Les tokens du verset dans la corpus [code] (`lssCode` ou `lsgsCode`) —
+  /// ceux que rend le lexique de l'étude de verset.
+  ///
+  /// Le repli sur la LSGS est la règle plutôt que l'exception : LSS manque
+  /// trois versets à la source (Ex 28.42, Nb 25.19, Ac 19.41), et un actif
+  /// absent ou illisible ne doit pas vider d'un coup la fiche — le lexique
+  /// retombe sur le texte que l'on lit.
+  Future<List<LsgsToken>> tokensFor(
+      String code, int bymIndex, int chapter, int verseNumber) async {
+    if (code != lssCode) return lsgsTokens(bymIndex, chapter, verseNumber);
+    try {
+      final tokens = await _verseTokens(_lss, bymIndex, chapter, verseNumber);
+      if (tokens.isNotEmpty) return tokens;
+    } catch (_) {
+      // Actif non embarqué ou illisible : le repli ci-dessous suffit.
+    }
+    return lsgsTokens(bymIndex, chapter, verseNumber);
   }
 
   Future<int> chapterCount(String code, int bymIndex) async =>

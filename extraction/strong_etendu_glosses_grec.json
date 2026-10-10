@@ -1,0 +1,1759 @@
+{
+ "_source": "https://emcitv.com/bible/strong/ — lexique Strong français, numérotation étendue (peuplée, contrairement au lexique embarqué de Biblia)",
+ "_recupere": "2026-10-10",
+ "_plages": {
+  "grec": "G5625-G5799"
+ },
+ "_manquants": [
+  "G5625",
+  "G5626"
+ ],
+ "entrees": {
+  "G5627": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "2138 plus 1 dans une variante de lecture de bas de page",
+   "brut": " / Voix - Active voir / Mode - Indicatif voir / Nombre - 2138 plus 1 dans une variante de lecture de bas de page"
+  },
+  "G5628": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "459",
+   "brut": " / Voix - Active voir / Mode - Impératif voir / Nombre - 459"
+  },
+  "G5629": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "454",
+   "brut": " / Voix - Active voir / Mode - Infinitif voir / Nombre - 454"
+  },
+  "G5630": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Optatif voir",
+   "mode_code": "5793",
+   "nombre": "15",
+   "brut": " / Voix - Active voir / Mode - Optatif voir / Nombre - 15"
+  },
+  "G5631": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "889",
+   "brut": " / Voix - Active voir / Mode - Participe voir / Nombre - 889"
+  },
+  "G5632": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "449",
+   "brut": " / Voix - Active voir / Mode - Subjonctif voir / Nombre - 449"
+  },
+  "G5633": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "260",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Indicatif voir / Nombre - 260"
+  },
+  "G5634": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "7",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Impératif voir / Nombre - 7"
+  },
+  "G5635": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "42",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Infinitif voir / Nombre - 42"
+  },
+  "G5636": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Optatif voir",
+   "mode_code": "5793",
+   "nombre": "18",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Optatif voir / Nombre - 18"
+  },
+  "G5637": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "137",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Participe voir / Nombre - 137"
+  },
+  "G5638": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "66",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Subjonctif voir / Nombre - 66"
+  },
+  "G5639": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "65",
+   "brut": " / Voix - Moyenne voir / Mode - Indicatif voir / Nombre - 65"
+  },
+  "G5640": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "6",
+   "brut": " / Voix - Moyenne voir / Mode - Impératif voir / Nombre - 6"
+  },
+  "G5641": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "9",
+   "brut": " / Voix - Moyenne voir / Mode - Infinitif voir / Nombre - 9"
+  },
+  "G5642": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "19",
+   "brut": " / Voix - Moyenne voir / Mode - Participe voir / Nombre - 19"
+  },
+  "G5643": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "15",
+   "brut": " / Voix - Moyenne voir / Mode - Subjonctif voir / Nombre - 15"
+  },
+  "G5644": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Passive Déponente voir",
+   "voix_code": "5789",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "13",
+   "brut": " / Voix - Passive Déponente voir / Mode - Indicatif voir / Nombre - 13"
+  },
+  "G5645": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Passive Déponente voir",
+   "voix_code": "5789",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "2",
+   "brut": " / Voix - Passive Déponente voir / Mode - Impératif voir / Nombre - 2"
+  },
+  "G5646": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Passive Déponente voir",
+   "voix_code": "5789",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "2",
+   "brut": " / Voix - Passive Déponente voir / Mode - Infinitif voir / Nombre - 2"
+  },
+  "G5647": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Passive Déponente voir",
+   "voix_code": "5789",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "2",
+   "brut": " / Voix - Passive Déponente voir / Mode - Subjonctif voir / Nombre - 2"
+  },
+  "G5648": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "72",
+   "brut": " / Voix - Passive voir / Mode - Indicatif voir / Nombre - 72"
+  },
+  "G5649": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "9",
+   "brut": " / Voix - Passive voir / Mode - Impératif voir / Nombre - 9"
+  },
+  "G5650": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "4",
+   "brut": " / Voix - Passive voir / Mode - Infinitif voir / Nombre - 4"
+  },
+  "G5651": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "32 plus un dans un bas de page en variante de lecture",
+   "brut": " / Voix - Passive voir / Mode - Participe voir / Nombre - 32 plus un dans un bas de page en variante de lecture"
+  },
+  "G5652": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "20",
+   "brut": " / Voix - Passive voir / Mode - Subjonctif voir / Nombre - 20"
+  },
+  "G5653": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Pas de voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "0",
+   "brut": " / Voix - Pas de voix indiquée voir / Mode - Impératif voir / Nombre - 0"
+  },
+  "G5654": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Pas de voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "1",
+   "brut": " / Voix - Pas de voix indiquée voir / Mode - Participe voir / Nombre - 1"
+  },
+  "G5655": {
+   "nom": "Temps - Aoriste Second",
+   "radical": "Temps - Aoriste Second",
+   "radical_code": "5780",
+   "voix": "Pas de voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "2",
+   "brut": " / Voix - Pas de voix indiquée voir / Mode - Subjonctif voir / Nombre - 2"
+  },
+  "G5656": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "2319",
+   "brut": " / Voix - Active voir / Mode - Indicatif voir / Nombre - 2319"
+  },
+  "G5657": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "376",
+   "brut": " / Voix - Active voir / Mode - Impératif voir / Nombre - 376"
+  },
+  "G5658": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "516",
+   "brut": " / Voix - Active voir / Mode - Infinitif voir / Nombre - 516"
+  },
+  "G5659": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Optatif voir",
+   "mode_code": "5793",
+   "nombre": "19",
+   "brut": " / Voix - Active voir / Mode - Optatif voir / Nombre - 19"
+  },
+  "G5660": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "714",
+   "brut": " / Voix - Active voir / Mode - Participe voir / Nombre - 714"
+  },
+  "G5661": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "512",
+   "brut": " / Voix - Active voir / Mode - Subjonctif voir / Nombre - 512"
+  },
+  "G5662": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "352",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Indicatif voir / Nombre - 352"
+  },
+  "G5663": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "54",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Impératif voir / Nombre - 54"
+  },
+  "G5664": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "37",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Infinitif voir / Nombre - 37"
+  },
+  "G5665": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Optatif voir",
+   "mode_code": "5793",
+   "nombre": "1",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Optatif voir / Nombre - 1"
+  },
+  "G5666": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "88",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Participe voir / Nombre - 88"
+  },
+  "G5667": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "55",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Subjonctif voir / Nombre - 55"
+  },
+  "G5668": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "88",
+   "brut": " / Voix - Moyenne voir / Mode - Indicatif voir / Nombre - 88"
+  },
+  "G5669": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "30",
+   "brut": " / Voix - Moyenne voir / Mode - Impératif voir / Nombre - 30"
+  },
+  "G5670": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "29",
+   "brut": " / Voix - Moyenne voir / Mode - Infinitif voir / Nombre - 29"
+  },
+  "G5671": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "61",
+   "brut": " / Voix - Moyenne voir / Mode - Participe voir / Nombre - 61"
+  },
+  "G5672": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "43",
+   "brut": " / Voix - Moyenne voir / Mode - Subjonctif voir / Nombre - 43"
+  },
+  "G5673": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Moyenne ou Passive Déponente voir",
+   "voix_code": "5790",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "5",
+   "brut": " / Voix - Moyenne ou Passive Déponente voir / Mode - Indicatif voir / Nombre - 5"
+  },
+  "G5674": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Moyenne ou Passive Déponente voir",
+   "voix_code": "5790",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "2",
+   "brut": " / Voix - Moyenne ou Passive Déponente voir / Mode - Participe voir / Nombre - 2"
+  },
+  "G5675": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Passive Déponente voir",
+   "voix_code": "5789",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "79",
+   "brut": " / Voix - Passive Déponente voir / Mode - Indicatif voir / Nombre - 79"
+  },
+  "G5676": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Passive Déponente voir",
+   "voix_code": "5789",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "29",
+   "brut": " / Voix - Passive Déponente voir / Mode - Impératif voir / Nombre - 29"
+  },
+  "G5677": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Passive Déponente voir",
+   "voix_code": "5789",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "7",
+   "brut": " / Voix - Passive Déponente voir / Mode - Infinitif voir / Nombre - 7"
+  },
+  "G5678": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Passive Déponente voir",
+   "voix_code": "5789",
+   "mode": "Optatif voir",
+   "mode_code": "5793",
+   "nombre": "1",
+   "brut": " / Voix - Passive Déponente voir / Mode - Optatif voir / Nombre - 1"
+  },
+  "G5679": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Passive Déponente voir",
+   "voix_code": "5789",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "164",
+   "brut": " / Voix - Passive Déponente voir / Mode - Participe voir / Nombre - 164"
+  },
+  "G5680": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Passive Déponente voir",
+   "voix_code": "5789",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "15",
+   "brut": " / Voix - Passive Déponente voir / Mode - Subjonctif voir / Nombre - 15"
+  },
+  "G5681": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "602",
+   "brut": " / Voix - Passive voir / Mode - Indicatif voir / Nombre - 602"
+  },
+  "G5682": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "40",
+   "brut": " / Voix - Passive voir / Mode - Impératif voir / Nombre - 40"
+  },
+  "G5683": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "159",
+   "brut": " / Voix - Passive voir / Mode - Infinitif voir / Nombre - 159"
+  },
+  "G5684": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Optatif voir",
+   "mode_code": "5793",
+   "nombre": "5",
+   "brut": " / Voix - Passive voir / Mode - Optatif voir / Nombre - 5"
+  },
+  "G5685": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "215",
+   "brut": " / Voix - Passive voir / Mode - Participe voir / Nombre - 215"
+  },
+  "G5686": {
+   "nom": "Temps - Aoriste",
+   "radical": "Temps - Aoriste",
+   "radical_code": "5777",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "219",
+   "brut": " / Voix - Passive voir / Mode - Subjonctif voir / Nombre - 219"
+  },
+  "G5687": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur Second",
+   "radical_code": "5781",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "0",
+   "brut": " / Voix - Active voir / Mode - Indicatif voir / Nombre - 0"
+  },
+  "G5688": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur Second",
+   "radical_code": "5781",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "2",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Indicatif voir / Nombre - 2"
+  },
+  "G5689": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur Second",
+   "radical_code": "5781",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "1",
+   "brut": " / Voix - Moyenne voir / Mode - Indicatif voir / Nombre - 1"
+  },
+  "G5690": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur Second",
+   "radical_code": "5781",
+   "voix": "Passive Déponente voir",
+   "voix_code": "5789",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "4",
+   "brut": " / Voix - Passive Déponente voir / Mode - Indicatif voir / Nombre - 4"
+  },
+  "G5691": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur Second",
+   "radical_code": "5781",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "26",
+   "brut": " / Voix - Passive voir / Mode - Indicatif voir / Nombre - 26"
+  },
+  "G5692": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "814",
+   "brut": " / Voix - Active voir / Mode - Indicatif voir / Nombre - 814"
+  },
+  "G5693": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "1",
+   "brut": " / Voix - Active voir / Mode - Infinitif voir / Nombre - 1"
+  },
+  "G5694": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "11",
+   "brut": " / Voix - Active voir / Mode - Participe voir / Nombre - 11"
+  },
+  "G5695": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "271",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Indicatif voir / Nombre - 271"
+  },
+  "G5696": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "1",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Infinitif voir / Nombre - 1"
+  },
+  "G5697": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "3",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Participe voir / Nombre - 3"
+  },
+  "G5698": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "33",
+   "brut": " / Voix - Moyenne voir / Mode - Indicatif voir / Nombre - 33"
+  },
+  "G5699": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Moyenne ou Passive Déponente voir",
+   "voix_code": "5790",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "8",
+   "brut": " / Voix - Moyenne ou Passive Déponente voir / Mode - Indicatif voir / Nombre - 8"
+  },
+  "G5700": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Passive Déponente voir",
+   "voix_code": "5789",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "7",
+   "brut": " / Voix - Passive Déponente voir / Mode - Indicatif voir / Nombre - 7"
+  },
+  "G5701": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "251",
+   "brut": " / Voix - Passive voir / Mode - Indicatif voir / Nombre - 251"
+  },
+  "G5702": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "1",
+   "brut": " / Voix - Passive voir / Mode - Participe voir / Nombre - 1"
+  },
+  "G5703": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "1",
+   "brut": " / Voix - Passive voir / Mode - Subjonctif voir / Nombre - 1"
+  },
+  "G5704": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Pas de Voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "188",
+   "brut": " / Voix - Pas de Voix indiquée voir / Mode - Indicatif voir / Nombre - 188"
+  },
+  "G5705": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Pas de Voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "5",
+   "brut": " / Voix - Pas de Voix indiquée voir / Mode - Infinitif voir / Nombre - 5"
+  },
+  "G5706": {
+   "nom": "Temps - Futur Second",
+   "radical": "Temps - Futur",
+   "radical_code": "5776",
+   "voix": "Pas de Voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "2",
+   "brut": " / Voix - Pas de Voix indiquée voir / Mode - Participe voir / Nombre - 2"
+  },
+  "G5707": {
+   "nom": "Temps - Imparfait",
+   "radical": "Temps - Imparfait",
+   "radical_code": "5775",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "855",
+   "brut": " / Voix - Active voir / Mode - Indicatif voir / Nombre - 855"
+  },
+  "G5708": {
+   "nom": "Temps - Imparfait",
+   "radical": "Temps - Imparfait",
+   "radical_code": "5775",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "1",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Indicatif voir / Nombre - 1"
+  },
+  "G5709": {
+   "nom": "Temps - Imparfait",
+   "radical": "Temps - Imparfait",
+   "radical_code": "5775",
+   "voix": "Soit Moyenne, soit Passive voir",
+   "voix_code": "5787",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "1",
+   "brut": " / Voix - Soit Moyenne, soit Passive voir / Mode - Indicatif voir / Nombre - 1"
+  },
+  "G5710": {
+   "nom": "Temps - Imparfait",
+   "radical": "Temps - Imparfait",
+   "radical_code": "5775",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "34",
+   "brut": " / Voix - Moyenne voir / Mode - Indicatif voir / Nombre - 34"
+  },
+  "G5711": {
+   "nom": "Temps - Imparfait",
+   "radical": "Temps - Imparfait",
+   "radical_code": "5775",
+   "voix": "Moyenne ou Passive Déponente voir",
+   "voix_code": "5790",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "184",
+   "brut": " / Voix - Moyenne ou Passive Déponente voir / Mode - Indicatif voir / Nombre - 184"
+  },
+  "G5712": {
+   "nom": "Temps - Imparfait",
+   "radical": "Temps - Imparfait",
+   "radical_code": "5775",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "83",
+   "brut": " / Voix - Passive voir / Mode - Indicatif voir / Nombre - 83"
+  },
+  "G5713": {
+   "nom": "Temps - Imparfait",
+   "radical": "Temps - Imparfait",
+   "radical_code": "5775",
+   "voix": "Pas de Voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "532",
+   "brut": " / Voix - Pas de Voix indiquée voir / Mode - Indicatif voir / Nombre - 532"
+  },
+  "G5714": {
+   "nom": "Temps - Plus que Parfait Second",
+   "radical": "Temps - Plus que Parfait Second",
+   "radical_code": "5783",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "1",
+   "brut": " / Voix - Active voir / Mode - Indicatif voir / Nombre - 1"
+  },
+  "G5715": {
+   "nom": "Temps - Plus que Parfait",
+   "radical": "Temps - Plus que Parfait",
+   "radical_code": "5779",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "83",
+   "brut": "voir / Voix - Active voir / Mode - Indicatif voir / Nombre - 83"
+  },
+  "G5716": {
+   "nom": "Temps - Plus que Parfait",
+   "radical": "Temps - Plus que Parfait",
+   "radical_code": "5779",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "1",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Indicatif voir / Nombre - 1"
+  },
+  "G5717": {
+   "nom": "Temps - Plus que Parfait",
+   "radical": "Temps - Plus que Parfait",
+   "radical_code": "5779",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "1",
+   "brut": " / Voix - Moyenne voir / Mode - Indicatif voir / Nombre - 1"
+  },
+  "G5718": {
+   "nom": "Temps - Plus que Parfait",
+   "radical": "Temps - Plus que Parfait",
+   "radical_code": "5779",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "7",
+   "brut": " / Voix - Passive voir / Mode - Indicatif voir / Nombre - 7"
+  },
+  "G5719": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "3019",
+   "brut": " / Voix - Active voir / Mode - Indicatif voir / Nombre - 3019"
+  },
+  "G5720": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "592",
+   "brut": " / Voix - Active voir / Mode - Impératif voir / Nombre - 592"
+  },
+  "G5721": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "647",
+   "brut": " / Voix - Active voir / Mode - Infinitif voir / Nombre - 647"
+  },
+  "G5722": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Optatif voir",
+   "mode_code": "5793",
+   "nombre": "8",
+   "brut": " / Voix - Active voir / Mode - Optatif voir / Nombre - 8"
+  },
+  "G5723": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "2549",
+   "brut": " / Voix - Active voir / Mode - Participe voir / Nombre - 2549"
+  },
+  "G5724": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Impersonnel voir",
+   "mode_code": "5797",
+   "nombre": "1",
+   "brut": " / Voix - Active voir / Mode - Impersonnel voir / Nombre - 1"
+  },
+  "G5725": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "352",
+   "brut": " / Voix - Active voir / Mode - Subjonctif voir / Nombre - 352"
+  },
+  "G5726": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "1",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Participe voir / Nombre - 1"
+  },
+  "G5727": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Soit Moyenne, soit Passive voir",
+   "voix_code": "5787",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "10",
+   "brut": " / Voix - Soit Moyenne, soit Passive voir / Mode - Indicatif voir / Nombre - 10"
+  },
+  "G5728": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Soit Moyenne, soit Passive voir",
+   "voix_code": "5787",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "6",
+   "brut": " / Voix - Soit Moyenne, soit Passive voir / Mode - Impératif voir / Nombre - 6"
+  },
+  "G5729": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Soit Moyenne, soit Passive voir",
+   "voix_code": "5787",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "2",
+   "brut": " / Voix - Soit Moyenne, soit Passive voir / Mode - Infinitif voir / Nombre - 2"
+  },
+  "G5730": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Soit Moyenne, soit Passive voir",
+   "voix_code": "5787",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "13",
+   "brut": " / Voix - Soit Moyenne, soit Passive voir / Mode - Participe voir / Nombre - 13"
+  },
+  "G5731": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "69",
+   "brut": " / Voix - Moyenne voir / Mode - Indicatif voir / Nombre - 69"
+  },
+  "G5732": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "41",
+   "brut": " / Voix - Moyenne voir / Mode - Impératif voir / Nombre - 41"
+  },
+  "G5733": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "30",
+   "brut": " / Voix - Moyenne voir / Mode - Infinitif voir / Nombre - 30"
+  },
+  "G5734": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "111",
+   "brut": " / Voix - Moyenne voir / Mode - Participe voir / Nombre - 111"
+  },
+  "G5735": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "7",
+   "brut": " / Voix - Moyenne voir / Mode - Subjonctif voir / Nombre - 7"
+  },
+  "G5736": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Moyenne ou Passive Déponente voir",
+   "voix_code": "5790",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "618",
+   "brut": " / Voix - Moyenne ou Passive Déponente voir / Mode - Indicatif voir / Nombre - 618"
+  },
+  "G5737": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Moyenne ou Passive Déponente voir",
+   "voix_code": "5790",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "152",
+   "brut": " / Voix - Moyenne ou Passive Déponente voir / Mode - Impératif voir / Nombre - 152"
+  },
+  "G5738": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Moyenne ou Passive Déponente voir",
+   "voix_code": "5790",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "109",
+   "brut": " / Voix - Moyenne ou Passive Déponente voir / Mode - Infinitif voir / Nombre - 109"
+  },
+  "G5739": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Moyenne ou Passive Déponente voir",
+   "voix_code": "5790",
+   "mode": "Optatif voir",
+   "mode_code": "5793",
+   "nombre": "4",
+   "brut": " / Voix - Moyenne ou Passive Déponente voir / Mode - Optatif voir / Nombre - 4"
+  },
+  "G5740": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Moyenne ou Passive Déponente Voir5790",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "544",
+   "brut": " / Voix - Moyenne ou Passive Déponente Voir5790 / Mode - Participe voir / Nombre - 544"
+  },
+  "G5741": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Moyenne ou Passive Déponente voir",
+   "voix_code": "5790",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "40",
+   "brut": " / Voix - Moyenne ou Passive Déponente voir / Mode - Subjonctif voir / Nombre - 40"
+  },
+  "G5742": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Passive Déponente voir",
+   "voix_code": "5789",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "2",
+   "brut": " / Voix - Passive Déponente voir / Mode - Participe voir / Nombre - 2"
+  },
+  "G5743": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "271",
+   "brut": " / Voix - Passive voir / Mode - Indicatif voir / Nombre - 271"
+  },
+  "G5744": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "48",
+   "brut": " / Voix - Passive voir / Mode - Impératif voir / Nombre - 48"
+  },
+  "G5745": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "105",
+   "brut": " / Voix - Passive voir / Mode - Infinitif voir / Nombre - 105"
+  },
+  "G5746": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "360",
+   "brut": " / Voix - Passive voir / Mode - Participe voir / Nombre - 360"
+  },
+  "G5747": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "18",
+   "brut": " / Voix - Passive voir / Mode - Subjonctif voir / Nombre - 18"
+  },
+  "G5748": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Pas de Voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "1612",
+   "brut": " / Voix - Pas de Voix indiquée voir / Mode - Indicatif voir / Nombre - 1612"
+  },
+  "G5749": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Pas de Voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "23",
+   "brut": " / Voix - Pas de Voix indiquée voir / Mode - Impératif voir / Nombre - 23"
+  },
+  "G5750": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Pas de Voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "135",
+   "brut": " / Voix - Pas de Voix indiquée voir / Mode - Infinitif voir / Nombre - 135"
+  },
+  "G5751": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Pas de Voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Optatif voir",
+   "mode_code": "5793",
+   "nombre": "12",
+   "brut": " / Voix - Pas de Voix indiquée voir / Mode - Optatif voir / Nombre - 12"
+  },
+  "G5752": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Pas de Voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "186",
+   "brut": " / Voix - Pas de Voix indiquée voir / Mode - Participe voir / Nombre - 186"
+  },
+  "G5753": {
+   "nom": "Temps - Présent",
+   "radical": "Temps - Présent",
+   "radical_code": "5774",
+   "voix": "Pas de Voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "68",
+   "brut": " / Voix - Pas de Voix indiquée voir / Mode - Subjonctif voir / Nombre - 68"
+  },
+  "G5754": {
+   "nom": "Temps - Parfait Second",
+   "radical": "Temps - Parfait Second",
+   "radical_code": "5782",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "97",
+   "brut": " / Voix - Active voir / Mode - Indicatif voir / Nombre - 97"
+  },
+  "G5755": {
+   "nom": "Temps - Parfait Second",
+   "radical": "Temps - Parfait Second",
+   "radical_code": "5782",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "8",
+   "brut": " / Voix - Active voir / Mode - Infinitif voir / Nombre - 8"
+  },
+  "G5756": {
+   "nom": "Temps - Parfait Second",
+   "radical": "Temps - Parfait Second",
+   "radical_code": "5782",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "43",
+   "brut": " / Voix - Active voir / Mode - Participe voir / Nombre - 43"
+  },
+  "G5757": {
+   "nom": "Temps - Parfait Second",
+   "radical": "Temps - Parfait Second",
+   "radical_code": "5782",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "1",
+   "brut": " / Voix - Passive voir / Mode - Participe voir / Nombre - 1"
+  },
+  "G5758": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "516",
+   "brut": " / Voix - Active voir / Mode - Indicatif voir / Nombre - 516"
+  },
+  "G5759": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "1",
+   "brut": " / Voix - Active voir / Mode - Impératif voir / Nombre - 1"
+  },
+  "G5760": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "30",
+   "brut": " / Voix - Active voir / Mode - Infinitif voir / Nombre - 30"
+  },
+  "G5761": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "193",
+   "brut": " / Voix - Active voir / Mode - Participe voir / Nombre - 193"
+  },
+  "G5762": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Active voir",
+   "voix_code": "5784",
+   "mode": "Subjonctif voir",
+   "mode_code": "5792",
+   "nombre": "10",
+   "brut": " / Voix - Active voir / Mode - Subjonctif voir / Nombre - 10"
+  },
+  "G5763": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Moyenne Déponente voir",
+   "voix_code": "5788",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "1",
+   "brut": " / Voix - Moyenne Déponente voir / Mode - Indicatif voir / Nombre - 1"
+  },
+  "G5764": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "1",
+   "brut": " / Voix - Moyenne voir / Mode - Indicatif voir / Nombre - 1"
+  },
+  "G5765": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Moyenne voir",
+   "voix_code": "5785",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "5",
+   "brut": " / Voix - Moyenne voir / Mode - Participe voir / Nombre - 5"
+  },
+  "G5766": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Moyenne ou Passive Déponente voir",
+   "voix_code": "5790",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "19",
+   "brut": " / Voix - Moyenne ou Passive Déponente voir / Mode - Indicatif voir / Nombre - 19"
+  },
+  "G5767": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Moyenne ou Passive Déponente voir",
+   "voix_code": "5790",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "0",
+   "brut": " / Voix - Moyenne ou Passive Déponente voir / Mode - Infinitif voir / Nombre - 0"
+  },
+  "G5768": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Moyenne ou Passive Déponente voir",
+   "voix_code": "5790",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "4",
+   "brut": " / Voix - Moyenne ou Passive Déponente voir / Mode - Participe voir / Nombre - 4"
+  },
+  "G5769": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Indicatif voir",
+   "mode_code": "5791",
+   "nombre": "215",
+   "brut": " / Voix - Passive voir / Mode - Indicatif voir / Nombre - 215"
+  },
+  "G5770": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "3",
+   "brut": " / Voix - Passive voir / Mode - Impératif voir / Nombre - 3"
+  },
+  "G5771": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Infinitif voir",
+   "mode_code": "5795",
+   "nombre": "9",
+   "brut": " / Voix - Passive voir / Mode - Infinitif voir / Nombre - 9"
+  },
+  "G5772": {
+   "nom": "Temps - Parfait",
+   "radical": "Temps - Parfait",
+   "radical_code": "5778",
+   "voix": "Passive voir",
+   "voix_code": "5786",
+   "mode": "Participe voir",
+   "mode_code": "5796",
+   "nombre": "463",
+   "brut": " / Voix - Passive voir / Mode - Participe voir / Nombre - 463"
+  },
+  "G5773": {
+   "nom": "Temps - Pas de Temps indiqué",
+   "temps": "Pas de Temps indiqué voir",
+   "temps_code": "5799",
+   "voix": "Pas de Voix indiquée voir",
+   "voix_code": "5799",
+   "mode": "Impératif voir",
+   "mode_code": "5794",
+   "nombre": "22",
+   "brut": "Temps - Pas de Temps indiqué voir / Voix - Pas de Voix indiquée voir / Mode - Impératif voir / Nombre - 22"
+  },
+  "G5774": {
+   "nom": "Temps - Présent",
+   "temps": "Présent",
+   "brut": "Temps - Présent"
+  },
+  "G5775": {
+   "nom": "Temps - Imparfait",
+   "texte": "L'imparfait représente généralement une action continue, linéaire ou répétée. Là où le présent dirait plutôt : \"ils sont en train de Demander\", l'imparfait dira : \"ils demandent depuis un moment\". Avec le verbe \"être\", l'imparfait perd cette notion de continuité ou de répétition, il se limite à indiquer le passé.",
+   "brut": "L'imparfait représente généralement une action continue, linéaire / ou répétée. Là où le présent dirait plutôt : \"ils sont en train de / Demander\", l'imparfait dira : \"ils demandent depuis un moment\". / Avec le verbe \"être\", l'imparfait perd cette notion de continuité / ou de répétition, il se limite à indiquer le passé."
+  },
+  "G5776": {
+   "nom": "Temps - Futur",
+   "texte": "Le futur indique une action qui n'est pas encore réalisée. Il correspond à notre futur français.",
+   "brut": "Le futur indique une action qui n'est pas encore réalisée. Il / correspond à notre futur français."
+  },
+  "G5777": {
+   "nom": "Temps - Aoriste",
+   "texte": "L'aoriste insiste sur une action ponctuelle; le concept du verbe ne fait pas référence au passé, présent, ou futur. Il n'y a pas d'équivalence en français, bien qu'il soit g énéralement bien traduit par un passé simple. Les grammairiens ont subdivisé l'action décrite par l'aoriste en de nombreuses catégories. La plus commune étant celle d'une action ayant commencé à un certain moment (aoriste \"inceptif\") ou s'étant terminée à un certain moment (aoriste \"cumulatif\"), ou n'existant qu'à un moment précis (aoriste \"ponctuel\"). Les autres cas peuvent être consultés dans une grammaire de grec. Le lecteur français n'a en général pas besoin de se préoccuper de ces nuances, que nos traductions ne peuvent rendre que d'une façon imparfaite. Dans la majorité des cas l'utilisation du passé simple suffit pour rendre correctement l'action.",
+   "brut": "L'aoriste insiste sur une action ponctuelle; le concept du verbe ne fait pas référence au passé, présent, ou futur. Il n'y a pas d'équivalence en français, bien qu'il soit g énéralement bien traduit par un passé simple. Les grammairiens ont subdivisé l'action décrite par l'aoriste en de nombreuses catégories. La plus commune étant celle d'une action ayant commencé à un certain moment (aoriste \"inceptif\") ou s'étant terminée à un certain moment (aoriste \"cumulatif\"), ou n'existant qu'à un moment précis (aoriste \"ponctuel\"). Les autres cas peuvent être consultés dans une grammaire de grec. Le lecteur français n'a en général pas besoin de se préoccuper de ces nuances, que nos traductions ne peuvent rendre que d'une façon imparfaite. Dans la majorité des cas l'utilisation du passé simple suffit pour rendre correctement l'action."
+  },
+  "G5778": {
+   "nom": "Temps - Parfait",
+   "texte": "Le parfait indique une action terminée dans le passé, une fois pour toutes, et elle n'a pas besoin d'être répétée. Le dernier cri de Jésus sur la croix, TETELESTAI (\"tout est accompli!\" est le meilleur exemple du parfait : l'expiation a été accomplie, complètement, une fois pour toutes. Certains verbes ont gardé de vieilles formes de parfait mais ont un sens de temps passé normal. C'est le cas de \"eidw\" (en voyant) ou \"oida\" (connaissant), mais ce sont des exceptions qui ne changent pas la connotation ci-dessus.",
+   "brut": "Le parfait indique une action terminée dans le passé, une fois pour toutes, et elle n'a pas besoin d'être répétée. Le dernier cri de Jésus sur la croix, TETELESTAI (\"tout est accompli!\" est le meilleur exemple du parfait : l'expiation a été accomplie, complètement, une fois pour toutes. Certains verbes ont gardé de vieilles formes de parfait mais ont un sens de temps passé normal. C'est le cas de \"eidw\" (en voyant) ou \"oida\" (connaissant), mais ce sont des exceptions qui ne changent pas la connotation ci-dessus."
+  },
+  "G5779": {
+   "nom": "Temps - Plus que Parfait",
+   "texte": "Temps rarement utilisé en grec. Il indique une action ayant déjà eu lieu, et totalement réalisée dans le passé. Pour sa part, le parfait indique la réalisation d'une action au moment où elle est Décrite. Le plus que parfait grec n'est pas toujours bien rendu par le \"passé composé\" du français (\"il a fini\")",
+   "brut": "Temps rarement utilisé en grec. Il indique une action ayant déjà / eu lieu, et totalement réalisée dans le passé. Pour sa part, le / parfait indique la réalisation d'une action au moment où elle est / Décrite. / Le plus que parfait grec n'est pas toujours bien rendu par le / \"passé composé\" du français (\"il a fini\")"
+  },
+  "G5780": {
+   "nom": "Temps - Aoriste Second",
+   "texte": "Cet \"Aoriste second\" est identique en sens et traduction à l'aoriste normal, ou \"aoriste premier\". Il s'en différencie uniquement dans la forme ou la prononciation, ce qui n'affecte en rien les traductions en français. Voir \"Aoriste\" 5777",
+   "brut": "Cet \"Aoriste second\" est identique en sens et traduction à l'aoriste normal, ou \"aoriste premier\". Il s'en différencie uniquement dans la forme ou la prononciation, ce qui n'affecte en rien les traductions en français. Voir \"Aoriste\" 5777"
+  },
+  "G5781": {
+   "nom": "Temps - Futur Second",
+   "texte": "Le \"futur second\" est identique en sens au futur normal, ou \"futur premier\". Il s'en différencie uniquement dans la forme ou la prononciation, ce qui n'affecte en rien les traductions en français. \"Futur\" 5776",
+   "brut": "Le \"futur second\" est identique en sens au futur normal, ou \"futur premier\". Il s'en différencie uniquement dans la forme ou la prononciation, ce qui n'affecte en rien les traductions en français. / \"Futur\" 5776"
+  },
+  "G5782": {
+   "nom": "Temps - Parfait Second",
+   "texte": "Le \"parfait second\" est identique en sens au parfait normal, ou \"parfait premier\", et s'en différencie dans la forme ou la prononciation, ce qui n'a aucun effet sur nos traductions. Voir \"Parfait\" 5778",
+   "brut": "Le \"parfait second\" est identique en sens au parfait normal, ou \"parfait premier\", et s'en différencie dans la forme ou la prononciation, ce qui n'a aucun effet sur nos traductions. Voir \"Parfait\" 5778"
+  },
+  "G5783": {
+   "nom": "Temps - Plus que Parfait Second",
+   "texte": "Le plus que parfait second est identique en sens à celui du plus que parfait normal, ou \"premier\". Il ne s'en différencie que dans la forme ou la prononciation, et n'a aucun effet sur les traductions en français. Voir \"Plus que Parfait\" 5779",
+   "brut": "Le plus que parfait second est identique en sens à celui du plus que parfait normal, ou \"premier\". Il ne s'en différencie que dans la forme ou la prononciation, et n'a aucun effet sur les traductions en français. Voir \"Plus que Parfait\" 5779"
+  },
+  "G5784": {
+   "nom": "Voix - Active",
+   "texte": "La \"voix active\" indique que le sujet est celui qui réalise l'action. Exemple : dans la phrase \"le garçon lance la balle\", le garçon est celui qui accomplit l'action.",
+   "brut": "La \"voix active\" indique que le sujet est celui qui réalise l'action. Exemple : dans la phrase \"le garçon lance la balle\", le garçon est celui qui accomplit l'action."
+  },
+  "G5785": {
+   "nom": "Voix - Moyenne",
+   "texte": "La \"voix moyenne\" indique que le sujet accomplit une action sur lui-même (action réfléchie) ou pour son propre intérêt. Exemple : \"le garçon se soigna\". De nombreux verbes n'apparaissent qu'à la voix moyenne en grec et sont cependant traduits en français comme ayant un sens actif; ils sont appelés \"verbes déponents\", et n'ont donc pas la valeur réfléchie.",
+   "brut": "La \"voix moyenne\" indique que le sujet accomplit une action sur lui-même (action réfléchie) ou pour son propre intérêt. Exemple : \"le garçon se soigna\". De nombreux verbes n'apparaissent qu'à la voix moyenne en grec et sont cependant traduits en français comme ayant un sens actif; ils sont appelés \"verbes déponents\", et n'ont donc pas la valeur réfléchie."
+  },
+  "G5786": {
+   "nom": "Voix- Passive",
+   "texte": "La \"voix passive\" indique que le sujet subit l'action. Exemple : dans la phrase \"le garçon a été touché par la balle\", le garçon subit l'action.",
+   "brut": "La \"voix passive\" indique que le sujet subit l'action. Exemple : dans la phrase \"le garçon a été touché par la balle\", le garçon subit l'action."
+  },
+  "G5787": {
+   "nom": "Voix -",
+   "texte": "De nombreux verbes \"déponents\" peuvent avoir une forme moyenne ou passive. On les traduit en général par la voix active, et gardent parfois leur sens moyen ou passif.",
+   "brut": "De nombreux verbes \"déponents\" peuvent avoir une forme moyenne ou passive. On les traduit en général par la voix active, et gardent parfois leur sens moyen ou passif."
+  },
+  "G5788": {
+   "nom": "Voix - Moyenne Déponente",
+   "texte": "les formes \"moyennes déponentes\" sont presque toujours traduites par la voix active. Voir \"Voix Active\" 5784",
+   "brut": "les formes \"moyennes déponentes\" sont presque toujours traduites par la voix active. Voir \"Voix Active\" 5784"
+  },
+  "G5789": {
+   "nom": "Voix - Passive Déponente",
+   "texte": "Les formes \"passives déponentes\" sont presque toujours traduites par la voix passive. Voir \"Voix Passive\" 5786",
+   "brut": "Les formes \"passives déponentes\" sont presque toujours traduites par la voix passive. Voir \"Voix Passive\" 5786"
+  },
+  "G5790": {
+   "nom": "Voix- Moyenne",
+   "texte": "Les formes \"moyennes ou passives déponentes\" sont presque toujours traduites par la voix active. Voir \"Voix Active\" 5784",
+   "brut": "Les formes \"moyennes ou passives déponentes\" sont presque toujours traduites par la voix active. Voir \"Voix Active\" 5784"
+  },
+  "G5791": {
+   "nom": "Mode - Indicatif",
+   "texte": "Le mode indicatif marque un simple état de fait. Si une action se produit réellement, ou est arrivée, ou arrivera, elle est rendue par le mode indicatif.",
+   "brut": "Le mode indicatif marque un simple état de fait. Si une action se produit réellement, ou est arrivée, ou arrivera, elle est rendue par le mode indicatif."
+  },
+  "G5792": {
+   "nom": "Mode - Subjonctif",
+   "texte": "Le \"mode subjonctif\" est le mode de la probabilité et de la possibilité. L'action décrite peut ou non se produire, en fonction des circonstances. Les phrases conditionnelles du troisième type (\"ean\" + le subjonctif ) sont toutes de ce type, de même que de nombreux ordres soumis à des conditions, telles celles commençant par \"ina\".",
+   "brut": "Le \"mode subjonctif\" est le mode de la probabilité et de la possibilité. L'action décrite peut ou non se produire, en fonction des circonstances. Les phrases conditionnelles du troisième type (\"ean\" + le subjonctif ) sont toutes de ce type, de même que de nombreux ordres soumis à des conditions, telles celles commençant par \"ina\"."
+  },
+  "G5793": {
+   "nom": "Mode - Optatif Optionnel",
+   "texte": "Le mode \"optatif\" s'emploie généralement dans les conditions de \"quatrième type\", qui expriment un désir, un souhait pour qu'une action dont on ignore le résultat puisse se réaliser. Ce mode est très rarement utilisé dans le Nouveau Testament, car il n'était presque plus en usage à cette époque. Dans quelques cas, le mode optionnel est utilisé sans clause conditionnelle, pour exprimer le très fort désir de voir se réaliser l'action considérée. Ceci correspond à ce qui apparaît Dans la phrase \"mh genoito\", traduit par \"A Dieu ne plaise!\" (Luc 20.16)",
+   "brut": "Le mode \"optatif\" s'emploie généralement dans les conditions de \"quatrième type\", qui expriment un désir, un souhait pour qu'une action dont on ignore le résultat puisse se réaliser. Ce mode est très rarement utilisé dans le Nouveau Testament, car il n'était presque plus en usage à cette époque. Dans quelques cas, le mode optionnel est utilisé sans clause conditionnelle, pour exprimer le très fort désir de voir se réaliser l'action considérée. Ceci correspond à ce qui apparaît Dans la phrase \"mh genoito\", traduit par \"A Dieu ne plaise!\" (Luc 20.16)"
+  },
+  "G5794": {
+   "nom": "Mode - Impératif",
+   "texte": "Le mode \"impératif\" exprime, comme en français, un ordre, qui doit être exécuté par celui qui le reçoit, de la part de l'autorité qui le lui commande. Ainsi, la phrase de Jésus : \"Va, repends-toi, et crois en la bonne nouvelle\" (Marc 1:15), n'est pas du tout une \"invitation\", mais un commandement absolu, demandant une obéissance totale de la part de tous les auditeurs.",
+   "brut": "Le mode \"impératif\" exprime, comme en français, un ordre, qui doit être exécuté par celui qui le reçoit, de la part de l'autorité qui le lui commande. Ainsi, la phrase de Jésus : \"Va, repends-toi, et crois en la bonne nouvelle\" (Marc 1:15), n'est pas du tout une \"invitation\", mais un commandement absolu, demandant une obéissance totale de la part de tous les auditeurs."
+  },
+  "G5795": {
+   "nom": "Mode - Infinitif",
+   "texte": "Le mode \"infinitif\" grec correspond dans la majorité des cas à l'infinitif de la langue française. Il peut s'utiliser comme un nom (\"Mieux vaut entrer boiteux ...\" ou pour indiquer un but ou un résultat (\"...pour lui donner gloire\").",
+   "brut": "Le mode \"infinitif\" grec correspond dans la majorité des cas à l'infinitif de la langue française. Il peut s'utiliser comme un nom (\"Mieux vaut entrer boiteux ...\" ou pour indiquer un but ou un résultat (\"...pour lui donner gloire\")."
+  },
+  "G5796": {
+   "nom": "Mode - Participe",
+   "texte": "Le \"participe\" grec correspond dans la majorité des cas au participe présent ou passé de notre langue. Il peut s'employer soit comme un verbe, soit comme un nom, et il est souvent désigné par \"nom verbal\".",
+   "brut": "Le \"participe\" grec correspond dans la majorité des cas au participe présent ou passé de notre langue. Il peut s'employer soit comme un verbe, soit comme un nom, et il est souvent désigné par \"nom verbal\"."
+  },
+  "G5797": {
+   "nom": "Mode - Impersonnel",
+   "texte": "Le mode \"impersonnel\" n'est utilisé que pour quelques verbes qui se conjuguent différemment. Le plus commun étant \"dei\", souvent traduit par \"il faut\" ou \"on doit\".",
+   "brut": "Le mode \"impersonnel\" n'est utilisé que pour quelques verbes qui se conjuguent différemment. Le plus commun étant \"dei\", souvent traduit par \"il faut\" ou \"on doit\"."
+  },
+  "G5798": {
+   "nom": "Mode - Participe à Sens Actif",
+   "texte": "Cette forme reflète un participe grec qui suppose qu'un ordre de réaliser une action est implicite, même s'il n'est pas clairement ou directement exprimé.",
+   "brut": "Cette forme reflète un participe grec qui suppose qu'un ordre de / réaliser une action est implicite, même s'il n'est pas clairement / ou directement exprimé."
+  },
+  "G5799": {
+   "nom": "Pas de Temps ni de Mode Indiqué",
+   "texte": "C'est le cas où \"le Nouveau Lexique Analytique Grec\" de Perschbacher n'indique ni le temps, ni le mode.Dans la plupart des cas on peut supposer qu'il s'agit de l'indicatif présent, que la voix est \"active\" tout spécialement lorsqu'il s'agit d'un ordre (Impératif). \"Temps Présent\" 5774 \"Voix Active\" 5784",
+   "brut": "C'est le cas où \"le Nouveau Lexique Analytique Grec\" de Perschbacher n'indique ni le temps, ni le mode.Dans la plupart des cas on peut supposer qu'il s'agit de l'indicatif / présent, que la voix est \"active\" tout spécialement lorsqu'il s'agit d'un ordre (Impératif). / \"Temps Présent\" 5774 / \"Voix Active\" 5784"
+  }
+ }
+}

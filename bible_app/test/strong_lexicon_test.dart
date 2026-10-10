@@ -49,11 +49,70 @@ void main() {
     expect(definition.strong, 'H0853');
     expect(definition.definition, isNotEmpty);
 
-    // Ce que le lexique ne porte pas le reste inconnu : H8818 n'y est pas —
-    // c'est l'étiquette de conduit « ►Hi » que l'ATI mettait à la place du
-    // numéro, pas un numéro de concordance (le corpus ne l'émet plus depuis
-    // la correction du parseur).
-    expect(await lexicon.contains('H8818'), isFalse);
+    // Ce que le lexique ne porte pas le reste inconnu. La plage hébreu
+    // étendue, elle, est désormais couverte — H8818 y est « Afel », un
+    // binyan araméen ; l'ATI l'écrivait à la place du numéro, et le corpus
+    // ne l'émet plus depuis la correction du parseur. La plage grecque ne
+    // l'est que partiellement : G5625 reste muet.
+    expect(await lexicon.contains('H8818'), isTrue);
+    expect(await lexicon.contains('G5625'), isFalse);
+  });
+
+  test('an extended code answers with the form it names', () async {
+    final lexicon = StrongLexicon.instance;
+
+    // Le lexique standard s'arrête à H8674, mais Biblia numérote jusqu'à
+    // 8853 — son aide l'annonce. Ces codes ne sont pas des lexies : ils
+    // décrivent une forme, un binyan croisé avec un mode. La fiche le dit
+    // au lieu de renvoyer la notice « hors lexique ».
+    final h8799 = await lexicon.lookup('H8799');
+    expect(h8799.strong, 'H8799');
+    expect(h8799.introuvable, isFalse);
+    expect(h8799.etendu, isTrue);
+    expect(h8799.definition, contains('Radical Qal, mode imparfait'));
+    expect(h8799.partOfSpeech, isNotEmpty);
+
+    // Le grec de la même famille : un temps et un mode, pas une lexie.
+    final g5719 = await lexicon.lookup('G5719');
+    expect(g5719.etendu, isTrue);
+    expect(g5719.definition, contains('Temps Présent, mode indicatif'));
+
+    // Les fiches de forme restent hors de la liste des lexies : chercher
+    // « père » ne remonte pas un binyan.
+    expect(lexicon.formesCount, greaterThan(300));
+    expect(lexicon.size, greaterThan(13000));
+  });
+
+  test('a code the SWORD modules lack still gets a lexicon fiche', () async {
+    final lexicon = StrongLexicon.instance;
+
+    // G2994 (Λαοδικεύς) et G2995 (λάρυγξ) : cités par la LSS comme par la
+    // LSGS, absentes des modules SWORD. La fusion les construit, mais la
+    // fusion complète ne peut pas être embarquée — elles viennent donc
+    // d'un fichier à part, qui ne porte que celles-là.
+    final g2994 = await lexicon.lookup('G2994');
+    expect(g2994.introuvable, isFalse);
+    expect(g2994.lemma, 'Λαοδικεύς');
+    expect(g2994.definition, contains('Laodicée'));
+    expect(g2994.senses, isNotEmpty);
+
+    final g2995 = await lexicon.lookup('G2995');
+    expect(g2995.introuvable, isFalse);
+    expect(g2995.lemma, 'λάρυγξ');
+    expect(g2995.definition, contains('gorge'));
+    expect(g2995.outline, isNotEmpty,
+        reason: 'les sens numérotés de la source restent une arborescence');
+
+    // Ce sont des lexies : elles ne portent pas l'intitulé « Forme
+    // grammaticale » des codes de forme, et elles entrent dans la recherche
+    // comme toutes les autres.
+    expect(g2994.etendu, isFalse);
+    expect(g2995.etendu, isFalse);
+    expect(
+      (await lexicon.search('Laodicéen')).map((entry) => entry.strong),
+      contains('G2994'),
+    );
+    expect(await lexicon.contains('G2995'), isTrue);
   });
 
   test('the gloss the exporter used to drop is back as a signification',
@@ -129,9 +188,22 @@ void main() {
   });
 
   test('an unknown code answers a readable placeholder', () async {
-    final result = await StrongLexicon.instance.lookup('H99999');
-    expect(result.strong, 'H99999');
-    expect(result.definition, contains('non disponible'));
+    final lexicon = StrongLexicon.instance;
+
+    // H99999 est au-delà du Strong standard : c'est un code de la
+    // numérotation étendue de Biblia, et la fiche l'explique — particule non
+    // rendue en français, aucune définition nulle part — plutôt que de rester
+    // muette.
+    final etendu = await lexicon.lookup('H99999');
+    expect(etendu.strong, 'H99999');
+    expect(etendu.introuvable, isTrue);
+    expect(etendu.definition, contains('numérotation étendue'));
+
+    // Un code qui n'est pas de facture Strong : la phrase lisible suffit.
+    final autre = await lexicon.lookup('X0042');
+    expect(autre.strong, 'X0042');
+    expect(autre.introuvable, isTrue);
+    expect(autre.definition, contains('aucune définition'));
   });
 
   test('a token carrying two Strong codes answers the first one known',

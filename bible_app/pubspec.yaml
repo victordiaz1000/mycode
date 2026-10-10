@@ -84,6 +84,12 @@ flutter:
   assets:
     - assets/bible/bym/
     - assets/bible/lsgs/
+    # Corpus Strong « Segond Louis + Strong » (Biblia, LSS) : source du lexique
+    # de l'étude de verset — ses ancres couvrent les particules que la LSGS ne
+    # numérote pas (waw, article, préfixes…), d'où 116 567 codes sans mot
+    # français. Écrit par `python extraction/extract_lgs_lss.py --assets LSS`,
+    # compact (26 Mo) : seuls les tokens y passent, pas de blancs.
+    - assets/bible/lss/
     - assets/lexicon/
     - assets/themes/
     # Les 37 pages du glossaire de l'ATI (renvois `n12`, `d12`, `r2`, `abr`).

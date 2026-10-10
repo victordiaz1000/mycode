@@ -25,6 +25,13 @@ Sg1910-csv.zip
 # pas les 14 000 pages intermédiaires, seulement le risque de diverger.
 extraction/HEB/
 extraction/GRC/
+# Même logique pour LGS/LSS : `python extraction/extract_lgs_lss.py --rapport`
+# reconstruit `extraction/LGS/` (66 JSON, 34 Mo) et `extraction/LSS/` (66 JSON,
+# 41 Mo) depuis LGS.xml et LSS.xml. Le script et le rapport portent
+# l'information — les deux jeux de JSON ne font que rejouer l'extraction.
+extraction/LGS/
+extraction/LSS/
+extraction/__pycache__/
 # La fusion n'est pas embarquée : elle sort dans extraction/ pour rester hors du
 # bundle (le pubspec y liste assets/lexicon/ en entier). Régénérable.
 extraction/strong_fr_v2.json

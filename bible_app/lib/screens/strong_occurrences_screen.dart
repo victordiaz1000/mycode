@@ -143,7 +143,7 @@ class _OccurrenceVerseText extends StatelessWidget {
   }
 }
 
-/// The « Voir plus » destination: the books of the LSGS corpus that contain a
+/// The « Voir plus » destination: the books of the Strong corpus that contain a
 /// Strong code, each with the number of verses bearing it. Tapping a book
 /// opens [StrongBookOccurrencesScreen], the verse-by-verse list of that book.
 class StrongOccurrencesScreen extends StatelessWidget {
@@ -257,7 +257,7 @@ class _StrongBookOccurrencesScreenState
   }
 
   Future<void> _load() async {
-    final book = await LsgsRepository().loadBook(widget.bookIndex);
+    final book = await LsgsRepository.strong().loadBook(widget.bookIndex);
     final tokens = <String, List<LsgsToken>>{};
     for (final chapter in book.chapters) {
       for (final verse in chapter.verses) {

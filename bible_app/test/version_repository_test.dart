@@ -177,6 +177,63 @@ void main() {
     });
   });
 
+  group('tokensFor', () {
+    test('serves the LSS corpus, whose anchors go further than the LSGS',
+        () async {
+      final lss =
+          await repository.tokensFor(VersionRepository.lssCode, 1, 1, 1);
+      expect(lss, isNotEmpty);
+
+      // Genèse 1.1 en LSS porte des particules sans mot français — H8804, le
+      // waw consécutif, et H0853, le marqueur d'accusatif — que la LSGS ne
+      // numérote pas : c'est tout l'objet de ce corpus.
+      final sansMot = lss
+          .where((t) => (t.strong ?? '').isNotEmpty && t.text.trim().isEmpty)
+          .map((t) => t.strong)
+          .toList();
+      expect(sansMot, contains('H8804'));
+      expect(sansMot, contains('H0853'));
+
+      final lsgs =
+          await repository.tokensFor(VersionRepository.lsgsCode, 1, 1, 1);
+      expect(
+        lsgs
+            .where((t) => (t.strong ?? '').isNotEmpty && t.text.trim().isEmpty)
+            .toList(),
+        isEmpty,
+        reason: 'la LSGS embarquée n\'a aucun jeton sans texte',
+      );
+    });
+
+    test('any code but the LSS answers the LSGS', () async {
+      final lsgs =
+          await repository.tokensFor(VersionRepository.lsgsCode, 1, 1, 1);
+      final autre = await repository.tokensFor('ZZZ', 1, 1, 1);
+      expect(
+        autre.map((t) => t.text).join(),
+        lsgs.map((t) => t.text).join(),
+      );
+    });
+
+    test('the verses LSS lacks at the source fall back to the LSGS', () async {
+      // Le marqueur de verset manque dans la source : Ex 28.42 et Nb 25.19
+      // existent en LSGS, et le lexique doit pouvoir s'ouvrir dessus.
+      for (final (book, chapter, verse) in [(2, 28, 42), (4, 25, 19)]) {
+        final tokens = await repository.tokensFor(
+            VersionRepository.lssCode, book, chapter, verse);
+        expect(tokens, isNotEmpty,
+            reason: 'le lexique doit s\'ouvrir sur $book $chapter:$verse');
+      }
+
+      // Ac 19.41 : ni LSS ni LSGS n'y porte un seul jeton — ni erreur, ni
+      // prétention d'un verset que le corpus n'a pas.
+      expect(
+        await repository.tokensFor(VersionRepository.lssCode, 44, 19, 41),
+        isEmpty,
+      );
+    });
+  });
+
   group('the format of a version', () {
     test('only the BYM schema is said to carry notes', () {
       expect(versionByCode('BYM')!.carriesNotes, isTrue);

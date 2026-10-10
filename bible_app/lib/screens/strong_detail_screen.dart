@@ -15,7 +15,7 @@ import 'strong_occurrences_screen.dart';
 /// The Strong fiche (maquette `ecran_detail_fiche_strong.dart`): the word in
 /// a header card with its language and part-of-speech, the short and complete
 /// definitions, then the verses where the code actually appears in the
-/// embedded LSGS corpus — the first 5 as a preview, « Voir plus » opening the
+/// embedded LSS corpus — the first 5 as a preview, « Voir plus » opening the
 /// books that contain the word.
 class StrongDetailScreen extends StatefulWidget {
   final StrongDefinition strong;
@@ -80,7 +80,7 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
     final occurrences = await StrongOccurrenceIndex.instance.occurrences(
       widget.strong.strong,
     );
-    final repository = LsgsRepository();
+    final repository = LsgsRepository.strong();
     final tokens = <int, List<LsgsToken>>{};
     final preview = occurrences.take(_limite).toList();
     for (var i = 0; i < preview.length; i++) {
@@ -536,7 +536,7 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
       padding: const EdgeInsets.all(16),
       decoration: premiumSurface(context, radius: 14),
       child: Text(
-        'Aucune occurrence dans la LSGS embarquée.',
+        'Aucune occurrence dans la LSS embarquée.',
         style: premiumText(
           context,
           13,

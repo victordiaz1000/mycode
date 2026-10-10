@@ -2,7 +2,7 @@ import '../models/lsgs.dart';
 import 'book_catalog.dart';
 import 'lsgs_repository.dart';
 
-/// A single verse in the LSGS corpus where a Strong code appears.
+/// A single verse in the Strong corpus where a code appears.
 class StrongOccurrence {
   final int bookIndex;
   final int chapter;
@@ -19,8 +19,13 @@ class StrongOccurrence {
   });
 }
 
-/// In-memory, lazily-built index of every Strong code over the embedded LSGS
+/// In-memory, lazily-built index of every Strong code over the embedded LSS
 /// corpus: `strong code → verses where it appears`.
+///
+/// The LSS and not the LSGS, because that is what the study reads
+/// (`EtudePreferences.versionCode`) and because its anchors number 446 codes
+/// the LSGS does not have — the particles of the extended numbering, whose
+/// most frequent (H8799, ×19 883 verses) would answer « 0 occurrence » here.
 ///
 /// The 66 books are scanned once on first access and kept as a map of packed
 /// references (nothing heavier — the verse text itself is read on demand by
@@ -68,7 +73,7 @@ class StrongOccurrenceIndex {
   Future<void> _build() async {
     if (_building) return;
     _building = true;
-    final repository = _repositoryOverride ?? LsgsRepository();
+    final repository = _repositoryOverride ?? LsgsRepository.strong();
     final byCode = <String, List<StrongOccurrence>>{};
     try {
       for (var book = 1; book <= _books; book++) {
@@ -105,7 +110,7 @@ class StrongOccurrenceIndex {
   }
 
   /// Verses where [strong] appears, in biblical order. Empty when the code is
-  /// absent from the LSGS corpus or the index is being built (callers await
+  /// absent from the corpus or the index is being built (callers await
   /// [isBuilt] through [ensureBuilt] first via [occurrences]).
   Future<List<StrongOccurrence>> occurrences(String strong) async {
     await _ensureBuilt();

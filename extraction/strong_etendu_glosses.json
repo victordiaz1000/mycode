@@ -1,0 +1,1501 @@
+{
+ "_source": "https://emcitv.com/bible/strong/ — lexique Strong français, plage étendue H8675-H8853 (peuplée, contrairement au lexique embarqué de Biblia)",
+ "_recupere": "2026-10-10",
+ "_plage": "H8675-H8853",
+ "_manquants": [],
+ "entrees": {
+  "H8675": {
+   "nom": "Kethiv de Lecture variante"
+  },
+  "H8676": {
+   "nom": "Qere de Lecture note de marge"
+  },
+  "H8677": {
+   "nom": "Numéros Strong Synonymes"
+  },
+  "H8678": {
+   "nom": "Qere de Lectures Multiples p"
+  },
+  "H8679": {
+   "nom": "Non traduit",
+   "texte": "Mot Hébreu non traduit dans la version Louis Segond",
+   "brut": "Mot Hébreu non traduit dans la version Louis Segond"
+  },
+  "H8680": {
+   "nom": "Radical - Afel",
+   "radical": "Afel",
+   "radical_code": "8817",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "nombre": "5",
+   "brut": " / Mode - Impératif / Nombre - 5"
+  },
+  "H8681": {
+   "nom": "Radical - Afel",
+   "radical": "Afel",
+   "radical_code": "8817",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Abiytuwb",
+   "terme_code": "36",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8682": {
+   "nom": "Radical - Afel",
+   "radical": "Afel",
+   "radical_code": "8817",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "terme": "Ebyown",
+   "terme_code": "34",
+   "brut": " / Mode - Infinitif / Nombre -"
+  },
+  "H8683": {
+   "nom": "Radical - Afel",
+   "radical": "Afel",
+   "radical_code": "8817",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Abiyda`",
+   "terme_code": "28",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8684": {
+   "nom": "Radical - Afel",
+   "radical": "Afel",
+   "radical_code": "8817",
+   "mode": "Parfait ou \"passé \"",
+   "mode_code": "8816",
+   "terme": "Abel Mayim",
+   "terme_code": "66",
+   "brut": " / Mode - Parfait ou \"passé \" / Nombre -"
+  },
+  "H8685": {
+   "nom": "Radical - Hifil",
+   "radical": "Hifil",
+   "radical_code": "8818",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "terme": "Arzah",
+   "terme_code": "731",
+   "brut": " / Mode - Impératif / Nombre -"
+  },
+  "H8686": {
+   "nom": "Radical - Hifil",
+   "radical": "Hifil",
+   "radical_code": "8818",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Maggephah",
+   "terme_code": "4046",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8687": {
+   "nom": "Radical - Hifil",
+   "radical": "Hifil",
+   "radical_code": "8818",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "terme": "Bo`az",
+   "terme_code": "1162",
+   "brut": " / Mode - Infinitif / Nombre -"
+  },
+  "H8688": {
+   "nom": "Radical - Hifil",
+   "radical": "Hifil",
+   "radical_code": "8818",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Athah",
+   "terme_code": "857",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8689": {
+   "nom": "Radical - Hifil",
+   "radical": "Hifil",
+   "radical_code": "8818",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "terme": "Chatsowr Chadattah",
+   "terme_code": "2675",
+   "brut": " / Mode - Parfait / Nombre -"
+  },
+  "H8690": {
+   "nom": "Radical - Hitpael",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "terme": "Abanah",
+   "terme_code": "71",
+   "brut": " / Mode - Impératif / Nombre -"
+  },
+  "H8691": {
+   "nom": "Radical - Hitpael",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Ammiyts",
+   "terme_code": "533",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8692": {
+   "nom": "Radical - Hitpael",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "terme": "Edayin",
+   "terme_code": "116",
+   "brut": " / Mode - Infinitif / Nombre -"
+  },
+  "H8693": {
+   "nom": "Radical - Hitpael",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Adoniy-Tsedeq",
+   "terme_code": "139",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8694": {
+   "nom": "Radical - Hitpael",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "terme": "Ahab",
+   "terme_code": "157",
+   "brut": " / Mode - Parfait / Nombre -"
+  },
+  "H8695": {
+   "nom": "Radical - Hitpalel",
+   "radical": "Hitpalel",
+   "radical_code": "8820",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "nombre": "1",
+   "brut": " / Mode - Impératif / Nombre - 1"
+  },
+  "H8696": {
+   "nom": "Radical - Hitpalel",
+   "radical": "Hitpalel",
+   "radical_code": "8820",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "nombre": "1",
+   "brut": " / Mode - Imparfait / Nombre - 1"
+  },
+  "H8697": {
+   "nom": "Radical - Hitpalpel",
+   "radical": "Hitpalpel",
+   "radical_code": "8821",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "nombre": "2",
+   "brut": " / Mode - Impératif / Nombre - 2"
+  },
+  "H8698": {
+   "nom": "Radical - Hitpalpel",
+   "radical": "Hitpalpel",
+   "radical_code": "8821",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Abdan",
+   "terme_code": "12",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8699": {
+   "nom": "Radical - Hitpalpel",
+   "radical": "Hitpalpel",
+   "radical_code": "8821",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "2",
+   "brut": " / Mode - Infinitif / Nombre - 2"
+  },
+  "H8700": {
+   "nom": "Radical - Hitpalpel",
+   "radical": "Hitpalpel",
+   "radical_code": "8821",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "nombre": "3",
+   "brut": " / Mode - Participe / Nombre - 3"
+  },
+  "H8701": {
+   "nom": "Radical - Hitpalpel",
+   "radical": "Hitpalpel",
+   "radical_code": "8821",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "5",
+   "brut": " / Mode - Parfait / Nombre - 5"
+  },
+  "H8702": {
+   "nom": "Radical - Hitpeil",
+   "radical": "Hitpeil",
+   "radical_code": "8822",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "1",
+   "brut": " / Mode - Parfait / Nombre - 1"
+  },
+  "H8703": {
+   "nom": "Radical - Hitpoel Hitpoal",
+   "radical": "Hitpoal",
+   "radical_code": "8823",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "nombre": "3",
+   "brut": " / Mode - Impératif / Nombre - 3"
+  },
+  "H8704": {
+   "nom": "Radical - Hitpoel",
+   "radical": "Hitpoal",
+   "radical_code": "8823",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Obdan",
+   "terme_code": "13",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8705": {
+   "nom": "Radical - Hitpoel",
+   "radical": "Hitpoal",
+   "radical_code": "8823",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "3",
+   "brut": " / Mode - Infinitif / Nombre - 3"
+  },
+  "H8706": {
+   "nom": "Radical - Hitpoel",
+   "radical": "Hitpoal",
+   "radical_code": "8823",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "nombre": "5",
+   "brut": " / Mode - Participe / Nombre - 5"
+  },
+  "H8707": {
+   "nom": "Radical - Hitpoel",
+   "radical": "Hitpoal",
+   "radical_code": "8823",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "2",
+   "brut": " / Mode - Parfait / Nombre - 2"
+  },
+  "H8708": {
+   "nom": "Radical - Hitpolel",
+   "radical": "Hitpolel",
+   "radical_code": "8824",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "nombre": "8",
+   "brut": " / Mode - Impératif / Nombre - 8"
+  },
+  "H8709": {
+   "nom": "Radical - Hitpolel",
+   "radical": "Hitpolel",
+   "radical_code": "8824",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Abiy-`albown",
+   "terme_code": "45",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8710": {
+   "nom": "Radical - Hitpolel",
+   "radical": "Hitpolel",
+   "radical_code": "8824",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "2",
+   "brut": " / Mode - Infinitif / Nombre - 2"
+  },
+  "H8711": {
+   "nom": "Radical - Hitpolel",
+   "radical": "Hitpolel",
+   "radical_code": "8824",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Abaddown",
+   "terme_code": "11",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8712": {
+   "nom": "Radical - Hitpolel",
+   "radical": "Hitpolel",
+   "radical_code": "8824",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "9",
+   "brut": " / Mode - Parfait / Nombre - 9"
+  },
+  "H8713": {
+   "nom": "Radical - Hofal",
+   "radical": "Hofal",
+   "radical_code": "8825",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "nombre": "2",
+   "brut": " / Mode - Impératif / Nombre - 2"
+  },
+  "H8714": {
+   "nom": "Radical - Hofal",
+   "radical": "Hofal",
+   "radical_code": "8825",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Owb",
+   "terme_code": "178",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8715": {
+   "nom": "Radical - Hofal",
+   "radical": "Hofal",
+   "radical_code": "8825",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "terme": "Obdan",
+   "terme_code": "13",
+   "brut": " / Mode - Infinitif / Nombre -"
+  },
+  "H8716": {
+   "nom": "Radical - Hofal",
+   "radical": "Hofal",
+   "radical_code": "8825",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Adown",
+   "terme_code": "113",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8717": {
+   "nom": "Radical - Hofal",
+   "radical": "Hofal",
+   "radical_code": "8825",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "terme": "Edom",
+   "terme_code": "123",
+   "brut": " / Mode - Parfait / Nombre -"
+  },
+  "H8718": {
+   "nom": "Radical - Hotpaal",
+   "radical": "Hotpaal",
+   "radical_code": "8826",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "2",
+   "brut": " / Mode - Infinitif / Nombre - 2"
+  },
+  "H8719": {
+   "nom": "Radical - Hotpaal",
+   "radical": "Hotpaal",
+   "radical_code": "8826",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "6",
+   "brut": " / Mode - Parfait / Nombre - 6"
+  },
+  "H8720": {
+   "nom": "Radical - Ishtafel",
+   "radical": "Ishtafel",
+   "radical_code": "8827",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "nombre": "3",
+   "brut": " / Mode - Imparfait / Nombre - 3"
+  },
+  "H8721": {
+   "nom": "Radical - Itpael",
+   "radical": "Itpael",
+   "radical_code": "8828",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Abah",
+   "terme_code": "14",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8722": {
+   "nom": "Radical - Itpael",
+   "radical": "Itpael",
+   "radical_code": "8828",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "1",
+   "brut": " / Mode - Infinitif / Nombre - 1"
+  },
+  "H8723": {
+   "nom": "Radical - Itpael",
+   "radical": "Itpael",
+   "radical_code": "8828",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Abah",
+   "terme_code": "14",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8724": {
+   "nom": "Radical - Itpael",
+   "radical": "Itpael",
+   "radical_code": "8828",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "6",
+   "brut": " / Mode - Parfait / Nombre - 6"
+  },
+  "H8725": {
+   "nom": "Radical - Itpeal",
+   "radical": "Itpeal",
+   "radical_code": "8829",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Abah",
+   "terme_code": "14",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8726": {
+   "nom": "Radical - Itpeal",
+   "radical": "Itpeal",
+   "radical_code": "8829",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "4",
+   "brut": " / Mode - Infinitif / Nombre - 4"
+  },
+  "H8727": {
+   "nom": "Radical - Itpeal",
+   "radical": "Itpeal",
+   "radical_code": "8829",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "nombre": "9",
+   "brut": " / Mode - Participe / Nombre - 9"
+  },
+  "H8728": {
+   "nom": "Radical - Itpeal",
+   "radical": "Itpeal",
+   "radical_code": "8829",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "terme": "Abdan",
+   "terme_code": "12",
+   "brut": " / Mode - Parfait / Nombre -"
+  },
+  "H8729": {
+   "nom": "Radical - Itpeel",
+   "radical": "Itpeel",
+   "radical_code": "8830",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "nombre": "7",
+   "brut": " / Mode - Imparfait / Nombre - 7"
+  },
+  "H8730": {
+   "nom": "Radical - Itpeel",
+   "radical": "Itpeel",
+   "radical_code": "8830",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "1",
+   "brut": " / Mode - Parfait / Nombre - 1"
+  },
+  "H8731": {
+   "nom": "Radical - Itpeil",
+   "radical": "Itpeil",
+   "radical_code": "8831",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "nombre": "5",
+   "brut": " / Mode - Imparfait / Nombre - 5"
+  },
+  "H8732": {
+   "nom": "Radical - Itpeil",
+   "radical": "Itpeil",
+   "radical_code": "8831",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "nombre": "2",
+   "brut": " / Mode - Participe / Nombre - 2"
+  },
+  "H8733": {
+   "nom": "Radical - Itpolel",
+   "radical": "Itpolel",
+   "radical_code": "8832",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "nombre": "1",
+   "brut": " / Mode - Imparfait / Nombre - 1"
+  },
+  "H8734": {
+   "nom": "Radical - Nifal",
+   "radical": "Nifal",
+   "radical_code": "8833",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "terme": "Adalya'",
+   "terme_code": "118",
+   "brut": " / Mode - Impératif / Nombre -"
+  },
+  "H8735": {
+   "nom": "Radical - Nifal",
+   "radical": "Nifal",
+   "radical_code": "8833",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Ga`al",
+   "terme_code": "1602",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8736": {
+   "nom": "Radical - Nifal",
+   "radical": "Nifal",
+   "radical_code": "8833",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "terme": "Azen",
+   "terme_code": "240",
+   "brut": " / Mode - Infinitif / Nombre -"
+  },
+  "H8737": {
+   "nom": "Radical - Nifal",
+   "radical": "Nifal",
+   "radical_code": "8833",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Eshed",
+   "terme_code": "793",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8738": {
+   "nom": "Radical - Nifal",
+   "radical": "Nifal",
+   "radical_code": "8833",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "terme": "Gediyah",
+   "terme_code": "1429",
+   "brut": " / Mode - Parfait / Nombre -"
+  },
+  "H8739": {
+   "nom": "Radical - Nitpael",
+   "radical": "Nitpael",
+   "radical_code": "8834",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "2",
+   "brut": " / Mode - Parfait / Nombre - 2"
+  },
+  "H8740": {
+   "nom": "Radical - Pael",
+   "radical": "Pael",
+   "radical_code": "8835",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "nombre": "2",
+   "brut": " / Mode - Impératif / Nombre - 2"
+  },
+  "H8741": {
+   "nom": "Radical - Pael",
+   "radical": "Pael",
+   "radical_code": "8835",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Abeh",
+   "terme_code": "15",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8742": {
+   "nom": "Radical - Pael",
+   "radical": "Pael",
+   "radical_code": "8835",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "8",
+   "brut": " / Mode - Infinitif / Nombre - 8"
+  },
+  "H8743": {
+   "nom": "Radical - Pael",
+   "radical": "Pael",
+   "radical_code": "8835",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Ibchah",
+   "terme_code": "19",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8744": {
+   "nom": "Radical - Pael",
+   "radical": "Pael",
+   "radical_code": "8835",
+   "mode": "Participe Passif",
+   "mode_code": "8815",
+   "nombre": "1",
+   "brut": " / Mode - Participe Passif / Nombre - 1"
+  },
+  "H8745": {
+   "nom": "Radical - Pael",
+   "radical": "Pael",
+   "radical_code": "8835",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "terme": "Abiy'acaph",
+   "terme_code": "23",
+   "brut": " / Mode - Parfait / Nombre -"
+  },
+  "H8746": {
+   "nom": "Radical - Palpal",
+   "radical": "Palpal",
+   "radical_code": "8836",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "nombre": "1",
+   "brut": " / Mode - Imparfait / Nombre - 1"
+  },
+  "H8747": {
+   "nom": "Radical - Peal",
+   "radical": "Peal",
+   "radical_code": "8837",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "terme": "Abiy'acaph",
+   "terme_code": "23",
+   "brut": " / Mode - Impératif / Nombre -"
+  },
+  "H8748": {
+   "nom": "Radical - Peal",
+   "radical": "Peal",
+   "radical_code": "8837",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Eder",
+   "terme_code": "145",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8749": {
+   "nom": "Radical - Peal",
+   "radical": "Peal",
+   "radical_code": "8837",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "terme": "Abiyhuwd",
+   "terme_code": "31",
+   "brut": " / Mode - Infinitif / Nombre -"
+  },
+  "H8750": {
+   "nom": "Radical - peal",
+   "radical": "Peal",
+   "radical_code": "8837",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Adoniyram",
+   "terme_code": "141",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8751": {
+   "nom": "Radical - peal",
+   "radical": "Peal",
+   "radical_code": "8837",
+   "mode": "Participe Actif",
+   "mode_code": "8814",
+   "terme": "Eben ha-`ezer",
+   "terme_code": "72",
+   "brut": " / Mode - Participe Actif / Nombre -"
+  },
+  "H8752": {
+   "nom": "Radical - peal",
+   "radical": "Peal",
+   "radical_code": "8837",
+   "mode": "Participe Passif",
+   "mode_code": "8815",
+   "terme": "Abiyshuwr",
+   "terme_code": "51",
+   "brut": " / Mode - Participe Passif / Nombre -"
+  },
+  "H8753": {
+   "nom": "Radical - peal",
+   "radical": "Peal",
+   "radical_code": "8837",
+   "mode": "Participe Peil",
+   "mode_code": "8815",
+   "terme": "Abdan",
+   "terme_code": "12",
+   "brut": " / Mode - Participe Peil / Nombre -"
+  },
+  "H8754": {
+   "nom": "Radical - peal",
+   "radical": "Peal",
+   "radical_code": "8837",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "terme": "Ezowb",
+   "terme_code": "231",
+   "brut": " / Mode - Parfait / Nombre -"
+  },
+  "H8755": {
+   "nom": "Radical - Peel Ou Peil",
+   "radical": "Peel",
+   "radical_code": "8838",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "nombre": "3",
+   "brut": " / Mode - Imparfait / Nombre - 3"
+  },
+  "H8756": {
+   "nom": "Radical - Peel Ou Peil",
+   "radical": "Peel",
+   "radical_code": "8838",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "3",
+   "brut": " / Mode - Infinitif / Nombre - 3"
+  },
+  "H8757": {
+   "nom": "Radical - Peel Ou Peil",
+   "radical": "Peel",
+   "radical_code": "8838",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "nombre": "1",
+   "brut": " / Mode - Participe / Nombre - 1"
+  },
+  "H8758": {
+   "nom": "Radical - Peel Ou Peil",
+   "radical": "Peel",
+   "radical_code": "8838",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "2",
+   "brut": " / Mode - Parfait / Nombre - 2"
+  },
+  "H8759": {
+   "nom": "Radical - Peil",
+   "radical": "Peil",
+   "radical_code": "8839",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "nombre": "1",
+   "brut": " / Mode - Participe / Nombre - 1"
+  },
+  "H8760": {
+   "nom": "Radical - Peil",
+   "radical": "Peil",
+   "radical_code": "8839",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "7",
+   "brut": " / Mode - Parfait / Nombre - 7"
+  },
+  "H8761": {
+   "nom": "Radical - Piel",
+   "radical": "Piel",
+   "radical_code": "8840",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "terme": "Eliy'ab",
+   "terme_code": "446",
+   "brut": " / Mode - Impératif / Nombre -"
+  },
+  "H8762": {
+   "nom": "Radical - Piel",
+   "radical": "Piel",
+   "radical_code": "8840",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Chakliyl",
+   "terme_code": "2447",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8763": {
+   "nom": "Radical - Piel",
+   "radical": "Piel",
+   "radical_code": "8840",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "terme": "Eshban",
+   "terme_code": "790",
+   "brut": " / Mode - Infinitif / Nombre -"
+  },
+  "H8764": {
+   "nom": "Radical - Piel",
+   "radical": "Piel",
+   "radical_code": "8840",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Ets`adah",
+   "terme_code": "685",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8765": {
+   "nom": "Radical - Piel",
+   "radical": "Piel",
+   "radical_code": "8840",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "terme": "Zeydown",
+   "terme_code": "2121",
+   "brut": " / Mode - Parfait / Nombre -"
+  },
+  "H8766": {
+   "nom": "Radical - Pilel",
+   "radical": "Pilel",
+   "radical_code": "8841",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "nombre": "2",
+   "brut": " / Mode - Imparfait / Nombre - 2"
+  },
+  "H8767": {
+   "nom": "Radical - Pilel",
+   "radical": "Pilel",
+   "radical_code": "8841",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "nombre": "1",
+   "brut": " / Mode - Participe / Nombre - 1"
+  },
+  "H8768": {
+   "nom": "Radical - Pilel",
+   "radical": "Pilel",
+   "radical_code": "8841",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "8",
+   "brut": " / Mode - Parfait / Nombre - 8"
+  },
+  "H8769": {
+   "nom": "Radical - Pilpel",
+   "radical": "Pilpel",
+   "radical_code": "8842",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "nombre": "1",
+   "brut": " / Mode - Impératif / Nombre - 1"
+  },
+  "H8770": {
+   "nom": "Radical - Pilpel",
+   "radical": "Pilpel",
+   "radical_code": "8842",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Ebuwc",
+   "terme_code": "18",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8771": {
+   "nom": "Radical - Pilpel",
+   "radical": "Pilpel",
+   "radical_code": "8842",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "7",
+   "brut": " / Mode - Infinitif / Nombre - 7"
+  },
+  "H8772": {
+   "nom": "Radical - Pilpel",
+   "radical": "Pilpel",
+   "radical_code": "8842",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "nombre": "9",
+   "brut": " / Mode - Participe / Nombre - 9"
+  },
+  "H8773": {
+   "nom": "Radical - Pilpel",
+   "radical": "Pilpel",
+   "radical_code": "8842",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "terme": "Ibchah",
+   "terme_code": "19",
+   "brut": " / Mode - Parfait / Nombre -"
+  },
+  "H8774": {
+   "nom": "Radical - Poal",
+   "radical": "Poal",
+   "radical_code": "8843",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "1",
+   "brut": " / Mode - Infinitif / Nombre - 1"
+  },
+  "H8775": {
+   "nom": "Radical - Poal",
+   "radical": "Poal",
+   "radical_code": "8843",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "nombre": "4",
+   "brut": " / Mode - Participe / Nombre - 4"
+  },
+  "H8776": {
+   "nom": "Radical - Poal",
+   "radical": "Poal",
+   "radical_code": "8843",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "8",
+   "brut": " / Mode - Parfait / Nombre - 8"
+  },
+  "H8777": {
+   "nom": "Radical - Poalal",
+   "radical": "Palal",
+   "radical_code": "8844",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "3",
+   "brut": " / Mode - Parfait / Nombre - 3"
+  },
+  "H8778": {
+   "nom": "Radical - Poel",
+   "radical": "Poel",
+   "radical_code": "8845",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "nombre": "1",
+   "brut": " / Mode - Impératif / Nombre - 1"
+  },
+  "H8779": {
+   "nom": "Radical - Poel",
+   "radical": "Poel",
+   "radical_code": "8845",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Abiyah",
+   "terme_code": "29",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8780": {
+   "nom": "Radical - Poel",
+   "radical": "Poel",
+   "radical_code": "8845",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "5",
+   "brut": " / Mode - Infinitif / Nombre - 5"
+  },
+  "H8781": {
+   "nom": "Radical - Poel",
+   "radical": "Poel",
+   "radical_code": "8845",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Abiyda`",
+   "terme_code": "28",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8782": {
+   "nom": "Radical - Poel",
+   "radical": "Poel",
+   "radical_code": "8845",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "terme": "Abaddown",
+   "terme_code": "11",
+   "brut": " / Mode - Parfait / Nombre -"
+  },
+  "H8783": {
+   "nom": "Radical - Polal",
+   "radical": "Pulal",
+   "radical_code": "8846",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "nombre": "2",
+   "brut": " / Mode - Imparfait / Nombre - 2"
+  },
+  "H8784": {
+   "nom": "Radical - Polal",
+   "radical": "Pulal",
+   "radical_code": "8846",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "nombre": "1",
+   "brut": " / Mode - Participe / Nombre - 1"
+  },
+  "H8785": {
+   "nom": "Radical - Polal",
+   "radical": "Pulal",
+   "radical_code": "8846",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "2",
+   "brut": " / Mode - Parfait / Nombre - 2"
+  },
+  "H8786": {
+   "nom": "Radical - Polel",
+   "radical": "Polel",
+   "radical_code": "8847",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "nombre": "9",
+   "brut": " / Mode - Impératif / Nombre - 9"
+  },
+  "H8787": {
+   "nom": "Radical - Polel",
+   "radical": "Polel",
+   "radical_code": "8847",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Eben ha-`ezer",
+   "terme_code": "72",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8788": {
+   "nom": "Radical - Polel",
+   "radical": "Polel",
+   "radical_code": "8847",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "7",
+   "brut": " / Mode - Infinitif / Nombre - 7"
+  },
+  "H8789": {
+   "nom": "Radical - Polel",
+   "radical": "Polel",
+   "radical_code": "8847",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Abiyshuwr",
+   "terme_code": "51",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8790": {
+   "nom": "Radical - Polel",
+   "radical": "Polel",
+   "radical_code": "8847",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "terme": "Abiynadab",
+   "terme_code": "41",
+   "brut": " / Mode - Parfait / Nombre -"
+  },
+  "H8791": {
+   "nom": "Radical - Pulpal",
+   "radical": "Pulpal",
+   "radical_code": "8848",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "1",
+   "brut": " / Mode - Parfait / Nombre - 1"
+  },
+  "H8792": {
+   "nom": "Radical - Pual",
+   "radical": "Pual",
+   "radical_code": "8849",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "terme": "Egowz",
+   "terme_code": "93",
+   "brut": " / Mode - Imparfait / Nombre -"
+  },
+  "H8793": {
+   "nom": "Radical - Pual",
+   "radical": "Pual",
+   "radical_code": "8849",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "1",
+   "brut": " / Mode - Infinitif / Nombre - 1"
+  },
+  "H8794": {
+   "nom": "Radical - Pual",
+   "radical": "Pual",
+   "radical_code": "8849",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Uwlay",
+   "terme_code": "194",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8795": {
+   "nom": "Radical - Pual",
+   "radical": "Pual",
+   "radical_code": "8849",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "terme": "Uwlam",
+   "terme_code": "199",
+   "brut": " / Mode - Parfait / Nombre -"
+  },
+  "H8796": {
+   "nom": "Radical - Pulal",
+   "radical": "Pulal",
+   "radical_code": "8850",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "nombre": "1",
+   "brut": " / Mode - Participe / Nombre - 1"
+  },
+  "H8797": {
+   "nom": "Radical - Pulal",
+   "radical": "Pulal",
+   "radical_code": "8850",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "terme": "Abiy",
+   "terme_code": "21",
+   "brut": " / Mode - Parfait / Nombre -"
+  },
+  "H8798": {
+   "nom": "Radical - Qal",
+   "radical": "Qal",
+   "radical_code": "8851",
+   "mode": "Impératif",
+   "mode_code": "8810",
+   "terme": "Chittah",
+   "terme_code": "2847",
+   "brut": " / Mode - Impératif / Nombre -"
+  },
+  "H8799": {
+   "nom": "Radical - Qal",
+   "radical": "Qal",
+   "radical_code": "8851",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "nombre": "19885",
+   "brut": " / Mode - Imparfait / Nombre - 19885"
+  },
+  "H8800": {
+   "nom": "Radical - Qal",
+   "radical": "Qal",
+   "radical_code": "8851",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "terme": "Mishchah",
+   "terme_code": "4888",
+   "brut": " / Mode - Infinitif / Nombre -"
+  },
+  "H8801": {
+   "nom": "Radical - Qal",
+   "radical": "Qal",
+   "radical_code": "8851",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "terme": "Achar",
+   "terme_code": "309",
+   "brut": " / Mode - Participe / Nombre -"
+  },
+  "H8802": {
+   "nom": "Radical - Qal",
+   "radical": "Qal",
+   "radical_code": "8851",
+   "mode": "Participe Actif",
+   "mode_code": "8814",
+   "terme": "Neshiy",
+   "terme_code": "5386",
+   "brut": " / Mode - Participe Actif / Nombre -"
+  },
+  "H8803": {
+   "nom": "Radical - Qal",
+   "radical": "Qal",
+   "radical_code": "8851",
+   "mode": "Participe Passif",
+   "mode_code": "8815",
+   "terme": "Gadah",
+   "terme_code": "1415",
+   "brut": " / Mode - Participe Passif / Nombre -"
+  },
+  "H8804": {
+   "nom": "Radical - Qal",
+   "radical": "Qal",
+   "radical_code": "8851",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "12562",
+   "brut": " / Mode - Parfait / Nombre - 12562"
+  },
+  "H8805": {
+   "nom": "Radical - Shafel",
+   "radical": "Shafel",
+   "radical_code": "8852",
+   "mode": "Infinitif",
+   "mode_code": "8812",
+   "nombre": "2",
+   "brut": " / Mode - Infinitif / Nombre - 2"
+  },
+  "H8806": {
+   "nom": "Radical - Shafel",
+   "radical": "Shafel",
+   "radical_code": "8852",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "4",
+   "brut": " / Mode - Parfait / Nombre - 4"
+  },
+  "H8807": {
+   "nom": "Radical - Tifel",
+   "radical": "Tifel",
+   "radical_code": "8853",
+   "mode": "Imparfait",
+   "mode_code": "8811",
+   "nombre": "1",
+   "brut": " / Mode - Imparfait / Nombre - 1"
+  },
+  "H8808": {
+   "nom": "Radical - Tifel",
+   "radical": "Tifel",
+   "radical_code": "8853",
+   "mode": "Participe",
+   "mode_code": "8813",
+   "nombre": "1",
+   "brut": " / Mode - Participe / Nombre - 1"
+  },
+  "H8809": {
+   "nom": "Radical - Tifel",
+   "radical": "Tifel",
+   "radical_code": "8853",
+   "mode": "Parfait",
+   "mode_code": "8816",
+   "nombre": "1",
+   "brut": " / Mode - Parfait / Nombre - 1"
+  },
+  "H8810": {
+   "nom": "Impératif",
+   "texte": "Exprime un ordre ou un commandement. Vas à la ville. Lave-toi.",
+   "brut": "Exprime un ordre ou un commandement. Vas à la ville. Lave-toi."
+  },
+  "H8811": {
+   "nom": "Imparfait"
+  },
+  "H8812": {
+   "nom": "Infinitif"
+  },
+  "H8813": {
+   "nom": "Participe"
+  },
+  "H8814": {
+   "nom": "Participe Actif",
+   "radical": "Participe",
+   "radical_code": "8813",
+   "brut": "Pour plus de description du participe voir"
+  },
+  "H8815": {
+   "nom": "Participe Passif",
+   "radical": "Participe",
+   "radical_code": "8813",
+   "brut": "Pour plus de description du participe voir"
+  },
+  "H8816": {
+   "nom": "Parfait"
+  },
+  "H8817": {
+   "nom": "Afel",
+   "texte": "Araméen biblique",
+   "radical": "Hifil",
+   "radical_code": "8818",
+   "brut": "Araméen biblique / Causatif correspondant à l'hifil hébreu. Seulement, un aleph remplace le hé initial. D'autres changements orthographiquesexistent, mais le verbe fonctionne comme l'hifil hébreu, exprimant uneaction causative. Voir Hifil"
+  },
+  "H8818": {
+   "nom": "Hifil"
+  },
+  "H8819": {
+   "nom": "Hitpael"
+  },
+  "H8820": {
+   "nom": "Hitpalel",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "brut": "Causatif réfléchi du palel, équivalent à l'hitpael.Le terme séparé apparaît à cause de certaines formes verbales quiredoublent leur consonne finale et modifient la racine à 4 lettres aulieu de la forme normale à 3 lettres.Voir Hitpael"
+  },
+  "H8821": {
+   "nom": "Hitpalpel",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "brut": "Causatif réfléchi du pilpel. Le terme séparé apparaît àcause de certaines formes verbales qui redoublent leur syllabe finaleet modifient la racine à 2 lettres au lieu de la forme normale à3 lettres.Voir Hitpael"
+  },
+  "H8822": {
+   "nom": "Hitpeil",
+   "radical": "Hofal",
+   "radical_code": "8825",
+   "brut": "Causatif/réfléchi passif correspondant l'hofal hébreu.Il fonctionne comme l'hofal hébreu. Exprime une action causative passive, mais avec l'effet de l'action sur soi, donc réfléchi. Voir Hofal et Hitpael"
+  },
+  "H8823": {
+   "nom": "Hitpoal",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "brut": "Intensif réfléchi du poel. Dû à l'allongement de la voyellefinale dans la seconde syllabe de la racine à 3 lettres. Cette formefonctionne comme le hitpael. Voir Hitpael"
+  },
+  "H8824": {
+   "nom": "Hitpolel",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "brut": "Causatif réfléchi équivalent à l'hitpael. Le terme séparéapparaît à cause de certaines formes verbales qui redoublent leurconsonne finale et modifient la racine à 4 lettres au lieu de la formenormale à 3 lettres. De plus cette forme allonge la voyelle initialesous la première consonne. Voir Hitpael"
+  },
+  "H8825": {
+   "nom": "Hofal",
+   "passif du hifil (causatif passif)": "voir",
+   "passif du hifil (causatif passif)_code": "8818",
+   "texte": "Hifil Hofal il dit ça a été dit il lance il a été lancéil a tué il a été fait tuer, on l'a fait tuer Cette conjugaison représente 0,6% des verbes analysés.",
+   "brut": "Passif du Hifil (causatif passif) - voir / Hifil Hofal / il dit ça a été dit il lance il a été lancéil a tué il a été fait tuer, on l'a fait tuer / Cette conjugaison représente 0,6% des verbes analysés."
+  },
+  "H8826": {
+   "nom": "Hotpaal",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "brut": "Intensif/réfléchi passif du hitpael. A propos d'une action touchant unsujet. Cela combine donc les sens du hitpael et du hofal. Voir Hitpael et Hofal"
+  },
+  "H8827": {
+   "nom": "Ishtafel",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "brut": "Araméen biblique. Similaire à l'hitpael hébreu, dont la forme changeà cause du aleph initial et de l'inversion du tau et du shin. Cetteforme est rare, et ne se retrouve que dans des verbes à l'orthographeparticulière. Voir Hitpael"
+  },
+  "H8828": {
+   "nom": "Itpael",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "brut": "Araméen biblique. Causatif intensif similaire à l'hitpael hébreu dont la forme change à cause du aleph initial. Cette forme est rare et ne seretrouve que dans certains verbes à l'orthographe particulière. Voir Hitpael"
+  },
+  "H8829": {
+   "nom": "Itpeal",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "brut": "Araméen biblique. Similaire à l'hitpael hébreu dont la forme change àcause de l'aleph initial. Cependant, cette forme reflète seulement l'habituel peal (qal hébreu) intensif réfléchi. Cette forme est rare etne se retrouve que dans certains verbes à l'orthographe particulière. Voir Hitpael et Qal"
+  },
+  "H8830": {
+   "nom": "Itpeel",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "brut": "Araméen biblique. Similaire à l'hitpael hébreu dont la forme change àcause de l'aleph initial. Cependant, cette forme reflète seulement l'intensif réfléchi, et fonctionne comme une combinaison du piel et duhitpael hébreux. Voir Hitpael et Piel"
+  },
+  "H8831": {
+   "nom": "Itpeil",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "brut": "Araméen biblique. Similaire à l'hitpael hébreu dont la forme change àcause de l'aleph initial. Cependant, cette forme reflète seulement l'intensif réfléchi passif, et fonctionne comme une combinaison du hofalet du hitpael hébreux. Voir Hitpael et Hofal"
+  },
+  "H8832": {
+   "nom": "Itpolel",
+   "radical": "Hitpael",
+   "radical_code": "8819",
+   "brut": "Araméen biblique. Forme équivalente à l'hitpolel hébreu. Sens causatifréfléchi semblable à l'hitpael. Le terme séparé apparaît à cause decertaines formes verbales qui redoublent leur consonne finale etmodifient la racine à 4 lettres au lieu de la forme normale à 3 lettres.De plus, cette forme allonge la voyelle initiale sous la premièreconsonne. Voir Hitpael et Hitpolel"
+  },
+  "H8833": {
+   "nom": "Nifal"
+  },
+  "H8834": {
+   "nom": "Nitpael",
+   "radical": "Abiy'acaph",
+   "radical_code": "23",
+   "terme": "Nifal",
+   "terme_code": "8833",
+   "brut": "Intensif réfléchi passif. Combine le nifal et l'hitpael. C'est en fait une forme hybride du néo-hébreu. Exemple :Eze . \"elles seront instruites\" (recevront l'instruction). / voir Nifal et Hitpael"
+  },
+  "H8835": {
+   "nom": "Pael",
+   "radical": "Piel",
+   "radical_code": "8840",
+   "brut": "Araméen biblique. Intensif, équivalent au piel hébreu. Voir Piel"
+  },
+  "H8836": {
+   "nom": "Palpal",
+   "radical": "Qal",
+   "radical_code": "8851",
+   "brut": "Forme d'un verbe à trois lettres comme \"palal\" qui redouble la premièresyllabe par euphonie. Pour le reste, cette forme fonctionne comme un qalnormal. Voir Qal"
+  },
+  "H8837": {
+   "nom": "Peal",
+   "radical": "Qal",
+   "radical_code": "8851",
+   "brut": "Araméen biblique. Forme de base de la racine du verbe, équivalent au qalhébreu. Voir Qal"
+  },
+  "H8838": {
+   "nom": "Peel",
+   "radical": "Pual",
+   "radical_code": "8849",
+   "brut": "Araméen biblique. Intensif passif, équivalent au pual hébreu. Voir pual"
+  },
+  "H8839": {
+   "nom": "Peil",
+   "radical": "Piel",
+   "radical_code": "8840",
+   "brut": "Araméen biblique. Intensif actif, équivalent au piel hébreu. Voir Piel"
+  },
+  "H8840": {
+   "nom": "Piel"
+  },
+  "H8841": {
+   "nom": "Pilel",
+   "radical": "Piel",
+   "radical_code": "8840",
+   "brut": "Intensif actif, équivalent au piel. Redouble la dernièrelettre de la racine. Voir Piel"
+  },
+  "H8842": {
+   "nom": "Pilpel",
+   "radical": "Piel",
+   "radical_code": "8840",
+   "brut": "Intensif actif, équivalent au piel. Redouble la syllabefinale de la racine. Voir Piel"
+  },
+  "H8843": {
+   "nom": "Poal",
+   "radical": "Pual",
+   "radical_code": "8849",
+   "brut": "Passif du poel. Fonctionne à peu près comme le pual. Voir Pual voir Poel"
+  },
+  "H8844": {
+   "nom": "Palal",
+   "radical": "Poal",
+   "radical_code": "8843",
+   "brut": "Forme identique au poal, mais redouble la dernière syllabe de la racine.Fonctionne à peu près comme le pual. Voir Poal voir Pual"
+  },
+  "H8845": {
+   "nom": "Poel",
+   "radical": "Piel",
+   "radical_code": "8840",
+   "brut": "Forme assez rare. Fonctionne à peu près comme le piel, mais changecertaines voyelles à l'intérieur du mot. Voir Piel"
+  },
+  "H8846": {
+   "nom": "Pulal",
+   "radical": "Poal",
+   "radical_code": "8843",
+   "brut": "Identique au poal. Redouble la lettre finale de la racine.Fonctionne à peu près comme le pual. Voir Paol voir Pual"
+  },
+  "H8847": {
+   "nom": "Polel",
+   "radical": "Piel",
+   "radical_code": "8840",
+   "brut": "Forme redoublant la lettre finale de la racine. Fonctionne comme un pielnormal. Voir Piel"
+  },
+  "H8848": {
+   "nom": "Pulpal",
+   "radical": "Pual",
+   "radical_code": "8849",
+   "brut": "Passif du pilpel. Redouble la syllabe initiale de la racine.Fonctionne comme un pual normal. Voir Pual"
+  },
+  "H8849": {
+   "nom": "Pual",
+   "passif du piel (intensif passif)": "voir",
+   "passif du piel (intensif passif)_code": "8840",
+   "texte": "Piel Pual Il brisa il fut briséIl parla il fut ditIl a tué il a été massacré Cette conjugaison représente 0,7 pour cent des verbes analysés.",
+   "brut": "Passif du piel (intensif passif) - voir / Piel Pual / Il brisa il fut briséIl parla il fut ditIl a tué il a été massacré Cette conjugaison représente 0,7 pour cent des verbes analysés."
+  },
+  "H8850": {
+   "nom": "Pulal",
+   "radical": "Pual",
+   "radical_code": "8849",
+   "brut": "Passif du pilel (ou palel). Redouble la syllabe finale de laracine. Pour le reste, elle fonctionne comme un pual. Voir Pual"
+  },
+  "H8851": {
+   "nom": "Qal",
+   "texte": "Conjugaison la plus fréquente du verbe. Exprime une action simple à lavoix active. Exemples: il mangea, il vint, il dit, il acheta",
+   "radical": "Abel Mayim",
+   "radical_code": "66",
+   "brut": "Conjugaison la plus fréquente du verbe. Exprime une action simple à lavoix active. Exemples: / il mangea, il vint, il dit, il acheta / Cette conjugaison représente ,7% des verbes analysés."
+  },
+  "H8852": {
+   "nom": "Shafel"
+  },
+  "H8853": {
+   "nom": "Tifel",
+   "radical": "Hifil",
+   "radical_code": "8818",
+   "brut": "Causatif similaire au hifil hébreu. Le préfixe est un tavau lieu de l'habituel hé . Pour le reste, il fonctionne comme l'hifilhébreu. Voir Hifil"
+  }
+ }
+}

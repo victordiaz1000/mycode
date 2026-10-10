@@ -28,6 +28,10 @@ class EntreeLexique {
   final List<String> definitions;
   final StrongDefinition fiche;
 
+  /// Le mot de cette entrée n'a pas d'équivalent français : le verset porte
+  /// le code, rien d'autre. La carte le dit au lieu de laisser une fiche muette.
+  final bool sansTraduction;
+
   const EntreeLexique({
     required this.texte,
     required this.translit,
@@ -36,6 +40,7 @@ class EntreeLexique {
     required this.strongId,
     required this.definitions,
     required this.fiche,
+    this.sansTraduction = false,
   });
 }
 
@@ -63,8 +68,20 @@ class SegmentVerset {
   final String texte;
   final int? entreeIndex;
 
-  const SegmentVerset.plain(this.texte) : entreeIndex = null;
-  const SegmentVerset.mot(this.texte, this.entreeIndex);
+  /// Un mot que la traduction ne rend pas (waw, article, préfixe) : [texte]
+  /// y porte le code Strong lui-même, et le rendu le montre en pastille
+  /// discrète à la place d'une pilule vide.
+  final bool sansTraduction;
+
+  const SegmentVerset.plain(this.texte)
+      : entreeIndex = null,
+        sansTraduction = false;
+
+  const SegmentVerset.mot(
+    this.texte,
+    this.entreeIndex, {
+    this.sansTraduction = false,
+  });
 }
 
 /// Écran combiné « Lexique & Dictionnaire » du verset courant (maquette
@@ -216,11 +233,22 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
         segments.add(SegmentVerset.plain(token.text));
         continue;
       }
+      final codes = StrongLexicon.codesOf(strong);
+      if (codes.isEmpty) {
+        segments.add(SegmentVerset.plain(token.text));
+        continue;
+      }
+      // Un mot que la traduction ne rend pas (waw, article, préfixe) : le code
+      // Strong est le seul libellé qu'il puisse avoir — il devient le texte de
+      // la pastille et de la carte, au lieu d'un blanc.
+      final texte = token.text.trim();
+      final sansTraduction = texte.isEmpty;
+      final libelle = sansTraduction ? codes.first : texte;
       // Un mot du corpus peut porter deux codes Strong d'un coup (« G3588
       // G4674 » en Jean 18.35) : chacun a sa fiche et son entrée, le segment
       // du mot se rattache au premier.
       var index = -1;
-      for (final code in StrongLexicon.codesOf(strong)) {
+      for (final code in codes) {
         final known = indexByStrong[code];
         if (known != null) {
           if (index < 0) index = known;
@@ -231,7 +259,7 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
         indexByStrong[code] = fresh;
         entries.add(
           EntreeLexique(
-            texte: token.text.trim(),
+            texte: libelle,
             translit: definition.transliteration ?? '',
             prononciation: definition.pronunciation ?? '',
             original: definition.lemma ?? '',
@@ -240,11 +268,14 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                 ? definition.senses
                 : [definition.definition],
             fiche: definition,
+            sansTraduction: sansTraduction,
           ),
         );
         if (index < 0) index = fresh;
       }
-      segments.add(SegmentVerset.mot(token.text.trim(), index));
+      segments.add(
+        SegmentVerset.mot(libelle, index, sansTraduction: sansTraduction),
+      );
     }
     if (!mounted) return;
     setState(() {
@@ -522,35 +553,66 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
             else
               WidgetSpan(
                 alignment: PlaceholderAlignment.middle,
-                child: GestureDetector(
-                  onTap: () => _selectEntree(s.entreeIndex!),
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 7,
-                      vertical: 3,
-                    ),
-                    decoration: BoxDecoration(
-                      color: _entreeCourante == s.entreeIndex
-                          ? accent
-                          : accent.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    child: Text(
-                      s.texte,
-                      style: premiumText(
-                        context,
-                        style.fontSize,
-                        FontWeight.w700,
-                        _entreeCourante == s.entreeIndex
-                            ? p.onPrimary
-                            : p.textDark,
-                      ).copyWith(fontFamily: style.fontFamily),
-                    ),
-                  ),
+                child: _motCliquable(
+                  context,
+                  s,
+                  accent,
+                  style,
+                  sansTraduction: s.sansTraduction,
                 ),
               ),
         ],
+      ),
+    );
+  }
+
+  /// Un segment cliquable du verset.
+  ///
+  /// Le mot ordinaire garde sa pastille pleine. Le code d'un mot que la
+  /// traduction ne rend pas ([sansTraduction]) se montre autrement, pour ne
+  /// pas se faire passer pour un mot : corps réduit, teinte atténuée, filet
+  /// fin — une pastille qu'on lit comme une annotation, pas comme un terme du
+  /// verset.
+  Widget _motCliquable(
+    BuildContext context,
+    SegmentVerset s,
+    Color accent,
+    FicheTextStyle style, {
+    required bool sansTraduction,
+  }) {
+    final p = premiumPalette(context);
+    final actif = _entreeCourante == s.entreeIndex;
+    return GestureDetector(
+      onTap: () => _selectEntree(s.entreeIndex!),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: EdgeInsets.symmetric(
+          horizontal: sansTraduction ? 5 : 7,
+          vertical: sansTraduction ? 1 : 3,
+        ),
+        decoration: BoxDecoration(
+          color: actif
+              ? accent
+              : accent.withValues(alpha: sansTraduction ? 0.10 : 0.15),
+          borderRadius: BorderRadius.circular(sansTraduction ? 5 : 6),
+          border: sansTraduction
+              ? Border.all(color: accent.withValues(alpha: actif ? 1 : 0.5))
+              : null,
+        ),
+        child: Text(
+          s.texte,
+          style: premiumText(
+            context,
+            sansTraduction ? style.fontSize * 0.72 : style.fontSize,
+            FontWeight.w700,
+            actif
+                ? p.onPrimary
+                : (sansTraduction ? accent : p.textDark),
+          ).copyWith(
+            fontFamily: sansTraduction ? null : style.fontFamily,
+            letterSpacing: sansTraduction ? 0.3 : null,
+          ),
+        ),
       ),
     );
   }
@@ -580,6 +642,23 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
     );
   }
 
+  /// Le libellé au-dessus des sens. Une fiche que le lexique ne porte pas le
+  /// dit : « hors lexique » plutôt qu'un « Définition » qui n'en ouvre aucune,
+  /// et « sans équivalent français » quand le verset lui-même n'a pas de mot à
+  /// montrer — le code est alors tout ce dont on dispose. Un code de la
+  /// numérotation étendue, lui, a bien une réponse à donner : elle décrit une
+  /// forme, pas un mot, et le dit en ces termes.
+  String _libelleFiche(EntreeLexique e) {
+    if (!e.fiche.introuvable) {
+      return e.fiche.etendu
+          ? 'Forme grammaticale - ${e.strongId}'
+          : 'Définition - ${e.strongId}';
+    }
+    return e.sansTraduction
+        ? 'Sans équivalent français - ${e.strongId}'
+        : 'Hors lexique embarqué - ${e.strongId}';
+  }
+
   // --- Carte du mode LEXIQUE ---
   Widget _buildCarteLexique(BuildContext context, EntreeLexique e, FicheTextStyle style) {
     final p = premiumPalette(context);
@@ -599,7 +678,11 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: e.translit,
+                          // Sans translittération — un code hors lexique n'en
+                          // a pas — c'est le code qui titre la carte.
+                          text: e.translit.isNotEmpty
+                              ? e.translit
+                              : e.strongId,
                           style: premiumText(
                             context,
                             18,
@@ -608,7 +691,9 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                           ),
                         ),
                         TextSpan(
-                          text: ' ${e.prononciation}',
+                          text: e.prononciation.isEmpty
+                              ? ''
+                              : ' ${e.prononciation}',
                           style: premiumText(
                             context,
                             14,
@@ -662,7 +747,21 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
               ),
             ),
             const SizedBox(height: 14),
-            premiumBadge(context, 'Définition - ${e.strongId}'),
+            premiumBadge(context, _libelleFiche(e)),
+            if (e.sansTraduction && !e.fiche.introuvable) ...[
+              const SizedBox(height: 6),
+              Text(
+                'Le code figure dans le verset : la traduction ne rend pas '
+                'ce mot.',
+                style: premiumText(
+                  context,
+                  13,
+                  FontWeight.w500,
+                  p.textGrey,
+                  height: 1.4,
+                ),
+              ),
+            ],
             const SizedBox(height: 8),
             StrongSenses(
               outline: e.fiche.outline,

@@ -12,8 +12,32 @@ import '../models/verse.dart';
 /// The schema differs from BYM: each verse carries `tokens` with optional
 /// Strong numbers. The reader still displays plain text, while the Strong
 /// tokens stay available for lexicon rendering.
+///
+/// The repository is parameterised by [directory] because the same schema
+/// serves a second corpus: `lss` (Segond Louis + Strong, from Biblia) holds
+/// the same 66 books with a denser Strong tagging, and is what the verse
+/// study reads by default. One class, one parser, two corpora.
 class LsgsRepository {
-  static const String assetPrefix = 'assets/bible/lsgs/';
+  LsgsRepository({this.directory = defaultDirectory});
+
+  /// Le dossier de la LSGS : le texte que lit le lecteur.
+  static const String defaultDirectory = 'lsgs';
+
+  /// Le dossier de la LSS : le corpus Strong de l'étude.
+  static const String strongDirectory = 'lss';
+
+  /// Le corpus sur lequel les fiches Strong comptent leurs occurrences et
+  /// tirent leurs extraits — la LSS, dont les ancres vont au-delà du Strong
+  /// standard et couvrent donc aussi les codes que la LSGS ignore (H8799 et
+  /// les 445 autres). Un seul corpus : le nombre annoncé et le verset montré
+  /// parlent de la même réalité.
+  factory LsgsRepository.strong() => LsgsRepository(directory: strongDirectory);
+
+  /// The folder under `assets/bible/` this instance reads: `lsgs` (the
+  /// embedded Bible Segond 1910 + Strongs) or `lss`.
+  final String directory;
+
+  static const String _assetRoot = 'assets/bible/';
 
   static const List<String> _assetFiles = [
     '01-Genèse.json',
@@ -84,7 +108,7 @@ class LsgsRepository {
     '66-Apocalypse.json',
   ];
 
-  static final Map<int, LsgsBook> _cache = {};
+  static final Map<String, LsgsBook> _cache = {};
   static AssetBundle _bundle = rootBundle;
 
   static AssetBundle get bundle => _bundle;
@@ -96,21 +120,24 @@ class LsgsRepository {
 
   static void useRootBundle() => useBundle(rootBundle);
 
+  /// The asset path of [bookNumber] — `assets/bible/lsgs/01-Genèse.json` for
+  /// the default corpus, `assets/bible/lss/…` for a `directory: 'lss'` one.
   String assetPath(int bookNumber) {
     if (bookNumber < 1 || bookNumber > _assetFiles.length) {
       throw RangeError.range(bookNumber, 1, _assetFiles.length);
     }
-    return '$assetPrefix${_assetFiles[bookNumber - 1]}';
+    return '$_assetRoot$directory/${_assetFiles[bookNumber - 1]}';
   }
 
   Future<LsgsBook> loadBook(int bookNumber) async {
-    final cached = _cache[bookNumber];
+    final key = '$directory|$bookNumber';
+    final cached = _cache[key];
     if (cached != null) return cached;
 
     final raw = await _bundle.loadString(assetPath(bookNumber));
     final decoded = jsonDecode(raw) as Map<String, dynamic>;
     final book = LsgsBook.fromJson(decoded);
-    _cache[bookNumber] = book;
+    _cache[key] = book;
     return book;
   }
 
@@ -172,11 +199,24 @@ class LsgsRepository {
   static String joinTokens(List<LsgsToken> tokens, {bool includeStrong = false}) {
     final buffer = StringBuffer();
     for (final token in tokens) {
-      final rawText = token.text;
-      if (rawText.isEmpty) continue;
+      final strong = token.strong;
+      final brut = token.text.trimRight();
 
-      final text = rawText.trimRight();
-      if (text.isEmpty) continue;
+      // Un token sans texte est un mot que la traduction ne rend pas (waw,
+      // article, préfixe) : son code Strong est tout ce qui en reste. En mode
+      // lecture interlinéaire le code prend la place du mot — c'est ce qui le
+      // rend cliquable dans le texte ; le texte nu, lui, reste la traduction
+      // seule.
+      final String text;
+      final bool codeSeul;
+      if (brut.isEmpty) {
+        if (!includeStrong || strong == null || strong.isEmpty) continue;
+        text = strong;
+        codeSeul = true;
+      } else {
+        text = brut;
+        codeSeul = false;
+      }
 
       final previous = buffer.toString();
       final needsLeadingSpace = buffer.isNotEmpty &&
@@ -199,8 +239,9 @@ class LsgsRepository {
         buffer.write(' ');
       }
 
-      if (includeStrong && token.strong != null && token.strong!.isNotEmpty) {
-        buffer.write('$text ${token.strong!}');
+      if (includeStrong && !codeSeul &&
+          strong != null && strong.isNotEmpty) {
+        buffer.write('$text $strong');
       } else {
         buffer.write(text);
       }
@@ -240,6 +281,10 @@ class LsgsRepository {
   /// same boundary rules as [joinTokens]. The segment whose [LsgsToken.strong]
   /// equals [target] is flagged, so a caller can highlight the word in
   /// occurrence without making it a link.
+  ///
+  /// A token carrying a code but no text — a word the translation does not
+  /// render — is skipped, except when it *is* [target]: the excerpt would
+  /// otherwise be a verse where the word searched for visibly is not.
   static List<({String text, bool isTarget})> segments(
     List<LsgsToken> tokens, {
     String? target,
@@ -247,11 +292,18 @@ class LsgsRepository {
     final segments = <({String text, bool isTarget})>[];
     final buffer = StringBuffer();
     for (final token in tokens) {
-      final rawText = token.text;
-      if (rawText.isEmpty) continue;
+      final isTarget = target != null && token.strong == target;
+      final brut = token.text.trimRight();
 
-      final text = rawText.trimRight();
-      if (text.isEmpty) continue;
+      final String text;
+      if (brut.isEmpty) {
+        if (!isTarget || token.strong == null || token.strong!.isEmpty) {
+          continue;
+        }
+        text = token.strong!;
+      } else {
+        text = brut;
+      }
 
       final previous = buffer.toString();
       final needsLeadingSpace = buffer.isNotEmpty &&
@@ -274,7 +326,7 @@ class LsgsRepository {
       buffer.write(text);
       segments.add((
         text: needsLeadingSpace ? ' $text' : text,
-        isTarget: target != null && token.strong == target,
+        isTarget: isTarget,
       ));
     }
     return segments;

@@ -338,7 +338,7 @@ void main() {
 
   testWidgets('tapping a Strong hit opens the fiche with its occurrences',
       (tester) async {
-    // The fiche reads the LSGS corpus for its occurrences section.
+    // The fiche reads the Strong corpus (LSS) for its occurrences section.
     LsgsRepository.useBundle(FakeLsgsBundle());
     StrongOccurrenceIndex.useAmbientRepository();
     addTearDown(LsgsRepository.useRootBundle);

@@ -66,6 +66,61 @@ void main() {
     expect(find.textContaining('Définition test de H0430'), findsWidgets);
   });
 
+  testWidgets('a word the translation does not render shows its code',
+      (tester) async {
+    // La LSS numérote les particules que le français ne rend pas : le token
+    // porte `text: ""`, il ne reste que le code. Il s'affichait alors dans une
+    // pilule vide — invisible, mais cliquable. Le code prend sa place.
+    StrongLexicon.useBundle(FakeStrongLexiconBundle({
+      'H4191': 'Définition test de H4191.',
+      'H8799': 'Définition test de H8799.',
+    }));
+    addTearDown(StrongLexicon.useRootBundle);
+
+    await pumpScreen(
+      tester,
+      tokens: const [
+        LsgsToken(text: 'Béla ', strong: null),
+        LsgsToken(text: 'mourut ', strong: 'H4191'),
+        LsgsToken(text: '', strong: 'H8799'),
+        LsgsToken(text: '; et Jobab', strong: null),
+      ],
+    );
+
+    // Le code est à la place du mot : la pilule vide a disparu, le verset
+    // porte bien le code à l'endroit où le mot manque.
+    expect(find.text(''), findsNothing);
+    expect(find.text('H8799'), findsWidgets);
+
+    // Il ouvre sa carte, qui dit que ce mot n'a pas d'équivalent français.
+    await tester.tap(find.text('H8799').first);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Définition - H8799'), findsOneWidget);
+    expect(
+      find.textContaining('la traduction ne rend pas'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('a code the lexicon does not hold is named, never blank',
+      (tester) async {
+    // Les codes hébreux de la numérotation étendue ont désormais une fiche —
+    // reste la plage grecque (G5625+), que ni le lexique embarqué ni aucune
+    // source trouvée ne couvrent : la carte doit le dire, avec le code.
+    await pumpScreen(
+      tester,
+      tokens: const [LsgsToken(text: '', strong: 'G5719')],
+    );
+
+    expect(find.text('G5719'), findsWidgets);
+    expect(find.text('Sans équivalent français - G5719'), findsOneWidget);
+    expect(
+      find.textContaining('numérotation étendue de Biblia'),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('the card lays the source outline out as an indented tree',
       (tester) async {
     // The card used to flatten every sense into its own « 1) », « 2) » line.

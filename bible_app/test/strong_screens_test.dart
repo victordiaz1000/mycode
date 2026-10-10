@@ -261,7 +261,7 @@ void main() {
       expect(find.text('H0001'), findsWidgets);
       expect(find.text("'ab"), findsOneWidget);
       expect(find.text('Occurrences du mot (0)'), findsOneWidget);
-      expect(find.text('Aucune occurrence dans la LSGS embarquée.'),
+      expect(find.text('Aucune occurrence dans la LSS embarquée.'),
           findsOneWidget);
       expect(find.textContaining('Voir plus'), findsNothing);
     });
@@ -592,7 +592,7 @@ void main() {
           reason: 'the fiche and books list are covered by the pushed route');
     });
 
-    testWidgets('an entry present in the LSGS shows its occurrences',
+    testWidgets('an entry present in the corpus shows its occurrences',
         (tester) async {
       LsgsRepositoryDummy.install();
       addTearDown(LsgsRepositoryDummy.restore);

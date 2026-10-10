@@ -26,6 +26,15 @@ class StrongDefinition {
   /// Empty when the entry is a flat list of bullets.
   final List<StrongOutlineNode> outline;
 
+  /// The lexicon holds no entry for this code: [definition] is then the
+  /// notice [StrongLexicon.lookup] writes in its place, not a source text.
+  final bool introuvable;
+
+  /// The entry comes from Biblia's extended numbering (H8675+), where a code
+  /// names a *form* — a binyan crossed with a tense — rather than a word.
+  /// The fiche says so instead of passing for a dictionary headword.
+  final bool etendu;
+
   const StrongDefinition({
     required this.strong,
     required this.definition,
@@ -38,9 +47,12 @@ class StrongDefinition {
     this.signification,
     this.senses = const [],
     this.outline = const [],
+    this.introuvable = false,
+    this.etendu = false,
   });
 
-  factory StrongDefinition.fromJson(String key, dynamic value) {
+  factory StrongDefinition.fromJson(String key, dynamic value,
+      {bool etendu = false}) {
     if (value is! Map) {
       return StrongDefinition(strong: key, definition: value.toString().trim());
     }
@@ -69,6 +81,7 @@ class StrongDefinition {
       signification: field('signification'),
       senses: senses,
       outline: outline,
+      etendu: etendu,
     );
   }
 
@@ -147,7 +160,27 @@ class StrongLexicon {
 
   static final StrongLexicon instance = StrongLexicon._();
   static const String _assetPath = 'assets/lexicon/strong_fr.json';
+
+  /// Les codes de la numérotation étendue de Biblia — H8675 et au-delà —
+  /// tiennent dans un fichier à part : ce sont des formes (binyan croisé
+  /// avec un mode), pas des lexies, et les mêmer dans [all] ferait chercher
+  /// « Radical - Qal » comme s'il s'agissait d'un mot.
+  static const String _assetFormes = 'assets/lexicon/strong_etendu.json';
+
+  /// Les entrées que les modules SWORD ne portent pas — G2994 (Λαοδικεύς) et
+  /// G2995 (λάρυγξ) : citées par les corpus, absentes de la base. La fusion
+  /// les construit, mais la fusion complète pèse bien trop lourd pour le
+  /// bundle, d'où ces deux-là seules, embarquées à part.
+  ///
+  /// Ce sont des lexies : elles rejoignent [_definitions] et entrent dans
+  /// [all] comme les autres — à la différence des codes de forme, que
+  /// [_assetFormes] tient dehors pour ne pas faire chercher « Radical - Qal »
+  /// comme s'il s'agissait d'un mot.
+  static const String _assetComplements =
+      'assets/lexicon/strong_complements.json';
+
   static final Map<String, StrongDefinition> _definitions = {};
+  static final Map<String, StrongDefinition> _formes = {};
   static final Map<String, String> _normalized = {};
   static bool _loaded = false;
   static List<String> _keys = const [];
@@ -158,6 +191,7 @@ class StrongLexicon {
   static void useBundle(AssetBundle bundle) {
     _bundle = bundle;
     _definitions.clear();
+    _formes.clear();
     _normalized.clear();
     _keys = const [];
     _loaded = false;
@@ -166,6 +200,10 @@ class StrongLexicon {
   static void useRootBundle() => useBundle(rootBundle);
   bool get isLoaded => _loaded;
   int get size => _definitions.length;
+
+  /// Les codes de forme (numérotation étendue) chargés — distincts de
+  /// [size], qui compte les lexies.
+  int get formesCount => _formes.length;
 
   Future<void> _ensureLoaded() async {
     if (_loaded) return;
@@ -191,6 +229,62 @@ class StrongLexicon {
       _keys = const [];
     } finally {
       _loaded = true;
+    }
+    // Fichiers distincts, échecs distincts : si l'un manque, le lexique
+    // principal reste entier.
+    await _chargerComplements();
+    await _chargerFormes();
+  }
+
+  /// Ajoute au lexique les entrées que la fusion a créées hors base SWORD.
+  ///
+  /// Lecture silencieuse : un fichier absent ne retire rien, il laisse
+  /// simplement G2994 et G2995 sans fiche — ce que [_chargerFormes] fait de
+  /// son côté pour les codes de forme.
+  Future<void> _chargerComplements() async {
+    try {
+      final decoded = jsonDecode(await _bundle.loadString(_assetComplements));
+      final entries = decoded is Map && decoded['entries'] is Map
+          ? decoded['entries'] as Map
+          : decoded;
+      if (entries is! Map) return;
+      var ajoute = false;
+      for (final entry in entries.entries) {
+        final key = entry.key.toString().trim().toUpperCase();
+        if (key.isEmpty || entry.value is! Map) continue;
+        // La base SWORD prime : ce fichier ne comble qu'une absence.
+        if (_definitions.containsKey(key)) continue;
+        final value = StrongDefinition.fromJson(key, entry.value);
+        if (value.definition.isEmpty) continue;
+        _definitions[key] = value;
+        _normalized[key] = normalizeForSearch(value.searchText);
+        ajoute = true;
+      }
+      if (ajoute) _keys = _definitions.keys.toList()..sort();
+    } catch (_) {
+      // Rien à ajouter : le lexique principal est déjà chargé.
+    }
+  }
+
+  /// Charge les codes de la numérotation étendue, consultés par [lookup] en
+  /// second recours — après le lexique, avant la notice « hors lexique ».
+  Future<void> _chargerFormes() async {
+    try {
+      final decoded = jsonDecode(await _bundle.loadString(_assetFormes));
+      final entries = decoded is Map && decoded['entries'] is Map
+          ? decoded['entries'] as Map
+          : decoded;
+      if (entries is! Map) return;
+      for (final entry in entries.entries) {
+        final key = entry.key.toString().trim().toUpperCase();
+        if (key.isEmpty || entry.value is! Map) continue;
+        final value = StrongDefinition.fromJson(key, entry.value,
+            etendu: true);
+        if (value.definition.isEmpty) continue;
+        _formes[key] = value;
+      }
+    } catch (_) {
+      _formes.clear();
     }
   }
 
@@ -225,19 +319,53 @@ class StrongLexicon {
     // holds. Each code still has its own fiche — a caller that wants them
     // all asks for them one by one through [codesOf].
     for (final code in codesOf(strong)) {
-      final found = _definitions[code];
+      final found = _definitions[code] ?? _formes[code];
       if (found != null) return found;
     }
     final key = strong.trim().toUpperCase();
     return StrongDefinition(
       strong: key,
-      definition: 'Définition Strong non disponible pour $key dans le lexique embarqué.',
+      definition: noticeHorsLexique(key),
+      introuvable: true,
     );
   }
 
+  /// Ce que la fiche dit d'un code que le lexique ne porte pas.
+  ///
+  /// Presque tous viennent de la numérotation étendue de Biblia — son aide
+  /// annonce les codes hébreu jusqu'à 8853 et grecs jusqu'à 5799, quand le
+  /// Strong standard s'arrête à H8674 / G5624. C'est là que vivent les
+  /// particules que la traduction ne rend pas (waw, article, préfixes
+  /// pronominaux) : 100 052 des 116 567 codes sans mot français de la LSS, en
+  /// tête les plus fréquents de tout le corpus (H8799, H8804, G5719).
+  ///
+  /// Les codes hébreux ne tombent plus ici : [_chargerFormes] les porte, et
+  /// [lookup] les consulte avant d'en venir à cette notice. Restent les codes
+  /// grecs au-delà de ce que les modules SWORD portent — 103 en tout, dont
+  /// deux seulement sont cités par les corpus (G2994, G2995), et ceux-là
+  /// [_chargerComplements] les porte aussi. Ce que la notice survit est donc
+  /// un code que ni le lexique ni aucun corpus n'emploie, ou un code de la
+  /// numérotation étendue que la source ne définit pas.
+  static String noticeHorsLexique(String code) {
+    final chiffres = code.length > 1 ? int.tryParse(code.substring(1)) : null;
+    final etendu = chiffres != null &&
+        ((code.startsWith('H') && chiffres > 8674) ||
+            (code.startsWith('G') && chiffres > 5624));
+    if (!etendu) {
+      return '$code : aucune définition dans le lexique Strong embarqué.';
+    }
+    return '$code : code de la numérotation étendue de Biblia, au-delà du '
+        'Strong standard (H8674 / G5624) — il numérote une particule que la '
+        'traduction ne rend pas (waw, article, préfixe…). Aucune définition '
+        'n\'est embarquée pour ce code.';
+  }
+
+  static bool _estEnregistre(String code) =>
+      _definitions.containsKey(code) || _formes.containsKey(code);
+
   Future<bool> contains(String strong) async {
     await _ensureLoaded();
-    return codesOf(strong).any(_definitions.containsKey);
+    return codesOf(strong).any(_estEnregistre);
   }
 
   Future<List<StrongDefinition>> all() async {

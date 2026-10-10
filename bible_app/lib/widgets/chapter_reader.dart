@@ -1859,13 +1859,18 @@ class _ChapterReaderState extends State<ChapterReader> {
   }
 
   /// The Lexique button of the study sheet: it always shows the *same verse*
-  /// the reader is on, rendered word-by-word from the embedded LSGS where every
+  /// the reader is on, rendered word-by-word from the Strong corpus of the
+  /// study ([EtudePreferences.versionCode] — the LSS of Biblia by default,
+  /// whose anchors also number the particles the LSGS ignores) where every
   /// Strong code is tappable ([EtudeVersetScreen]) — the BYM text proposes
   /// its own equivalent verse in the Strong version. The study screen combines
   /// the Strong lexicon (hébreu/grec) and the Westphal dictionary, with
   /// prev/next verse navigation within the current chapter.
   Future<void> _openLexique(int verseNumber) async {
-    final tokens = await _versions.lsgsTokens(
+    final etude = await EtudePreferences.load();
+    final corpus = etude.versionCode;
+    final tokens = await _versions.tokensFor(
+      corpus,
       widget.bookIndex,
       widget.chapter,
       verseNumber,
@@ -1882,8 +1887,12 @@ class _ChapterReaderState extends State<ChapterReader> {
           verseNumber: verseNumber,
           tokens: tokens,
           verseNumbers: verseNumbers,
-          loadVerseTokens: (v) =>
-              _versions.lsgsTokens(widget.bookIndex, widget.chapter, v),
+          loadVerseTokens: (v) => _versions.tokensFor(
+            corpus,
+            widget.bookIndex,
+            widget.chapter,
+            v,
+          ),
           onOpenVerse: _openStrongOccurrence,
         ),
       ),
