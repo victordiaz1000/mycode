@@ -19,7 +19,7 @@
 
 Application **mobile Flutter** de Bible nommée **BYM — Bible de Yehoshoua Ha Mashiah**.
 - Texte principal **BYM**, embarqué dans l'APK (66 livres, hors ligne), **corrigible sans republier l'app** (§ 1).
-- **15 versions** au catalogue : 2 embarquées, 7 téléchargeables, 5 sous droits.
+- **17 versions** au catalogue : 3 embarquées, 10 téléchargeables, 4 sous droits.
 - **6 dictionnaires / lexiques** : 4 embarqués, 1 téléchargeable, 1 indisponible.
 - **14 thèmes** nommés + un fond photo choisi par le lecteur.
 - Persistance : SQLite (`sqflite`) pour les annotations, `shared_preferences` pour les préférences et les registres.
@@ -143,7 +143,7 @@ bible_app/
 
 `data/version_catalog.dart` · `data/download_service.dart` · `data/library_store.dart` · `data/version_repository.dart` · `screens/library_screen.dart`
 
-- **15 versions** : `BYM` (embedded, format bym) · `LSGS` (embedded, Strong) · `LSG` `DBY` `MAR` `OST` `NCL` `KJV` `CHO` `KJF` (downloadable) · `NBS` `NEG79` `NVS78P` `S21` `INT` (unavailable). Seules `LSGS` a `hasStrong` et `KJV` a `languageCode: 'EN'`.
+- **17 versions** : `BYM` (embedded, format bym) · `LSGS` `LSS` (embedded, Strong) · `LSG` `DBY` `MAR` `OST` `NCL` `KJV` `CHO` `KJF` `ATI` `SEF` (downloadable) · `NBS` `NEG79` `NVS78P` `S21` (unavailable). Seules `LSGS` et `LSS` ont `hasStrong` ; `KJV` porte `languageCode: 'EN'` ; `ATI` et `SEF` sont `otOnly`. La **LSS** (« Segond Louis + Strong », `assets/bible/lss/`) est le corpus du lexique de l'étude **et** une version de lecture : `VersionRepository` la charge par le même chemin que la LSGS, dont elle ne se distingue que par la densité de ses ancres.
 - **Les deux axes à ne pas confondre** : `availability` (**où** vit le fichier : assets / `<documents>/versions/`) et `format` (**quel** schéma il porte). `VersionEntry.format` (`bym` | `getbible`, **défaut `getbible`**) choisit le parseur dans `VersionRepository.loadBook`. Le défaut est le schéma **pauvre** : un code inconnu doit lire du texte nu.
 - **Deux modes de source** dans `DownloadService.bookUri` : `getbibleId` (`https://api.getbible.net/v2/<id>/<n>.json`) ou `urlTemplate` (`{book}` ← **numéro standard**, pas index BYM). Le template gagne. `OST` / `NCL` (Ostervald, néo-Crampon Libre) viennent de `raw.githubusercontent.com` et sont produits par `appCodebar/ostervald_to_json.py` ; `CHO` / `KJF` (Chouraqui, King James Française) par `appCodebar/html_verses_to_json.py`, à partir des archives HTML `<livre>/<chapitre>.html`.
 - **Chaîne manuelle des corpus hébergés** (le seul maillon manuel, § 7) : script de conversion → dépôt public **`victordiaz1000/-bym-bibles`**, sous-dossier propre (`ostervald/`, `neocrampon/`, `chouraqui/`, `kjf/`), fichiers `1.json` … `66.json` en **ordre standard** → `urlTemplate` de `version_catalog.dart`. Le dépôt n'est pas cloné dans `bym3/` : la poussée se fait à la main. Les deux scripts retirent les deutérocanoniques, **renumérotent les versets par position** (les corpus impriment des numéros faux : `222`, `74` pour `174`, un « 55 » hébreu en tête de Genèse 32) et comparent les comptes à la BYM avec `--bym assets/bible/bym`. Le nettoyage du texte ne retire **aucune espace** : les `&nbsp;` du corpus deviennent des espaces simples (typographie française, comme la BYM) — jamais l'inverse. La source KJF.zip a reçu une correction à la main : Psaumes 44:24 y manquait (un `<v/><v/>` vide entre les versets 23 et 25), rétabli avant conversion — les deux corpus totalisent ainsi 31 169 versets, le compte exact de la BYM.
@@ -308,7 +308,7 @@ bible_app/
 - `PUBLISH_Bym.md`, `publish_bym.py`, `generate_manifest.py`, `victordiaz1000/bym-text` : supprimés (commit `796de5c`). `MAJ_TEXTE_BYM.md` les remplace.
 - `bym_json/` à la racine : supprimé. Il ne reste que `appCodebar/bym_json/`, gitignoré.
 - `assets/brand/` : supprimé. L'accueil affiche un **intitulé textuel** `Bym classic`, pas une image ; la seule marque embarquée est `android/.../drawable-<densité>/splash_logo.png` (× 5, produit par `appCodebar/generate_splash.py`). `logoBym/` est à la racine du dépôt, pas embarqué.
-- `screens/strong_lexique_screen.dart` et `screens/lexique_screen.dart` : supprimés. L'écran « Lexique » de la feuille d'étude est **`screens/etude_verset_screen.dart`** (« Lexique & Dictionnaire »), adossé à la LSGS embarquée.
+- `screens/strong_lexique_screen.dart` et `screens/lexique_screen.dart` : supprimés. L'écran « Lexique » de la feuille d'étude est **`screens/etude_verset_screen.dart`** (« Lexique & Dictionnaire »), adossé au corpus choisi — la **LSS** par défaut, la LSGS en repli.
 - `ReadingFont 'modern'` (la seule famille non embarquée) : retirée, `'modern'` migre vers `'jakarta'`.
 - `dio` : jamais utilisé, `http` fait tout le réseau.
 

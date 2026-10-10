@@ -202,10 +202,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (prefs == null) return;
     final p = premiumPalette(context);
 
-    // A choice menu lists only what is choosable: the embedded BYM and LSGS,
-    // plus every version holding books on the device. A downloadable-but-absent
-    // version has no text to default to — getting one belongs to the
-    // Bibliothèque.
+    // A choice menu lists only what is choosable: the embedded BYM, LSGS and
+    // LSS, plus every version holding books on the device. A
+    // downloadable-but-absent version has no text to default to — getting one
+    // belongs to the Bibliothèque.
     bool readable(VersionEntry v) =>
         v.embedded || _installed[v.code]?.isEmpty == false;
     final groups = [
@@ -1003,7 +1003,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       _SettingsRow(
                         icon: Icons.translate,
                         title: 'Textes embarqués',
-                        subtitle: 'BYM · Segond 1910 + Strongs (LSGS)',
+                        subtitle:
+                            'BYM · Segond 1910 + Strongs (LSGS) · '
+                            'Segond Louis + Strongs (LSS)',
                       ),
                       _Divider(),
                       _SettingsRow(

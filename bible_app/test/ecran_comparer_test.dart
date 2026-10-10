@@ -19,9 +19,9 @@ import 'support/fake_lsgs_bundle.dart';
 import 'version_repository_test.dart' show getbibleBook;
 
 /// The « Comparer » screen (maquette `interfaces/ecran_comparer.dart`): the
-/// current verse shown across every version present on the device — BYM and
-/// LSGS embedded, then the downloaded translations that hold the book — each as
-/// a card that a chip can show or hide.
+/// current verse shown across every version present on the device — BYM, LSGS
+/// and LSS embedded, then the downloaded translations that hold the book —
+/// each as a card that a chip can show or hide.
 void main() {
   setUp(() {
     SharedPreferences.setMockInitialValues({});
@@ -54,7 +54,8 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('shows the verse across the embedded BYM and LSGS translations',
+  testWidgets(
+      'shows the verse across the three embedded translations',
       (tester) async {
     await pumpComparer(tester);
 
@@ -64,9 +65,13 @@ void main() {
         reason: 'the BYM text is there');
     expect(find.text('AA H7225'), findsOneWidget,
         reason: 'the LSGS text is there (Strong codes included)');
+    expect(find.text('AA H7225 H8804'), findsOneWidget,
+        reason: 'the LSS text is there too, with the waw the LSGS does not '
+            'number — the fake serves each corpus its own particles');
     expect(find.text('Bible de Yehoshoua Ha Mashiah'), findsOneWidget);
     expect(find.text('Bible Segond 1910 + Strongs'), findsOneWidget);
-    expect(find.text('2 versions affichées'), findsOneWidget);
+    expect(find.text('Bible Segond Louis + Strongs'), findsOneWidget);
+    expect(find.text('3 versions affichées'), findsOneWidget);
   });
 
   testWidgets('includes a downloaded version that holds the book',
@@ -76,7 +81,7 @@ void main() {
     expect(find.text('Texte téléchargé 1:1.'), findsOneWidget,
         reason: 'the downloaded Darby text joins the comparison');
     expect(find.text('Bible Darby'), findsOneWidget);
-    expect(find.text('3 versions affichées'), findsOneWidget);
+    expect(find.text('4 versions affichées'), findsOneWidget);
   });
 
   testWidgets('skips a downloaded version missing the book', (tester) async {
@@ -87,7 +92,7 @@ void main() {
     expect(find.text('Bible Darby'), findsNothing,
         reason: 'no text, no card — a version without the book has nothing '
             'to compare');
-    expect(find.text('2 versions affichées'), findsOneWidget);
+    expect(find.text('3 versions affichées'), findsOneWidget);
   });
 
   testWidgets('a chip toggles its translation card on and off', (tester) async {
@@ -99,13 +104,13 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Texte téléchargé 1:1.'), findsNothing,
         reason: 'the card hides with its chip');
-    expect(find.text('2 versions affichées'), findsOneWidget);
+    expect(find.text('3 versions affichées'), findsOneWidget);
 
     await tester.tap(find.text('DBY').first);
     await tester.pumpAndSettle();
     expect(find.text('Texte téléchargé 1:1.'), findsOneWidget,
         reason: 'tapping again brings the card back');
-    expect(find.text('3 versions affichées'), findsOneWidget);
+    expect(find.text('4 versions affichées'), findsOneWidget);
   });
 
   testWidgets('turning every version off explains itself', (tester) async {
@@ -114,6 +119,8 @@ void main() {
     await tester.tap(find.text('BYM').first);
     await tester.pumpAndSettle();
     await tester.tap(find.text('LSGS').first);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('LSS').first);
     await tester.pumpAndSettle();
 
     expect(find.text('Sélectionnez au moins une version à comparer.'),

@@ -301,8 +301,9 @@ void main() {
       await tester.pumpAndSettle();
       await openVersionMenu(tester);
 
-      // 15 catalogue entries, BYM and LSGS the only searchable ones here, so 13
-      // are left to fetch — the count moved when CHO and KJF became downloadable.
+      // 17 catalogue entries, BYM, LSGS and LSS the only searchable ones here,
+      // so 14 are left to fetch — the count moved when CHO and KJF became
+      // downloadable, and again when the LSS joined the catalogue.
       expect(find.text('14 autres versions à télécharger'), findsOneWidget);
       await tester.tap(find.text('Bibliothèque'));
       await tester.pumpAndSettle();

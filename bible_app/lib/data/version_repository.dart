@@ -70,8 +70,9 @@ class VersionRepository {
   /// `assets/bible/lss/` : même schéma que la LSGS, ancres plus denses — il
   /// numérote les particules que la LSGS ignore (waw, article, préfixes), ce
   /// qui lui vaut 116 567 codes sans mot français. C'est lui que lit le
-  /// lexique de l'étude de verset ; il n'est pas une version de lecture et ne
-  /// figure donc ni au catalogue ni au sélecteur.
+  /// lexique de l'étude de verset, et c'est aussi une version de lecture :
+  /// [loadBook] sert les deux corpus par le même chemin, et le catalogue le
+  /// propose à côté de la LSGS.
   static const String lssCode = 'LSS';
 
   /// Livres téléchargés déjà convertis, par `code|index`. [LocalRepository]
@@ -87,7 +88,12 @@ class VersionRepository {
   static void forget(String code) =>
       _cache.removeWhere((key, _) => key.startsWith('$code|'));
 
-  bool isEmbedded(String code) => code == embeddedCode || code == lsgsCode;
+  /// Les trois textes qui vivent dans l'APK : la BYM, la LSGS et la LSS.
+  ///
+  /// Une version embarquée est toujours lisible, quel que soit l'état du
+  /// registre : le lecteur n'a rien à télécharger pour elle.
+  bool isEmbedded(String code) =>
+      code == embeddedCode || code == lsgsCode || code == lssCode;
 
   /// Le livre [bymIndex] (1..66) dans la version [code].
   ///
@@ -95,9 +101,13 @@ class VersionRepository {
   /// le cas normal d'un téléchargement encore partiel.
   Future<BibleBook> loadBook(String code, int bymIndex) async {
     if (code == embeddedCode) return _local.loadBook(bymIndex);
-    if (code == lsgsCode) {
-      final lsgsBook = await _lsgs.loadBook(bymIndex);
-      final book = LsgsRepository.toBibleBook(lsgsBook);
+    // Les deux corpus Strong partagent schéma et parseur : seul le dossier
+    // change, d'où une seule branche pour deux codes. `toBibleBook` y joint les
+    // tokens avec leurs numéros (« Dieu H0430 ») — c'est ce qui rend les codes
+    // cliquables dans la lecture, pour la LSGS comme pour la LSS.
+    if (code == lsgsCode || code == lssCode) {
+      final book = LsgsRepository.toBibleBook(
+          await (code == lssCode ? _lss : _lsgs).loadBook(bymIndex));
       _cache['$code|$bymIndex'] = book;
       return book;
     }
@@ -139,10 +149,12 @@ class VersionRepository {
     );
   }
 
-  /// Les tokens Strong du verset LSGS, pour le rendu cliquable dans la lecture.
+  /// Les tokens Strong du verset LSGS — le corpus que [tokensFor] sert par
+  /// défaut.
   ///
-  /// La BYM et les versions téléchargées n'en ont pas : `toBibleBook` aplatit
-  /// les tokens en texte nu, et seule la LSGS embarquée porte les numéros.
+  /// La BYM et les versions téléchargées n'en ont pas : leurs fichiers ne
+  /// portent aucun numéro. La LSS a les siens, mais dans son propre dossier et
+  /// sous ses propres jetons : c'est [tokensFor] qui choisit le corpus.
   Future<List<LsgsToken>> lsgsTokens(
           int bymIndex, int chapter, int verseNumber) =>
       _verseTokens(_lsgs, bymIndex, chapter, verseNumber);

@@ -271,8 +271,9 @@ void main() {
     await tester.tap(find.text('Bible de Yehoshoua Ha Mashiah'));
     await tester.pumpAndSettle();
 
-    // Nothing downloaded: only the embedded BYM and LSGS are choosable.
+    // Nothing downloaded: only the embedded BYM, LSGS and LSS are choosable.
     expect(find.text('Bible Segond 1910 + Strongs'), findsOneWidget);
+    expect(find.text('Bible Segond Louis + Strongs'), findsOneWidget);
     // A downloadable-but-absent version must not appear: it has no text to
     // default to.
     expect(find.text('Bible Darby'), findsNothing);

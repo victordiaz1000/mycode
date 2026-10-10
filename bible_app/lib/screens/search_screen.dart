@@ -827,9 +827,9 @@ class _FilterBar extends StatelessWidget {
 
   /// The versions that can actually be searched.
   ///
-  /// Searchable = indexable offline: the bundled BYM, or a version whose books
-  /// are on the device. A partial download counts — its books are searched, and
-  /// the passages header says how many are covered.
+  /// Searchable = indexable offline: the bundled BYM, LSGS and LSS, or a
+  /// version whose books are on the device. A partial download counts — its
+  /// books are searched, and the passages header says how many are covered.
   ///
   /// The rest used to be listed, greyed, answering a snackbar. Twelve rows for
   /// one usable choice, in a menu whose only job is to choose.

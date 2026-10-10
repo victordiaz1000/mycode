@@ -596,8 +596,8 @@ class _NumberTile extends StatelessWidget {
 
 /// Translations grouped as in the maquette
 /// (`modif/resultat_vers_les_versions.jpg`): a code line, the name, then the
-/// date + licence — but only the ones this device can read: the embedded BYM,
-/// and what the Bibliothèque has downloaded.
+/// date + licence — but only the ones this device can read: the embedded
+/// BYM / LSGS / LSS, and what the Bibliothèque has downloaded.
 ///
 /// The rest of the catalogue used to sit here too, greyed, answering « à
 /// télécharger depuis la Bibliothèque » when tapped — a dozen rows the reader
@@ -616,7 +616,7 @@ Future<void> showVersionSheet(
   ValueChanged<String>? onSelect,
   VoidCallback? onOpenLibrary,
 }) {
-  /// Readable now: the embedded BYM, or a version with books on the device.
+  /// Readable now: an embedded text, or a version with books on the device.
   /// A partial download counts — its books read, the missing ones say so.
   bool readable(VersionEntry version) =>
       version.embedded || installed[version.code]?.isEmpty == false;

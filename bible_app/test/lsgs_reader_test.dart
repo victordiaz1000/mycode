@@ -12,17 +12,21 @@ import 'package:bible_app/screens/chapter_screen.dart';
 import 'package:bible_app/screens/etude_verset_screen.dart';
 import 'package:bible_app/screens/strong_detail_screen.dart';
 import 'package:bible_app/widgets/chapter_reader.dart';
+import 'package:bible_app/widgets/reader_actions_bar.dart';
 
 import 'support/fake_bible_bundle.dart';
 import 'support/fake_fredaw_bundle.dart';
 import 'support/fake_lsgs_bundle.dart';
 import 'support/fake_strong_lexicon_bundle.dart';
 
-/// The LSGS reading contract: a Strong code in the verse opens the extract
-/// sheet — what the entry is, with a button to the complete fiche — while a
-/// tap on the verse itself opens nothing: the study sheet (Note, Comparer,
-/// Partager…) belongs to versions read as a continuous text, and LSGS reads
-/// word by word. The long press still selects the verse.
+/// The Strong reading contract, on the two embedded Segond corpora: a Strong
+/// code in the verse opens the extract sheet — what the entry is, with a button
+/// to the complete fiche — while a tap on the verse itself opens nothing: the
+/// study sheet (Note, Comparer, Partager…) belongs to versions read as a
+/// continuous text, and a Strong-tagged corpus reads word by word. The long
+/// press still selects the verse. The LSS is the LSGS's denser twin (it also
+/// numbers the particles French does not render) and follows the same rules —
+/// it is read as a version like any other, not only as the lexicon's corpus.
 void main() {
   setUp(() {
     SharedPreferences.setMockInitialValues({});
@@ -41,14 +45,14 @@ void main() {
     VersionRepository.clearCache();
   });
 
-  Future<void> pumpLsgsReader(WidgetTester tester) async {
+  Future<void> pumpReader(WidgetTester tester, String code) async {
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(
           body: ChapterReader(
             bookIndex: 1,
             chapter: 1,
-            initialVersionCode: VersionRepository.lsgsCode,
+            initialVersionCode: code,
           ),
         ),
       ),
@@ -56,17 +60,23 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  /// The RichText that carries the LSGS corpus text (verse 1, « AA H7225 »).
-  Finder strongVerseText() => find.byWidgetPredicate(
-    (w) => w is RichText && w.text.toPlainText() == 'AA H7225',
+  Future<void> pumpLsgsReader(WidgetTester tester) =>
+      pumpReader(tester, VersionRepository.lsgsCode);
+
+  /// The RichText that carries the corpus text of verse 1 — `full` names which
+  /// corpus: the LSGS renders « AA H7225 », the LSS adds the waw it numbers
+  /// (« AA H7225 H8804 »).
+  Finder strongVerseText([String full = 'AA H7225']) => find.byWidgetPredicate(
+    (w) => w is RichText && w.text.toPlainText() == full,
   );
 
   /// Taps inside the recognised span of the Strong code, not the centre of the
   /// whole RichText (which fills the reading line).
-  Future<void> tapStrongCode(WidgetTester tester) async {
+  Future<void> tapStrongCode(WidgetTester tester,
+      [String full = 'AA H7225']) async {
     const code = 'H7225';
-    const full = 'AA H7225';
-    final paragraph = tester.renderObject<RenderParagraph>(strongVerseText());
+    final paragraph =
+        tester.renderObject<RenderParagraph>(strongVerseText(full));
     final boxes = paragraph.getBoxesForSelection(
       TextSelection(
         baseOffset: full.indexOf(code),
@@ -158,5 +168,33 @@ void main() {
       findsOneWidget,
       reason: 'la sélection multiple reste la voie du verset',
     );
+  });
+
+  testWidgets('the LSS reads as a version of its own, code for code', (
+    tester,
+  ) async {
+    await pumpReader(tester, VersionRepository.lssCode);
+
+    // The reading bar names the corpus actually read — no silent fallback to
+    // the BYM, which the reader would have no way to notice.
+    expect(
+      find.descendant(
+          of: find.byType(ReaderActionsBar), matching: find.text('LSS')),
+      findsOneWidget,
+    );
+
+    // Its own text, not the LSGS one: the fake numbers the waw consecutive of
+    // Genèse 1:1 only under `bible/lss/`, as the real corpus does. A reader
+    // (or a `loadBook` serving the wrong folder) would show the plain verse.
+    expect(strongVerseText('AA H7225 H8804'), findsOneWidget,
+        reason: 'le jeton sans mot français prend la place de son code');
+
+    // Same contract as the LSGS: the code opens the extract, the verse itself
+    // opens nothing — the study sheet belongs to continuous texts.
+    await tapStrongCode(tester, 'AA H7225 H8804');
+    expect(find.byType(EtudeVersetScreen), findsNothing);
+    expect(find.byType(StrongDetailScreen), findsNothing,
+        reason: 'l\'extrait d\'abord, la fiche ensuite');
+    expect(find.text('Voir la fiche complète'), findsOneWidget);
   });
 }

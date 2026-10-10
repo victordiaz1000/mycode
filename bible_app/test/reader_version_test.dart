@@ -105,6 +105,11 @@ void main() {
         scrollable: find.descendant(
             of: find.byKey(const Key('versionSheetList')),
             matching: find.byType(Scrollable)));
+    // `scrollUntilVisible` stops as soon as the row *exists*, which can leave
+    // it flush with the bottom edge where the tap lands outside the surface —
+    // one more catalogue row above it (the LSS) is enough to move it there.
+    await tester.ensureVisible(find.text(name));
+    await tester.pumpAndSettle();
     await tester.tap(find.text(name));
     await tester.pumpAndSettle();
   }

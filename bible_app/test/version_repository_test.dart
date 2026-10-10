@@ -127,6 +127,29 @@ void main() {
       expect(book.chapters.first.verses.first.text, contains('H0430 créa'));
     });
 
+    test('LSS reads as its own embedded version, not as the LSGS', () async {
+      final lss = await repository.loadBook('LSS', 1);
+      expect(lss.book, 'Genèse');
+      expect(lss.chapters, isNotEmpty);
+      expect(repository.isEmbedded('LSS'), isTrue,
+          reason: 'une version embarquée est toujours lisible, registre ouvert '
+              'ou non');
+
+      // Le texte de l'étude devient un texte de lecture : mêmes codes en ligne,
+      // « Dieu H0430 », cliquables dans la tuile.
+      final verse = lss.chapters.first.verses.first.text;
+      expect(verse, contains('Dieu H0430'));
+
+      // Ce qui distingue les deux corpus, c'est la densité des ancres : la LSS
+      // numérote le waw consécutif de Genèse 1:1, que la LSGS ignore. Si
+      // `loadBook('LSS')` servait le mauvais dossier, les deux textes seraient
+      // identiques et ce jeton n'y serait pas.
+      expect(verse, contains('H8804'));
+      final lsgs = await repository.loadBook('LSGS', 1);
+      expect(lsgs.chapters.first.verses.first.text, isNot(contains('H8804')));
+      expect(verse, isNot(equals(lsgs.chapters.first.verses.first.text)));
+    });
+
     test('a downloaded version comes from the device', () async {
       await store.saveBook('DBY', 1, getbibleBook(1));
 

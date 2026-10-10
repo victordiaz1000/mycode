@@ -354,16 +354,20 @@ void main() {
       expect(find.text('H0001'), findsOneWidget);
     });
 
-    testWidgets('a fresh device: BYM and LSGS are integrated, DBY downloadable',
-        (tester) async {
+    testWidgets('a fresh device: BYM, LSGS and LSS are integrated, DBY '
+        'downloadable', (tester) async {
       final store = FakeStore();
       await pumpLibrary(tester, store: store, service: FakeService(store));
 
       expect(find.byKey(const Key('download-BYM')), findsNothing);
       expect(find.byKey(const Key('download-LSGS')), findsNothing);
+      expect(find.byKey(const Key('download-LSS')), findsNothing);
       expect(find.text('Intégrée à l\'application · hors ligne'),
-          findsNWidgets(2),
-          reason: 'BYM and the embedded LSGS both ship inside the app');
+          findsNWidgets(3),
+          reason: 'BYM and the two embedded Segond Strong texts all ship '
+              'inside the app');
+      expect(find.text('Bible Segond Louis + Strongs'), findsOneWidget,
+          reason: 'the LSS corpus is listed like any other version');
       expect(find.byKey(const Key('download-DBY')), findsOneWidget);
       expect(find.byKey(const Key('delete-DBY')), findsNothing);
       expect(find.text('Bientôt disponible'), findsWidgets);

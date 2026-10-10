@@ -293,9 +293,12 @@ void main() {
 
     // Nothing is downloaded here, so the downloadable half of the catalogue is
     // not offered: it used to sit below, greyed, a dozen rows answering « à
-    // télécharger ». LSGS, like BYM, is embedded — it is offered.
+    // télécharger ». LSGS and LSS, like BYM, are embedded — they are offered.
     expect(find.text('Bible Segond 1910'), findsNothing);
     expect(find.text('Bible Segond 1910 + Strongs'), findsOneWidget);
+    expect(find.text('Bible Segond Louis + Strongs'), findsOneWidget);
+    expect(find.text('LSS'), findsOneWidget,
+        reason: 'the LSS reads like any other version');
     expect(find.text('Bible Darby'), findsNothing);
     expect(find.text('Autres versions'), findsNothing);
   });
@@ -309,7 +312,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Bibliothèque'), findsOneWidget);
-    // 14 catalogue entries, BYM and LSGS being the only readable ones here.
+    // 17 catalogue entries, BYM, LSGS and LSS being the only readable ones
+    // here — 14 others are left to fetch.
     expect(find.text('14 autres versions à télécharger'), findsOneWidget);
   });
 

@@ -177,8 +177,10 @@ class VersionGroup {
 ///
 /// The full reference list is reproduced for the design, but only three states
 /// are real:
-/// - **embedded** : BYM, the default reading version (décision 3), and **LSGS**,
-///   the embedded Segond 1910 text with Strong codes (décision 10) ;
+/// - **embedded** : BYM, the default reading version (décision 3), **LSGS**,
+///   the embedded Segond 1910 text with Strong codes (décision 10), and
+///   **LSS**, the second Strong corpus of Biblia, read as a text like the
+///   first one since it holds the whole canon ;
 /// - **downloadable** : the translations we can actually serve — LSG (ls1910),
 ///   Darby, Martin, KJV via getbible.net (décision 9), and Ostervald,
 ///   néo-Crampon Libre, Chouraqui + King James Française via a direct GitHub
@@ -201,6 +203,15 @@ class VersionGroup {
 /// French text could not be served from getbible.net (its ls1910 JSON does not
 /// carry the Strong numbers, cf. décision 9) — the embedded corpus was built
 /// from a dedicated source (cf. `plan-strong-fr.md`).
+///
+/// « Segond Louis + Strong » (LSS) comes from the same place as the ATI: the
+/// Biblia Universalis 3 modules (`LSS.xml`, read by
+/// `extraction/extract_lgs_lss.py`). It is a second tagging of the same
+/// Segond, denser — it numbers the particles French does not render, which is
+/// what the verse study and the Strong index read (`VersionRepository.lssCode`).
+/// It sits beside the LSGS in the catalogue because it is a whole Bible in the
+/// same schema: what separates the two corpora is their tagging, not what a
+/// reader can open.
 const List<VersionGroup> versionCatalog = [
   VersionGroup('Version intégrée', [
     VersionEntry(
@@ -224,6 +235,20 @@ const List<VersionGroup> versionCatalog = [
       name: 'Bible Segond 1910 + Strongs',
       rights: '1910 · Libre de droit',
       availability: VersionAvailability.embedded,
+      format: VersionFormat.getbible,
+      hasStrong: true,
+    ),
+    VersionEntry(
+      code: 'LSS',
+      name: 'Bible Segond Louis + Strongs',
+      // Le Segond est libre de droit ; ce qui vient de Biblia Universalis 3,
+      // lui, est signé par le logiciel — même mention que l'ATI et les
+      // traductions de la SEF, sorties du même module.
+      rights: '1910 · Libre de droit · corpus Biblia Universalis',
+      availability: VersionAvailability.embedded,
+      // Même schéma que la LSGS : un seul parseur (`LsgsRepository`) sert les
+      // deux dossiers, seule la densité des ancres change — la LSS numérote
+      // les particules que le français ne rend pas (116 567 codes sans mot).
       format: VersionFormat.getbible,
       hasStrong: true,
     ),

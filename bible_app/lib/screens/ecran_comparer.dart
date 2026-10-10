@@ -96,18 +96,18 @@ class _ComparerScreenState extends State<ComparerScreen> {
   }
 
   /// Rassemble le verset dans chaque version qui peut le servir, dans l'ordre
-  /// du catalogue : BYM et LSGS embarquées d'abord, puis les téléchargées.
+  /// du catalogue : BYM, LSGS et LSS embarquées d'abord, puis les
+  /// téléchargées.
   Future<List<VersionBible>> _buildVersions() async {
-    final codes = <String>[
+    final embedded = <String>[
       VersionRepository.embeddedCode,
       VersionRepository.lsgsCode,
+      VersionRepository.lssCode,
     ];
+    final codes = <String>[...embedded];
     final installed = await _store.installed();
     for (final entry in installed.entries) {
-      if (entry.key == VersionRepository.embeddedCode ||
-          entry.key == VersionRepository.lsgsCode) {
-        continue;
-      }
+      if (embedded.contains(entry.key)) continue;
       if (entry.value.has(widget.bookIndex)) codes.add(entry.key);
     }
 

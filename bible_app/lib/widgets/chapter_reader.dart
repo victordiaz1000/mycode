@@ -627,9 +627,9 @@ class _ChapterReaderState extends State<ChapterReader> {
     final prefs = await AppPreferences.load();
     final installed = await _installedVersions();
     final preferred = widget.initialVersionCode ?? prefs.versionCode;
-    // An embedded version (BYM or LSGS) is always readable. A downloaded one
-    // deleted from the Bibliothèque since the last read would leave the reader
-    // stuck on an error panel — fall back to the embedded BYM.
+    // An embedded version (BYM, LSGS or LSS) is always readable. A downloaded
+    // one deleted from the Bibliothèque since the last read would leave the
+    // reader stuck on an error panel — fall back to the embedded BYM.
     final code =
         _versions.isEmbedded(preferred) ||
             installed[preferred]?.isEmpty == false
@@ -1299,22 +1299,24 @@ class _ChapterReaderState extends State<ChapterReader> {
       return;
     }
     // La feuille d'étude est fermée là où le texte se lit mot à mot : sur
-    // l'ATI (colonnes de champs) et sur la LSGS (chaque code Strong déjà
-    // cliquable). Note, Comparer, Renvois, Copier, Partager parlent d'un
-    // verset lu dans un texte continu ; ici la seule porte est le mot lui-
-    // même — la fiche d'une cellule sur l'ATI, l'extrait d'un code sur la
-    // LSGS. La sélection multiple, elle, est décidée plus haut et reste
-    // servie : un long appui suffit toujours à la lancer.
+    // l'ATI (colonnes de champs) et sur les deux Segond Strong, LSGS et LSS
+    // (chaque code Strong déjà cliquable). Note, Comparer, Renvois, Copier,
+    // Partager parlent d'un verset lu dans un texte continu ; ici la seule
+    // porte est le mot lui-même — la fiche d'une cellule sur l'ATI, l'extrait
+    // d'un code sur la LSGS ou la LSS. La sélection multiple, elle, est
+    // décidée plus haut et reste servie : un long appui suffit toujours à la
+    // lancer.
     if (_interlinear || _hasStrong) return;
     final vn = verse.number;
-    // The Lexique button proposes the same verse in the embedded LSGS Strong
+    // The Lexique button proposes the same verse in the embedded Strong
     // rendering — a property of the BYM canon, not of the notes the version
     // happens to carry, so the gate asks the FORMAT (the same predicate as the
     // book header and the notes toggle) rather than the code: a future
     // BYM-format version keeps the button where `code == 'BYM'` would drop it.
-    // LSGS itself no longer reaches this sheet — the gate above takes it out —
-    // what stays off here are the bare-text translations, rather than offer a
-    // Strong verse that may not match their own versification.
+    // LSGS and LSS themselves no longer reach this sheet — the gate above
+    // takes them out — what stays off here are the bare-text translations,
+    // rather than offer a Strong verse that may not match their own
+    // versification.
     final lexiqueEnabled = versionByCode(_versionCode)?.carriesNotes ?? false;
     final action = await showStudySheet(
       context,
@@ -1908,7 +1910,7 @@ class _ChapterReaderState extends State<ChapterReader> {
 
   /// The Comparer button of the study sheet: it opens [ComparerScreen] on the
   /// verse the reader is on, showing it across every version present on the
-  /// device (embedded BYM/LSGS + downloaded ones holding the book).
+  /// device (embedded BYM/LSGS/LSS + downloaded ones holding the book).
   Future<void> _openComparer(int verseNumber) async {
     if (!mounted) return;
     await Navigator.of(context).push(
