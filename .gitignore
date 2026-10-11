@@ -64,3 +64,10 @@ bible_app/.freebuff/
 # dont 285 Mo de pages HTML brutes. C'est le script qui porte l'information.
 ATI/extrait/
 ATI/__pycache__/
+
+# Même logique pour le NTI : `python NTI/extract_nti.py` reconstruit
+# `NTI/extrait/` depuis NTI.xml (282 fichiers, 87 Mo de pages HTML brutes),
+# et `python NTI/nti_to_json.py` refait `NTI/json/` — celui-là est versionné,
+# comme `ATI/json/`, parce que c'est ce qui est publié sur -bym-bibles.
+NTI/extrait/
+NTI/__pycache__/

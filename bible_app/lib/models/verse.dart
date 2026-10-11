@@ -35,13 +35,24 @@ class Verse {
   final String? alexandrie;
 
   /// The words of an interlinear verse, kept whole (ATI: seven fields per
-  /// Hebrew word, laid out one column per word, right to left).
+  /// Hebrew word; NTI: eight per Greek word — either way, one column per word
+  /// with its lines stacked).
   ///
   /// Null on every version but the interlinear ones, and on any verse rebuilt
   /// from JSON — a favourite or a history entry carries no words, so the
   /// reader falls back to [text], the joined glosses, which every consumer
   /// (search, share, Comparer) already reads.
   final List<AtiWord>? mots;
+
+  /// Whether [mots] holds Greek words — the NTI grid, read left to right,
+  /// against the ATI's Hebrew grid, read right to left.
+  ///
+  /// Asked by whatever lays the verse out, which would otherwise have to guess
+  /// the direction of a verse it only ever receives as data. It reads the
+  /// first word that has one: a Greek word keeps its three Greek lines even
+  /// when it has neither Strong nor glose, and an empty verse direction is
+  /// meaningless.
+  bool get motsGrecs => mots?.any((mot) => mot.greek) ?? false;
 
   const Verse({
     required this.verse,

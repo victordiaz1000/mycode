@@ -301,10 +301,11 @@ void main() {
       await tester.pumpAndSettle();
       await openVersionMenu(tester);
 
-      // 17 catalogue entries, BYM, LSGS and LSS the only searchable ones here,
-      // so 14 are left to fetch — the count moved when CHO and KJF became
-      // downloadable, and again when the LSS joined the catalogue.
-      expect(find.text('14 autres versions à télécharger'), findsOneWidget);
+      // 18 catalogue entries, BYM, LSGS and LSS the only searchable ones here,
+      // so 15 are left to fetch — the count moved when CHO and KJF became
+      // downloadable, again when the LSS joined the catalogue, and a third
+      // time with the NTI.
+      expect(find.text('15 autres versions à télécharger'), findsOneWidget);
       await tester.tap(find.text('Bibliothèque'));
       await tester.pumpAndSettle();
       expect(opened, 1);

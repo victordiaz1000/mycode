@@ -34,15 +34,21 @@ class BookNotDownloaded implements Exception {
 /// « pas encore téléchargé » (lecteur, comparateur, recherche) comprend aussi
 /// ce cas sans code supplémentaire — seul le libellé change, et il doit
 /// changer : « Terminez le téléchargement » serait faux pour un livre que la
-/// version ne contient jamais. Le seul cas actuel est SEF, dont le canon
-/// s'arrête à l'Ancien Testament.
+/// version ne contient jamais. Trois versions sont dans ce cas : SEF et ATI,
+/// dont le canon s'arrête à l'Ancien Testament, et NTI, dont il commence au
+/// Nouveau.
 class BookNotInVersion extends BookNotDownloaded {
   const BookNotInVersion(super.code, super.bymIndex);
 
+  /// Les deux mots du canon viennent du catalogue, jamais écrits ici : c'est
+  /// ce qui fait dire « le Nouveau Testament » à un livre d'Ancien Testament
+  /// demandé au NTI, au lieu de la réponse hébraïque du premier venu.
   @override
-  String get message =>
-      '${catalogEntry(bymIndex).shortName} n\'existe pas en $code '
-      '(Ancien Testament uniquement).';
+  String get message {
+    final canon = versionByCode(code)?.canonOnly ?? 'hors du canon';
+    return '${catalogEntry(bymIndex).shortName} n\'existe pas en $code '
+        '($canon uniquement).';
+  }
 }
 
 /// Lit un livre dans la version active : la BYM embarquée via
@@ -270,20 +276,21 @@ BibleBook bookFromSef(
       },
     );
 
-/// Convertit un livre ATI (Ancien Testament Interlinéaire) vers le modèle de
-/// l'application, en portant chaque verset sur ses gloses françaises **et** sur
-/// ses mots.
+/// Convertit un livre d'interlinéaire — l'ATI hébreu comme le NTI grec — vers
+/// le modèle de l'application, en portant chaque verset sur ses gloses
+/// françaises **et** sur ses mots.
 ///
 /// Passe par [AtiBook] plutôt que de lire le JSON directement, exactement comme
-/// [LsgsRepository.toBibleBook] passe par `LsgsBook` : le modèle porte les sept
-/// champs de chaque mot, dont le rendu interlinéaire a besoin. Faire servir ce
-/// qu'on a chargé une fois l'éprouve au lieu de le laisser attendre, non
-/// exercé, d'être utilisé un jour.
+/// [LsgsRepository.toBibleBook] passe par `LsgsBook` : le modèle porte les
+/// champs de chaque mot — sept à l'hébreu, six au grec —, dont le rendu
+/// interlinéaire a besoin. Faire servir ce qu'on a chargé une fois l'éprouve au
+/// lieu de le laisser attendre, non exercé, d'être utilisé un jour.
 ///
-/// [Verse.text] reste une chaîne — sept champs par mot n'y tiennent pas — et
+/// [Verse.text] reste une chaîne — huit champs par mot n'y tiennent pas — et
 /// c'est elle que lisent la recherche, le partage et Comparer : une ligne de
-/// gloses jointes. [Verse.mots] garde la donnée complète à côté pour
-/// `verse_tile`, qui pose les colonnes interlinéaires quand elle est là.
+/// gloses jointes, variante comprise. [Verse.mots] garde la donnée complète à
+/// côté pour `verse_tile`, qui pose les colonnes interlinéaires quand elle est
+/// là.
 BibleBook bookFromAti(
   Map<String, dynamic> json, {
   required int bymIndex,
@@ -328,7 +335,14 @@ BibleBook _bookFromAtiBook(AtiBook book, {required int bymIndex}) {
 /// Le nettoyage lui-même vit sur [AtiWord.readableGloss] : les marqueurs `*` et
 /// `-` de la source y sautent, l'interlinéaire posant sous chaque mot exactement
 /// ce que cette ligne joint. Un mot dont la glose n'est qu'un marqueur disparaît
-/// de la ligne — il reste entier dans le fichier, avec son hébreu.
+/// de la ligne — il reste entier dans le fichier, avec son texte.
+///
+/// Le NTI ajoute une variante à côté de certaines gloses (« de genèse /
+/// de généalogie », 39 375 fois). Elle n'est pas un second mot : c'est la même
+/// cellule qui la porte, en italique à l'écran, et elle rejoint donc la ligne
+/// juste après sa glose. Pour les 183 mots dont la glose n'est qu'un marqueur
+/// (« - / or »), c'est la seule des deux qui existe — sans elle, le mot
+/// rejoindrait la ligne sans rien dire de français.
 ///
 /// Restent les quatre mots dont la source ne porte aucune glose — cellule rouge
 /// vide ou absente (Genèse 9:11, Lévitique 14:27, Nombres 1:18 et 1:52) : ils
@@ -339,8 +353,9 @@ String joinAtiGlosses(List<AtiWord> words) {
   final pieces = <String>[];
   for (final word in words) {
     final kept = word.readableGloss;
-    if (kept == null) continue;
-    pieces.add(kept);
+    if (kept != null) pieces.add(kept);
+    final variante = word.readableVariant;
+    if (variante != null) pieces.add(variante);
   }
   return pieces.join(' ');
 }

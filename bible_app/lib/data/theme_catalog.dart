@@ -82,13 +82,14 @@ class BibleTheme {
   Color get linkColor => Color.lerp(accentColor, titleColor, .22)!;
   Color get panelBorderColor => accentColor.withValues(alpha: .32);
 
-  /// Les couleurs de l'interlinéaire ATI, calquées sur la source (Biblia) :
-  /// le rouge de la glose, le vert de l'étiquette grammaticale, le bleu du
-  /// numéro Strong. La source n'en connaît qu'une — celle qui va sur son
-  /// crème ; l'app en a quatorze thèmes, d'où deux variantes par couleur,
-  /// profonde sur fond clair et vive sur fond sombre, choisies par
-  /// [usesLightText]. Sans cela, le rouge de la glose deviendrait une tache
-  /// illisible sur « Nuit étoilée ».
+  /// Les couleurs des interlinéaires (ATI hébreu, NTI grec), calquées sur la
+  /// source (Biblia) : le rouge de la glose, le vert de l'étiquette
+  /// grammaticale, le bleu du numéro Strong. La source n'en connaît qu'une —
+  /// celle qui va sur son crème ; l'app en a quatorze thèmes, d'où deux
+  /// variantes par couleur, profonde sur fond clair et vive sur fond sombre,
+  /// choisies par [usesLightText]. Sans cela, le rouge de la glose deviendrait
+  /// une tache illisible sur « Nuit étoilée ». Les deux grilles les partagent,
+  /// elles n'ont pas de couleurs à elles.
   Color get glossColor =>
       usesLightText ? const Color(0xFFFF8A80) : const Color(0xFFC62828);
   Color get grammarColor =>

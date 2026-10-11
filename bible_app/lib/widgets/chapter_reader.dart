@@ -2064,9 +2064,13 @@ class _MissingBookPanel extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 error is BookNotInVersion
-                    ? '${versionByCode(error.code)?.name ?? error.code} ne '
-                        'contient que l\'Ancien Testament : il n\'y a rien à '
-                        'télécharger pour ce livre.'
+                    // Le canon vient du catalogue : « le Nouveau Testament »
+                    // pour le NTI, « l'Ancien Testament » pour l'ATI et la
+                    // SEF — écrit ici, un seul des deux aurait fini par
+                    // mentir.
+                    ? '${error.code} ne contient que '
+                        '${versionByCode(error.code)?.canonOnly ?? 'son canon'} : '
+                        'il n\'y a rien à télécharger pour ce livre.'
                     : 'Terminez le téléchargement depuis la Bibliothèque pour '
                         'lire ce livre en ${error.code}.',
                 textAlign: TextAlign.center,

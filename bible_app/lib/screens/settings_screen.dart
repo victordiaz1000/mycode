@@ -55,17 +55,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
   /// the notes into the sentence. Gated on display, never by rewriting the
   /// stored disposition — which is what keeps it intact for the tiles layout.
   ///
-  /// L'ATI rend des tuiles quoi qu'il en soit, puisqu'il n'a pas de texte
-  /// continu : le choix « Sous » lui revient sur cette version.
+  /// L'interlinéaire rend des tuiles quoi qu'il en soit, puisqu'il n'a pas de
+  /// texte continu : le choix « Sous » lui revient sur ces versions.
   bool get _belowAvailable =>
       _interlinear || _prefs?.layout != ReadingLayout.paragraph;
 
-  /// L'interlinéaire ATI n'a pas de texte continu : ses versets sont des
-  /// colonnes de mots, et la ligne jointe que `Verse.text` porte n'est que la
-  /// glose française posée de bout en bout — le texte que chercher et
-  /// partager utilisent. Le segment « Continu » se désactive donc ici, et la
-  /// barre affiche « Séparés » : jamais la préférence n'est réécrite, elle
-  /// attend une version qui sache s'en servir.
+  /// L'interlinéaire n'a pas de texte continu — ATI hébreu comme NTI grec :
+  /// ses versets sont des colonnes de mots, et la ligne jointe que
+  /// `Verse.text` porte n'est que la glose française posée de bout en bout —
+  /// le texte que chercher et partager utilisent. Le segment « Continu » se
+  /// désactive donc ici, et la barre affiche « Séparés » : jamais la
+  /// préférence n'est réécrite, elle attend une version qui sache s'en
+  /// servir.
   bool get _interlinear =>
       versionByCode(_prefs?.versionCode ?? '')?.interlinear ?? false;
 
@@ -389,10 +390,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   /// "2/66 livres" under a partially installed version in the picker.
+  ///
+  /// The denominator is the version's own canon, not the 66: an ATI install
+  /// tops out at 39 and an NTI one at 27, and « 27/66 » would read as a
+  /// download stopped halfway for a version that is complete.
   String? _installedLine(VersionEntry version) {
     final state = _installed[version.code];
     if (state == null || state.isEmpty || state.isComplete) return null;
-    return '${state.bookCount}/66 livres téléchargés';
+    return '${state.bookCount}/${version.bookCount} livres téléchargés';
   }
 
   void _clearCache() {
@@ -755,7 +760,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               : 'Continu',
                           tooltipOf: (option) =>
                               option == ReadingLayout.paragraph && _interlinear
-                              ? 'Indisponible avec l’interlinéaire ATI'
+                              // Ni « ATI » ni « NTI » : le texte continu est
+                              // refusé aux deux, pour la même raison.
+                              ? 'Indisponible avec un interlinéaire'
                               : option.label,
                           selected: _interlinear
                               ? ReadingLayout.tiles
@@ -951,8 +958,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           _SettingsRow(
                             icon: Icons.folder_outlined,
                             title: versionByCode(entry.key)?.name ?? entry.key,
+                            // Le dénominateur est le canon de la version, pas
+                            // les 66 : l'ATI s'arrête à 39, le NTI à 27.
                             subtitle:
-                                '${entry.value.bookCount}/66 livres · '
+                                '${entry.value.bookCount}/'
+                                '${versionByCode(entry.key)?.bookCount ?? 66} '
+                                'livres · '
                                 '${_formatBytes(_sizes[entry.key] ?? 0)}',
                           ),
                           if (entry.key != _installed.keys.last) _Divider(),

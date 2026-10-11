@@ -205,14 +205,18 @@ class VerseTile extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: rhythm.textPadV),
                 child: Directionality(
-                  // L'interlinéaire se lit de la droite : la gouttière du
-                  // numéro part avec lui et vient se poser à droite du
-                  // premier mot, comme la source l'imprime. Les autres
-                  // versions — et le reste de la tuile, titre de section
-                  // compris — gardent leur sens inchangé.
-                  textDirection: (verse.mots?.isNotEmpty ?? false)
-                      ? TextDirection.rtl
-                      : TextDirection.ltr,
+                  // L'interlinéaire **hébreu** se lit de la droite : la
+                  // gouttière du numéro part avec lui et vient se poser à
+                  // droite du premier mot, comme la source l'imprime. Le
+                  // **grec** du NTI se lit de la gauche, et sa gouttière
+                  // reste alors à sa place d'ordinaire — à gauche, comme la
+                  // maquette l'y pose avec les étiquettes de rangée. Les
+                  // autres versions — et le reste de la tuile, titre de
+                  // section compris — gardent leur sens inchangé.
+                  textDirection:
+                      (verse.mots?.isNotEmpty ?? false) && !verse.motsGrecs
+                          ? TextDirection.rtl
+                          : TextDirection.ltr,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -448,8 +452,9 @@ class ChapterVerseList extends StatefulWidget {
   /// versions without Strong numbers.
   final void Function(Verse verse, String strong)? onStrongTap;
 
-  /// Le tap sur un mot de l'interlinéaire (ATI) : la fiche des sept champs,
-  /// avec le verset pour la nommer. `null` : pas de tap du tout.
+  /// Le tap sur un mot de l'interlinéaire — l'ATI hébreu comme le NTI grec — :
+  /// la fiche de ses champs, avec le verset pour la nommer. `null` : pas de
+  /// tap du tout.
   final void Function(Verse verse, AtiWord word)? onAtiWordTap;
 
   /// Called with a [BibleReference] when the reader taps a reference embedded
@@ -802,11 +807,12 @@ class ChapterVerseListState extends State<ChapterVerseList> {
     final onAtiWordTap = w.onAtiWordTap;
     final onReferenceTap = w.onReferenceTap;
     final layout = w.layout;
-    // L'interlinéaire n'a pas de texte continu : un verset ATI est une grille
-    // de colonnes, pas une ligne qui coule — et `Verse.text`, pour cette
-    // version, n'est que la glose française jointe. La coercition vit ici, au
-    // point de rendu : le lecteur désactive déjà l'option sur l'ATI, cette
-    // ligne garantit le contrat du widget à n'importe quel appelant.
+    // L'interlinéaire n'a pas de texte continu : un verset d'ATI ou de NTI est
+    // une grille de colonnes, pas une ligne qui coule — et `Verse.text`, pour
+    // ces versions, n'est que la glose française jointe. La coercition vit ici,
+    // au point de rendu : le lecteur désactive déjà l'option sur
+    // l'interlinéaire, cette ligne garantit le contrat du widget à n'importe
+    // quel appelant.
     final flow =
         layout == ReadingLayout.paragraph &&
             chapter.verses.any((verse) => verse.mots?.isNotEmpty ?? false)

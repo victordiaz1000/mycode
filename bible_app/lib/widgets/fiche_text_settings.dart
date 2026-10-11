@@ -849,7 +849,10 @@ class DisplayLayoutSection extends StatelessWidget {
         selected: paragraphAvailable ? layout : ReadingLayout.tiles,
         tooltipOf: (option) =>
             option == ReadingLayout.paragraph && !paragraphAvailable
-            ? 'Indisponible avec l’interlinéaire ATI'
+            // Pas de nom de version : le texte continu est refusé aux deux
+            // interlinéaires, l'ATI hébreu comme le NTI grec, pour la même
+            // raison — une colonne de champs ne coule pas.
+            ? 'Indisponible avec un interlinéaire'
             : option.label,
         enabledOf: (option) =>
             paragraphAvailable || option != ReadingLayout.paragraph,

@@ -10,12 +10,13 @@ import 'premium_style.dart';
 
 /// Ouvre la fiche d'un mot de l'interlinéaire — le tap sur une cellule.
 ///
-/// Ce qu'elle montre : **tous les champs que le mot porte**. La source en
-/// donne sept (`s`, `t`, `h`, `d`, `f`, `g`, `a`, `n` — l'analyse venant
-/// après l'étiquette), et aucun n'est jamais inventé : un champ absent ne
-/// fait pas de ligne. Ce que la cellule ne pouvait pas montrer y trouve sa
-/// place — l'analyse développée, qui exploserait l'alignement, et le
-/// découpage morphologique.
+/// Ce qu'elle montre : **tous les champs que le mot porte**. L'ATI en donne
+/// sept (`s`, `t`, `h`, `d`, `f`, `g`, `a`, `n` — l'analyse venant après
+/// l'étiquette) ; le NTI en remplace trois par ses propres lignes (`m` le mot
+/// imprimé, `l` le lemme, `k` la Koinè) et en ajoute une (`f2`, la variante de
+/// glose). Aucun n'est jamais inventé : un champ absent ne fait pas de ligne.
+/// Ce que la cellule ne pouvait pas montrer y trouve sa place — l'analyse
+/// développée, qui exploserait l'alignement, et le découpage morphologique.
 ///
 /// Deux sortes de lien, comme dans la source : le numéro Strong ouvre la
 /// fiche du lexique (la même que la LSGS, servie par le même lexique), le
@@ -125,14 +126,39 @@ class _AtiWordSheetState extends State<_AtiWordSheet> {
         children: [
           _header(context, p),
           const SizedBox(height: 16),
+          // Les deux lignes grecques que la cellule empilait sans les nommer.
+          // La grille n'a que six étiquettes, dont deux se ressemblent (« Lemme »
+          // et « Koinè ») ; la fiche les appelle, dans l'ordre de la source.
+          if (word.lemma != null) ...[
+            const _Label('Lemme'),
+            const SizedBox(height: 4),
+            Text(
+              word.lemma!,
+              textDirection: TextDirection.ltr,
+              style: _source(context, p, 17, FontWeight.w600),
+            ),
+            const SizedBox(height: 14),
+          ],
+          if (word.koine != null) ...[
+            const _Label('Koinè'),
+            const SizedBox(height: 4),
+            Text(
+              word.koine!,
+              textDirection: TextDirection.ltr,
+              style: _source(
+                context,
+                p,
+                17,
+                FontWeight.w500,
+                couleur: p.textGrey,
+              ),
+            ),
+            const SizedBox(height: 14),
+          ],
           if (glose != null) ...[
             const _Label('Glose'),
             const SizedBox(height: 4),
-            Text(
-              glose,
-              textDirection: TextDirection.ltr,
-              style: premiumText(context, 17, FontWeight.w700, bt.glossColor),
-            ),
+            _glose(context, bt),
             const SizedBox(height: 14),
           ],
           if (word.grammar != null) ...[
@@ -184,8 +210,9 @@ class _AtiWordSheetState extends State<_AtiWordSheet> {
     );
   }
 
-  /// L'en-tête : la référence en petit, le mot hébreu en grand, la
-  /// translittération dessous — la même ordonnance que la carte de la fiche
+  /// L'en-tête : la référence en petit, le mot source en grand — hébreu pointé
+  /// ou grec polytonique, chacun dans le sens où il se lit —, et chez l'ATI la
+  /// translittération dessous. La même ordonnance que la carte de la fiche
   /// Strong, où l'on reconnaît le mot avant de le lire.
   Widget _header(BuildContext context, PremiumPalette p) {
     final word = widget.word;
@@ -211,6 +238,20 @@ class _AtiWordSheetState extends State<_AtiWordSheet> {
                 FontWeight.w600,
                 p.textDark,
               ).copyWith(fontFamily: AtiInterlinear.cardoFamily, height: 1.45),
+            )
+          else if (word.modern != null)
+            // Le NTI n'a pas de translittération à afficher sous le mot — le
+            // lemme a sa propre ligne, plus bas, avec son étiquette.
+            Text(
+              word.modern!,
+              textDirection: TextDirection.ltr,
+              textAlign: TextAlign.center,
+              style: premiumText(
+                context,
+                30,
+                FontWeight.w600,
+                p.textDark,
+              ).copyWith(fontFamily: AtiInterlinear.cardoFamily, height: 1.45),
             ),
           if (word.translit != null)
             Text(
@@ -227,6 +268,45 @@ class _AtiWordSheetState extends State<_AtiWordSheet> {
             ),
         ],
       ),
+    );
+  }
+
+  /// Une ligne de la fiche qui porte du texte source : Cardo, la seule
+  /// famille qui dessine l'hébreu pointé et le grec polytonique.
+  TextStyle _source(
+    BuildContext context,
+    PremiumPalette p,
+    double taille,
+    FontWeight graisse, {
+    Color? couleur,
+  }) =>
+      premiumText(context, taille, graisse, couleur ?? p.textDark)
+          .copyWith(fontFamily: AtiInterlinear.cardoFamily);
+
+  /// La glose, et sa variante en italique quand il y en a une — le même
+  /// partage que la cellule de la grille, en plus grand. La variante n'est
+  /// pas un second mot : c'est la même proposition relue autrement (« de
+  /// genèse / de généalogie »), et l'italique dit laquelle des deux la source
+  /// propose en second.
+  Widget _glose(BuildContext context, BibleTheme bt) {
+    final glose = widget.word.readableGloss!;
+    final variante = widget.word.readableVariant;
+    final style = premiumText(context, 17, FontWeight.w700, bt.glossColor);
+    if (variante == null) {
+      return Text(glose, textDirection: TextDirection.ltr, style: style);
+    }
+    return Text.rich(
+      TextSpan(
+        text: glose,
+        style: style,
+        children: [
+          TextSpan(
+            text: ' / $variante',
+            style: style.copyWith(fontStyle: FontStyle.italic),
+          ),
+        ],
+      ),
+      textDirection: TextDirection.ltr,
     );
   }
 

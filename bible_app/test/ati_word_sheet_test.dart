@@ -33,6 +33,19 @@ const motNu = AtiWord(
   grammar: 'Conjonction',
 );
 
+/// Un mot du NTI — les six rangées du grec, dont deux lignes de texte et une
+/// variante de glose. Matthieu 1:1, tel que le convertisseur le sort.
+const motGrec = AtiWord(
+  modern: 'γενέσεως',
+  lemma: 'γένεσις',
+  koine: 'γενεσεωσ',
+  strong: 'G1078',
+  gloss: 'de genèse',
+  variant: 'de généalogie',
+  grammar: 'N-GFS',
+  analysis: 'Nature : Nom · Déclinaison : Génitif · Genre : féminin',
+);
+
 void main() {
   setUp(() {
     AtiNotes.useBundle(FakeNotesBundle());
@@ -47,6 +60,7 @@ void main() {
   Future<void> pumpMot(
     WidgetTester tester, {
     AtiWord mot = motComplet,
+    String reference = 'Ge. 1:1',
     Future<void> Function(String strong)? onStrongTap,
     Future<void> Function(String noteId)? onNoteTap,
   }) async {
@@ -61,7 +75,7 @@ void main() {
                 theme: bibleThemes.first,
                 onWordTap: (word) => showAtiWordSheet(
                   context,
-                  reference: 'Ge. 1:1',
+                  reference: reference,
                   word: word,
                   onStrongTap: onStrongTap,
                   onNoteTap: onNoteTap,
@@ -214,5 +228,103 @@ void main() {
     // La feuille est restée ouverte : rien n'a bougé, le tap n'était pas un
     // lien.
     expect(find.text('Ge. 1:1'), findsOneWidget);
+  });
+
+  group('un mot grec (NTI)', () {
+    testWidgets('la fiche nomme Lemme et Koinè, que la grille ne nomme pas', (
+      tester,
+    ) async {
+      await pumpMot(tester, mot: motGrec, reference: 'Mt. 1:1');
+      await tester.tap(find.text('γενέσεως'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Mt. 1:1'), findsOneWidget);
+      // Les deux lignes de texte sont déjà en cellule : ce que la fiche
+      // ajoute, c'est leur nom — la grille ne distingue « Lemme » de
+      // « Koinè » que par ses étiquettes.
+      expect(find.text('γένεσις'), findsWidgets);
+      expect(find.text('γενεσεωσ'), findsWidgets);
+      // Les deux fois : en cellule (la grille empile) et en fiche (la fiche
+      // nomme).
+      expect(find.text('Lemme'), findsWidgets);
+      expect(find.text('Koinè'), findsWidgets);
+      // Les lignes que la grille tient court : Strong, étiquette, analyse.
+      expect(find.text('G1078'), findsOneWidget, reason: 'le G est gardé ici');
+      expect(find.text('N-GFS'), findsWidgets);
+      expect(
+        find.text('Nature : Nom · Déclinaison : Génitif · Genre : féminin'),
+        findsOneWidget,
+        reason: 'l’analyse, que la cellule ne peut pas tenir',
+      );
+      expect(
+        tester.widget<Text>(find.text('γενέσεως').last).textDirection,
+        TextDirection.ltr,
+        reason: 'le grec se lit de la gauche, fiche comprise',
+      );
+    });
+
+    testWidgets('la variante est en italique, à la suite de la glose', (
+      tester,
+    ) async {
+      await pumpMot(tester, mot: motGrec, reference: 'Mt. 1:1');
+      await tester.tap(find.text('γενέσεως'));
+      await tester.pumpAndSettle();
+
+      // Deux cellules portent la même paire — celle de la grille et la ligne
+      // « Glose » de la fiche — et toutes deux la portent pareil : l'italique
+      // suit la variante partout, sans exception à retenir.
+      final cells = tester.widgetList<RichText>(
+        find.text('de genèse / de généalogie', findRichText: true),
+      );
+      expect(cells, hasLength(2));
+
+      List<String> spans(RichText rich) {
+        final found = <String>[];
+        void walk(InlineSpan span) {
+          if (span is TextSpan) {
+            final text = span.text;
+            if (text != null) {
+              found.add(
+                span.style?.fontStyle == FontStyle.italic ? '»$text' : text,
+              );
+            }
+            for (final child in span.children ?? const <InlineSpan>[]) {
+              walk(child);
+            }
+          }
+        }
+
+        walk(rich.text);
+        return found;
+      }
+
+      for (final cell in cells) {
+        expect(spans(cell), contains('» / de généalogie'));
+        expect(spans(cell), contains('de genèse'));
+      }
+    });
+
+    testWidgets('un mot sans Strong n’invente pas de lien', (tester) async {
+      // Marc 16:8, un mot « non réf. » : la source ne le rattache à aucun
+      // lexique, et aucun mot du corpus grec ne renvoie à son glossaire.
+      await pumpMot(
+        tester,
+        mot: const AtiWord(
+          modern: '[[[Πάντα',
+          lemma: '-',
+          koine: '-',
+          gloss: '[[[Toutes',
+        ),
+        reference: 'Mr. 16:8',
+      );
+      await tester.tap(find.text('[[[Πάντα'));
+      await tester.pumpAndSettle();
+
+      expect(find.textContaining('Note'), findsNothing);
+      expect(
+        find.text('Champs portés par la source — aucun lien.'),
+        findsOneWidget,
+      );
+    });
   });
 }

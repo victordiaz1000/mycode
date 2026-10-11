@@ -26,11 +26,16 @@ enum VersionFormat {
   /// Read by `bookFromSef`.
   sef,
 
-  /// The ATI schema — tokenised word by word rather than verse by verse, the
-  /// only format here that is not a line of text: each word carries its Strong
-  /// number, transliteration, pointed Hebrew, morphological split, French
-  /// gloss, grammatical analysis and glossary reference. Produced by
-  /// `ATI/ati_to_json.py`, read by `bookFromAti`.
+  /// The interlinear schema — tokenised word by word rather than verse by
+  /// verse, the only format here that is not a line of text: each word carries
+  /// its Strong number and its French gloss, plus the lines of the source
+  /// language. Two corpora use it, with the same keys and two sets of lines —
+  /// the ATI (Old Testament, Hebrew: transliteration, pointed Hebrew,
+  /// morphological split, glossary reference) and the NTI (New Testament,
+  /// Greek: modern form, lemma, Koinè spelling, gloss variant), produced by
+  /// `ATI/ati_to_json.py` and `NTI/nti_to_json.py`, read by `bookFromAti`.
+  /// `AtiWord.greek` tells them apart, and the rendering goes LTR or RTL
+  /// accordingly.
   ///
   /// Like LSGS it must be flattened to reach [BibleBook], whose `Verse.text` is
   /// a single String: `bookFromAti` joins the French glosses so that search,
@@ -104,11 +109,18 @@ class VersionEntry {
   ///
   /// SEF is the Septuagint: its canon ends at Malachie, Matthieu does not
   /// exist in it. Everything that counts books — the Bibliothèque progress,
-  /// the download loop, « is this install complete? » — asks this instead of
-  /// assuming the 66, and reading a New Testament book in it says the book is
-  /// absent from the version rather than offering a download that could never
-  /// land.
+  /// the download loop, « is this install complete? » — asks the canon instead
+  /// of assuming the 66, and reading a New Testament book in it says the book
+  /// is absent from the version rather than offering a download that could
+  /// never land.
   final bool otOnly;
+
+  /// Whether the version only carries the New Testament (BYM indexes 40..66).
+  ///
+  /// The mirror image of [otOnly], and never both at once: the NTI, the Greek
+  /// interlinear, has no Old Testament — a Greek word for Amos does not exist
+  /// in it any more than a Hebrew word for Matthieu exists in the ATI.
+  final bool ntOnly;
 
   const VersionEntry({
     required this.code,
@@ -122,7 +134,9 @@ class VersionEntry {
     this.hasStrong = false,
     this.languageCode = 'FR',
     this.otOnly = false,
-  });
+    this.ntOnly = false,
+  }) : assert(!(otOnly && ntOnly),
+            'Une version ne peut pas porter les deux canons à la fois.');
 
   /// True for the version shipped inside the app (readable offline, no download).
   bool get embedded => availability == VersionAvailability.embedded;
@@ -144,26 +158,48 @@ class VersionEntry {
   /// a BYM-format version downloaded from elsewhere keep its notes.
   bool get carriesNotes => format == VersionFormat.bym;
 
-  /// True when the version reads as a grid of words instead of prose — the ATI
-  /// interlinear, where a verse is a stack of columns.
+  /// True when the version reads as a grid of words instead of prose — the
+  /// interlinears, where a verse is a stack of columns: the ATI (Hebrew) and
+  /// the NTI (Greek), both in [VersionFormat.ati].
   ///
   /// C'est la clé de « Texte continu » : une colonne de sept champs ne coule
   /// pas, et `Verse.text` d'une telle version n'est que la glose française
   /// posée de bout en bout — la ligne que chercher et partager utilisent,
   /// jamais un texte fait pour se lire d'un trait. L'option se désactive donc
-  /// sur cette version plutôt que de faire semblant.
+  /// sur ces versions plutôt que de faire semblant.
   bool get interlinear => format == VersionFormat.ati;
 
-  /// BYM indexes (1..66) the version can hold: all of them, or 1..39 for an
-  /// Old Testament-only version (the BYM order puts Malachie at 39 and
-  /// Matthieu at 40).
+  /// First BYM index the version holds: 40 for a New Testament-only version
+  /// (the BYM order puts Matthieu there), 1 otherwise.
+  int get firstBook => ntOnly ? 40 : 1;
+
+  /// Last BYM index the version holds: 39 for an Old Testament-only version
+  /// (Malachie), the last book of the catalog otherwise.
+  int get lastBook => otOnly ? 39 : bookCatalog.length;
+
+  /// BYM indexes (1..66) the version can hold: all of them, or the slice its
+  /// canon allows — 1..39 for an Old Testament-only version, 40..66 for a New
+  /// Testament-only one.
   bool containsBook(int bymIndex) =>
-      bymIndex >= 1 &&
-      (otOnly ? bymIndex <= 39 : bymIndex <= bookCatalog.length);
+      bymIndex >= firstBook && bymIndex <= lastBook;
 
   /// How many books a complete install holds — the denominator of the
   /// Bibliothèque progress bar and of the download outcome.
-  int get bookCount => otOnly ? 39 : bookCatalog.length;
+  int get bookCount => lastBook - firstBook + 1;
+
+  /// What the version's canon stops at, with the article a French sentence
+  /// needs — « l'Ancien Testament », « le Nouveau Testament » — and null when
+  /// it is the whole Bible.
+  ///
+  /// The single source of those two words: the two messages that name a
+  /// restricted canon take them here, and nothing else spells « Ancien
+  /// Testament » out of the catalog — or a New Testament-only version would
+  /// end up claiming to hold the Old.
+  String? get canonOnly => otOnly
+      ? 'l\'Ancien Testament'
+      : ntOnly
+          ? 'le Nouveau Testament'
+          : null;
 }
 
 class VersionGroup {
@@ -187,9 +223,12 @@ class VersionGroup {
 ///   host ([VersionEntry.urlTemplate], produced by
 ///   `appCodebar/ostervald_to_json.py` and `appCodebar/html_verses_to_json.py`),
 ///   plus the Septuaginta (SEF: grec + deux traductions françaises, Ancien
-///   Testament seul, produced by `sef/sef_to_json.py`) and the Ancien Testament
-///   Interlinéaire (ATI: sept champs par mot hébreu, Ancien Testament seul,
-///   produced by `ATI/ati_to_json.py`) ;
+///   Testament seul, produced by `sef/sef_to_json.py`) and the two
+///   interlinears of Biblia — the Ancien Testament Interlinéaire (ATI: sept
+///   champs par mot hébreu, Ancien Testament seul, produced by
+///   `ATI/ati_to_json.py`) and the Nouveau Testament Interlinéaire (NTI: six
+///   rangées par mot grec, Nouveau Testament seul, produced by
+///   `NTI/nti_to_json.py`) ;
 /// - **unavailable** : copyright / sourceless versions shown greyed for parity
 ///   with the maquette (NBS, NEG79, NVS78P, S21).
 
@@ -300,6 +339,30 @@ const List<VersionGroup> versionCatalog = [
       // chaîne.
       urlTemplate:
           'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/main/ati/{book}.json',
+    ),
+    VersionEntry(
+      code: 'NTI',
+      name: 'Nouveau Testament Interlinéaire',
+      // Le corpus vient du même logiciel et du même dossier de ressources que
+      // l'ATI (`bibles/NTI.xml`) : même signature, même mention.
+      rights: '© Biblia Universalis',
+      availability: VersionAvailability.downloadable,
+      // Même hébergement, sous-dossier propre — produit par
+      // `NTI/nti_to_json.py` depuis NTI.xml de Biblia Universalis 3. Même
+      // format que l'ATI (un mot par colonne, ses lignes empilées) : les clés
+      // sont communes, ce qui diffère tient dans `AtiWord.greek`.
+      //
+      // Nouveau Testament seul : le grec de ce corpus va de Matthieu à
+      // l'Apocalypse. `ntOnly` fait compter la Bibliothèque sur 27 et évite
+      // d'offrir le téléchargement d'une Genèse qui n'existe pas — c'est le
+      // miroir exact de `otOnly` sur l'ATI.
+      format: VersionFormat.ati,
+      ntOnly: true,
+      // `hasStrong` reste faux pour la même raison que sur l'ATI (voir plus
+      // haut) : le drapeau décrit le texte aplati, où `bookFromAti` ne joint
+      // que les gloses françaises.
+      urlTemplate:
+          'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/main/nti/{book}.json',
     ),
     VersionEntry(
       code: 'CHO',
