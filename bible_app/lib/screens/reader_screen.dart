@@ -13,6 +13,7 @@ import '../widgets/premium_style.dart';
 import '../widgets/reader_actions_bar.dart';
 import '../widgets/tab_strip.dart';
 import '../widgets/tab_switcher.dart';
+import '../widgets/work_reader.dart';
 
 /// The tabbed reading context at the heart of the app: a Chrome-style tab
 /// strip on top, the active tab's content below, and a card switcher + home
@@ -138,6 +139,34 @@ class _ReaderScreenState extends State<ReaderScreen> {
       return _HomeTab(
         manager: _manager,
         tab: tab,
+        onOpenLibrary: widget.onOpenLibrary,
+      );
+    }
+    // Un onglet d'ouvrage porte toujours son code : `StudyTab.fromJson` le
+    // garantit (un `work` sans `workCode` retombe en `home`) et [TabManager]
+    // ne l'en construit jamais sans.
+    if (tab.isWork) {
+      final code = tab.workCode!;
+      // Un onglet d'ouvrage sans chapitre lit son sommaire : `openWork` n'en
+      // construit jamais sans, mais le champ reste nullable et 0 *est* le
+      // sommaire.
+      final chapter = tab.chapter ?? 0;
+      return WorkReader(
+        // Le chapitre fait partie de la clé : feuilletter les ‹ › doit
+        // remonter en haut du chapitre suivant, pas garder le défilement du
+        // précédent — c'est la clé que le lecteur biblique porte déjà.
+        key: ValueKey('work-${tab.id}-$code-$chapter'),
+        code: code,
+        chapter: chapter,
+        // La position de lecture d'un ouvrage est un index de bloc, logé dans
+        // le même `verse` que la position d'un verset.
+        initialBlock: tab.verse,
+        onBlockChanged: (block) => _manager.updateTabVerse(tab.id, block),
+        // Naviguer depuis le sommaire ou les flèches déplace *cet* onglet,
+        // comme pour la Bible : seul le ＋ de la barre en crée un nouveau.
+        onOpenChapter: (chapter) =>
+            _manager.replaceActiveWork(code, chapter),
+        onOpenVerse: widget.onOpenVerse,
         onOpenLibrary: widget.onOpenLibrary,
       );
     }

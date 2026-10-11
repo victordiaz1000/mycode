@@ -274,6 +274,20 @@ class _HomeShellState extends State<HomeShell> {
     _persistDestination(BymDestination.lecture.index);
   }
 
+  /// Ouvre un ouvrage téléchargé dans l'écran Lecture — la Bibliothèque n'est
+  /// qu'un catalogue, c'est ici que le livre se lit, sommaire en tête, sur le
+  /// modèle de [_openReading].
+  void _openWork(String code) {
+    // Pas de `jumpToVerse` : un ouvrage se reprend sur son index de bloc via
+    // l'onglet lui-même, jamais par un saut de la coquille.
+    _manager.openWork(code);
+    setState(() {
+      _index = BymDestination.lecture.index;
+      _ensurePage(_index);
+    });
+    _persistDestination(BymDestination.lecture.index);
+  }
+
   void _ensurePage(int index) {
     _pageCache[index] ??= switch (BymDestination.values[index]) {
       BymDestination.accueil => HomeScreen(
@@ -303,6 +317,9 @@ class _HomeShellState extends State<HomeShell> {
       ),
       BymDestination.bibliotheque => LibraryScreen(
         onOpenVerse: (b, c, v) => _openReading(b, c, verse: v),
+        // Un ouvrage téléchargé se lit dans l'écran Lecture, comme un livre
+        // biblique : la Bibliothèque ouvre, la lecture lit.
+        onOpenWork: _openWork,
         // La pastille « MàJ » de la tuile BYM n'installe rien : elle conduit à
         // la section de Réglages, seul endroit qui décide d'un téléchargement.
         onOpenSettings: () => _selectDestination(BymDestination.reglages),

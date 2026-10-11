@@ -24,9 +24,40 @@ import '../widgets/premium_style.dart';
 /// [bookIndex]/[chapter] are null when no chapter is open (e.g. the no-tab home):
 /// the pill then reads « Livres » and the chevron and arrows are disabled.
 /// [trailing] hosts the ⋯ menu of the caller (reading display options).
+///
+/// **Ouvrages.** La même barre coiffe `WorkReader` : [title], [onTapTitle],
+/// [showVersion] et [onChapters] sont les seuls écarts, tous optionnels et
+/// inertes par défaut — la lecture biblique ne change pas d'un pixel. Un
+/// ouvrage n'a pas de traductions, donc pas de pastille de version ni de saut
+/// au verset ; mais son double chevron survit, parce que feuilletter 11
+/// chapitres un par un est pénible : c'est [onChapters] qui le rend utile. Les
+/// flèches ‹ ›, elles, feuillettent comme avant.
 class ReaderActionsBar extends StatelessWidget {
   final int? bookIndex;
   final int? chapter;
+
+  /// Remplace l'étiquette de la pastille gauche — le titre de l'ouvrage, là où
+  /// la Bible affiche `Genèse 1`. Null (défaut) laisse [reference] décider.
+  final String? title;
+
+  /// Ce que fait la pastille gauche. Null (défaut) ouvre la feuille « Livres »
+  /// des 66 livres bibliques ; un ouvrage y branche son sommaire.
+  final VoidCallback? onTapTitle;
+
+  /// À `false`, la pastille de version **et** le saut au verset disparaissent :
+  /// hors de la Bible, ni l'un ni l'autre n'a de sens. La pastille gauche
+  /// s'arrondit alors des deux côtés, le groupe segmenté n'ayant plus de second
+  /// élément. Le double chevron, lui, reste — c'est [onChapters] qui le rend
+  /// utile, et [showVersion] qui décide de son libellé : le même bouton sert à
+  /// sauter au verset dans la Bible, à déplier les sections du chapitre dans
+  /// un ouvrage.
+  final bool showVersion;
+
+  /// Déplie les sections du chapitre courant — le sommaire *d'un chapitre*,
+  /// pas du livre. Null rend le double chevron inerte : sommaire de l'ouvrage
+  /// (page 0, où il n'y a pas encore de chapitre) ou ouvrage sans sommaire,
+  /// qui n'aurait rien à déplier.
+  final VoidCallback? onChapters;
 
   /// Code of the version being read, shown on the second pill.
   final String versionCode;
@@ -43,8 +74,10 @@ class ReaderActionsBar extends StatelessWidget {
   /// when a translation still has to be downloaded.
   final VoidCallback? onOpenLibrary;
 
-  /// Called with the book + chapter picked in the « Livres » sheet.
-  final void Function(int bookIndex, int chapter) onOpenChapter;
+  /// Called with the book + chapter picked in the « Livres » sheet. Null —
+  /// avec un [onTapTitle] qui prend la pastille — pour un ouvrage, qui n'a
+  /// aucun livre biblique à proposer.
+  final void Function(int bookIndex, int chapter)? onOpenChapter;
 
   /// Null disables the verse chevron (no chapter to jump inside).
   final VoidCallback? onVerses;
@@ -60,11 +93,15 @@ class ReaderActionsBar extends StatelessWidget {
     super.key,
     this.bookIndex,
     this.chapter,
+    this.title,
+    this.onTapTitle,
+    this.showVersion = true,
+    this.onChapters,
     this.versionCode = VersionRepository.embeddedCode,
     this.installedVersions = const {},
     this.onSelectVersion,
     this.onOpenLibrary,
-    required this.onOpenChapter,
+    this.onOpenChapter,
     this.onVerses,
     this.onPreviousChapter,
     this.onNextChapter,
@@ -75,7 +112,10 @@ class ReaderActionsBar extends StatelessWidget {
   /// « Livres » with no open chapter. Uses the compact form so a long name never
   /// overflows the bar — and takes the *reader's* version, because that pill is
   /// where « which text am I in? » is answered without asking.
+  ///
+  /// Un [title] explicite passe devant : un ouvrage porte son propre nom.
   String get reference {
+    if (title case final String given) return given;
     final book = bookIndex;
     final number = chapter;
     if (book == null || number == null) return 'Livres';
@@ -85,6 +125,19 @@ class ReaderActionsBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
+    final picker = onOpenChapter;
+    // Ce que fait la pastille gauche, dans l'ordre : le sommaire d'un ouvrage,
+    // sinon la feuille « Livres », sinon rien — une pastille inerte plutôt
+    // qu'une feuille vide quand il n'y a pas de destination à offrir.
+    final VoidCallback? titleTap = onTapTitle ??
+        (picker == null
+            ? null
+            : () => showBooksSheet(
+                  context,
+                  currentBook: bookIndex,
+                  currentChapter: chapter,
+                  onSelect: picker,
+                ));
     return Container(
       color: premiumBackground(context),
       child: Column(
@@ -100,31 +153,40 @@ class ReaderActionsBar extends StatelessWidget {
                         fit: FlexFit.loose,
                         child: _Pill(
                           label: reference,
-                          side: _PillSide.left,
-                          onTap: () => showBooksSheet(
+                          side: showVersion
+                              ? _PillSide.left
+                              : _PillSide.alone,
+                          onTap: titleTap,
+                        ),
+                      ),
+                      if (showVersion) ...[
+                        const SizedBox(width: 2),
+                        _Pill(
+                          label: versionCode,
+                          side: _PillSide.right,
+                          filled: true,
+                          onTap: () => showVersionSheet(
                             context,
-                            currentBook: bookIndex,
-                            currentChapter: chapter,
-                            onSelect: onOpenChapter,
+                            activeCode: versionCode,
+                            installed: installedVersions,
+                            onSelect: onSelectVersion,
+                            onOpenLibrary: onOpenLibrary,
                           ),
                         ),
-                      ),
-                      const SizedBox(width: 2),
-                      _Pill(
-                        label: versionCode,
-                        side: _PillSide.right,
-                        filled: true,
-                        onTap: () => showVersionSheet(
-                          context,
-                          activeCode: versionCode,
-                          installed: installedVersions,
-                          onSelect: onSelectVersion,
-                          onOpenLibrary: onOpenLibrary,
-                        ),
-                      ),
+                      ],
+                      // Le double chevron quitte le bloc de version : il est
+                      // le seul bouton de la barre qui change de métier selon
+                      // l'écran — saut au verset quand [showVersion] dit Bible,
+                      // dépliage des sections du chapitre quand un ouvrage
+                      // l'appelle. Toujours présent dans les deux cas, inerte
+                      // sans destination, plutôt que disparu : un lecteur qui
+                      // ne le retrouve pas après avoir changé d'écran croit à
+                      // un retrait.
                       IconButton(
-                        tooltip: 'Aller au verset',
-                        onPressed: onVerses,
+                        tooltip: showVersion
+                            ? 'Aller au verset'
+                            : 'Sommaire du chapitre',
+                        onPressed: showVersion ? onVerses : onChapters,
                         visualDensity: VisualDensity.compact,
                         color: p.primary,
                         disabledColor: p.textGrey,
@@ -175,7 +237,11 @@ class ReaderActionsBar extends StatelessWidget {
   }
 }
 
-enum _PillSide { left, right }
+/// Côté « extérieur » de la pastille dans le groupe segmenté. [alone] est le
+/// cas de l'ouvrage : plus de pastille de version à côté, donc plus de bord
+/// droit à aplatir — une pastille coupée à droite sans rien derrière ressemble
+/// à un élément manquant.
+enum _PillSide { left, right, alone }
 
 /// One half of the joined pill group: fully rounded on its outer edge, barely
 /// rounded on the edge facing the other half.
@@ -188,7 +254,9 @@ class _Pill extends StatelessWidget {
   final String label;
   final _PillSide side;
   final bool filled;
-  final VoidCallback onTap;
+
+  /// Null rend la pastille inerte — voir [ReaderActionsBar.build].
+  final VoidCallback? onTap;
 
   const _Pill({
     required this.label,
@@ -202,9 +270,12 @@ class _Pill extends StatelessWidget {
     final p = premiumPalette(context);
     const outer = Radius.circular(16);
     const inner = Radius.circular(5);
-    final radius = side == _PillSide.left
-        ? const BorderRadius.horizontal(left: outer, right: inner)
-        : const BorderRadius.horizontal(left: inner, right: outer);
+    final radius = switch (side) {
+      _PillSide.left => const BorderRadius.horizontal(left: outer, right: inner),
+      _PillSide.right =>
+        const BorderRadius.horizontal(left: inner, right: outer),
+      _PillSide.alone => const BorderRadius.all(outer),
+    };
     return Material(
       color: filled ? null : p.surface,
       borderRadius: radius,
@@ -246,11 +317,15 @@ class _Pill extends StatelessWidget {
 
 /// Centered sheet title with the maquette's drag-handle layout, plus an optional
 /// overflow menu aligned right.
-class _SheetHeader extends StatelessWidget {
+///
+/// Partagé avec le lecteur d'ouvrage : ses feuilles (« Chapitres ») doivent
+/// porter la même tête que celles de la Bible, sinon le lecteur croit changer
+/// d'app quand il ne change que de tab.
+class SheetHeader extends StatelessWidget {
   final String title;
   final Widget? menu;
 
-  const _SheetHeader({required this.title, this.menu});
+  const SheetHeader({super.key, required this.title, this.menu});
 
   @override
   Widget build(BuildContext context) {
@@ -351,7 +426,7 @@ class _BooksSheetState extends State<_BooksSheet> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _SheetHeader(
+        SheetHeader(
           title: 'Livres',
           menu: PopupMenuButton<void>(
             tooltip: 'Options des livres',
@@ -654,7 +729,7 @@ Future<void> showVersionSheet(
           height: MediaQuery.sizeOf(sheetContext).height * .8,
           child: Column(
             children: [
-              const _SheetHeader(title: 'Version'),
+              const SheetHeader(title: 'Version'),
               Expanded(
                 child: ListView(
                   key: const Key('versionSheetList'),
@@ -943,7 +1018,7 @@ Future<void> showVersePickerSheet(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const _SheetHeader(title: 'Aller au verset'),
+            const SheetHeader(title: 'Aller au verset'),
             Flexible(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),

@@ -92,6 +92,12 @@ flutter:
     - assets/bible/lss/
     - assets/lexicon/
     - assets/themes/
+    # Les pochettes des ouvrages de l'onglet « Livres » : l'image de couverture
+    # de la page 1 du PDF, écrite par
+    # `python pdf_book_to_json.py … --cover assets/covers/<code>.jpg`.
+    # Embarquées alors que les livres se téléchargent — 40 Ko la vignette, et la
+    # tuile doit montrer la pochette *avant* le téléchargement.
+    - assets/covers/
     # Les 37 pages du glossaire de l'ATI (renvois `n12`, `d12`, `r2`, `abr`).
     # Embarqué plutôt que téléchargé avec le corpus : 306 Ko, static, et le
     # renvoi doit s'ouvrir même sans réseau — voir `data/ati_notes.dart`.

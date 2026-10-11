@@ -39,7 +39,51 @@ python html_verses_to_json.py <source> <dest> [nom] [abbr] [--bym <assets/bible/
 > Il n'y a plus de dépôt miroir, plus de manifest, plus de tag, plus de purge de cache :
 > `publish_bym.py`, `generate_manifest.py` et `PUBLISH_Bym.md` ont été supprimés.
 
-Python 3.12, aucune dépendance externe (stdlib uniquement).
+Python 3.12, aucune dépendance externe (stdlib uniquement) — **à une exception
+près** : `pdf_book_to_json.py`, qui convertit les PDF d'ouvrages, appelle
+`pdftotext -layout` (poppler) et importe `pypdf`. Aucun autre script du dossier
+ne sort de la stdlib ; ne pas étendre l'exception sans raison.
+
+## Ouvrages PDF (onglet « Livres »)
+
+```bash
+python pdf_book_to_json.py <source.pdf> <dest.json> --code MINISTERE [--dry-run]
+python pdf_book_to_json.py <source.pdf> <dest.json> --code MINISTERE \
+    --cover ../bible_app/assets/covers/ministere.jpg
+```
+
+Un livre d'édification en PDF → un JSON téléchargeable par l'app. Le pilote est
+*LE MINISTÈRE OU LE SEIGNEUR, QUE PRÉFÈRES-TU ?* (Trésor Koufounda, Vases de
+Terre les Éditions, 2024) : 11 chapitres, 668 blocs, 46 notes, 36 paires de
+noms. Sa licence autorise la rediffusion gratuite et **interdit la vente** —
+d'où la ligne `rights` du JSON, qui porte la mention en clair.
+
+- **Le sommaire imprimé est le squelette** : le PDF n'a aucun signet, et tout
+  intertitre est reconnu par comparaison avec une entrée du sommaire, jamais à
+  la police. Un titre que le sommaire n'annonce pas n'est gardé que s'il est
+  numéroté (`2.3. Le caractère`) ou tout en capitales.
+- **Rien n'est supposé, tout est mesuré** : le décalage de pagination est relevé
+  page par page et le script s'arrête s'il varie ; les notes ne sont acceptées
+  que dans l'ordre du compteur (sans quoi `1 Corinthiens 4:7` passe pour la
+  note 1).
+- **Les frontières de bloc se lisent sur la page** : une citation se termine sur
+  sa référence, qui ne porte aucune ponctuation — d'où `ends_block`, que lisent
+  les trois passes de recollement ; et un guillemet ouvrant sans fermant prouve
+  qu'un saut de page a coupé la citation en deux.
+- **Même convention de notes que la BYM** (`text` / `textWithNotes` / `notes`,
+  invariant `text[position:position+len(word)] == word`) : `note_aware_text.dart`
+  sait déjà l'afficher.
+- **La pochette est embarquée, le livre non.** `--cover` recopie la plus grande
+  image de la page 1 dans `assets/covers/<code>.jpg` (40 Ko pour le pilote,
+  486 × 757, recopiée sans recompression sous 600 px de large) : la tuile de la
+  Bibliothèque doit montrer la couverture **avant** le téléchargement. Le chemin
+  est déclaré dans `work_catalog.dart` (`cover:`), et une page 1 sans image
+  avertit — la tuile retombe sur son icône.
+
+> Le détail des pièges de `pdftotext -layout` — l'indentation trompeuse des
+> titres centrés, les lignes vides au milieu d'un paragraphe interligné, le
+> tableau des noms que seules les coordonnées `pypdf` remettent d'aplomb — est
+> dans le **docstring du script** : le lire avant d'y toucher.
 
 ## Structure
 

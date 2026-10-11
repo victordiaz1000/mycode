@@ -8,6 +8,7 @@ import '../models/tab_group.dart';
 import 'book_catalog.dart';
 import 'reading_history.dart';
 import 'version_repository.dart';
+import 'work_catalog.dart';
 
 /// Chrome-style tab manager (maquette v2).
 ///
@@ -115,6 +116,9 @@ class TabManager extends ChangeNotifier {
     }
     history.record(bookIndex, chapter);
     final current = _tabs[index];
+    // `workCode` n'est délibérément pas repris : cet onglet devient un onglet
+    // `reading`, et un ouvrage ouvert ici est remplacé par le chapitre biblique
+    // demandé. [replaceActiveWork] fait le trajet inverse.
     _tabs[index] = StudyTab(
       id: current.id,
       kind: StudyTabKind.reading,
@@ -145,6 +149,86 @@ class TabManager extends ChangeNotifier {
     notifyListeners();
     return _activeIndex;
   }
+
+  // ---- Ouvrages (onglet « Livres ») ----
+
+  /// True when a tab already reads the work [code].
+  bool isOpenWork(String code) =>
+      _tabs.any((t) => t.isWork && t.workCode == code);
+
+  /// Opens (or focuses) the tab reading the work [code].
+  ///
+  /// [chapter] est l'index de lecture de `WorkReader` : **0 = sommaire**,
+  /// 1..N = chapitres. Laissé nul, un ouvrage déjà ouvert est **repris où il
+  /// en était** — la Bibliothèque ne doit pas ramener au sommaire un livre
+  /// qu'on était en train de lire — et un ouvrage neuf s'ouvre sur son
+  /// sommaire, comme demandé.
+  ///
+  /// Rien n'est inscrit dans [history] : elle indexe des couples livre/chapitre
+  /// bibliques, et l'écran Accueil reprend la lecture par là.
+  int openWork(String code, {int? chapter}) {
+    final existing = _tabs.indexWhere((t) => t.isWork && t.workCode == code);
+    if (existing >= 0) {
+      if (chapter != null && _tabs[existing].chapter != chapter) {
+        _setWorkChapter(existing, code, chapter);
+        _persist();
+      }
+      _activeIndex = existing;
+      notifyListeners();
+      return existing;
+    }
+    _tabs.add(StudyTab(
+      id: _nextId(),
+      kind: StudyTabKind.work,
+      title: _workTitle(code),
+      workCode: code,
+      chapter: chapter ?? 0,
+      versionCode: _preferredVersionCode(null),
+    ));
+    _activeIndex = _tabs.length - 1;
+    _persist();
+    notifyListeners();
+    return _activeIndex;
+  }
+
+  /// Moves the **active** tab to [chapter] of the work [code], without adding
+  /// one — les flèches ‹ › et les lignes du sommaire feuillettent cet onglet,
+  /// exactement comme pour la Bible ([replaceActiveReading]). Retombe sur
+  /// [openWork] quand aucun onglet n'est actif.
+  int replaceActiveWork(String code, int chapter) {
+    final index = _activeIndex;
+    if (index < 0 || index >= _tabs.length) {
+      return openWork(code, chapter: chapter);
+    }
+    _setWorkChapter(index, code, chapter);
+    _persist();
+    notifyListeners();
+    return index;
+  }
+
+  /// Rebuilds the tab at [index] on another chapter of [code], keeping its id,
+  /// its pinned flag and its group : c'est le même onglet, déplacé.
+  ///
+  /// `verse` n'est pas repris : changer de chapitre remet la position en haut
+  /// de page, comme pour un chapitre biblique.
+  void _setWorkChapter(int index, String code, int chapter) {
+    final current = _tabs[index];
+    _tabs[index] = StudyTab(
+      id: current.id,
+      kind: StudyTabKind.work,
+      title: _workTitle(code),
+      workCode: code,
+      chapter: chapter,
+      versionCode: current.versionCode,
+      pinned: current.pinned,
+      groupId: current.groupId,
+    );
+  }
+
+  /// Le titre d'onglet d'un ouvrage : celui du catalogue, ou son code quand
+  /// l'entrée a disparu (livre téléchargé par une version antérieure de
+  /// l'app). Le titre du *fichier* est affiché par le lecteur lui-même.
+  String _workTitle(String code) => workByCode(code)?.title ?? code;
 
   void updateTabVersion(String tabId, String versionCode) {
     final index = _tabs.indexWhere((tab) => tab.id == tabId);
@@ -229,6 +313,7 @@ class TabManager extends ChangeNotifier {
       title: src.title,
       bookIndex: src.bookIndex,
       chapter: src.chapter,
+      workCode: src.workCode,
       verse: src.verse,
       versionCode: src.versionCode,
       pinned: src.pinned,
@@ -302,6 +387,7 @@ class TabManager extends ChangeNotifier {
       title: t.title,
       bookIndex: t.bookIndex,
       chapter: t.chapter,
+      workCode: t.workCode,
       verse: t.verse,
       versionCode: t.versionCode,
       pinned: t.pinned,
@@ -401,6 +487,7 @@ class TabManager extends ChangeNotifier {
                 title: t.title,
                 bookIndex: t.bookIndex,
                 chapter: t.chapter,
+                workCode: t.workCode,
                 verse: t.verse,
                 versionCode: t.versionCode,
                 pinned: t.pinned,

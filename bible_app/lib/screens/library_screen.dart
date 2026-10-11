@@ -9,14 +9,17 @@ import '../data/fulltext_index.dart';
 import '../data/library_store.dart';
 import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
+import '../data/work_catalog.dart';
+import '../data/work_download_service.dart';
+import '../data/work_store.dart';
 import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
 import 'dictionary_browse_screen.dart';
 import 'fredaw_index_screen.dart';
 import 'strong_index_screen.dart';
 
-/// Bibliothèque (décision 6) : deux onglets — Bibles / Dictionnaires — où les
-/// versions libres de droit se téléchargent livre par livre sur l'appareil.
+/// Bibliothèque (décision 6) : trois onglets — Bibles / Dictionnaires /
+/// Livres — où les ressources libres de droit se téléchargent sur l'appareil.
 ///
 /// C'est la destination promise par la feuille « Version » de la lecture, et le
 /// seul endroit qui écrit dans [LibraryStore]. Un téléchargement interrompu
@@ -29,16 +32,28 @@ class LibraryScreen extends StatefulWidget {
   final DownloadService? service;
   final DictionaryStore? dictionaryStore;
   final DictionaryDownloadService? dictionaryService;
+  final WorkStore? workStore;
+  final WorkDownloadService? workService;
 
   /// Catalogue de dictionnaires. L'application prend [dictionaryCatalog] ; les
   /// tests injectent un catalogue avec une URL configurée pour observer le
   /// téléchargement.
   final List<DictionaryEntry>? dictionaryCatalog;
 
+  /// Catalogue d'ouvrages, même contrat que [dictionaryCatalog] : le vrai
+  /// catalogue n'a pas encore d'URL publiée, et seul un catalogue injecté peut
+  /// donc montrer un téléchargement qui aboutit.
+  final List<WorkEntry>? workCatalog;
+
   /// Opens a Strong occurrence verse in a reading tab. Null when the screen
   /// stands alone (tests): the occurrence cards then just state their
   /// reference instead of pretending to be buttons.
   final void Function(int bookIndex, int chapter, int? verse)? onOpenVerse;
+
+  /// Ouvre un ouvrage téléchargé dans l'écran Lecture, sur son sommaire. Null
+  /// quand l'écran est monté seul : la tuile dit alors « Téléchargé » sans
+  /// faire semblant d'ouvrir quoi que ce soit.
+  final void Function(String code)? onOpenWork;
 
   /// Conduit à Réglages, où la mise à jour du texte BYM s'installe. Null quand
   /// l'écran est monté seul : la pastille de rappel s'affiche alors sans être
@@ -52,7 +67,11 @@ class LibraryScreen extends StatefulWidget {
     this.dictionaryStore,
     this.dictionaryService,
     this.dictionaryCatalog,
+    this.workStore,
+    this.workService,
+    this.workCatalog,
     this.onOpenVerse,
+    this.onOpenWork,
     this.onOpenSettings,
   });
 
@@ -68,6 +87,9 @@ class _LibraryScreenState extends State<LibraryScreen> {
   late final DictionaryDownloadService _dictService =
       widget.dictionaryService ??
           DictionaryDownloadService(store: _dictStore);
+  late final WorkStore _workStore = widget.workStore ?? WorkStore();
+  late final WorkDownloadService _workService =
+      widget.workService ?? WorkDownloadService(store: _workStore);
 
   Map<String, InstalledVersion> _installed = const {};
   Map<String, int> _sizes = const {};
@@ -97,6 +119,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
     // le rendre plutôt que le fuir.
     _service.close();
     _dictService.close();
+    _workService.close();
     super.dispose();
   }
 
@@ -215,7 +238,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         backgroundColor: premiumBackground(context),
         appBar: AppBar(
@@ -258,6 +281,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
             tabs: const [
               Tab(text: 'Bibles'),
               Tab(text: 'Dictionnaires'),
+              Tab(text: 'Livres'),
             ],
           ),
         ),
@@ -282,6 +306,12 @@ class _LibraryScreenState extends State<LibraryScreen> {
                 service: _dictService,
                 catalog: widget.dictionaryCatalog ?? dictionaryCatalog,
                 onOpenVerse: widget.onOpenVerse,
+              ),
+              _WorksTab(
+                store: _workStore,
+                service: _workService,
+                catalog: widget.workCatalog ?? workCatalog,
+                onOpenWork: widget.onOpenWork,
               ),
             ],
           ),
@@ -1221,7 +1251,7 @@ class _DictionaryTile extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  _DictionaryIcon(entry: entry, dimmed: _dimmed),
+                  _LibraryIcon(icon: Icons.book_outlined, dimmed: _dimmed),
                   const SizedBox(width: 14),
                   Expanded(
                     child: Column(
@@ -1369,11 +1399,14 @@ class _DictionaryTile extends StatelessWidget {
   }
 }
 
-class _DictionaryIcon extends StatelessWidget {
-  final DictionaryEntry entry;
+/// La pastille carrée en tête de tuile : dégradé d'accent et [icon], ou le
+/// cadenas quand la ressource n'est ni ouvrable ni téléchargeable. Partagée par
+/// les dictionnaires et les ouvrages, qui ne changent que l'icône.
+class _LibraryIcon extends StatelessWidget {
+  final IconData icon;
   final bool dimmed;
 
-  const _DictionaryIcon({required this.entry, required this.dimmed});
+  const _LibraryIcon({required this.icon, required this.dimmed});
 
   @override
   Widget build(BuildContext context) {
@@ -1399,10 +1432,511 @@ class _DictionaryIcon extends StatelessWidget {
       ),
       alignment: Alignment.center,
       child: Icon(
-        dimmed ? Icons.lock_outline : Icons.book_outlined,
+        dimmed ? Icons.lock_outline : icon,
         color: color,
         size: 24,
       ),
+    );
+  }
+}
+
+/// La pochette d'un ouvrage, en vignette de tuile.
+///
+/// Même largeur que la pastille [_LibraryIcon] — la colonne de texte garde donc
+/// le bord gauche de l'onglet Dictionnaires — mais la **hauteur d'un livre** :
+/// une couverture recadrée en carré perd son titre, qui est précisément ce
+/// qu'on vient y lire.
+///
+/// L'`errorBuilder` n'est pas une précaution de style : un ouvrage catalogué
+/// dont la page 1 ne portait aucune image n'a pas de pochette extraite, et la
+/// vignette doit alors retomber sur l'icône du livre plutôt que sur la croix
+/// rouge de Flutter.
+class _WorkCover extends StatelessWidget {
+  static const double width = 44;
+  static const double height = 64;
+
+  final String asset;
+  final bool dimmed;
+
+  const _WorkCover({required this.asset, required this.dimmed});
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    final Widget image = ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: Image.asset(
+        asset,
+        width: width,
+        height: height,
+        fit: BoxFit.cover,
+        errorBuilder: (_, _, _) => Container(
+          width: width,
+          height: height,
+          color: p.primary.withValues(alpha: .10),
+          alignment: Alignment.center,
+          child: Icon(Icons.menu_book_outlined, size: 20, color: p.primary),
+        ),
+      ),
+    );
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: p.textGrey.withValues(alpha: .28)),
+        boxShadow: premiumShadow(
+          p.primaryDark,
+          opacity: .12,
+          blur: 6,
+          offset: const Offset(0, 2),
+        ),
+      ),
+      // Une pochette grisée dit « pas encore disponible » sans disparaître,
+      // comme le cadenas de [_LibraryIcon] le dit pour un dictionnaire.
+      child: dimmed ? Opacity(opacity: .45, child: image) : image,
+    );
+  }
+}
+
+/// L'onglet « Livres » : les ouvrages d'édification, téléchargeables puis lus
+/// dans l'écran Lecture.
+///
+/// Le calque de [_DictionariesTab] — même langage, mêmes parades — à deux
+/// différences près, qui viennent de la nature d'un ouvrage : **aucun n'est
+/// embarqué** (les PDF pèsent, l'app en visera une quarantaine) et un ouvrage
+/// téléchargé ne s'ouvre pas dans un écran à lui mais dans le lecteur, sur son
+/// sommaire.
+class _WorksTab extends StatefulWidget {
+  final WorkStore store;
+  final WorkDownloadService service;
+  final List<WorkEntry> catalog;
+  final void Function(String code)? onOpenWork;
+
+  const _WorksTab({
+    required this.store,
+    required this.service,
+    required this.catalog,
+    this.onOpenWork,
+  });
+
+  @override
+  State<_WorksTab> createState() => _WorksTabState();
+}
+
+class _WorksTabState extends State<_WorksTab> {
+  Set<String> _installed = const {};
+  Map<String, int> _sizes = const {};
+  bool _loading = true;
+
+  /// Ouvrage en cours de téléchargement. Un seul à la fois.
+  String? _activeCode;
+
+  /// Octets reçus pour le téléchargement en cours — la barre devient
+  /// déterminée dès que le serveur annonce la taille du fichier.
+  WorkDownloadProgress? _progress;
+
+  @override
+  void initState() {
+    super.initState();
+    // Même contrat que les deux autres onglets : suivre les écritures du
+    // registre plutôt que copier installed() une fois pour toutes.
+    WorkStore.revision.addListener(_onStoreRevision);
+    _refresh();
+  }
+
+  @override
+  void dispose() {
+    WorkStore.revision.removeListener(_onStoreRevision);
+    super.dispose();
+  }
+
+  void _onStoreRevision() {
+    if (!mounted || _activeCode != null) return;
+    _refresh();
+  }
+
+  Future<void> _refresh() async {
+    final installed = await widget.store.installed();
+    final sizes = <String, int>{};
+    for (final code in installed) {
+      sizes[code] = await widget.store.sizeOnDisk(code);
+    }
+    if (!mounted) return;
+    setState(() {
+      _installed = installed;
+      _sizes = sizes;
+      _loading = false;
+    });
+  }
+
+  Future<void> _download(WorkEntry entry) async {
+    if (_activeCode != null) return;
+    setState(() => _activeCode = entry.code);
+
+    final outcome = await widget.service.install(
+      entry,
+      onProgress: (p) {
+        if (mounted) setState(() => _progress = p);
+      },
+    );
+
+    if (!mounted) return;
+    setState(() {
+      _activeCode = null;
+      _progress = null;
+    });
+    await _refresh();
+    if (!mounted) return;
+    _say(outcome.message);
+  }
+
+  Future<void> _delete(WorkEntry entry) async {
+    final size = _sizes[entry.code] ?? 0;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: premiumPalette(context).surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: premiumCardBorder(context, opacity: .18)),
+        ),
+        title: Text('Supprimer ${entry.title} ?'),
+        content: Text(
+          'Le livre téléchargé${size > 0 ? ' (${_formatSize(size)})' : ''} '
+          'sera effacé de l\'appareil. '
+          'Il restera téléchargeable.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Annuler'),
+          ),
+          FilledButton(
+            key: const Key('confirmWorkDelete'),
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text('Supprimer'),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true) return;
+    await widget.store.remove(entry.code);
+    await _refresh();
+    if (!mounted) return;
+    _say('${entry.title} supprimé de l\'appareil.');
+  }
+
+  void _say(String message) {
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    if (_loading) {
+      return const ListLoadingSkeleton(
+        itemCount: 3,
+        padding: EdgeInsets.fromLTRB(16, 16, 16, 24),
+      );
+    }
+    return ListView(
+      key: const Key('libraryWorks'),
+      // Pas de padding horizontal ici : chaque tuile porte le sien (16 px),
+      // aligné sur les deux autres onglets.
+      padding: const EdgeInsets.fromLTRB(0, 16, 0, 24),
+      children: [
+        for (final entry in widget.catalog) ...[
+          _WorkTile(
+            entry: entry,
+            installed: _installed.contains(entry.code),
+            sizeOnDisk: _sizes[entry.code] ?? 0,
+            downloading: _activeCode == entry.code,
+            progress: _activeCode == entry.code ? _progress : null,
+            otherBusy: _activeCode != null && _activeCode != entry.code,
+            // Rien à ouvrir quand l'écran est monté seul : la carte reste
+            // inerte au lieu de promettre une lecture qui n'arrive pas.
+            onOpen: widget.onOpenWork == null
+                ? null
+                : () => widget.onOpenWork!(entry.code),
+            onDownload: () => _download(entry),
+            onDelete: () => _delete(entry),
+            onCancel: widget.service.cancel,
+            onUnavailable: () => _say(entry.downloadable
+                ? '${entry.title} — URL non configurée, à publier sur '
+                    'l\'hébergement.'
+                : '${entry.title} — bientôt disponible.'),
+          ),
+          const SizedBox(height: 10),
+        ],
+        const SizedBox(height: 16),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Text(
+            'Les livres sont des ouvrages dont l\'éditeur autorise la '
+            'diffusion gratuite. Aucun n\'est embarqué : chacun se télécharge '
+            'dès que son fichier JSON est publié et son URL renseignée, puis '
+            'se lit dans l\'écran Lecture, sommaire en tête.',
+            textAlign: TextAlign.center,
+            style: premiumText(
+              context,
+              12,
+              FontWeight.w500,
+              p.textGrey,
+              height: 1.5,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// Un ouvrage et son état sur l'appareil : rien / en cours / téléchargé / à
+/// venir / URL à configurer. Le même langage que [_DictionaryTile], sans l'état
+/// « intégré » — un ouvrage ne voyage jamais dans l'APK.
+class _WorkTile extends StatelessWidget {
+  final WorkEntry entry;
+  final bool installed;
+  final int sizeOnDisk;
+  final bool downloading;
+
+  /// Non nul pendant le téléchargement de CET ouvrage : octets reçus et taille
+  /// annoncée. La barre est déterminée quand le serveur a parlé.
+  final WorkDownloadProgress? progress;
+
+  final bool otherBusy;
+
+  /// Null quand il n'y a nulle part à aller (écran monté seul).
+  final VoidCallback? onOpen;
+
+  final VoidCallback onDownload;
+  final VoidCallback onDelete;
+  final VoidCallback onCancel;
+  final VoidCallback onUnavailable;
+
+  const _WorkTile({
+    required this.entry,
+    required this.installed,
+    required this.sizeOnDisk,
+    required this.downloading,
+    this.progress,
+    required this.otherBusy,
+    this.onOpen,
+    required this.onDownload,
+    required this.onDelete,
+    required this.onCancel,
+    required this.onUnavailable,
+  });
+
+  /// Un ouvrage est grisé quand il ne peut être ni ouvert ni téléchargé : pas
+  /// de source publiée, ou pas encore d'URL.
+  bool get _dimmed => !installed && !entry.configured;
+
+  /// La ligne sous le titre. Null quand le bouton dit déjà tout.
+  String? get _status {
+    if (downloading) return null;
+    if (installed) return 'Téléchargé · ${_formatSize(sizeOnDisk)}';
+    if (!entry.configured) {
+      return entry.downloadable
+          ? 'URL à configurer pour télécharger'
+          : 'Bientôt disponible';
+    }
+    return null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    final status = _status;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      child: _LibraryCard(
+        dimmed: _dimmed,
+        onTap: _dimmed ? onUnavailable : (installed ? onOpen : null),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(12, 10, 8, 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  if (entry.cover case final String cover)
+                    _WorkCover(asset: cover, dimmed: _dimmed)
+                  else
+                    _LibraryIcon(
+                      icon: Icons.menu_book_outlined,
+                      dimmed: _dimmed,
+                    ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          entry.title,
+                          style: premiumText(
+                            context,
+                            15,
+                            FontWeight.w700,
+                            _dimmed ? p.textGrey : p.textDark,
+                          ),
+                        ),
+                        Text(
+                          entry.author,
+                          style: premiumText(
+                            context,
+                            12,
+                            FontWeight.w600,
+                            p.textGrey,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          entry.description,
+                          style: premiumText(
+                            context,
+                            12,
+                            FontWeight.w500,
+                            p.textGrey,
+                            height: 1.4,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  _action(context),
+                ],
+              ),
+              if (downloading)
+                _bar(context)
+              else if (status != null)
+                Padding(
+                  padding: const EdgeInsets.only(top: 6),
+                  child: Text(
+                    status,
+                    style: premiumText(
+                      context,
+                      12,
+                      FontWeight.w600,
+                      installed ? p.primary : p.textGrey,
+                    ),
+                  ),
+                ),
+              // La ligne de droits reste lisible sur la tuile, et pas seulement
+              // au pied du sommaire : la licence du pilote autorise la
+              // diffusion gratuite et interdit la vente.
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Text(
+                  entry.rights,
+                  style: premiumText(
+                    context,
+                    11,
+                    FontWeight.w600,
+                    p.textGrey,
+                    height: 1.4,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _bar(BuildContext context) {
+    final p = premiumPalette(context);
+    final progress = this.progress;
+    final total = progress?.total;
+    // Même langage que les deux autres onglets : une barre ET une légende.
+    final caption = total == null
+        ? 'Téléchargement…'
+        : 'Téléchargement… '
+            '${_formatSize(progress!.received)} / ${_formatSize(total)}';
+    return Padding(
+      padding: const EdgeInsets.only(top: 10, right: 4),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(4),
+            child: LinearProgressIndicator(
+              key: Key('work-progress-${entry.code}'),
+              value: progress?.fraction,
+              minHeight: 6,
+              color: p.primary,
+              backgroundColor: p.primarySoft,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            caption,
+            style: premiumText(context, 12, FontWeight.w500, p.textGrey),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _action(BuildContext context) {
+    final p = premiumPalette(context);
+
+    if (downloading) {
+      return TextButton(
+        key: Key('work-cancel-${entry.code}'),
+        onPressed: onCancel,
+        child: Text(
+          'Annuler',
+          style: premiumText(context, 13, FontWeight.w700, p.primary),
+        ),
+      );
+    }
+    if (_dimmed) {
+      return Icon(Icons.lock_outline, size: 18, color: p.textGrey);
+    }
+    if (installed) {
+      return IconButton(
+        key: Key('work-delete-${entry.code}'),
+        tooltip: 'Supprimer de l\'appareil',
+        onPressed: onDelete,
+        style: IconButton.styleFrom(
+          backgroundColor: p.surfaceAlt,
+          shape: const CircleBorder(),
+        ),
+        icon: const Icon(Icons.delete_outline),
+      );
+    }
+    final compact = MediaQuery.sizeOf(context).width < 400;
+    if (compact) {
+      return IconButton(
+        key: Key('work-download-${entry.code}'),
+        tooltip: 'Télécharger',
+        onPressed: otherBusy ? null : onDownload,
+        style: IconButton.styleFrom(
+          backgroundColor: p.primarySoft,
+          shape: const CircleBorder(),
+        ),
+        icon: Icon(
+          Icons.download_outlined,
+          size: 20,
+          color: otherBusy ? null : p.primary,
+        ),
+      );
+    }
+    return TextButton.icon(
+      key: Key('work-download-${entry.code}'),
+      onPressed: otherBusy ? null : onDownload,
+      style: TextButton.styleFrom(
+        foregroundColor: p.primary,
+        backgroundColor: p.primarySoft,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+      icon: const Icon(Icons.download_outlined, size: 18),
+      label: const Text('Télécharger'),
     );
   }
 }

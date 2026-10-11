@@ -14,6 +14,9 @@ import 'package:bible_app/data/fredaw_lexicon.dart';
 import 'package:bible_app/data/library_store.dart';
 import 'package:bible_app/data/strong_lexicon.dart';
 import 'package:bible_app/data/version_catalog.dart';
+import 'package:bible_app/data/work_catalog.dart';
+import 'package:bible_app/data/work_download_service.dart';
+import 'package:bible_app/data/work_store.dart';
 import 'package:bible_app/screens/library_screen.dart';
 
 import 'support/fake_fredaw_bundle.dart';
@@ -95,6 +98,64 @@ class FakeDictionaryService extends DictionaryDownloadService {
   }
 }
 
+/// Same, for works: the tab reads [installed] / [sizeOnDisk] and calls
+/// [remove] — the registry in memory, no disk involved.
+class FakeWorkStore extends WorkStore {
+  FakeWorkStore([Set<String>? initial]) : codes = initial ?? <String>{};
+
+  final Set<String> codes;
+  final List<String> removed = [];
+
+  @override
+  Future<Set<String>> installed() async => Set.of(codes);
+
+  @override
+  Future<int> sizeOnDisk(String code) async => 245000;
+
+  @override
+  Future<void> remove(String code) async {
+    removed.add(code);
+    codes.remove(code);
+  }
+}
+
+/// A work install with a gate, so the bar is observable mid-flight.
+class FakeWorkService extends WorkDownloadService {
+  FakeWorkService({this.hold = false})
+      : super(client: MockClient((_) async => http.Response('', 404)));
+
+  final bool hold;
+  final Completer<void> gate = Completer<void>();
+  final List<String> installed = [];
+  FakeWorkStore? target;
+
+  @override
+  Future<WorkDownloadOutcome> install(
+    WorkEntry entry, {
+    void Function(WorkDownloadProgress)? onProgress,
+  }) async {
+    installed.add(entry.code);
+    // Le vrai service prend sa totalité dans `Content-Length` : le fake
+    // l'annonce lui aussi, sinon la barre resterait indéfinie.
+    onProgress?.call(WorkDownloadProgress(
+      code: entry.code,
+      received: 0,
+      total: 245760,
+    ));
+    if (hold) await gate.future;
+    target?.codes.add(entry.code);
+    onProgress?.call(WorkDownloadProgress(
+      code: entry.code,
+      received: 245760,
+      total: 245760,
+    ));
+    return WorkDownloadOutcome(
+      code: entry.code,
+      status: WorkDownloadStatus.complete,
+    );
+  }
+}
+
 /// An install that can be held mid-flight, so the progress bar is observable.
 class FakeService extends DownloadService {
   FakeService(
@@ -155,6 +216,10 @@ void main() {
     FakeDictionaryStore? dictionaryStore,
     FakeDictionaryService? dictionaryService,
     List<DictionaryEntry>? dictionaryCatalog,
+    FakeWorkStore? workStore,
+    FakeWorkService? workService,
+    List<WorkEntry>? workCatalog,
+    void Function(String code)? onOpenWork,
   }) async {
     tester.view.physicalSize = const Size(1000, 3600);
     tester.view.devicePixelRatio = 1.0;
@@ -168,10 +233,29 @@ void main() {
         dictionaryStore: dictionaryStore ?? FakeDictionaryStore(),
         dictionaryService: dictionaryService ?? FakeDictionaryService(),
         dictionaryCatalog: dictionaryCatalog,
+        workStore: workStore ?? FakeWorkStore(),
+        workService: workService ?? FakeWorkService(),
+        workCatalog: workCatalog,
+        onOpenWork: onOpenWork,
       ),
     ));
     await tester.pumpAndSettle();
   }
+
+  /// Un ouvrage téléchargeable **et** publié, avec une URL factice : les tests
+  /// de flux ne doivent ni dépendre de l'hébergement réel, ni faire de requête
+  /// réseau. Le vrai catalogue publie aujourd'hui `MINISTERE` — voir
+  /// `work_catalog.dart`.
+  const publishedMinistere = WorkEntry(
+    code: 'MINISTERE',
+    title: 'LE MINISTÈRE OU LE SEIGNEUR',
+    author: 'Trésor Koufounda',
+    rights: '© 2024 Vases de Terre les Éditions',
+    description: '11 chapitres sur le service du Seigneur.',
+    cover: 'assets/covers/ministere.jpg',
+    availability: WorkAvailability.downloadable,
+    url: 'https://s3.filebase.example/works/ministere.json',
+  );
 
   /// A downloadable dictionary with a configured URL, for the download-flow
   /// tests (the real catalogue leaves them unconfigured on purpose).
@@ -286,7 +370,7 @@ void main() {
           reason: 'chaque tuile porte la surface premium partagée');
     });
 
-    testWidgets('opens on Bibles and offers a Dictionnaires tab',
+    testWidgets('opens on Bibles and offers Dictionnaires and Livres tabs',
         (tester) async {
       final store = FakeStore();
       await pumpLibrary(tester, store: store, service: FakeService(store));
@@ -303,12 +387,145 @@ void main() {
       expect(find.text('Notes BYM Lexique'), findsNothing);
       expect(find.text('Dictionnaire Strong français'), findsOneWidget);
       expect(find.text('Westphal 1932'), findsOneWidget);
-      // Nave reste sans source : elle s'affiche « Bientôt disponible ».
-      expect(find.text('Bientôt disponible'), findsOneWidget);
+      // Nave reste sans source : elle s'affiche « Bientôt disponible ». Le
+      // `TabBarView` ne construit que l'onglet visible : le mot n'appartient
+      // donc qu'à cette rangée, et le scoper à la liste le prouve.
+      expect(
+        find.descendant(
+          of: find.byKey(const Key('libraryDictionaries')),
+          matching: find.text('Bientôt disponible'),
+        ),
+        findsOneWidget,
+      );
       // GBM a une URL configurée : elle s'offre au téléchargement.
       expect(find.byKey(const Key('dict-download-GBM')), findsOneWidget);
       // Bailly a été retirée du catalogue.
       expect(find.byKey(const Key('dict-download-BAILLY')), findsNothing);
+    });
+
+    // ---- Ouvrages (« Livres ») ----
+
+    testWidgets('le troisième onglet est Livres, et il ouvre l\'ouvrage '
+        'publié', (tester) async {
+      await pumpLibrary(
+        tester,
+        store: FakeStore(),
+        service: FakeService(FakeStore()),
+      );
+
+      await tester.tap(find.text('Livres'));
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key('libraryWorks')), findsOneWidget);
+      expect(find.text('LE MINISTÈRE OU LE SEIGNEUR'), findsOneWidget,
+          reason: 'le titre de l\'ouvrage, tel qu\'il portera la pastille '
+              'de l\'écran Lecture');
+      expect(find.text('Trésor Koufounda'), findsOneWidget);
+      // Le JSON est publié : la tuile propose le téléchargement au lieu
+      // d'expliquer qu'il est impossible.
+      expect(find.byKey(const Key('work-download-MINISTERE')), findsOneWidget);
+      expect(find.text('URL à configurer pour télécharger'), findsNothing);
+      expect(find.text('Téléchargé'), findsNothing);
+    });
+
+    testWidgets('un ouvrage sans URL le dit, au lieu d\'offrir un '
+        'téléchargement voué à l\'échec', (tester) async {
+      const unpublished = WorkEntry(
+        code: 'MINISTERE',
+        title: 'LE MINISTÈRE OU LE SEIGNEUR',
+        author: 'Trésor Koufounda',
+        rights: '© 2024 Vases de Terre les Éditions',
+        description: '11 chapitres sur le service du Seigneur.',
+        cover: 'assets/covers/ministere.jpg',
+        availability: WorkAvailability.downloadable,
+      );
+
+      await pumpLibrary(
+        tester,
+        store: FakeStore(),
+        service: FakeService(FakeStore()),
+        workCatalog: const [unpublished],
+      );
+
+      await tester.tap(find.text('Livres'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('URL à configurer pour télécharger'), findsOneWidget);
+      expect(find.byKey(const Key('work-download-MINISTERE')), findsNothing);
+      expect(find.text('Téléchargé'), findsNothing);
+    });
+
+    testWidgets('un ouvrage publié se télécharge, puis se supprime',
+        (tester) async {
+      final store = FakeStore();
+      final workStore = FakeWorkStore();
+      // La porte tient le téléchargement en vol : la barre et le bouton
+      // « Annuler » ne s'observent que là.
+      final workService = FakeWorkService(hold: true)..target = workStore;
+
+      await pumpLibrary(
+        tester,
+        store: store,
+        service: FakeService(store),
+        workStore: workStore,
+        workService: workService,
+        workCatalog: const [publishedMinistere],
+      );
+
+      await tester.tap(find.text('Livres'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byKey(const Key('work-download-MINISTERE')));
+      // Le fake tient la porte ouverte : la barre est observable en vol.
+      await tester.pump();
+      expect(find.byKey(const Key('work-progress-MINISTERE')), findsOneWidget);
+      expect(find.byKey(const Key('work-cancel-MINISTERE')), findsOneWidget);
+
+      workService.gate.complete();
+      await tester.pumpAndSettle();
+
+      expect(workService.installed, ['MINISTERE']);
+      expect(workStore.codes, {'MINISTERE'});
+      expect(find.textContaining('Téléchargé'), findsOneWidget,
+          reason: 'la ligne sous le titre porte la taille sur l\'appareil');
+      expect(find.byKey(const Key('work-delete-MINISTERE')), findsOneWidget,
+          reason: 'un ouvrage téléchargé se retire, comme une version');
+
+      await tester.tap(find.byKey(const Key('work-delete-MINISTERE')));
+      await tester.pumpAndSettle();
+      expect(find.text('Supprimer LE MINISTÈRE OU LE SEIGNEUR ?'),
+          findsOneWidget, reason: 'la suppression d\'un livre se confirme');
+
+      await tester.tap(find.byKey(const Key('confirmWorkDelete')));
+      await tester.pumpAndSettle();
+
+      expect(workStore.removed, ['MINISTERE']);
+      expect(workStore.codes, isEmpty);
+      expect(find.byKey(const Key('work-download-MINISTERE')), findsOneWidget,
+          reason: 'le livre reste téléchargeable après la suppression');
+    });
+
+    testWidgets('une tuile téléchargée ouvre l\'ouvrage dans la lecture',
+        (tester) async {
+      final store = FakeStore();
+      final opened = <String>[];
+
+      await pumpLibrary(
+        tester,
+        store: store,
+        service: FakeService(store),
+        workStore: FakeWorkStore({'MINISTERE'}),
+        workCatalog: const [publishedMinistere],
+        onOpenWork: opened.add,
+      );
+
+      await tester.tap(find.text('Livres'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('LE MINISTÈRE OU LE SEIGNEUR'));
+      await tester.pumpAndSettle();
+
+      expect(opened, ['MINISTERE']);
     });
 
     testWidgets('tapping Westphal opens the FreDAW index, not a stub',
