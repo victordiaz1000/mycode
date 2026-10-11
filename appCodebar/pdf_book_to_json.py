@@ -14,10 +14,15 @@ dépendance externe » de CLAUDE.md ne vaut donc pas pour ce script.
 Règles de conversion — toutes nées de ce que le PDF fait réellement, pas de ce
 qu'un PDF « devrait » faire :
 
-1. **Le sommaire imprimé est le squelette.** Le PDF n'a aucun signet
-   (`outline` vide) : on parse le SOMMAIRE, qui porte la hiérarchie complète
+1. **La feuille de sommaire imprimée est le squelette.** Le PDF n'a aucun
+   signet (`outline` vide) : on la parse, elle porte la hiérarchie complète
    (chapitres, sections en chiffres romains, sous-sections en lettres) avec les
-   numéros de page imprimés.
+   numéros de page imprimés. Son titre varie — « SOMMAIRE » chez le pilote,
+   « TABLE DES MATIÈRES » ailleurs, porté par la **première page seule** — et
+   le filet qui sépare le titre du numéro est tantôt en points, tantôt en
+   tirets bas. On suit donc les pages depuis la première titrée tant
+   qu'elles livrent au moins une entrée, et la hiérarchie se lit au
+   **préfixe** (`I/`, `A/` autant que `I.`, `A.`), jamais à l'indentation.
 
 2. **Le décalage page imprimée / page physique se mesure, il ne se suppose
    pas.** On relève le numéro en pied de *chaque* page ; si le décalage n'est
@@ -53,6 +58,13 @@ qu'un PDF « devrait » faire :
    recopie la plus grande image de la première page (la couverture est pleine
    page, le logo d'éditeur ne l'est pas) et avertit si la page 1 n'en porte
    aucune, plutôt que d'aller chercher une illustration ailleurs dans le livre.
+   Une couverture **découpée en bandes** — un tirage qui éclate l'image en
+   tranches horizontales — se recoud par leur placement réel dans le flux de
+   la page : l'ordre de `pypdf` est lexicographique (`Im1`, `Im10`, `Im2`),
+   il ne dit rien de l'empilement, et ne garder qu'une bande livrerait un
+   coupon de couverture. La couture n'est acceptée que si les bandes
+   bouchent la page, bord à bord ; sinon on retombe sur l'image entière la
+   plus grande.
 
 Format de sortie :
 {
@@ -82,6 +94,7 @@ import subprocess
 import sys
 import unicodedata
 from pathlib import Path
+from typing import Any
 
 # --- Avertissements ---------------------------------------------------------
 
@@ -207,17 +220,27 @@ def measure_offset(pages: list[str]) -> int:
 
 # Un seul point suffit avant le numéro : le sommaire contient réellement
 # « …géniteurs.129 ». Le titre est non-greedy pour ne pas avaler les points.
-TOC_ENTRY = re.compile(r"^(?P<title>.*?\S)\s*\.+\s*(?P<page>\d{1,3})\s*$")
-ROMAN = re.compile(r"^(?:I|II|III|IV|V|VI|VII|VIII|IX|X)\s*\.")
-ALPHA = re.compile(r"^[A-H]\s*\.")
+# Le filet qui sépare le titre du numéro n'est pas toujours en points :
+# « PRÉAMBULE ____ 9 » porte des tirets bas, et c'est la forme du titre qui
+# en décide, pas celle du filet.
+TOC_ENTRY = re.compile(r"^(?P<title>.*?\S)\s*(?:\.+|_+)\s*(?P<page>\d{1,3})\s*$")
+# Une entrée peut se passer de filet quand elle clôt la feuille : la retenir
+# vaut mieux que de la jeter avec les lignes orphelines, mais elle est signalée.
+TOC_ENTRY_BARE = re.compile(r"^(?P<title>.*?\S)\s{2,}(?P<page>\d{1,3})\s*$")
+ROMAN = re.compile(r"^(?:I|II|III|IV|V|VI|VII|VIII|IX|X)\s*[./]")
+ALPHA = re.compile(r"^[A-H]\s*[./]")
 CHAPTER_HEAD = re.compile(r"^CHAPITRE\s+(\d+)\s*:\s*(.*)$")
+
+# Titres que peut porter la feuille — `fold` a aplati les accents.
+TOC_TITLES = frozenset({"SOMMAIRE", "TABLE DES MATIERES"})
 
 
 def toc_level(title: str) -> int:
     """Niveau déduit du préfixe, pas de l'indentation.
 
     L'indentation du sommaire est irrégulière (« I. » tantôt à 2, tantôt à 3
-    espaces) ; le préfixe, lui, est sûr.
+    espaces) ; le préfixe, lui, est sûr — et son signe varie lui aussi : le
+    pilote écrit « I. », l'Animalité « I/ ».
     """
     if ROMAN.match(title):
         return 1
@@ -226,7 +249,7 @@ def toc_level(title: str) -> int:
     return 0
 
 
-LABEL = re.compile(r"^((?:I|II|III|IV|V|VI|VII|VIII|IX|X|[A-H])\.)(?=\S)")
+LABEL = re.compile(r"^((?:I|II|III|IV|V|VI|VII|VIII|IX|X|[A-H])[./])(?=\S)")
 
 
 def normalize_title(title: str) -> str:
@@ -239,20 +262,31 @@ def normalize_title(title: str) -> str:
     return LABEL.sub(r"\1 ", re.sub(r"\s{2,}", " ", title.strip()))
 
 
-def parse_toc(pages: list[str], first: int, last: int) -> list[tuple[str, int, int]]:
-    """Entrées du sommaire : (titre, page imprimée, niveau).
+def parse_toc(
+    pages: list[str], first: int
+) -> tuple[list[tuple[str, int, int]], int]:
+    """Entrées du sommaire : (titre, page imprimée, niveau), et dernière page lue.
 
     Une entrée peut courir sur plusieurs lignes, parfois séparées par une ligne
-    vide : on accumule jusqu'à tomber sur les points de conduite et le numéro.
+    vide : on accumule jusqu'à tomber sur le filet de conduite et le numéro.
+
+    On suit les pages **tant qu'elles en livrent au moins une** : le pilote
+    répète son titre sur chacune des siennes, l'Animalité ne le porte que sur
+    la première — c'est la production d'entrées, pas le titre, qui dit où
+    finit le sommaire. Une page sans entrée clôt le balayage, et la page
+    retournée permet à l'appelant de savoir quelles pages sont du corps.
     """
     buffer: list[str] = []
     entries: list[tuple[str, int, int]] = []
-    for index in range(first, last + 1):
+    index = first
+    last = first
+    while index < len(pages):
         lines, _ = split_chrome(pages[index])
         body = [line.strip() for line in lines if line.strip()]
         # La première ligne de chaque page du sommaire est son propre titre.
-        if body and fold(body[0]) == "SOMMAIRE":
+        if body and fold(body[0]) in TOC_TITLES:
             body = body[1:]
+        found = 0
         for line in body:
             buffer.append(line)
             match = TOC_ENTRY.match(" ".join(buffer))
@@ -260,9 +294,26 @@ def parse_toc(pages: list[str], first: int, last: int) -> list[tuple[str, int, i
                 title = normalize_title(match.group("title"))
                 entries.append((title, int(match.group("page")), toc_level(title)))
                 buffer = []
+                found += 1
+        if not found and entries:
+            break
+        last = index
+        index += 1
     if buffer:
-        warn(f"sommaire : lignes non appariées, ignorées — {buffer}")
-    return [entry for entry in entries if fold(entry[0]) != "SOMMAIRE"]
+        # Une entrée sans filet, en pied de feuille : « Tableau d'aide   255 ».
+        # Le numéro suffit à la désigner — à condition qu'il y en ait un, et
+        # c'est la seule différence avec la forme filetée.
+        bare = TOC_ENTRY_BARE.match(" ".join(buffer))
+        if bare:
+            title = normalize_title(bare.group("title"))
+            entries.append((title, int(bare.group("page")), toc_level(title)))
+            warn(f"sommaire : entrée sans filet, retenue — « {title} »")
+        else:
+            warn(f"sommaire : lignes non appariées, ignorées — {buffer}")
+    return (
+        [entry for entry in entries if fold(entry[0]) not in TOC_TITLES],
+        last,
+    )
 
 
 # --- En-têtes courants ------------------------------------------------------
@@ -374,6 +425,17 @@ def take_footnotes(
             start = index
             break
     if start is None:
+        return lines, {}, expected
+
+    # Un bloc de notes est isolé du corps par un blanc. Un paragraphe qui
+    # commence par « 1 Timotheos 3:9) … » remplit la même forme que l'appel —
+    # un chiffre, une espace, du texte — et la comptabilité seule ne tranche
+    # pas : c'est le blanc au-dessus qui dit que l'imprimeur a isolé la note.
+    if start == 0 or lines[start - 1].strip():
+        warn(
+            f"bloc commençant par « {expected} » sans ligne vide au-dessus : "
+            "traité comme du texte, pas comme une note"
+        )
         return lines, {}, expected
 
     body = " ".join(lines[:start])
@@ -531,22 +593,41 @@ def paragraph_groups(lines: list[str]) -> list[list[str]]:
 
 
 # Un sous-titre numéroté que le sommaire n'annonce pas : « 2.1. L'onction »,
-# « 1. Les anciens ». Il est court et centré, là où le corps court colonne 0.
+# « 1. Les anciens ». Il est court — et centré chez le pilote, colonne 0 chez
+# l'Animalité, qui n'imprime ses rangs 3 qu'en gras : la longueur fait la
+# démarcation, pas l'indentation.
 NUMBERED_HEADING = re.compile(r"^\d+(?:\.\d+)*\.\s*\S")
 TRAILING_MARKER = re.compile(r"\d+$")
+
+MAX_HEADING_CHARS = 70
+
+
+def numbered_heading(group: list[str]) -> bool:
+    """Ce groupe est-il un sous-titre numéroté court (« 1. L'intelligence ») ?
+
+    Seuls garde-fous : la longueur, et le fait que le groupe **commence** par
+    le numéro — un paragraphe de corps qui s'ouvrirait sur « 1. » pèse bien
+    plus de 70 caractères, un titre non. Sert deux fois : à le rendre
+    incompatible avec les passes de recollage, et à le classer en niveau 3.
+    """
+    text = join_lines(group)
+    return len(text) < MAX_HEADING_CHARS and bool(NUMBERED_HEADING.match(text.strip()))
 
 
 def heading_like(group: list[str], headings: dict[str, int]) -> bool:
     """Ce groupe peut-il être un titre, entier ou commencé ?
 
-    Trois façons de l'être : porter exactement un titre du sommaire, en être le
-    début, ou n'avoir aucune minuscule — une ligne tout en capitales n'est
-    jamais de la prose. Sert à protéger les titres des passes de recollage.
+    Quatre façons de l'être : porter exactement un titre du sommaire, en être
+    le début, être numéroté, ou n'avoir aucune minuscule — une ligne tout en
+    capitales n'est jamais de la prose. Sert à protéger les titres des passes
+    de recollage.
     """
     probe = heading_probe([group])
     if not probe:
         return False
     if probe in headings or any(key.startswith(f"{probe} ") for key in headings):
+        return True
+    if numbered_heading(group):
         return True
     text = join_lines(group)
     return not any(character.islower() for character in text)
@@ -710,15 +791,10 @@ def match_heading(group: list[str], headings: dict[str, int]) -> int | None:
 
     Les sous-titres numérotés absents du sommaire sont rendus au niveau 3.
     """
-    text = join_lines(group)
     level = headings.get(heading_probe([group]))
     if level is not None:
         return level
-    if (
-        len(text) < 70
-        and indent_of(group[0]) >= 2
-        and NUMBERED_HEADING.match(text.strip())
-    ):
+    if numbered_heading(group):
         return 3
     return None
 
@@ -778,6 +854,40 @@ def close_quotes(blocks: list[dict[str, object]]) -> list[dict[str, object]]:
     return merged
 
 
+def split_leading_heading(group: list[str]) -> tuple[list[str] | None, list[str]]:
+    """Détache le sous-titre numéroté qui ouvre un bloc, s'il y en a un.
+
+    L'Animalité imprime son rang 3 **collé** à son paragraphe, sans ligne vide
+    entre les deux — là où le pilote les sépare :
+
+        1. L'esprit du chrétien est né d'en haut
+        Avant la conversion, l'esprit est mort …
+
+    Une césure imprimée appartient au titre (« l'Anti- » / « chrétien ») : on
+    recolle comme `join_lines`, tant que la somme reste sous la longueur d'un
+    titre. Le corps reprend à la première ligne qui ne se recolle pas — un
+    paragraphe ne tient jamais en une ligne de titre.
+    """
+    if len(group) < 2 or not NUMBERED_HEADING.match(group[0].strip()):
+        return None, group
+    # Un bloc qui tient entier dans la marge d'un titre l'est déjà : le pilote
+    # imprime « 2.4. Les moyens accordés pour faire / l'Œuvre du service » sur
+    # deux lignes, sans corps dessous. Le couper ne ferait qu'écarter la
+    # seconde moitié du titre dans un paragraphe orphelin.
+    if len(join_lines(group)) < MAX_HEADING_CHARS:
+        return None, group
+    take = 1
+    while take < len(group):
+        if len(join_lines(group[: take + 1])) >= MAX_HEADING_CHARS:
+            break
+        if not HYPHEN_BREAK.search(join_lines(group[:take])):
+            break
+        take += 1
+    if take >= len(group):
+        return None, group
+    return group[:take], group[take:]
+
+
 def build_blocks(
     lines: list[str], headings: dict[str, int]
 ) -> list[dict[str, object]]:
@@ -786,6 +896,19 @@ def build_blocks(
     groups = merge_justified_runs(paragraph_groups(lines), headings)
     groups = split_trailing_headings(groups, headings)
     for group in merge_split_headings(groups, headings):
+        opening, group = split_leading_heading(group)
+        if opening is not None:
+            # `match_heading` ne peut pas rendre None ici — `opening` s'ouvre
+            # sur un numéro, donc sur un titre. Un avenir où il rendrait None
+            # retomberait en titre de rang 3 : jamais en silence, le texte
+            # d'un livre ne se fait pas avaler par un garde-fou.
+            level = match_heading(opening, headings)
+            blocks.append(
+                {
+                    "type": f"h{(3 if level is None else level) + 1}",
+                    "text": join_lines(opening),
+                }
+            )
         level = match_heading(group, headings)
         if level is not None:
             blocks.append(
@@ -1087,19 +1210,40 @@ ISBN = re.compile(r"ISBN\s*:\s*([\d\-]+)")
 COPYRIGHT = re.compile(
     "©" + r"\s*(?P<year>\d{4})?\s*,?\s*(?P<publisher>\S[^\n]*?)\s*,?\s*$"
 )
+# Étiquettes qui ouvrent une mention d'édition sans en être une : le nom
+# d'éditeur vient après les deux-points.
+PUBLISHER_LABEL = re.compile(r"^(?:é|e)dition\s*:\s*", re.IGNORECASE)
 
 
 def metadata(pages: list[str]) -> dict[str, str]:
-    """Titre, sous-titre, auteur, éditeur, année et ISBN des pages de garde."""
+    """Titre, sous-titre, auteur, éditeur, année et ISBN des pages de garde.
+
+    La page de titre se lit par **blocs** — une suite de lignes fermée par une
+    ligne vide — et non par ses numéros de ligne : le titre tient sur deux
+    lignes chez l'Animalité (« L'ANIMALITÉ DE » / « L'ÊTRE HUMAIN »), qui
+    met l'auteur dans le bloc suivant, où l'éditeur l'attend déjà ; le pilote
+    plie son titre en deux lignes puis sépare l'auteur d'une ligne vide. Un
+    bloc de titre à trois lignes porte son auteur en dernière ligne.
+    """
     front = "\n".join(pages[1 : min(4, len(pages))])
-    lines = [line.strip() for line in pages[1].split("\n") if line.strip()]
+    blocks: list[list[str]] = [[]]
+    for line in pages[1].split("\n"):
+        stripped = line.strip()
+        if stripped:
+            blocks[-1].append(stripped)
+        elif blocks[-1]:
+            blocks.append([])
+    if blocks and not blocks[-1]:
+        blocks.pop()
     data: dict[str, str] = {}
-    if lines:
-        data["title"] = lines[0].rstrip(",")
-    if len(lines) > 1:
-        data["subtitle"] = lines[1]
-    if len(lines) > 2:
-        data["author"] = lines[-1]
+    if blocks:
+        data["title"] = blocks[0][0].rstrip(",")
+        if len(blocks[0]) > 1:
+            data["subtitle"] = blocks[0][1]
+        if len(blocks[0]) > 2:
+            data["author"] = blocks[0][-1]
+        elif len(blocks) > 1:
+            data["author"] = blocks[1][0]
     match = ISBN.search(front)
     if match:
         data["isbn"] = match.group(1)
@@ -1110,7 +1254,12 @@ def metadata(pages: list[str]) -> dict[str, str]:
         # inutilisable sur les 44 autres titres.
         found = COPYRIGHT.search(line.strip())
         if found:
-            data["publisher"] = found.group("publisher").rstrip(",").strip()
+            publisher = found.group("publisher").rstrip(",").strip()
+            # « © 2022 Édition : ANJC PRODUCTIONS » : « Édition : » est une
+            # étiquette, pas un nom. Le pilote n'en porte pas, la règle ne
+            # lui change donc rien.
+            publisher = PUBLISHER_LABEL.sub("", publisher).strip()
+            data["publisher"] = publisher
             if found.group("year"):
                 data["year"] = found.group("year")
             break
@@ -1129,15 +1278,22 @@ def convert(pdf: Path, code: str) -> dict[str, object]:
 
     offset = measure_offset(pages)
 
-    # Le sommaire : on prend les pages dont le titre est « SOMMAIRE ».
-    toc_pages = [
-        index
-        for index, page in enumerate(pages)
-        if any(fold(line) == "SOMMAIRE" for line in page.split("\n")[:3] if line.strip())
-    ]
-    if not toc_pages:
+    # Le sommaire : la première page qui en porte le titre, quel qu'il soit.
+    toc_first = next(
+        (
+            index
+            for index, page in enumerate(pages)
+            if any(
+                fold(line) in TOC_TITLES
+                for line in page.split("\n")[:3]
+                if line.strip()
+            )
+        ),
+        None,
+    )
+    if toc_first is None:
         sys.exit("Aucune page de sommaire trouvée : structure non reconnue.")
-    entries = parse_toc(pages, toc_pages[0], toc_pages[-1])
+    entries, toc_last = parse_toc(pages, toc_first)
     chapters_toc = [entry for entry in entries if entry[2] == 0]
     print(f"  sommaire : {len(entries)} entrées, {len(chapters_toc)} de niveau 0")
 
@@ -1159,7 +1315,7 @@ def convert(pdf: Path, code: str) -> dict[str, object]:
     body_by_page: dict[int, list[str]] = {}
     empty_pages: list[int] = []
 
-    for index in range(toc_pages[-1] + 1, len(pages)):
+    for index in range(toc_last + 1, len(pages)):
         lines, _ = split_chrome(pages[index])
         if not lines:
             continue
@@ -1317,6 +1473,132 @@ def rights_line(data: dict[str, str]) -> str:
 # tels quels.
 COVER_MAX_WIDTH = 600
 
+# Jetons du flux de contenu dont dépend la couture : `q` et `Q` (la pile de la
+# matrice de transformation), `cm` (la poser) et `/Nom Do` (y dessiner l'image).
+# Le reste du flux — textes, gs, couleurs — n'intéresse pas la pochette.
+PDF_TOKEN = re.compile(
+    r"(?P<push>\bq\b)"
+    r"|(?P<pop>\bQ\b)"
+    r"|(?P<cm>(?:[-+]?(?:\d+\.\d*|\.\d+|\d+)\s+){5}[-+]?(?:\d+\.\d*|\.\d+|\d+)\s+cm)"
+    r"|(?P<do>/[\w\-.]+\s+Do)"
+)
+
+IDENTITY = (1.0, 0.0, 0.0, 1.0, 0.0, 0.0)
+
+# Tolérance de couture, en points : une bande peut buter sur une fraction.
+BAND_TOLERANCE = 1.0
+
+
+def concatenate(
+    matrix: tuple[float, ...], ctm: tuple[float, ...]
+) -> tuple[float, ...]:
+    """Pose `matrix` sur `ctm` — concaténation PDF, `M × C`.
+
+    Les six coefficients suivent la convention `[a b c d e f]`, qui applique
+    `(x, y) → (a·x + c·y + e, b·x + d·y + f)`.
+    """
+    a, b, c, d, e, f = matrix
+    A, B, C, D, E, F = ctm
+    return (
+        a * A + b * C,
+        a * B + b * D,
+        c * A + d * C,
+        c * B + d * D,
+        e * A + f * C + E,
+        e * B + f * D + F,
+    )
+
+
+def image_placements(page: Any) -> list[tuple[str, tuple[float, ...]]]:
+    """(nom d'XObject, matrice finale) de chaque image posée sur la page.
+
+    La pile `q`/`Q` est suivie : sans elle, la matrice de chaque bande se
+    composerait avec celle de la précédente et l'empilement serait lu de travers.
+    """
+    contents = page.get_contents()
+    if contents is None:
+        return []
+    text = contents.get_data().decode("latin-1", errors="replace")
+    placements: list[tuple[str, tuple[float, ...]]] = []
+    ctm = IDENTITY
+    stack: list[tuple[float, ...]] = []
+    for token in PDF_TOKEN.finditer(text):
+        if token.group("push"):
+            stack.append(ctm)
+        elif token.group("pop"):
+            ctm = stack.pop() if stack else IDENTITY
+        elif token.group("cm"):
+            values = tuple(float(v) for v in token.group("cm").split()[:6])
+            ctm = concatenate(values, ctm)
+        else:
+            placements.append((token.group("do").split()[0][1:], ctm))
+    return placements
+
+
+def stitched_cover(page: Any, images: list[Any]) -> Any:
+    """Re-coud une couverture découpée en bandes horizontales — ou None.
+
+    Un tirage qui éclate l'image de couverture en tranches la redessine bande
+    par bande (`q … cm /Im3 Do Q`), et `pypdf` les rend dans l'ordre
+    lexicographique de leur nom : `Im1`, `Im10`, `Im11`, …, `Im2`, `Im20`,
+    `Im3`. En retenir une seule — « la plus grande image de la page 1 » —
+    livrerait un coupon.
+
+    La couture n'est acceptée que si les bandes **taillent la page** : même
+    largeur, même abscisse, posées bord à bord du sommet au pied. Le moindre
+    trou, chevauchement ou rotation rend None, et l'appelant retombe sur
+    l'image entière la plus grande — jamais sur une bande par hasard.
+    """
+    placements = image_placements(page)
+    if len(placements) < 2:
+        return None
+
+    by_name = {Path(image.name).stem: image for image in images}
+    bands: list[tuple[float, float, float, float, object]] = []
+    for name, matrix in placements:
+        a, b, c, d, e, f = matrix
+        image = by_name.get(name)
+        if image is None or b or c:
+            return None  # image absente du décodage, ou posée de travers
+        bands.append((f + d, a, d, e, image))  # (haut, largeur, hauteur, abscisse)
+
+    # Du haut vers le bas : l'origine PDF est en bas à gauche.
+    bands.sort(key=lambda band: -band[0])
+
+    width = float(page.mediabox.width)
+    height = float(page.mediabox.height)
+    if abs(bands[0][0] - height) > BAND_TOLERANCE:
+        return None
+    if abs(bands[-1][0] - bands[-1][2] - 0.0) > BAND_TOLERANCE:
+        return None
+    for previous, current in zip(bands, bands[1:]):
+        if abs(previous[0] - previous[2] - current[0]) > BAND_TOLERANCE:
+            return None
+    for _, band_width, _, band_x, _ in bands:
+        if abs(band_width - width) > BAND_TOLERANCE or abs(band_x) > BAND_TOLERANCE:
+            return None
+
+    # Pillow vient avec pypdf (c'est lui qui décode `image.image`).
+    from PIL import Image
+
+    canvas_width = max(image.image.size[0] for *_, image in bands)
+    parts = []
+    for *_, image in bands:
+        band = image.image.convert("RGB")
+        if band.size[0] != canvas_width:
+            band = band.resize(
+                (canvas_width, round(band.size[1] * canvas_width / band.size[0])),
+                Image.LANCZOS,
+            )
+        parts.append(band)
+
+    canvas = Image.new("RGB", (canvas_width, sum(part.size[1] for part in parts)))
+    cursor = 0
+    for part in parts:
+        canvas.paste(part, (0, cursor))
+        cursor += part.size[1]
+    return canvas
+
 
 def extract_cover(pdf: Path, dest: Path) -> bool:
     """Écrit la pochette de l'ouvrage — la couverture de la page 1 — dans `dest`.
@@ -1325,7 +1607,9 @@ def extract_cover(pdf: Path, dest: Path) -> bool:
     `pdftotext` mais par `pypdf`. On prend la plus grande image de la première
     page, parce qu'une page de garde peut porter autre chose qu'une couverture
     (page 2 du pilote montre le bandeau de l'éditeur, 198 × 69) et que la
-    couverture est, elle, pleine page.
+    couverture est, elle, pleine page — sauf quand'elle est imprimée en
+    tranches, auquel cas [stitched_cover] la recoud d'abord, faute de quoi
+    « la plus grande image » n'est qu'un coupon de couverture.
 
     Les octets d'origine sont recopiés sans recompression tant que l'image tient
     sous [COVER_MAX_WIDTH] ; au-delà, Pillow la réduit et la réécrit en JPEG.
@@ -1344,8 +1628,9 @@ def extract_cover(pdf: Path, dest: Path) -> bool:
         warn("PDF sans page : pochette non extraite")
         return False
 
+    page = reader.pages[0]
     try:
-        images = list(reader.pages[0].images)
+        images = list(page.images)
     except Exception as error:  # pypdf lève selon le filtre de l'image
         warn(f"pochette illisible ({error}) : non extraite")
         return False
@@ -1353,18 +1638,33 @@ def extract_cover(pdf: Path, dest: Path) -> bool:
         warn("aucune image en page 1 : pochette non extraite")
         return False
 
-    cover = max(images, key=lambda image: image.image.size[0] * image.image.size[1])
-    width, height = cover.image.size
+    stitched = None
+    if len(images) > 1:
+        try:
+            stitched = stitched_cover(page, images)
+        except Exception as error:  # un filtre que Pillow refuse
+            warn(f"couture de la pochette illisible ({error}) : image entière retenue")
+
+    detail = ""
+    if stitched is not None:
+        source, raw = stitched, None
+        detail = f", recousue de {len(images)} bandes"
+    else:
+        cover = max(images, key=lambda image: image.image.size[0] * image.image.size[1])
+        source = cover.image
+        raw = cover.data if source.size[0] <= COVER_MAX_WIDTH else None
+
+    width, height = source.size
     dest.parent.mkdir(parents=True, exist_ok=True)
 
-    if width <= COVER_MAX_WIDTH:
-        dest.write_bytes(cover.data)
+    if raw is not None:
+        dest.write_bytes(raw)
     else:
         # Pillow vient avec pypdf (c'est lui qui décode `cover.image`), mais il
         # n'est importé qu'ici : seul le redimensionnement s'en sert.
         from PIL import Image
 
-        scaled = cover.image.convert("RGB")
+        scaled = source.convert("RGB")
         scaled.thumbnail(
             (COVER_MAX_WIDTH, COVER_MAX_WIDTH * 4), resample=Image.LANCZOS
         )
@@ -1372,7 +1672,9 @@ def extract_cover(pdf: Path, dest: Path) -> bool:
         width, height = scaled.size
 
     size = dest.stat().st_size
-    print(f"  pochette : {dest} ({width} × {height}, {size / 1024:.0f} Ko)")
+    print(
+        f"  pochette : {dest} ({width} × {height}, {size / 1024:.0f} Ko{detail})"
+    )
     return True
 
 

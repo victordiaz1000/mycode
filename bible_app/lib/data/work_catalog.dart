@@ -98,6 +98,23 @@ const List<WorkEntry> workCatalog = [
     url: 'https://raw.githubusercontent.com/victordiaz1000/pdf-bym/main/'
         'ministere.json',
   ),
+  WorkEntry(
+    code: 'ANIMALITE',
+    title: 'L’ANIMALITÉ DE L’ÊTRE HUMAIN',
+    author: 'Shora Kuetu',
+    rights: '© 2022 ANJC PRODUCTIONS · diffusion gratuite '
+        'autorisée · STRICTEMENT INTERDIT À LA VENTE',
+    description: 'L’ÊTRE HUMAIN, CET ANIMAL — 13 chapitres sur l’esprit, '
+        'l’âme et le corps, puis sur l’animalité des dirigeants.',
+    cover: 'assets/covers/animalite.jpg',
+    availability: WorkAvailability.downloadable,
+    // Produit par appCodebar/pdf_book_to_json.py depuis
+    // LANIMALITE_DE_LETRE_HUMAIN.pdf (1063 blocs, sans note de bas de page :
+    // les quatre blocs qui ouvrent sur un chiffre sont des paragraphes de
+    // corps, écartés au marqueur comme à la ligne vide).
+    url: 'https://raw.githubusercontent.com/victordiaz1000/pdf-bym/main/'
+        'animalite.json',
+  ),
 ];
 
 /// Flat lookup by [WorkEntry.code].

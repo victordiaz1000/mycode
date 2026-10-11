@@ -47,25 +47,40 @@ ne sort de la stdlib ; ne pas étendre l'exception sans raison.
 ## Ouvrages PDF (onglet « Livres »)
 
 ```bash
-python pdf_book_to_json.py <source.pdf> <dest.json> --code MINISTERE [--dry-run]
-python pdf_book_to_json.py <source.pdf> <dest.json> --code MINISTERE \
-    --cover ../bible_app/assets/covers/ministere.jpg
+python pdf_book_to_json.py <source.pdf> <dest.json> --code <CODE> [--dry-run]
+python pdf_book_to_json.py <source.pdf> <dest.json> --code <CODE> \
+    --cover ../bible_app/assets/covers/<code>.jpg
 ```
 
-Un livre d'édification en PDF → un JSON téléchargeable par l'app. Le pilote est
-*LE MINISTÈRE OU LE SEIGNEUR, QUE PRÉFÈRES-TU ?* (Trésor Koufounda, Vases de
-Terre les Éditions, 2024) : 11 chapitres, 668 blocs, 46 notes, 36 paires de
-noms. Sa licence autorise la rediffusion gratuite et **interdit la vente** —
-d'où la ligne `rights` du JSON, qui porte la mention en clair.
+Un livre d'édification en PDF → un JSON téléchargeable par l'app. Deux sont
+entrés :
 
-- **Le sommaire imprimé est le squelette** : le PDF n'a aucun signet, et tout
+- pilote *LE MINISTÈRE OU LE SEIGNEUR, QUE PRÉFÈRES-TU ?* (Trésor Koufounda,
+  Vases de Terre les Éditions, 2024) : 11 chapitres, 668 blocs, 46 notes,
+  36 paires de noms ;
+- *L'ANIMALITÉ DE L'ÊTRE HUMAIN* (Shora Kuetu, ANJC PRODUCTIONS, 2022) :
+  13 chapitres, 1063 blocs, **sans note** — les quatre blocs qui ouvrent sur un
+  chiffre sont des paragraphes de corps, écartés au marqueur comme à la ligne
+  vide.
+
+Les deux licences n'autorisent que la diffusion gratuite et **interdisent la
+vente** — d'où la ligne `rights` du JSON, qui porte la mention en clair. Le
+JSON reste à publier à la main sur `github.com/victordiaz1000/pdf-bym`
+(dépôt public, lecture sans jeton) : `work_catalog.dart` ne pointe que des
+URL qui répondent, ou alors la tuile annonce qu'elle n'est pas configurée.
+
+- **La feuille de sommaire est le squelette** : le PDF n'a aucun signet, et tout
   intertitre est reconnu par comparaison avec une entrée du sommaire, jamais à
-  la police. Un titre que le sommaire n'annonce pas n'est gardé que s'il est
+  la police. Son titre varie — « SOMMAIRE » chez le pilote, « TABLE DES
+  MATIÈRES » chez l'Animalité, porté par la première page seulement — son filet
+  aussi (points ou tirets bas), et sa hiérarchie se lit au préfixe (`I.` autant
+  que `I/`). Un titre que le sommaire n'annonce pas n'est gardé que s'il est
   numéroté (`2.3. Le caractère`) ou tout en capitales.
 - **Rien n'est supposé, tout est mesuré** : le décalage de pagination est relevé
   page par page et le script s'arrête s'il varie ; les notes ne sont acceptées
   que dans l'ordre du compteur (sans quoi `1 Corinthiens 4:7` passe pour la
-  note 1).
+  note 1) **et** que séparées du corps d'une ligne vide (sans quoi
+  `1 Shemouél 25 …` en passe pour une).
 - **Les frontières de bloc se lisent sur la page** : une citation se termine sur
   sa référence, qui ne porte aucune ponctuation — d'où `ends_block`, que lisent
   les trois passes de recollement ; et un guillemet ouvrant sans fermant prouve
@@ -76,9 +91,12 @@ d'où la ligne `rights` du JSON, qui porte la mention en clair.
 - **La pochette est embarquée, le livre non.** `--cover` recopie la plus grande
   image de la page 1 dans `assets/covers/<code>.jpg` (40 Ko pour le pilote,
   486 × 757, recopiée sans recompression sous 600 px de large) : la tuile de la
-  Bibliothèque doit montrer la couverture **avant** le téléchargement. Le chemin
-  est déclaré dans `work_catalog.dart` (`cover:`), et une page 1 sans image
-  avertit — la tuile retombe sur son icône.
+  Bibliothèque doit montrer la couverture **avant** le téléchargement. Quand le
+  tirage éclate la couverture en tranches horizontales (20 bandes pour
+  l'Animalité, 121 Ko une fois recousues), les bandes sont recomposées par leur
+  placement réel dans le flux de la page — jamais par leur nom, dont l'ordre
+  n'est que lexicographique. Le chemin est déclaré dans `work_catalog.dart`
+  (`cover:`), et une page 1 sans image avertit — la tuile retombe sur son icône.
 
 > Le détail des pièges de `pdftotext -layout` — l'indentation trompeuse des
 > titres centrés, les lignes vides au milieu d'un paragraphe interligné, le
