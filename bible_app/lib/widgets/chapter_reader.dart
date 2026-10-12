@@ -27,7 +27,6 @@ import '../screens/ecran_comparer.dart';
 import '../screens/etude_verset_screen.dart';
 import '../screens/parallel_reading_screen.dart';
 import '../screens/strong_detail_screen.dart';
-import '../utils/hex_color.dart';
 import 'fiche_text_settings.dart';
 import 'loading_skeleton.dart';
 import 'reader_actions_bar.dart';
@@ -791,6 +790,20 @@ class _ChapterReaderState extends State<ChapterReader> {
     await _prefs.save();
   }
 
+  /// Live dial for the « Marges latérales » slider: the reader rebuilds
+  /// behind the open sheet so the text reflows while the thumb moves;
+  /// persisted once the drag ends, like the panel opacity.
+  void _setSidePadding(double value) {
+    final clamped = value.clamp(0.0, 48.0);
+    if ((_prefs.sidePadding - clamped).abs() < .001) return;
+    setState(() => _prefs.sidePadding = clamped);
+  }
+
+  Future<void> _saveSidePadding() async {
+    if (!_prefsLoaded) return;
+    await _prefs.save();
+  }
+
   /// The scoped theme with the « Couleur du texte » override applied — null
   /// preference (or an unparsable leftover) means the theme's own colour.
   /// Derived colours (notes, links) and the light/dark panel machinery
@@ -829,20 +842,24 @@ class _ChapterReaderState extends State<ChapterReader> {
             // Exit on the « Affichage » title line, always at the top.
             onClose: () => Navigator.of(sheetContext).pop(),
             children: [
-              // The immersion mode first: an action one reaches for, not a
-              // styling dial to hunt at the bottom of the sheet. It closes
-              // the sheet on activation.
-              DisplayToggleCard(
-                icon: Icons.fullscreen,
-                title: 'Mode immersion',
-                subtitle: 'Masquer les barres pour ne lire que le texte',
-                value: _prefs.immersion,
-                onChanged: (value) {
-                  Navigator.of(sheetContext).pop();
-                  _setImmersion(value);
-                },
-              ),
-              const SizedBox(height: 12),
+              // The immersion mode first on phones: an action one reaches for,
+              // not a styling dial to hunt at the bottom of the sheet. It
+              // closes the sheet on activation. From 600px up the bar carries
+              // its own icon, so the sheet drops the duplicate — same regime
+              // as « Trouver » below.
+              if (!_immersionInBar) ...[
+                DisplayToggleCard(
+                  icon: Icons.fullscreen,
+                  title: 'Mode immersion',
+                  subtitle: 'Masquer les barres pour ne lire que le texte',
+                  value: _prefs.immersion,
+                  onChanged: (value) {
+                    Navigator.of(sheetContext).pop();
+                    _setImmersion(value);
+                  },
+                ),
+                const SizedBox(height: 12),
+              ],
               DisplayLayoutSection(
                 // L'ATI n'a pas de texte continu : le segment « Continu » se
                 // lit délavé et ne se prend pas, et la barre annonce
@@ -929,6 +946,15 @@ class _ChapterReaderState extends State<ChapterReader> {
                 onChangeEnd: (_) => _savePanelOpacity(),
               ),
               const SizedBox(height: 12),
+              DisplayPaddingSection(
+                value: _prefs.sidePadding,
+                onChanged: (value) {
+                  _setSidePadding(value);
+                  setSheet(() {});
+                },
+                onChangeEnd: (_) => _saveSidePadding(),
+              ),
+              const SizedBox(height: 12),
               // The rest of the display lives in one place, and this says so
               // rather than leaving the reader to wonder where « graisse » went.
               _AllSettingsRow(
@@ -963,27 +989,28 @@ class _ChapterReaderState extends State<ChapterReader> {
                   ),
                 ),
               // The two-versions side-by-side reading: a mode, not a display
-              // knob — it lives at the bottom of the sheet and closes it.
-              // À partir de 600 la barre en porte aussi un, sur la rangée de
-              // la recherche ; cette entrée reste la voie des téléphones.
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
-                child: OutlinedButton.icon(
-                  onPressed: () {
-                    Navigator.of(sheetContext).pop();
-                    _openParallel();
-                  },
-                  style: OutlinedButton.styleFrom(
-                    side: BorderSide(
-                      color: Theme.of(context).colorScheme.primary,
-                      width: 1.5,
+              // knob — it lives at the bottom of the sheet and closes it, but
+              // only where the bar has no room for it. From 600px up the bar
+              // carries the button, so the sheet drops the duplicate.
+              if (!_parallelInBar)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                  child: OutlinedButton.icon(
+                    onPressed: () {
+                      Navigator.of(sheetContext).pop();
+                      _openParallel();
+                    },
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(
+                        color: Theme.of(context).colorScheme.primary,
+                        width: 1.5,
+                      ),
+                      foregroundColor: Theme.of(context).colorScheme.primary,
                     ),
-                    foregroundColor: Theme.of(context).colorScheme.primary,
+                    icon: const Icon(Icons.vertical_split, size: 18),
+                    label: const Text('Lecture parallèle — deux versions'),
                   ),
-                  icon: const Icon(Icons.vertical_split, size: 18),
-                  label: const Text('Lecture parallèle — deux versions'),
                 ),
-              ),
             ],
           );
         },
@@ -1040,6 +1067,17 @@ class _ChapterReaderState extends State<ChapterReader> {
                         tooltip: 'Lecture parallèle — deux versions',
                         icon: const Icon(Icons.vertical_split),
                         onPressed: _openParallel,
+                        visualDensity: VisualDensity.compact,
+                      ),
+                    // Le mode immersion sort du menu ⋯ à partir de 600, sur la
+                    // même rangée que la recherche et la lecture parallèle —
+                    // les tablettes et au-dessus. Les téléphones le gardent
+                    // dans la feuille ⋯.
+                    if (_immersionInBar)
+                      IconButton(
+                        tooltip: 'Mode immersion',
+                        icon: const Icon(Icons.fullscreen),
+                        onPressed: () => _setImmersion(true),
                         visualDensity: VisualDensity.compact,
                       ),
                     IconButton(
@@ -1138,6 +1176,7 @@ class _ChapterReaderState extends State<ChapterReader> {
                       // et ramènerait Jean 3:16 au verset 1 (repro signalé).
                       theme: readingTheme,
                       panelOpacity: _prefs.panelOpacity,
+                      sidePadding: _prefs.sidePadding,
                       chapter: chapter,
                       showNotes: _effectiveShowNotes,
                       disposition: _prefs.disposition,
@@ -1567,7 +1606,11 @@ class _ChapterReaderState extends State<ChapterReader> {
                         width: 36,
                         height: 36,
                         decoration: BoxDecoration(
-                          color: hexToColor(color),
+                          // Même aperçu que la feuille d'étude : ce que le
+                          // verset portera, pas le pastel brut.
+                          color: _effectiveTheme(
+                            context,
+                          ).highlightDot(color),
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.black26),
                         ),
@@ -1696,6 +1739,11 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// au-dessus. En deçà elle reste atteignable par la feuille ⋯, au fond, que
   /// son `SingleChildScrollView` ne coupe jamais.
   bool get _parallelInBar => MediaQuery.sizeOf(context).width >= 600;
+
+  /// Le mode immersion suit le même seuil que la lecture parallèle : à partir
+  /// de 600 de large son icône rejoint la rangée de la barre, à côté des
+  /// autres. En deçà il reste dans la feuille ⋯.
+  bool get _immersionInBar => MediaQuery.sizeOf(context).width >= 600;
 
   void _openFind() {
     setState(() => _findOpen = true);

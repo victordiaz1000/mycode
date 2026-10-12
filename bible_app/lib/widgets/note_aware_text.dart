@@ -31,12 +31,24 @@ class NoteAwareVerseText extends StatefulWidget {
   /// text.
   final ValueChanged<BibleReference>? onReferenceTap;
 
+  /// Find-in-page query whose occurrences are painted with an accent wash.
+  /// Null or blank disables the highlight — the plain rendering. Used by the
+  /// ouvrage reader, whose paragraphs flow through this widget.
+  final String? highlightQuery;
+
+  /// Body colour of the verse itself (SEF: its French line rides in the
+  /// theme's translation blue). Null keeps the theme's `bodyLarge` colour —
+  /// notes, superscripts and references keep their own colours either way.
+  final Color? color;
+
   const NoteAwareVerseText({
     super.key,
     required this.verse,
     required this.disposition,
     this.textAlign = TextAlign.left,
     this.onReferenceTap,
+    this.highlightQuery,
+    this.color,
   });
 
   @override
@@ -63,25 +75,55 @@ class _NoteAwareVerseTextState extends State<NoteAwareVerseText> {
     final verse = widget.verse;
     final text = verse.text;
     final notes = verse.notes;
-    final body = theme.textTheme.bodyLarge;
+    final body = widget.color == null
+        ? theme.textTheme.bodyLarge
+        : theme.textTheme.bodyLarge?.copyWith(color: widget.color);
+
+    final query = widget.highlightQuery?.trim() ?? '';
 
     if (notes.isEmpty || text.isEmpty) {
-      return Text(text, style: body, textAlign: widget.textAlign);
+      if (query.isEmpty) {
+        return Text(text, style: body, textAlign: widget.textAlign);
+      }
+      return Text.rich(
+        TextSpan(children: highlightedSpans(text: text, query: query)),
+        style: body,
+        textAlign: widget.textAlign,
+      );
     }
 
     final ranges = _Ranges(verse);
     if (ranges.isEmpty) {
-      return Text(text, style: body, textAlign: widget.textAlign);
+      if (query.isEmpty) {
+        return Text(text, style: body, textAlign: widget.textAlign);
+      }
+      return Text.rich(
+        TextSpan(children: highlightedSpans(text: text, query: query)),
+        style: body,
+        textAlign: widget.textAlign,
+      );
     }
 
     final readingTheme = BibleThemeScope.of(context);
     final accent = readingTheme.linkColor;
+    final highlight = query.isEmpty
+        ? null
+        : TextStyle(
+            backgroundColor: accent.withValues(alpha: .25),
+            fontWeight: FontWeight.w700,
+          );
     final spans = <TextSpan>[];
     var cursor = 0;
     var i = 0;
     for (final r in ranges.sorted) {
       if (r.start > cursor) {
-        spans.add(TextSpan(text: text.substring(cursor, r.start)));
+        spans.addAll(
+          highlightedSpans(
+            text: text.substring(cursor, r.start),
+            query: query,
+            highlight: highlight,
+          ),
+        );
       }
       // Le mot noté garde le corps du texte : ni graisse, ni couleur, ni
       // surlignage. Seul un souligné en pointillé le détache — assez pour
@@ -134,7 +176,13 @@ class _NoteAwareVerseTextState extends State<NoteAwareVerseText> {
       i++;
     }
     if (cursor < text.length) {
-      spans.add(TextSpan(text: text.substring(cursor)));
+      spans.addAll(
+        highlightedSpans(
+          text: text.substring(cursor),
+          query: query,
+          highlight: highlight,
+        ),
+      );
     }
 
     return Column(
@@ -155,6 +203,43 @@ class _NoteAwareVerseTextState extends State<NoteAwareVerseText> {
       ],
     );
   }
+}
+
+/// Splits [text] into spans, painting every accent-insensitive occurrence of
+/// [query] with [highlight] (default: an accent wash). No occurrence — or a
+/// blank query — returns the single plain span, so callers stay cheap when
+/// no find is running. Public because the ouvrage reader paints its own
+/// non-verse blocks (citations, items) with the same hand.
+List<TextSpan> highlightedSpans({
+  required String text,
+  required String query,
+  TextStyle? highlight,
+}) {
+  final needle = query.trim();
+  if (needle.isEmpty || text.isEmpty) return [TextSpan(text: text)];
+  final hits = findAllIgnoringAccents(text, needle);
+  if (hits.isEmpty) return [TextSpan(text: text)];
+  final paint =
+      highlight ??
+      const TextStyle(
+        backgroundColor: Color(0x40C9A227),
+        fontWeight: FontWeight.w700,
+      );
+  final spans = <TextSpan>[];
+  var cursor = 0;
+  for (final hit in hits) {
+    if (hit.start > cursor) {
+      spans.add(TextSpan(text: text.substring(cursor, hit.start)));
+    }
+    spans.add(
+      TextSpan(text: text.substring(hit.start, hit.end), style: paint),
+    );
+    cursor = hit.end;
+  }
+  if (cursor < text.length) {
+    spans.add(TextSpan(text: text.substring(cursor)));
+  }
+  return spans;
 }
 
 /// The note text with its Bible references turned into tappable spans.

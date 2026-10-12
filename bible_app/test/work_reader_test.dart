@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:bible_app/data/app_preferences.dart';
 import 'package:bible_app/data/work_reader.dart';
 import 'package:bible_app/data/work_store.dart';
+import 'package:bible_app/widgets/fiche_text_settings.dart';
 import 'package:bible_app/widgets/reader_actions_bar.dart';
 import 'package:bible_app/widgets/work_reader.dart';
 
@@ -670,6 +671,239 @@ void main() {
           reason: 'la barre a disparu avec');
       expect(find.text('INTRODUCTION'), findsOneWidget,
           reason: 'seul le texte reste');
+    });
+
+    testWidgets('en tablette, la barre porte la recherche et l\'immersion',
+        (tester) async {
+      await pumpReader(
+        tester,
+        reader: WorkReader(
+          code: 'MINISTERE',
+          chapter: 1,
+          store: FakeWorkStore(fakeWork()),
+          onOpenChapter: (_) {},
+        ),
+      );
+
+      // Surface pumpReader : 1000 de large, donc ≥ 600.
+      expect(find.byTooltip('Trouver dans le chapitre'), findsOneWidget);
+      expect(find.byTooltip('Mode immersion'), findsOneWidget);
+      expect(
+        tester.getRect(find.byTooltip('Mode immersion')).center.dy,
+        moreOrLessEquals(
+          tester
+              .getRect(find.byTooltip('Trouver dans le chapitre'))
+              .center
+              .dy,
+          epsilon: 0.5,
+        ),
+        reason: 'même rangée que les autres icônes',
+      );
+    });
+
+    testWidgets('sur téléphone, ni recherche ni immersion dans la barre',
+        (tester) async {
+      await pumpReader(
+        tester,
+        size: const Size(390, 844),
+        reader: WorkReader(
+          code: 'MINISTERE',
+          chapter: 1,
+          store: FakeWorkStore(fakeWork()),
+          onOpenChapter: (_) {},
+        ),
+      );
+
+      expect(find.byTooltip('Trouver dans le chapitre'), findsNothing);
+      expect(find.byTooltip('Mode immersion'), findsNothing);
+      expect(find.byTooltip('Affichage du texte'), findsOneWidget,
+          reason: 'seul l\'affichage reste, comme dans le lecteur Bible');
+    });
+
+    testWidgets('le bouton immersion entre en immersion et la pastille en sort',
+        (tester) async {
+      final previous = AppPreferences.immersionNotifier.value;
+      addTearDown(() => AppPreferences.immersionNotifier.value = previous);
+
+      await pumpReader(
+        tester,
+        reader: WorkReader(
+          code: 'MINISTERE',
+          chapter: 1,
+          store: FakeWorkStore(fakeWork()),
+          onOpenChapter: (_) {},
+        ),
+      );
+
+      await tester.tap(find.byTooltip('Mode immersion'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(ReaderActionsBar), findsNothing);
+      expect(find.byTooltip('Quitter le mode immersion'), findsOneWidget);
+
+      await tester.tap(find.byTooltip('Quitter le mode immersion'));
+      await tester.pumpAndSettle();
+      expect(find.byType(ReaderActionsBar), findsOneWidget);
+    });
+
+    testWidgets('la recherche filtre les blocs et les flèches naviguent',
+        (tester) async {
+      await pumpReader(
+        tester,
+        reader: WorkReader(
+          code: 'MINISTERE',
+          chapter: 2,
+          store: FakeWorkStore(fakeWork()),
+          onOpenChapter: (_) {},
+        ),
+      );
+
+      await tester.tap(find.byTooltip('Trouver dans le chapitre'));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'persévérer');
+      await tester.pump(const Duration(milliseconds: 400));
+      await tester.pumpAndSettle();
+
+      // Les 15 paragraphes du chapitre portent le mot.
+      expect(find.text('1/15'), findsOneWidget);
+
+      // Le mot est peint dans le texte, pas seulement compté.
+      bool painted(InlineSpan span) {
+        if (span is! TextSpan) return false;
+        if (span.style?.backgroundColor != null) return true;
+        return span.children?.any(painted) ?? false;
+      }
+
+      expect(
+        tester
+            .elementList(find.byType(RichText))
+            .any((e) => painted((e.widget as RichText).text)),
+        isTrue,
+        reason: 'les occurrences sont surlignées dans les blocs',
+      );
+
+      await tester.tap(find.byTooltip('Occurrence suivante'));
+      await tester.pumpAndSettle();
+      expect(find.text('2/15'), findsOneWidget);
+
+      await tester.tap(find.byTooltip('Occurrence précédente'));
+      await tester.pumpAndSettle();
+      expect(find.text('1/15'), findsOneWidget);
+
+      await tester.tap(find.byTooltip('Fermer la recherche'));
+      await tester.pumpAndSettle();
+      expect(find.byType(TextField), findsNothing);
+    });
+
+    testWidgets('la feuille d\'affichage porte une croix de fermeture',
+        (tester) async {
+      await pumpReader(
+        tester,
+        reader: WorkReader(
+          code: 'MINISTERE',
+          chapter: 1,
+          store: FakeWorkStore(fakeWork()),
+          onOpenChapter: (_) {},
+        ),
+      );
+
+      await tester.tap(find.byTooltip('Affichage du texte'));
+      await tester.pumpAndSettle();
+      expect(
+        find.byKey(const ValueKey('display-sheet-close')),
+        findsOneWidget,
+      );
+
+      await tester.tap(find.byKey(const ValueKey('display-sheet-close')));
+      await tester.pumpAndSettle();
+      expect(
+        find.byKey(const ValueKey('display-sheet-close')),
+        findsNothing,
+      );
+    });
+
+    testWidgets('en tablette, la feuille ne duplique ni immersion ni recherche',
+        (tester) async {
+      await pumpReader(
+        tester,
+        reader: WorkReader(
+          code: 'MINISTERE',
+          chapter: 1,
+          store: FakeWorkStore(fakeWork()),
+          onOpenChapter: (_) {},
+        ),
+      );
+
+      await tester.tap(find.byTooltip('Affichage du texte'));
+      await tester.pumpAndSettle();
+
+      // Surface pumpReader : 1000 de large — les deux vivent dans la barre.
+      expect(find.text('Mode immersion'), findsNothing);
+      expect(find.text('Trouver dans le chapitre'), findsNothing);
+    });
+
+    testWidgets('sur téléphone, la feuille recueille immersion et recherche',
+        (tester) async {
+      await pumpReader(
+        tester,
+        size: const Size(390, 844),
+        reader: WorkReader(
+          code: 'MINISTERE',
+          chapter: 1,
+          store: FakeWorkStore(fakeWork()),
+          onOpenChapter: (_) {},
+        ),
+      );
+
+      await tester.tap(find.byTooltip('Affichage du texte'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Mode immersion'), findsOneWidget);
+      final entry = find.widgetWithText(
+        OutlinedButton,
+        'Trouver dans le chapitre',
+      );
+      expect(entry, findsOneWidget);
+      await tester.scrollUntilVisible(
+        entry,
+        120,
+        scrollable: find.descendant(
+          of: find.byType(DisplaySettingsSheetLayout),
+          matching: find.byType(Scrollable),
+        ),
+      );
+      await tester.ensureVisible(entry);
+      await tester.pumpAndSettle();
+      await tester.tap(entry);
+      await tester.pumpAndSettle();
+
+      // La feuille s'est refermée sur le champ de recherche.
+      expect(find.byType(TextField), findsOneWidget);
+    });
+
+    testWidgets('sur téléphone, l\'immersion s\'active depuis la feuille',
+        (tester) async {
+      final previous = AppPreferences.immersionNotifier.value;
+      addTearDown(() => AppPreferences.immersionNotifier.value = previous);
+
+      await pumpReader(
+        tester,
+        size: const Size(390, 844),
+        reader: WorkReader(
+          code: 'MINISTERE',
+          chapter: 1,
+          store: FakeWorkStore(fakeWork()),
+          onOpenChapter: (_) {},
+        ),
+      );
+
+      await tester.tap(find.byTooltip('Affichage du texte'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Mode immersion'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(ReaderActionsBar), findsNothing);
+      expect(find.byTooltip('Quitter le mode immersion'), findsOneWidget);
     });
 
     testWidgets('une note de bas de page se lit dans le texte', (tester) async {

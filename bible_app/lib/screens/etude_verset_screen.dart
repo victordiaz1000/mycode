@@ -1131,26 +1131,34 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
             ),
           ),
           const SizedBox(height: 12),
+          // Aperçu non défilant : le scroll vertical interne se battait avec
+          // le PageView horizontal et le scroll externe — d'où les à-coups et
+          // les swipes avalés. La carte tronque (8 lignes max), la fiche
+          // complète porte le texte entier.
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (e.section.isNotEmpty) ...[
-                    Text(
-                      e.section,
-                      style: premiumText(
-                        context,
-                        15,
-                        FontWeight.w700,
-                        p.textDark,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                  ],
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (e.section.isNotEmpty) ...[
                   Text(
+                    e.section,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: premiumText(
+                      context,
+                      15,
+                      FontWeight.w700,
+                      p.textDark,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                ],
+                Flexible(
+                  child: Text(
                     e.extrait,
                     textAlign: style.align,
+                    maxLines: 8,
+                    overflow: TextOverflow.ellipsis,
                     style: premiumText(
                       context,
                       style.fontSize,
@@ -1159,8 +1167,8 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                       height: 1.7,
                     ).copyWith(fontFamily: style.fontFamily),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 12),

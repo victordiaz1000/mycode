@@ -22,6 +22,7 @@ class AppPreferences {
   static const _kLayout = 'reading.layout';
   static const _kFontWeight = 'reading.fontWeight';
   static const _kPanelOpacity = 'reading.panelOpacity';
+  static const _kSidePadding = 'reading.sidePadding';
   static const _kTextColor = 'reading.textColor';
   static const _kCustomTheme = 'reading.customTheme';
 
@@ -58,6 +59,11 @@ class AppPreferences {
   /// default .80 reproduces the historical rendering.
   double panelOpacity;
 
+  /// Horizontal interior margin of the reading text (left + right, in logical
+  /// pixels). Applied to the verse list padding; default 20 reproduces the
+  /// historical layout. Clamped to 0–48.
+  double sidePadding;
+
   /// Optional override of the reading body text colour, stored as the decimal
   /// ARGB integer (e.g. '4278190080'). Null = follow the theme's own colour.
   String? textColorOverride;
@@ -84,11 +90,13 @@ class AppPreferences {
     this.layout = ReadingLayout.tiles,
     this.fontWeight = ReadingFontWeight.normal,
     double? panelOpacity,
+    double? sidePadding,
     this.textColorOverride,
     this.versionCode = VersionRepository.embeddedCode,
     this.themeId = defaultThemeId,
   }) : fontSize = fontSize ?? ReadingTextSize.extraLarge.fontSize,
-       panelOpacity = panelOpacity ?? .80;
+       panelOpacity = panelOpacity ?? .80,
+       sidePadding = sidePadding ?? 20.0;
 
   /// Notifier for the current theme id so the app can rebuild when it changes.
   /// Emitted after any reading preference is persisted.
@@ -130,6 +138,7 @@ class AppPreferences {
       layout: ReadingLayout.nearest(sp.getString(_kLayout)),
       fontWeight: ReadingFontWeight.nearest(sp.getString(_kFontWeight)),
       panelOpacity: (sp.getDouble(_kPanelOpacity) ?? .80).clamp(0.0, 1.0),
+      sidePadding: (sp.getDouble(_kSidePadding) ?? 20.0).clamp(0.0, 48.0),
       textColorOverride: sp.getString(_kTextColor),
       versionCode:
           sp.getString(_kVersionCode) ?? VersionRepository.embeddedCode,
@@ -158,6 +167,7 @@ class AppPreferences {
     await sp.setString(_kLayout, layout.name);
     await sp.setString(_kFontWeight, fontWeight.name);
     await sp.setDouble(_kPanelOpacity, panelOpacity);
+    await sp.setDouble(_kSidePadding, sidePadding);
     if (textColorOverride == null) {
       await sp.remove(_kTextColor);
     } else {
@@ -355,9 +365,9 @@ enum ReadingTextAlign {
       values.asNameMap()[name] ?? ReadingTextAlign.left;
 }
 
-/// Display of the fiche screens (dictionaries, Notes BYM Lexique…),
-/// deliberately separate from [AppPreferences]: the reading keeps its own size,
-/// alignment and typeface.
+/// Display of the ouvrage reader (and ATI notes), deliberately separate from
+/// [AppPreferences]: the reading keeps its own size, alignment and typeface.
+/// Dictionaries keep theirs under [DicoPreferences].
 class FichePreferences {
   static const _kFontSize = 'fiche.fontSize';
   static const _kTextAlign = 'fiche.textAlign';
@@ -379,6 +389,46 @@ class FichePreferences {
   static Future<FichePreferences> load() async {
     final sp = await SharedPreferences.getInstance();
     return FichePreferences(
+      fontSize: sp.getDouble(_kFontSize),
+      textAlign: ReadingTextAlign.nearest(sp.getString(_kTextAlign)),
+      readingFont: ReadingFont.nearest(sp.getString(_kFontFamily)),
+    );
+  }
+
+  Future<void> save() async {
+    final sp = await SharedPreferences.getInstance();
+    await sp.setDouble(_kFontSize, fontSize);
+    await sp.setString(_kTextAlign, textAlign.name);
+    await sp.setString(_kFontFamily, readingFont.name);
+    revision.value++;
+  }
+}
+
+
+/// Display of the dictionary screens (downloaded dictionaries, Westphal,
+/// Notes BYM Lexique), separate from the ouvrage reader (`fiche.*`): each
+/// family keeps its own size / alignment / typeface.
+class DicoPreferences {
+  static const _kFontSize = 'dico.fontSize';
+  static const _kTextAlign = 'dico.textAlign';
+  static const _kFontFamily = 'dico.fontFamily';
+
+  /// Emitted after every save so the open dictionary scopes rebuild.
+  static final ValueNotifier<int> revision = ValueNotifier<int>(0);
+
+  double fontSize;
+  ReadingTextAlign textAlign;
+  ReadingFont readingFont;
+
+  DicoPreferences({
+    double? fontSize,
+    this.textAlign = ReadingTextAlign.left,
+    this.readingFont = ReadingFont.jakarta,
+  }) : fontSize = fontSize ?? ReadingTextSize.medium.fontSize;
+
+  static Future<DicoPreferences> load() async {
+    final sp = await SharedPreferences.getInstance();
+    return DicoPreferences(
       fontSize: sp.getDouble(_kFontSize),
       textAlign: ReadingTextAlign.nearest(sp.getString(_kTextAlign)),
       readingFont: ReadingFont.nearest(sp.getString(_kFontFamily)),

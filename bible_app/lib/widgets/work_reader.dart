@@ -123,6 +123,23 @@ class _WorkReaderState extends State<WorkReader> {
   /// Accumulé du glissement horizontal en cours (pagination, cf. [_onSwipe]).
   double? _swipeDx;
 
+  // ---- Trouver dans l'ouvrage (« trouver dans la page ») ----
+
+  bool _findOpen = false;
+  final TextEditingController _findController = TextEditingController();
+  final FocusNode _findFocus = FocusNode();
+  Timer? _findDebounce;
+
+  /// Index 1-based des blocs contenant la recherche, dans l'ordre de lecture.
+  List<int> _findMatches = [];
+
+  /// Index dans [_findMatches] où le lecteur est parqué ; -1 quand aucun.
+  int _findIndex = -1;
+
+  /// La frappe brute de la recherche, pour peindre ses occurrences dans le
+  /// texte ; vide quand le champ est vide ou fermé.
+  String _findQuery = '';
+
   @override
   void initState() {
     super.initState();
@@ -139,6 +156,9 @@ class _WorkReaderState extends State<WorkReader> {
   @override
   void dispose() {
     _reportTimer?.cancel();
+    _findDebounce?.cancel();
+    _findController.dispose();
+    _findFocus.dispose();
     _scroll.removeListener(_onScrollChanged);
     _scroll.dispose();
     WorkStore.revision.removeListener(_onStoreChanged);
@@ -697,13 +717,49 @@ class _WorkReaderState extends State<WorkReader> {
           ? () => _openChapter(widget.chapter + 1)
           : null,
       onOpenLibrary: widget.onOpenLibrary,
-      trailing: IconButton(
-        tooltip: 'Affichage du texte',
-        icon: const Icon(Icons.more_vert),
-        visualDensity: VisualDensity.compact,
-        // Taille, police et alignement — la famille `fiche.*`, la seule que
-        // ce lecteur sache écrire.
-        onPressed: () => showFicheDisplaySheet(context),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // La recherche dans l'ouvrage vit de la largeur, comme la lecture
+          // parallèle du lecteur biblique : tablettes et au-dessus, sur la
+          // même rangée que l'affichage. Le sommaire n'a rien à chercher.
+          if (_findIconInBar && widget.chapter > 0)
+            IconButton(
+              tooltip: 'Trouver dans le chapitre',
+              icon: const Icon(Icons.search),
+              onPressed: _openFind,
+              visualDensity: VisualDensity.compact,
+            ),
+          // L'immersion suit le même seuil : l'ouvrage sait déjà en sortir
+          // (pastille), il lui manquait le bouton pour y entrer.
+          if (_immersionInBar)
+            IconButton(
+              tooltip: 'Mode immersion',
+              icon: const Icon(Icons.fullscreen),
+              onPressed: _enterImmersion,
+              visualDensity: VisualDensity.compact,
+            ),
+          IconButton(
+            tooltip: 'Affichage du texte',
+            icon: const Icon(Icons.more_vert),
+            visualDensity: VisualDensity.compact,
+            // Taille, police et alignement — la famille `fiche.*`, la seule que
+            // ce lecteur sache écrire. Feuille propre à l'ouvrage : sur les
+            // écrans étroits elle recueille aussi l'immersion et la recherche,
+            // que la barre ne porte qu'à partir de 600 — même régime que la
+            // feuille ⋯ Bible.
+            onPressed: () => showOuvrageDisplaySheet(
+              context,
+              onOpenFind: _findIconInBar || widget.chapter <= 0
+                  ? null
+                  : _openFind,
+              onSetImmersion: _immersionInBar
+                  ? null
+                  : (value) =>
+                        value ? _enterImmersion() : _exitImmersion(),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -722,7 +778,10 @@ class _WorkReaderState extends State<WorkReader> {
           children: [
             Column(
               children: [
-                if (!immersive) _actionsBar(context),
+                if (!immersive) ...[
+                  _actionsBar(context),
+                  if (_findOpen) _buildFindBar(),
+                ],
                 Expanded(
                   child: FicheTextScope(
                     builder: (context, style) => _body(context, style),
@@ -755,6 +814,167 @@ class _WorkReaderState extends State<WorkReader> {
     if (!prefs.immersion) return;
     prefs.immersion = false;
     await prefs.save();
+  }
+
+  Future<void> _enterImmersion() async {
+    if (_findOpen) _closeFind();
+    final prefs = await AppPreferences.load();
+    if (prefs.immersion) return;
+    prefs.immersion = true;
+    await prefs.save();
+  }
+
+  // ---- Trouver dans le chapitre ----
+
+  /// La barre d'un ouvrage suit le même seuil que la lecture parallèle du
+  /// lecteur biblique : à partir de 600 de large l'icône rejoint la rangée.
+  /// En deçà, pas de recherche plein texte — le sommaire du chapitre et le
+  /// feuilletage portent la navigation.
+  bool get _findIconInBar => MediaQuery.sizeOf(context).width >= 600;
+
+  /// Le mode immersion suit le même seuil que la recherche : à partir de 600
+  /// de large son icône rejoint la rangée de la barre.
+  bool get _immersionInBar => MediaQuery.sizeOf(context).width >= 600;
+
+  void _openFind() {
+    setState(() => _findOpen = true);
+    _findFocus.requestFocus();
+  }
+
+  void _closeFind() {
+    _findDebounce?.cancel();
+    setState(() {
+      _findOpen = false;
+      _findController.clear();
+      _findMatches = const [];
+      _findIndex = -1;
+      _findQuery = '';
+    });
+  }
+
+  /// Debounced: balayer tous les blocs à chaque frappe brouterait sur les
+  /// longs chapitres.
+  void _onFindChanged(String query) {
+    _findDebounce?.cancel();
+    _findDebounce = Timer(const Duration(milliseconds: 300), () {
+      if (mounted) _runFind(query);
+    });
+  }
+
+  void _runFind(String query) {
+    final blocks = _work?.chapterAt(widget.chapter)?.blocks;
+    final needle = normalizeForSearch(query);
+    if (!mounted) return;
+    if (needle.isEmpty || blocks == null) {
+      setState(() {
+        _findMatches = const [];
+        _findIndex = -1;
+        _findQuery = query;
+      });
+      return;
+    }
+    final matches = <int>[];
+    for (var i = 0; i < blocks.length; i++) {
+      final block = blocks[i];
+      final hay = normalizeForSearch(
+        '${block.text} ${block.gloss ?? ''} ${block.reference ?? ''}',
+      );
+      if (hay.contains(needle)) matches.add(i + 1);
+    }
+    setState(() {
+      _findMatches = matches;
+      _findIndex = matches.isEmpty ? -1 : 0;
+      _findQuery = query;
+    });
+    _jumpToCurrentMatch();
+  }
+
+  void _stepFind(int direction) {
+    if (_findMatches.isEmpty) return;
+    var next = _findIndex + direction;
+    if (next < 0) next = _findMatches.length - 1;
+    if (next >= _findMatches.length) next = 0;
+    setState(() => _findIndex = next);
+    _jumpToCurrentMatch();
+  }
+
+  void _jumpToCurrentMatch() {
+    if (_findIndex < 0 || _findIndex >= _findMatches.length) return;
+    _jumpToBlock(_findMatches[_findIndex]);
+  }
+
+  /// Le compteur entre les flèches — « 3/12 », ou « 0 » quand rien ne matche.
+  String get _findCounter {
+    if (_findMatches.isEmpty) return '0';
+    return '${_findIndex + 1}/${_findMatches.length}';
+  }
+
+  /// La ligne de recherche sous la barre d'actions : champ, compteur,
+  /// précédent/suivant, fermer — le même visage que le lecteur biblique.
+  Widget _buildFindBar() {
+    final p = premiumPalette(context);
+    return Material(
+      color: premiumBackground(context),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(12, 0, 4, 8),
+        child: Row(
+          children: [
+            Expanded(
+              child: TextField(
+                controller: _findController,
+                focusNode: _findFocus,
+                onChanged: _onFindChanged,
+                textInputAction: TextInputAction.search,
+                onSubmitted: (_) => _stepFind(1),
+                style: premiumText(context, 14, FontWeight.w500, p.textDark),
+                decoration: InputDecoration(
+                  hintText: 'Trouver dans le chapitre',
+                  hintStyle: premiumText(
+                    context,
+                    14,
+                    FontWeight.w400,
+                    p.textGrey,
+                  ),
+                  isDense: true,
+                  filled: true,
+                  fillColor: p.surface,
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 10,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(24),
+                    borderSide: BorderSide(
+                      color: premiumCardBorder(context, opacity: .34),
+                    ),
+                  ),
+                  prefixIcon: Icon(Icons.search, size: 20, color: p.primary),
+                ),
+              ),
+            ),
+            Text(
+              _findCounter,
+              style: premiumText(context, 13, FontWeight.w700, p.textGrey),
+            ),
+            IconButton(
+              tooltip: 'Occurrence précédente',
+              icon: const Icon(Icons.keyboard_arrow_up),
+              onPressed: _findMatches.isEmpty ? null : () => _stepFind(-1),
+            ),
+            IconButton(
+              tooltip: 'Occurrence suivante',
+              icon: const Icon(Icons.keyboard_arrow_down),
+              onPressed: _findMatches.isEmpty ? null : () => _stepFind(1),
+            ),
+            IconButton(
+              tooltip: 'Fermer la recherche',
+              icon: const Icon(Icons.close),
+              onPressed: _closeFind,
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   // ---- Corps ----
@@ -1018,12 +1238,62 @@ class _WorkReaderState extends State<WorkReader> {
             // d'entre elles ne la portent jamais à la fois (un `GlobalKey`
             // dupliqué dans une même route est une erreur), et elle ne se
             // déplace que sur une reprise ou un saut de section.
-            return index == _anchorBlock
+            final anchored = index == _anchorBlock
                 ? Container(key: _anchorKey, child: tile)
                 : tile;
+            final wash = _matchWash(index);
+            if (wash == null) return anchored;
+            return Container(color: wash, child: anchored);
           },
         ),
       ),
+    );
+  }
+
+  /// La recherche active à peindre dans le texte, ou null : champ fermé ou
+  /// frappe vide, le rendu reste nu.
+  String? get _activeHighlight {
+    if (!_findOpen) return null;
+    final query = _findQuery.trim();
+    return query.isEmpty ? null : query;
+  }
+
+  /// La wash d'un item de la liste : tous les blocs matchés se voient en
+  /// défilant, le courant plus fort — le régime exact du lecteur biblique
+  /// (`isSearchMatch`). Les index 1-based des matchs sont ceux des items.
+  Color? _matchWash(int itemIndex) {
+    if (!_findOpen || _findMatches.isEmpty) return null;
+    if (!_findMatches.contains(itemIndex)) return null;
+    final p = premiumPalette(context);
+    if (_findIndex >= 0 &&
+        _findIndex < _findMatches.length &&
+        _findMatches[_findIndex] == itemIndex) {
+      return p.primary.withValues(alpha: .22);
+    }
+    return p.primarySoft;
+  }
+
+  /// Un texte avec les occurrences de la recherche peintes — le pendant
+  /// ouvrage du `_HighlightedText` de l'écran Recherche. Sans recherche
+  /// active, le Text nu d'origine, à style identique.
+  Widget _richText(String text, {TextStyle? style}) {
+    final query = _activeHighlight;
+    if (query == null) {
+      return Text(text, style: style);
+    }
+    final p = premiumPalette(context);
+    return Text.rich(
+      TextSpan(
+        children: highlightedSpans(
+          text: text,
+          query: query,
+          highlight: TextStyle(
+            backgroundColor: p.primary.withValues(alpha: .28),
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ),
+      style: style,
     );
   }
 
@@ -1097,7 +1367,7 @@ class _WorkReaderState extends State<WorkReader> {
             top: block.kind == WorkBlockKind.heading2 ? 14 : 10,
             bottom: 6,
           ),
-          child: Text(
+          child: _richText(
             block.text,
             style: body?.copyWith(
               fontSize: (body.fontSize ?? 16) * factor,
@@ -1114,10 +1384,12 @@ class _WorkReaderState extends State<WorkReader> {
         // disposition est **inline** et non la préférence biblique — les
         // notes d'un ouvrage sont des notes de bas de page, faire disparaître
         // celle qui est éteinte ailleurs couperait le texte de son appareil.
+        // La recherche y peint ses occurrences comme dans les autres blocs.
         return NoteAwareVerseText(
           verse: block.asVerse(),
           disposition: NoteDisposition.inline,
           textAlign: style.align,
+          highlightQuery: _activeHighlight,
           onReferenceTap: widget.onOpenVerse == null
               ? null
               : (ref) => _openReference(ref),
@@ -1137,7 +1409,7 @@ class _WorkReaderState extends State<WorkReader> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              _richText(
                 block.text,
                 style: body?.copyWith(
                   fontStyle: FontStyle.italic,
@@ -1147,7 +1419,7 @@ class _WorkReaderState extends State<WorkReader> {
               if (reference != null) ...[
                 const SizedBox(height: 8),
                 if (parsed == null || widget.onOpenVerse == null)
-                  Text(
+                  _richText(
                     reference,
                     style: body?.copyWith(
                       fontSize: (body.fontSize ?? 16) * .87,
@@ -1159,7 +1431,7 @@ class _WorkReaderState extends State<WorkReader> {
                   InkWell(
                     key: ValueKey('work-reference'),
                     onTap: () => _openReference(parsed),
-                    child: Text(
+                    child: _richText(
                       reference,
                       style: body?.copyWith(
                         fontSize: (body.fontSize ?? 16) * .87,
@@ -1182,7 +1454,12 @@ class _WorkReaderState extends State<WorkReader> {
           children: [
             Text('•', style: body?.copyWith(fontWeight: FontWeight.w800)),
             const SizedBox(width: 8),
-            Expanded(child: Text(block.text, style: body?.copyWith(height: 1.6))),
+            Expanded(
+              child: _richText(
+                block.text,
+                style: body?.copyWith(height: 1.6),
+              ),
+            ),
           ],
         );
 
@@ -1194,7 +1471,7 @@ class _WorkReaderState extends State<WorkReader> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: Text(
+              child: _richText(
                 block.text,
                 style: body?.copyWith(fontWeight: FontWeight.w700),
               ),
@@ -1202,7 +1479,7 @@ class _WorkReaderState extends State<WorkReader> {
             const SizedBox(width: 12),
             if (block.gloss case final String gloss)
               Expanded(
-                child: Text(
+                child: _richText(
                   gloss,
                   style: body?.copyWith(color: p.textGrey),
                 ),

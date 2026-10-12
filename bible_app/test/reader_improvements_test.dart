@@ -11,6 +11,7 @@ import 'package:bible_app/data/share_text.dart';
 import 'package:bible_app/data/tab_manager.dart';
 import 'package:bible_app/screens/reader_screen.dart';
 import 'package:bible_app/widgets/chapter_reader.dart';
+import 'package:bible_app/widgets/fiche_text_settings.dart';
 import 'package:bible_app/widgets/reader_actions_bar.dart';
 import 'package:bible_app/widgets/tab_strip.dart';
 import 'package:bible_app/widgets/verse_tile.dart';
@@ -328,6 +329,18 @@ void main() {
         'Trouver dans le chapitre',
       );
       expect(entry, findsOneWidget);
+      // La feuille a grandi (opacité, marges…) : l'entrée peut être sous le
+      // pli — on l'amène à l'écran comme dans parallel_reading_test.
+      await tester.scrollUntilVisible(
+        entry,
+        120,
+        scrollable: find.descendant(
+          of: find.byType(DisplaySettingsSheetLayout),
+          matching: find.byType(Scrollable),
+        ),
+      );
+      await tester.ensureVisible(entry);
+      await tester.pumpAndSettle();
       await tester.tap(entry);
       await tester.pumpAndSettle();
 
@@ -389,9 +402,8 @@ void main() {
       await pumpReader(tester);
       expect(find.byType(ReaderActionsBar), findsOneWidget);
 
-      await tester.tap(find.byIcon(Icons.more_vert));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('Mode immersion'));
+      // Tablette et + : l'icône est dans la barre, plus dans la feuille.
+      await tester.tap(find.byTooltip('Mode immersion'));
       await tester.pumpAndSettle();
 
       expect(find.byType(ReaderActionsBar), findsNothing);

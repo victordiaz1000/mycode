@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
+import '../utils/hex_color.dart';
+
 /// How the background asset fills the screen. Most fonds are small seamless
 /// textures (32–320 px) that must repeat as tiles; the two scene-like images
 /// (bas-relief frieze, pale world map) are compositions that cover instead —
@@ -97,6 +99,19 @@ class BibleTheme {
   Color get strongColor =>
       usesLightText ? const Color(0xFF9FA8DA) : const Color(0xFF3949AB);
 
+  /// Les deux traductions françaises de la SEF, sous le même verset : la
+  /// source (Biblia) imprime la première en bleu et la seconde en vert sur
+  /// son crème, et l'écran de lecture rejoue ce dédoublement — deux couleurs
+  /// pour que l'œil suive une ligne sans la confondre avec sa voisine. Le
+  /// grec garde la couleur du corps : c'est la seule neutre de la page.
+  /// Même mécanique que l'interlinéaire — deux variantes par couleur,
+  /// profonde sur fond clair, vive sur fond sombre ([usesLightText]) — car
+  /// la source n'en connaît qu'une, celle qui va sur son unique crème.
+  Color get sefMainTranslationColor =>
+      usesLightText ? const Color(0xFF9DB4F5) : const Color(0xFF1B3A8C);
+  Color get sefSecondTranslationColor =>
+      usesLightText ? const Color(0xFF81C784) : const Color(0xFF1E6B31);
+
   /// Le filet entre deux colonnes de l'interlinéaire : le trait le plus
   /// léger qui tienne encore sur les quatre-vingts fonds, dérivé de l'accent
   /// comme les liserés des cartes.
@@ -108,6 +123,26 @@ class BibleTheme {
   /// theme. Stronger than the selection (.15) and the find-in-page hits (.10):
   /// this one has to catch the eye by itself, once.
   Color get jumpFlashColor => accentColor.withValues(alpha: .40);
+
+  /// The wash of a user's highlight ([hex], one of the pastel
+  /// [highlightColors]) over the verse panel. Pastel translucide on a light
+  /// theme; on a dark theme ([usesLightText]) the same hue deepened — a
+  /// pastel at 55 % over near-black composited into a muddy grey that washed
+  /// the verse out instead of marking it. Same regime as the interlinear
+  /// colours above: deep on light, vivid on dark.
+  Color highlightWash(String hex) {
+    final base = hexToColor(hex);
+    if (!usesLightText) return base.withAlpha(0x8C);
+    final hsl = HSLColor.fromColor(base);
+    return hsl
+        .withLightness((hsl.lightness * 0.42).clamp(0.12, 0.45))
+        .toColor();
+  }
+
+  /// The picker's dot for the same highlight: the opaque version of the wash,
+  /// so the sheet previews exactly what the verse will wear — pastel on light,
+  /// deepened on dark.
+  Color highlightDot(String hex) => highlightWash(hex).withAlpha(0xFF);
 
   /// A copy of this theme with [color] as the body text colour — the reader's
   /// « Couleur du texte » override. Everything derived from the text colour

@@ -9,7 +9,6 @@ import '../data/theme_catalog.dart';
 import '../models/ati.dart';
 import '../models/chapter.dart';
 import '../models/verse.dart';
-import '../utils/hex_color.dart';
 import 'ati_interlinear.dart';
 import 'note_aware_text.dart';
 
@@ -145,6 +144,17 @@ class VerseTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final materialTheme = Theme.of(context);
     final hasNotes = verse.notes.isNotEmpty;
+    // SEF : le verset porte son grec au-dessus et, parfois, une seconde
+    // traduction française dessous — la source les imprime en bleu et en
+    // vert sur son crème, le lecteur fait de même. Donnée d'abord, comme
+    // pour l'interlinéaire : un verset qui ne porte ni l'un ni l'autre
+    // n'est pas de la SEF et garde la couleur du corps. Celle-ci n'est
+    // qu'un `copyWith` : `color: null` laisse le `bodyLarge` intact.
+    final septante =
+        verse.grec != null || (verse.alexandrie?.isNotEmpty ?? false);
+    final mainStyle = materialTheme.textTheme.bodyLarge?.copyWith(
+      color: septante ? theme.sefMainTranslationColor : null,
+    );
 
     Color? bg;
     if (isSelected) {
@@ -152,7 +162,7 @@ class VerseTile extends StatelessWidget {
     } else if (isFlashing) {
       bg = theme.jumpFlashColor;
     } else if (highlightColor != null && highlightColor!.isNotEmpty) {
-      bg = hexToColor(highlightColor!).withAlpha(0x8C);
+      bg = theme.highlightWash(highlightColor!);
     } else if (isSearchMatch) {
       // Under the explicit states: a match never paints over a chosen color.
       bg = theme.accentColor.withAlpha(0x1A);
@@ -268,10 +278,12 @@ class VerseTile extends StatelessWidget {
                               child: Text(
                                 verse.grec!,
                                 textAlign: textAlign,
-                                  style: materialTheme.textTheme.bodyLarge
-                                      ?.copyWith(
+                                // Le grec garde la couleur du corps : c'est la
+                                // ligne neutre des trois, celles du français
+                                // étant réservées (bleu / vert).
+                                style: materialTheme.textTheme.bodyLarge
+                                    ?.copyWith(
                                   fontSize: rhythm.fontSize * .88,
-                                  color: theme.noteColor,
                                   height: 1.35,
                                 ),
                               ),
@@ -298,11 +310,14 @@ class VerseTile extends StatelessWidget {
                                   disposition: disposition,
                                   onReferenceTap: onReferenceTap,
                                   textAlign: textAlign,
+                                  color: septante
+                                      ? theme.sefMainTranslationColor
+                                      : null,
                                 )
                           else
                             _StrongAwareText(
                                   text: verse.text,
-                                  style: materialTheme.textTheme.bodyLarge,
+                                  style: mainStyle,
                                 strongStyle: materialTheme.textTheme.bodyLarge
                                           ?.copyWith(
                                             fontSize:
@@ -324,10 +339,13 @@ class VerseTile extends StatelessWidget {
                               child: Text(
                                 verse.alexandrie!,
                                 textAlign: textAlign,
-                                  style: materialTheme.textTheme.bodyLarge
-                                      ?.copyWith(
+                                // La seconde traduction ferme le verset en
+                                // vert : le regard sépare les deux françaises
+                                // avant même de les lire.
+                                style: materialTheme.textTheme.bodyLarge
+                                    ?.copyWith(
                                   fontSize: rhythm.fontSize * .88,
-                                  color: theme.noteColor,
+                                  color: theme.sefSecondTranslationColor,
                                   height: 1.35,
                                 ),
                               ),
@@ -521,6 +539,11 @@ class ChapterVerseList extends StatefulWidget {
   /// « Opacité du panneau » preference). Lower = background shows through.
   final double panelOpacity;
 
+  /// Horizontal interior margin of the reading text, left and right
+  /// (the reader's « Marges latérales » preference). Default 20 reproduces
+  /// the historical layout.
+  final double sidePadding;
+
   const ChapterVerseList({
     super.key,
     required this.chapter,
@@ -550,6 +573,7 @@ class ChapterVerseList extends StatefulWidget {
     this.bodyStyle,
     this.spacing = ReadingSpacing.normal,
     this.panelOpacity = .80,
+    this.sidePadding = 20.0,
     required this.theme,
   });
 
@@ -822,6 +846,7 @@ class ChapterVerseListState extends State<ChapterVerseList> {
     final spacing = w.spacing;
     final bodyStyle = w.bodyStyle;
     final panelOpacity = w.panelOpacity;
+    final sidePadding = w.sidePadding;
 
     // Paragraph layout: cut the chapter into continuous runs between section
     // titles, then precompute which list slot holds each title / block. The
@@ -913,11 +938,10 @@ class ChapterVerseListState extends State<ChapterVerseList> {
                   ListView.builder(
                     // Pas de ValueKey ici non plus : il détruirait le ScrollPosition.
                     controller: controller,
-                    // Marge de texte : 20 aux côtés, comme partout ailleurs
-                    // dans l'app (feuilles, réglages), 16 en haut et 26 en
-                    // bas pour que le dernier verset respire — le maquette
-                    // Qwen donne 16/24/26.
-                    padding: const EdgeInsets.fromLTRB(20, 16, 20, 26),
+                    // Marge de texte : côtés réglables (« Marges latérales »),
+                    // 16 en haut et 26 en bas pour que le dernier verset
+                    // respire — le maquette Qwen donne 16/24/26.
+                    padding: EdgeInsets.fromLTRB(sidePadding, 16, sidePadding, 26),
                     itemCount: flow == ReadingLayout.paragraph
                         ? paragraphItemCount + (footer != null ? 1 : 0)
                         : chapter.verses.length +
@@ -1243,7 +1267,7 @@ class _ParagraphBlockState extends State<_ParagraphBlock>
     } else {
       final hex = widget.highlightOf?.call(verseNumber);
       if (hex != null && hex.isNotEmpty) {
-        color = hexToColor(hex).withAlpha(0x8C);
+        color = widget.theme.highlightWash(hex);
       } else if (widget.searchMatches?.contains(verseNumber) ?? false) {
         color = widget.theme.accentColor.withAlpha(0x1A);
       }
@@ -1301,21 +1325,31 @@ class _ParagraphBlockState extends State<_ParagraphBlock>
       // Exposant verse number, tappable like the rest of the verse.
       push('$vn ', numStyle);
 
-      // SEF: the Greek line gets its own line above the translation, muted
-      // and a touch smaller, same as in the tile layout.
+      // SEF: the Greek line gets its own line above the translation, a touch
+      // smaller, same as in the tile layout — and in the BODY colour: it is
+      // the neutral line of the three, the two French ones wearing the theme's
+      // translation colours.
       final grec = verse.grec;
       if (grec != null && grec.isNotEmpty) {
-        push(
-          grec,
-          body.copyWith(fontSize: baseSize * .88, color: theme.noteColor),
-        );
+        push(grec, body.copyWith(fontSize: baseSize * .88));
         push('\n', body);
       }
+
+      // SEF: the French translation rides in blue and the second one (below)
+      // in green, the source's own split — data-gated like everything else on
+      // this page: a verse carrying neither a Greek line nor a second
+      // translation is not SEF and keeps the body colour.
+      final septante =
+          (grec != null && grec.isNotEmpty) ||
+          (verse.alexandrie?.isNotEmpty ?? false);
+      final french = septante
+          ? body.copyWith(color: theme.sefMainTranslationColor)
+          : body;
 
       // Le mot noté garde le corps du texte : ni graisse, ni couleur, ni
       // surlignage. Un souligné en pointillé le détache — le flux n'a pas
       // d'exposant, la note entre parenthèses marque l'endroit.
-      final notedStyle = body.copyWith(
+      final notedStyle = french.copyWith(
         decoration: TextDecoration.underline,
         decorationStyle: TextDecorationStyle.dotted,
       );
@@ -1333,7 +1367,7 @@ class _ParagraphBlockState extends State<_ParagraphBlock>
         var cursor = 0;
         for (final range in ranges) {
           if (range.start > cursor) {
-            push(verse.text.substring(cursor, range.start), body);
+            push(verse.text.substring(cursor, range.start), french);
           }
           push(verse.text.substring(range.start, range.end), notedStyle);
           push(' (', noteStyle);
@@ -1356,7 +1390,7 @@ class _ParagraphBlockState extends State<_ParagraphBlock>
           cursor = range.end;
         }
         if (cursor < verse.text.length) {
-          push(verse.text.substring(cursor), body);
+          push(verse.text.substring(cursor), french);
         }
       } else if (widget.hasStrong && verse.text.isNotEmpty) {
         // LSGS-style inline Strong codes, same look as the tile renderer.
@@ -1375,7 +1409,7 @@ class _ParagraphBlockState extends State<_ParagraphBlock>
         var cursor = 0;
         for (final match in pattern.allMatches(verse.text)) {
           if (match.start > cursor) {
-            push(verse.text.substring(cursor, match.start), body);
+            push(verse.text.substring(cursor, match.start), french);
           }
           final code = match.group(0)!;
           if (widget.onStrongTap != null) {
@@ -1392,23 +1426,26 @@ class _ParagraphBlockState extends State<_ParagraphBlock>
           cursor = match.end;
         }
         if (cursor < verse.text.length) {
-          push(verse.text.substring(cursor), body);
+          push(verse.text.substring(cursor), french);
         }
       } else {
-        push(verse.text, body);
+        push(verse.text, french);
       }
 
       // SEF: the second French translation takes its own line under the main
-      // one, in the muted style of the Greek line above. It then hands a line
-      // break to the next verse, which would otherwise trail it — see the
-      // separator at the end of this loop.
+      // one, in green — the source's own split, the counterpart of the blue
+      // above. It then hands a line break to the next verse, which would
+      // otherwise trail it — see the separator at the end of this loop.
       final alexandrie = verse.alexandrie;
       var lineBreakAfter = false;
       if (alexandrie != null && alexandrie.isNotEmpty) {
         push('\n', body);
         push(
           alexandrie,
-          body.copyWith(fontSize: baseSize * .88, color: theme.noteColor),
+          body.copyWith(
+            fontSize: baseSize * .88,
+            color: theme.sefSecondTranslationColor,
+          ),
         );
         lineBreakAfter = true;
       }

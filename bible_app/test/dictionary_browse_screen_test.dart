@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:bible_app/data/dictionary_catalog.dart';
 import 'package:bible_app/data/dictionary_store.dart';
@@ -54,6 +55,10 @@ List<InlineSpan> _flatten(InlineSpan span, [List<InlineSpan>? out]) {
 }
 
 void main() {
+  setUp(() {
+    SharedPreferences.setMockInitialValues({});
+  });
+
   Future<void> pumpBrowse(
     WidgetTester tester, {
     DictionaryStore? store,
@@ -125,6 +130,26 @@ void main() {
       expect(find.text('Bailly — Grec-français'), findsWidgets);
       expect(find.text('Dictionnaire grec-français.'), findsOneWidget);
       expect(find.text('Père, en araméen.'), findsOneWidget);
+    });
+
+    testWidgets('the fiche sheet stays display-only, with its own close cross',
+        (tester) async {
+      await pumpBrowse(tester);
+
+      await tester.tap(find.text('ABBA'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byIcon(Icons.more_vert));
+      await tester.pumpAndSettle();
+
+      // Feuille fiche, pas feuille ouvrage : ni immersion ni recherche, même
+      // à 800 de large — l'ouvrage a sa propre feuille pour ça.
+      expect(find.text('Mode immersion'), findsNothing);
+      expect(find.text('Trouver dans le chapitre'), findsNothing);
+      expect(
+        find.byKey(const ValueKey('display-sheet-close')),
+        findsOneWidget,
+      );
     });
 
     testWidgets('a linked entry word opens its own fiche', (tester) async {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/user_data.dart';
-import '../utils/hex_color.dart';
+import 'bible_theme_scope.dart';
 import 'premium_style.dart';
 
 /// An action pressed in the study sheet — one that takes the reader somewhere
@@ -203,7 +203,12 @@ class _StudySheetState extends State<_StudySheet> {
                           Padding(
                             padding: const EdgeInsets.only(right: 10),
                             child: _ColorDot(
-                              color: hexToColor(color),
+                              // La pastille montre ce que le verset portera :
+                              // pastel sur thème clair, version profonde sur
+                              // thème sombre — pas de surprise au retour.
+                              color: BibleThemeScope.of(
+                                context,
+                              ).highlightDot(color),
                               selected: _activeColor == color,
                               accent: p.primary,
                               onTap: () => _pickColor(color),

@@ -76,6 +76,12 @@ class _DictionaryArticleViewState extends State<DictionaryArticleView> {
   /// loaded (paragraphs then stay plain text).
   RegExp? _linkPattern;
 
+  /// `findReferences` coûte cher (recherche livre + tolérance typo) : un
+  /// article se rebuild à chaque frappe de réglage, chaque arrivée du pattern,
+  /// chaque toggle « Lire la suite ». Sans cache, chaque paragraphe repaye le
+  /// parsing à chaque frame — d'où le défilement lourd.
+  final Map<String, List<TextReference>> _refsCache = {};
+
   @override
   void initState() {
     super.initState();
@@ -86,6 +92,14 @@ class _DictionaryArticleViewState extends State<DictionaryArticleView> {
     final pattern = await widget.linkPatternLoader();
     if (!mounted) return;
     setState(() => _linkPattern = pattern);
+  }
+
+  /// Les références d'un paragraphe, mémorisées : le même texte ne repaye
+  /// jamais deux fois le parsing, et `_LinkifiedText` reçoit la même instance
+  /// tant que le paragraphe ne change pas — son cache reste valide.
+  List<TextReference> _refsFor(String paragraph) {
+    if (widget.onReferenceTap == null) return const <TextReference>[];
+    return _refsCache.putIfAbsent(paragraph, () => findReferences(paragraph));
   }
 
   List<String> get _paragraphes => [
@@ -178,9 +192,7 @@ class _DictionaryArticleViewState extends State<DictionaryArticleView> {
                     decorationColor: accent,
                   ),
                   pattern: _linkPattern,
-                  references: widget.onReferenceTap == null
-                      ? const <TextReference>[]
-                      : findReferences(paragraph),
+                  references: _refsFor(paragraph),
                   onTermTap: widget.onTermTap,
                   onReferenceTap: widget.onReferenceTap,
                 ),
@@ -351,26 +363,73 @@ class _LinkifiedText extends StatefulWidget {
 }
 
 class _LinkifiedTextState extends State<_LinkifiedText> {
+  /// Un recognizer par lien : recréés uniquement quand le texte, le pattern
+  /// ou les références changent — jamais à chaque build. Avant, `build`
+  /// faisait `_recognizers.clear()` sans `dispose` (fuite) puis recréait tout
+  /// en plein build, en relançant le gros RegExp à chaque frame.
   final List<TapGestureRecognizer> _recognizers = [];
+  List<({int start, int end, String? word, BibleReference? reference})>
+  _links = const [];
 
   @override
-  void dispose() {
+  void initState() {
+    super.initState();
+    _syncLinks();
+  }
+
+  @override
+  void didUpdateWidget(covariant _LinkifiedText old) {
+    super.didUpdateWidget(old);
+    if (widget.text != old.text ||
+        !identical(widget.pattern, old.pattern) ||
+        !identical(widget.references, old.references)) {
+      _syncLinks();
+    }
+  }
+
+  void _disposeRecognizers() {
     for (final recognizer in _recognizers) {
       recognizer.dispose();
     }
+    _recognizers.clear();
+  }
+
+  @override
+  void dispose() {
+    _disposeRecognizers();
     super.dispose();
+  }
+
+  /// Recalcule [_links] et les recognizers, en disposant les anciens
+  /// d'abord. Appelé depuis `initState` / `didUpdateWidget` uniquement :
+  /// `build` reste pur et ne relance plus le RegExp à chaque frame.
+  void _syncLinks() {
+    _disposeRecognizers();
+    final collected = _collectLinks(widget.text, widget.pattern, widget.references);
+    for (final link in collected) {
+      final recognizer = TapGestureRecognizer()
+        ..onTap = () {
+          if (link.reference != null) {
+            widget.onReferenceTap?.call(link.reference!);
+          } else {
+            widget.onTermTap?.call(link.word!.toUpperCase());
+          }
+        };
+      _recognizers.add(recognizer);
+    }
+    _links = collected;
   }
 
   /// The links to render, sorted by start and de-overlapped. A reference wins
   /// over a dictionary word at the same spot (« Jean 3:16 » links the whole
-  /// reference, not just the word « Jean »).
-  List<({int start, int end, String? word, BibleReference? reference})>
-  _collectLinks() {
+  /// reference, not just the word « Jean »). Pure : ne touche ni aux
+  /// recognizers ni à l'état.
+  static List<({int start, int end, String? word, BibleReference? reference})>
+  _collectLinks(String text, RegExp? pattern, List<TextReference> references) {
     final links =
         <({int start, int end, String? word, BibleReference? reference})>[];
-    final pattern = widget.pattern;
     if (pattern != null) {
-      for (final match in pattern.allMatches(widget.text)) {
+      for (final match in pattern.allMatches(text)) {
         links.add((
           start: match.start,
           end: match.end,
@@ -379,7 +438,7 @@ class _LinkifiedTextState extends State<_LinkifiedText> {
         ));
       }
     }
-    for (final ref in widget.references) {
+    for (final ref in references) {
       links.add((
         start: ref.start,
         end: ref.end,
@@ -407,29 +466,22 @@ class _LinkifiedTextState extends State<_LinkifiedText> {
     return kept;
   }
 
+  /// Assemble les spans depuis [_links] : pur, sans RegExp ni allocation de
+  /// recognizer — le scroll ne repaye plus rien.
   List<InlineSpan> _buildSpans() {
-    final links = _collectLinks();
-    if (links.isEmpty) return [TextSpan(text: widget.text)];
+    if (_links.isEmpty) return [TextSpan(text: widget.text)];
     final spans = <InlineSpan>[];
     var cursor = 0;
-    for (final link in links) {
+    for (var i = 0; i < _links.length; i++) {
+      final link = _links[i];
       if (link.start > cursor) {
         spans.add(TextSpan(text: widget.text.substring(cursor, link.start)));
       }
-      final recognizer = TapGestureRecognizer()
-        ..onTap = () {
-          if (link.reference != null) {
-            widget.onReferenceTap?.call(link.reference!);
-          } else {
-            widget.onTermTap?.call(link.word!.toUpperCase());
-          }
-        };
-      _recognizers.add(recognizer);
       spans.add(
         TextSpan(
           text: widget.text.substring(link.start, link.end),
           style: widget.linkStyle,
-          recognizer: recognizer,
+          recognizer: _recognizers[i],
         ),
       );
       cursor = link.end;
@@ -442,10 +494,11 @@ class _LinkifiedTextState extends State<_LinkifiedText> {
 
   @override
   Widget build(BuildContext context) {
-    _recognizers.clear();
-    return Text.rich(
-      TextSpan(style: widget.style, children: _buildSpans()),
-      textAlign: widget.align,
+    return RepaintBoundary(
+      child: Text.rich(
+        TextSpan(style: widget.style, children: _buildSpans()),
+        textAlign: widget.align,
+      ),
     );
   }
 }

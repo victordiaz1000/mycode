@@ -78,6 +78,12 @@ void main() {
   });
 
   testWidgets('the ⋯ display sheet opens the parallel reading', (tester) async {
+    // Téléphone en portrait : sous 600 la feuille garde l'entrée, la barre
+    // ne la porte pas.
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(

@@ -5,10 +5,11 @@ import 'bible_theme_scope.dart';
 import 'premium_style.dart';
 
 /// The text display — size, typeface, alignment — of the fiche screens
-/// (dictionaries, Strong, Notes BYM Lexique…).
+/// (ouvrage reader, dictionaries, Strong, Notes BYM Lexique…).
 ///
-/// It is deliberately separate from the reader's preferences: « la taille du
-/// texte » des fiches vit sous les clés `fiche.*`, la lecture garde les siennes.
+/// It is deliberately separate from the reader's preferences, and each screen
+/// family keeps its own keys: `fiche.*` for the ouvrage reader, `dico.*` for
+/// the dictionaries, `etude.*` for the study screens.
 /// [FichePreferences.revision] carries each change to the scopes already on
 /// screen.
 class FicheTextStyle {
@@ -26,8 +27,11 @@ class FicheTextStyle {
 /// Which preference family a scope reads and writes — each screen family
 /// keeps its own size / alignment / typeface.
 enum DisplayGroup {
-  /// Dictionaries, Westphal, Notes BYM Lexique (`fiche.*`).
+  /// Ouvrage reader and ATI notes (`fiche.*`).
   fiches,
+
+  /// Dictionaries, Westphal, Notes BYM Lexique (`dico.*`).
+  dico,
 
   /// Strong fiche and verse study (`etude.*`).
   etude,
@@ -37,6 +41,13 @@ Future<FicheTextStyle> _read(DisplayGroup group) async {
   switch (group) {
     case DisplayGroup.fiches:
       final p = await FichePreferences.load();
+      return FicheTextStyle(
+        p.fontSize,
+        p.readingFont.fontFamily,
+        p.textAlign.align,
+      );
+    case DisplayGroup.dico:
+      final p = await DicoPreferences.load();
       return FicheTextStyle(
         p.fontSize,
         p.readingFont.fontFamily,
@@ -65,6 +76,13 @@ Future<void> _write(
       p.readingFont = font;
       await p.save();
       return;
+    case DisplayGroup.dico:
+      final p = await DicoPreferences.load();
+      p.fontSize = style.fontSize;
+      p.textAlign = _alignOf(style);
+      p.readingFont = font;
+      await p.save();
+      return;
     case DisplayGroup.etude:
       final p = await EtudePreferences.load();
       p.fontSize = style.fontSize;
@@ -80,6 +98,7 @@ ReadingTextAlign _alignOf(FicheTextStyle style) => ReadingTextAlign.values
 
 ValueNotifier<int> _revisionOf(DisplayGroup group) => switch (group) {
       DisplayGroup.fiches => FichePreferences.revision,
+      DisplayGroup.dico => DicoPreferences.revision,
       DisplayGroup.etude => EtudePreferences.revision,
     };
 
@@ -167,6 +186,10 @@ class FicheDisplayMenuButton extends StatelessWidget {
 
 /// Opens the display sheet of [group]: size / alignment / typeface over its
 /// own keys (`fiche.*`, or `etude.*` for the study screens).
+///
+/// Display-only: the dictionary, lexicon and study screens share this sheet
+/// and need nothing else. The ouvrage reader has its own
+/// [showOuvrageDisplaySheet].
 Future<void> showFicheDisplaySheet(
   BuildContext context, {
   DisplayGroup group = DisplayGroup.fiches,
@@ -185,6 +208,75 @@ Future<void> showFicheDisplaySheet(
   );
 }
 
+/// Opens the ouvrage reader's own display sheet: the same size / alignment /
+/// typeface dials over the same `fiche.*` keys — so both sheets stay in sync —
+/// plus, on narrow screens, the bar actions the bar has no room for
+/// (immersion, find-in-page), like the Bible reader's ⋯ sheet.
+///
+/// [onOpenFind] and [onSetImmersion] are null where the bar already carries
+/// the buttons (tablets and up, sommaire) : the sheet then stays display-only.
+Future<void> showOuvrageDisplaySheet(
+  BuildContext context, {
+  VoidCallback? onOpenFind,
+  Future<void> Function(bool)? onSetImmersion,
+}) async {
+  const group = DisplayGroup.fiches;
+  final initial = await _read(group);
+  if (!context.mounted) return;
+  await showModalBottomSheet<void>(
+    context: context,
+    showDragHandle: true,
+    isScrollControlled: true,
+    backgroundColor: premiumBackground(context),
+    builder: (_) => _OuvrageDisplaySheet(
+      initial: initial,
+      onOpenFind: onOpenFind,
+      onSetImmersion: onSetImmersion,
+    ),
+  );
+}
+
+/// The size / alignment / typeface dials and their persistence, shared by the
+/// fiche sheet and the ouvrage sheet — one behaviour, two addresses.
+mixin _FicheDisplayFieldsState<T extends StatefulWidget> on State<T> {
+  FicheTextStyle get initial;
+  DisplayGroup get group;
+
+  late double _fontSize = initial.fontSize;
+  late ReadingTextAlign _align = ReadingTextAlign.values.firstWhere(
+    (a) => a.align == initial.align,
+    orElse: () => ReadingTextAlign.left,
+  );
+  late ReadingFont _font = ReadingFont.values.firstWhere(
+    (f) => f.fontFamily == initial.fontFamily,
+    orElse: () => ReadingFont.jakarta,
+  );
+
+  Future<void> _apply() async {
+    await _write(
+      group,
+      FicheTextStyle(_fontSize, _font.fontFamily, _align.align),
+      _font,
+    );
+    if (mounted) setState(() {});
+  }
+
+  void _onSize(double value) {
+    setState(() => _fontSize = value);
+    _apply();
+  }
+
+  void _onAlign(ReadingTextAlign value) {
+    setState(() => _align = value);
+    _apply();
+  }
+
+  void _onFont(ReadingFont value) {
+    setState(() => _font = value);
+    _apply();
+  }
+}
+
 class _FicheDisplaySheet extends StatefulWidget {
   final FicheTextStyle initial;
   final DisplayGroup group;
@@ -195,62 +287,114 @@ class _FicheDisplaySheet extends StatefulWidget {
   State<_FicheDisplaySheet> createState() => _FicheDisplaySheetState();
 }
 
-class _FicheDisplaySheetState extends State<_FicheDisplaySheet> {
-  late double _fontSize = widget.initial.fontSize;
-  late ReadingTextAlign _align = ReadingTextAlign.values.firstWhere(
-    (a) => a.align == widget.initial.align,
-    orElse: () => ReadingTextAlign.left,
-  );
-  late ReadingFont _font;
+class _FicheDisplaySheetState extends State<_FicheDisplaySheet>
+    with _FicheDisplayFieldsState {
+  @override
+  FicheTextStyle get initial => widget.initial;
 
   @override
-  void initState() {
-    super.initState();
-    _font = ReadingFont.values.firstWhere(
-      (f) => f.fontFamily == widget.initial.fontFamily,
-      orElse: () => ReadingFont.jakarta,
-    );
-  }
-
-  Future<void> _apply() async {
-    await _write(
-      widget.group,
-      FicheTextStyle(_fontSize, _font.fontFamily, _align.align),
-      _font,
-    );
-    if (mounted) setState(() {});
-  }
+  DisplayGroup get group => widget.group;
 
   @override
   Widget build(BuildContext context) {
     return DisplaySettingsSheetLayout(
+      // La croix de fermeture sur la ligne de titre, comme la feuille ⋯ du
+      // lecteur.
+      onClose: () => Navigator.of(context).pop(),
       children: [
         DisplaySizeSection(
           fontSize: _fontSize,
           // Les fiches partent de 16 pt : c'est leur 100 %, pas celui de la
           // lecture — le pourcentage se lit rapporté à la famille en cours.
           base: ReadingTextSize.medium.fontSize,
-          onChanged: (value) {
-            setState(() => _fontSize = value);
-            _apply();
-          },
+          onChanged: _onSize,
         ),
         const SizedBox(height: 16),
-        DisplayAlignSection(
-          align: _align,
-          onChanged: (value) {
-            setState(() => _align = value);
-            _apply();
-          },
+        DisplayAlignSection(align: _align, onChanged: _onAlign),
+        const SizedBox(height: 16),
+        DisplayFontSection(font: _font, onChanged: _onFont),
+      ],
+    );
+  }
+}
+
+class _OuvrageDisplaySheet extends StatefulWidget {
+  final FicheTextStyle initial;
+  final VoidCallback? onOpenFind;
+  final Future<void> Function(bool)? onSetImmersion;
+
+  const _OuvrageDisplaySheet({
+    required this.initial,
+    this.onOpenFind,
+    this.onSetImmersion,
+  });
+
+  @override
+  State<_OuvrageDisplaySheet> createState() => _OuvrageDisplaySheetState();
+}
+
+class _OuvrageDisplaySheetState extends State<_OuvrageDisplaySheet>
+    with _FicheDisplayFieldsState {
+  @override
+  FicheTextStyle get initial => widget.initial;
+
+  @override
+  DisplayGroup get group => DisplayGroup.fiches;
+
+  @override
+  Widget build(BuildContext context) {
+    return DisplaySettingsSheetLayout(
+      onClose: () => Navigator.of(context).pop(),
+      children: [
+        // Sur les écrans étroits la barre ne porte ni immersion ni recherche :
+        // la feuille les recueille, comme la feuille ⋯ du lecteur biblique.
+        if (widget.onSetImmersion != null) ...[
+          ValueListenableBuilder<bool>(
+            valueListenable: AppPreferences.immersionNotifier,
+            builder: (sheetContext, immersive, _) => DisplayToggleCard(
+              icon: Icons.fullscreen,
+              title: 'Mode immersion',
+              subtitle: 'Masquer les barres pour ne lire que le texte',
+              value: immersive,
+              onChanged: (value) {
+                Navigator.of(sheetContext).pop();
+                widget.onSetImmersion!(value);
+              },
+            ),
+          ),
+          const SizedBox(height: 16),
+        ],
+        DisplaySizeSection(
+          fontSize: _fontSize,
+          // Les fiches partent de 16 pt : c'est leur 100 %, pas celui de la
+          // lecture — le pourcentage se lit rapporté à la famille en cours.
+          base: ReadingTextSize.medium.fontSize,
+          onChanged: _onSize,
         ),
         const SizedBox(height: 16),
-        DisplayFontSection(
-          font: _font,
-          onChanged: (value) {
-            setState(() => _font = value);
-            _apply();
-          },
-        ),
+        DisplayAlignSection(align: _align, onChanged: _onAlign),
+        const SizedBox(height: 16),
+        DisplayFontSection(font: _font, onChanged: _onFont),
+        // La recherche au fond de la feuille, comme dans la feuille ⋯ : elle
+        // n'y figure que sur les écrans étroits, où la barre ne la porte pas.
+        if (widget.onOpenFind != null) ...[
+          const SizedBox(height: 16),
+          OutlinedButton.icon(
+            onPressed: () {
+              Navigator.of(context).pop();
+              widget.onOpenFind!();
+            },
+            style: OutlinedButton.styleFrom(
+              side: BorderSide(
+                color: Theme.of(context).colorScheme.primary,
+                width: 1.5,
+              ),
+              foregroundColor: Theme.of(context).colorScheme.primary,
+            ),
+            icon: const Icon(Icons.search, size: 18),
+            label: const Text('Trouver dans le chapitre'),
+          ),
+        ],
       ],
     );
   }
@@ -691,6 +835,51 @@ class ReadingOpacitySlider extends StatelessWidget {
   }
 }
 
+/// How much horizontal interior margin the reading text gets, left and
+/// right, in logical pixels. 0 = edge to edge, 48 = narrow column.
+class ReadingPaddingSlider extends StatelessWidget {
+  final double value;
+  final ValueChanged<double> onChanged;
+
+  /// Fired on release: dragging rebuilds the reader on every tick, which would
+  /// write the preferences a dozen times per gesture.
+  final ValueChanged<double>? onChangeEnd;
+
+  static const double min = 0;
+  static const double max = 48;
+
+  const ReadingPaddingSlider({
+    super.key,
+    required this.value,
+    required this.onChanged,
+    this.onChangeEnd,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final label = '${value.round()} px';
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Align(
+          alignment: Alignment.centerRight,
+          child: Text(label, style: Theme.of(context).textTheme.bodySmall),
+        ),
+        Slider(
+          value: value.clamp(min, max).toDouble(),
+          min: min,
+          max: max,
+          divisions: 24,
+          label: label,
+          onChanged: onChanged,
+          onChangeEnd: onChangeEnd,
+        ),
+      ],
+    );
+  }
+}
+/// handful of deep hues plus one light — on a light theme the light choice
+/// flips the reading panels dark instead of becoming invisible.
 /// The « Couleur du texte » presets: null first (follow the theme), then a
 /// handful of deep hues plus one light — on a light theme the light choice
 /// flips the reading panels dark instead of becoming invisible.
@@ -970,6 +1159,36 @@ class DisplayOpacitySection extends StatelessWidget {
   }
 }
 
+/// How much horizontal interior margin the reading text gets.
+class DisplayPaddingSection extends StatelessWidget {
+  final double value;
+  final ValueChanged<double> onChanged;
+  final ValueChanged<double>? onChangeEnd;
+
+  const DisplayPaddingSection({
+    super.key,
+    required this.value,
+    required this.onChanged,
+    this.onChangeEnd,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DisplayCard(
+      label: 'Marges latérales',
+      icon: Icons.space_bar,
+      child: ReadingPaddingSlider(
+        value: value,
+        onChanged: onChanged,
+        onChangeEnd: onChangeEnd,
+      ),
+    );
+  }
+}
+/// one appearing only once there are notes to place. The mode and the
+/// disposition stay two separate rows rather than one: « sans notes » must
+/// remain reachable, and hiding a chosen disposition is what made readers
+/// think it had been forgotten.
 /// Texte seul / texte + notes, then how the notes sit — two bars, the second
 /// one appearing only once there are notes to place. The mode and the
 /// disposition stay two separate rows rather than one: « sans notes » must

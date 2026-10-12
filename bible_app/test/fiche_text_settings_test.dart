@@ -8,8 +8,9 @@ import 'package:bible_app/widgets/fiche_text_settings.dart';
 
 /// The fiche display menu: the ⋮ action of every fiche (dictionary, Strong,
 /// Notes BYM Lexique) drives its OWN size / alignment / typeface setting —
-/// the `fiche.*` keys, separate from the reader's — and the change lands
-/// live, behind the open sheet.
+/// the `dico.*` keys for the dictionaries, separate from the ouvrage reader's
+/// (`fiche.*`) and the reader's — and the change lands live, behind the open
+/// sheet.
 void main() {
   const definition = 'Définition de test sans référence.';
 
@@ -32,12 +33,12 @@ void main() {
   Text definitionText(WidgetTester tester) =>
       tester.widget<Text>(find.text(definition));
 
-  testWidgets('the fiche starts on the stored fiche preferences',
+  testWidgets('the fiche starts on the stored dico preferences',
       (tester) async {
     SharedPreferences.setMockInitialValues({
-      'fiche.fontSize': 19.0,
-      'fiche.textAlign': 'center',
-      'fiche.fontFamily': 'classic', // enum name of « Classique · Lora »
+      'dico.fontSize': 19.0,
+      'dico.textAlign': 'center',
+      'dico.fontFamily': 'classic', // enum name of « Classique · Lora »
     });
     await pumpFiche(tester);
 
@@ -81,11 +82,13 @@ void main() {
     expect(style.fontFamily, 'EB Garamond');
     expect(definitionText(tester).textAlign, TextAlign.right);
 
-    // Persisted under the FICHE keys — the reader's settings stay theirs.
+    // Persisted under the DICO keys — neither the ouvrage (`fiche.*`) nor
+    // the reader's settings move.
     final prefs = await SharedPreferences.getInstance();
-    expect(prefs.getDouble('fiche.fontSize'), 30.0);
-    expect(prefs.getString('fiche.fontFamily'), 'garamond');
-    expect(prefs.getString('fiche.textAlign'), 'right');
+    expect(prefs.getDouble('dico.fontSize'), 30.0);
+    expect(prefs.getString('dico.fontFamily'), 'garamond');
+    expect(prefs.getString('dico.textAlign'), 'right');
+    expect(prefs.getDouble('fiche.fontSize'), isNull);
     expect(prefs.getDouble('reading.fontSize'), isNull);
   });
 

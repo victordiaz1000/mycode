@@ -150,7 +150,11 @@ class _BymLexiconEntryScreenState extends State<BymLexiconEntryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return FicheTextScope(builder: (context, style) => _scaffold(context, style));
+    // Famille `dico.*`, comme les autres fiches de dictionnaire.
+    return FicheTextScope(
+      group: DisplayGroup.dico,
+      builder: (context, style) => _scaffold(context, style),
+    );
   }
 
   Widget _scaffold(BuildContext context, FicheTextStyle style) {
@@ -162,7 +166,7 @@ class _BymLexiconEntryScreenState extends State<BymLexiconEntryScreen> {
         elevation: 0,
         foregroundColor: p.textDark,
         centerTitle: true,
-        actions: const [FicheDisplayMenuButton()],
+        actions: const [FicheDisplayMenuButton(group: DisplayGroup.dico)],
       ),
       body: SafeArea(
         top: false,

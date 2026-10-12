@@ -39,7 +39,10 @@ class FredawEntryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Famille `dico.*` : les dictionnaires gardent leurs réglages, séparés
+    // de l'ouvrage (`fiche.*`) comme de l'étude (`etude.*`).
     return FicheTextScope(
+      group: DisplayGroup.dico,
       builder: (context, style) {
         final p = premiumPalette(context);
         return Scaffold(
@@ -63,7 +66,7 @@ class FredawEntryScreen extends StatelessWidget {
                 ),
               ),
             ),
-            actions: const [FicheDisplayMenuButton()],
+            actions: const [FicheDisplayMenuButton(group: DisplayGroup.dico)],
           ),
           body: SafeArea(
             top: false,

@@ -116,6 +116,29 @@ String normalizeForSearch(String input) {
   );
 }
 
+/// Every occurrence of [needle] in [haystack], ignoring case and accents, in
+/// reading order and never overlapping. Built on [findIgnoringAccents] so the
+/// bounds stay indices into the original [haystack] — a find-in-page can
+/// paint every hit, not just the first.
+List<({int start, int end})> findAllIgnoringAccents(
+  String haystack,
+  String needle,
+) {
+  final out = <({int start, int end})>[];
+  if (needle.isEmpty || haystack.isEmpty) return out;
+  var cursor = 0;
+  while (cursor < haystack.length) {
+    final hit = findIgnoringAccents(haystack.substring(cursor), needle);
+    if (hit == null) break;
+    final start = cursor + hit.start;
+    final end = cursor + hit.end;
+    if (end <= cursor) break; // ne progresse pas : on s'arrête, pas de boucle
+    out.add((start: start, end: end));
+    cursor = end;
+  }
+  return out;
+}
+
 /// The catalogue folded once. [searchBooks] runs per keystroke and once per
 /// reference found in a page of text; these three spellings of 66 books never
 /// change at runtime, so they are not paid for on every call.

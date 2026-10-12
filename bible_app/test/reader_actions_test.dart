@@ -576,8 +576,19 @@ void main() {
   testWidgets('the ⋯ sheet follows the canonical section order', (tester) async {
     await pumpReader(tester);
 
+    // Surface par défaut : 800 de large, donc ≥ 600 — l'immersion et la
+    // parallèle vivent dans la barre, pas dans la feuille (pas de doublon).
+    expect(find.byTooltip('Mode immersion'), findsOneWidget);
+    expect(
+      find.byTooltip('Lecture parallèle — deux versions'),
+      findsOneWidget,
+    );
+
     await tester.tap(find.byIcon(Icons.more_vert));
     await tester.pumpAndSettle();
+
+    expect(find.text('Mode immersion'), findsNothing);
+    expect(find.text('Lecture parallèle — deux versions'), findsNothing);
 
     // The sheet is a SingleChildScrollView: every section is laid out, even
     // the ones below the fold, so their vertical order is directly readable.
@@ -587,13 +598,11 @@ void main() {
     // the panel behind the verses — then the way out to the rest (police,
     // graisse, aération, couleur, thème, données).
     final sections = [
-      'Mode immersion',
       'DISPOSITION DU TEXTE',
       'TAILLE DU TEXTE',
       'NOTES',
       'OPACITÉ DU PANNEAU',
       'Tous les réglages',
-      'Lecture parallèle — deux versions',
     ];
     for (var i = 0; i < sections.length - 1; i++) {
       expect(
@@ -652,12 +661,14 @@ void main() {
       find.byTooltip('Lecture parallèle — deux versions'),
       findsNothing,
     );
+    expect(find.byTooltip('Mode immersion'), findsNothing);
 
-    // …mais la feuille ⋯ l'offre toujours : cacher un bouton ne cache
+    // …mais la feuille ⋯ les offre toujours : cacher un bouton ne cache
     // jamais la fonction.
     await tester.tap(find.byIcon(Icons.more_vert));
     await tester.pumpAndSettle();
     expect(find.text('Lecture parallèle — deux versions'), findsOneWidget);
+    expect(find.text('Mode immersion'), findsOneWidget);
   });
 
   testWidgets('no-tab home shows the Livres pill with the chevron disabled', (
