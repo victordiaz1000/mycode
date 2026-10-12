@@ -77,7 +77,7 @@ void main() {
       const MaterialApp(
         home: IconTheme(
           data: IconThemeData(size: 32),
-          child: Center(child: HolyIcon(HolyGlyph.etoile)),
+          child: Center(child: HolyIcon(HolyGlyph.engrenage)),
         ),
       ),
     );

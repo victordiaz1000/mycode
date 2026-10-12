@@ -49,11 +49,11 @@ const _devices = <String, Size>{
 /// ce sont les `HolyIcon` que `main.dart` pose dans la barre du bas comme dans
 /// le rail — la barre ne montre plus aucune icône Material.
 const _destinations = <String, HolyGlyph>{
-  'Accueil': HolyGlyph.tables,
-  'Lecture': HolyGlyph.livre,
-  'Recherche': HolyGlyph.menorah,
-  'Bibliothèque': HolyGlyph.arche,
-  'Réglages': HolyGlyph.etoile,
+  'Accueil': HolyGlyph.maison,
+  'Lecture': HolyGlyph.rouleau,
+  'Recherche': HolyGlyph.loupe,
+  'Bibliothèque': HolyGlyph.telechargement,
+  'Réglages': HolyGlyph.engrenage,
 };
 
 /// L'indice que la barre affiche : le rail sur tablette (≥ 600 px), la barre du
@@ -168,7 +168,7 @@ void main() {
             reason: 'l\'onglet « ${destination.key} » n\'est pas dans la barre',
           );
           // Le rail ouvre ses destinations d'un emblème qui porte lui aussi
-          // `HolyGlyph.livre` : le dernier match est l'onglet, jamais
+          // `HolyGlyph.rouleau` : le dernier match est l'onglet, jamais
           // l'emblème. `paintWholeScroll` a pu en plus pousser la barre au bout
           // de son défilement — on ramène l'onglet, puis on le touche.
           await tester.ensureVisible(tab.last);

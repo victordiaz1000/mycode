@@ -126,10 +126,14 @@ const List<WorkEntry> workCatalog = [
     cover: 'assets/covers/chatiment.jpg',
     availability: WorkAvailability.downloadable,
     // Produit par appCodebar/pdf_book_to_json.py depuis
-    // LE-CHATIMENT-DU-PERE-VFINALE-AVEC-COUVERTURE.pdf (2094 blocs). Le seul
-    // des sept dont l'appareil de notes reste dans le corps : sa note
-    // d'ouverture ne renvoie à aucun mot de sa page, le compteur ne démarre
-    // donc pas. Aucun texte ne manque, il n'est pas balisé en notes.
+    // LE-CHATIMENT-DU-PERE-VFINALE-AVEC-COUVERTURE.pdf (2094 blocs), puis
+    // réparé par appCodebar/repair_chatiment.py : l'appareil de notes restait
+    // dans le corps (la note d'ouverture éditoriale, sans marqueur, bloquait
+    // le compteur — voir la règle 3 du convertisseur). 44 notes ancrées sur
+    // leurs marqueurs (40 blocs), 0 invariant violé. Restent dans le corps,
+    // comme avant : la note éditoriale du ch. 1, les items « 1 - Le rejet... »
+    // du ch. 7 (énumération, pas des notes), la note 46 (marqueur en
+    // citation, non affichable) et la note 48 (collée à du corps).
     url: 'https://raw.githubusercontent.com/victordiaz1000/pdf-bym/main/'
         'chatiment.json',
   ),

@@ -2,34 +2,20 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-/// Les icônes dessinées de la barre d'onglets.
+/// Icônes de la barre d'onglets — v3, nouvelles bases.
 ///
-/// Rien n'est emprunté à Material : chaque motif est un tracé peint dans un
-/// carré de [HolyIcon.box] unités puis mis à l'échelle demandée, ce qui garde
-/// le trait net à toutes les tailles — 24 px sur un téléphone étroit, 30 px
-/// dans la barre du bas. La couleur se lit dans l'[IconTheme] ambiant : l'or
-/// de l'accent pour l'onglet choisi, le gris discret au repos. L'icône n'a
-/// donc pas à savoir si elle est sélectionnée, et [NavigationBar] comme
-/// [NavigationRail] s'en occupent tous deux pareil.
-///
-/// Un motif juif par onglet — choisi sur planche, tous tracés du même trait
-/// fin :
-///
-///  - **Accueil** : les deux tables de pierre apportées du Sinaï, sommet
-///    arrondi, gravées de deux lignes, couronnées de l'étoile de David ;
-///  - **Lecture** : le livre ouvert, pages creusées vers la reliure, coiffé
-///    de la couronne de la Torah ;
-///  - **Recherche** : la ménorah à sept branches — les bras partent du fût,
-///    plongent et remontent porter la coupe au même niveau ;
-///  - **Bibliothèque** : l'arche sainte, fronton arrondi, cadre et doubles
-///    portes à poignées ;
-///  - **Réglages** : l'étoile de David à double trait.
+///  - **Accueil** : maison-temple, toit à fronton, porte en arche ;
+///  - **Lecture** : rouleau d'Écriture horizontal, deux montants à boutons,
+///    deux lignes de texte ;
+///  - **Recherche** : loupe simple, manche diagonal ;
+///  - **Bibliothèque** : téléchargement — flèche dans un bac ;
+///  - **Réglages** : vrai engrenage à huit dents, moyeu circulaire.
 enum HolyGlyph {
-  tables,
-  livre,
-  menorah,
-  arche,
-  etoile,
+  maison,
+  rouleau,
+  loupe,
+  telechargement,
+  engrenage,
 }
 
 /// Une icône dessinée, API calquée sur celle d'[Icon] : taille et couleur
@@ -71,11 +57,10 @@ class HolyIconPainter extends CustomPainter {
   final Color color;
 
   /// Trait des contours, à l'échelle du carré de 24.
-  static const double _line = 1.6;
+  static const double _line = 1.75;
 
-  /// Trait des détails — gravures, étoiles, portes. Plus fin, pour qu'ils
-  /// ne bouchent pas l'intérieur des formes qu'ils décorent.
-  static const double _fine = 1.15;
+  /// Trait des détails intérieurs.
+  static const double _detail = 1.4;
 
   Paint _paint(double width) => Paint()
     ..isAntiAlias = true
@@ -90,24 +75,23 @@ class HolyIconPainter extends CustomPainter {
     canvas.save();
     canvas.scale(size.width / HolyIcon.box);
     final line = _paint(_line);
-    final fine = _paint(_fine);
+    final detail = _paint(_detail);
     final dot = Paint()
       ..isAntiAlias = true
       ..color = color
       ..style = PaintingStyle.fill;
 
     switch (glyph) {
-      case HolyGlyph.tables:
-        _tables(canvas, line, fine);
-      case HolyGlyph.livre:
-        _livre(canvas, line);
-        _couronne(canvas, line);
-      case HolyGlyph.menorah:
-        _menorah(canvas, line, dot);
-      case HolyGlyph.arche:
-        _arche(canvas, line, fine);
-      case HolyGlyph.etoile:
-        _etoile(canvas, line, fine);
+      case HolyGlyph.maison:
+        _maison(canvas, line, detail);
+      case HolyGlyph.rouleau:
+        _rouleau(canvas, line, detail, dot);
+      case HolyGlyph.loupe:
+        _loupe(canvas, line);
+      case HolyGlyph.telechargement:
+        _telechargement(canvas, line);
+      case HolyGlyph.engrenage:
+        _engrenage(canvas, line, detail);
     }
     canvas.restore();
   }
@@ -116,130 +100,108 @@ class HolyIconPainter extends CustomPainter {
   bool shouldRepaint(HolyIconPainter old) =>
       old.glyph != glyph || old.color != color;
 
-  /// Les deux tables, un rien abaissées pour laisser respirer l'emblème qui
-  /// les surmonte ; demi-cercle en tête, base franche, deux lignes gravées
-  /// par table — assez espacées pour ne pas se souder au trait.
-  void _tables(Canvas c, Paint line, Paint fine) {
-    Path tablet(double left, double right) {
-      final radius = (right - left) / 2;
-      return Path()
-        ..moveTo(left, 21.4)
-        ..lineTo(left, 10.4)
-        ..arcTo(
-          Rect.fromCircle(center: Offset(left + radius, 10.4), radius: radius),
-          math.pi,
-          math.pi,
-          false,
-        )
-        ..lineTo(right, 21.4)
-        ..close();
-    }
-
-    c.drawPath(tablet(3.4, 11.4), line);
-    c.drawPath(tablet(12.6, 20.6), line);
-    for (final x in const [5.6, 14.8]) {
-      c.drawLine(Offset(x, 14.4), Offset(x + 3.6, 14.4), fine);
-      c.drawLine(Offset(x, 17.6), Offset(x + 3.6, 17.6), fine);
-    }
-    c.drawPath(_star(const Offset(12, 3), 2.8), line);
-  }
-
-  /// Le livre ouvert : deux pages qui se creusent vers la reliure, le tout
-  /// fermé sur lui-même pour que la silhouette tienne à 24 px. C'est le seul
-  /// motif dont le dessin vient d'avant la grande refonte — après trois essais
-  /// de rouleau (échelle, pile, panneau) aucun ne se lisait à cette taille —
-  /// mais il porte désormais la couronne : il n'est plus le seul de la barre
-  /// sans filiation juive.
-  void _livre(Canvas c, Paint line) {
-    // Une page, la reliure à droite (x = 12) ; l'autre page est le miroir.
-    Path page({required bool mirror}) {
-      double x(double v) => mirror ? 24 - v : v;
-      return Path()
-        ..moveTo(x(12), 9.4)
-        ..quadraticBezierTo(x(8.2), 6.6, x(3.4), 7)
-        ..lineTo(x(3.4), 17)
-        ..quadraticBezierTo(x(8.2), 16.6, x(12), 19.4)
-        ..close();
-    }
-
-    c.drawPath(page(mirror: false), line);
-    c.drawPath(page(mirror: true), line);
-  }
-
-  /// La couronne de la Torah : trois pointes, deux creux, base franche.
-  void _couronne(Canvas c, Paint line) {
+  /// Maison-temple : corps rectangulaire, toit à fronton débordant, porte
+  /// en arche. Recentré après retrait de la croix pour garder le poids.
+  void _maison(Canvas c, Paint line, Paint detail) {
+    // Toit : 4,10 -> 12,4.5 -> 20,10, ouvert.
     c.drawPath(
       Path()
-        ..moveTo(5.8, 4.6)
-        ..lineTo(5.8, 2)
-        ..lineTo(9.2, 3.6)
-        ..lineTo(12, .8)
-        ..lineTo(14.8, 3.6)
-        ..lineTo(18.2, 2)
-        ..lineTo(18.2, 4.6)
-        ..close(),
+        ..moveTo(4.0, 10.0)
+        ..lineTo(12, 4.5)
+        ..lineTo(20.0, 10.0),
+      line,
+    );
+    // Corps : 6,10 -> 6,20.5 -> 18,20.5 -> 18,10.
+    c.drawPath(
+      Path()
+        ..moveTo(6.0, 10.0)
+        ..lineTo(6.0, 20.5)
+        ..lineTo(18.0, 20.5)
+        ..lineTo(18.0, 10.0),
+      line,
+    );
+    // Porte en arche : 10.2-13.8, base 20.5, épaules 16.5.
+    final door = Path()
+      ..moveTo(10.2, 20.5)
+      ..lineTo(10.2, 16.5)
+      ..arcTo(
+        Rect.fromCircle(center: const Offset(12, 16.5), radius: 1.8),
+        math.pi,
+        math.pi,
+        false,
+      )
+      ..lineTo(13.8, 20.5);
+    c.drawPath(door, detail);
+  }
+
+  /// Rouleau d'Écriture : feuille tendue entre deux montants à boutons
+  /// pleins, deux lignes de texte. Aucun livre, aucune couronne : base neuve.
+  void _rouleau(Canvas c, Paint line, Paint detail, Paint dot) {
+    // Feuille : haut 9, bas 15, de 5.5 à 18.5.
+    c.drawLine(const Offset(5.5, 9.0), const Offset(18.5, 9.0), line);
+    c.drawLine(const Offset(5.5, 15.0), const Offset(18.5, 15.0), line);
+    // Montants : verticaux 7-17.
+    c.drawLine(const Offset(5.5, 7.0), const Offset(5.5, 17.0), line);
+    c.drawLine(const Offset(18.5, 7.0), const Offset(18.5, 17.0), line);
+    // Boutons pleins, r 1.1.
+    for (final p in const [
+      Offset(5.5, 6.2),
+      Offset(5.5, 17.8),
+      Offset(18.5, 6.2),
+      Offset(18.5, 17.8),
+    ]) {
+      c.drawCircle(p, 1.1, dot);
+    }
+    // Texte : deux lignes 8-16.
+    c.drawLine(const Offset(8.2, 11.2), const Offset(15.8, 11.2), detail);
+    c.drawLine(const Offset(8.2, 13.4), const Offset(15.8, 13.4), detail);
+  }
+
+  /// Loupe simple : lentille généreuse, manche détaché par un jour d'1 px
+  /// pour un rendu net à 24 px.
+  void _loupe(Canvas c, Paint line) {
+    c.drawCircle(const Offset(10.2, 10.2), 6.8, line);
+    c.drawLine(const Offset(15.4, 15.4), const Offset(20.6, 20.6), line);
+  }
+
+  /// Téléchargement : flèche plongeant dans un bac. Remplace l'étagère,
+  /// sur demande — la Bibliothèque gère les ouvrages à télécharger.
+  void _telechargement(Canvas c, Paint line) {
+    // Flèche : fût 12,3.5-14, tête en V 8.4,10.4 -> 12,14.2 -> 15.6,10.4.
+    c.drawLine(const Offset(12, 3.5), const Offset(12, 14.0), line);
+    c.drawPath(
+      Path()
+        ..moveTo(8.4, 10.4)
+        ..lineTo(12, 14.2)
+        ..lineTo(15.6, 10.4),
+      line,
+    );
+    // Bac : 5,5,14.5 -> 5,5,20 -> 18,5,20 -> 18,5,14.5.
+    c.drawPath(
+      Path()
+        ..moveTo(5.5, 14.5)
+        ..lineTo(5.5, 20.0)
+        ..lineTo(18.5, 20.0)
+        ..lineTo(18.5, 14.5),
       line,
     );
   }
 
-  /// La ménorah : les bras partent du fût, plongent et remontent porter la
-  /// coupe au même niveau — la fontaine, pas le parasol que donnent des
-  /// arcs attachés la pointe en bas. Piédestal à deux degrés, lampe au
-  /// sommet du fût.
-  void _menorah(Canvas c, Paint line, Paint dot) {
-    const top = 7.0; // niveau commun des six coupes
-    for (final r in const [2.6, 5.0, 7.4]) {
-      final rect = Rect.fromCircle(center: const Offset(12, top), radius: r);
-      c.drawArc(rect, math.pi / 2, math.pi / 2, false, line); // bras gauche
-      c.drawArc(rect, math.pi / 2, -math.pi / 2, false, line); // bras droit
+  /// Vrai engrenage de réglages : corps r 5.2, huit dents jusqu'à 7.6,
+  /// moyeu circulaire r 2.3.
+  void _engrenage(Canvas c, Paint line, Paint detail) {
+    const center = Offset(12, 12);
+    c.drawCircle(center, 5.2, line);
+    for (var i = 0; i < 8; i++) {
+      final a = i * math.pi / 4;
+      final dx = math.cos(a);
+      final dy = math.sin(a);
+      c.drawLine(
+        Offset(12 + dx * 5.2, 12 + dy * 5.2),
+        Offset(12 + dx * 7.6, 12 + dy * 7.6),
+        line,
+      );
     }
-    c.drawLine(const Offset(12, 6.4), const Offset(12, 18.4), line);
-    c.drawCircle(const Offset(12, 5.2), 1.1, dot);
-    c.drawLine(const Offset(8.6, 18.4), const Offset(15.4, 18.4), line);
-    c.drawLine(const Offset(7, 20.6), const Offset(17, 20.6), line);
-    c.drawLine(const Offset(10.4, 18.4), const Offset(10.4, 20.6), line);
-    c.drawLine(const Offset(13.6, 18.4), const Offset(13.6, 20.6), line);
-  }
-
-  /// L'arche sainte : caisse à fronton arrondi, cadre en dedans, doubles
-  /// portes à poignées, socle plus large que l'armoire. Le rideau du premier
-  /// jet faisait un visage sur la porte : le cadre dit l'objet sans prétendre
-  /// au rideau.
-  void _arche(Canvas c, Paint line, Paint fine) {
-    Path arch(double left, double right, double base, double shoulder) =>
-        Path()
-          ..moveTo(left, base)
-          ..lineTo(left, shoulder)
-          ..quadraticBezierTo(12, 2.6, right, shoulder)
-          ..lineTo(right, base)
-          ..close();
-
-    c.drawPath(arch(4.6, 19.4, 20.6, 9.6), line);
-    c.drawPath(arch(6.6, 17.4, 20.6, 10.6), fine);
-    c.drawLine(const Offset(12, 9.2), const Offset(12, 20.6), line);
-    c.drawLine(const Offset(10.4, 14.4), const Offset(10.4, 16.4), fine);
-    c.drawLine(const Offset(13.6, 14.4), const Offset(13.6, 16.4), fine);
-    c.drawLine(const Offset(3.2, 20.6), const Offset(20.8, 20.6), line);
-  }
-
-  /// L'étoile de David, deux fois : le trait plein, puis son jumeau au
-  /// centre, qui lui donne son épaisseur de sceau.
-  void _etoile(Canvas c, Paint line, Paint fine) {
-    c.drawPath(_star(const Offset(12, 12), 8.6), line);
-    c.drawPath(_star(const Offset(12, 12), 4.4), fine);
-  }
-
-  /// L'étoile de David : deux triangles superposés, l'un à l'autre.
-  static Path _star(Offset c, double r) {
-    final horizontal = r * 0.866;
-    return Path()
-      ..moveTo(c.dx, c.dy - r)
-      ..lineTo(c.dx + horizontal, c.dy + r / 2)
-      ..lineTo(c.dx - horizontal, c.dy + r / 2)
-      ..close()
-      ..moveTo(c.dx, c.dy + r)
-      ..lineTo(c.dx + horizontal, c.dy - r / 2)
-      ..lineTo(c.dx - horizontal, c.dy - r / 2)
-      ..close();
+    c.drawCircle(center, 2.3, detail);
   }
 }

@@ -389,28 +389,28 @@ class _HomeShellState extends State<HomeShell> {
         // L'emblème du rail, dans la même famille que les onglets.
         child: IconTheme(
           data: IconThemeData(color: p.primary),
-          child: const HolyIcon(HolyGlyph.livre, size: 32),
+          child: const HolyIcon(HolyGlyph.rouleau, size: 38),
         ),
       ),
       destinations: [
         const NavigationRailDestination(
-          icon: HolyIcon(HolyGlyph.tables, size: 30),
+          icon: HolyIcon(HolyGlyph.maison, size: 36),
           label: Text('Accueil'),
         ),
         const NavigationRailDestination(
-          icon: HolyIcon(HolyGlyph.livre, size: 30),
+          icon: HolyIcon(HolyGlyph.rouleau, size: 36),
           label: Text('Lecture'),
         ),
         const NavigationRailDestination(
-          icon: HolyIcon(HolyGlyph.menorah, size: 30),
+          icon: HolyIcon(HolyGlyph.loupe, size: 36),
           label: Text('Recherche'),
         ),
         const NavigationRailDestination(
-          icon: HolyIcon(HolyGlyph.arche, size: 30),
+          icon: HolyIcon(HolyGlyph.telechargement, size: 36),
           label: Text('Bibliothèque'),
         ),
         const NavigationRailDestination(
-          icon: HolyIcon(HolyGlyph.etoile, size: 30),
+          icon: HolyIcon(HolyGlyph.engrenage, size: 36),
           label: Text('Réglages'),
         ),
       ],
@@ -435,7 +435,7 @@ class _HomeShellState extends State<HomeShell> {
       ),
       child: NavigationBarTheme(
         data: NavigationBarThemeData(
-          height: 68,
+          height: 78,
           labelBehavior: MediaQuery.sizeOf(context).width < 480
               ? NavigationDestinationLabelBehavior.alwaysHide
               : MediaQuery.sizeOf(context).width < 560
@@ -468,23 +468,23 @@ class _HomeShellState extends State<HomeShell> {
           },
           destinations: [
             const NavigationDestination(
-              icon: HolyIcon(HolyGlyph.tables, size: 30),
+              icon: HolyIcon(HolyGlyph.maison, size: 36),
               label: 'Accueil',
             ),
             const NavigationDestination(
-              icon: HolyIcon(HolyGlyph.livre, size: 30),
+              icon: HolyIcon(HolyGlyph.rouleau, size: 36),
               label: 'Lecture',
             ),
             const NavigationDestination(
-              icon: HolyIcon(HolyGlyph.menorah, size: 30),
+              icon: HolyIcon(HolyGlyph.loupe, size: 36),
               label: 'Recherche',
             ),
             const NavigationDestination(
-              icon: HolyIcon(HolyGlyph.arche, size: 30),
+              icon: HolyIcon(HolyGlyph.telechargement, size: 36),
               label: 'Bibliothèque',
             ),
             const NavigationDestination(
-              icon: HolyIcon(HolyGlyph.etoile, size: 30),
+              icon: HolyIcon(HolyGlyph.engrenage, size: 36),
               label: 'Réglages',
             ),
           ],

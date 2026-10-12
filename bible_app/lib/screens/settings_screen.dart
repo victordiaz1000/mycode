@@ -823,6 +823,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                       _Divider(),
                       _SettingsRow(
+                        icon: Icons.space_bar,
+                        title: 'Marges latérales',
+                        // Pas de sous-ligne : le curseur porte son propre
+                        // affichage en px, comme la taille et l'opacité.
+                        below: ReadingPaddingSlider(
+                          value: _p.sidePadding,
+                          onChanged: (value) {
+                            setState(() => _p.sidePadding = value);
+                          },
+                          // Écrit au relâcher, comme l'opacité : glisser ne
+                          // doit pas marteler les préférences.
+                          onChangeEnd: (value) {
+                            setState(() => _p.sidePadding = value);
+                            _save();
+                          },
+                        ),
+                      ),
+                      _Divider(),
+                      _SettingsRow(
                         icon: Icons.font_download_outlined,
                         title: 'Police de lecture',
                         subtitle: _p.readingFont.label,
