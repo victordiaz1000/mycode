@@ -420,7 +420,9 @@ void main() {
       expect(find.text('LE MINISTÈRE OU LE SEIGNEUR'), findsOneWidget,
           reason: 'le titre de l\'ouvrage, tel qu\'il portera la pastille '
               'de l\'écran Lecture');
-      expect(find.text('Trésor Koufounda'), findsOneWidget);
+      // Le titre identifie la tuile, l'auteur non : *Le Châtiment du Père* est
+      // du même auteur que le pilote, et le catalogue réel porte les deux.
+      expect(find.text('Trésor Koufounda'), findsWidgets);
       // Le JSON est publié : la tuile propose le téléchargement au lieu
       // d'expliquer qu'il est impossible.
       expect(find.byKey(const Key('work-download-MINISTERE')), findsOneWidget);

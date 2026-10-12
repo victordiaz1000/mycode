@@ -115,6 +115,92 @@ const List<WorkEntry> workCatalog = [
     url: 'https://raw.githubusercontent.com/victordiaz1000/pdf-bym/main/'
         'animalite.json',
   ),
+  WorkEntry(
+    code: 'CHATIMENT',
+    title: 'LE CHÂTIMENT DU PÈRE',
+    author: 'Trésor Koufounda',
+    rights: '© 2021 Vases de Terre les Éditions · diffusion gratuite '
+        'autorisée · STRICTEMENT INTERDIT À LA VENTE',
+    description: 'POURQUOI LE PÈRE CHÂTIE — 11 chapitres sur le châtiment, '
+        'ses raisons, la façon dont il s’exerce et l’épreuve de la foi.',
+    cover: 'assets/covers/chatiment.jpg',
+    availability: WorkAvailability.downloadable,
+    // Produit par appCodebar/pdf_book_to_json.py depuis
+    // LE-CHATIMENT-DU-PERE-VFINALE-AVEC-COUVERTURE.pdf (2094 blocs). Le seul
+    // des sept dont l'appareil de notes reste dans le corps : sa note
+    // d'ouverture ne renvoie à aucun mot de sa page, le compteur ne démarre
+    // donc pas. Aucun texte ne manque, il n'est pas balisé en notes.
+    url: 'https://raw.githubusercontent.com/victordiaz1000/pdf-bym/main/'
+        'chatiment.json',
+  ),
+  WorkEntry(
+    code: 'OMBRE',
+    title: 'DE L’OMBRE À LA LUMIÈRE',
+    author: 'Morgane M.A',
+    rights: '© 2026 Vases de Terre les Éditions · diffusion gratuite '
+        'autorisée · STRICTEMENT INTERDIT À LA VENTE',
+    description: 'CECI EST MON TÉMOIGNAGE — 4 chapitres : une enfance '
+        'blessée, la rencontre qui change tout, puis la marche dans la '
+        'lumière.',
+    cover: 'assets/covers/ombre.jpg',
+    availability: WorkAvailability.downloadable,
+    // Produit par appCodebar/pdf_book_to_json.py depuis
+    // De-lombre-a-la-lumiere-_M.MA_format-poche.cover_.pdf (255 blocs,
+    // 7 notes). Son sommaire imprime l'étiquette du chapitre et son titre sur
+    // deux entrées de même page, recollées à la conversion.
+    url: 'https://raw.githubusercontent.com/victordiaz1000/pdf-bym/main/'
+        'ombre.json',
+  ),
+  WorkEntry(
+    code: 'CROIX',
+    title: 'LA CROIX',
+    author: 'Shora Kuetu',
+    rights: '© 2024 ANJC PRODUCTIONS · diffusion gratuite '
+        'autorisée · STRICTEMENT INTERDIT À LA VENTE',
+    description: '7 chapitres sur la croix du Mashiah : sa préfiguration '
+        'dans les Écritures, ses conséquences spirituelles, porter sa croix '
+        'et les ennemis de la croix.',
+    cover: 'assets/covers/croix.jpg',
+    availability: WorkAvailability.downloadable,
+    // Produit par appCodebar/pdf_book_to_json.py depuis La_croix_-_2024v1.pdf
+    // (631 blocs, 98 notes sur 99 ancrées). Sa pochette est la page de titre
+    // rendue à la fonte : le PDF n'embarque aucune image.
+    url: 'https://raw.githubusercontent.com/victordiaz1000/pdf-bym/main/'
+        'croix.json',
+  ),
+  WorkEntry(
+    code: 'NOMDUPERE',
+    title: 'LE NOM DU PÈRE',
+    author: 'Shora Kuetu',
+    rights: '© 2025 ANJC PRODUCTIONS · diffusion gratuite '
+        'autorisée · STRICTEMENT INTERDIT À LA VENTE',
+    description: '6 chapitres sur la révélation du Nom du Créateur, le '
+        'Tétragramme, et les faits historiques qui ont concouru à le '
+        'modifier.',
+    cover: 'assets/covers/nomdupere.jpg',
+    availability: WorkAvailability.downloadable,
+    // Produit par appCodebar/pdf_book_to_json.py depuis LE-NOM-DU-PERE.pdf
+    // (338 blocs, 64 notes). Pochette rendue à la fonte, comme La Croix.
+    url: 'https://raw.githubusercontent.com/victordiaz1000/pdf-bym/main/'
+        'nomdupere.json',
+  ),
+  WorkEntry(
+    code: 'VOLEURS',
+    title: 'LES VOLEURS DE TEMPS',
+    author: 'Shora Kuetu',
+    rights: '© 2025 ANJC PRODUCTIONS · diffusion gratuite '
+        'autorisée · STRICTEMENT INTERDIT À LA VENTE',
+    description: '18 chapitres en quatre parties : ce qu’est le temps, qui '
+        'le vole, la fin des temps, et comment le racheter.',
+    cover: 'assets/covers/voleurs.jpg',
+    availability: WorkAvailability.downloadable,
+    // Produit par appCodebar/pdf_book_to_json.py depuis
+    // VERSION_LES_VOLEURS_DE_TEMPS_EN_CHAPITRE_VERSION_FINALE.pdf (562 blocs,
+    // 99 notes). Les quatre pages de garde de partie sont des chapitres à
+    // part entière : deux d'entre elles ne portent que leur titre.
+    url: 'https://raw.githubusercontent.com/victordiaz1000/pdf-bym/main/'
+        'voleurs.json',
+  ),
 ];
 
 /// Flat lookup by [WorkEntry.code].

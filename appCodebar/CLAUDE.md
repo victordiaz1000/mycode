@@ -41,8 +41,11 @@ python html_verses_to_json.py <source> <dest> [nom] [abbr] [--bym <assets/bible/
 
 Python 3.12, aucune dépendance externe (stdlib uniquement) — **à une exception
 près** : `pdf_book_to_json.py`, qui convertit les PDF d'ouvrages, appelle
-`pdftotext -layout` (poppler) et importe `pypdf`. Aucun autre script du dossier
-ne sort de la stdlib ; ne pas étendre l'exception sans raison.
+`pdftotext -layout` (poppler), importe `pypdf` pour les images et les
+coordonnées de mots, et `pypdfium2` pour rendre une page de titre que le PDF
+n'illustre pas (`pip install pypdfium2` ; c'est PDFium, le moteur de Chrome,
+livré en roue autonome). Aucun autre script du dossier ne sort de la stdlib ;
+ne pas étendre l'exception sans raison.
 
 ## Ouvrages PDF (onglet « Livres »)
 
@@ -52,35 +55,66 @@ python pdf_book_to_json.py <source.pdf> <dest.json> --code <CODE> \
     --cover ../bible_app/assets/covers/<code>.jpg
 ```
 
-Un livre d'édification en PDF → un JSON téléchargeable par l'app. Deux sont
+Un livre d'édification en PDF → un JSON téléchargeable par l'app. Sept sont
 entrés :
 
-- pilote *LE MINISTÈRE OU LE SEIGNEUR, QUE PRÉFÈRES-TU ?* (Trésor Koufounda,
-  Vases de Terre les Éditions, 2024) : 11 chapitres, 668 blocs, 46 notes,
-  36 paires de noms ;
-- *L'ANIMALITÉ DE L'ÊTRE HUMAIN* (Shora Kuetu, ANJC PRODUCTIONS, 2022) :
-  13 chapitres, 1063 blocs, **sans note** — les quatre blocs qui ouvrent sur un
-  chiffre sont des paragraphes de corps, écartés au marqueur comme à la ligne
-  vide.
+| code | ouvrage | chapitres | blocs | notes |
+|---|---|---|---|---|
+| `MINISTERE` | *Le Ministère ou le Seigneur, que préfères-tu ?* (Trésor Koufounda, Vases de Terre, 2024) | 11 | 668 | 46 |
+| `ANIMALITE` | *L'Animalité de l'être humain* (Shora Kuetu, ANJC, 2022) | 13 | 1063 | — |
+| `CHATIMENT` | *Le Châtiment du Père* (Trésor Koufounda, Vases de Terre, 2021) | 11 | 2094 | — |
+| `OMBRE` | *De l'ombre à la lumière* (Morgane M.A, Vases de Terre, 2026) | 4 | 255 | 7 |
+| `CROIX` | *La Croix* (Shora Kuetu, ANJC, 2024) | 7 | 631 | 98/99 |
+| `NOMDUPERE` | *Le Nom du Père* (Shora Kuetu, ANJC, 2025) | 6 | 338 | 64 |
+| `VOLEURS` | *Les Voleurs de temps* (Shora Kuetu, ANJC, 2025) | 18 | 562 | 99 |
 
-Les deux licences n'autorisent que la diffusion gratuite et **interdisent la
+L'Animalité n'a pas de note (les quatre blocs qui ouvrent sur un chiffre sont
+des paragraphes de corps). Le Châtiment, lui, **en a** mais les garde dans son
+corps : voir le § notes plus bas.
+
+Toutes ces licences n'autorisent que la diffusion gratuite et **interdisent la
 vente** — d'où la ligne `rights` du JSON, qui porte la mention en clair. Le
 JSON reste à publier à la main sur `github.com/victordiaz1000/pdf-bym`
 (dépôt public, lecture sans jeton) : `work_catalog.dart` ne pointe que des
 URL qui répondent, ou alors la tuile annonce qu'elle n'est pas configurée.
 
+> **Non-régression.** Le pilote et l'Animalité sont la référence : après toute
+> retouche du script, les régénérer et comparer au JSON livré. Les sept règles
+> ci-dessous ont toutes été ajoutées sous cette contrainte — `ministere.json` et
+> `animalite.json` sortent **identiques au bit**.
+
 - **La feuille de sommaire est le squelette** : le PDF n'a aucun signet, et tout
   intertitre est reconnu par comparaison avec une entrée du sommaire, jamais à
   la police. Son titre varie — « SOMMAIRE » chez le pilote, « TABLE DES
-  MATIÈRES » chez l'Animalité, porté par la première page seulement — son filet
-  aussi (points ou tirets bas), et sa hiérarchie se lit au préfixe (`I.` autant
-  que `I/`). Un titre que le sommaire n'annonce pas n'est gardé que s'il est
-  numéroté (`2.3. Le caractère`) ou tout en capitales.
+  MATIÈRES » chez l'Animalité — et **les ouvrages d'ANJC n'en portent aucun** :
+  leur sommaire s'ouvre directement sur « INTRODUCTION …… 7 ». On le reconnaît
+  alors à ce qu'il *fait* : trois lignes ou plus closes par un filet et un
+  numéro **croissant**, dans les 24 premières pages. Un titre que le sommaire
+  n'annonce pas n'est gardé que s'il est numéroté ou tout en capitales.
+- **Le niveau se lit au préfixe, et le préfixe a des dialectes** : `I.` chez le
+  pilote, `I/` chez l'Animalité, `I - ` chez le Châtiment ; la lettre descend en
+  bas de casse et court jusqu'à `j.` ; l'ordinal français (`1er point :`) est
+  une étiquette comme une autre. Le chiffre arabe, lui, est ambigu : il numérote
+  les **chapitres** du Châtiment (« 1. ELOHÎM : POSITION ET RÔLE ») et les plus
+  petites **sous-sections** de La Croix (« 1. L'holocauste ») — c'est la casse
+  qui tranche, et de la même façon dans les sept livres.
+- **Le sommaire n'est pas forcément en tête** : le Châtiment imprime le sien
+  page 11, après son avant-propos (page 5) et sa note de l'auteur. Le corps part
+  donc de la première page qu'un chapitre réclame, et c'est la feuille de
+  sommaire qu'on saute — la lire après elle perdait deux chapitres entiers.
+- **Deux chapitres ne peuvent pas s'ouvrir sur la même page** : quand le
+  sommaire liste « CHAPITRE I …… 7 » puis « Une enfance compliquée …… 7 », c'est
+  un titre coupé en deux entrées, pas deux chapitres. Le numéro imprimé le
+  prouve, l'indentation ne prouve rien.
 - **Rien n'est supposé, tout est mesuré** : le décalage de pagination est relevé
   page par page et le script s'arrête s'il varie ; les notes ne sont acceptées
   que dans l'ordre du compteur (sans quoi `1 Corinthiens 4:7` passe pour la
-  note 1) **et** que séparées du corps d'une ligne vide (sans quoi
-  `1 Shemouél 25 …` en passe pour une).
+  note 1), que séparées du corps d'une ligne vide, **et** que leur marqueur
+  figure dans la page. Le prix est connu : *Le Châtiment du Père* ouvre sur une
+  note éditoriale qui ne renvoie à aucun mot, elle est donc refusée, le compteur
+  reste sur 1 et les notes du livre restent dans le corps. **Aucun texte n'est
+  perdu**, il n'est pas balisé en notes. Relâcher le garde-fou a été essayé :
+  l'Animalité y perd des paragraphes, pris pour des notes.
 - **Les frontières de bloc se lisent sur la page** : une citation se termine sur
   sa référence, qui ne porte aucune ponctuation — d'où `ends_block`, que lisent
   les trois passes de recollement ; et un guillemet ouvrant sans fermant prouve
@@ -88,15 +122,28 @@ URL qui répondent, ou alors la tuile annonce qu'elle n'est pas configurée.
 - **Même convention de notes que la BYM** (`text` / `textWithNotes` / `notes`,
   invariant `text[position:position+len(word)] == word`) : `note_aware_text.dart`
   sait déjà l'afficher.
+- **`pages[i]` est la page physique i+1, et l'élément 0 n'est vide que par
+  accident** — quand la couverture est une image pleine page, sans texte. Les
+  ANJC composent la leur à la fonte : leur page 1 porte du texte et tout
+  l'index glisse d'un cran. `measure_offset` l'absorbe pour la pagination, mais
+  les **métadonnées** ne peuvent pas lire un rang fixe : on y lisait
+  « titre : © 2024 Édition : ANJC PRODUCTIONS » et « auteur : www.tv2vie.org ».
+  La page de titre est donc cherchée à son contenu — la première des huit
+  premières qui livre un auteur, en sautant les pages de mentions. Et un auteur
+  **tout en capitales** est la suite du titre passée à la ligne (« DE L'OMBRE »
+  / « À LA LUMIÈRE »), pas un nom : on recolle le titre et on avoue l'auteur
+  manquant.
 - **La pochette est embarquée, le livre non.** `--cover` recopie la plus grande
-  image de la page 1 dans `assets/covers/<code>.jpg` (40 Ko pour le pilote,
-  486 × 757, recopiée sans recompression sous 600 px de large) : la tuile de la
+  image de la page 1 dans `assets/covers/<code>.jpg` : la tuile de la
   Bibliothèque doit montrer la couverture **avant** le téléchargement. Quand le
   tirage éclate la couverture en tranches horizontales (20 bandes pour
-  l'Animalité, 121 Ko une fois recousues), les bandes sont recomposées par leur
-  placement réel dans le flux de la page — jamais par leur nom, dont l'ordre
-  n'est que lexicographique. Le chemin est déclaré dans `work_catalog.dart`
-  (`cover:`), et une page 1 sans image avertit — la tuile retombe sur son icône.
+  l'Animalité), les bandes sont recomposées par leur placement réel dans le flux
+  de la page — jamais par leur nom, dont l'ordre n'est que lexicographique.
+  Quand la page 1 n'embarque **aucune** image (La Croix, Le Nom du Père, Les
+  Voleurs de temps), la couverture est typographique : elle est rendue à la
+  fonte par `pypdfium2`, ce qui reste un fac-similé de la page imprimée — une
+  tuile claire et peu encrée, mais la vraie page de titre. Le chemin est déclaré
+  dans `work_catalog.dart` (`cover:`).
 
 > Le détail des pièges de `pdftotext -layout` — l'indentation trompeuse des
 > titres centrés, les lignes vides au milieu d'un paragraphe interligné, le

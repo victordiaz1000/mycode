@@ -8,7 +8,8 @@ Usage :
 
 Contrairement aux autres convertisseurs du dossier, celui-ci **sort de la
 bibliothèque standard** : il lui faut `pdftotext -layout` (poppler) pour le texte
-mis en page et `pypdf` pour les coordonnées de mots. La ligne « aucune
+mis en page, `pypdf` pour les coordonnées de mots et les images, et
+`pypdfium2` pour rendre une page 1 sans couverture embarquée. La ligne « aucune
 dépendance externe » de CLAUDE.md ne vaut donc pas pour ce script.
 
 Règles de conversion — toutes nées de ce que le PDF fait réellement, pas de ce
@@ -36,6 +37,14 @@ qu'un PDF « devrait » faire :
    est présent dans le corps de la même page. Un bloc de note peut contenir une
    ligne vide interne (c'est le cas de la note 25).
 
+   Le prix de cette rigueur est connu et assumé : *Le Châtiment du Père* ouvre
+   sur une note éditoriale (« les versets sont tirés de la BYM ») qui ne renvoie
+   à aucun mot de sa page. Elle est donc refusée, le compteur reste sur 1 et
+   les notes du livre restent dans le corps — **aucun texte n'est perdu**, il
+   n'est simplement pas balisé en notes. Relâcher le garde-fou a été essayé :
+   l'Animalité y perd des paragraphes de corps, pris pour des notes. Un livre
+   sorti bruyamment vaut mieux qu'un livre faux en silence.
+
 4. **L'en-tête courant est un préfixe du titre, pas le titre.** Les pages du
    chapitre 4 portent « LA FAUSSE IDÉE QUE BEAUCOUP ONT », tronqué. Le
    discriminant fiable est l'indentation : les en-têtes sont centrés, le corps
@@ -56,15 +65,16 @@ qu'un PDF « devrait » faire :
 
 8. **La pochette est une image de la page 1, jamais une invention.** `--cover`
    recopie la plus grande image de la première page (la couverture est pleine
-   page, le logo d'éditeur ne l'est pas) et avertit si la page 1 n'en porte
-   aucune, plutôt que d'aller chercher une illustration ailleurs dans le livre.
-   Une couverture **découpée en bandes** — un tirage qui éclate l'image en
-   tranches horizontales — se recoud par leur placement réel dans le flux de
-   la page : l'ordre de `pypdf` est lexicographique (`Im1`, `Im10`, `Im2`),
-   il ne dit rien de l'empilement, et ne garder qu'une bande livrerait un
-   coupon de couverture. La couture n'est acceptée que si les bandes
-   bouchent la page, bord à bord ; sinon on retombe sur l'image entière la
-   plus grande.
+   page, le logo d'éditeur ne l'est pas). Une couverture **découpée en bandes**
+   — un tirage qui éclate l'image en tranches horizontales — se recoud par leur
+   placement réel dans le flux de la page : l'ordre de `pypdf` est
+   lexicographique (`Im1`, `Im10`, `Im2`), il ne dit rien de l'empilement, et
+   ne garder qu'une bande livrerait un coupon de couverture. La couture n'est
+   acceptée que si les bandes bouchent la page, bord à bord ; sinon on retombe
+   sur l'image entière la plus grande. Et quand la page 1 n'embarque
+   **aucune** image, c'est que la couverture est typographique : on la rend
+   alors à la fonte via `pypdfium2`, ce qui reste un fac-similé de la page
+   imprimée.
 
 Format de sortie :
 {
@@ -227,29 +237,93 @@ TOC_ENTRY = re.compile(r"^(?P<title>.*?\S)\s*(?:\.+|_+)\s*(?P<page>\d{1,3})\s*$"
 # Une entrée peut se passer de filet quand elle clôt la feuille : la retenir
 # vaut mieux que de la jeter avec les lignes orphelines, mais elle est signalée.
 TOC_ENTRY_BARE = re.compile(r"^(?P<title>.*?\S)\s{2,}(?P<page>\d{1,3})\s*$")
-ROMAN = re.compile(r"^(?:I|II|III|IV|V|VI|VII|VIII|IX|X)\s*[./]")
-ALPHA = re.compile(r"^[A-H]\s*[./]")
-CHAPTER_HEAD = re.compile(r"^CHAPITRE\s+(\d+)\s*:\s*(.*)$")
+# Le signe qui suit l'étiquette varie d'un éditeur à l'autre : « I. » chez le
+# pilote, « I/ » chez l'Animalité, « I - » chez le Châtiment. Le tiret exige une
+# espace devant, sans quoi « a-t-il » passerait pour une étiquette de niveau 2.
+LABEL_MARK = r"(?:\s*[./)]|\s+[–—-])"
+ROMAN = re.compile(rf"^(?:I|II|III|IV|V|VI|VII|VIII|IX|X){LABEL_MARK}")
+# La lettre descend en bas de casse chez le Châtiment (« a. Le jugement ») et
+# va jusqu'à « j. » : la borner à H coupait deux sous-sections, promues
+# chapitres. [ROMAN] étant testé d'abord et sensible à la casse, « I. » reste un
+# chiffre romain quand « i. » est une lettre — ce que ces livres font vraiment.
+ALPHA = re.compile(rf"^[A-Za-z]{LABEL_MARK}")
+NUMBERED = re.compile(rf"^\d{{1,2}}{LABEL_MARK}\s*\S")
+# « 1er point : », « 2e point : » — l'ordinal français est une étiquette comme
+# une autre chez « De l'ombre à la lumière », qui n'en connaît pas d'autre.
+ORDINAL = re.compile(r"^\d{1,2}(?:ers?|res?|è?mes?|e)\s+\S", re.IGNORECASE)
+CHAPTER_HEAD = re.compile(r"^CHAPITRE\s+(\d+|[IVX]+)\s*:\s*(.*)$")
+# Une étiquette toute seule, sans titre derrière : le sommaire de « De l'ombre
+# à la lumière » imprime « CHAPITRE I », puis le titre sur l'entrée suivante.
+BARE_CHAPTER = re.compile(
+    r"^(?:CHAPITRE|PARTIE)\s+(?:\d{1,2}|[IVX]+)\s*$", re.IGNORECASE
+)
 
 # Titres que peut porter la feuille — `fold` a aplati les accents.
 TOC_TITLES = frozenset({"SOMMAIRE", "TABLE DES MATIERES"})
 
 
-def toc_level(title: str) -> int:
+def all_caps(title: str) -> bool:
+    """Vrai si le titre n'a pas une seule minuscule — capitales d'imprimerie."""
+    letters = [c for c in title if c.isalpha()]
+    return bool(letters) and all(c.isupper() for c in letters)
+
+
+def toc_level(title: str, has_alpha: bool = False) -> int:
     """Niveau déduit du préfixe, pas de l'indentation.
 
     L'indentation du sommaire est irrégulière (« I. » tantôt à 2, tantôt à 3
     espaces) ; le préfixe, lui, est sûr — et son signe varie lui aussi : le
-    pilote écrit « I. », l'Animalité « I/ ».
+    pilote écrit « I. », l'Animalité « I/ », le Châtiment « I - ».
+
+    Le chiffre arabe, lui, est ambigu : il numérote les **chapitres** du
+    Châtiment (« 1. ELOHÎM : POSITION ET RÔLE ») et les plus petites
+    **sous-sections** de La Croix (« 1. L'holocauste »). La casse tranche, et
+    elle tranche de la même façon dans les cinq ouvrages lus : les capitales
+    d'imprimerie marquent le chapitre, le bas de casse la sous-section.
     """
     if ROMAN.match(title):
         return 1
     if ALPHA.match(title):
         return 2
+    if NUMBERED.match(title) or ORDINAL.match(title):
+        if all_caps(title):
+            return 0
+        # Le chiffre se glisse sous la lettre quand le livre en porte une
+        # (« A. » puis « 1. » chez La Croix) ; sinon il prend sa place.
+        return 3 if has_alpha else 2
     return 0
 
 
-LABEL = re.compile(r"^((?:I|II|III|IV|V|VI|VII|VIII|IX|X|[A-H])[./])(?=\S)")
+def merge_label_titles(
+    entries: list[tuple[str, int, int]]
+) -> list[tuple[str, int, int]]:
+    """Recolle l'étiquette d'un chapitre et son titre, imprimés en deux entrées.
+
+    « De l'ombre à la lumière » liste « CHAPITRE I …… 7 » puis « Une enfance
+    compliquée …… 7 » : deux entrées, une seule page. Deux chapitres ne peuvent
+    pas s'ouvrir sur la même page — c'est le numéro imprimé, et lui seul, qui
+    prouve le titre coupé en deux, là où l'indentation du sommaire ne prouve
+    rien. Sans ce recollement, le livre gagne trois chapitres vides.
+    """
+    merged: list[tuple[str, int, int]] = []
+    for title, printed, level in entries:
+        if (
+            merged
+            and level == 0
+            and merged[-1][2] == 0
+            and merged[-1][1] == printed
+            and BARE_CHAPTER.match(merged[-1][0])
+        ):
+            label = merged.pop()[0]
+            merged.append((f"{label} : {title}", printed, 0))
+            continue
+        merged.append((title, printed, level))
+    return merged
+
+
+LABEL = re.compile(
+    r"^((?:I|II|III|IV|V|VI|VII|VIII|IX|X|[A-Ha-h]|\d{1,2})[./)])(?=\S)"
+)
 
 
 def normalize_title(title: str) -> str:
@@ -277,7 +351,7 @@ def parse_toc(
     retournée permet à l'appelant de savoir quelles pages sont du corps.
     """
     buffer: list[str] = []
-    entries: list[tuple[str, int, int]] = []
+    raw: list[tuple[str, int]] = []
     index = first
     last = first
     while index < len(pages):
@@ -286,16 +360,22 @@ def parse_toc(
         # La première ligne de chaque page du sommaire est son propre titre.
         if body and fold(body[0]) in TOC_TITLES:
             body = body[1:]
+        # Ce que le tampon portait avant cette page : la page qui clôt le
+        # balayage est du corps, et ses lignes ne doivent pas être signalées
+        # comme des entrées de sommaire non appariées.
+        carry = list(buffer)
         found = 0
         for line in body:
             buffer.append(line)
             match = TOC_ENTRY.match(" ".join(buffer))
             if match:
-                title = normalize_title(match.group("title"))
-                entries.append((title, int(match.group("page")), toc_level(title)))
+                raw.append(
+                    (normalize_title(match.group("title")), int(match.group("page")))
+                )
                 buffer = []
                 found += 1
-        if not found and entries:
+        if not found and raw:
+            buffer = carry
             break
         last = index
         index += 1
@@ -306,14 +386,85 @@ def parse_toc(
         bare = TOC_ENTRY_BARE.match(" ".join(buffer))
         if bare:
             title = normalize_title(bare.group("title"))
-            entries.append((title, int(bare.group("page")), toc_level(title)))
+            raw.append((title, int(bare.group("page"))))
             warn(f"sommaire : entrée sans filet, retenue — « {title} »")
         else:
             warn(f"sommaire : lignes non appariées, ignorées — {buffer}")
+    # Le niveau se décide une fois la feuille entière lue : savoir si le livre
+    # porte une couche en lettres change la place du chiffre arabe.
+    has_alpha = any(ALPHA.match(title) for title, _ in raw)
     return (
-        [entry for entry in entries if fold(entry[0]) not in TOC_TITLES],
+        merge_label_titles(
+            [
+                (title, page, toc_level(title, has_alpha))
+                for title, page in raw
+                if fold(title) not in TOC_TITLES
+            ]
+        ),
         last,
     )
+
+
+# Trois lignes qui s'achèvent sur un filet puis un numéro, cela n'arrive pas
+# dans du corps de texte : c'est ce qui permet de reconnaître une feuille de
+# sommaire que l'imprimeur n'a pas titrée.
+TOC_MIN_ENTRIES = 3
+# Le sommaire vit dans les pages de garde. Chercher au-delà ferait prendre un
+# index de fin de volume pour le squelette du livre.
+TOC_SEARCH_PAGES = 24
+
+
+def toc_like(page: str) -> int:
+    """Nombre d'entrées filetées d'une page, 0 si leurs numéros ne montent pas.
+
+    Un sommaire pagine dans l'ordre. L'exiger écarte le faux positif du corps
+    de texte, où une note collée à un point final (« la fin.2 ») a la même
+    forme qu'une entrée.
+    """
+    lines, _ = split_chrome(page)
+    numbers = [
+        int(match.group("page"))
+        for line in lines
+        if (match := TOC_ENTRY.match(line.strip()))
+    ]
+    if len(numbers) < TOC_MIN_ENTRIES:
+        return 0
+    if any(b < a for a, b in zip(numbers, numbers[1:])):
+        return 0
+    return len(numbers)
+
+
+def find_toc_first(pages: list[str]) -> int | None:
+    """Index de la première feuille de sommaire.
+
+    Le titre imprimé est le signal le plus sûr, mais les ouvrages d'ANJC n'en
+    portent aucun : leur sommaire s'ouvre directement sur « INTRODUCTION …… 7 ».
+    On retombe alors sur ce que la feuille *fait* — aligner des titres sur un
+    filet et un numéro croissant — plutôt que de renoncer au livre.
+    """
+    titled = next(
+        (
+            index
+            for index, page in enumerate(pages)
+            if any(
+                fold(line) in TOC_TITLES
+                for line in page.split("\n")[:3]
+                if line.strip()
+            )
+        ),
+        None,
+    )
+    if titled is not None:
+        return titled
+    for index, page in enumerate(pages[:TOC_SEARCH_PAGES]):
+        count = toc_like(page)
+        if count:
+            warn(
+                f"sommaire sans titre imprimé, reconnu au filet en page {index} "
+                f"({count} entrées sur la première feuille)"
+            )
+            return index
+    return None
 
 
 # --- En-têtes courants ------------------------------------------------------
@@ -1214,6 +1365,67 @@ COPYRIGHT = re.compile(
 # d'éditeur vient après les deux-points.
 PUBLISHER_LABEL = re.compile(r"^(?:é|e)dition\s*:\s*", re.IGNORECASE)
 
+# Ce qui trahit une page de **mentions légales**, et elle seule : l'interdiction
+# de vente n'en fait pas partie, car *Le Nom du Père* et *Les Voleurs de temps*
+# la portent sur leur page de titre.
+FRONT_CHROME = re.compile(
+    r"©|ISBN|D[ée]p[ôo]t\s+l[ée]gal|www\.|T[ée]l\.|\d{5}\s|Impression\s+[àa]\s+la"
+    r"\s+demande",
+    re.IGNORECASE,
+)
+# Au-delà, on est dans le corps : aucune page de titre ne se cache si loin.
+FRONT_PAGES = 8
+
+
+def title_blocks(page: str) -> list[list[str]]:
+    """Blocs d'une page de garde — des lignes closes par une ligne vide."""
+    lines, _ = split_chrome(page)
+    blocks: list[list[str]] = [[]]
+    for line in lines:
+        stripped = line.strip()
+        if stripped:
+            blocks[-1].append(stripped)
+        elif blocks[-1]:
+            blocks.append([])
+    return [block for block in blocks if block]
+
+
+def names_author(blocks: list[list[str]]) -> bool:
+    """Cette page de garde livre-t-elle un auteur, et pas que le titre ?"""
+    return bool(blocks) and (len(blocks[0]) > 2 or len(blocks) > 1)
+
+
+def title_page(pages: list[str]) -> int:
+    """Index de la page de titre, cherchée à son contenu et non à son rang.
+
+    `pages[i]` est la page physique i+1, et l'élément 0 n'est vide que lorsque
+    la couverture est une **image pleine page** — le pilote, l'Animalité,
+    l'Ombre. Les ouvrages d'ANJC composent la leur à la fonte : leur page 1
+    porte du texte, tout l'index glisse d'un cran, et lire `pages[1]` en dur
+    ramenait la page de copyright. On y lisait « titre : © 2024 Édition : ANJC
+    PRODUCTIONS » et « auteur : www.tv2vie.org ».
+
+    On retient donc la première page de garde qui livre un **auteur** ; à
+    défaut la première qui ne soit ni vide, ni un numéro seul, ni une page de
+    mentions. Le faux-titre du Châtiment (« LE CHÂTIMENT / DU PÈRE », sans
+    auteur, page 2) est ainsi dépassé au profit de sa vraie page de titre.
+    """
+    fallback: int | None = None
+    for index in range(min(FRONT_PAGES, len(pages))):
+        lines = [line.strip() for line in pages[index].split("\n") if line.strip()]
+        if not lines or all(PAGE_NUMBER.match(line) for line in lines):
+            continue
+        if FRONT_CHROME.search("\n".join(lines)):
+            continue
+        blocks = title_blocks(pages[index])
+        if not blocks:
+            continue
+        if names_author(blocks):
+            return index
+        if fallback is None:
+            fallback = index
+    return fallback if fallback is not None else 1
+
 
 def metadata(pages: list[str]) -> dict[str, str]:
     """Titre, sous-titre, auteur, éditeur, année et ISBN des pages de garde.
@@ -1224,17 +1436,13 @@ def metadata(pages: list[str]) -> dict[str, str]:
     met l'auteur dans le bloc suivant, où l'éditeur l'attend déjà ; le pilote
     plie son titre en deux lignes puis sépare l'auteur d'une ligne vide. Un
     bloc de titre à trois lignes porte son auteur en dernière ligne.
+
+    Quelle page porte tout cela, c'est [title_page] qui le dit — jamais un
+    rang fixe.
     """
-    front = "\n".join(pages[1 : min(4, len(pages))])
-    blocks: list[list[str]] = [[]]
-    for line in pages[1].split("\n"):
-        stripped = line.strip()
-        if stripped:
-            blocks[-1].append(stripped)
-        elif blocks[-1]:
-            blocks.append([])
-    if blocks and not blocks[-1]:
-        blocks.pop()
+    first = title_page(pages)
+    front = "\n".join(pages[: min(FRONT_PAGES, len(pages))])
+    blocks = title_blocks(pages[first])
     data: dict[str, str] = {}
     if blocks:
         data["title"] = blocks[0][0].rstrip(",")
@@ -1244,6 +1452,13 @@ def metadata(pages: list[str]) -> dict[str, str]:
             data["author"] = blocks[0][-1]
         elif len(blocks) > 1:
             data["author"] = blocks[1][0]
+        # Un nom d'auteur porte toujours des minuscules — « Shora Kuetu »,
+        # « Trésor KOUFOUNDA ». Tout en capitales, c'est la suite du titre que
+        # l'imprimeur a passée à la ligne et isolée d'un blanc : « DE L'OMBRE »
+        # puis « À LA LUMIÈRE ». On recolle le titre et on avoue l'auteur
+        # manquant, plutôt que de publier un livre signé « À LA LUMIÈRE ».
+        if data.get("author") and all_caps(data["author"]):
+            data["title"] = f"{data['title']} {data.pop('author')}"
     match = ISBN.search(front)
     if match:
         data["isbn"] = match.group(1)
@@ -1278,19 +1493,9 @@ def convert(pdf: Path, code: str) -> dict[str, object]:
 
     offset = measure_offset(pages)
 
-    # Le sommaire : la première page qui en porte le titre, quel qu'il soit.
-    toc_first = next(
-        (
-            index
-            for index, page in enumerate(pages)
-            if any(
-                fold(line) in TOC_TITLES
-                for line in page.split("\n")[:3]
-                if line.strip()
-            )
-        ),
-        None,
-    )
+    # Le sommaire : la première page qui en porte le titre — ou, à défaut, la
+    # première qui en a la forme.
+    toc_first = find_toc_first(pages)
     if toc_first is None:
         sys.exit("Aucune page de sommaire trouvée : structure non reconnue.")
     entries, toc_last = parse_toc(pages, toc_first)
@@ -1315,7 +1520,16 @@ def convert(pdf: Path, code: str) -> dict[str, object]:
     body_by_page: dict[int, list[str]] = {}
     empty_pages: list[int] = []
 
-    for index in range(toc_last + 1, len(pages)):
+    # Le corps ne commence pas forcément après le sommaire : *Le Châtiment du
+    # Père* imprime le sien page 11, alors que son avant-propos ouvre page 5.
+    # On part donc de la première page qu'un chapitre réclame, et c'est la
+    # feuille de sommaire elle-même qu'on saute — sinon ces deux chapitres
+    # sortent vides, et c'est bien ce qui arrivait.
+    body_start = min([toc_last + 1] + [start for _, start, _ in bounds])
+
+    for index in range(body_start, len(pages)):
+        if toc_first <= index <= toc_last:
+            continue
         lines, _ = split_chrome(pages[index])
         if not lines:
             continue
@@ -1600,6 +1814,42 @@ def stitched_cover(page: Any, images: list[Any]) -> Any:
     return canvas
 
 
+def render_first_page(pdf: Path, dest: Path) -> tuple[int, int] | None:
+    """Rend la page 1 imprimée en image, pour les livres sans couverture.
+
+    Trois des ouvrages d'ANJC n'embarquent aucune image : leur couverture est
+    **typographique** — le titre, l'auteur et l'éditeur sont composés à la
+    fonte. `page.images` est donc vide et il n'y a rien à recopier ; mais la
+    page existe, et la rendre reste un fac-similé de ce que le livre montre,
+    pas une pochette inventée.
+
+    `pypdfium2` est la **seconde** exception à la règle « stdlib seulement » du
+    dossier, après poppler et pypdf : c'est PDFium, le moteur de Chrome, livré
+    en roue autonome sans dépendance système. Son absence n'est pas fatale — on
+    retombe sur l'icône de la tuile, comme avant.
+    """
+    try:
+        import pypdfium2 as pdfium
+    except ImportError:
+        warn("pypdfium2 absent : page 1 non rendue, la tuile gardera son icône")
+        return None
+
+    document = pdfium.PdfDocument(str(pdf))
+    try:
+        page = document[0]
+        width = page.get_width()
+        if not width:
+            warn("page 1 de largeur nulle : pochette non rendue")
+            return None
+        image = page.render(scale=COVER_MAX_WIDTH / width).to_pil().convert("RGB")
+    finally:
+        document.close()
+
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    image.save(dest, "JPEG", quality=88, optimize=True)
+    return image.size
+
+
 def extract_cover(pdf: Path, dest: Path) -> bool:
     """Écrit la pochette de l'ouvrage — la couverture de la page 1 — dans `dest`.
 
@@ -1613,9 +1863,9 @@ def extract_cover(pdf: Path, dest: Path) -> bool:
 
     Les octets d'origine sont recopiés sans recompression tant que l'image tient
     sous [COVER_MAX_WIDTH] ; au-delà, Pillow la réduit et la réécrit en JPEG.
-    Une page 1 sans image **avertit** et ne produit rien : la tuile de la
-    Bibliothèque retombe alors sur son icône, ce qui vaut mieux qu'une pochette
-    prise au hasard dans le livre.
+    Une page 1 **sans aucune image** est une couverture typographique : on la
+    rend alors telle qu'elle est imprimée ([render_first_page]) au lieu de
+    laisser la tuile sur son icône.
     """
     try:
         from pypdf import PdfReader
@@ -1635,8 +1885,15 @@ def extract_cover(pdf: Path, dest: Path) -> bool:
         warn(f"pochette illisible ({error}) : non extraite")
         return False
     if not images:
-        warn("aucune image en page 1 : pochette non extraite")
-        return False
+        size = render_first_page(pdf, dest)
+        if size is None:
+            return False
+        print(
+            f"  pochette : {dest} ({size[0]} × {size[1]}, "
+            f"{dest.stat().st_size / 1024:.0f} Ko, page 1 rendue — le PDF "
+            "n'embarque aucune image)"
+        )
+        return True
 
     stitched = None
     if len(images) > 1:
@@ -1699,6 +1956,14 @@ def main() -> None:
 
     if not args.source.exists():
         sys.exit(f"Introuvable : {args.source}")
+
+    # La console Windows est en cp1252 : signaler un titre qui porte « ▪ » la
+    # faisait tomber sur un UnicodeEncodeError — le script mourait sur son
+    # propre avertissement, alors que la conversion est en UTF-8 de bout en
+    # bout. Les « � » affichés restent un artefact de console, pas un bug.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
 
     print(f"Conversion de {args.source.name}")
     document = convert(args.source, args.code)

@@ -116,6 +116,10 @@ class _WorkReaderState extends State<WorkReader> {
   bool _restoreScheduled = false;
   final GlobalKey _anchorKey = GlobalKey();
 
+  /// La liste du chapitre, repérée pour [_builtTiles] : elle ne sert qu'à en
+  /// trouver le sous-arbre des tuiles réellement construites.
+  final GlobalKey _listKey = GlobalKey();
+
   /// Accumulé du glissement horizontal en cours (pagination, cf. [_onSwipe]).
   double? _swipeDx;
 
@@ -246,10 +250,28 @@ class _WorkReaderState extends State<WorkReader> {
     WidgetsBinding.instance.addPostFrameCallback((_) => _restore());
   }
 
-  /// Ramène au bloc restauré. L'estimation part de `maxScrollExtent`, qu'une
-  /// liste paresseuse affine au fil des mesures — d'où la boucle : chaque
-  /// saut améliore le suivant, jusqu'à ce que la tuile du bloc soit bâtie et
-  /// que `ensureVisible` fasse la mise au point.
+  /// Ramène au bloc restauré, ou à la section choisie dans le sommaire du
+  /// chapitre.
+  ///
+  /// La liste est paresseuse : la tuile du bloc visé n'existe pas tant qu'on
+  /// n'a pas défilé à ses côtés, et l'estimation « index ÷ nombre d'items ×
+  /// maxScrollExtent » suppose que chaque bloc pèse le même poids. C'est faux
+  /// dès qu'un chapitre alterne paragraphes, citations courtes et titres — un
+  /// saut pouvait alors atterrir à 21 000, 16 000 ou 72 000 pixels de la
+  /// section demandée, ce que `work_section_jump_test.dart` mesure chapitre
+  /// par chapitre sur les deux ouvrages.
+  ///
+  /// On corrige avec ce que la liste a **déjà construit** : la position
+  /// exacte des tuiles vivantes et leur poids réel. Chaque tour mesure le
+  /// suivant, jusqu'à ce que la tuile du bloc soit bâtie ; `ensureVisible`
+  /// fait alors la mise au point — exacte, elle, puisqu'elle part du rendu
+  /// réel et non d'une moyenne.
+  ///
+  /// Mesurer ne suffit pourtant pas : la hauteur moyenne fait **dépasser**, et
+  /// deux dépassements en sens contraire s'enchaînent en cycle. On encadre
+  /// donc le visé entre une rive basse et une rive haute, et toute proposition
+  /// qui sort de l'encadrement est remplacée par son milieu : une dichotomie
+  /// resserre toujours, là où l'extrapolation pouvait battre indéfiniment.
   Future<void> _restore() async {
     if (!mounted || _anchorBlock == null) return;
     if (!_scroll.hasClients) return;
@@ -261,26 +283,128 @@ class _WorkReaderState extends State<WorkReader> {
       // La page entient sur l'écran : rien à défiler, tout est déjà là.
       return;
     }
-    final fraction = (target / (itemCount - 1)).clamp(0.0, 1.0);
-    for (var attempt = 0;
-        attempt < 12 && _anchorKey.currentContext == null;
-        attempt++) {
-      _scroll.jumpTo(
-        (position.maxScrollExtent * fraction)
-            .clamp(position.minScrollExtent, position.maxScrollExtent),
+    // Les deux rives : [lowSide] est un décalage dont *toutes* les tuiles
+    // bâties précèdent le bloc visé, [highSide] un décalage dont toutes le
+    // suivent. Le bon décalage est forcément entre les deux — une proposition
+    // qui sort de cet encadrement est fausse par construction.
+    double? lowSide;
+    double? highSide;
+    for (var attempt = 0; attempt < 16; attempt++) {
+      final revealed = _anchorKey.currentContext;
+      if (revealed != null && revealed.mounted) {
+        // Pas de flash : c'est une place où reprendre, pas un saut neuf.
+        await Scrollable.ensureVisible(
+          revealed,
+          duration: const Duration(milliseconds: 250),
+          curve: Curves.easeOut,
+          alignment: 0.2,
+        );
+        return;
+      }
+      final built = _builtTiles().keys;
+      if (built.isNotEmpty) {
+        if (built.every((index) => index < target)) {
+          lowSide = position.pixels;
+        } else if (built.every((index) => index > target)) {
+          highSide = position.pixels;
+        }
+      }
+      var offset = _offsetToward(target, position, itemCount);
+      if (offset == null) return;
+      if (lowSide != null && highSide != null) {
+        if ((highSide - lowSide).abs() < 1) return;
+        if (offset <= lowSide || offset >= highSide) {
+          // L'extrapolation par la hauteur moyenne pouvait osciller entre les
+          // deux rives sans jamais bâtir la tuile du milieu : `ministere`
+          // ch. 8 faisait 1680 → 3574 → 1680 … douze fois, ses tuiles sautant
+          // de 12 à 18, et la section « I. LA COMMUNION SPIRITUELLE »
+          // n'arrivait jamais. La dichotomie, elle, resserre à chaque tour et
+          // ne peut pas tourner en rond.
+          offset = (lowSide + highSide) / 2;
+        }
+      }
+      position.jumpTo(
+        offset.clamp(position.minScrollExtent, position.maxScrollExtent),
       );
       await WidgetsBinding.instance.endOfFrame;
       if (!mounted || _anchorBlock == null) return;
     }
-    final ctx = _anchorKey.currentContext;
-    if (ctx == null || !ctx.mounted) return;
-    // Pas de flash : c'est une place où reprendre, pas un saut neuf.
-    await Scrollable.ensureVisible(
-      ctx,
-      duration: const Duration(milliseconds: 250),
-      curve: Curves.easeOut,
-      alignment: 0.2,
-    );
+  }
+
+  /// L'endroit où défile-t-on pour faire apparaître l'item [target] ?
+  ///
+  /// Les tuiles vivantes donnent leur haut, en coordonnées de contenu, et
+  /// leur poids réel. De là :
+  ///
+  /// - l'item juste au-dessus du visé est connu → son bas vaut **exactement**
+  ///   le haut du visé ;
+  /// - sinon la moyenne des hauteurs mesurées extrapole — mieux que
+  ///   [ScrollPosition.maxScrollExtent], qui ne mélange que des estimations ;
+  /// - si tout ce qui est construit est **sous** le visé, on remonte de deux
+  ///   écrans au-dessus de la première tuile vue, et le tour suivant mesurera.
+  double? _offsetToward(int target, ScrollPosition position, int itemCount) {
+    final tiles = _builtTiles();
+    if (tiles.isEmpty) {
+      // Rien de construit encore : la fraction est la seule boussole.
+      return position.maxScrollExtent * (target / (itemCount - 1));
+    }
+    final above = tiles.keys
+        .where((index) => index > target)
+        .fold<int?>(null, (a, b) => a == null || b < a ? b : a);
+    final below = tiles.keys
+        .where((index) => index < target)
+        .fold<int?>(null, (a, b) => a == null || b > a ? b : a);
+    if (below == null) {
+      final first = above == null ? null : tiles[above];
+      if (first == null) return null;
+      return (first.top - position.viewportDimension * 2)
+          .clamp(0.0, position.maxScrollExtent);
+    }
+    final under = tiles[below]!;
+    final next = under.top + under.box.size.height;
+    if (below == target - 1) return next; // contigu : position exacte
+    final heights = [
+      for (final tile in tiles.values) tile.box.size.height,
+    ];
+    final average = heights.reduce((a, b) => a + b) / heights.length;
+    return next + average * (target - below - 1);
+  }
+
+  /// Les tuiles que la liste a **réellement** construites : index d'item →
+  /// leur RenderBox et le haut de leur contenu.
+  ///
+  /// Elles seules apparaissent dans l'arbre, et leur clé ([_WorkItemKey],
+  /// posée dans `itemBuilder`) dit quel item elles portent. Aucune autre
+  /// mesure n'est possible sans forcer la liste à tout construire — et cette
+  /// suffit : l'erreur d'une estimation se corrige à partir d'une seule tuile
+  /// vraie.
+  Map<int, ({RenderBox box, double top})> _builtTiles() {
+    final root = _listKey.currentContext;
+    if (root == null || !_scroll.hasClients) return const {};
+    final origin = (root.findRenderObject() as RenderBox?)?.localToGlobal(
+      Offset.zero,
+    ).dy;
+    if (origin == null) return const {};
+    final pixels = _scroll.position.pixels;
+    final tiles = <int, ({RenderBox box, double top})>{};
+    void walk(Element element) {
+      final key = element.widget.key;
+      if (key is _WorkItemKey) {
+        final render = element.renderObject;
+        if (render is RenderBox && render.attached && render.hasSize) {
+          tiles[key.value] = (
+            box: render,
+            top: pixels + (render.localToGlobal(Offset.zero).dy - origin),
+          );
+        }
+      }
+      element.visitChildren(walk);
+    }
+
+    // `currentContext` est bien un `Element` à l'exécution : c'est le nœud
+    // qui porte la liste, et lui seul ouvre l'accès à ses tuiles.
+    walk(root as Element);
+    return tiles;
   }
 
   // ---- Navigation ----
@@ -435,22 +559,50 @@ class _WorkReaderState extends State<WorkReader> {
   /// Le bloc (index 1-based) où commence [title] dans le chapitre courant,
   /// ou null si le sommaire annonce une section que le corps ne porte pas.
   ///
-  /// Recherche d'abord une égalité stricte — le cas courant, le sommaire et
-  /// les titres sortant du même extracteur — puis une inclusion. L'égalité
-  /// tolère l'espacement : la ligne du sommaire et le titre effectif peuvent
-  /// avoir été normalisés différemment, et renvoyer rien là où la section
-  /// existe rendrait la ligne inerte pour une faute de ponctuation.
+  /// Trois passes, de la plus sûre à la plus tolérante : égalité stricte,
+  /// égalité à séparateur près, inclusion. L'ordre compte — une tolérance
+  /// qui précéderait l'égalité déplacerait des sauts qui fonctionnent déjà,
+  /// et le test de saut les mesure un par un sur les deux ouvrages.
+  ///
+  /// L'égalité tolère l'espacement : la ligne du sommaire et le titre
+  /// effectif peuvent avoir été normalisés différemment, et renvoyer rien
+  /// là où la section existe rendrait la ligne inerte pour une faute de
+  /// ponctuation.
   int? _blockForSection(String title) {
     final chapter = _work?.chapterAt(widget.chapter);
     if (chapter == null) return null;
     final wanted = _normalizeSection(title);
     if (wanted.isEmpty) return null;
+    final blocks = chapter.blocks;
+    // 1. Égalité stricte — le cas courant, sommaire et titres sortant du
+    //    même extracteur.
+    for (var i = 0; i < blocks.length; i++) {
+      if (_normalizeSection(blocks[i].text) == wanted) return i + 1;
+    }
+    // 2. Égalité à séparateur près. Le sommaire d'ANIMALITE assemble deux
+    //    lignes de titre en une entrée avec un tiret que le titre du corps
+    //    n'a pas : « A/ Le lion - Premier empire : Babylone » au sommaire,
+    //    « A/ Le lion Premier empire : Babylone » dans le texte. Les quatre
+    //    seules sections muettes du livre l'étaient pour ce tiret seul, et
+    //    une ligne de sommaire sans cible est une ligne morte : pas de
+    //    chevron, et un tap qui ne fait rien — exactement le symptôme signalé.
+    final loose = _sectionKey(title);
     int? inHeadings;
     int? anywhere;
-    for (var i = 0; i < chapter.blocks.length; i++) {
-      final block = chapter.blocks[i];
+    for (var i = 0; i < blocks.length; i++) {
+      final block = blocks[i];
+      if (_sectionKey(block.text) != loose) continue;
+      if (block.kind.isHeading) return i + 1;
+      anywhere ??= i + 1;
+    }
+    if (anywhere != null) return anywhere;
+    // 3. Inclusion — un titre du sommaire plus long que le bloc, ou un bloc
+    //    qui le cite.
+    inHeadings = null;
+    anywhere = null;
+    for (var i = 0; i < blocks.length; i++) {
+      final block = blocks[i];
       final text = _normalizeSection(block.text);
-      if (text == wanted) return i + 1;
       if (text.length < 8) continue;
       if (!(text.contains(wanted) || wanted.contains(text))) continue;
       // Un titre suivi d'un paragraphe qui le cite ne doit pas voler la
@@ -464,10 +616,21 @@ class _WorkReaderState extends State<WorkReader> {
   static String _normalizeSection(String text) =>
       text.replaceAll(RegExp(r'\s+'), ' ').trim().toLowerCase();
 
+  /// La même normalisation, à séparateur près : un tiret entouré d'espaces
+  /// est une ponctuation de mise en page, pas une lettre, et il sépare
+  /// précisément ce que le sommaire a réuni en une ligne.
+  ///
+  /// Le tiret **entre** deux mots d'un même titre (`XVe - XVIe siècle`) est
+  /// conservé : seul le tiret flanqué d'espaces saute, et les deux textes
+  /// passent par la même clé — une comparaison ne ment que si l'un des deux
+  /// la subit.
+  static String _sectionKey(String text) =>
+      _normalizeSection(text).replaceAll(RegExp(r'\s+-\s+'), ' ');
+
   /// Met le lecteur au bloc [block] (1-based, 0 = titre du chapitre) par la
   /// même mécanique que la reprise de position : l'ancre porte la clé de la
-  /// tuile, [_restore] saute par la fraction puis fait la mise au point quand
-  /// elle est bâtie. L'épingle se lève au prochain geste du lecteur, comme
+  /// tuile, [_restore] saute, mesure, resaute jusqu'à ce qu'elle soit bâtie,
+  /// puis fait la mise au point. L'épingle se lève au prochain geste du
   /// pour une position restaurée — le bloc atteint vaut position tant qu'on
   /// n'a pas défilé soi-même.
   ///
@@ -825,24 +988,39 @@ class _WorkReaderState extends State<WorkReader> {
           return false;
         },
         child: ListView.builder(
+          key: _listKey,
           controller: _scroll,
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 36),
           itemCount: itemCount,
           itemBuilder: (context, index) {
-            if (index == 0) return _chapterHeader(context, chapter);
-            if (footer != null && index == itemCount - 1) return footer;
-            final block = chapter.blocks[index - 1];
-            final content = Padding(
-              padding: const EdgeInsets.only(bottom: 13),
-              child: _block(context, block, style),
+            final Widget content;
+            if (index == 0) {
+              content = _chapterHeader(context, chapter);
+            } else if (footer != null && index == itemCount - 1) {
+              content = footer;
+            } else {
+              final block = chapter.blocks[index - 1];
+              content = Padding(
+                padding: const EdgeInsets.only(bottom: 13),
+                child: _block(context, block, style),
+              );
+            }
+            // Chaque tuile porte l'index de son item : [_builtTiles] lit ces
+            // clés dans l'arbre pour savoir quelles tuiles la liste a
+            // réellement construites, et où elles se trouvent — l'unique
+            // mesure dont dépend un saut juste. Un `KeyedSubtree` ne coûte
+            // rien : c'est un nœud de plus, pas un rendu de plus.
+            final tile = KeyedSubtree(
+              key: _WorkItemKey(index),
+              child: content,
             );
             // La tuile de la position courante porte la clé d'ancre ; deux
             // d'entre elles ne la portent jamais à la fois (un `GlobalKey`
             // dupliqué dans une même route est une erreur), et elle ne se
             // déplace que sur une reprise ou un saut de section.
             return index == _anchorBlock
-                ? Container(key: _anchorKey, child: content)
-                : content;
+                ? Container(key: _anchorKey, child: tile)
+                : tile;
           },
         ),
       ),
@@ -1033,6 +1211,19 @@ class _WorkReaderState extends State<WorkReader> {
         );
     }
   }
+}
+
+/// La clé d'une tuile du chapitre : elle porte l'index de l'item dans la
+/// liste.
+///
+/// Elle est de type dédié, et non `ValueKey<int>` nu, parce que [_builtTiles]
+/// promène cette clé dans tout le sous-arbre de la liste pour mesurer les
+/// tuiles vivantes : un `ValueKey<int>` posé plus bas, par un bloc ou par une
+/// dépendance, serait lu comme une tuile de la liste et déplacerait le saut.
+/// Une classe privée ne peut pas être fabriquée ailleurs — la confusion
+/// devient impossible par construction.
+class _WorkItemKey extends ValueKey<int> {
+  const _WorkItemKey(super.value);
 }
 
 /// Le bouton « Continuer » en pied de chapitre d'un ouvrage — le jumeau de
