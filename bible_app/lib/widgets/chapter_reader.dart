@@ -306,27 +306,27 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// from scratch: without this the « Version » sheet kept the map read at
   /// `initState` and answered « à télécharger » for a version the Bibliothèque
   /// had just installed.
+  ///
+  /// Reconstruit à **chaque** notification, et c'est voulu malgré le coût :
+  /// `saveBook` incrémente la révision une fois par livre, soit 66 fois pour
+  /// une version téléchargée en entier. Un garde-fou a été essayé ici — ne
+  /// rien redessiner tant que l'ensemble des versions et les livres de la
+  /// version *lue* ne bougeaient pas — et il était faux : la barre d'actions
+  /// reçoit `_installed` en **instantané de build** (`installedVersions:`), et
+  /// c'est cet instantané que la feuille « Version » photographie à
+  /// l'ouverture. Rafraîchir le champ sans `setState` laissait donc la barre
+  /// sur la carte du dernier build, et la progression d'un téléchargement en
+  /// cours restait figée sur son premier livre jusqu'à ce qu'autre chose
+  /// reconstruise le lecteur.
+  ///
+  /// Toute économie ici suppose d'abord que la feuille lise la carte au moment
+  /// du tap plutôt qu'au build — sinon il n'existe aucun changement du
+  /// registre que cette page puisse ignorer sans mentir.
   Future<void> _onLibraryChanged() async {
     final installed = await _installedVersions();
     if (!mounted) return;
 
     final reading = _versionCode;
-    // Le registre s'incrémente par livre posé — 66 fois pour une version
-    // téléchargée en entier — et cet écouteur vit dans chaque onglet ouvert.
-    // Sans cette sortie, un téléchargement lancé ailleurs reconstruisait ce
-    // chapitre 66 fois. Cet onglet ne montre du registre que sa version de
-    // lecture : la pastille de la barre, le panneau de reprise. Tout ce qui
-    // laisse l'ensemble des clés et l'entrée lue intacts n'a donc rien à
-    // redessiner ici.
-    if (_sameVisibleLibrary(_installed, installed, reading)) {
-      // Le cliché, lui, continue d'être adopté : la feuille « Version » le
-      // photographie à son ouverture, et le figer afficherait « en partie »
-      // pour un téléchargement terminé entre-temps. Seule la reconstruction
-      // est épargnée.
-      _installed = installed;
-      return;
-    }
-
     final embedded = reading == VersionRepository.embeddedCode;
     // Deliberately compared before and after: `saveBook` bumps the revision on
     // every one of the 66 books, and re-reading the file each time would hit the
@@ -350,29 +350,6 @@ class _ChapterReaderState extends State<ChapterReader> {
         _bookFuture = _versions.loadBook(reading, widget.bookIndex);
       });
     }
-  }
-
-  /// Ce que cet onglet montre du registre : l'ensemble de ses clés (une version
-  /// qui apparaît ou disparaît) et l'ensemble des livres de la version lue.
-  ///
-  /// Comparaison **synchrone** et à la main : [InstalledVersion] n'a pas d'`==`,
-  /// et un report différé par un timer ne se déclencherait jamais sous
-  /// `pumpAndSettle` — les tests d'arrivée de téléchargement attendent le
-  /// panneau de reprise sur la même frame.
-  bool _sameVisibleLibrary(
-    Map<String, InstalledVersion> a,
-    Map<String, InstalledVersion> b,
-    String reading,
-  ) {
-    if (a.length != b.length || !a.keys.every(b.containsKey)) return false;
-    final before = a[reading];
-    final after = b[reading];
-    if ((before == null) != (after == null)) return false;
-    if (before != null && after != null) {
-      if (before.books.length != after.books.length) return false;
-      if (!before.books.containsAll(after.books)) return false;
-    }
-    return true;
   }
 
   /// Le texte servi vient de changer sous le lecteur : une mise à jour installée

@@ -366,30 +366,51 @@ void main() {
       );
     });
 
-    testWidgets('une version qui se termine pendant la lecture se lit complète',
+    testWidgets('la progression suit livre par livre, sans rien pour la pousser',
         (tester) async {
-      // Le lecteur ne reconstruit plus sur chacune des 66 notifications d'un
-      // téléchargement — il ne montre du registre que sa propre version de
-      // lecture. Mais la sortie anticipée doit continuer d'adopter le cliché :
-      // la feuille « Version » le photographie à son ouverture, et le figer
-      // afficherait « en partie » pour une version pourtant terminée.
+      // Le défaut que ce test verrouille : la barre d'actions reçoit la carte
+      // du registre en **instantané de build**, et c'est cet instantané que la
+      // feuille « Version » photographie à l'ouverture. Un garde-fou qui
+      // rafraîchissait le champ sans reconstruire laissait donc la barre sur la
+      // carte du dernier build : la progression restait figée sur le premier
+      // livre jusqu'à ce qu'autre chose reconstruise le lecteur. « La version
+      // suit, mais pas automatiquement. »
       //
-      // Ici le lecteur est en BYM : seul le tout premier livre posé change
-      // l'ensemble des clés, les 65 suivants passent par la sortie anticipée.
+      // Les livres arrivent donc **un par un, avec une frame entre chacun** :
+      // poser les 66 d'affilée puis pomper une seule fois ne reproduit rien du
+      // tout — la carte du faux magasin est mutée synchroniquement, donc le
+      // premier écouteur réveillé y voit déjà les 66 livres.
       final store = FakeStore({});
       await pumpReader(tester, store: store);
 
-      for (var i = 1; i <= 66; i++) {
-        store.landBook('DBY', i, getbibleBook(i));
+      Future<void> expectSheetReads(String line) async {
+        await openVersionSheet(tester, 'BYM');
+        await tester.scrollUntilVisible(find.text('Bible Darby'), 200,
+            scrollable: find.descendant(
+                of: find.byKey(const Key('versionSheetList')),
+                matching: find.byType(Scrollable)));
+        expect(find.text(line), findsOneWidget);
+        // La feuille n'a pas de ✕ : on tape la barrière au-dessus.
+        await tester.tapAt(const Offset(10, 10));
+        await tester.pumpAndSettle();
       }
-      await tester.pumpAndSettle();
 
-      await openVersionSheet(tester, 'BYM');
-      await tester.scrollUntilVisible(find.text('Bible Darby'), 200,
-          scrollable: find.descendant(
-              of: find.byKey(const Key('versionSheetList')),
-              matching: find.byType(Scrollable)));
-      expect(find.text('Téléchargée · 66 livres'), findsOneWidget);
+      store.landBook('DBY', 1, getbibleBook(1));
+      await tester.pumpAndSettle();
+      await expectSheetReads('Téléchargée en partie · 1/66 livres');
+
+      // Le deuxième livre : ni l'ensemble des versions ni la version lue (BYM)
+      // ne changent — c'est précisément le cas qu'un garde-fou croirait
+      // pouvoir ignorer, et celui où la progression doit malgré tout avancer.
+      store.landBook('DBY', 2, getbibleBook(2));
+      await tester.pumpAndSettle();
+      await expectSheetReads('Téléchargée en partie · 2/66 livres');
+
+      for (var i = 3; i <= 66; i++) {
+        store.landBook('DBY', i, getbibleBook(i));
+        await tester.pumpAndSettle();
+      }
+      await expectSheetReads('Téléchargée · 66 livres');
     });
 
     testWidgets('replaces the missing-book panel with the text', (tester) async {
