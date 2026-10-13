@@ -241,11 +241,16 @@ const List<BibleTheme> bibleThemes = [
     name: 'Mosaïque grise',
     backgroundAsset: 'assets/themes/blanc.png',
     backgroundTone: Color(0xFFA2A2A2),
-    textColor: Color(0xFF302B25),
-    titleColor: Color(0xFF5E5041),
-    verseNumColor: Color(0xFF806F59),
-    accentColor: Color(0xFF6E6051),
-    highlightRef: Color(0xFFB8860B),
+    // Fond gris neutre froid : palette ardoise bleutée (famille Brume/Acier),
+    // pas de brun — le brun chaud jurait sur le gris froid. Teintes
+    // approfondies d'un cran : sur le panneau #E0E0E0 qu'un fond gris moyen
+    // fait naître, les tons plus clairs faisaient tomber les numéros de verset
+    // (2.7) et les titres (4.4) sous les seuils WCAG.
+    textColor: Color(0xFF232A2E),
+    titleColor: Color(0xFF26404D),
+    verseNumColor: Color(0xFF3D5B69),
+    accentColor: Color(0xFF2B5468),
+    highlightRef: Color(0xFFB89436),
   ),
   BibleTheme(
     id: 'forest',

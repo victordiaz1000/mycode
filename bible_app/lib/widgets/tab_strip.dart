@@ -6,8 +6,8 @@ import 'premium_style.dart';
 import 'tab_context_menu.dart';
 
 /// Compact Chrome-style tab strip (maquette v1.1):
-/// scrollable open tabs + a "＋" (new home tab) + a gold counter that opens
-/// the [shown switcher].
+/// scrollable open tabs + a "＋" (new home tab) + a hero-gradient counter that
+/// opens the [shown switcher] — same register as the home header.
 class TabStrip extends StatefulWidget {
   final TabManager manager;
   final VoidCallback onOpenSwitcher;
@@ -68,7 +68,6 @@ class _TabStripState extends State<TabStrip> {
   @override
   Widget build(BuildContext context) {
     final manager = widget.manager;
-    final bibleTheme = BibleThemeScope.of(context);
     final p = premiumPalette(context);
     return SizedBox(
       height: 56,
@@ -105,24 +104,39 @@ class _TabStripState extends State<TabStrip> {
                 ),
               ),
             ),
-            // Gold counter → opens the switcher
+            // Compteur → ouvre le sélecteur. Même registre que l'accueil :
+            // pastille en dégradé hero + chiffre blanc, pas d'uni d'accent.
             Padding(
               padding: const EdgeInsets.only(left: 4, right: 8),
-              child: Material(
-                color: bibleTheme.accentColor,
-                borderRadius: BorderRadius.circular(9),
-                child: InkWell(
-                  onTap: widget.onOpenSwitcher,
-                  borderRadius: BorderRadius.circular(9),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                    child: Text(
-                      '${manager.count}',
-                      style: TextStyle(
-                        color: bibleTheme.textColor,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 14,
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: p.heroGradient,
+                  borderRadius: BorderRadius.circular(14),
+                  boxShadow: premiumShadow(
+                    p.primary,
+                    opacity: 0.35,
+                    blur: 12,
+                    offset: const Offset(0, 6),
+                  ),
+                ),
+                child: Material(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(14),
+                  child: InkWell(
+                    onTap: widget.onOpenSwitcher,
+                    borderRadius: BorderRadius.circular(14),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
+                      child: Text(
+                        '${manager.count}',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                   ),
