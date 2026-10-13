@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../data/theme_catalog.dart';
 import 'bible_theme_scope.dart';
 
 /// Langage visuel commun des écrans « premium » (maquettes `interfaces/`) :
@@ -64,8 +65,33 @@ class PremiumPalette {
   });
 }
 
+/// Dernière palette calculée, et le thème dont elle sort.
+///
+/// `premiumPalette` est la primitive la plus appelée de l'interface : une
+/// quinzaine de fois par build d'écran, et jusqu'à deux fois par carte, car
+/// [premiumSurface] la demandait pour elle-même **et** à travers
+/// [premiumCardBorder]. Chaque appel refaisait une douzaine de `Color.lerp`,
+/// un `computeLuminance` et un `LinearGradient` neuf.
+///
+/// Le cache tient sur l'**identité** du thème, et c'est ce qui le rend sûr :
+/// `themeById` ne renvoie que des instances `const` du catalogue (ou l'unique
+/// `customBibleTheme`), donc un même thème redonne toujours le même objet, et
+/// le moindre changement — y compris une photo reposée — en donne un autre et
+/// invalide l'entrée de lui-même.
+BibleTheme? _paletteSource;
+PremiumPalette? _paletteCache;
+
 PremiumPalette premiumPalette(BuildContext context) {
   final bt = BibleThemeScope.of(context);
+  final cached = _paletteCache;
+  if (cached != null && identical(_paletteSource, bt)) return cached;
+  final palette = _buildPalette(bt);
+  _paletteSource = bt;
+  _paletteCache = palette;
+  return palette;
+}
+
+PremiumPalette _buildPalette(BibleTheme bt) {
   final accent = bt.accentColor;
   final dark = bt.usesLightText;
   final surface = dark
@@ -149,7 +175,10 @@ BoxDecoration premiumSurface(
       colors: [p.surface, p.surfaceAlt],
     ),
     borderRadius: BorderRadius.circular(radius),
-    border: Border.all(color: premiumCardBorder(context, opacity: .18)),
+    // Le liseré est tiré de la palette **déjà** en main : passer par
+    // `premiumCardBorder(context)` redemandait la même palette une seconde
+    // fois, pour en lire le seul `textGrey`.
+    border: Border.all(color: p.textGrey.withValues(alpha: .18)),
     boxShadow: [
       ...premiumShadow(
         p.primaryDark,

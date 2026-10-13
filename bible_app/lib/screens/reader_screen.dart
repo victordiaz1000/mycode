@@ -445,7 +445,14 @@ class _HomeActionsBarState extends State<_HomeActionsBar> {
 
 /// What an empty reading tab shows: the resume banner (last position from the
 /// history, if any) above the navigation hint.
-class _EmptyReadingBody extends StatelessWidget {
+///
+/// `StatefulWidget` pour une seule raison : retenir la lecture de l'historique.
+/// Elle naissait dans le `build` (`future: ReadingHistory().last()`), donc un
+/// `Future` neuf à chaque reconstruction — et un `FutureBuilder` qui repart en
+/// `waiting` montre l'indice de navigation une frame avant de laisser place à
+/// la carte « Reprendre ». La page sans onglet est souvent la première vue au
+/// lancement : ce clignotement était la première chose à l'écran.
+class _EmptyReadingBody extends StatefulWidget {
   /// Where resuming goes — fills *this* tab (the same routing the « Livres »
   /// pill above uses).
   final void Function(int bookIndex, int chapter) onOpenChapter;
@@ -453,16 +460,27 @@ class _EmptyReadingBody extends StatelessWidget {
   const _EmptyReadingBody({required this.onOpenChapter});
 
   @override
+  State<_EmptyReadingBody> createState() => _EmptyReadingBodyState();
+}
+
+class _EmptyReadingBodyState extends State<_EmptyReadingBody> {
+  late final Future<ReadingEntry?> _last = ReadingHistory().last();
+
+  @override
   Widget build(BuildContext context) {
     return FutureBuilder<ReadingEntry?>(
-      future: ReadingHistory().last(),
+      future: _last,
       builder: (context, snapshot) {
         final entry = snapshot.data;
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (entry != null)
-              _ResumeCard(entry: entry, onTap: () => onOpenChapter(entry.bookIndex, entry.chapter))
+              _ResumeCard(
+                entry: entry,
+                onTap: () =>
+                    widget.onOpenChapter(entry.bookIndex, entry.chapter),
+              )
             else
               const _EmptyReadingHint(),
           ],

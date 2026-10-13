@@ -9,7 +9,6 @@ import '../data/reading_history.dart';
 import '../data/tab_manager.dart';
 import '../models/chapter.dart';
 import '../utils/date_format.dart';
-import '../widgets/bible_theme_scope.dart';
 import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
 import 'ecran_comparer.dart';
@@ -24,43 +23,16 @@ enum BymDestination { accueil, lecture, recherche, bibliotheque, reglages }
 const Color bymGold = Color(0xFFD3A94F);
 
 // ---- Palette (suit le thème actif) ----
-class _Pal {
-  final Color primary;
-  final Color primaryDark;
-  final Color primarySoft;
-  final Color textDark;
-  final Color textGrey;
-  final LinearGradient heroGradient;
-
-  const _Pal({
-    required this.primary,
-    required this.primaryDark,
-    required this.primarySoft,
-    required this.textDark,
-    required this.textGrey,
-    required this.heroGradient,
-  });
-}
-
-_Pal _pal(BuildContext context) {
-  final bt = BibleThemeScope.of(context);
-  final accent = bt.accentColor;
-  return _Pal(
-    primary: accent,
-    primaryDark: Color.lerp(accent, Colors.black, 0.35)!,
-    primarySoft: accent.withValues(alpha: 0.14),
-    textDark: bt.titleColor,
-    textGrey: bt.textColor.withValues(alpha: 0.62),
-    heroGradient: LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [
-        Color.lerp(accent, Colors.white, 0.26)!,
-        Color.lerp(accent, Colors.black, 0.30)!,
-      ],
-    ),
-  );
-}
+/// La palette de l'Accueil **est** celle du reste de l'interface.
+///
+/// Cette page en portait un double, `_Pal`, qui recalculait à la main les six
+/// mêmes champs — `primary`, `primaryDark`, `primarySoft`, `textDark`,
+/// `textGrey` et le dégradé héros — à partir du même thème, et qui était
+/// appelé une vingtaine de fois par build. Les valeurs étaient identiques au
+/// bit près : déléguer supprime la copie et fait profiter l'Accueil du cache
+/// de [premiumPalette]. Les noms de champs étant les mêmes, aucun des appels
+/// (`p.primary`, `p.textGrey`…) ne change.
+PremiumPalette _pal(BuildContext context) => premiumPalette(context);
 
 /// Raccourci local vers [premiumText] : l'Accueil l'appelle 40 fois, d'où le nom
 /// court. Il redéfinissait auparavant le style à l'identique via google_fonts,
@@ -218,6 +190,39 @@ class _HomeScreenState extends State<HomeScreen> {
     viewportFraction: 0.9,
   );
 
+  /// Les deux lectures que la carte « Reprendre » affiche, retenues hors du
+  /// `build`.
+  ///
+  /// Elles étaient créées **dans** le `build` : trois `FutureBuilder` dont le
+  /// `future:` naissait à chaque reconstruction — `chapterCount` deux fois
+  /// (l'en-tête « ch. 3 / 50 » et la barre de progression) et `loadChapter`
+  /// une fois. Un `Future` neuf repart en `ConnectionState.waiting`, donc la
+  /// carte retombait une frame sur « ch. 3 / … » et sur un extrait vide avant
+  /// de se remplir : un clignotement à chaque passage sur l'Accueil.
+  ///
+  /// La clé est la position, pas l'entrée : seuls le livre et le chapitre
+  /// décident de ce qui est lu, et l'horodatage de l'entrée bouge à chaque
+  /// visite sans rien changer à l'affichage.
+  int? _heroBook;
+  int? _heroChapter;
+  Future<int>? _heroChapterCount;
+  Future<Chapter>? _heroChapterText;
+
+  /// Prépare les futures de la carte héros, en ne les recréant que lorsque la
+  /// position reprise change. Appelée depuis `build` — elle ne touche à l'état
+  /// que par affectation directe, jamais par `setState`.
+  void _ensureHeroFutures(ReadingEntry entry) {
+    if (_heroBook == entry.bookIndex &&
+        _heroChapter == entry.chapter &&
+        _heroChapterCount != null) {
+      return;
+    }
+    _heroBook = entry.bookIndex;
+    _heroChapter = entry.chapter;
+    _heroChapterCount = _repository.chapterCount(entry.bookIndex);
+    _heroChapterText = _repository.loadChapter(entry.bookIndex, entry.chapter);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -323,57 +328,88 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  /// Les rangées de l'Accueil, chacune sous forme de constructeur.
+  ///
+  /// La page listait ses sections en dur (`ListView(children: [...])`). La
+  /// `ListView` ne *met en page* que le visible, mais la liste d'enfants, elle,
+  /// est un argument : les vingt sections décoratives — mosaïque d'empereurs,
+  /// système solaire, deux pavés de mesures, carrousel des conciles — étaient
+  /// **construites** à chaque build de l'Accueil, y compris celles qu'il faut
+  /// faire défiler trois écrans pour voir.
+  ///
+  /// Rendre la liste paresseuse ne change ni l'ordre, ni les espacements, ni
+  /// le rendu : seules les rangées entrées dans le champ sont désormais
+  /// construites. L'audit de débordement (`responsive_overflow_test`) continue
+  /// de toutes les voir — il parcourt la page jusqu'au bas.
+  List<WidgetBuilder> _rows(ReadingEntry? resume) {
+    final rows = <WidgetBuilder>[
+      _header,
+      (_) => const SizedBox(height: 24),
+      _searchBar,
+      (_) => const SizedBox(height: 24),
+      (c) => _quickActions(c, resume),
+      (_) => const SizedBox(height: 26),
+    ];
+
+    if (_loading) {
+      rows.add((_) => const HomeLoadingSkeleton());
+    } else {
+      rows.add(
+        resume == null ? _emptyResume : (c) => _heroCard(c, resume),
+      );
+      rows.add((_) => const SizedBox(height: 30));
+      rows.add(_studiesHeader);
+      rows.add((_) => const SizedBox(height: 14));
+      final studies = _recentEntries();
+      if (studies.isEmpty) {
+        rows.add(_noStudiesHint);
+      } else {
+        for (final entry in studies) {
+          rows.add((c) => _studyCard(c, entry));
+        }
+      }
+      rows.add((_) => const SizedBox(height: 30));
+    }
+
+    rows.addAll([
+      _alphabetsSection,
+      (_) => const SizedBox(height: 30),
+      _historySection,
+      (_) => const SizedBox(height: 30),
+      (c) => _measureSection(c, _kCapacity),
+      (_) => const SizedBox(height: 30),
+      (c) => _measureSection(c, _kLength),
+      (_) => const SizedBox(height: 30),
+      _denominationsSection,
+      (_) => const SizedBox(height: 30),
+      _concilesSection,
+      (_) => const SizedBox(height: 30),
+      _emperorsSection,
+      (_) => const SizedBox(height: 30),
+      _falseGodsSection,
+      (_) => const SizedBox(height: 30),
+      _timeTopicsSection,
+      (_) => const SizedBox(height: 30),
+      _weekDaysSection,
+    ]);
+    return rows;
+  }
+
   @override
   Widget build(BuildContext context) {
     final resume = _recent.isEmpty ? null : _recent.first;
+    if (resume != null) _ensureHeroFutures(resume);
+    final rows = _rows(resume);
     return ColoredBox(
       color: premiumBackground(context),
       child: SafeArea(
         child: Stack(
           children: [
             _backgroundDecor(context),
-            ListView(
+            ListView.builder(
               padding: const EdgeInsets.fromLTRB(22, 16, 22, 24),
-              children: [
-                _header(context),
-                const SizedBox(height: 24),
-                _searchBar(context),
-                const SizedBox(height: 24),
-                _quickActions(context, resume),
-                const SizedBox(height: 26),
-                if (_loading)
-                  const HomeLoadingSkeleton()
-                else ...[
-                  if (resume == null)
-                    _emptyResume(context)
-                  else
-                    _heroCard(context, resume),
-                  const SizedBox(height: 30),
-                  _studiesHeader(context),
-                  const SizedBox(height: 14),
-                  ..._recentStudies(context),
-                  const SizedBox(height: 30),
-                ],
-                _alphabetsSection(context),
-                const SizedBox(height: 30),
-                _historySection(context),
-                const SizedBox(height: 30),
-                _measureSection(context, _kCapacity),
-                const SizedBox(height: 30),
-                _measureSection(context, _kLength),
-                const SizedBox(height: 30),
-                _denominationsSection(context),
-                const SizedBox(height: 30),
-                _concilesSection(context),
-                const SizedBox(height: 30),
-                _emperorsSection(context),
-                const SizedBox(height: 30),
-                _falseGodsSection(context),
-                const SizedBox(height: 30),
-                _timeTopicsSection(context),
-                const SizedBox(height: 30),
-                _weekDaysSection(context),
-              ],
+              itemCount: rows.length,
+              itemBuilder: (context, i) => rows[i](context),
             ),
           ],
         ),
@@ -844,7 +880,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const Spacer(),
                       FutureBuilder<int>(
-                        future: _repository.chapterCount(entry.bookIndex),
+                        future: _heroChapterCount,
                         builder: (context, count) => Text(
                           'ch. ${entry.chapter} / ${count.data ?? '…'}',
                           style: _t(
@@ -864,10 +900,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 10),
                   FutureBuilder<Chapter>(
-                    future: _repository.loadChapter(
-                      entry.bookIndex,
-                      entry.chapter,
-                    ),
+                    future: _heroChapterText,
                     builder: (context, snapshot) {
                       final excerpt =
                           snapshot.hasData && snapshot.data!.verses.isNotEmpty
@@ -890,7 +923,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 20),
                   FutureBuilder<int>(
-                    future: _repository.chapterCount(entry.bookIndex),
+                    future: _heroChapterCount,
                     builder: (context, count) {
                       final total = count.data ?? 0;
                       return ClipRRect(
@@ -992,25 +1025,24 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  List<Widget> _recentStudies(BuildContext context) {
-    // 5 positions au plus — « Tout voir » ouvre l'historique complet. La
-    // première entrée est la carte « Reprendre la lecture », pas une carte ici.
-    final entries = _recent.length > 1
-        ? _recent.sublist(1, math.min(6, _recent.length))
-        : const <ReadingEntry>[];
-    if (entries.isEmpty) {
-      return [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Text(
-            'Vos derniers chapitres ouverts apparaîtront ici.',
-            style: _t(context, 13, FontWeight.w500, _pal(context).textGrey),
-          ),
-        ),
-      ];
-    }
-    return entries.map((e) => _studyCard(context, e)).toList();
-  }
+  /// Les positions qui méritent une carte d'étude : 5 au plus — « Tout voir »
+  /// ouvre l'historique complet. La première entrée est la carte « Reprendre la
+  /// lecture », pas une carte ici.
+  ///
+  /// Séparé du rendu pour que la liste de l'Accueil puisse compter ses cartes
+  /// sans les construire : chacune naît désormais quand elle entre dans le
+  /// champ, pas au build de la page.
+  List<ReadingEntry> _recentEntries() => _recent.length > 1
+      ? _recent.sublist(1, math.min(6, _recent.length))
+      : const <ReadingEntry>[];
+
+  Widget _noStudiesHint(BuildContext context) => Padding(
+    padding: const EdgeInsets.symmetric(vertical: 8),
+    child: Text(
+      'Vos derniers chapitres ouverts apparaîtront ici.',
+      style: _t(context, 13, FontWeight.w500, _pal(context).textGrey),
+    ),
+  );
 
   Widget _studyCard(BuildContext context, ReadingEntry s) {
     final p = _pal(context);

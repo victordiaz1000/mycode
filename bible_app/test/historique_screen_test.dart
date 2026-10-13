@@ -5,9 +5,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:bible_app/data/bible_sections.dart';
+import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/data/tab_manager.dart';
 import 'package:bible_app/screens/historique_screen.dart';
 import 'package:bible_app/screens/home_screen.dart';
+
+import 'support/fake_bible_bundle.dart';
 
 /// Seeds the reading history as the reader would leave it in
 /// shared_preferences (the « history.recent » JSON list, newest first).
@@ -242,5 +245,51 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(opened, [(43, 3)]);
+  });
+
+  testWidgets('la carte « Reprendre » suit un changement de position', (
+    tester,
+  ) async {
+    // Les deux lectures de la carte héros — le nombre de chapitres et
+    // l'extrait du premier verset — sont retenues hors du `build` pour ne pas
+    // renaître à chaque reconstruction. Ce test est le garde-fou de leur
+    // invalidation : une clé qui ne suivrait pas la position afficherait
+    // éternellement l'extrait du premier chapitre repris.
+    LocalRepository.useBundle(FakeBibleBundle());
+    addTearDown(LocalRepository.useRootBundle);
+    addTearDown(LocalRepository.clearCache);
+
+    seedHistory([(book: 1, chapter: 1)]);
+    final manager = TabManager();
+    tester.view.physicalSize = const Size(800, 2600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(MaterialApp(
+      home: HomeScreen(
+        manager: manager,
+        onSelectDestination: (_) {},
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    expect(find.text('« Verset de test Ge. 1:1. »'), findsOneWidget);
+
+    // Une autre lecture prend la tête de l'historique, et le gestionnaire
+    // d'onglets réveille l'Accueil — le chemin exact qu'emprunte un retour de
+    // la Lecture vers l'Accueil.
+    await manager.history.record(2, 2);
+    manager.openHome();
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text('« Verset de test Ex. 2:1. »'),
+      findsOneWidget,
+      reason: 'l\'extrait doit être celui de la nouvelle position',
+    );
+    expect(
+      find.text('« Verset de test Ge. 1:1. »'),
+      findsNothing,
+      reason: 'l\'extrait de l\'ancienne position ne doit pas rester figé',
+    );
   });
 }
