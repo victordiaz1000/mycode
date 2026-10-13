@@ -366,6 +366,32 @@ void main() {
       );
     });
 
+    testWidgets('une version qui se termine pendant la lecture se lit complète',
+        (tester) async {
+      // Le lecteur ne reconstruit plus sur chacune des 66 notifications d'un
+      // téléchargement — il ne montre du registre que sa propre version de
+      // lecture. Mais la sortie anticipée doit continuer d'adopter le cliché :
+      // la feuille « Version » le photographie à son ouverture, et le figer
+      // afficherait « en partie » pour une version pourtant terminée.
+      //
+      // Ici le lecteur est en BYM : seul le tout premier livre posé change
+      // l'ensemble des clés, les 65 suivants passent par la sortie anticipée.
+      final store = FakeStore({});
+      await pumpReader(tester, store: store);
+
+      for (var i = 1; i <= 66; i++) {
+        store.landBook('DBY', i, getbibleBook(i));
+      }
+      await tester.pumpAndSettle();
+
+      await openVersionSheet(tester, 'BYM');
+      await tester.scrollUntilVisible(find.text('Bible Darby'), 200,
+          scrollable: find.descendant(
+              of: find.byKey(const Key('versionSheetList')),
+              matching: find.byType(Scrollable)));
+      expect(find.text('Téléchargée · 66 livres'), findsOneWidget);
+    });
+
     testWidgets('replaces the missing-book panel with the text', (tester) async {
       // Reading Exode in DBY, which holds Genèse only; the download reaches
       // Exode while the panel is on screen.

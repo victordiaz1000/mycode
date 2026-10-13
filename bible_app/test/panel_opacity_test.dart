@@ -173,4 +173,53 @@ void main() {
       reason: 'un panneau plus opaque que 0,6 trahirait une valeur ignorée',
     );
   });
+
+  testWidgets('régler l\'opacité ne ramène pas le thème par défaut', (
+    tester,
+  ) async {
+    // Le lecteur ne reconstruit plus sur toutes les révisions de préférences,
+    // seulement quand un champ qu'il affiche bouge — mais il adopte toujours
+    // le cliché. Ce test verrouille cette seconde moitié : conditionner
+    // l'adoption au lieu du seul `setState` laisserait au lecteur une copie
+    // d'avant le choix de thème, que la prochaine sauvegarde d'opacité
+    // réécrirait en entier. Le thème choisi serait silencieusement annulé.
+    await pumpReader(tester);
+
+    // Un thème choisi ailleurs (la galerie des thèmes) pendant que le lecteur
+    // est ouvert : rien de ce qu'il affiche ne change, donc aucune
+    // reconstruction — mais le cliché doit suivre.
+    final picked = await AppPreferences.load();
+    picked.themeId = 'nuit';
+    await picked.save();
+    await tester.pumpAndSettle();
+
+    // Puis le lecteur sauvegarde ses préférences en entier, par le curseur
+    // d'opacité de sa feuille ⋯.
+    await tester.tap(find.byIcon(Icons.more_vert));
+    await tester.pumpAndSettle();
+    final sheetScrollable = find.descendant(
+      of: find.byType(DisplaySettingsSheetLayout),
+      matching: find.byType(Scrollable),
+    );
+    final opacitySlider = find.descendant(
+      of: find.byType(DisplayOpacitySection),
+      matching: find.byType(Slider),
+    );
+    await tester.scrollUntilVisible(
+      opacitySlider,
+      80,
+      scrollable: sheetScrollable,
+    );
+    await tester.pumpAndSettle();
+    await tester.drag(opacitySlider, const Offset(-120, 0));
+    await tester.pumpAndSettle();
+
+    final stored = await AppPreferences.load();
+    expect(stored.panelOpacity, lessThan(.80));
+    expect(
+      stored.themeId,
+      'nuit',
+      reason: 'la sauvegarde d\'opacité ne doit pas écraser le thème choisi',
+    );
+  });
 }

@@ -170,6 +170,41 @@ void main() {
     expect(m.tabs[idx].verse, 24);
   });
 
+  test('updateTabVerse records without waking the listeners', () {
+    // La mutation d'onglet la plus fréquente de l'app : le lecteur la
+    // déclenche à chaque fois que le défilement s'immobilise sur un autre
+    // verset. Notifier y coûtait, à chaque geste, la reconstruction de
+    // l'écran Lecture entier — barre d'onglets et IndexedStack de **tous**
+    // les onglets — plus celle de l'Accueil et ses vingt sections. Or rien à
+    // l'écran n'en dépend : le « v. N » du sélecteur d'onglets vit derrière
+    // une route opaque, donc le lecteur ne peut pas défiler pendant qu'il
+    // s'affiche.
+    final m = TabManager();
+    final idx = m.openReading(1, 1);
+    final id = m.tabs[idx].id;
+
+    var notifications = 0;
+    m.addListener(() => notifications++);
+
+    m.updateTabVerse(id, 24);
+
+    expect(
+      m.tabs[idx].verse,
+      24,
+      reason: 'la position doit rester enregistrée sur l\'onglet',
+    );
+    expect(
+      notifications,
+      0,
+      reason: 'enregistrer la position ne doit reconstruire aucun écran',
+    );
+
+    // Les autres mutations, elles, continuent de notifier : la sortie
+    // silencieuse est propre à la position de lecture.
+    m.openReading(2, 3);
+    expect(notifications, greaterThan(0));
+  });
+
   test('openReading carries a restored verse into a fresh tab', () {
     final m = TabManager();
     final idx = m.openReading(12, 40, verse: 16);

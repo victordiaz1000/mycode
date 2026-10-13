@@ -241,13 +241,31 @@ class TabManager extends ChangeNotifier {
   /// Records the verse the reader is on for the tab [tabId], so the position
   /// survives a cold restart. Silently ignored for unknown tabs (a tab closed
   /// while its reader widget was still mounted).
+  ///
+  /// **Ne notifie délibérément pas.** C'est la seule mutation d'onglet dont
+  /// rien à l'écran ne dépend, et elle est de loin la plus fréquente : le
+  /// lecteur la déclenche à chaque fois que le défilement s'immobilise sur un
+  /// autre verset. Réveiller les écouteurs y coûtait, à chaque geste de
+  /// lecture, la reconstruction de l'écran Lecture entier — barre d'onglets et
+  /// `IndexedStack` de **tous** les onglets ouverts, donc chaque
+  /// `ChapterReader` — plus celle de l'Accueil et ses vingt sections, relecture
+  /// de l'historique comprise, alors que personne ne le regardait.
+  ///
+  /// La position n'est rendue qu'à un endroit de tout `lib/` : le « v. N » du
+  /// sélecteur d'onglets. Celui-ci est une route **opaque**
+  /// (`TabSwitcher.show`) qui recouvre le lecteur — le texte ne peut donc pas
+  /// défiler derrière elle, la valeur affichée ne peut pas se périmer, et
+  /// chaque ouverture lit l'état courant.
+  ///
+  /// [_persist] reste **immédiat** : c'est lui qui fait survivre la position à
+  /// un arrêt brutal du processus. Le grouper pour économiser trois écritures
+  /// rouvrirait, par l'autre bout, la perte de position qu'il évite.
   void updateTabVerse(String tabId, int verse) {
     final index = _tabs.indexWhere((tab) => tab.id == tabId);
     if (index < 0) return;
     if (_tabs[index].verse == verse) return;
     _tabs[index] = _tabs[index].copyWith(verse: verse);
     _persist();
-    notifyListeners();
   }
 
   void activate(int index) {

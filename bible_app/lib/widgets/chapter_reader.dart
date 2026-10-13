@@ -257,11 +257,48 @@ class _ChapterReaderState extends State<ChapterReader> {
   Future<void> _onPreferencesChanged() async {
     final prefs = await AppPreferences.load();
     if (!mounted) return;
-    setState(() {
-      _prefs = prefs;
-      _prefsLoaded = true;
-    });
+    // `save()` incrémente la révision à CHAQUE écriture — un thème choisi dans
+    // la galerie, la version par défaut d'un nouvel onglet, n'importe quoi. Cet
+    // écouteur se déclenche sur *tous* les onglets ouverts à la fois (ils
+    // vivent dans l'`IndexedStack` de la coquille), donc un changement que
+    // cette page n'affiche pas reconstruisait chaque chapitre pour rien :
+    // d'où le `setState` conditionné à un champ réellement rendu ici.
+    //
+    // Le cliché, lui, est TOUJOURS adopté. `_prefs` est ce que la feuille ⋯
+    // réécrit en entier (`_savePrefs`, `_savePanelOpacity`,
+    // `_saveSidePadding`) : en garder une copie périmée réécrirait son ancien
+    // `themeId` par-dessus un thème choisi depuis dans la galerie — le retour
+    // au thème par défaut. `versionCode` reste ignoré par conception (voir
+    // ci-dessus) et `themeId` voyage par `themeNotifier` / `BibleThemeScope`.
+    //
+    // Aucun champ n'est figé sur la copie locale, pas même les trois curseurs.
+    // Pendant un glissement, `_setFontSize` et ses jumeaux n'écrivent rien et
+    // n'incrémentent donc aucune révision ; la seule écriture arrive au
+    // relâcher, avec la valeur locale elle-même. Les protéger ici gèlerait en
+    // revanche une taille réglée depuis Réglages, qui n'atteindrait plus
+    // jamais un onglet déjà ouvert.
+    final changed = !_sameDisplayPrefs(_prefs, prefs);
+    _prefs = prefs;
+    _prefsLoaded = true;
+    if (changed) setState(() {});
   }
+
+  /// Les préférences que ce lecteur rend réellement. À tenir en phase avec
+  /// `build` et la feuille ⋯ : un champ qui manque ici se fige quand on le
+  /// change ailleurs, un champ en trop reconstruit tous les onglets pour rien.
+  bool _sameDisplayPrefs(AppPreferences a, AppPreferences b) =>
+      a.notesMode == b.notesMode &&
+      a.disposition == b.disposition &&
+      a.immersion == b.immersion &&
+      (a.fontSize - b.fontSize).abs() < .001 &&
+      a.textAlign == b.textAlign &&
+      a.readingFont == b.readingFont &&
+      a.spacing == b.spacing &&
+      a.layout == b.layout &&
+      a.fontWeight == b.fontWeight &&
+      (a.panelOpacity - b.panelOpacity).abs() < .001 &&
+      (a.sidePadding - b.sidePadding).abs() < .001 &&
+      a.textColorOverride == b.textColorOverride;
 
   /// A download finished or a version was deleted while this reader was alive.
   ///
@@ -274,6 +311,22 @@ class _ChapterReaderState extends State<ChapterReader> {
     if (!mounted) return;
 
     final reading = _versionCode;
+    // Le registre s'incrémente par livre posé — 66 fois pour une version
+    // téléchargée en entier — et cet écouteur vit dans chaque onglet ouvert.
+    // Sans cette sortie, un téléchargement lancé ailleurs reconstruisait ce
+    // chapitre 66 fois. Cet onglet ne montre du registre que sa version de
+    // lecture : la pastille de la barre, le panneau de reprise. Tout ce qui
+    // laisse l'ensemble des clés et l'entrée lue intacts n'a donc rien à
+    // redessiner ici.
+    if (_sameVisibleLibrary(_installed, installed, reading)) {
+      // Le cliché, lui, continue d'être adopté : la feuille « Version » le
+      // photographie à son ouverture, et le figer afficherait « en partie »
+      // pour un téléchargement terminé entre-temps. Seule la reconstruction
+      // est épargnée.
+      _installed = installed;
+      return;
+    }
+
     final embedded = reading == VersionRepository.embeddedCode;
     // Deliberately compared before and after: `saveBook` bumps the revision on
     // every one of the 66 books, and re-reading the file each time would hit the
@@ -297,6 +350,29 @@ class _ChapterReaderState extends State<ChapterReader> {
         _bookFuture = _versions.loadBook(reading, widget.bookIndex);
       });
     }
+  }
+
+  /// Ce que cet onglet montre du registre : l'ensemble de ses clés (une version
+  /// qui apparaît ou disparaît) et l'ensemble des livres de la version lue.
+  ///
+  /// Comparaison **synchrone** et à la main : [InstalledVersion] n'a pas d'`==`,
+  /// et un report différé par un timer ne se déclencherait jamais sous
+  /// `pumpAndSettle` — les tests d'arrivée de téléchargement attendent le
+  /// panneau de reprise sur la même frame.
+  bool _sameVisibleLibrary(
+    Map<String, InstalledVersion> a,
+    Map<String, InstalledVersion> b,
+    String reading,
+  ) {
+    if (a.length != b.length || !a.keys.every(b.containsKey)) return false;
+    final before = a[reading];
+    final after = b[reading];
+    if ((before == null) != (after == null)) return false;
+    if (before != null && after != null) {
+      if (before.books.length != after.books.length) return false;
+      if (!before.books.containsAll(after.books)) return false;
+    }
+    return true;
   }
 
   /// Le texte servi vient de changer sous le lecteur : une mise à jour installée
