@@ -114,11 +114,12 @@ void main() {
       reason: 'la première colonne du verset est la plus à gauche',
     );
 
-    // Les six rangées sont toutes là, y compris les trois lignes de texte.
+    // Les rangées montrées sont là : la forme imprimée en gras, la glose.
+    // Lemme, Koinè et analyse vivent dans la fiche, pas dans la grille.
     expect(find.text('Βίβλος'), findsOneWidget);
-    expect(find.text('βίβλος'), findsOneWidget);
-    expect(find.text('βιβλοσ'), findsOneWidget);
-    expect(find.text('N-GFS'), findsOneWidget);
+    expect(find.text('βίβλος'), findsNothing);
+    expect(find.text('βιβλοσ'), findsNothing);
+    expect(find.text('N-GFS'), findsNothing);
   });
 
   testWidgets('pas de colonne d’étiquettes en tête du verset', (
@@ -139,7 +140,7 @@ void main() {
     );
   });
 
-  testWidgets('les six lignes s’alignent d’une colonne à l’autre', (
+  testWidgets('la carte empile mot, pastille Strong puis glose', (
     tester,
   ) async {
     await pumpGreek(tester);
@@ -147,21 +148,9 @@ void main() {
     double top(String t, {bool findRichText = false}) =>
         tester.getTopLeft(find.text(t, findRichText: findRichText).first).dy;
 
-    // La trame de l'ATI, inchangée : une cellule ne peut pas être plus haute
-    // que sa voisine.
-    expect(top('Βίβλος'), closeTo(top('γενέσεως'), .5));
-    expect(top('Βίβλος'), closeTo(top('˚Ἰησοῦ'), .5));
-    expect(
-      top('de genèse / de généalogie', findRichText: true),
-      closeTo(top('de Jésus'), .5),
-    );
-
-    // …et l'ordre des lignes, du haut de la colonne vers le bas.
-    expect(top('Βίβλος'), lessThan(top('βίβλος')));
-    expect(top('βίβλος'), lessThan(top('βιβλοσ')));
-    expect(top('βιβλοσ'), lessThan(top('976')));
+    // …et l'ordre des lignes, du haut de la carte vers le bas.
+    expect(top('Βίβλος'), lessThan(top('976')));
     expect(top('976'), lessThan(top('Livre')));
-    expect(top('Livre'), lessThan(top('N-NFS')));
   });
 
   testWidgets('la variante de glose est en italique à la suite de la glose', (
@@ -198,7 +187,9 @@ void main() {
     );
   });
 
-  testWidgets('le numéro Strong part en haut, sans sa lettre', (tester) async {
+  testWidgets('le numéro Strong part en pastille, sans sa lettre', (
+    tester,
+  ) async {
     await pumpGreek(tester);
 
     // Le `G` ne dit rien au lecteur — comme le `H` de l'ATI. Le champ brut
@@ -206,24 +197,20 @@ void main() {
     expect(find.text('976'), findsOneWidget);
     expect(find.text('G976'), findsNothing);
     expect(
-      tester.getTopLeft(find.text('βιβλοσ')).dy,
+      tester.getTopLeft(find.text('Βίβλος')).dy,
       lessThan(tester.getTopLeft(find.text('976')).dy),
-      reason: 'le Strong suit la Koinè et ouvre la glose',
+      reason: 'la pastille suit le mot et ouvre la glose',
     );
   });
 
-  testWidgets('glose rouge, étiquette verte, Strong bleu', (tester) async {
+  testWidgets('glose rouge, Strong bleu', (tester) async {
     await pumpGreek(tester);
 
-    // Les trois couleurs de la source, dans la variante du thème en cours.
+    // Les deux couleurs de la source, dans la variante du thème en cours.
     final theme = bibleThemes.first;
     expect(
       tester.widget<Text>(find.text('Livre')).style?.color,
       theme.glossColor,
-    );
-    expect(
-      tester.widget<Text>(find.text('N-NFS')).style?.color,
-      theme.grammarColor,
     );
     expect(
       tester.widget<Text>(find.text('976')).style?.color,

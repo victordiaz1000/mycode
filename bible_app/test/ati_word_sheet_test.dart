@@ -239,11 +239,10 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Mt. 1:1'), findsOneWidget);
-      // Les deux lignes de texte sont déjà en cellule : ce que la fiche
-      // ajoute, c'est leur nom — la grille, sans colonne d'étiquettes, ne
-      // les nomme plus.
-      expect(find.text('γένεσις'), findsWidgets);
-      expect(find.text('γενεσεωσ'), findsWidgets);
+      // La cellule ne montre que la forme imprimée : lemme et Koinè ne
+      // vivent que dans la fiche, qui les nomme.
+      expect(find.text('γένεσις'), findsOneWidget);
+      expect(find.text('γενεσεωσ'), findsOneWidget);
       // Une fois : en fiche, qui nomme — plus en grille.
       expect(find.text('Lemme'), findsOneWidget);
       expect(find.text('Koinè'), findsOneWidget);
