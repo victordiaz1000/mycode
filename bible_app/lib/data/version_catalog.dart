@@ -223,12 +223,13 @@ class VersionGroup {
 ///   host ([VersionEntry.urlTemplate], produced by
 ///   `appCodebar/ostervald_to_json.py` and `appCodebar/html_verses_to_json.py`),
 ///   plus the Septuaginta (SEF: grec + deux traductions françaises, Ancien
-///   Testament seul, produced by `sef/sef_to_json.py`) and the two
+///   Testament seul, produced by `sef/sef_to_json.py`), the two
 ///   interlinears of Biblia — the Ancien Testament Interlinéaire (ATI: sept
 ///   champs par mot hébreu, Ancien Testament seul, produced by
 ///   `ATI/ati_to_json.py`) and the Nouveau Testament Interlinéaire (NTI: six
 ///   rangées par mot grec, Nouveau Testament seul, produced by
-///   `NTI/nti_to_json.py`) ;
+///   `NTI/nti_to_json.py`) — and the Darby with Strong numbers (DBS: même
+///   moteur que la LSS, `DBS/dbs_to_json.py`, texte avec codes inline) ;
 /// - **unavailable** : copyright / sourceless versions shown greyed for parity
 ///   with the maquette (NBS, NEG79, NVS78P, S21).
 
@@ -395,6 +396,22 @@ const List<VersionGroup> versionCatalog = [
       rights: '1890 · Libre de droit',
       availability: VersionAvailability.downloadable,
       getbibleId: 'darby',
+    ),
+    VersionEntry(
+      code: 'DBS',
+      name: 'Bible Darby + Strong',
+      // Le Darby est libre de droit ; le taggage Strong vient de Biblia
+      // Universalis 3 — même mention que la LSS, sortie du même logiciel.
+      rights: '1890 · Libre de droit · corpus Biblia Universalis',
+      availability: VersionAvailability.downloadable,
+      // Même hébergement GitHub que OST / NCL / SEF / ATI / NTI, sous-dossier
+      // propre — produit par `DBS/dbs_to_json.py` depuis DBS.xml de Biblia
+      // Universalis 3. Schéma getbible nu, codes Strong inline (« Dieu H0430 »)
+      // comme la LSGS embarquée : `hasStrong` les rend cliquables dans la
+      // lecture, sans nouveau format — `bookFromGetbible` recopie le texte.
+      hasStrong: true,
+      urlTemplate:
+          'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/main/dbs/{book}.json',
     ),
     VersionEntry(
       code: 'MAR',
