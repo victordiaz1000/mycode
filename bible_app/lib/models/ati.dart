@@ -1,11 +1,13 @@
 /// Le modèle des interlinéaires de Biblia Universalis, mot à mot.
 ///
-/// Deux corpus le produisent, avec la même forme et les mêmes clés : l'ATI
-/// (Ancien Testament, hébreu — `ATI/ati_to_json.py`) et le NTI (Nouveau
-/// Testament, grec — `NTI/nti_to_json.py`). Ils n'ont ni le même canon ni la
-/// même mise en page, mais le même besoin : un corpus tokenisé mot par mot ne
-/// tient pas dans un [Verse], dont `text` est une chaîne. Le modèle garde la
-/// donnée complète ; `bookFromAti` l'aplatit pour la recherche, le partage et
+/// Trois corpus le produisent, avec la même forme et les mêmes clés : l'ATI
+/// (Ancien Testament, hébreu — `ATI/ati_to_json.py`), le NTI (Nouveau
+/// Testament, grec — `NTI/nti_to_json.py`) et la SES (Ancien Testament, grec
+/// de la Septante avec Strong et analyse, sans français —
+/// `SES/ses_to_json.py`). Ils n'ont ni le même canon ni la même mise en
+/// page, mais le même besoin : un corpus tokenisé mot par mot ne tient pas
+/// dans un [Verse], dont `text` est une chaîne. Le modèle garde la donnée
+/// complète ; `bookFromAti` l'aplatit pour la recherche, le partage et
 /// Comparer.
 ///
 /// Les champs hébreux et les champs grecs ne se recouvrent pas : l'un a

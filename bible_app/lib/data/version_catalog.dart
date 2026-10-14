@@ -226,10 +226,12 @@ class VersionGroup {
 ///   Testament seul, produced by `sef/sef_to_json.py`), the two
 ///   interlinears of Biblia — the Ancien Testament Interlinéaire (ATI: sept
 ///   champs par mot hébreu, Ancien Testament seul, produced by
-///   `ATI/ati_to_json.py`) and the Nouveau Testament Interlinéaire (NTI: six
+///   `ATI/ati_to_json.py`), the Nouveau Testament Interlinéaire (NTI: six
 ///   rangées par mot grec, Nouveau Testament seul, produced by
-///   `NTI/nti_to_json.py`) — and the Darby with Strong numbers (DBS: même
-///   moteur que la LSS, `DBS/dbs_to_json.py`, texte avec codes inline) ;
+///   `NTI/nti_to_json.py`) and the Septuaginta with Strong numbers (SES:
+///   grec mot à mot avec Strong et analyse, sans français, Ancien Testament
+///   seul, Psaume 151 compris, produced by `SES/ses_to_json.py`) — and the
+///   Darby with Strong numbers (DBS: même moteur que la LSS, `DBS/dbs_to_json.py`, texte avec codes inline) ;
 /// - **unavailable** : copyright / sourceless versions shown greyed for parity
 ///   with the maquette (NBS, NEG79, NVS78P, S21).
 
@@ -472,6 +474,29 @@ const List<VersionGroup> versionCatalog = [
       otOnly: true,
       urlTemplate:
           'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/main/sef/{book}.json',
+    ),
+    VersionEntry(
+      code: 'SES',
+      name: 'Septuaginta — grec + Strong',
+      // Le corpus vient de Biblia Universalis 3, qui le signe : même mention
+      // que l'ATI, sortie du même logiciel.
+      rights: '© Biblia Universalis',
+      availability: VersionAvailability.downloadable,
+      // Même hébergement GitHub, sous-dossier propre — produit par
+      // `SES/ses_to_json.py` depuis SES.xml de Biblia Universalis 3. Grec
+      // mot à mot avec Strong et analyse morphologique, sans un mot de
+      // français : même schéma et même format que l'ATI et le NTI, troisième
+      // interlinéaire de la Bibliothèque. Ancien Testament seul, Psaume 151
+      // compris (151 chapitres aux Psaumes).
+      //
+      // `hasStrong` reste faux pour la même raison que sur l'ATI : le drapeau
+      // décrit le texte aplati, où `bookFromAti` ne joint que des gloses
+      // françaises — ici il n'y en a aucune. Les numéros restent cliquables
+      // par le rendu interlinéaire, qui lit les mots, pas la chaîne.
+      format: VersionFormat.ati,
+      otOnly: true,
+      urlTemplate:
+          'https://raw.githubusercontent.com/victordiaz1000/-bym-bibles/main/ses/{book}.json',
     ),
     VersionEntry(
       code: 'KJV',
