@@ -231,7 +231,7 @@ void main() {
     /// The screen wired to [store], with an engine reading the same one.
     Widget app(FakeStore store) => MaterialApp(
           home: SearchScreen(
-            onOpenReading: (_, _, {verse}) {},
+            onOpenReading: (_, _, {verse, versionCode}) {},
             engine: SearchEngine(ambientDatabase: false, versions: useStore(store)),
             store: store,
           ),
@@ -291,7 +291,7 @@ void main() {
       var opened = 0;
       await tester.pumpWidget(MaterialApp(
         home: SearchScreen(
-          onOpenReading: (_, _, {verse}) {},
+          onOpenReading: (_, _, {verse, versionCode}) {},
           engine: SearchEngine(
               ambientDatabase: false, versions: useStore(FakeStore({}))),
           store: FakeStore({}),
@@ -309,6 +309,73 @@ void main() {
       await tester.tap(find.text('Bibliothèque'));
       await tester.pumpAndSettle();
       expect(opened, 1);
+    });
+
+    testWidgets('a passage hit opens in the filtered version', (tester) async {
+      // Cherché en Darby, ouvert en Darby : le lecteur montre le texte qui
+      // était sous les yeux, pas celui de la version de lecture en cours.
+      final opened = <String?>[];
+      await tester.pumpWidget(MaterialApp(
+        home: SearchScreen(
+          onOpenReading: (_, _, {verse, versionCode}) =>
+              opened.add(versionCode),
+          engine: SearchEngine(
+              ambientDatabase: false, versions: useStore(darbyPartial())),
+          store: darbyPartial(),
+        ),
+      ));
+      await tester.pumpAndSettle();
+      await openVersionMenu(tester);
+      await tapVersion(tester, 'DBY');
+      await type(tester, 'téléchargé');
+
+      await tester.ensureVisible(find.text('Genèse 1:1').first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Genèse 1:1').first);
+      await tester.pumpAndSettle();
+
+      expect(opened, ['DBY']);
+    });
+
+    testWidgets('a reference hit opens in the version of its badge',
+        (tester) async {
+      final opened = <String?>[];
+      Future<void> pump() => tester.pumpWidget(MaterialApp(
+            home: SearchScreen(
+              onOpenReading: (_, _, {verse, versionCode}) =>
+                  opened.add(versionCode),
+              engine: SearchEngine(
+                  ambientDatabase: false, versions: useStore(darbyPartial())),
+              store: darbyPartial(),
+            ),
+          ));
+
+      // Genèse est téléchargée : la carte porte son badge DBY, la lecture
+      // s'ouvre dedans.
+      await pump();
+      await tester.pumpAndSettle();
+      await openVersionMenu(tester);
+      await tapVersion(tester, 'DBY');
+      await type(tester, 'Genèse 1:1');
+
+      // Scopé à la liste : le champ porte la même chaîne, sans rien ouvrir.
+      Finder inResults(String text) => find.descendant(
+            of: find.byKey(resultListKey),
+            matching: find.text(text),
+          );
+      await tester.tap(inResults('Genèse 1:1').first);
+      await tester.pumpAndSettle();
+      expect(opened, ['DBY']);
+
+      // Exode ne l'est pas : la carte est retombée sur la BYM et le dit —
+      // libellé en hébreu, badge BYM. La lecture s'ouvre sur ce qui est
+      // montré, pas sur le filtre.
+      opened.clear();
+      await type(tester, 'Exode 1:1');
+
+      await tester.tap(inResults('Shemot 1:1').first);
+      await tester.pumpAndSettle();
+      expect(opened, [VersionRepository.embeddedCode]);
     });
 
     testWidgets('the footer does not change the version filter', (tester) async {

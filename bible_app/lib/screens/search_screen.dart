@@ -75,7 +75,13 @@ const Key resultListKey = ValueKey('search-result-list');
 class SearchScreen extends StatefulWidget {
   /// Opens a chapter in a reading tab (and optionally jumps to a verse),
   /// then switches to the Lecture destination.
-  final void Function(int bookIndex, int chapter, {int? verse}) onOpenReading;
+  ///
+  /// [versionCode] names the version to read in — the search filter's when a
+  /// result is opened, so the reader shows the text that was searched. Null
+  /// keeps the previous behaviour (the tab manager falls back to the active
+  /// tab's version).
+  final void Function(int bookIndex, int chapter, {int? verse, String? versionCode})
+      onOpenReading;
 
   /// Engine to search with. Injectable for tests: the default one reaches
   /// [AppDatabase], whose path_provider call never completes inside the
@@ -360,7 +366,14 @@ class _SearchScreenState extends State<SearchScreen> {
       return;
     }
     if (!hit.canOpen) return;
-    widget.onOpenReading(hit.bookIndex!, hit.chapter!, verse: hit.verse);
+    // Le lecteur s'ouvre sur la version filtrée : c'est son texte qui est
+    // montré dans le résultat, pas celui de la version de lecture en cours.
+    widget.onOpenReading(
+      hit.bookIndex!,
+      hit.chapter!,
+      verse: hit.verse,
+      versionCode: _filters.versionCode,
+    );
   }
 
   /// Opens a downloaded dictionary hit in the generic fiche of its dictionary.
@@ -517,6 +530,10 @@ class _SearchScreenState extends State<SearchScreen> {
         reference.bookIndex,
         reference.chapter,
         verse: reference.verse,
+        // La carte porte déjà sa version effective — celle du filtre, ou la
+        // BYM quand le livre filtré n'est pas téléchargé : ouvrir dedans,
+        // c'est ouvrir ce qui est montré.
+        versionCode: reference.versionCode,
       ),
       onExpand: _expand,
     );

@@ -16,6 +16,7 @@ import 'package:bible_app/data/lsgs_repository.dart';
 import 'package:bible_app/data/search_engine.dart';
 import 'package:bible_app/data/strong_lexicon.dart';
 import 'package:bible_app/data/strong_occurrences.dart';
+import 'package:bible_app/data/version_repository.dart';
 import 'package:bible_app/screens/search_screen.dart';
 import 'package:bible_app/screens/strong_detail_screen.dart';
 
@@ -59,12 +60,12 @@ void main() {
   /// path_provider's channel never answers inside the fake-async zone, so an
   /// ambient [AppDatabase] would hang the search instead of failing fast.
   Widget app({
-    void Function(int, int, {int? verse})? onOpen,
+    void Function(int, int, {int? verse, String? versionCode})? onOpen,
     DictionaryStore? dictionaryStore,
   }) =>
       MaterialApp(
         home: SearchScreen(
-          onOpenReading: onOpen ?? (_, _, {verse}) {},
+          onOpenReading: onOpen ?? (_, _, {verse, versionCode}) {},
           engine: SearchEngine(
             ambientDatabase: false,
             dictionaries: dictionaryStore,
@@ -203,10 +204,10 @@ void main() {
   });
 
   testWidgets('tapping a result opens its chapter and verse', (tester) async {
-    final opened = <({int book, int chapter, int? verse})>[];
+    final opened = <({int book, int chapter, int? verse, String? code})>[];
     await tester.pumpWidget(app(
-      onOpen: (book, chapter, {verse}) =>
-          opened.add((book: book, chapter: chapter, verse: verse)),
+      onOpen: (book, chapter, {verse, versionCode}) => opened.add(
+          (book: book, chapter: chapter, verse: verse, code: versionCode)),
     ));
 
     await type(tester, 'verset');
@@ -217,6 +218,8 @@ void main() {
     expect(opened.first.book, 1);
     expect(opened.first.chapter, 1);
     expect(opened.first.verse, 1);
+    // Filtre par défaut : la BYM, celle qui est cherchée et montrée.
+    expect(opened.first.code, VersionRepository.embeddedCode);
   });
 
   testWidgets('a reference query gets its own « Référence biblique » section',
@@ -237,7 +240,7 @@ void main() {
     addTearDown(request.dispose);
     await tester.pumpWidget(MaterialApp(
       home: SearchScreen(
-        onOpenReading: (_, _, {verse}) {},
+        onOpenReading: (_, _, {verse, versionCode}) {},
         engine: SearchEngine(ambientDatabase: false),
         request: request,
       ),
@@ -256,7 +259,7 @@ void main() {
     addTearDown(request.dispose);
     await tester.pumpWidget(MaterialApp(
       home: SearchScreen(
-        onOpenReading: (_, _, {verse}) {},
+        onOpenReading: (_, _, {verse, versionCode}) {},
         engine: SearchEngine(ambientDatabase: false),
         request: request,
       ),
@@ -367,7 +370,7 @@ void main() {
 
     final opened = <(int, int, int)>[];
     await tester.pumpWidget(
-        app(onOpen: (b, c, {verse}) => opened.add((b, c, verse!))));
+        app(onOpen: (b, c, {verse, versionCode}) => opened.add((b, c, verse!))));
     await type(tester, 'H0001');
     await tapChip(tester, 'Strong');
     await tester.pumpAndSettle();
@@ -616,7 +619,7 @@ void main() {
 
     await tester.pumpWidget(MaterialApp(
       home: SearchScreen(
-        onOpenReading: (_, _, {verse}) {},
+        onOpenReading: (_, _, {verse, versionCode}) {},
         engine: engine,
         dictionaryStore: FakeDictionaryStore(const {}),
       ),

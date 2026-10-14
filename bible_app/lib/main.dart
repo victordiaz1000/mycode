@@ -258,12 +258,15 @@ class _HomeShellState extends State<HomeShell> {
     _persistDestination(d.index);
   }
 
-  void _openReading(int b, int c, {int? verse}) {
+  void _openReading(int b, int c, {int? verse, String? versionCode}) {
     // Le verset demandé suit la position JUSQUE DANS L'ONGLET : sans lui, un
     // onglet naît sans position et seul le rapporteur d'estimation du lecteur
     // (imprécis, basé sur le haut du viewport) enregistre où l'on devait se
     // trouver — la référence tapée ressuscitait alors ailleurs.
-    _manager.openReading(b, c, verse: verse);
+    //
+    // La version demandée suit avec : un résultat cherché en Darby s'ouvre en
+    // Darby (nulle, le gestionnaire retombe sur l'onglet actif, comme avant).
+    _manager.openReading(b, c, versionCode: versionCode, verse: verse);
     _jumpToVerse.value = verse == null
         ? null
         : VerseTarget(bookIndex: b, chapter: c, verse: verse);
