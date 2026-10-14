@@ -86,14 +86,17 @@ void main() {
     await tester.pumpAndSettle();
 
     // La feuille s'ouvre, et son bouton Lexique est actif — plus de ligne
-    // « Disponible depuis le texte BYM. ».
+    // « Disponible depuis les textes BYM et Darby. ».
     expect(find.text('Références'), findsOneWidget);
     final bouton = tester.widget<OutlinedButton>(find.widgetWithText(
       OutlinedButton,
       'Lexique & Dictionnaire — verset mot à mot',
     ));
     expect(bouton.onPressed, isNotNull);
-    expect(find.text('Disponible depuis le texte BYM.'), findsNothing);
+    expect(
+      find.text('Disponible depuis les textes BYM et Darby.'),
+      findsNothing,
+    );
   });
 
   testWidgets("en Darby, l'étude s'ouvre sur le corpus Darby", (tester) async {

@@ -307,7 +307,10 @@ void main() {
 
     // Et la raison, écrite : gris seul, le lecteur voit que c'est fermé sans
     // savoir pourquoi ni comment l'ouvrir.
-    expect(find.text('Disponible depuis le texte BYM.'), findsOneWidget);
+    expect(
+      find.text('Disponible depuis les textes BYM et Darby.'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('actif, il garde l’accent doré et ne s’excuse pas', (
@@ -333,7 +336,10 @@ void main() {
           .color,
       p.primary,
     );
-    expect(find.text('Disponible depuis le texte BYM.'), findsNothing);
+    expect(
+      find.text('Disponible depuis les textes BYM et Darby.'),
+      findsNothing,
+    );
   });
 
   testWidgets('the Lexique button carries a precise name when enabled', (

@@ -301,7 +301,7 @@ class _StudySheetState extends State<_StudySheet> {
             // les deux états ; cette ligne dit la seule chose qu'il ne dit pas —
             // d'où elle s'ouvre.
             Text(
-              'Disponible depuis le texte BYM.',
+              'Disponible depuis les textes BYM et Darby.',
               textAlign: TextAlign.center,
               style: premiumText(context, 11.5, FontWeight.w600, p.textGrey),
             ),

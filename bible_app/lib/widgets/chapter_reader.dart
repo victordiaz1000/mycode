@@ -1429,9 +1429,9 @@ class _ChapterReaderState extends State<ChapterReader> {
       lexiqueEnabled: lexiqueEnabled,
       // Le même libellé dans les deux états : il nomme la *fonction*, et la
       // feuille dit la disponibilité — grisé, plus une ligne « Disponible depuis
-      // le texte BYM. ». Le libellé désactivé disait « — version BYM », ce qui
-      // répétait cette ligne et laissait le lecteur sans savoir ce que le bouton
-      // ouvre.
+      // les textes BYM et Darby. ». Le libellé désactivé disait « — version BYM »,
+      // ce qui répétait cette ligne et laissait le lecteur sans savoir ce que le
+      // bouton ouvre.
       lexiqueLabel: 'Lexique & Dictionnaire — verset mot à mot',
       onHighlight: (color) => _applyHighlight(vn, color),
       onFavorite: (value) => _applyFavorite(vn, value),
