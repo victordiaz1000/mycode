@@ -278,6 +278,12 @@ void main() {
     expect(find.text('Moderne'), findsNothing);
     expect(find.text('Koinè'), findsNothing);
     expect(find.text('7225'), findsOneWidget);
+    // La carte hébraïque garde sa translittération — sans elle, qui ne lit
+    // pas l'alphabet n'aurait que des carrés — mais plus son étiquette :
+    // elle vit dans la fiche.
+    expect(find.text('bə·rê·šîṯ'), findsOneWidget);
+    expect(find.text('Nom'), findsNothing);
+    expect(find.text('Verbe'), findsNothing);
   });
 
   testWidgets('sans mots, le verset garde sa ligne de gloses', (tester) async {

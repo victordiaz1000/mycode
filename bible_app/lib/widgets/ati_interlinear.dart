@@ -4,26 +4,23 @@ import '../data/theme_catalog.dart';
 import '../models/ati.dart';
 import 'verse_tile.dart';
 
-/// L'interlinéaire de Biblia : un verset en colonnes de mots, aligné en lignes
-/// comme la source l'imprime.
+/// L'interlinéaire de Biblia : un verset en cartes de mots, une par mot,
+/// dans le sens de sa langue — l'hébreu part de la droite, le grec de la
+/// gauche.
 ///
-/// Deux grilles, une seule trame. L'ATI (hébreu) empile **cinq lignes** de
-/// droite à gauche ; le NTI (grec) en empile **six** de gauche à droite. La
-/// trame ne change pas : cellule sur lignes de hauteur fixe, filet entre les
-/// voisines, gouttière du numéro dehors. Ce qui change, c'est le sens et le
-/// nombre de lignes.
+/// Chaque carte dit l'essentiel : le mot en gras, son numéro Strong en
+/// pastille, puis sa translittération (hébreu seul) et sa glose quand il en
+/// porte. Le reste — lemme, Koinè, étiquette, analyse développée — vit dans
+/// la fiche qu'ouvre le tap, pas dans la grille : c'est ce qui rend la
+/// lecture respirable au lieu d'un tableau de six rangées.
 ///
 /// La maquette de l'ATI suit l'écran « Interlinéaire » de Biblia Universalis
 /// (capture du 04/10/2026, `Downloads/capture`, Genèse 1:3-4) ; celle du NTI,
-/// l'écran du même logiciel sur Matthieu 1:1-3, six rangées étiquetées.
+/// l'écran du même logiciel sur Matthieu 1:1-3 — allégées toutes deux en
+/// cartes, sans la colonne d'étiquettes de la source.
 ///
-/// **Les hauteurs sont constantes d'une cellule à l'autre** : c'est ce qui
-/// aligne les lignes d'un bout à l'autre du verset, une colonne ne pouvant
-/// pas être plus haute que sa voisine. Un champ absent **réserve** sa ligne
-/// au lieu de la supprimer — sinon un mot à marqueur (glose `*`, 7 % du corpus
-/// hébreu) ferait remonter les suivants et le verset se désalignerait sur ses
-/// propres mots. La glose est bornée à une ligne : une glose qui en ferait
-/// deux ferait sauter l'alignement de tout ce qui suit.
+/// La glose est bornée à une ligne : une glose qui en ferait deux casserait
+/// la régularité des cartes.
 ///
 /// Couleurs calquées sur la source : le rouge de la glose, le vert de
 /// l'étiquette, le bleu du Strong — chacune dans sa variante selon le thème de
@@ -106,12 +103,10 @@ class AtiInterlinear extends StatelessWidget {
       // première colonne tombe donc à droite ; le grec de la gauche.
       textDirection: grec ? TextDirection.ltr : TextDirection.rtl,
       child: Wrap(
-        // Des cartes posées côte à côte côté grec, pas un tableau : un blanc
-        // les sépare, et chacune prend sa hauteur naturelle. L'hébreu garde
-        // ses filets jointifs — ni espacement horizontal ni vertical, sinon
-        // le tableau se lirait en colonnes isolées.
-        spacing: grec ? 3 * rhythm.s : 0.0,
-        runSpacing: grec ? 3 * rhythm.s : 0.0,
+        // Des cartes posées côte à côte, pas un tableau : un blanc les
+        // sépare, et chacune prend sa hauteur naturelle.
+        spacing: 3 * rhythm.s,
+        runSpacing: 3 * rhythm.s,
         // Haut de cellule contre haut de cellule : le retour à la ligne d'un
         // verset long garde la même trame que sa première ligne.
         crossAxisAlignment: WrapCrossAlignment.start,
@@ -128,13 +123,6 @@ class AtiInterlinear extends StatelessWidget {
                 : _WordCell(
                     word: word,
                     mainStyle: mainStyle,
-                    lignes: _Lignes(
-                      strong: base * .62 * _interligne,
-                      translit: base * .68 * _interligne,
-                      hebreu: base * 1.5 * _interligne,
-                      glose: base * .95 * _interligne,
-                      grammaire: base * .62 * _interligne,
-                    ),
                     gap: rhythm.s,
                     theme: theme,
                     onTap: onWordTap == null ? null : () => onWordTap!(word),
@@ -145,38 +133,10 @@ class AtiInterlinear extends StatelessWidget {
   }
 }
 
-/// Les cinq hauteurs de ligne de l'ATI, une par niveau : un simple paquet de
-/// `double`, produit de `rhythm.fontSize` par le widget, pour que les cinq
-/// circulent ensemble d'une cellule à l'autre.
-class _Lignes {
-  _Lignes({
-    required this.strong,
-    required this.translit,
-    required this.hebreu,
-    required this.glose,
-    required this.grammaire,
-  });
-
-  final double strong;
-  final double translit;
-  final double hebreu;
-  final double glose;
-  final double grammaire;
-}
-
-/// Une ligne de cellule : hauteur donnée, contenu posé dedans — ou rien, mais
-/// **la hauteur est quand même posée**, sinon les lignes suivantes
-/// remonteraient dans cette cellule-là seulement (c'est ce qui tient la
-/// grille hébraïque alignée d'un mot à l'autre).
-///
-/// Pas d'`Align` : la boîte a exactement la hauteur du texte qu'elle
-/// contient (`corps × interligne` des deux côtés), et un `Align` non borné
-/// s'alignerait sur la largeur maximale de la contrainte — chaque cellule
-/// prendrait toute la ligne et les colonnes s'empileraient.
-Widget _ligne(double hauteur, Widget? contenu) =>
-    SizedBox(height: hauteur, child: contenu);
-
-/// Le haut de la colonne : `7225` puis, quand le mot en porte une, la
+/// Le haut de la pastille : `7225` puis, quand le mot en porte une, la
+/// flèche et l'identifiant de glossaire (`▶n12`) — comme la source les
+/// imprime sur la même ligne. Le préfixe du Strong saute (`H`, `G`) : la
+/// source n'imprime que le nombre, et la lettre ne dit rien au lecteur.
 /// flèche et l'identifiant de glossaire (`▶n12`) — comme la source les
 /// imprime sur la même ligne. Le préfixe du Strong saute (`H`, `G`) : la
 /// source n'imprime que le nombre, et la lettre ne dit rien au lecteur.
@@ -260,14 +220,17 @@ Widget _gloseFrancaise(
   );
 }
 
-/// Un mot, empilé sur lui-même et centré sur sa propre largeur : la cellule
-/// prend la largeur de son niveau le plus large, qui n'est pas la même d'un
-/// mot à l'autre (« En un commencement » face à « et »).
+/// Un mot hébreu en carte aérée : le mot en gras, son numéro Strong en
+/// pastille, sa translittération puis sa glose — et rien d'autre.
+///
+/// Même pacte que la carte grecque : l'étiquette grammaticale et l'analyse
+/// développée vivent dans la fiche qu'ouvre le tap, pas dans la grille. La
+/// translittération, elle, reste : sans elle, qui ne lit pas l'alphabet
+/// hébreu n'aurait que des carrés vaguement familiers.
 class _WordCell extends StatelessWidget {
   const _WordCell({
     required this.word,
     required this.mainStyle,
-    required this.lignes,
     required this.gap,
     required this.theme,
     this.onTap,
@@ -275,30 +238,22 @@ class _WordCell extends StatelessWidget {
 
   final AtiWord word;
   final TextStyle mainStyle;
-  final _Lignes lignes;
   final double gap;
   final BibleTheme theme;
 
   /// Ouvre la fiche du mot — `null` quand personne ne l'attend.
   final VoidCallback? onTap;
 
-  /// Le haut de la colonne : numéro Strong et renvoi de glossaire. Définition
-  /// partagée avec la cellule grecque, qui n'en a que le premier — voir
-  /// [_hautDuMot].
-  Widget _haut() => _hautDuMot(word, mainStyle, theme, gap);
-
   @override
   Widget build(BuildContext context) {
     final glose = word.readableGloss;
 
-    // Un mot sans aucun champ : rien à dessiner, jamais un rectangle vide ni
-    // un filet isolé.
-    if (word.strong == null &&
+    // Un mot sans rien à montrer : jamais une carte vide.
+    if (word.hebrew == null &&
         word.translit == null &&
-        word.hebrew == null &&
-        glose == null &&
-        word.grammar == null &&
-        word.note == null) {
+        word.strong == null &&
+        word.note == null &&
+        glose == null) {
       return const SizedBox.shrink();
     }
 
@@ -310,98 +265,96 @@ class _WordCell extends StatelessWidget {
       color: couleur,
     );
 
-    final cell = Container(
-      padding: EdgeInsets.symmetric(horizontal: 5 * gap, vertical: 2 * gap),
-      // Filet en tête de cellule : dans un flux de droite à gauche, le « début »
-      // est à droite, donc le trait tombe entre chaque mot et celui qui le
-      // précède — un tableau, pas des colonnes qui se touchent.
+    // Numéro Strong et renvoi de glossaire (`▶n12`) sur la même pastille :
+    // [_hautDuMot] ne dessine rien quand le mot n'en porte ni l'un ni l'autre.
+    final haut = _hautDuMot(word, mainStyle, theme, gap);
+
+    final carte = Container(
+      padding: EdgeInsets.symmetric(horizontal: 4 * gap, vertical: 2 * gap),
       decoration: BoxDecoration(
-        border: BorderDirectional(
-          start: BorderSide(color: theme.columnRuleColor, width: .8),
-        ),
+        border: Border.all(color: theme.columnRuleColor, width: .8),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _ligne(lignes.strong, _haut()),
-          _ligne(
-            lignes.translit,
-            word.translit == null
-                ? null
-                : Text(
-                    word.translit!,
-                    textDirection: TextDirection.ltr,
-                    textAlign: TextAlign.center,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    // Gris de lecture, pas l'accent : la translittération
-                    // se lit après l'hébreu, elle ne doit pas rivaliser.
-                    style: ligne(
-                      base * .68,
-                      theme.textColor.withValues(alpha: .78),
-                    ),
-                  ),
-          ),
-          _ligne(
-            lignes.hebreu,
-            word.hebrew == null
-                ? null
-                : Text(
-                    word.hebrew!,
-                    textDirection: TextDirection.rtl,
-                    textAlign: TextAlign.center,
-                    maxLines: 1,
-                    style: ligne(
-                      base * 1.5,
-                      theme.textColor,
-                    ).copyWith(fontFamily: AtiInterlinear.cardoFamily),
-                  ),
-          ),
-          _ligne(
-            lignes.glose,
-            glose == null
-                ? null
-                : _gloseFrancaise(
-                    glose,
-                    word.readableVariant,
-                    ligne(base * .95, theme.glossColor),
-                  ),
-          ),
-          _ligne(
-            lignes.grammaire,
-            word.grammar == null
-                ? null
-                : Text(
-                    word.grammar!,
-                    textDirection: TextDirection.ltr,
-                    textAlign: TextAlign.center,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: ligne(base * .62, theme.grammarColor),
-                  ),
-          ),
+          if (word.hebrew != null)
+            Text(
+              word.hebrew!,
+              textDirection: TextDirection.rtl,
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: ligne(
+                base * 1.4,
+                theme.textColor,
+              ).copyWith(
+                fontFamily: AtiInterlinear.cardoFamily,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          if (word.strong != null || word.note != null)
+            Container(
+              margin: EdgeInsets.only(top: gap),
+              padding: EdgeInsets.symmetric(
+                horizontal: 2 * gap,
+                vertical: gap / 2,
+              ),
+              decoration: BoxDecoration(
+                color: theme.strongColor.withValues(alpha: .12),
+                borderRadius: BorderRadius.circular(999),
+              ),
+              child: haut,
+            ),
+          if (word.translit != null)
+            Padding(
+              padding: EdgeInsets.only(top: gap),
+              child: Text(
+                word.translit!,
+                textDirection: TextDirection.ltr,
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                // Gris de lecture, pas l'accent : la translittération
+                // se lit après l'hébreu, elle ne doit pas rivaliser.
+                style: ligne(
+                  base * .68,
+                  theme.textColor.withValues(alpha: .78),
+                ),
+              ),
+            ),
+          if (glose != null)
+            Padding(
+              padding: EdgeInsets.only(top: gap),
+              child: _gloseFrancaise(
+                glose,
+                word.readableVariant,
+                ligne(base * .85, theme.glossColor),
+              ),
+            ),
         ],
       ),
     );
 
-    if (onTap == null) return cell;
-    // Cellule cliquable sur toute sa hauteur : c'est le **mot** qu'on demande
+    if (onTap == null) return carte;
+    // Carte cliquable sur toute sa hauteur : c'est le **mot** qu'on demande
     // à voir, pas l'un de ses champs. L'appui ne déforme rien au rendu — sans
-    // tap, pas d'encre, la colonne reste telle qu'imprimée.
-    return InkWell(onTap: onTap, child: cell);
+    // tap, pas d'encre, la carte reste telle qu'imprimée.
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(10),
+      child: carte,
+    );
   }
 }
 
 /// Un mot grec en carte aérée : le mot en gras, son numéro Strong en
 /// pastille, sa glose quand il en porte une — et rien d'autre.
 ///
-/// Même trame que la cellule hébraïque, en plus léger : là où l'hébreu empile
-/// cinq lignes de hauteur fixe (l'alignement d'un bout à l'autre du verset),
-/// le grec pose une carte par mot, à hauteur naturelle. Lemme, Koinè et
-/// analyse vivent dans la fiche qu'ouvre le tap, pas dans la grille : c'est
-/// ce qui rend la lecture respirable, SES surtout, dont trois rangées sur six
-/// resteraient sinon vides.
+/// Même trame que la cellule hébraïque : deux cartes à hauteur naturelle.
+/// Lemme, Koinè et analyse vivent dans la fiche qu'ouvre le tap, pas dans
+/// la grille : c'est ce qui rend la lecture respirable, SES surtout, dont
+/// trois rangées sur six resteraient sinon vides.
 class _CelluleGrecque extends StatelessWidget {
   const _CelluleGrecque({
     required this.word,
