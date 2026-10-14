@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:bible_app/data/app_database.dart';
 import 'package:bible_app/data/app_preferences.dart';
 import 'package:bible_app/data/fredaw_lexicon.dart';
 import 'package:bible_app/data/local_repository.dart';
 import 'package:bible_app/data/strong_lexicon.dart';
 import 'package:bible_app/data/version_repository.dart';
 import 'package:bible_app/widgets/chapter_reader.dart';
+import 'package:bible_app/widgets/verse_tile.dart';
 
 import 'reader_version_test.dart' show FakeStore;
 import 'support/fake_bible_bundle.dart';
@@ -18,6 +20,26 @@ import 'version_repository_test.dart' show getbibleBook;
 /// En lecture Darby, la feuille d'étude ouvre son Lexique — grisé avant, il
 /// ne l'est plus — et l'étude s'ouvre sur le corpus Darby quand il est
 /// téléchargé : le corpus suit la version lue.
+/// AppDatabase en mémoire pour les tests : de simples microtâches, pas
+/// d'isolate FFI ni de path_provider — leurs futurs se terminent dans la zone
+/// fake-async de `testWidgets` (même motif que `favoris_screen_test`).
+class _HighlightDb extends AppDatabase {
+  _HighlightDb(this.marks);
+
+  /// Verset → couleur, tels que `highlightsInChapter` les rend.
+  final Map<int, String> marks;
+
+  @override
+  Future<Map<int, String>> highlightsInChapter(int book, int chapter) async =>
+      marks;
+
+  @override
+  Future<Set<int>> favoritesInChapter(int book, int chapter) async => const {};
+
+  @override
+  Future<Set<int>> notesInChapter(int book, int chapter) async => const {};
+}
+
 void main() {
   /// Un livre DBS tel que `DBS/dbs_to_json.py` l'écrit : schéma getbible nu,
   /// codes Strong inline dans le texte.
@@ -68,6 +90,8 @@ void main() {
     Map<String, Map<int, Map<String, dynamic>>>? books,
     required String registre,
     VoidCallback? onOpenLibrary,
+    AppDatabase? db,
+    String initialVersionCode = 'DBY',
   }) async {
     // Le registre tel que la Bibliothèque l'écrit — c'est lui qui dit si la
     // DBS est là, pas les textes du faux store.
@@ -77,9 +101,10 @@ void main() {
         body: ChapterReader(
           bookIndex: 1,
           chapter: 1,
-          initialVersionCode: 'DBY',
+          initialVersionCode: initialVersionCode,
           store: FakeStore(books ?? lesDeuxDarby()),
           onOpenLibrary: onOpenLibrary,
+          db: db,
         ),
       ),
     ));
@@ -162,5 +187,63 @@ void main() {
     await tester.tap(find.text('Bibliothèque'));
     await tester.pumpAndSettle();
     expect(opened, 1);
+  });
+
+  testWidgets("sur la DBS, le tap verset n'ouvre rien", (tester) async {
+    await pumpDarby(
+      tester,
+      registre: '{"DBY":[1],"DBS":[1]}',
+      initialVersionCode: 'DBS',
+    );
+
+    // Le texte est bien là, codes Strong compris : ce n'est pas une version
+    // manquante qui rendrait le test muet (le verset tient dans un RichText).
+    expect(find.textContaining('H0430', findRichText: true), findsOneWidget);
+
+    // Le numéro du verset, hors du texte : le tap rejoint la tuile — et n'y
+    // ouvre ni la feuille d'étude, ni même l'extrait d'un code.
+    await tester.tap(find.descendant(
+      of: find.byType(VerseTile),
+      matching: find.text('1'),
+    ));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Références'), findsNothing);
+    expect(find.text('Ge. 1:1'), findsNothing);
+    expect(find.text('Voir la fiche complète'), findsNothing);
+  });
+
+  testWidgets("le surlignage reste servi en Darby nue", (tester) async {
+    final db = _HighlightDb({1: '#fff3b0'});
+
+    await pumpDarby(
+      tester,
+      registre: '{"DBY":[1],"DBS":[1]}',
+      db: db,
+    );
+
+    // Témoin : hors version Strong, le surlignage enregistré est servi.
+    final liste =
+        tester.widget<ChapterVerseList>(find.byType(ChapterVerseList));
+    expect(liste.highlightOf, isNotNull);
+    expect(liste.highlightOf!(1), '#fff3b0');
+  });
+
+  testWidgets("le surlignage ne se montre pas sur les versions Strong",
+      (tester) async {
+    final db = _HighlightDb({1: '#fff3b0'});
+
+    await pumpDarby(
+      tester,
+      registre: '{"DBY":[1],"DBS":[1]}',
+      db: db,
+      initialVersionCode: 'DBS',
+    );
+
+    // La liste ne reçoit rien à montrer — tuiles comme texte continu lisent
+    // le même callback.
+    final liste =
+        tester.widget<ChapterVerseList>(find.byType(ChapterVerseList));
+    expect(liste.highlightOf, isNull);
   });
 }

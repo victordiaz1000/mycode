@@ -105,6 +105,11 @@ class ChapterReader extends StatefulWidget {
   /// completes inside the `testWidgets` fake-async zone.
   final LibraryStore? store;
 
+  /// Where highlights, favorites and notes are read from. Same contract as
+  /// [store]: the real base goes through `path_provider`, unanswered under
+  /// `testWidgets` — injectable so a test can seed user data from memory.
+  final AppDatabase? db;
+
   const ChapterReader({
     super.key,
     required this.bookIndex,
@@ -119,6 +124,7 @@ class ChapterReader extends StatefulWidget {
     this.onOpenLibrary,
     this.onOpenSettings,
     this.store,
+    this.db,
   });
 
   @override
@@ -128,7 +134,7 @@ class ChapterReader extends StatefulWidget {
 class _ChapterReaderState extends State<ChapterReader> {
   late final LibraryStore _library = widget.store ?? LibraryStore();
   late final VersionRepository _versions = VersionRepository(store: _library);
-  final AppDatabase _db = AppDatabase();
+  late final AppDatabase _db = widget.db ?? AppDatabase();
 
   late Future<BibleBook> _bookFuture;
   AppPreferences _prefs = AppPreferences();
@@ -1248,7 +1254,12 @@ class _ChapterReaderState extends State<ChapterReader> {
                               introStyle: flowBodyStyle,
                             )
                           : null,
-                      highlightOf: (vn) => _highlights[vn],
+                      // Un verset surligné ailleurs ne se montre pas sur une
+                      // version Strong : le tap verset y est bloqué, le
+                      // surlignage avec lui — seuls les codes restent cliquables.
+                      highlightOf: _hasStrong
+                          ? null
+                          : (vn) => _highlights[vn],
                       isFavoriteOf: (vn) => _favorites.contains(vn),
                       hasNoteOf: (vn) => _userNotes.contains(vn),
                       selectedVerses: _selected,
@@ -1391,18 +1402,14 @@ class _ChapterReaderState extends State<ChapterReader> {
       return;
     }
     // La feuille d'étude est fermée là où le texte se lit mot à mot : sur
-    // l'ATI (colonnes de champs) et sur les deux Segond Strong, LSGS et LSS
-    // (chaque code Strong déjà cliquable). La DBS, elle, l'ouvre : ses codes
-    // restent cliquables dans le texte (l'extrait au tap), et le tap hors code
-    // mène à l'étude complète — cartes, dictionnaire, navigation. Note,
+    // l'ATI (colonnes de champs) et sur les trois versions Strong, LSGS, LSS
+    // et DBS (chaque code Strong déjà cliquable — l'extrait au tap). Note,
     // Comparer, Renvois, Copier, Partager parlent d'un verset lu dans un texte
     // continu ; ici la seule porte est le mot lui-même — la fiche d'une
-    // cellule sur l'ATI, l'extrait d'un code sur la LSGS ou la LSS. La
+    // cellule sur l'ATI, l'extrait d'un code sur une version Strong. La
     // sélection multiple, elle, est décidée plus haut et reste servie : un
     // long appui suffit toujours à la lancer.
-    if (_interlinear || (_hasStrong && _versionCode != VersionRepository.dbsCode)) {
-      return;
-    }
+    if (_interlinear || _hasStrong) return;
     final vn = verse.number;
     // The Lexique button proposes the same verse in an embedded Strong
     // rendering — a property of the BYM canon, not of the notes the version
@@ -1417,8 +1424,7 @@ class _ChapterReaderState extends State<ChapterReader> {
     // Strong qui ne correspondrait peut-être pas au leur.
     final lexiqueEnabled =
         (versionByCode(_versionCode)?.carriesNotes ?? false) ||
-            _versionCode == VersionRepository.dbyCode ||
-            _versionCode == VersionRepository.dbsCode;
+            _versionCode == VersionRepository.dbyCode;
     final action = await showStudySheet(
       context,
       reference:
@@ -1976,16 +1982,18 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// whose anchors also number the particles the LSGS ignores, the LSGS, or
   /// the downloaded DBS when its book is on the device) where every
   /// Strong code is tappable ([EtudeVersetScreen]) — the BYM text proposes
-  /// its own equivalent verse in the Strong version. Read in Darby (DBY or
-  /// DBS), the study only knows its own corpus: it opens on the Darby when
+  /// its own equivalent verse in the Strong version. Read in Darby nue (DBY),
+  /// the study only knows its own corpus: it opens on the Darby when
   /// downloaded, and invites toward the Bibliothèque otherwise — never a
   /// silent fallback onto the Segond. The study screen combines
   /// the Strong lexicon (hébreu/grec) and the Westphal dictionary, with
   /// prev/next verse navigation within the current chapter.
   Future<void> _openLexique(int verseNumber) async {
     final etude = await EtudePreferences.load();
-    final darby = _versionCode == VersionRepository.dbyCode ||
-        _versionCode == VersionRepository.dbsCode;
+    // Seule la DBY nue atteint cette feuille côté Darby (le tap verset est
+    // bloqué sur les versions Strong) : l'étude ne connaît alors que son
+    // propre corpus.
+    final darby = _versionCode == VersionRepository.dbyCode;
     // La DBS n'est un corpus d'étude que téléchargée : en lecture Darby sans
     // elle, pas d'étude sur un autre texte — une invitation vers la
     // Bibliothèque, qui est l'endroit où le téléchargement se fait.
