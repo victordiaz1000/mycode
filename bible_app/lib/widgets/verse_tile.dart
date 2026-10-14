@@ -540,8 +540,7 @@ class ChapterVerseList extends StatefulWidget {
   final double panelOpacity;
 
   /// Horizontal interior margin of the reading text, left and right
-  /// (the reader's « Marges latérales » preference). Default 20 reproduces
-  /// the historical layout.
+  /// (the reader's « Marges latérales » preference). Default 14.
   final double sidePadding;
 
   const ChapterVerseList({
@@ -573,7 +572,7 @@ class ChapterVerseList extends StatefulWidget {
     this.bodyStyle,
     this.spacing = ReadingSpacing.normal,
     this.panelOpacity = .80,
-    this.sidePadding = 20.0,
+    this.sidePadding = 14.0,
     required this.theme,
   });
 

@@ -40,18 +40,18 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('the default side padding reproduces the historical layout', (
+  testWidgets('the default side padding is 14 px', (
     tester,
   ) async {
     final prefs = await AppPreferences.load();
-    expect(prefs.sidePadding, 20.0);
+    expect(prefs.sidePadding, 14.0);
   });
 
   testWidgets('the Settings row carries the margins slider', (tester) async {
     await pumpSettings(tester);
 
     expect(find.text('Marges latérales'), findsOneWidget);
-    expect(find.text('20 px'), findsOneWidget);
+    expect(find.text('14 px'), findsOneWidget);
 
     // Limité au curseur des marges : la rangée de taille porte aussi un
     // curseur, et un finder libre répondrait le premier de l'arbre.
@@ -107,7 +107,7 @@ void main() {
     final stored = (await SharedPreferences.getInstance()).getDouble(
       'reading.sidePadding',
     );
-    expect(stored, lessThan(20.0));
+    expect(stored, lessThan(14.0));
   });
 
   testWidgets('the reader honours padding dialled in the Settings', (

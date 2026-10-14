@@ -96,7 +96,7 @@ class AppPreferences {
     this.themeId = defaultThemeId,
   }) : fontSize = fontSize ?? ReadingTextSize.extraLarge.fontSize,
        panelOpacity = panelOpacity ?? .80,
-       sidePadding = sidePadding ?? 20.0;
+       sidePadding = sidePadding ?? 14.0;
 
   /// Notifier for the current theme id so the app can rebuild when it changes.
   /// Emitted after any reading preference is persisted.
@@ -138,7 +138,7 @@ class AppPreferences {
       layout: ReadingLayout.nearest(sp.getString(_kLayout)),
       fontWeight: ReadingFontWeight.nearest(sp.getString(_kFontWeight)),
       panelOpacity: (sp.getDouble(_kPanelOpacity) ?? .80).clamp(0.0, 1.0),
-      sidePadding: (sp.getDouble(_kSidePadding) ?? 20.0).clamp(0.0, 48.0),
+      sidePadding: (sp.getDouble(_kSidePadding) ?? 14.0).clamp(0.0, 48.0),
       textColorOverride: sp.getString(_kTextColor),
       versionCode:
           sp.getString(_kVersionCode) ?? VersionRepository.embeddedCode,
