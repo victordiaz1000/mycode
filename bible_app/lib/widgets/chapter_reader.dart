@@ -2058,10 +2058,12 @@ class _ChapterReaderState extends State<ChapterReader> {
           verseNumber: verseNumber,
           tokens: tokens,
           dbsAvailable: dbsAvailable,
-          // En lecture Darby, l'étude ne connaît que son propre corpus ; la
-          // BYM reste la seule version à disposer de tous les corpus.
+          // En lecture Darby comme en Septante, l'étude ne connaît que le
+          // corpus de la version lue ; la BYM reste la seule version à
+          // disposer de tous les corpus.
           dbsOnly: darby,
           sesAvailable: sesAvailable,
+          sefOnly: septante,
           verseNumbers: verseNumbers,
           loadVerseTokens: (v) async {
             // Relue à chaque appel, non capturée à l'ouverture : le corpus se

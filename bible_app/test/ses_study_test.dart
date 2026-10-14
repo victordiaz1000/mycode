@@ -139,6 +139,13 @@ void main() {
     expect(find.text('SES'), findsOneWidget);
     expect(find.text('Définition - G1722'), findsOneWidget);
     expect((await EtudePreferences.load()).versionCode, 'SES');
+
+    // Et le sélecteur ne connaît qu'elle : la SEF n'a que son propre corpus.
+    await tester.tap(find.byTooltip('Corpus du lexique'));
+    await tester.pumpAndSettle();
+    expect(find.text('SES — Septuaginta grec + Strong'), findsOneWidget);
+    expect(find.text('LSS — Segond Louis + Strong'), findsNothing);
+    expect(find.text('DBS — Darby + Strong'), findsNothing);
   });
 
   testWidgets(

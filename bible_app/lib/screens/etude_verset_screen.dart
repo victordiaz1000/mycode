@@ -155,6 +155,10 @@ class EtudeVersetScreen extends StatefulWidget {
   /// Darby ([dbsOnly]), qui n'a que son propre corpus.
   final bool sesAvailable;
 
+  /// Le miroir de [dbsOnly] pour la Septante : en lecture SEF, le sélecteur
+  /// n'offre que la SES. Même contrat, avec [sesAvailable].
+  final bool sefOnly;
+
   const EtudeVersetScreen({
     super.key,
     required this.bookIndex,
@@ -169,8 +173,11 @@ class EtudeVersetScreen extends StatefulWidget {
     this.dbsAvailable = false,
     this.dbsOnly = false,
     this.sesAvailable = false,
+    this.sefOnly = false,
   }) : assert(!dbsOnly || dbsAvailable,
-            'un corpus Darby exclusif sans livre téléchargé ne servirait rien');
+            'un corpus Darby exclusif sans livre téléchargé ne servirait rien'),
+       assert(!sefOnly || sesAvailable,
+            'un corpus grec exclusif sans livre téléchargé ne servirait rien');
 
   @override
   State<EtudeVersetScreen> createState() => _EtudeVersetScreenState();
@@ -503,28 +510,29 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
   /// La LSS de Biblia, qui numérote les particules que la LSGS ignore, et la
   /// LSGS que lit le texte — plus la DBS (Darby + Strong) et la SES
   /// (Septuaginta grec + Strong) quand leur livre est téléchargé. En lecture
-  /// Darby ([dbsOnly]), seule la DBS : la BYM reste la seule version à
-  /// disposer de tous les corpus. C'est [VersionRepository.tokensFor] qui les
-  /// sert tous les quatre. Proposer le catalogue entier serait trompeur — une
-  /// version sans ancre Strong retomberait en silence sur la LSGS, sans que le
-  /// choix de l'utilisateur ait rien changé.
+  /// Darby ([dbsOnly]), seule la DBS ; en lecture SEF ([sefOnly]), seule la
+  /// SES : la BYM reste la seule version à disposer de tous les corpus.
+  /// C'est [VersionRepository.tokensFor] qui les sert tous les quatre.
+  /// Proposer le catalogue entier serait trompeur — une version sans ancre
+  /// Strong retomberait en silence sur la LSGS, sans que le choix de
+  /// l'utilisateur ait rien changé.
   Future<void> _pickCorpus() async {
     final p = premiumPalette(context);
     final options = [
-      if (!widget.dbsOnly)
+      if (!widget.dbsOnly && !widget.sefOnly)
         (
           code: VersionRepository.lssCode,
           name: 'LSS — Segond Louis + Strong',
           note: 'Ancre aussi les particules que la traduction ne rend pas '
               '(waw, article, préfixes) : c\'est le lexique le plus complet.',
         ),
-      if (!widget.dbsOnly)
+      if (!widget.dbsOnly && !widget.sefOnly)
         (
           code: VersionRepository.lsgsCode,
           name: 'LSGS — Segond 1910 + Strongs',
           note: 'Le texte que vous lisez, ancre par ancre.',
         ),
-      if (widget.dbsAvailable)
+      if (widget.dbsAvailable && !widget.sefOnly)
         (
           code: VersionRepository.dbsCode,
           name: 'DBS — Darby + Strong',

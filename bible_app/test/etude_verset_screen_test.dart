@@ -36,6 +36,7 @@ void main() {
     bool dbsAvailable = false,
     bool dbsOnly = false,
     bool sesAvailable = false,
+    bool sefOnly = false,
     int bookIndex = 1,
     String? corpusCode,
   }) async {
@@ -52,6 +53,7 @@ void main() {
         dbsAvailable: dbsAvailable,
         dbsOnly: dbsOnly,
         sesAvailable: sesAvailable,
+        sefOnly: sefOnly,
       ),
     ));
     await tester.pumpAndSettle();
@@ -175,6 +177,26 @@ void main() {
     expect(find.text('LSS — Segond Louis + Strong'), findsNothing);
     expect(find.text('LSGS — Segond 1910 + Strongs'), findsNothing);
     expect(find.text('SES — Septuaginta grec + Strong'), findsNothing);
+  });
+
+  testWidgets('in Septuagint reading the picker only knows the SES',
+      (tester) async {
+    // Le miroir côté Septante : même téléchargées, ni la LSS ni la DBS ne
+    // s'y invitent.
+    await pumpScreen(
+      tester,
+      sesAvailable: true,
+      sefOnly: true,
+      dbsAvailable: true,
+    );
+
+    await tester.tap(find.byTooltip('Corpus du lexique'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('SES — Septuaginta grec + Strong'), findsOneWidget);
+    expect(find.text('LSS — Segond Louis + Strong'), findsNothing);
+    expect(find.text('LSGS — Segond 1910 + Strongs'), findsNothing);
+    expect(find.text('DBS — Darby + Strong'), findsNothing);
   });
 
   testWidgets('tapping a Strong word shows its card', (tester) async {
