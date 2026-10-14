@@ -242,9 +242,10 @@ class _StudySheetState extends State<_StudySheet> {
           // ---- Actions ----
           _sectionLabel(context, Icons.bolt_rounded, 'Actions'),
           const SizedBox(height: 10),
-          // Le lexique mot à mot n'existe que pour le texte au format BYM (voir
-          // le garde-fou côté `chapter_reader`) : sur les autres versions le
-          // bouton doit **se voir** fermé, pas seulement rester sourd.
+          // Le lexique mot à mot n'existe que pour le texte au format BYM et
+          // pour la Darby (voir le garde-fou côté `chapter_reader`) : sur les
+          // autres versions le bouton doit **se voir** fermé, pas seulement
+          // rester sourd.
           //
           // Les trois couleurs sont décidées ici état par état, parce qu'aucune
           // ne grisonne d'elle-même : `styleFrom(side:)` passe par `allOrNull`

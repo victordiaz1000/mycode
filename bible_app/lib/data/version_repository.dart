@@ -87,6 +87,11 @@ class VersionRepository {
   /// inline via [LsgsRepository.splitStrongText].
   static const String dbsCode = 'DBS';
 
+  /// La Darby sans Strong (getbible `darby`), version de lecture : la feuille
+  /// d'étude s'y ouvre comme sur la BYM, sur le corpus [dbsCode] quand il est
+  /// téléchargé.
+  static const String dbyCode = 'DBY';
+
   /// Livres téléchargés déjà convertis, par `code|index`. [LocalRepository]
   /// garde le même genre de cache pour la BYM : un chapitre est relu plusieurs
   /// fois (liste, saut au verset, sélecteur de versets) et reparser le fichier

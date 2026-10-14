@@ -1392,24 +1392,33 @@ class _ChapterReaderState extends State<ChapterReader> {
     }
     // La feuille d'étude est fermée là où le texte se lit mot à mot : sur
     // l'ATI (colonnes de champs) et sur les deux Segond Strong, LSGS et LSS
-    // (chaque code Strong déjà cliquable). Note, Comparer, Renvois, Copier,
-    // Partager parlent d'un verset lu dans un texte continu ; ici la seule
-    // porte est le mot lui-même — la fiche d'une cellule sur l'ATI, l'extrait
-    // d'un code sur la LSGS ou la LSS. La sélection multiple, elle, est
-    // décidée plus haut et reste servie : un long appui suffit toujours à la
-    // lancer.
-    if (_interlinear || _hasStrong) return;
+    // (chaque code Strong déjà cliquable). La DBS, elle, l'ouvre : ses codes
+    // restent cliquables dans le texte (l'extrait au tap), et le tap hors code
+    // mène à l'étude complète — cartes, dictionnaire, navigation. Note,
+    // Comparer, Renvois, Copier, Partager parlent d'un verset lu dans un texte
+    // continu ; ici la seule porte est le mot lui-même — la fiche d'une
+    // cellule sur l'ATI, l'extrait d'un code sur la LSGS ou la LSS. La
+    // sélection multiple, elle, est décidée plus haut et reste servie : un
+    // long appui suffit toujours à la lancer.
+    if (_interlinear || (_hasStrong && _versionCode != VersionRepository.dbsCode)) {
+      return;
+    }
     final vn = verse.number;
-    // The Lexique button proposes the same verse in the embedded Strong
+    // The Lexique button proposes the same verse in an embedded Strong
     // rendering — a property of the BYM canon, not of the notes the version
     // happens to carry, so the gate asks the FORMAT (the same predicate as the
     // book header and the notes toggle) rather than the code: a future
     // BYM-format version keeps the button where `code == 'BYM'` would drop it.
     // LSGS and LSS themselves no longer reach this sheet — the gate above
-    // takes them out — what stays off here are the bare-text translations,
-    // rather than offer a Strong verse that may not match their own
-    // versification.
-    final lexiqueEnabled = versionByCode(_versionCode)?.carriesNotes ?? false;
+    // takes them out. Des versions nues, seule la Darby (DBY) ouvre le
+    // lexique — avec son propre corpus DBS : même famille, même versification
+    // protestante, pas de verset Strong qui ne colle pas au verset lu. Les
+    // autres traductions nues restent fermées plutôt que d'offrir un verset
+    // Strong qui ne correspondrait peut-être pas au leur.
+    final lexiqueEnabled =
+        (versionByCode(_versionCode)?.carriesNotes ?? false) ||
+            _versionCode == VersionRepository.dbyCode ||
+            _versionCode == VersionRepository.dbsCode;
     final action = await showStudySheet(
       context,
       reference:
@@ -1967,12 +1976,28 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// whose anchors also number the particles the LSGS ignores, the LSGS, or
   /// the downloaded DBS when its book is on the device) where every
   /// Strong code is tappable ([EtudeVersetScreen]) — the BYM text proposes
-  /// its own equivalent verse in the Strong version. The study screen combines
+  /// its own equivalent verse in the Strong version. Read in Darby (DBY or
+  /// DBS), the study opens on the Darby corpus instead: the default follows
+  /// the version being read. The study screen combines
   /// the Strong lexicon (hébreu/grec) and the Westphal dictionary, with
   /// prev/next verse navigation within the current chapter.
   Future<void> _openLexique(int verseNumber) async {
     final etude = await EtudePreferences.load();
-    final corpus = etude.versionCode;
+    // La DBS n'est un corpus d'étude que téléchargée : son option n'est
+    // proposée que si ce livre est sur l'appareil — et en lecture Darby,
+    // c'est lui le corpus d'ouverture, pas la LSS.
+    final dbsAvailable =
+        (await _library.versionState(VersionRepository.dbsCode))
+            .has(widget.bookIndex);
+    var corpus = etude.versionCode;
+    if ((_versionCode == VersionRepository.dbyCode ||
+            _versionCode == VersionRepository.dbsCode) &&
+        dbsAvailable &&
+        corpus != VersionRepository.dbsCode) {
+      corpus = VersionRepository.dbsCode;
+      etude.versionCode = corpus;
+      await etude.save();
+    }
     final tokens = await _versions.tokensFor(
       corpus,
       widget.bookIndex,
@@ -1981,12 +2006,6 @@ class _ChapterReaderState extends State<ChapterReader> {
     );
     if (!mounted) return;
     final chapter = await _activeChapter();
-    if (!mounted) return;
-    // La DBS n'est un corpus d'étude que téléchargée : son option n'est
-    // proposée que si ce livre est sur l'appareil.
-    final dbsAvailable =
-        (await _library.versionState(VersionRepository.dbsCode))
-            .has(widget.bookIndex);
     if (!mounted) return;
     final verseNumbers = [for (final v in chapter.verses) v.number];
     final returnToVerse = await Navigator.of(context).push<bool>(

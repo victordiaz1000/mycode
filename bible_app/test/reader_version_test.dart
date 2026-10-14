@@ -268,7 +268,8 @@ void main() {
     expect(find.text('Bible Darby'), findsNothing);
     expect(find.text('Bible de Yehoshoua Ha Mashiah'), findsOneWidget,
         reason: 'the embedded version is always there');
-    expect(find.text('15 autres versions à télécharger'), findsOneWidget);
+    // 16, pas 15 : la DBS (Darby + Strong) a rejoint les téléchargeables.
+    expect(find.text('16 autres versions à télécharger'), findsOneWidget);
   });
 
   testWidgets('the footer leads to the Bibliothèque', (tester) async {
