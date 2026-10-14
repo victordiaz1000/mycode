@@ -143,6 +143,13 @@ class EtudeVersetScreen extends StatefulWidget {
   /// de l'utilisateur ait rien changé.
   final bool dbsAvailable;
 
+  /// En lecture Darby, l'étude ne connaît que son propre corpus : le sélecteur
+  /// n'offre que la DBS, la BYM restant la seule version à disposer de tous
+  /// les corpus. N'a de sens qu'avec [dbsAvailable] — sans le livre
+  /// téléchargé, le lecteur n'ouvre pas cet écran mais invite vers la
+  /// Bibliothèque.
+  final bool dbsOnly;
+
   const EtudeVersetScreen({
     super.key,
     required this.bookIndex,
@@ -155,7 +162,9 @@ class EtudeVersetScreen extends StatefulWidget {
     this.onOpenVerse,
     this.dictionaryStore,
     this.dbsAvailable = false,
-  });
+    this.dbsOnly = false,
+  }) : assert(!dbsOnly || dbsAvailable,
+            'un corpus Darby exclusif sans livre téléchargé ne servirait rien');
 
   @override
   State<EtudeVersetScreen> createState() => _EtudeVersetScreenState();
@@ -487,24 +496,28 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
   ///
   /// La LSS de Biblia, qui numérote les particules que la LSGS ignore, et la
   /// LSGS que lit le texte — plus la DBS (Darby + Strong) quand son livre est
-  /// téléchargé ([dbsAvailable]). C'est [VersionRepository.tokensFor] qui les
-  /// sert tous les trois. Proposer le catalogue entier serait trompeur — une
-  /// version sans ancre Strong retomberait en silence sur la LSGS, sans que le
-  /// choix de l'utilisateur ait rien changé.
+  /// téléchargé ([dbsAvailable]). En lecture Darby ([dbsOnly]), seule la DBS :
+  /// la BYM reste la seule version à disposer de tous les corpus. C'est
+  /// [VersionRepository.tokensFor] qui les sert tous les trois. Proposer le
+  /// catalogue entier serait trompeur — une version sans ancre Strong
+  /// retomberait en silence sur la LSGS, sans que le choix de l'utilisateur
+  /// ait rien changé.
   Future<void> _pickCorpus() async {
     final p = premiumPalette(context);
     final options = [
-      (
-        code: VersionRepository.lssCode,
-        name: 'LSS — Segond Louis + Strong',
-        note: 'Ancre aussi les particules que la traduction ne rend pas '
-            '(waw, article, préfixes) : c\'est le lexique le plus complet.',
-      ),
-      (
-        code: VersionRepository.lsgsCode,
-        name: 'LSGS — Segond 1910 + Strongs',
-        note: 'Le texte que vous lisez, ancre par ancre.',
-      ),
+      if (!widget.dbsOnly)
+        (
+          code: VersionRepository.lssCode,
+          name: 'LSS — Segond Louis + Strong',
+          note: 'Ancre aussi les particules que la traduction ne rend pas '
+              '(waw, article, préfixes) : c\'est le lexique le plus complet.',
+        ),
+      if (!widget.dbsOnly)
+        (
+          code: VersionRepository.lsgsCode,
+          name: 'LSGS — Segond 1910 + Strongs',
+          note: 'Le texte que vous lisez, ancre par ancre.',
+        ),
       if (widget.dbsAvailable)
         (
           code: VersionRepository.dbsCode,

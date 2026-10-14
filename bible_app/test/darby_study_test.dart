@@ -44,11 +44,6 @@ void main() {
       };
 
   setUp(() {
-    // Les deux Darby sur l'appareil : le registre tel que la Bibliothèque
-    // l'écrit, les textes dans le faux store.
-    SharedPreferences.setMockInitialValues({
-      'library.installed': '{"DBY":[1],"DBS":[1]}',
-    });
     LocalRepository.useBundle(FakeBibleBundle());
     StrongLexicon.useBundle(FakeStrongLexiconBundle());
     FreDawLexicon.useBundle(FakeFreDawBundle());
@@ -62,17 +57,29 @@ void main() {
     VersionRepository.clearCache();
   });
 
-  Future<void> pumpDarby(WidgetTester tester) async {
+  /// Les deux Darby sur l'appareil : les textes dans le faux store.
+  Map<String, Map<int, Map<String, dynamic>>> lesDeuxDarby() => {
+        'DBY': {1: getbibleBook(1)},
+        'DBS': {1: dbsBook()},
+      };
+
+  Future<void> pumpDarby(
+    WidgetTester tester, {
+    Map<String, Map<int, Map<String, dynamic>>>? books,
+    required String registre,
+    VoidCallback? onOpenLibrary,
+  }) async {
+    // Le registre tel que la Bibliothèque l'écrit — c'est lui qui dit si la
+    // DBS est là, pas les textes du faux store.
+    SharedPreferences.setMockInitialValues({'library.installed': registre});
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(
         body: ChapterReader(
           bookIndex: 1,
           chapter: 1,
           initialVersionCode: 'DBY',
-          store: FakeStore({
-            'DBY': {1: getbibleBook(1)},
-            'DBS': {1: dbsBook()},
-          }),
+          store: FakeStore(books ?? lesDeuxDarby()),
+          onOpenLibrary: onOpenLibrary,
         ),
       ),
     ));
@@ -80,7 +87,7 @@ void main() {
   }
 
   testWidgets("en Darby, la feuille d'étude ouvre le lexique", (tester) async {
-    await pumpDarby(tester);
+    await pumpDarby(tester, registre: '{"DBY":[1],"DBS":[1]}');
 
     await tester.tap(find.text('Texte téléchargé 1:1.'));
     await tester.pumpAndSettle();
@@ -100,7 +107,7 @@ void main() {
   });
 
   testWidgets("en Darby, l'étude s'ouvre sur le corpus Darby", (tester) async {
-    await pumpDarby(tester);
+    await pumpDarby(tester, registre: '{"DBY":[1],"DBS":[1]}');
 
     await tester.tap(find.text('Texte téléchargé 1:1.'));
     await tester.pumpAndSettle();
@@ -117,5 +124,43 @@ void main() {
     // Le choix est enregistré : la navigation précédent / suivant le relit
     // sans rouvrir l'écran, comme tout autre corpus.
     expect((await EtudePreferences.load()).versionCode, 'DBS');
+
+    // Et le sélecteur ne connaît que lui : la BYM reste la seule version à
+    // disposer de tous les corpus.
+    await tester.tap(find.byTooltip('Corpus du lexique'));
+    await tester.pumpAndSettle();
+    expect(find.text('DBS — Darby + Strong'), findsOneWidget);
+    expect(find.text('LSS — Segond Louis + Strong'), findsNothing);
+    expect(find.text('LSGS — Segond 1910 + Strongs'), findsNothing);
+  });
+
+  testWidgets(
+      "sans DBS téléchargée, le lexique invite vers la Bibliothèque",
+      (tester) async {
+    var opened = 0;
+    await pumpDarby(
+      tester,
+      books: {
+        'DBY': {1: getbibleBook(1)},
+      },
+      registre: '{"DBY":[1]}',
+      onOpenLibrary: () => opened++,
+    );
+
+    await tester.tap(find.text('Texte téléchargé 1:1.'));
+    await tester.pumpAndSettle();
+    await tester.tap(
+      find.text('Lexique & Dictionnaire — verset mot à mot'),
+    );
+    await tester.pumpAndSettle();
+
+    // Pas d'étude sur un autre texte : une invitation, nommée, vers
+    // l'endroit où le téléchargement se fait.
+    expect(find.text('Corpus Darby manquant'), findsOneWidget);
+    expect(find.text('Lexique hébreu & grec'), findsNothing);
+
+    await tester.tap(find.text('Bibliothèque'));
+    await tester.pumpAndSettle();
+    expect(opened, 1);
   });
 }

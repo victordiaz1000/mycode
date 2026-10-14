@@ -1977,23 +1977,30 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// the downloaded DBS when its book is on the device) where every
   /// Strong code is tappable ([EtudeVersetScreen]) — the BYM text proposes
   /// its own equivalent verse in the Strong version. Read in Darby (DBY or
-  /// DBS), the study opens on the Darby corpus instead: the default follows
-  /// the version being read. The study screen combines
+  /// DBS), the study only knows its own corpus: it opens on the Darby when
+  /// downloaded, and invites toward the Bibliothèque otherwise — never a
+  /// silent fallback onto the Segond. The study screen combines
   /// the Strong lexicon (hébreu/grec) and the Westphal dictionary, with
   /// prev/next verse navigation within the current chapter.
   Future<void> _openLexique(int verseNumber) async {
     final etude = await EtudePreferences.load();
-    // La DBS n'est un corpus d'étude que téléchargée : son option n'est
-    // proposée que si ce livre est sur l'appareil — et en lecture Darby,
-    // c'est lui le corpus d'ouverture, pas la LSS.
+    final darby = _versionCode == VersionRepository.dbyCode ||
+        _versionCode == VersionRepository.dbsCode;
+    // La DBS n'est un corpus d'étude que téléchargée : en lecture Darby sans
+    // elle, pas d'étude sur un autre texte — une invitation vers la
+    // Bibliothèque, qui est l'endroit où le téléchargement se fait.
     final dbsAvailable =
         (await _library.versionState(VersionRepository.dbsCode))
             .has(widget.bookIndex);
+    if (darby && !dbsAvailable) {
+      if (!mounted) return;
+      await _inviteDbs();
+      return;
+    }
+    // En lecture Darby, l'étude s'ouvre sur la Darby : le corpus suit la
+    // version lue, et ce choix est enregistré comme tout autre corpus.
     var corpus = etude.versionCode;
-    if ((_versionCode == VersionRepository.dbyCode ||
-            _versionCode == VersionRepository.dbsCode) &&
-        dbsAvailable &&
-        corpus != VersionRepository.dbsCode) {
+    if (darby && corpus != VersionRepository.dbsCode) {
       corpus = VersionRepository.dbsCode;
       etude.versionCode = corpus;
       await etude.save();
@@ -2016,6 +2023,9 @@ class _ChapterReaderState extends State<ChapterReader> {
           verseNumber: verseNumber,
           tokens: tokens,
           dbsAvailable: dbsAvailable,
+          // En lecture Darby, l'étude ne connaît que son propre corpus ; la
+          // BYM reste la seule version à disposer de tous les corpus.
+          dbsOnly: darby,
           verseNumbers: verseNumbers,
           loadVerseTokens: (v) async {
             // Relue à chaque appel, non capturée à l'ouverture : le corpus se
@@ -2034,6 +2044,39 @@ class _ChapterReaderState extends State<ChapterReader> {
       ),
     );
     if (returnToVerse == true && mounted) _beginJump(verseNumber);
+  }
+
+  /// L'étude en Darby sans sa DBS téléchargée : pas d'étude sur un autre
+  /// texte — une invitation vers l'endroit où le téléchargement se fait.
+  /// Même contrat nul que la feuille « Version » : hors coquille, la
+  /// Bibliothèque est nommée sans proposer d'y aller.
+  Future<void> _inviteDbs() async {
+    final versBibliotheque = widget.onOpenLibrary;
+    await showDialog<void>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Corpus Darby manquant'),
+        content: const Text(
+          "L'étude en Darby se fait sur la Darby + Strong. "
+          'Téléchargez ce livre depuis la Bibliothèque '
+          'pour consulter le lexique.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Plus tard'),
+          ),
+          if (versBibliotheque != null)
+            FilledButton.tonal(
+              onPressed: () {
+                Navigator.of(context).pop();
+                versBibliotheque();
+              },
+              child: const Text('Bibliothèque'),
+            ),
+        ],
+      ),
+    );
   }
 
   /// The Comparer button of the study sheet: it opens [ComparerScreen] on the
