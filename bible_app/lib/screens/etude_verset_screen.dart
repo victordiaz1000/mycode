@@ -1307,8 +1307,15 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
       );
     }
     if (_nbEntrees == 0) {
+      // La SES ne couvre que l'Ancien Testament : sur un verset du Nouveau,
+      // pas de replis silencieux — l'écran le dit et propose un autre corpus.
+      final sesHorsCanon = _mode == ModeEtude.lexique &&
+          _corpus == VersionRepository.sesCode &&
+          widget.bookIndex >= 40;
       final message = _mode == ModeEtude.lexique
-          ? 'Ce verset ne contient aucun mot associé à un numéro Strong.'
+          ? (sesHorsCanon
+              ? 'Le corpus SES ne contient que l’Ancien Testament.'
+              : 'Ce verset ne contient aucun mot associé à un numéro Strong.')
           : 'Aucun terme de ce verset ne figure dans le dictionnaire.';
       return SizedBox(
         height: 430,
@@ -1339,6 +1346,26 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
                     height: 1.5,
                   ),
                 ),
+                if (sesHorsCanon) ...[
+                  const SizedBox(height: 12),
+                  GestureDetector(
+                    onTap: _pickCorpus,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: p.primarySoft,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(
+                        'Veuillez basculer sur un autre corpus →',
+                        style: premiumText(context, 14, FontWeight.w700, accent),
+                      ),
+                    ),
+                  ),
+                ],
               ],
             ),
           ),

@@ -36,10 +36,15 @@ void main() {
     bool dbsAvailable = false,
     bool dbsOnly = false,
     bool sesAvailable = false,
+    int bookIndex = 1,
+    String? corpusCode,
   }) async {
+    if (corpusCode != null) {
+      SharedPreferences.setMockInitialValues({'etude.versionCode': corpusCode});
+    }
     await tester.pumpWidget(MaterialApp(
       home: EtudeVersetScreen(
-        bookIndex: 1,
+        bookIndex: bookIndex,
         chapter: 1,
         verseNumber: 1,
         tokens: tokens,
@@ -132,6 +137,25 @@ void main() {
     expect(find.text('SES'), findsOneWidget);
     final prefs = await EtudePreferences.load();
     expect(prefs.versionCode, 'SES');
+  });
+
+  testWidgets('en SES sur le Nouveau Testament, l’étude le dit', (tester) async {
+    // La SES ne couvre que l'Ancien : pas de replis silencieux sur le
+    // Segond — l'écran le dit et propose un autre corpus.
+    await pumpScreen(
+      tester,
+      bookIndex: 40,
+      tokens: const [],
+      corpusCode: 'SES',
+    );
+
+    expect(
+      find.text('Le corpus SES ne contient que l’Ancien Testament.'),
+      findsOneWidget,
+    );
+    await tester.tap(find.textContaining('basculer sur un autre corpus'));
+    await tester.pumpAndSettle();
+    expect(find.text('Corpus du lexique'), findsOneWidget);
   });
 
   testWidgets('in Darby reading the picker only knows the DBS', (tester) async {

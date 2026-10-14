@@ -356,6 +356,15 @@ void main() {
         lsgs.map((t) => '${t.text}|${t.strong}'),
       );
     });
+
+    test('out of the SES canon, nothing falls back', () async {
+      // Matthieu n'existe pas dans la Septante : pas de Segond sous
+      // l'étiquette SES — l'écran d'étude le dit.
+      expect(
+        await repository.tokensFor(VersionRepository.sesCode, 40, 1, 1),
+        isEmpty,
+      );
+    });
   });
 
   group('the format of a version', () {

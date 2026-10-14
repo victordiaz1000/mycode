@@ -1402,13 +1402,13 @@ class _ChapterReaderState extends State<ChapterReader> {
       return;
     }
     // La feuille d'étude est fermée là où le texte se lit mot à mot : sur
-    // l'ATI (colonnes de champs) et sur les trois versions Strong, LSGS, LSS
-    // et DBS (chaque code Strong déjà cliquable — l'extrait au tap). Note,
-    // Comparer, Renvois, Copier, Partager parlent d'un verset lu dans un texte
-    // continu ; ici la seule porte est le mot lui-même — la fiche d'une
-    // cellule sur l'ATI, l'extrait d'un code sur une version Strong. La
-    // sélection multiple, elle, est décidée plus haut et reste servie : un
-    // long appui suffit toujours à la lancer.
+    // les interlinéaires (colonnes ATI, NTI, SES) et sur les trois versions
+    // Strong, LSGS, LSS et DBS (chaque code Strong déjà cliquable — l'extrait
+    // au tap). Note, Comparer, Renvois, Copier, Partager parlent d'un verset
+    // lu dans un texte continu ; ici la seule porte est le mot lui-même — la
+    // fiche d'une cellule en interlinéaire, l'extrait d'un code sur une
+    // version Strong. La sélection multiple, elle, est décidée plus haut et
+    // reste servie : un long appui suffit toujours à la lancer.
     if (_interlinear || _hasStrong) return;
     final vn = verse.number;
     // The Lexique button proposes the same verse in an embedded Strong
@@ -1417,14 +1417,16 @@ class _ChapterReaderState extends State<ChapterReader> {
     // book header and the notes toggle) rather than the code: a future
     // BYM-format version keeps the button where `code == 'BYM'` would drop it.
     // LSGS and LSS themselves no longer reach this sheet — the gate above
-    // takes them out. Des versions nues, seule la Darby (DBY) ouvre le
-    // lexique — avec son propre corpus DBS : même famille, même versification
-    // protestante, pas de verset Strong qui ne colle pas au verset lu. Les
-    // autres traductions nues restent fermées plutôt que d'offrir un verset
-    // Strong qui ne correspondrait peut-être pas au leur.
+    // takes them out — and so do the interlinears. Des versions nues, la
+    // Darby (DBY) ouvre le lexique avec son propre corpus DBS, et la
+    // Septante en français (SEF) avec le grec SES : même texte grec,
+    // même versification des Septante. Les autres traductions nues restent
+    // fermées plutôt que d'offrir un verset Strong qui ne correspondrait
+    // peut-être pas au leur.
     final lexiqueEnabled =
         (versionByCode(_versionCode)?.carriesNotes ?? false) ||
-            _versionCode == VersionRepository.dbyCode;
+            _versionCode == VersionRepository.dbyCode ||
+            _versionCode == VersionRepository.sefCode;
     final action = await showStudySheet(
       context,
       reference:
@@ -1979,13 +1981,14 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// The Lexique button of the study sheet: it always shows the *same verse*
   /// the reader is on, rendered word-by-word from the Strong corpus of the
   /// study ([EtudePreferences.versionCode] — the LSS of Biblia by default,
-  /// whose anchors also number the particles the LSGS ignores, the LSGS, or
-  /// the downloaded DBS when its book is on the device) where every
+  /// whose anchors also number the particles the LSGS ignores, the LSGS, the
+  /// downloaded DBS or SES when their book is on the device) where every
   /// Strong code is tappable ([EtudeVersetScreen]) — the BYM text proposes
   /// its own equivalent verse in the Strong version. Read in Darby nue (DBY),
-  /// the study only knows its own corpus: it opens on the Darby when
-  /// downloaded, and invites toward the Bibliothèque otherwise — never a
-  /// silent fallback onto the Segond. The study screen combines
+  /// the study only knows its own corpus (DBS) ; read in Septante française
+  /// (SEF), the SES grecque — même texte grec, même versification : le corpus
+  /// suit la version lue, et invite vers la Bibliothèque quand il manque —
+  /// jamais un repli silencieux sur le Segond. The study screen combines
   /// the Strong lexicon (hébreu/grec) and the Westphal dictionary, with
   /// prev/next verse navigation within the current chapter.
   Future<void> _openLexique(int verseNumber) async {
@@ -1994,10 +1997,10 @@ class _ChapterReaderState extends State<ChapterReader> {
     // bloqué sur les versions Strong) : l'étude ne connaît alors que son
     // propre corpus.
     final darby = _versionCode == VersionRepository.dbyCode;
-    // La DBS n'est un corpus d'étude que téléchargée : en lecture Darby sans
-    // elle, pas d'étude sur un autre texte — une invitation vers la
-    // Bibliothèque, qui est l'endroit où le téléchargement se fait. Même
-    // contrat pour la SES, quatrième corpus.
+    final septante = _versionCode == VersionRepository.sefCode;
+    // Ni la DBS ni la SES ne sont des corpus d'étude sans leur livre
+    // téléchargé : pas d'étude sur un autre texte — une invitation vers la
+    // Bibliothèque, qui est l'endroit où le téléchargement se fait.
     final dbsAvailable =
         (await _library.versionState(VersionRepository.dbsCode))
             .has(widget.bookIndex);
@@ -2006,14 +2009,34 @@ class _ChapterReaderState extends State<ChapterReader> {
             .has(widget.bookIndex);
     if (darby && !dbsAvailable) {
       if (!mounted) return;
-      await _inviteDbs();
+      await _inviteCorpus(
+        titre: 'Corpus Darby manquant',
+        texte: "L'étude en Darby se fait sur la Darby + Strong. "
+            'Téléchargez ce livre depuis la Bibliothèque '
+            'pour consulter le lexique.',
+      );
       return;
     }
-    // En lecture Darby, l'étude s'ouvre sur la Darby : le corpus suit la
-    // version lue, et ce choix est enregistré comme tout autre corpus.
+    if (septante && !sesAvailable) {
+      if (!mounted) return;
+      await _inviteCorpus(
+        titre: 'Corpus grec manquant',
+        texte: "L'étude de la Septante se fait sur son grec + Strong. "
+            'Téléchargez ce livre depuis la Bibliothèque '
+            'pour consulter le lexique.',
+      );
+      return;
+    }
+    // En lecture Darby comme en Septante, l'étude s'ouvre sur le corpus de
+    // la version lue, et ce choix est enregistré comme tout autre corpus.
     var corpus = etude.versionCode;
     if (darby && corpus != VersionRepository.dbsCode) {
       corpus = VersionRepository.dbsCode;
+      etude.versionCode = corpus;
+      await etude.save();
+    }
+    if (septante && corpus != VersionRepository.sesCode) {
+      corpus = VersionRepository.sesCode;
       etude.versionCode = corpus;
       await etude.save();
     }
@@ -2059,21 +2082,20 @@ class _ChapterReaderState extends State<ChapterReader> {
     if (returnToVerse == true && mounted) _beginJump(verseNumber);
   }
 
-  /// L'étude en Darby sans sa DBS téléchargée : pas d'étude sur un autre
+  /// Un corpus d'étude sans son livre téléchargé : pas d'étude sur un autre
   /// texte — une invitation vers l'endroit où le téléchargement se fait.
   /// Même contrat nul que la feuille « Version » : hors coquille, la
   /// Bibliothèque est nommée sans proposer d'y aller.
-  Future<void> _inviteDbs() async {
+  Future<void> _inviteCorpus({
+    required String titre,
+    required String texte,
+  }) async {
     final versBibliotheque = widget.onOpenLibrary;
     await showDialog<void>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Corpus Darby manquant'),
-        content: const Text(
-          "L'étude en Darby se fait sur la Darby + Strong. "
-          'Téléchargez ce livre depuis la Bibliothèque '
-          'pour consulter le lexique.',
-        ),
+        title: Text(titre),
+        content: Text(texte),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),

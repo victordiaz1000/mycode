@@ -92,6 +92,11 @@ class VersionRepository {
   /// téléchargé.
   static const String dbyCode = 'DBY';
 
+  /// La Septante en français (entrée `SEF` du catalogue), version de lecture :
+  /// la feuille d'étude s'y ouvre comme sur la BYM, sur le corpus [sesCode]
+  /// quand il est téléchargé — même texte grec, même versification.
+  static const String sefCode = 'SEF';
+
   /// La Septuaginta grec + Strong, téléchargée (entrée `SES` du catalogue) :
   /// quatrième corpus du lexique de l'étude de verset. Ses mots grecs
   /// deviennent des tokens d'étude ([sesTokens]) : le mot porte la fiche,
@@ -248,8 +253,10 @@ class VersionRepository {
   /// Le repli sur la LSGS est la règle plutôt que l'exception : LSS manque
   /// trois versets à la source (Ex 28.42, Nb 25.19, Ac 19.41), et un actif
   /// absent ou illisible ne doit pas vider d'un coup la fiche — le lexique
-  /// retombe sur le texte que l'on lit. La DBS et la SES y retombent de la
-  /// même façon quand leur livre n'est pas (ou plus) téléchargé.
+  /// retombe sur le texte que l'on lit. La DBS y retombe de la même façon
+  /// quand son livre n'est pas (ou plus) téléchargé, la SES quand le sien
+  /// manque mais reste dans son canon : hors canon (le Nouveau Testament
+  /// pour la SES), rien ne retombe — l'écran d'étude le dit.
   Future<List<LsgsToken>> tokensFor(
       String code, int bymIndex, int chapter, int verseNumber) async {
     if (code == dbsCode) {
@@ -263,6 +270,12 @@ class VersionRepository {
     }
     if (code == sesCode) {
       try {
+        // Hors canon de la SES (le Nouveau Testament) : pas de repli sur la
+        // LSGS — l'écran d'étude le dit et propose un autre corpus, plutôt
+        // que de montrer du Segond sous l'étiquette SES.
+        if (!(versionByCode(code)?.containsBook(bymIndex) ?? false)) {
+          return const [];
+        }
         final tokens = await sesTokens(bymIndex, chapter, verseNumber);
         if (tokens.isNotEmpty) return tokens;
       } catch (_) {
