@@ -11,9 +11,9 @@ import 'package:bible_app/widgets/verse_tile.dart';
 /// Rendu interlinéaire du NTI dans la tuile du lecteur : un verset grec en
 /// colonnes de mots, **de gauche à droite**, aligné sur six lignes communes —
 /// forme imprimée, lemme, Koinè, numéro Strong, glose et sa variante, étiquette
-/// grammaticale — précédées de la colonne d'étiquettes que la source imprime
-/// elle-même, et, dès que le verset n'a pas de mots, la ligne de gloses jointes
-/// d'avant, intacte.
+/// grammaticale — sans colonne d'étiquettes en tête : les rangées se lisent
+/// d'elles-mêmes, et, dès que le verset n'a pas de mots, la ligne de gloses
+/// jointes d'avant, intacte.
 void main() {
   /// Matthieu 1:1, tels que le convertisseur les sort — le deuxième mot est
   /// celui qui porte une variante de glose, le troisième une forme construite.
@@ -121,31 +121,21 @@ void main() {
     expect(find.text('N-GFS'), findsOneWidget);
   });
 
-  testWidgets('la colonne d’étiquettes nomme les six rangées, à gauche', (
+  testWidgets('pas de colonne d’étiquettes en tête du verset', (
     tester,
   ) async {
     await pumpGreek(tester);
 
-    // Les six noms, dans l'ordre que la source imprime.
+    // Les six rangées se lisent d'elles-mêmes : aucun nom de rangée ne
+    // précède le premier mot.
     for (final nom in ['Moderne', 'Lemme', 'Koinè', 'Strong', 'Français', 'Analyse']) {
-      expect(find.text(nom), findsOneWidget, reason: 'rangée « $nom »');
+      expect(find.text(nom), findsNothing, reason: 'rangée « $nom »');
     }
 
-    // …et chacun posé au milieu de la ligne qu'il nomme : c'est la hauteur
-    // commune qui les aligne sur le mot, sinon « Lemme » et « Koinè » se
-    // liraient sur la même ordonnée. Le libellé est plus petit que le texte
-    // qu'il nomme — au centre, jamais au dessus.
-    double cy(String t) => tester.getCenter(find.text(t).first).dy;
-    expect(cy('Moderne'), closeTo(cy('Βίβλος'), 1));
-    expect(cy('Lemme'), closeTo(cy('βίβλος'), 1));
-    expect(cy('Koinè'), closeTo(cy('βιβλοσ'), 1));
-    expect(cy('Français'), closeTo(cy('Livre'), 1));
-    expect(cy('Analyse'), closeTo(cy('N-NFS'), 1));
-
-    // Les étiquettes ouvrent le verset : à gauche du premier mot.
+    // …et le premier mot ouvre le verset, à gauche.
     expect(
-      tester.getCenter(find.text('Moderne')).dx,
-      lessThan(tester.getCenter(find.text('Βίβλος')).dx),
+      tester.getTopLeft(find.text('Βίβλος')).dx,
+      lessThan(tester.getTopLeft(find.text('γενέσεως')).dx),
     );
   });
 

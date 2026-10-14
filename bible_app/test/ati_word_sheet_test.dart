@@ -240,14 +240,13 @@ void main() {
 
       expect(find.text('Mt. 1:1'), findsOneWidget);
       // Les deux lignes de texte sont déjà en cellule : ce que la fiche
-      // ajoute, c'est leur nom — la grille ne distingue « Lemme » de
-      // « Koinè » que par ses étiquettes.
+      // ajoute, c'est leur nom — la grille, sans colonne d'étiquettes, ne
+      // les nomme plus.
       expect(find.text('γένεσις'), findsWidgets);
       expect(find.text('γενεσεωσ'), findsWidgets);
-      // Les deux fois : en cellule (la grille empile) et en fiche (la fiche
-      // nomme).
-      expect(find.text('Lemme'), findsWidgets);
-      expect(find.text('Koinè'), findsWidgets);
+      // Une fois : en fiche, qui nomme — plus en grille.
+      expect(find.text('Lemme'), findsOneWidget);
+      expect(find.text('Koinè'), findsOneWidget);
       // Les lignes que la grille tient court : Strong, étiquette, analyse.
       expect(find.text('G1078'), findsOneWidget, reason: 'le G est gardé ici');
       expect(find.text('N-GFS'), findsWidgets);

@@ -34,6 +34,8 @@ void main() {
     ],
     MemoryDictionaryStore? dictionaryStore,
     bool dbsAvailable = false,
+    bool dbsOnly = false,
+    bool sesAvailable = false,
   }) async {
     await tester.pumpWidget(MaterialApp(
       home: EtudeVersetScreen(
@@ -43,6 +45,8 @@ void main() {
         tokens: tokens,
         dictionaryStore: dictionaryStore,
         dbsAvailable: dbsAvailable,
+        dbsOnly: dbsOnly,
+        sesAvailable: sesAvailable,
       ),
     ));
     await tester.pumpAndSettle();
@@ -110,6 +114,43 @@ void main() {
     expect(find.text('DBS'), findsOneWidget);
     final prefs = await EtudePreferences.load();
     expect(prefs.versionCode, 'DBS');
+  });
+
+  testWidgets('the study sheet offers the SES corpus once downloaded',
+      (tester) async {
+    await pumpScreen(tester, sesAvailable: true);
+
+    await tester.tap(find.byTooltip('Corpus du lexique'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('LSS — Segond Louis + Strong'), findsOneWidget);
+    expect(find.text('SES — Septuaginta grec + Strong'), findsOneWidget);
+
+    await tester.tap(find.text('SES — Septuaginta grec + Strong'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('SES'), findsOneWidget);
+    final prefs = await EtudePreferences.load();
+    expect(prefs.versionCode, 'SES');
+  });
+
+  testWidgets('in Darby reading the picker only knows the DBS', (tester) async {
+    // BYM seule à disposer de tous les corpus : en lecture Darby, même
+    // téléchargée, la SES ne s'y invite pas.
+    await pumpScreen(
+      tester,
+      dbsAvailable: true,
+      dbsOnly: true,
+      sesAvailable: true,
+    );
+
+    await tester.tap(find.byTooltip('Corpus du lexique'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('DBS — Darby + Strong'), findsOneWidget);
+    expect(find.text('LSS — Segond Louis + Strong'), findsNothing);
+    expect(find.text('LSGS — Segond 1910 + Strongs'), findsNothing);
+    expect(find.text('SES — Septuaginta grec + Strong'), findsNothing);
   });
 
   testWidgets('tapping a Strong word shows its card', (tester) async {

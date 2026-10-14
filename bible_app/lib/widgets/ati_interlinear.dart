@@ -8,13 +8,10 @@ import 'verse_tile.dart';
 /// comme la source l'imprime.
 ///
 /// Deux grilles, une seule trame. L'ATI (hébreu) empile **cinq lignes** de
-/// droite à gauche ; le NTI (grec) en empile **six** de gauche à droite, et
-/// leur donne en plus une colonne d'étiquettes — Moderne, Lemme, Koinè, Strong,
-/// Français, Analyse — que la source imprime elle aussi, un tableau par verset.
-/// La trame ne change pas : cellule sur lignes de hauteur fixe, filet entre les
-/// voisines, gouttière du numéro dehors. Ce qui change, c'est le sens, le
-/// nombre de lignes et le fait que le grec a deux lignes de texte (imprimé et
-/// lemme) là où l'hébreu n'en a qu'une.
+/// droite à gauche ; le NTI (grec) en empile **six** de gauche à droite. La
+/// trame ne change pas : cellule sur lignes de hauteur fixe, filet entre les
+/// voisines, gouttière du numéro dehors. Ce qui change, c'est le sens et le
+/// nombre de lignes.
 ///
 /// La maquette de l'ATI suit l'écran « Interlinéaire » de Biblia Universalis
 /// (capture du 04/10/2026, `Downloads/capture`, Genèse 1:3-4) ; celle du NTI,
@@ -106,8 +103,7 @@ class AtiInterlinear extends StatelessWidget {
 
     return Directionality(
       // Le texte source impose son sens : l'hébreu part de la droite, la
-      // première colonne tombe donc à droite ; le grec de la gauche, et ses
-      // étiquettes avec lui.
+      // première colonne tombe donc à droite ; le grec de la gauche.
       textDirection: grec ? TextDirection.ltr : TextDirection.rtl,
       child: Wrap(
         // Les filets des cellules voisines doivent se toucher : ni espacement
@@ -120,10 +116,6 @@ class AtiInterlinear extends StatelessWidget {
         // verset long garde la même trame que sa première ligne.
         crossAxisAlignment: WrapCrossAlignment.start,
         children: [
-          // La colonne d'étiquettes n'a qu'une place : en tête du verset,
-          // comme la source la pose. Elle ne revient pas sur les lignes
-          // suivantes d'un verset qui déborde — Biblia non plus.
-          if (grec) _Etiquettes(lignes: _lignesGrec(base), mainStyle: mainStyle, gap: rhythm.s, theme: theme),
           for (final word in words)
             grec
                 ? _CelluleGrecque(
@@ -303,98 +295,6 @@ Widget _gloseFrancaise(
     maxLines: 1,
     overflow: TextOverflow.ellipsis,
   );
-}
-
-/// La colonne d'étiquettes du NTI : les six noms de rangée, posés à gauche
-/// des mots.
-///
-/// La source les imprime elle-même — un `<table>` d'étiquettes par verset,
-/// avant les mots — et sans elles la grille grecque perd le nom de deux de
-/// ses lignes : « Lemme » et « Koinè » ne se distinguent que par là, et
-/// « Koinè » moins encore, qui n'est le texte qu'écrit sans accents.
-///
-/// Les hauteurs sont celles du mot, ligne pour ligne : c'est ce qui les
-/// aligne sur ce qu'elles nomment. Le libellé, lui, est mis au milieu de sa
-/// ligne — plus petit que le texte qu'il nomme, il ne toucherait ni le haut
-/// ni le bas autrement.
-class _Etiquettes extends StatelessWidget {
-  const _Etiquettes({
-    required this.lignes,
-    required this.mainStyle,
-    required this.gap,
-    required this.theme,
-  });
-
-  final _LignesGrec lignes;
-  final TextStyle mainStyle;
-  final double gap;
-  final BibleTheme theme;
-
-  /// Les six noms, dans l'ordre de la source — un nom par rangée, du haut en
-  /// bas, comme Biblia les imprime.
-  static const List<String> _noms = [
-    'Moderne',
-    'Lemme',
-    'Koinè',
-    'Strong',
-    'Français',
-    'Analyse',
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    final hauteurs = [
-      lignes.moderne,
-      lignes.lemme,
-      lignes.koine,
-      lignes.strong,
-      lignes.glose,
-      lignes.grammaire,
-    ];
-    // Gris de lecture, comme la source les met en `color:grey` : ce sont des
-    // étiquettes, elles ne se lisent pas avant le mot.
-    final style = mainStyle.copyWith(
-      fontSize: (mainStyle.fontSize ?? 16) * .62,
-      height: AtiInterlinear._interligne,
-      color: theme.textColor.withValues(alpha: .6),
-    );
-
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 5 * gap, vertical: 2 * gap),
-      // Le même filet que les cellules : la source encadre aussi son tableau
-      // d'étiquettes (`frame="lhs"`), et sans trait la colonne se
-      // détacherait du tableau au lieu d'en être le bord.
-      decoration: BoxDecoration(
-        border: BorderDirectional(
-          start: BorderSide(color: theme.columnRuleColor, width: .8),
-        ),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        // Contre le bord du verset : les six noms partent tous du même x.
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          for (var i = 0; i < _noms.length; i++)
-            _ligne(
-              hauteurs[i],
-              Align(
-                // Borné en largeur : sans `widthFactor`, l'`Align` prendrait
-                // toute la largeur de la contrainte et la colonne pousserait
-                // le premier mot hors de sa ligne.
-                alignment: AlignmentDirectional.centerStart,
-                widthFactor: 1,
-                child: Text(
-                  _noms[i],
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: style,
-                ),
-              ),
-            ),
-        ],
-      ),
-    );
-  }
 }
 
 /// Un mot, empilé sur lui-même et centré sur sa propre largeur : la cellule

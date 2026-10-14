@@ -308,6 +308,54 @@ void main() {
         lsgs.map((t) => '${t.text}|${t.strong}'),
       );
     });
+
+    test('serves the downloaded SES corpus as Greek study tokens', () async {
+      // Un livre SES tel que `SES/ses_to_json.py` l'écrit : mots grecs avec
+      // Strong et analyse, sans français.
+      await store.saveBook(VersionRepository.sesCode, 1, {
+        'bym_index': 1,
+        'standard': 1,
+        'book': 'Genèse',
+        'osis_id': 'Gen',
+        'ca': ['Nature: préposition'],
+        'cg': ['PREP'],
+        'chapters': [
+          {
+            'chapter': 1,
+            'verses': [
+              {
+                'verse': 1,
+                'words': [
+                  {'m': 'Ἐν', 's': 'G1722', 'g': 0, 'a': 0},
+                  {'m': 'ἀρχῇ', 's': 'G746', 'g': 0, 'a': 0},
+                ],
+              },
+            ],
+          },
+        ],
+      });
+
+      final tokens =
+          await repository.tokensFor(VersionRepository.sesCode, 1, 1, 1);
+      expect(
+        tokens.map((t) => t.strong).whereType<String>(),
+        ['G1722', 'G746'],
+      );
+      // Le mot grec porte la fiche, comme un mot français.
+      expect(tokens.first.text, 'Ἐν');
+    });
+
+    test('a SES book missing from the device falls back to the LSGS',
+        () async {
+      final tokens =
+          await repository.tokensFor(VersionRepository.sesCode, 1, 1, 1);
+      final lsgs =
+          await repository.tokensFor(VersionRepository.lsgsCode, 1, 1, 1);
+      expect(
+        tokens.map((t) => '${t.text}|${t.strong}'),
+        lsgs.map((t) => '${t.text}|${t.strong}'),
+      );
+    });
   });
 
   group('the format of a version', () {

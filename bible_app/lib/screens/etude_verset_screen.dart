@@ -150,6 +150,11 @@ class EtudeVersetScreen extends StatefulWidget {
   /// Bibliothèque.
   final bool dbsOnly;
 
+  /// La SES est proposée comme quatrième corpus du lexique quand son livre
+  /// est téléchargé — même contrat que [dbsAvailable], et cachée en lecture
+  /// Darby ([dbsOnly]), qui n'a que son propre corpus.
+  final bool sesAvailable;
+
   const EtudeVersetScreen({
     super.key,
     required this.bookIndex,
@@ -163,6 +168,7 @@ class EtudeVersetScreen extends StatefulWidget {
     this.dictionaryStore,
     this.dbsAvailable = false,
     this.dbsOnly = false,
+    this.sesAvailable = false,
   }) : assert(!dbsOnly || dbsAvailable,
             'un corpus Darby exclusif sans livre téléchargé ne servirait rien');
 
@@ -495,13 +501,13 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
   /// Choix du corpus dont vient la fiche.
   ///
   /// La LSS de Biblia, qui numérote les particules que la LSGS ignore, et la
-  /// LSGS que lit le texte — plus la DBS (Darby + Strong) quand son livre est
-  /// téléchargé ([dbsAvailable]). En lecture Darby ([dbsOnly]), seule la DBS :
-  /// la BYM reste la seule version à disposer de tous les corpus. C'est
-  /// [VersionRepository.tokensFor] qui les sert tous les trois. Proposer le
-  /// catalogue entier serait trompeur — une version sans ancre Strong
-  /// retomberait en silence sur la LSGS, sans que le choix de l'utilisateur
-  /// ait rien changé.
+  /// LSGS que lit le texte — plus la DBS (Darby + Strong) et la SES
+  /// (Septuaginta grec + Strong) quand leur livre est téléchargé. En lecture
+  /// Darby ([dbsOnly]), seule la DBS : la BYM reste la seule version à
+  /// disposer de tous les corpus. C'est [VersionRepository.tokensFor] qui les
+  /// sert tous les quatre. Proposer le catalogue entier serait trompeur — une
+  /// version sans ancre Strong retomberait en silence sur la LSGS, sans que le
+  /// choix de l'utilisateur ait rien changé.
   Future<void> _pickCorpus() async {
     final p = premiumPalette(context);
     final options = [
@@ -524,6 +530,13 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
           name: 'DBS — Darby + Strong',
           note: 'Les mots de la Darby, ancre par ancre : le taggage Biblia '
               'de la traduction que vous lisez.',
+        ),
+      if (widget.sesAvailable && !widget.dbsOnly)
+        (
+          code: VersionRepository.sesCode,
+          name: 'SES — Septuaginta grec + Strong',
+          note: 'Le grec de la Septante mot à mot, Strong et analyse : '
+              'sans français, les fiches portent le grec.',
         ),
     ];
 

@@ -1996,9 +1996,13 @@ class _ChapterReaderState extends State<ChapterReader> {
     final darby = _versionCode == VersionRepository.dbyCode;
     // La DBS n'est un corpus d'étude que téléchargée : en lecture Darby sans
     // elle, pas d'étude sur un autre texte — une invitation vers la
-    // Bibliothèque, qui est l'endroit où le téléchargement se fait.
+    // Bibliothèque, qui est l'endroit où le téléchargement se fait. Même
+    // contrat pour la SES, quatrième corpus.
     final dbsAvailable =
         (await _library.versionState(VersionRepository.dbsCode))
+            .has(widget.bookIndex);
+    final sesAvailable =
+        (await _library.versionState(VersionRepository.sesCode))
             .has(widget.bookIndex);
     if (darby && !dbsAvailable) {
       if (!mounted) return;
@@ -2034,6 +2038,7 @@ class _ChapterReaderState extends State<ChapterReader> {
           // En lecture Darby, l'étude ne connaît que son propre corpus ; la
           // BYM reste la seule version à disposer de tous les corpus.
           dbsOnly: darby,
+          sesAvailable: sesAvailable,
           verseNumbers: verseNumbers,
           loadVerseTokens: (v) async {
             // Relue à chaque appel, non capturée à l'ouverture : le corpus se

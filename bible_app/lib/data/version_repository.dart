@@ -92,6 +92,12 @@ class VersionRepository {
   /// téléchargé.
   static const String dbyCode = 'DBY';
 
+  /// La Septuaginta grec + Strong, téléchargée (entrée `SES` du catalogue) :
+  /// quatrième corpus du lexique de l'étude de verset. Ses mots grecs
+  /// deviennent des tokens d'étude ([sesTokens]) : le mot porte la fiche,
+  /// comme un mot français.
+  static const String sesCode = 'SES';
+
   /// Livres téléchargés déjà convertis, par `code|index`. [LocalRepository]
   /// garde le même genre de cache pour la BYM : un chapitre est relu plusieurs
   /// fois (liste, saut au verset, sélecteur de versets) et reparser le fichier
@@ -212,14 +218,38 @@ class VersionRepository {
     return const [];
   }
 
-  /// Les tokens du verset dans la corpus [code] (`lssCode`, `lsgsCode` ou
-  /// [dbsCode]) — ceux que rend le lexique de l'étude de verset.
+  /// Les tokens du verset dans la SES téléchargée — ses mots grecs, chacun
+  /// avec son Strong. `const []` quand le livre n'est pas sur l'appareil ou
+  /// que le verset n'y est pas : l'appelant retombe alors sur la LSGS, comme
+  /// pour la DBS.
+  Future<List<LsgsToken>> sesTokens(
+      int bymIndex, int chapter, int verseNumber) async {
+    final raw = await _store.loadBook(sesCode, bymIndex);
+    if (raw == null) return const [];
+    final book = AtiBook.fromJson(raw);
+    for (final ch in book.chapters) {
+      if (ch.chapter != chapter) continue;
+      for (final verse in ch.verses) {
+        if (verse.verse != verseNumber) continue;
+        final tokens = [
+          for (final word in verse.words)
+            LsgsToken(text: word.modern ?? '', strong: word.strong),
+        ];
+        if (tokens.isEmpty) return const [];
+        return tokens;
+      }
+    }
+    return const [];
+  }
+
+  /// Les tokens du verset dans la corpus [code] ([lssCode], [lsgsCode],
+  /// [dbsCode] ou [sesCode]) — ceux que rend le lexique de l'étude de verset.
   ///
   /// Le repli sur la LSGS est la règle plutôt que l'exception : LSS manque
   /// trois versets à la source (Ex 28.42, Nb 25.19, Ac 19.41), et un actif
   /// absent ou illisible ne doit pas vider d'un coup la fiche — le lexique
-  /// retombe sur le texte que l'on lit. La DBS y retombe de la même façon
-  /// quand son livre n'est pas (ou plus) téléchargé.
+  /// retombe sur le texte que l'on lit. La DBS et la SES y retombent de la
+  /// même façon quand leur livre n'est pas (ou plus) téléchargé.
   Future<List<LsgsToken>> tokensFor(
       String code, int bymIndex, int chapter, int verseNumber) async {
     if (code == dbsCode) {
@@ -228,6 +258,15 @@ class VersionRepository {
         if (tokens.isNotEmpty) return tokens;
       } catch (_) {
         // Livre non téléchargé ou illisible : le repli ci-dessous suffit.
+      }
+      return lsgsTokens(bymIndex, chapter, verseNumber);
+    }
+    if (code == sesCode) {
+      try {
+        final tokens = await sesTokens(bymIndex, chapter, verseNumber);
+        if (tokens.isNotEmpty) return tokens;
+      } catch (_) {
+        // Même repli que la DBS.
       }
       return lsgsTokens(bymIndex, chapter, verseNumber);
     }

@@ -126,9 +126,8 @@ class _AtiWordSheetState extends State<_AtiWordSheet> {
         children: [
           _header(context, p),
           const SizedBox(height: 16),
-          // Les deux lignes grecques que la cellule empilait sans les nommer.
-          // La grille n'a que six étiquettes, dont deux se ressemblent (« Lemme »
-          // et « Koinè ») ; la fiche les appelle, dans l'ordre de la source.
+          // Les deux lignes grecques que la cellule empilait sans les nommer :
+          // la fiche les appelle, dans l'ordre de la source.
           if (word.lemma != null) ...[
             const _Label('Lemme'),
             const SizedBox(height: 4),
