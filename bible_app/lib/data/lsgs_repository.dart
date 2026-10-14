@@ -191,6 +191,54 @@ class LsgsRepository {
   static String _renderVerseText(List<LsgsToken> tokens) =>
       joinTokens(tokens, includeStrong: true);
 
+  /// La forme d'un code Strong inline — la même que
+  /// `VerseTile.strongCodePattern` y cherche : une majuscule suivie de quatre
+  /// chiffres (`H0430`, `G0011`). Dupliquée ici plutôt qu'importée : ce dépôt
+  /// est la couche données, le motif vit dans les widgets.
+  static final RegExp strongCodePattern =
+      RegExp(r'(?<!\w)([A-Z][0-9]{4})(?!\w)');
+
+  /// Le dernier mot d'un fragment — celui qui reçoit le code Strong qui le
+  /// suit. Mêmes caractères que le parseur d'extraction (`WORD_RE` de
+  /// `DBS/dbs_to_json.py`) : lettres accentuées, apostrophes, traits d'union.
+  static final RegExp _trailingWord =
+      RegExp(r"[0-9A-Za-zÀ-ÖØ-öø-ÿŒœ’'\-]+$");
+
+  /// L'inverse de [joinTokens] avec `includeStrong: true` : un texte qui porte
+  /// ses codes Strong inline (« Dieu H0430 ») redevient des tokens.
+  ///
+  /// C'est le pont de la DBS téléchargée vers l'étude de verset : ses fichiers
+  /// ne portent pas de `tokens` (schéma getbible nu), seulement ce texte. Un
+  /// code sans mot devant lui — le second d'un doublet (« 23 H6242 H7969 ») —
+  /// devient un token de texte vide, comme les mots non traduits de la LSS.
+  static List<LsgsToken> splitStrongText(String text) {
+    final tokens = <LsgsToken>[];
+    var cursor = 0;
+    void pushPlain(String plain) {
+      if (plain.isEmpty) return;
+      tokens.add(LsgsToken(text: plain));
+    }
+
+    for (final match in strongCodePattern.allMatches(text)) {
+      final head = text.substring(cursor, match.start);
+      final code = match.group(0)!;
+      // L'ancre suit son mot avec un espace d'affichage devant : il ne fait
+      // pas partie du mot (`« Dieu H0430 »`, pas `« Dieu  H0430 »`).
+      final rhead = head.trimRight();
+      final word = _trailingWord.firstMatch(rhead);
+      if (word == null) {
+        pushPlain(head);
+        tokens.add(LsgsToken(text: '', strong: code));
+      } else {
+        pushPlain(rhead.substring(0, word.start));
+        tokens.add(LsgsToken(text: word.group(0)!, strong: code));
+      }
+      cursor = match.end;
+    }
+    pushPlain(text.substring(cursor));
+    return tokens;
+  }
+
   /// Joins LSGS tokens into displayable text, keeping the token boundary rules
   /// (no space before punctuation, a space between words). With
   /// [includeStrong] the Strong code follows its word (« AA H7225 »), as the

@@ -1964,7 +1964,8 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// The Lexique button of the study sheet: it always shows the *same verse*
   /// the reader is on, rendered word-by-word from the Strong corpus of the
   /// study ([EtudePreferences.versionCode] — the LSS of Biblia by default,
-  /// whose anchors also number the particles the LSGS ignores) where every
+  /// whose anchors also number the particles the LSGS ignores, the LSGS, or
+  /// the downloaded DBS when its book is on the device) where every
   /// Strong code is tappable ([EtudeVersetScreen]) — the BYM text proposes
   /// its own equivalent verse in the Strong version. The study screen combines
   /// the Strong lexicon (hébreu/grec) and the Westphal dictionary, with
@@ -1981,6 +1982,12 @@ class _ChapterReaderState extends State<ChapterReader> {
     if (!mounted) return;
     final chapter = await _activeChapter();
     if (!mounted) return;
+    // La DBS n'est un corpus d'étude que téléchargée : son option n'est
+    // proposée que si ce livre est sur l'appareil.
+    final dbsAvailable =
+        (await _library.versionState(VersionRepository.dbsCode))
+            .has(widget.bookIndex);
+    if (!mounted) return;
     final verseNumbers = [for (final v in chapter.verses) v.number];
     final returnToVerse = await Navigator.of(context).push<bool>(
       MaterialPageRoute(
@@ -1989,6 +1996,7 @@ class _ChapterReaderState extends State<ChapterReader> {
           chapter: widget.chapter,
           verseNumber: verseNumber,
           tokens: tokens,
+          dbsAvailable: dbsAvailable,
           verseNumbers: verseNumbers,
           loadVerseTokens: (v) async {
             // Relue à chaque appel, non capturée à l'ouverture : le corpus se

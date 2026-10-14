@@ -255,6 +255,59 @@ void main() {
         isEmpty,
       );
     });
+
+    test('serves the downloaded DBS corpus, Strong codes inline', () async {
+      // Un livre DBS tel que `DBS/dbs_to_json.py` l'écrit : schéma getbible
+      // nu, codes Strong inline dans le texte.
+      await store.saveBook(VersionRepository.dbsCode, 1, {
+        'translation': 'Darby + Strong',
+        'abbreviation': 'DBS',
+        'lang': 'fr',
+        'nr': 1,
+        'name': 'Genèse',
+        'chapters': [
+          {
+            'chapter': 1,
+            'name': 'Genèse 1',
+            'verses': [
+              {
+                'chapter': '1',
+                'verse': '1',
+                'name': 'Genèse 1:1',
+                'text':
+                    'Au commencement H7225 Dieu H0430 créa H1254 les cieux H8064.',
+              },
+            ],
+          },
+        ],
+      });
+
+      final tokens =
+          await repository.tokensFor(VersionRepository.dbsCode, 1, 1, 1);
+      expect(
+        tokens.map((t) => t.strong).whereType<String>(),
+        containsAll(['H7225', 'H0430', 'H1254', 'H8064']),
+      );
+      // Le code reste accroché à son mot darbyen, pas en pastille isolée.
+      expect(
+        tokens.firstWhere((t) => t.strong == 'H0430').text,
+        'Dieu',
+      );
+    });
+
+    test('a DBS book missing from the device falls back to the LSGS',
+        () async {
+      // Rien de téléchargé en DBS : le lexique retombe sur le texte que l'on
+      // lit, comme pour un verset que la LSS ne porte pas.
+      final tokens =
+          await repository.tokensFor(VersionRepository.dbsCode, 1, 1, 1);
+      final lsgs =
+          await repository.tokensFor(VersionRepository.lsgsCode, 1, 1, 1);
+      expect(
+        tokens.map((t) => '${t.text}|${t.strong}'),
+        lsgs.map((t) => '${t.text}|${t.strong}'),
+      );
+    });
   });
 
   group('the format of a version', () {

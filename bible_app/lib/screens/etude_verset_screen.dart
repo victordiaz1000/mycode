@@ -136,6 +136,13 @@ class EtudeVersetScreen extends StatefulWidget {
   /// ne répondant jamais dans le zone fake-async des tests.
   final DictionaryStore? dictionaryStore;
 
+  /// La DBS est proposée comme troisième corpus du lexique quand son livre
+  /// est téléchargé sur l'appareil — le lecteur, qui possède le registre,
+  /// le dit à l'ouverture. Faux par défaut (et hors coquille) : proposer un
+  /// corpus sans texte retomberait en silence sur la LSGS, sans que le choix
+  /// de l'utilisateur ait rien changé.
+  final bool dbsAvailable;
+
   const EtudeVersetScreen({
     super.key,
     required this.bookIndex,
@@ -147,6 +154,7 @@ class EtudeVersetScreen extends StatefulWidget {
     this.loadVerseTokens,
     this.onOpenVerse,
     this.dictionaryStore,
+    this.dbsAvailable = false,
   });
 
   @override
@@ -477,11 +485,12 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
 
   /// Choix du corpus dont vient la fiche.
   ///
-  /// Il n'y en a que deux, et c'est [VersionRepository.tokensFor] qui en
-  /// décide : la LSS de Biblia, qui numérote les particules que la LSGS
-  /// ignore, et la LSGS que lit le texte. Proposer le catalogue entier serait
-  /// trompeur — une version sans ancre Strong retomberait en silence sur la
-  /// LSGS, sans que le choix de l'utilisateur ait rien changé.
+  /// La LSS de Biblia, qui numérote les particules que la LSGS ignore, et la
+  /// LSGS que lit le texte — plus la DBS (Darby + Strong) quand son livre est
+  /// téléchargé ([dbsAvailable]). C'est [VersionRepository.tokensFor] qui les
+  /// sert tous les trois. Proposer le catalogue entier serait trompeur — une
+  /// version sans ancre Strong retomberait en silence sur la LSGS, sans que le
+  /// choix de l'utilisateur ait rien changé.
   Future<void> _pickCorpus() async {
     final p = premiumPalette(context);
     final options = [
@@ -496,6 +505,13 @@ class _EtudeVersetScreenState extends State<EtudeVersetScreen> {
         name: 'LSGS — Segond 1910 + Strongs',
         note: 'Le texte que vous lisez, ancre par ancre.',
       ),
+      if (widget.dbsAvailable)
+        (
+          code: VersionRepository.dbsCode,
+          name: 'DBS — Darby + Strong',
+          note: 'Les mots de la Darby, ancre par ancre : le taggage Biblia '
+              'de la traduction que vous lisez.',
+        ),
     ];
 
     await showModalBottomSheet<void>(

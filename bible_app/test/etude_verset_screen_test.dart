@@ -33,6 +33,7 @@ void main() {
       LsgsToken(text: 'Dieu.', strong: 'H0430'),
     ],
     MemoryDictionaryStore? dictionaryStore,
+    bool dbsAvailable = false,
   }) async {
     await tester.pumpWidget(MaterialApp(
       home: EtudeVersetScreen(
@@ -41,6 +42,7 @@ void main() {
         verseNumber: 1,
         tokens: tokens,
         dictionaryStore: dictionaryStore,
+        dbsAvailable: dbsAvailable,
       ),
     ));
     await tester.pumpAndSettle();
@@ -73,18 +75,41 @@ void main() {
     await tester.tap(find.byTooltip('Corpus du lexique'));
     await tester.pumpAndSettle();
 
-    // Il n'y en a que deux : ceux que `tokensFor` sait lire. Proposer le
-    // catalogue entier serait trompeur, une version sans ancre Strong
-    // retombant en silence sur la LSGS.
+    // Il n'y en a que deux sans la DBS : ceux que `tokensFor` sait lire en
+    // embarqué. Proposer le catalogue entier serait trompeur, une version
+    // sans ancre Strong retombant en silence sur la LSGS.
     expect(find.text('Corpus du lexique'), findsOneWidget);
     expect(find.text('LSS — Segond Louis + Strong'), findsOneWidget);
     expect(find.text('LSGS — Segond 1910 + Strongs'), findsOneWidget);
+    expect(find.text('DBS — Darby + Strong'), findsNothing);
 
     await tester.tap(find.text('LSGS — Segond 1910 + Strongs'));
     await tester.pumpAndSettle();
 
     expect(find.text('LSGS'), findsOneWidget);
     expect(find.text('LSS'), findsNothing);
+  });
+
+  testWidgets('the study sheet offers the DBS corpus once downloaded',
+      (tester) async {
+    // Le livre est téléchargé : le lecteur l'a dit à l'ouverture — la DBS
+    // rejoint la LSS et la LSGS dans le sélecteur.
+    await pumpScreen(tester, dbsAvailable: true);
+
+    expect(find.text('LSS'), findsOneWidget);
+    await tester.tap(find.byTooltip('Corpus du lexique'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('DBS — Darby + Strong'), findsOneWidget);
+
+    await tester.tap(find.text('DBS — Darby + Strong'));
+    await tester.pumpAndSettle();
+
+    // Le corpus en vigueur tient dans l'AppBar, et le choix est enregistré :
+    // la navigation précédent / suivant le relit sans rouvrir l'écran.
+    expect(find.text('DBS'), findsOneWidget);
+    final prefs = await EtudePreferences.load();
+    expect(prefs.versionCode, 'DBS');
   });
 
   testWidgets('tapping a Strong word shows its card', (tester) async {

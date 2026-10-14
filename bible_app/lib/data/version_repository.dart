@@ -81,6 +81,12 @@ class VersionRepository {
   /// propose à côté de la LSGS.
   static const String lssCode = 'LSS';
 
+  /// La Darby avec Strong numbers, téléchargée (entrée `DBS` du catalogue) :
+  /// troisième corpus du lexique de l'étude de verset. Ses fichiers ne portent
+  /// pas de `tokens` (schéma getbible nu) — [dbsTokens] y relit les codes
+  /// inline via [LsgsRepository.splitStrongText].
+  static const String dbsCode = 'DBS';
+
   /// Livres téléchargés déjà convertis, par `code|index`. [LocalRepository]
   /// garde le même genre de cache pour la BYM : un chapitre est relu plusieurs
   /// fois (liste, saut au verset, sélecteur de versets) et reparser le fichier
@@ -178,15 +184,48 @@ class VersionRepository {
     return const [];
   }
 
-  /// Les tokens du verset dans la corpus [code] (`lssCode` ou `lsgsCode`) —
-  /// ceux que rend le lexique de l'étude de verset.
+  /// Les tokens du verset dans la DBS téléchargée — les codes Strong inline
+  /// de son texte (`« Dieu H0430 »`) relus par
+  /// [LsgsRepository.splitStrongText]. `const []` quand le livre n'est pas sur
+  /// l'appareil ou que le verset n'y est pas : l'appelant retombe alors sur la
+  /// LSGS, comme pour la LSS.
+  Future<List<LsgsToken>> dbsTokens(
+      int bymIndex, int chapter, int verseNumber) async {
+    final raw = await _store.loadBook(dbsCode, bymIndex);
+    if (raw == null) return const [];
+    for (final rawChapter in raw['chapters'] as List<dynamic>? ?? const []) {
+      if (rawChapter is! Map) continue;
+      if (_asInt(rawChapter['chapter']) != chapter) continue;
+      for (final rawVerse in rawChapter['verses'] as List<dynamic>? ?? const []) {
+        if (rawVerse is! Map) continue;
+        if (_asInt(rawVerse['verse']) != verseNumber) continue;
+        final text = (rawVerse['text'] as String? ?? '').trim();
+        if (text.isEmpty) return const [];
+        return LsgsRepository.splitStrongText(text);
+      }
+    }
+    return const [];
+  }
+
+  /// Les tokens du verset dans la corpus [code] (`lssCode`, `lsgsCode` ou
+  /// [dbsCode]) — ceux que rend le lexique de l'étude de verset.
   ///
   /// Le repli sur la LSGS est la règle plutôt que l'exception : LSS manque
   /// trois versets à la source (Ex 28.42, Nb 25.19, Ac 19.41), et un actif
   /// absent ou illisible ne doit pas vider d'un coup la fiche — le lexique
-  /// retombe sur le texte que l'on lit.
+  /// retombe sur le texte que l'on lit. La DBS y retombe de la même façon
+  /// quand son livre n'est pas (ou plus) téléchargé.
   Future<List<LsgsToken>> tokensFor(
       String code, int bymIndex, int chapter, int verseNumber) async {
+    if (code == dbsCode) {
+      try {
+        final tokens = await dbsTokens(bymIndex, chapter, verseNumber);
+        if (tokens.isNotEmpty) return tokens;
+      } catch (_) {
+        // Livre non téléchargé ou illisible : le repli ci-dessous suffit.
+      }
+      return lsgsTokens(bymIndex, chapter, verseNumber);
+    }
     if (code != lssCode) return lsgsTokens(bymIndex, chapter, verseNumber);
     try {
       final tokens = await _verseTokens(_lss, bymIndex, chapter, verseNumber);

@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:bible_app/data/book_mapping.dart';
 import 'package:bible_app/data/download_service.dart';
+import 'package:bible_app/data/lsgs_repository.dart';
 import 'package:bible_app/data/version_catalog.dart';
 import 'package:bible_app/data/version_repository.dart';
 import 'package:bible_app/widgets/verse_tile.dart' show strongCodePattern;
@@ -87,6 +88,37 @@ void main() {
       // Le nom vient du catalogue BYM, pas du JSON — la version fournit le
       // texte, pas le vocabulaire.
       expect(book.book, 'Genèse');
+    });
+
+    test('inline Strong text reads back as study tokens', () {
+      // Le pont vers l'étude de verset : le texte téléchargé redevient des
+      // tokens, le code accroché à son mot darbyen.
+      const text =
+          'Au commencement H7225 Dieu H0430 créa H1254 les cieux H8064 et la terre H0776.';
+      final tokens = LsgsRepository.splitStrongText(text);
+      expect(
+        tokens.map((t) => t.strong).whereType<String>(),
+        ['H7225', 'H0430', 'H1254', 'H8064', 'H0776'],
+      );
+      expect(tokens.firstWhere((t) => t.strong == 'H0430').text, 'Dieu');
+      // Aller-retour : la jointure retrouve le texte d'origine.
+      expect(
+        LsgsRepository.joinTokens(tokens, includeStrong: true),
+        text,
+      );
+    });
+
+    test('a French word carrying two codes keeps both', () {
+      // « 23 » porte le vingt et le trois (1 Ch 2:22) : le second code n'a
+      // pas de mot à lui — pastille isolée, comme les mots non traduits LSS.
+      final tokens =
+          LsgsRepository.splitStrongText('et il eut H1961 23 H6242 H7969 villes H5892.');
+      expect(
+        tokens.map((t) => t.strong).whereType<String>(),
+        ['H1961', 'H6242', 'H7969', 'H5892'],
+      );
+      expect(tokens.firstWhere((t) => t.strong == 'H6242').text, '23');
+      expect(tokens.firstWhere((t) => t.strong == 'H7969').text, isEmpty);
     });
   });
 }
