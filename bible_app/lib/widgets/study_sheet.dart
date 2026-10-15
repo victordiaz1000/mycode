@@ -52,7 +52,7 @@ Future<StudyAction?> showStudySheet(
       // leur liseré, tenu par le test de contraste, qui les détache du voile.
       child: Container(
         decoration: premiumSurface(context, radius: 24, depth: 1.3),
-        child: _StudySheet(
+        child: StudySheetBody(
           reference: reference,
           verse: excerpt,
           isFavorite: isFavorite,
@@ -61,13 +61,22 @@ Future<StudyAction?> showStudySheet(
           lexiqueLabel: lexiqueLabel,
           onHighlight: onHighlight,
           onFavorite: onFavorite,
+          onAction: (action) => Navigator.of(context).pop(action),
+          onClose: () => Navigator.of(context).pop(),
         ),
       ),
     ),
   );
 }
 
-class _StudySheet extends StatefulWidget {
+/// Le corps de la feuille d'étude, sans sa route modale.
+///
+/// Extrait de la feuille pour l'étape C responsive : sur desktop (≥ 1200) le
+/// lecteur l'épingle en panneau latéral au lieu d'ouvrir la modale — mêmes
+/// pastilles, mêmes tuiles, mêmes callbacks, la navigation en moins. Les deux
+/// modes partagent ce widget : `showStudySheet` y branche les `pop`, le
+/// panneau latéral ses actions directes.
+class StudySheetBody extends StatefulWidget {
   final String reference;
   final String verse;
   final bool isFavorite;
@@ -77,7 +86,15 @@ class _StudySheet extends StatefulWidget {
   final Future<void> Function(String? color) onHighlight;
   final Future<void> Function(bool value) onFavorite;
 
-  const _StudySheet({
+  /// Remonte l'action choisie (note, comparer, références, copier, partager,
+  /// lexique). Le favori et le surlignage passent par leurs callbacks directs.
+  final ValueChanged<StudyAction> onAction;
+
+  /// Ferme le contenant (✕ de l'en-tête).
+  final VoidCallback onClose;
+
+  const StudySheetBody({
+    super.key,
     required this.reference,
     required this.verse,
     required this.isFavorite,
@@ -86,13 +103,15 @@ class _StudySheet extends StatefulWidget {
     required this.lexiqueLabel,
     required this.onHighlight,
     required this.onFavorite,
+    required this.onAction,
+    required this.onClose,
   });
 
   @override
-  State<_StudySheet> createState() => _StudySheetState();
+  State<StudySheetBody> createState() => StudySheetBodyState();
 }
 
-class _StudySheetState extends State<_StudySheet> {
+class StudySheetBodyState extends State<StudySheetBody> {
   late String? _activeColor = widget.currentHighlight;
   late bool _favorite = widget.isFavorite;
 
@@ -162,7 +181,7 @@ class _StudySheetState extends State<_StudySheet> {
                   ),
                 ),
               ),
-              _RoundClose(onClose: () => Navigator.of(context).pop()),
+              _RoundClose(onClose: widget.onClose),
             ],
           ),
           const SizedBox(height: 10),
@@ -258,7 +277,7 @@ class _StudySheetState extends State<_StudySheet> {
             width: double.infinity,
             child: OutlinedButton.icon(
               onPressed: widget.lexiqueEnabled
-                  ? () => Navigator.of(context).pop(StudyAction.lexicon)
+                  ? () => widget.onAction(StudyAction.lexicon)
                   : null,
               style: OutlinedButton.styleFrom(
                 side: BorderSide(
@@ -324,7 +343,7 @@ class _StudySheetState extends State<_StudySheet> {
               _ActionTile(
                 icon: Icons.edit_note_rounded,
                 label: 'Note',
-                onTap: () => Navigator.of(context).pop(StudyAction.note),
+                onTap: () => widget.onAction(StudyAction.note),
               ),
               _ActionTile(
                 icon: _favorite
@@ -338,22 +357,22 @@ class _StudySheetState extends State<_StudySheet> {
               _ActionTile(
                 icon: Icons.compare_arrows_rounded,
                 label: 'Comparer',
-                onTap: () => Navigator.of(context).pop(StudyAction.compare),
+                onTap: () => widget.onAction(StudyAction.compare),
               ),
               _ActionTile(
                 icon: Icons.account_tree_rounded,
                 label: 'Références',
-                onTap: () => Navigator.of(context).pop(StudyAction.references),
+                onTap: () => widget.onAction(StudyAction.references),
               ),
               _ActionTile(
                 icon: Icons.copy_rounded,
                 label: 'Copier',
-                onTap: () => Navigator.of(context).pop(StudyAction.copy),
+                onTap: () => widget.onAction(StudyAction.copy),
               ),
               _ActionTile(
                 icon: Icons.share_rounded,
                 label: 'Partager',
-                onTap: () => Navigator.of(context).pop(StudyAction.share),
+                onTap: () => widget.onAction(StudyAction.share),
               ),
             ],
           ),

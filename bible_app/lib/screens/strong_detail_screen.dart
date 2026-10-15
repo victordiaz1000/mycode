@@ -25,7 +25,16 @@ class StrongDetailScreen extends StatefulWidget {
   /// reference.
   final void Function(int bookIndex, int chapter, int verse)? onOpenVerse;
 
-  const StrongDetailScreen({super.key, required this.strong, this.onOpenVerse});
+  /// Étape F : posée en volet d'un split-view, la fiche ne montre pas de
+  /// retour — il dépilerait l'écran qui l'héberge. Vrai par défaut (route).
+  final bool showBackButton;
+
+  const StrongDetailScreen({
+    super.key,
+    required this.strong,
+    this.onOpenVerse,
+    this.showBackButton = true,
+  });
 
   @override
   State<StrongDetailScreen> createState() => _StrongDetailScreenState();
@@ -118,6 +127,7 @@ class _StrongDetailScreenState extends State<StrongDetailScreen> {
         elevation: 0,
         foregroundColor: p.textDark,
         centerTitle: true,
+        automaticallyImplyLeading: widget.showBackButton,
         // AppBar transparente : le voile d'accent la rattache au fond sans
         // coûter une ligne de hauteur.
         flexibleSpace: DecoratedBox(

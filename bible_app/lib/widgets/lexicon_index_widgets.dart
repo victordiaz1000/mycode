@@ -250,17 +250,21 @@ class LexiconSourceMention extends StatelessWidget {
 }
 
 /// Une carte d'entrée : terme + extrait, tap → fiche. Le tap appartient à
-/// l'écran (chaque index pousse sa propre fiche).
+/// l'écran (chaque index pousse sa propre fiche, ou sélectionne en split).
 class LexiconEntryCard extends StatelessWidget {
   final String title;
   final String subtitle;
   final VoidCallback onTap;
+
+  /// Étape G : carte sélectionnée en volet large (fiche affichée à droite).
+  final bool selected;
 
   const LexiconEntryCard({
     super.key,
     required this.title,
     required this.subtitle,
     required this.onTap,
+    this.selected = false,
   });
 
   @override
@@ -272,7 +276,15 @@ class LexiconEntryCard extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: Ink(
-        decoration: premiumSurface(context, radius: 16, depth: 0.8),
+        decoration: selected
+            ? BoxDecoration(
+                color: p.primarySoft,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(
+                  color: premiumCardBorder(context, opacity: .5),
+                ),
+              )
+            : premiumSurface(context, radius: 16, depth: 0.8),
         child: InkWell(
           borderRadius: BorderRadius.circular(16),
           onTap: onTap,
@@ -314,6 +326,69 @@ class LexiconEntryCard extends StatelessWidget {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Étape G : le split-view partagé des index lexique/dictionnaire (≥ 840) —
+/// l'index à gauche (360 px), la fiche à droite. Même patron que l'index
+/// Strong, sans dupliquer la coque.
+class LexiconSplitView extends StatelessWidget {
+  /// La colonne de recherche + liste de l'index.
+  final Widget index;
+
+  /// La fiche sélectionnée, ou null (le bouche-trou invite à choisir).
+  final Widget? detail;
+
+  /// Invitation du volet vide.
+  final String emptyHint;
+
+  const LexiconSplitView({
+    super.key,
+    required this.index,
+    required this.detail,
+    this.emptyHint =
+        'Choisissez une entrée dans la liste pour afficher sa fiche.',
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(width: 360, child: index),
+        const VerticalDivider(width: 1),
+        Expanded(child: detail ?? LexiconSplitPlaceholder(hint: emptyHint)),
+      ],
+    );
+  }
+}
+
+/// Le volet vide du split-view : une icône et l'invitation à choisir.
+class LexiconSplitPlaceholder extends StatelessWidget {
+  final String hint;
+
+  const LexiconSplitPlaceholder({super.key, required this.hint});
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.menu_book_outlined, size: 44, color: p.primary),
+            const SizedBox(height: 16),
+            Text(
+              hint,
+              textAlign: TextAlign.center,
+              style: premiumText(context, 14, FontWeight.w600, p.textGrey),
+            ),
+          ],
         ),
       ),
     );

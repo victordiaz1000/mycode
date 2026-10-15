@@ -24,10 +24,15 @@ class BymLexiconEntryScreen extends StatefulWidget {
   /// that answers to nothing is a button-shaped lie.
   final void Function(int bookIndex, int chapter, int verse)? onOpenVerse;
 
+  /// Étape G : posée en volet d'un split-view, la fiche ne montre pas de
+  /// retour — il dépilerait l'écran qui l'héberge. Vrai par défaut (route).
+  final bool showBackButton;
+
   const BymLexiconEntryScreen({
     super.key,
     required this.entry,
     this.onOpenVerse,
+    this.showBackButton = true,
   });
 
   @override
@@ -166,6 +171,7 @@ class _BymLexiconEntryScreenState extends State<BymLexiconEntryScreen> {
         elevation: 0,
         foregroundColor: p.textDark,
         centerTitle: true,
+        automaticallyImplyLeading: widget.showBackButton,
         actions: const [FicheDisplayMenuButton(group: DisplayGroup.dico)],
       ),
       body: SafeArea(
