@@ -13,10 +13,14 @@ Cette page vit dans `docs/` du dépôt `victordiaz1000/bym-classic`. Deux approc
 
 1. Construis l'APK : `flutter build apk --release`
    → `build/app/outputs/flutter-apk/app-release.apk`
-2. Sur GitHub : **Releases → Create a new release**, tag `v1.0.0`, attache le fichier renommé `bym-1.0.0.apk`.
-3. Mets à jour l'URL de téléchargement dans `index.html` :
-   `https://github.com/victordiaz1000/bym-classic/releases/download/v1.0.0/bym-1.0.0.apk`
-4. Comite et pousse.
+2. Sur GitHub : **Releases → Create a new release**, tag `vX.Y.Z`,
+   attache le fichier renommé `bym-X.Y.Z.apk`.
+3. **Aucune modification de `index.html` n'est nécessaire** : le bouton
+   `#download` et le changelog interrogent l'API GitHub Releases à chaque
+   visite et pointent vers la dernière version.
+4. Repli hors ligne : si l'API est injoignable, le contenu statique du HTML
+   reprend la main — mets alors à jour le lien de `#download` et les blocs
+   de versions de `#changelog`.
 
 ## B) Automatique — GitHub Actions
 
@@ -24,16 +28,24 @@ Le workflow `.github/workflows/release-apk.yml` construit l'APK et crée la Rele
 
 Usage :
 ```bash
-git tag v1.0.0
-git push origin v1.0.0
+git tag v1.1.0
+git push origin v1.1.0
 ```
 
-Les secrets optionnels `ANDROID_KEYSTORE_BASE64` etc. permettent de signer l'APK ; sinon il reste signé en debug et les mises à jour automatiques ne fonctionneront pas.
+Signature : enregistre dans **Settings → Secrets and variables → Actions**
+les secrets `ANDROID_KEYSTORE_BASE64` (obtenu par `base64 -w0 bym-upload.jks`),
+`ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS` (= `upload`) et
+`ANDROID_KEY_PASSWORD`. Sans eux, le workflow construit quand même… mais
+l'APK repart signé en **debug** — le step « Verifier la signature produite »
+affiche alors `CN=Android Debug` dans le log. Ne publie jamais un APK ainsi
+signé : les utilisateurs ne pourraient plus l'installer par-dessus leur
+version existante.
 
 ## Personnaliser la page
 
-- Remplacer les captures d'écran dans `assets/` et référencer `assets/screenshot.png`.
-- Renseigner les nouvelles versions dans `#changelog`.
+- Captures : `assets/screenshots/`, référencées dans la galerie de
+  `index.html` puis dans `CONTENU.md`.
+- Contact : `data-user` / `data-domain` sur `#contact-mail` dans `index.html`.
 - Les couleurs sont dans `:root` de `style.css`.
 
 ## Limites gratuites à surveiller

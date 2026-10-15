@@ -292,6 +292,17 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .release-link { display: inline-block; color: var(--accent); font-weight: 700; }
 .releases-live-note { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 1.2rem; }
 
+/* ===== Contact ===== */
+.contact-card {
+  max-width: 46rem; margin: 0 auto; text-align: center;
+  background: var(--bg-alt); border: 1px solid var(--ring);
+  border-radius: var(--radius); padding: 2rem 1.4rem;
+}
+.contact-text { color: var(--muted); font-size: .9rem; margin: 0 0 1.3rem; }
+.contact-card .btn { display: inline-block; }
+.contact-alt { color: var(--muted); font-size: .9rem; margin: 1.3rem 0 0; }
+.contact-alt a { color: var(--accent); }
+
 /* ===== Footer ===== */
 .footer {
   background: var(--bg-alt);

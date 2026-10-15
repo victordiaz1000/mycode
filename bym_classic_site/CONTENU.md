@@ -5,7 +5,7 @@ Ce fichier résume **tout le texte** affiché sur `index.html`, pour pouvoir le 
 ## En-tête (navigation)
 
 - Marque : **BYM Classic** (avec logo `assets/icon.png`) — sous-titre : *Bible de Yehoshoua Ha Mashiah Classic*. Sur mobile (≤ 960 px), le nom affiché est **Bym classic**.
-- Liens : Fonctionnalités · Aperçus · Installation · Versions · Télécharger.
+- Liens : Fonctionnalités · Aperçus · Installation · Versions · Contact · Télécharger.
 - Boutons : thème clair/sombre du site, menu mobile (petits écrans).
 - Bouton principal : **Télécharger**.
 
@@ -68,6 +68,10 @@ Ce fichier résume **tout le texte** affiché sur `index.html`, pour pouvoir le 
 - tablet-bois-lecture.png — Tablette lecture bois
 - tablet-bois-lecture-notes.png — Tablette lecture bois (Jean 11, note BYM en ligne, onglets)
 - tablet-catalogue-theme.png — Catalogue des thèmes (tablette)
+- tablet-lecture-parallele-noir.png — Lecture parallèle BYM / LSGS, thème noir
+- tablet-surlignage-etude.png — Feuille d'étude du verset, surlignage
+- tablet-recherche-categories.png — Recherche : catégories et filtres
+- tablet-dico-westphal.png — Dictionnaire Westphal 1932
 
 ## Installation de l'APK
 
@@ -83,17 +87,26 @@ Note : l'APK est signé avec la clé personnelle de l'auteur ; les mises à jour
 - Contenu statique de repli : **v1.0.0** (2026) — première version publique, textes BYM & LSGS embarqués, Strong, thèmes, notes, téléphone/tablette.
 - En fonctionnement, la liste est **rafraîchie automatiquement** depuis l'API GitHub Releases (`victordiaz1000/bym-classic`) ; en cas d'échec (hors ligne, quota), le contenu statique reste affiché.
 
+## Contact
+
+- Titre de section : « Contact »
+- Texte : « Une question, une suggestion, une faute repérée dans le texte ? Écris-moi. »
+- Note dans la carte : l'adresse est assemblée par le navigateur au chargement, pour éviter les robots qui collectent les emails.
+- Bouton : libellé fixe **`✉ Contact`** — l'adresse n'est jamais affichée. Le JS se contente de poser le `mailto:`, reconstruit à partir de `data-user` + `data-domain` (effacés ensuite du DOM).
+- Adresse : `victordiazayakana10@gmail.com` (jamais en clair dans le HTML, jamais montrée à l'écran).
+- Alternative : « Ou passe par GitHub : ouvrir une issue » → `issues` du dépôt.
+
 ## Pied de page
 
 - **BYM Classic** — Bible de Yehoshoua Ha Mashiah · Application Android · Distribuée hors Play Store.
-- Liens : Code source · Toutes les versions · Haut de page
-- Copyright : © année courante · Licence selon dépôt GitHub.
+- Liens : Code source · Toutes les versions · Contact · Haut de page
+- Copyright : © année courante · Licence MIT · lien vers le fichier LICENSE du dépôt.
 
 ## Fichiers du site
 
 - `index.html` — structure, contenu, données structurées (JSON-LD), Open Graph.
 - `style.css` — thème sombre (palette « Veillée ») **et thème clair**, lightbox, responsive.
-- `script.js` — thème du site, menu mobile, scrollspy, lightbox des aperçus, changelog GitHub, année du footer.
+- `script.js` — thème du site, menu mobile, scrollspy, lightbox des aperçus, changelog GitHub, année du footer, assemblage de l'adresse de contact.
 - `assets/icon.png`, `icon-192.png`, `icon-64.png` — icône réelle de l'application.
 - `assets/screenshots/` — captures d'écran.
 - `assets/favicon.svg` (non utilisé, remplacé par PNG).
