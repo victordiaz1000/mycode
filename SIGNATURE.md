@@ -1,5 +1,10 @@
 # Signature de publication Android
 
+> **Déménagement — 2026-10-15 :** l'app vit maintenant dans
+> `C:\Users\laptek\Desktop\bym-classic\` (dépôt `victordiaz1000/bym-classic`),
+> dont la racine EST le projet Flutter (`lib/`, `android/`, `pubspec.yaml`).
+> Les chemins `bible_app/…` de ce document désignent cette racine.
+
 Ce que la configuration fait, et les deux commandes qui te restent à lancer.
 Elles sont **interactives** (mot de passe au clavier) : tape-les toi-même dans
 la session, précédées de `!`.
@@ -33,9 +38,9 @@ D'où l'urgence de poser la vraie clé **avant** toute diffusion, même restrein
 
 | | |
 |---|---|
-| `bible_app/.gitignore` | exclut `/android/key.properties`, `*.jks`, `*.keystore` |
-| `bible_app/android/app/build.gradle.kts` | lit `key.properties` s'il existe et signe la release avec |
-| `bible_app/android/key.properties.example` | le modèle à copier, sans secret |
+| `bym-classic/.gitignore` | exclut `/android/key.properties`, `*.jks`, `*.keystore` |
+| `bym-classic/android/app/build.gradle.kts` | lit `key.properties` s'il existe et signe la release avec |
+| `bym-classic/android/key.properties.example` | le modèle à copier, sans secret |
 
 Tant que `key.properties` est absent, la release retombe sur la clé de debug
 **en l'annonçant** dans la sortie de build (`*** BYM : android/key.properties
@@ -84,10 +89,10 @@ Notes :
 ## 2. Renseigner `key.properties`
 
 ```
-! Copy-Item bible_app\android\key.properties.example bible_app\android\key.properties
+! Copy-Item C:\Users\laptek\Desktop\bym-classic\android\key.properties.example C:\Users\laptek\Desktop\bym-classic\android\key.properties
 ```
 
-Puis ouvre `bible_app/android/key.properties` et remplis :
+Puis ouvre `bym-classic/android/key.properties` et remplis :
 
 ```properties
 storePassword=<le mot de passe tapé à l'étape 1>
@@ -109,7 +114,7 @@ le taper directement dans le fichier.
 ## 3. Vérifier
 
 ```
-cd bible_app
+cd C:\Users\laptek\Desktop\bym-classic
 flutter build apk --release
 ```
 
@@ -117,7 +122,7 @@ Le build ne doit **plus** afficher l'avertissement `*** BYM : …`. Pour contrô
 la signature du binaire produit :
 
 ```
-! & "C:\Program Files\Android\Android Studio\jbr\bin\keytool.exe" -printcert -jarfile bible_app\build\app\outputs\flutter-apk\app-release.apk
+! & "C:\Program Files\Android\Android Studio\jbr\bin\keytool.exe" -printcert -jarfile C:\Users\laptek\Desktop\bym-classic\build\app\outputs\flutter-apk\app-release.apk
 ```
 
 Le propriétaire (`Owner:`) doit porter l'identité saisie à l'étape 1, et non
@@ -152,7 +157,7 @@ clé de signature, non. C'est le seul filet qui existe.
 | Diffuser un APK plus léger | `flutter build apk --release --split-per-abi` |
 | Play Store | `flutter build appbundle --release` |
 
-Et à chaque publication, incrémenter `version:` dans `bible_app/pubspec.yaml`
+Et à chaque publication, incrémenter `version:` dans `bym-classic/pubspec.yaml`
 (aujourd'hui `1.0.0+1`) : le `+N` est le `versionCode`, que le Play Store exige
 strictement croissant. `appVersion`, dans `settings_screen.dart`, est à tenir en
 phase avec lui — c'est ce que la section « À PROPOS » affiche.

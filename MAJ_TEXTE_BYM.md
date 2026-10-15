@@ -1,5 +1,9 @@
 # MAJ_TEXTE_BYM.md — corriger le texte BYM sans repasser par le store
 
+**Déménagement — 2026-10-15 :** l'app vit maintenant dans
+`C:\Users\laptek\Desktop\bym-classic\` (dépôt `victordiaz1000/bym-classic`) ;
+les chemins `bible_app/…` de ce document désignent la racine de ce dépôt.
+
 > **À lire avant toute mise à jour du texte BYM.**
 > Phrases déclencheuses : `mets à jour le texte BYM`, `synchronise avec GitLab`, `récupère les
 > dernières corrections`.
@@ -295,7 +299,7 @@ présente) n'est pas emportée par ce nettoyage.
 ### Automatique
 
 ```bash
-cd bible_app
+cd C:\Users\laptek\Desktop\bym-classic
 flutter analyze
 flutter test
 ```

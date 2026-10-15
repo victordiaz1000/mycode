@@ -1,7 +1,11 @@
 # TODO — restyle « Premium affirmé » : traité
 
+> **Déménagement — 2026-10-15 :** l'app vit maintenant dans
+> `C:\Users\laptek\Desktop\bym-classic\` (dépôt `victordiaz1000/bym-classic`).
+> Les chemins `bible_app/…` de ce document désignent la racine de ce dépôt.
+
 Le lot est **clos** (commit `f38bf5f`, 2026-09-30). `flutter analyze` sans
-remarque, **744 tests verts** depuis `bible_app/`.
+remarque, **744 tests verts** depuis `bym-classic/`.
 
 Ce fichier ne contient plus de travail en attente : il garde **les règles du
 restyle** — elles restent valables pour tout écran qu'on reprendra — et les
@@ -110,7 +114,7 @@ par les tests de débordement.
    + `Ink(decoration)` pour que les ombres ne soient pas rognées ;
    `InkWell(borderRadius:)` découpe bien son propre ripple.
 6. **Vérification obligatoire** : `flutter analyze` puis `flutter test`
-   (**744 tests, 3 à 5 min**) depuis `bible_app/`.
+   (**744 tests, 3 à 5 min**) depuis `bym-classic/`.
 7. **Un `TextField` logé dans une surface arrondie écrit `filled: false`.**
    `main.dart` pose `inputDecorationTheme(filled: true, fillColor: panelColor)`
    et tout `InputDecoration` qui ne redéfinit pas `filled` hérite de la valeur :

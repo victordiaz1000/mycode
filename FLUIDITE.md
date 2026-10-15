@@ -1,5 +1,9 @@
 # Fluidité — lot traité, règles, et ce qui reste
 
+> **Déménagement — 2026-10-15 :** l'app vit maintenant dans
+> `C:\Users\laptek\Desktop\bym-classic\` (dépôt `victordiaz1000/bym-classic`).
+> Les chemins `bible_app/…` de ce document désignent la racine de ce dépôt.
+
 Journal du 2026-10-13. Trois commits posés sur `0eb80a7`, base revenue
 volontairement en arrière pour repartir propre.
 
@@ -155,7 +159,7 @@ instantané de build.
 
 ## Vérification, à chaque fois
 
-Depuis `bible_app/` :
+Depuis la racine de `bym-classic` :
 
 ```
 flutter analyze     # doit rester à 2 infos, dans test/highlight_wash_test.dart

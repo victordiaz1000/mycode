@@ -1,5 +1,11 @@
 # AGENTS.md — Projet BYM (App de Bible Flutter)
 
+> **Déménagement — 2026-10-15 :** le projet Flutter vit désormais dans
+> `C:\Users\laptek\Desktop\bym-classic\` (dépôt `victordiaz1000/bym-classic`),
+> dont la racine EST le projet (`lib/`, `android/`, `pubspec.yaml`). Le dossier
+> `bym3/bible_app/` a été supprimé : doublon du dépôt publié. Les chemins
+> `bible_app/…` ci-dessous désignent la racine de ce dépôt.
+
 > **État vérifié le 2026-10-01.** `flutter analyze` : **No issues found** (~15 s). `flutter test` : **744 tests verts** en **2 min 50 à 5 min** selon la charge. 77 fichiers de test + 4 faux bundles dans `test/support/`. 90 fichiers Dart dans `lib/` (8 models · 34 data · 22 screens · 23 widgets · 2 utils · `main.dart`). Dépôt sous git à la racine `bym3/` (`build/`, `.dart_tool/`, `android/.gradle` exclus). Le lot du 29/09 est en 7 commits (`250b39b`…`ce1fd9c`) ; le registre premium s'est achevé le 30/09 avec `f38bf5f` — `TODO.md` ne garde plus que **les règles** du restyle et les pièges de tests déjà payés.
 >
 > **Ce document décrit l'état courant, pas une chronologie.** Il est réorganisé par domaine : une décision est écrite une fois, à sa place, avec sa raison. Les journaux d'itération (« étape 1, étape 2, c'est fait ») ont été retirés — ils sont la raison pour laquelle ce fichier était en retard. **Ne pas y ajouter de récit : ajouter ou corriger une règle.**
@@ -323,7 +329,7 @@ bible_app/
 - **Outillage** : Windows. Le shell est PowerShell 5.1 **ou** Git Bash selon la session — vérifier avant d'écrire (`Remove-Item` vs `rm -f`). Toujours mettre les chemins entre guillemets.
 - **Dossier accentué** : la source des fonds s'appelle `thème/`. Si un outil échoue, chemin en dur `C:\Users\laptek\Desktop\bym3\thème` et `-LiteralPath` / `Get-ChildItem -LiteralPath` / `Test-Path -LiteralPath` — un chemin global avec wildcards échoue. Au moment de la copie dans `assets/themes/`, renommer en ASCII.
 - **Les JSON BYM sont en UTF-8** ; ne jamais les réécrire en changeant l'encodage (`.gitattributes` épingle `bym_md/*.md` et `assets/bible/bym/*.json` en `-text`).
-- **Travailler dans `bible_app/`**, jamais à la racine du dépôt.
+- **Travailler dans `C:\Users\laptek\Desktop\bym-classic\`** : sa racine EST le projet Flutter (`lib/`, `android/`, `pubspec.yaml`). Il n'y a plus de sous-dossier `bible_app/` — ne rien chercher dans `bym3/bible_app/`, dossier supprimé le 2026-10-15 (doublon du dépôt publié).
 - **Deux vocabulaires de nommage d'asset** pour le même canon : `bym/06-Josue.json` vs `lsgs/06-Josué.json`, `30-Cantiques.json` vs `30-Cantine.json`. Toute fusion future des deux corpus devra traiter ça.
 - `generate_theme_textures.py` est le **seul** producteur de `lin.png` et `veillee.png` (bruit filtré dans le domaine de Fourier donc périodique, moyenne recentrée exactement sur le `backgroundTone` cible). Il lui faut `numpy` + `Pillow` — les autres scripts sont en stdlib seule.
 - `generate_splash.py` lit `logoBym/splash_logo_hd.png`, recadre sur la **masse d'encre** (le recadrage par pixel prenait les taches de compression pour du contenu) et borne la **diagonale** de la marque, pas sa largeur, parce qu'Android 12+ masque l'icône en cercle.
