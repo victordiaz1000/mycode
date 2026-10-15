@@ -1,8 +1,42 @@
 import 'dart:convert';
+import 'dart:isolate';
 
 import 'package:flutter/services.dart' show AssetBundle, rootBundle;
 
 import 'reference_parser.dart';
+
+/// Le lexique décodé, tel qu'il franchit la frontière d'isolate.
+class _ParsedLexicon {
+  final Map<String, FreDawEntry> entries;
+  final Map<String, String> normalized;
+  final List<String> keys;
+
+  const _ParsedLexicon(this.entries, this.normalized, this.keys);
+}
+
+/// Décode le JSON du lexique et construit ses index. Fonction de premier
+/// niveau et pure : c'est la condition pour la passer à [Isolate.run] sans
+/// capturer d'état non transmissible.
+_ParsedLexicon _parse(String raw) {
+  final decoded = jsonDecode(raw);
+  final entries = decoded is Map && decoded['entries'] is Map
+      ? decoded['entries'] as Map
+      : const {};
+  final built = <String, FreDawEntry>{};
+  final normalized = <String, String>{};
+  for (final item in entries.entries) {
+    final key = item.key.toString().trim();
+    if (key.isEmpty) continue;
+    final value = item.value;
+    if (value is Map<String, dynamic>) {
+      final entry = FreDawEntry.fromJson(key, value);
+      if (entry.definition.isEmpty) continue;
+      built[key] = entry;
+      normalized[key] = normalizeForSearch(entry.term);
+    }
+  }
+  return _ParsedLexicon(built, normalized, built.keys.toList()..sort());
+}
 
 class FreDawEntry {
   final String term;
@@ -57,23 +91,40 @@ class FreDawLexicon {
   bool get isLoaded => _loaded;
   int get size => _entries.length;
 
+  /// Au-dessous de ce volume, le décodage reste sur l'isolate courant.
+  ///
+  /// Deux raisons qui vont dans le même sens. D'abord, un isolate coûte plus
+  /// cher que ce qu'il économise sur un petit payload. Ensuite — et c'est
+  /// dirimant — `flutter_test` exécute ses `testWidgets` dans une zone
+  /// `FakeAsync` où le `Future` d'un [Isolate.run] n'aboutit **jamais** : tout
+  /// test servant le lexique par un faux bundle finirait sur « pumpAndSettle
+  /// timed out ». Constaté en vrai : 48 tests sont tombés d'un coup avant
+  /// l'ajout de ce seuil. C'est le même piège que celui déjà documenté pour
+  /// `dart:io` sur [ChapterReader.store].
+  ///
+  /// Les faux bundles des tests pèsent quelques kilo-octets, l'asset réel
+  /// 12,18 Mo : le seuil sépare les deux sans ambiguïté.
+  static const int _isolateThreshold = 256 * 1024;
+
   Future<void> _ensureLoaded() async {
     if (_loaded) return;
     try {
-      final decoded = jsonDecode(await _bundle.loadString(_assetPath));
-      final entries = decoded is Map && decoded['entries'] is Map ? decoded['entries'] as Map : const {};
-      for (final item in entries.entries) {
-        final key = item.key.toString().trim();
-        if (key.isEmpty) continue;
-        final value = item.value;
-        if (value is Map<String, dynamic>) {
-          final entry = FreDawEntry.fromJson(key, value);
-          if (entry.definition.isEmpty) continue;
-          _entries[key] = entry;
-          _normalized[key] = normalizeForSearch(entry.term);
-        }
-      }
-      _keys = _entries.keys.toList()..sort();
+      final raw = await _bundle.loadString(_assetPath);
+      // `jsonDecode` de 12,18 Mo plus la construction des 5 535 entrées
+      // coûtaient 126 ms sur l'isolate principal — presque 8 frames gelées
+      // sur un PC, bien plus sur un téléphone. Déporté dans un isolate, le
+      // thread principal ne paye plus que l'envoi du texte et la copie du
+      // résultat : ~12 ms, mesurés sur ce même asset.
+      //
+      // `_parse` est une fonction de premier niveau et ne capture que `raw`
+      // (une String, donc transmissible) : rien de l'état statique de la
+      // classe ne traverse la frontière d'isolate.
+      final parsed = raw.length >= _isolateThreshold
+          ? await Isolate.run(() => _parse(raw))
+          : _parse(raw);
+      _entries.addAll(parsed.entries);
+      _normalized.addAll(parsed.normalized);
+      _keys = parsed.keys;
     } catch (_) {
       _entries.clear();
       _normalized.clear();

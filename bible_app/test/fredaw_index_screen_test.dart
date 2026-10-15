@@ -173,8 +173,15 @@ void main() {
       expect(find.textContaining('Lire la suite'), findsNothing);
     });
 
-    testWidgets('a multi-paragraph article is truncated then expandable',
+    testWidgets('a multi-paragraph article is served whole, never truncated',
         (tester) async {
+      // Contrat inversé : la fiche ne tronque plus. Le « Lire la suite /
+      // Réduire » n'existait que parce qu'une `Column` dans un
+      // `SingleChildScrollView` construisait tous les paragraphes d'un coup —
+      // insoutenable sur le corpus réel, où « PROPHÈTE 6. » en compte 705. En
+      // `SliverList.builder`, les paragraphes arrivent à l'approche du
+      // viewport : on peut tout servir sans rien construire d'avance.
+      // Cf. `dictionary_fiche_lazy_test.dart` pour la garantie de paresse.
       const definition = 'p1\n\np2\n\np3\n\np4';
       await tester.pumpWidget(const MaterialApp(
         home: FredawEntryScreen(
@@ -183,21 +190,15 @@ void main() {
       ));
       await tester.pumpAndSettle();
 
-      // Only the first two paragraphs are shown by default.
-      expect(find.text('p1'), findsOneWidget);
-      expect(find.text('p2'), findsOneWidget);
-      expect(find.text('p3'), findsNothing);
-      expect(find.text('Lire la suite (2 paragraphes)'), findsOneWidget);
-
-      await tester.tap(find.text('Lire la suite (2 paragraphes)'));
-      await tester.pumpAndSettle();
-      expect(find.text('p4'), findsOneWidget);
-      expect(find.text('Réduire'), findsOneWidget);
-
-      await tester.tap(find.text('Réduire'));
-      await tester.pumpAndSettle();
-      expect(find.text('p3'), findsNothing);
-      expect(find.text('Lire la suite (2 paragraphes)'), findsOneWidget);
+      for (final paragraph in const ['p1', 'p2', 'p3', 'p4']) {
+        expect(find.text(paragraph), findsOneWidget,
+            reason: '$paragraph est rendu sans qu\'on ait rien à déplier');
+      }
+      expect(find.textContaining('Lire la suite'), findsNothing);
+      expect(find.text('Réduire'), findsNothing);
+      // Quatre paragraphes : trop court pour que l'en-tête affiche son
+      // compteur, qui ne sert qu'à prévenir devant un traité.
+      expect(find.textContaining('§'), findsNothing);
     });
 
     testWidgets('entry words in the article render as links',

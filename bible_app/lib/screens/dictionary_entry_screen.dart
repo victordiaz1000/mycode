@@ -20,12 +20,17 @@ class DictionaryEntryScreen extends StatelessWidget {
   /// boutons morts.
   final void Function(int bookIndex, int chapter, int verse)? onOpenVerse;
 
+  /// Étape G : posée en volet d'un split-view, la fiche ne montre pas de
+  /// retour — il dépilerait l'écran qui l'héberge. Vrai par défaut (route).
+  final bool showBackButton;
+
   const DictionaryEntryScreen({
     super.key,
     required this.entry,
     required this.article,
     required this.reader,
     this.onOpenVerse,
+    this.showBackButton = true,
   });
 
   Future<void> _openEntry(BuildContext context, String term) async {
@@ -58,6 +63,7 @@ class DictionaryEntryScreen extends StatelessWidget {
             elevation: 0,
             foregroundColor: p.textDark,
             centerTitle: true,
+            automaticallyImplyLeading: showBackButton,
             // Pas de titre : le nom du dictionnaire vit dans le badge du corps
             // — le voile d'accent suffit à ancrer la barre.
             flexibleSpace: DecoratedBox(
@@ -76,33 +82,36 @@ class DictionaryEntryScreen extends StatelessWidget {
           ),
           body: SafeArea(
             top: false,
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 28),
-              child: DictionaryArticleView(
-                term: article.term,
-                definition: article.definition,
-                badge: entry.name,
-                subtitle: entry.description,
-                sourceMention: entry.rights,
-                linkPatternLoader: () async => reader.linkPattern(),
-                onTermTap: (term) => _openEntry(context, term),
-                onReferenceTap: onOpenVerse == null
-                    ? null
-                    : (reference) => onOpenVerse!(
-                        reference.bookIndex,
-                        reference.chapter ?? 1,
-                        reference.verse ?? 1,
+            // La fiche est faite de slivers : les paragraphes se construisent
+            // à l'approche du viewport. Un `SingleChildScrollView` les
+            // construisait et les mettait en page tous d'un coup — insoutenable
+            // sur les articles de plusieurs centaines de paragraphes.
+            child: CustomScrollView(
+              slivers: [
+                DictionaryArticleView(
+                  term: article.term,
+                  definition: article.definition,
+                  badge: entry.name,
+                  subtitle: entry.description,
+                  sourceMention: entry.rights,
+                  linkPatternLoader: () async => reader.linkPattern(),
+                  onTermTap: (term) => _openEntry(context, term),
+                  onReferenceTap: onOpenVerse == null
+                      ? null
+                      : (reference) => onOpenVerse!(
+                          reference.bookIndex,
+                          reference.chapter ?? 1,
+                          reference.verse ?? 1,
+                        ),
+                  paragraphStyle: Theme.of(context).textTheme.bodyLarge
+                      ?.copyWith(
+                        height: 1.7,
+                        fontSize: style.fontSize,
+                        fontFamily: style.fontFamily,
                       ),
-                paragraphStyle: Theme.of(context)
-                    .textTheme
-                    .bodyLarge
-                    ?.copyWith(
-                      height: 1.7,
-                      fontSize: style.fontSize,
-                      fontFamily: style.fontFamily,
-                    ),
-                paragraphAlign: style.align,
-              ),
+                  paragraphAlign: style.align,
+                ),
+              ],
             ),
           ),
         );

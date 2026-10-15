@@ -18,10 +18,15 @@ class FredawEntryScreen extends StatelessWidget {
   /// coquille (tests) : les références restent du texte plat.
   final void Function(int bookIndex, int chapter, int verse)? onOpenVerse;
 
+  /// Étape G : posée en volet d'un split-view, la fiche ne montre pas de
+  /// retour — il dépilerait l'écran qui l'héberge. Vrai par défaut (route).
+  final bool showBackButton;
+
   const FredawEntryScreen({
     super.key,
     required this.entry,
     this.onOpenVerse,
+    this.showBackButton = true,
   });
 
   Future<void> _openEntry(BuildContext context, String term) async {
@@ -52,6 +57,7 @@ class FredawEntryScreen extends StatelessWidget {
             elevation: 0,
             foregroundColor: p.textDark,
             centerTitle: true,
+            automaticallyImplyLeading: showBackButton,
             // Pas de titre : « Westphal 1932 » est déjà le badge du corps, et
             // un test le compte à l'unité. Le voile d'accent suffit.
             flexibleSpace: DecoratedBox(
@@ -70,28 +76,30 @@ class FredawEntryScreen extends StatelessWidget {
           ),
           body: SafeArea(
             top: false,
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 28),
-              child: FredawArticleView(
-                entry: entry,
-                onTermTap: (term) => _openEntry(context, term),
-                onReferenceTap: onOpenVerse == null
-                    ? null
-                    : (BibleReference reference) => onOpenVerse!(
-                        reference.bookIndex,
-                        reference.chapter ?? 1,
-                        reference.verse ?? 1,
+            // Slivers : voir [DictionaryArticleView] — les articles Westphal
+            // montent à 705 paragraphes, ils ne peuvent pas être construits
+            // d'un bloc.
+            child: CustomScrollView(
+              slivers: [
+                FredawArticleView(
+                  entry: entry,
+                  onTermTap: (term) => _openEntry(context, term),
+                  onReferenceTap: onOpenVerse == null
+                      ? null
+                      : (BibleReference reference) => onOpenVerse!(
+                          reference.bookIndex,
+                          reference.chapter ?? 1,
+                          reference.verse ?? 1,
+                        ),
+                  paragraphStyle: Theme.of(context).textTheme.bodyLarge
+                      ?.copyWith(
+                        height: 1.7,
+                        fontSize: style.fontSize,
+                        fontFamily: style.fontFamily,
                       ),
-                paragraphStyle: Theme.of(context)
-                    .textTheme
-                    .bodyLarge
-                    ?.copyWith(
-                      height: 1.7,
-                      fontSize: style.fontSize,
-                      fontFamily: style.fontFamily,
-                    ),
-                paragraphAlign: style.align,
-              ),
+                  paragraphAlign: style.align,
+                ),
+              ],
             ),
           ),
         );

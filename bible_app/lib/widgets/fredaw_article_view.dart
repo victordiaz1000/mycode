@@ -4,17 +4,16 @@ import '../data/fredaw_lexicon.dart';
 import '../data/reference_parser.dart';
 import 'dictionary_article_view.dart';
 
-/// The rich Westphal 1932 article: the term in a header card, then the
-/// definition (multi-paragraph, cross-linked) with a « Lire la suite /
-/// Réduire » toggle and the source mention.
+/// The rich Westphal 1932 article: an epinned header, then the definition
+/// (multi-paragraph, cross-linked) and the source mention.
 ///
 /// A thin Westphal-specific shell over the reusable [DictionaryArticleView]:
 /// the badge, subtitle and source mention are fixed to Westphal 1932, and the
 /// cross-link pattern comes from the FreDAW lexicon. Every other dictionary
 /// renders through the same generic widget.
 ///
-/// Callers own the scroll view and its padding; this widget is the content
-/// column only.
+/// **C'est un sliver**, comme celui qu'il enveloppe : à poser dans les
+/// `slivers` d'un `CustomScrollView`, jamais dans une `Column`.
 class FredawArticleView extends StatelessWidget {
   final FreDawEntry entry;
 

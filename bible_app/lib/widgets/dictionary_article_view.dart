@@ -4,20 +4,31 @@ import 'package:flutter/material.dart';
 import '../data/reference_parser.dart';
 import 'premium_style.dart';
 
-/// The rich dictionary article: the term in a header card, then the definition
-/// (multi-paragraph, cross-linked) with a « Lire la suite / Réduire » toggle and
-/// the source mention.
+/// L'article de dictionnaire : une en-tête épinglée, puis la définition
+/// multi-paragraphes aux références et aux termes cliquables.
 ///
-/// Generic over the dictionary that serves it: the badge, subtitle and source
-/// mention come from the caller (Westphal 1932, Bailly…), and the cross-link
-/// pattern is loaded by [linkPatternLoader] — the set of terms that are
-/// themselves entries of the same dictionary.
+/// **C'est un sliver**, pas une boîte : à poser directement dans les `slivers`
+/// d'un `CustomScrollView`. C'est tout l'objet de la bascule — la version
+/// précédente était une `Column` dans un `SingleChildScrollView`, donc sans
+/// aucune paresse : tous les paragraphes étaient construits *et mis en page*
+/// d'un coup. Mesuré sur le corpus Westphal : l'article « PROPHÈTE 6. » fait
+/// 140 121 caractères sur **705 paragraphes**, et six autres dépassent 55 000
+/// caractères. Taper « Lire la suite » y déclenchait, dans une seule frame,
+/// 705 widgets, 705 passes de RegExp, un millier de `TapGestureRecognizer` et
+/// la mise en page de tout le texte.
 ///
-/// Shared by the library fiche ([FredawEntryScreen], [DictionaryEntryScreen])
-/// so that every dictionary renders the *same* up-to-date article.
+/// En `SliverList.builder`, un article de 705 paragraphes s'ouvre aussi vite
+/// qu'un de trois — et le bouton « Lire la suite / Réduire » n'a plus de
+/// raison d'être : il n'existait que pour contenir ce coût. Il est donc
+/// supprimé, son rôle d'avertissement (« cet article est un traité ») passant
+/// au compteur de l'en-tête.
 ///
-/// Callers own the scroll view and its padding; this widget is the content
-/// column only.
+/// Générique sur le dictionnaire qui la sert : badge, sous-titre et mention de
+/// source viennent de l'appelant (Westphal 1932, Bailly…), et le motif de
+/// liens croisés est chargé par [linkPatternLoader].
+///
+/// Partagée par [FredawEntryScreen] (via `FredawArticleView`) et
+/// [DictionaryEntryScreen] — ses deux seuls appelants.
 class DictionaryArticleView extends StatefulWidget {
   final String term;
   final String definition;
@@ -33,6 +44,11 @@ class DictionaryArticleView extends StatefulWidget {
 
   /// Builds the cross-link pattern: every word of the article that is itself
   /// a dictionary entry becomes a link. Null keeps the paragraphs plain.
+  ///
+  /// Le motif est une alternation de plusieurs milliers de termes. Mesuré :
+  /// 0,12 ms par paragraphe, et une tokenisation + `Set` serait ~30 % plus
+  /// lente — Dart compile les grosses alternations en automate efficace.
+  /// **Ne pas « optimiser » ce point**, l'intuition contraire est trompeuse.
   final Future<RegExp?> Function() linkPatternLoader;
 
   /// A word of the article that is itself a dictionary entry. Null disables
@@ -68,9 +84,6 @@ class DictionaryArticleView extends StatefulWidget {
 }
 
 class _DictionaryArticleViewState extends State<DictionaryArticleView> {
-  static const int _limite = 2;
-  bool _toutLire = false;
-
   /// The case-insensitive cross-link pattern: every word of the article that
   /// is itself a dictionary entry becomes a link. Null until the lexicon is
   /// loaded (paragraphs then stay plain text).
@@ -78,15 +91,35 @@ class _DictionaryArticleViewState extends State<DictionaryArticleView> {
 
   /// `findReferences` coûte cher (recherche livre + tolérance typo) : un
   /// article se rebuild à chaque frappe de réglage, chaque arrivée du pattern,
-  /// chaque toggle « Lire la suite ». Sans cache, chaque paragraphe repaye le
+  /// chaque changement de taille. Sans cache, chaque paragraphe repaye le
   /// parsing à chaque frame — d'où le défilement lourd.
   final Map<String, List<TextReference>> _refsCache = {};
+
+  /// Découpé une fois par article, et non plus à chaque `build` : la version
+  /// précédente appelait le getter `_paragraphes` deux fois par construction,
+  /// soit deux `split` d'un texte qui peut peser 140 000 caractères.
+  late List<String> _paragraphes;
 
   @override
   void initState() {
     super.initState();
+    _paragraphes = _split(widget.definition);
     _loadLinks();
   }
+
+  @override
+  void didUpdateWidget(covariant DictionaryArticleView old) {
+    super.didUpdateWidget(old);
+    if (widget.definition != old.definition) {
+      _paragraphes = _split(widget.definition);
+      _refsCache.clear();
+    }
+  }
+
+  static List<String> _split(String definition) => [
+    for (final p in definition.split('\n\n'))
+      if (p.trim().isNotEmpty) p.trim(),
+  ];
 
   Future<void> _loadLinks() async {
     final pattern = await widget.linkPatternLoader();
@@ -102,129 +135,210 @@ class _DictionaryArticleViewState extends State<DictionaryArticleView> {
     return _refsCache.putIfAbsent(paragraph, () => findReferences(paragraph));
   }
 
-  List<String> get _paragraphes => [
-    for (final p in widget.definition.split('\n\n'))
-      if (p.trim().isNotEmpty) p.trim(),
-  ];
+  /// Sous ce seuil, un bloc est traité comme une **ligne** et non comme un
+  /// paragraphe.
+  ///
+  /// Le corpus Westphal sépare les citations poétiques vers par vers, chaque
+  /// vers devenant un « paragraphe » à part entière : sur les 705 blocs de
+  /// « PROPHÈTE 6. », 549 font moins de 70 caractères et 152 seulement sont de
+  /// la prose. L'écart uniforme de 14 px les disloquait — un poème s'affichait
+  /// aéré comme une suite de paragraphes indépendants.
+  static const int _shortLine = 70;
 
-  List<String> get _visibles =>
-      _toutLire ? _paragraphes : _paragraphes.take(_limite).toList();
+  /// L'écart sous le bloc [i] : resserré entre deux lignes courtes
+  /// consécutives, normal partout ailleurs. Règle locale et prudente — une
+  /// erreur de jugement ne coûte qu'un écart de 4 px au lieu de 14, jamais un
+  /// paragraphe de prose collé au suivant.
+  double _gapAfter(int i) {
+    if (i >= _paragraphes.length - 1) return 0;
+    final tight = _paragraphes[i].length < _shortLine &&
+        _paragraphes[i + 1].length < _shortLine;
+    return tight ? 4 : 14;
+  }
 
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
-    final accent = p.primary;
-    final paras = _paragraphes;
     final paragraphStyle =
         widget.paragraphStyle ??
         Theme.of(context).textTheme.bodyLarge?.copyWith(height: 1.7);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(24),
-          decoration: premiumSurface(context, radius: 20, depth: 1.1),
-          child: Column(
-            children: [
-              _Badge(widget.badge, accent),
-              const SizedBox(height: 14),
-              Text(
-                widget.term,
-                textAlign: TextAlign.center,
-                style: premiumText(
-                  context,
-                  24,
-                  FontWeight.w800,
-                  p.textDark,
-                  spacing: 1.5,
-                ),
-              ),
-              const SizedBox(height: 10),
-              // Filet d'accent centré sous le terme : la tête d'article a son
-              // propre repère, comme les cartes de l'étude du verset.
-              Center(
-                child: Container(
-                  width: 56,
-                  height: 4,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(2),
-                    gradient: LinearGradient(
-                      colors: [accent, accent.withValues(alpha: 0)],
+    final linkStyle = TextStyle(
+      color: p.primary,
+      fontWeight: FontWeight.w600,
+      decoration: TextDecoration.underline,
+      decorationColor: p.primary,
+    );
+    return SliverMainAxisGroup(
+      slivers: [
+        // L'en-tête reste épinglée : le terme et le dictionnaire accompagnent
+        // la lecture d'un article qui peut faire des centaines d'écrans. La
+        // carte de tête d'avant — badge, terme en 24 pt, filet d'accent,
+        // sous-titre, puis un titre de section « Article » et un cadre
+        // imbriqué — repoussait le premier mot sous la ligne de flottaison
+        // d'un téléphone, et disparaissait au premier geste de défilement.
+        SliverPersistentHeader(
+          pinned: true,
+          delegate: DictionaryFicheHeader(
+            term: widget.term,
+            badge: widget.badge,
+            paragraphCount: _paragraphes.length,
+            palette: p,
+          ),
+        ),
+        SliverPadding(
+          padding: const EdgeInsets.fromLTRB(16, 10, 16, 28),
+          sliver: SliverMainAxisGroup(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Text(
+                    widget.subtitle,
+                    style: premiumText(
+                      context,
+                      12,
+                      FontWeight.w500,
+                      p.textGrey,
+                      italic: FontStyle.italic,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 8),
-              Text(
-                widget.subtitle,
-                textAlign: TextAlign.center,
-                style: premiumText(
-                  context,
-                  13,
-                  FontWeight.w500,
-                  p.textGrey,
-                  italic: FontStyle.italic,
+              // Le cœur du changement : un paragraphe n'est construit qu'à
+              // l'approche du viewport.
+              SliverList.builder(
+                itemCount: _paragraphes.length,
+                itemBuilder: (context, i) {
+                  final paragraph = _paragraphes[i];
+                  return Padding(
+                    padding: EdgeInsets.only(bottom: _gapAfter(i)),
+                    child: _LinkifiedText(
+                      text: paragraph,
+                      style: paragraphStyle,
+                      align: widget.paragraphAlign ?? TextAlign.justify,
+                      linkStyle: linkStyle,
+                      pattern: _linkPattern,
+                      references: _refsFor(paragraph),
+                      onTermTap: widget.onTermTap,
+                      onReferenceTap: widget.onReferenceTap,
+                    ),
+                  );
+                },
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 28),
+                  child: Text(
+                    widget.sourceMention,
+                    textAlign: TextAlign.center,
+                    style: premiumText(
+                      context,
+                      12,
+                      FontWeight.w500,
+                      p.textGrey,
+                      italic: FontStyle.italic,
+                    ),
+                  ),
                 ),
               ),
             ],
-          ),
-        ),
-        const SizedBox(height: 24),
-        _SectionTitle('Article', Icons.article_rounded, accent),
-        const SizedBox(height: 12),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(20),
-          decoration: premiumSurface(context, radius: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              for (final paragraph in _visibles) ...[
-                _LinkifiedText(
-                  text: paragraph,
-                  style: paragraphStyle,
-                  align: widget.paragraphAlign ?? TextAlign.justify,
-                  linkStyle: TextStyle(
-                    color: accent,
-                    fontWeight: FontWeight.w600,
-                    decoration: TextDecoration.underline,
-                    decorationColor: accent,
-                  ),
-                  pattern: _linkPattern,
-                  references: _refsFor(paragraph),
-                  onTermTap: widget.onTermTap,
-                  onReferenceTap: widget.onReferenceTap,
-                ),
-                const SizedBox(height: 14),
-              ],
-            ],
-          ),
-        ),
-        if (paras.length > _limite) ...[
-          const SizedBox(height: 12),
-          _LirePlusButton(
-            toutLire: _toutLire,
-            restants: paras.length - _limite,
-            accent: accent,
-            onPressed: () => setState(() => _toutLire = !_toutLire),
-          ),
-        ],
-        const SizedBox(height: 28),
-        Text(
-          widget.sourceMention,
-          textAlign: TextAlign.center,
-          style: premiumText(
-            context,
-            12,
-            FontWeight.w500,
-            p.textGrey,
-            italic: FontStyle.italic,
           ),
         ),
       ],
     );
   }
+}
+
+/// L'en-tête épinglée de la fiche : le terme, le dictionnaire, et le nombre de
+/// paragraphes quand l'article est long.
+///
+/// Ce compteur reprend le seul service que rendait « Lire la suite (703
+/// paragraphes) » : avertir que l'entrée ouverte est un traité et non une
+/// définition. La différence est qu'il informe sans rien cacher.
+class DictionaryFicheHeader extends SliverPersistentHeaderDelegate {
+  final String term;
+  final String badge;
+  final int paragraphCount;
+  final PremiumPalette palette;
+
+  const DictionaryFicheHeader({
+    required this.term,
+    required this.badge,
+    required this.paragraphCount,
+    required this.palette,
+  });
+
+  /// Au-delà, l'en-tête affiche le compteur de paragraphes.
+  static const int _longArticle = 25;
+
+  @override
+  double get minExtent => 54;
+
+  @override
+  double get maxExtent => 54;
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlaps) {
+    final long = paragraphCount > _longArticle;
+    return Material(
+      color: premiumBackground(context),
+      child: Container(
+        height: 54,
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: palette.primary.withValues(
+                // Le filet n'apparaît qu'une fois le texte passé dessous :
+                // en haut de course, l'en-tête se fond dans la page.
+                alpha: shrinkOffset > 0 || overlaps ? 0.22 : 0,
+              ),
+            ),
+          ),
+        ),
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                term,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: premiumText(
+                  context,
+                  18,
+                  FontWeight.w800,
+                  palette.textDark,
+                  spacing: 0.6,
+                ),
+              ),
+            ),
+            const SizedBox(width: 10),
+            if (long)
+              Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: Text(
+                  '$paragraphCount §',
+                  style: premiumText(
+                    context,
+                    11,
+                    FontWeight.w700,
+                    palette.textGrey,
+                  ),
+                ),
+              ),
+            _Badge(badge, palette.primary),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  bool shouldRebuild(covariant DictionaryFicheHeader old) =>
+      old.term != term ||
+      old.badge != badge ||
+      old.paragraphCount != paragraphCount ||
+      old.palette != palette;
 }
 
 class _Badge extends StatelessWidget {
@@ -236,7 +350,7 @@ class _Badge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
         color: color.withValues(alpha: .14),
         borderRadius: BorderRadius.circular(20),
@@ -246,85 +360,9 @@ class _Badge extends StatelessWidget {
         text,
         style: TextStyle(
           color: color,
-          fontSize: 12,
+          fontSize: 10.5,
           fontWeight: FontWeight.w700,
         ),
-      ),
-    );
-  }
-}
-
-class _SectionTitle extends StatelessWidget {
-  final String title;
-  final IconData icon;
-  final Color color;
-
-  const _SectionTitle(this.title, this.icon, this.color);
-
-  @override
-  Widget build(BuildContext context) {
-    final p = premiumPalette(context);
-    return Row(
-      children: [
-        Container(
-          width: 36,
-          height: 36,
-          decoration: BoxDecoration(
-            color: p.primarySoft,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: color.withValues(alpha: .28)),
-          ),
-          alignment: Alignment.center,
-          child: Icon(icon, size: 18, color: color),
-        ),
-        const SizedBox(width: 10),
-        Text(
-          title,
-          style: premiumText(context, 16, FontWeight.w800, p.textDark),
-        ),
-      ],
-    );
-  }
-}
-
-class _LirePlusButton extends StatelessWidget {
-  final bool toutLire;
-  final int restants;
-  final Color accent;
-  final VoidCallback onPressed;
-
-  const _LirePlusButton({
-    required this.toutLire,
-    required this.restants,
-    required this.accent,
-    required this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final p = premiumPalette(context);
-    return SizedBox(
-      width: double.infinity,
-      child: OutlinedButton.icon(
-        style: OutlinedButton.styleFrom(
-          side: BorderSide(color: accent.withValues(alpha: .45)),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
-          ),
-          padding: const EdgeInsets.symmetric(vertical: 14),
-          backgroundColor: p.primarySoft.withValues(alpha: .35),
-        ),
-        icon: Icon(
-          toutLire
-              ? Icons.keyboard_arrow_up_rounded
-              : Icons.keyboard_arrow_down_rounded,
-          color: accent,
-        ),
-        label: Text(
-          toutLire ? 'Réduire' : 'Lire la suite ($restants paragraphes)',
-          style: premiumText(context, 15, FontWeight.w700, accent),
-        ),
-        onPressed: onPressed,
       ),
     );
   }
