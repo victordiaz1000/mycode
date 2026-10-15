@@ -1,5 +1,32 @@
 import 'dart:ui' show Size;
 
+/// Le châssis de navigation retenu pour une taille d'écran : où vivent les
+/// cinq destinations, et sous quelle forme.
+///
+/// Distinct de la **classe d'appareil** ([AppBreakpoints.isTablet]) à dessein.
+/// Un téléphone couché reçoit un rail — il a la largeur pour, et la hauteur
+/// lui manque — mais il reste un téléphone : ni grille d'accueil, ni
+/// master/detail, ni panneau d'étude épinglé. Confondre les deux, c'était le
+/// bug d'origine.
+enum AppChassis {
+  /// Barre du bas : téléphone debout.
+  bottomBar,
+
+  /// Rail minimal de 52 px, sans libellés ni emblème : téléphone couché.
+  ///
+  /// Le rail *étendu* de 190 px que recevaient ces écrans avant que les
+  /// paliers passent sur le côté court était inutilisable — 190 px de
+  /// libellés dans 390 px de hauteur. Celui-ci rend la hauteur au texte tout
+  /// en gardant les destinations visibles d'un coup d'œil.
+  miniRail,
+
+  /// Rail compact, icônes et libellés courts : tablette sous [AppBreakpoints.expanded].
+  rail,
+
+  /// Rail étendu : tablette à partir de [AppBreakpoints.expanded].
+  extendedRail,
+}
+
 // Paliers responsive uniques de l'application (maquettes tablette/desktop).
 //
 // Source unique : ne plus comparer `width >= 600` / `>= 840` en dur dans les
@@ -7,16 +34,16 @@ import 'dart:ui' show Size;
 //
 // Deux familles de décisions, et c'est tout l'objet de ce fichier :
 //
-//  * le **châssis** (rail latéral ou barre du bas) se décide sur le **côté
-//    court** de l'écran. C'est une propriété de l'appareil, pas de son
-//    orientation : un téléphone couché reste un téléphone. Mesuré sur la
-//    largeur, un iPhone 14 en paysage fait 844 px — au-dessus de [expanded] —
-//    et recevait le rail *étendu* de 190 px avec ses libellés dans 390 px de
-//    haut, plus l'accueil en grille deux colonnes.
-//  * le **contenu** (master/detail, grille, panneau d'étude) se décide sur la
-//    **largeur réelle**, mais seulement à l'intérieur d'un châssis tablette.
-//    D'où le `isTablet(size) &&` qui ouvre [isExpanded], [isDesktop] et [isXl] :
-//    sans lui, les trois reviendraient vraies sur un téléphone en paysage.
+//  * le **châssis** ([AppChassis], via [AppBreakpoints.chassisFor]) répond à
+//    « rail ou barre du bas, et de quelle largeur ». Il tient compte de
+//    l'orientation : un téléphone debout a la hauteur pour une barre, couché
+//    il a la largeur pour un rail minimal.
+//  * la **classe d'appareil** ([AppBreakpoints.isTablet] et ses dérivés)
+//    répond à « cet écran mérite-t-il une mise en page de tablette » :
+//    master/detail, grilles, panneaux épinglés. Mesurée sur le **côté court**,
+//    donc stable en rotation. Mesurée sur la largeur, un iPhone 14 en paysage
+//    fait 844 px — au-dessus de [AppBreakpoints.expanded] — et recevait
+//    grilles et master/detail comme un petit desktop.
 abstract final class AppBreakpoints {
   /// Tablette portrait : le shell passe en rail latéral.
   static const double tablet = 600;
@@ -42,11 +69,28 @@ abstract final class AppBreakpoints {
   /// Largeur max du contenu centré sur paysage/desktop.
   static const double maxWide = 1120;
 
-  /// Le châssis : rail latéral à partir d'ici, barre du bas en dessous.
+  /// La classe d'appareil : mise en page de tablette à partir d'ici.
   ///
-  /// Sur le côté court, donc stable en rotation — c'est ce qui garde la barre
-  /// du bas sur un téléphone en paysage et le rail sur un iPad debout.
+  /// Sur le côté court, donc stable en rotation. Ne dit **pas** où vit la
+  /// navigation — c'est [chassisFor] qui en décide : un téléphone couché a un
+  /// rail sans être pour autant une tablette.
   static bool isTablet(Size size) => size.shortestSide >= tablet;
+
+  /// Le châssis de navigation pour cette taille d'écran.
+  ///
+  /// Une tablette a toujours un rail, debout comme couchée. Un téléphone a
+  /// une barre du bas debout, et un rail minimal couché : en paysage la
+  /// hauteur est la ressource rare, et une barre du bas y coûte ~56 px sur
+  /// 390, là où un rail de 52 px ne coûte que de la largeur, dont il reste
+  /// 800 px.
+  static AppChassis chassisFor(Size size) {
+    if (isTablet(size)) {
+      return size.width >= expanded ? AppChassis.extendedRail : AppChassis.rail;
+    }
+    return size.width > size.height
+        ? AppChassis.miniRail
+        : AppChassis.bottomBar;
+  }
 
   /// Master/detail et grilles : la largeur décide, le châssis autorise.
   static bool isExpanded(Size size) => isTablet(size) && size.width >= expanded;

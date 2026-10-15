@@ -8,22 +8,26 @@ import 'package:bible_app/utils/breakpoints.dart';
 
 import 'support/fake_bible_bundle.dart';
 
-/// Le **châssis** du shell : rail latéral ou barre du bas, et rien d'autre.
+/// Le **châssis** du shell : rail ou barre du bas, et de quelle largeur.
 ///
 /// Pourquoi ce fichier existe à côté de `responsive_overflow_test.dart` : cet
-/// audit-là ne pouvait pas voir le bug qu'on corrige ici. Un téléphone couché
-/// mesure 844 px de large — au-dessus du palier `expanded` de 840 — et recevait
-/// donc le rail *étendu*, 190 px de libellés, dans 390 px de hauteur. Comme un
+/// audit-là ne pouvait pas voir le bug d'origine. Un téléphone couché mesure
+/// 844 px de large — au-dessus du palier `expanded` de 840 — et recevait donc
+/// le rail *étendu*, 190 px de libellés, dans 390 px de hauteur. Comme un
 /// `NavigationRail` est `scrollable: true`, il faisait défiler ses cinq
 /// destinations au lieu de déborder : zéro `RenderFlex overflow`, test vert,
-/// mise en page absurde. Vérifié en remettant l'ancienne comparaison sur
-/// `width` — le balayage anti-débordement reste au vert, les attentes
-/// ci-dessous tombent.
+/// mise en page absurde.
 ///
-/// La règle testée : le châssis suit le **côté court** de l'écran, donc il ne
-/// change pas quand on tourne l'appareil. Le *contenu* (master/detail, grilles)
-/// garde la largeur réelle comme critère, mais seulement dans un châssis
-/// tablette.
+/// Les deux règles testées, qu'il ne faut pas confondre — c'était justement la
+/// confusion d'origine :
+///
+///  * le **châssis** tient compte de l'orientation. Une tablette a toujours un
+///    rail. Un téléphone a une barre du bas debout, et un rail *minimal* de
+///    52 px couché : en paysage la hauteur est la ressource rare, et une barre
+///    du bas y coûte ~56 px sur 390.
+///  * la **classe d'appareil** (`isTablet` et ses dérivés) se mesure sur le
+///    côté court, donc elle ne bouge pas en rotation. Un téléphone couché a un
+///    rail sans recevoir pour autant grilles, master/detail ni panneau épinglé.
 void main() {
   group('AppBreakpoints — la règle, sans interface', () {
     test('un téléphone reste un téléphone dans les deux orientations', () {
@@ -38,12 +42,43 @@ void main() {
         Size(800, 360),
       ]) {
         expect(AppBreakpoints.isTablet(phone), isFalse, reason: '$phone');
-        // Le point du correctif : sans la garde de châssis, 844 et 932
-        // franchissaient `expanded` et ouvraient grilles et master/detail.
+        // Le point du correctif : sans la garde de classe d'appareil, 844 et
+        // 932 franchissaient `expanded` et ouvraient grilles et master/detail.
         expect(AppBreakpoints.isExpanded(phone), isFalse, reason: '$phone');
         expect(AppBreakpoints.isDesktop(phone), isFalse, reason: '$phone');
         expect(AppBreakpoints.contentMaxWidth(phone), isNull, reason: '$phone');
       }
+    });
+
+    test('le châssis, lui, suit l\'orientation', () {
+      // Debout : la barre du bas.
+      expect(
+        AppBreakpoints.chassisFor(const Size(390, 844)),
+        AppChassis.bottomBar,
+      );
+      expect(
+        AppBreakpoints.chassisFor(const Size(360, 640)),
+        AppChassis.bottomBar,
+      );
+      // Couché : le rail minimal — jamais l'étendu, qui ne tient pas dans la
+      // hauteur, et jamais le rail de tablette.
+      for (final landscape in const [
+        Size(844, 390),
+        Size(932, 430),
+        Size(800, 360),
+      ]) {
+        expect(
+          AppBreakpoints.chassisFor(landscape),
+          AppChassis.miniRail,
+          reason: '$landscape',
+        );
+      }
+      // Une tablette a son rail dans les deux sens.
+      expect(AppBreakpoints.chassisFor(const Size(834, 1112)), AppChassis.rail);
+      expect(
+        AppBreakpoints.chassisFor(const Size(1112, 834)),
+        AppChassis.extendedRail,
+      );
     });
 
     test('une tablette garde son rail debout comme couchée', () {
@@ -113,22 +148,43 @@ void main() {
 
     for (final device in const <String, Size>{
       '390x844 iphone14 debout': Size(390, 844),
+      '360x640 budget debout': Size(360, 640),
+    }.entries) {
+      testWidgets('${device.key} → barre du bas', (tester) async {
+        await pumpAt(tester, device.value);
+        expect(find.byType(NavigationRail), findsNothing);
+        expect(find.byType(NavigationBar), findsOneWidget);
+        drain(tester);
+      });
+    }
+
+    for (final device in const <String, Size>{
       '844x390 iphone14 couché': Size(844, 390),
       '932x430 maxpro couché': Size(932, 430),
       '800x360 telephone couché': Size(800, 360),
     }.entries) {
-      testWidgets('${device.key} → barre du bas, jamais de rail', (
-        tester,
-      ) async {
+      testWidgets('${device.key} → rail minimal de 52 px', (tester) async {
         await pumpAt(tester, device.value);
+        final rail = find.byType(NavigationRail);
+        expect(rail, findsOneWidget);
+        expect(find.byType(NavigationBar), findsNothing);
+        final widget = tester.widget<NavigationRail>(rail);
         expect(
-          find.byType(NavigationRail),
-          findsNothing,
-          reason:
-              'un téléphone couché recevait le rail parce que sa *largeur* '
-              'dépassait le palier — le châssis se lit sur le côté court',
+          widget.extended,
+          isFalse,
+          reason: '190 px de libellés ne tiennent pas dans cette hauteur',
         );
-        expect(find.byType(NavigationBar), findsOneWidget);
+        expect(widget.minWidth, 52);
+        expect(
+          widget.labelType,
+          NavigationRailLabelType.none,
+          reason: 'les libellés sous les icônes mangeraient la hauteur',
+        );
+        expect(
+          widget.leading,
+          isNull,
+          reason: 'l\'emblème valait une destination et demie sur 390 px',
+        );
         drain(tester);
       });
     }
@@ -148,11 +204,16 @@ void main() {
           final rail = find.byType(NavigationRail);
           expect(rail, findsOneWidget);
           expect(find.byType(NavigationBar), findsNothing);
+          final widget = tester.widget<NavigationRail>(rail);
           expect(
-            tester.widget<NavigationRail>(rail).extended,
+            widget.extended,
             extended,
             reason: 'les libellés du rail ne tiennent que si la largeur suit',
           );
+          // Une tablette garde son emblème et ses 72 px : c'est le rail
+          // minimal du téléphone couché qui s'en passe.
+          expect(widget.minWidth, 72);
+          expect(widget.leading, isNotNull);
           drain(tester);
         },
       );

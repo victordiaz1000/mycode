@@ -336,10 +336,13 @@ class _HomeShellState extends State<HomeShell> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    // Le châssis se décide sur le côté court : un téléphone couché garde sa
-    // barre du bas (mesuré sur la largeur, il faisait 844 px et recevait le
-    // rail étendu dans 390 px de haut).
-    final tablet = AppBreakpoints.isTablet(size);
+    // Le châssis tient compte de l'orientation : barre du bas sur un
+    // téléphone debout, rail minimal couché (la hauteur y est la ressource
+    // rare), rail sur toute tablette. La *classe* d'appareil, elle, reste
+    // mesurée sur le côté court — un téléphone couché a un rail sans recevoir
+    // pour autant grilles et master/detail.
+    final chassis = AppBreakpoints.chassisFor(size);
+    final hasRail = chassis != AppChassis.bottomBar;
     // Immersion (reading) removes the navigation chrome: the reader shows its
     // own exit pill, and this shell hides rail and bottom bar while it lasts.
     return ValueListenableBuilder<bool>(
@@ -368,24 +371,29 @@ class _HomeShellState extends State<HomeShell> {
         // Contenu pleine largeur contre le rail, comme avant — seule la
         // teinte du rail a été unifiée. Sous 600 (phone), inchangé.
         return Scaffold(
-          body: tablet
+          body: hasRail
               ? Row(
                   children: [
-                    if (!immersive) _buildNavigationRail(context, size),
+                    if (!immersive) _buildNavigationRail(context, chassis),
                     Expanded(child: content),
                   ],
                 )
               : content,
           bottomNavigationBar:
-              tablet || immersive ? null : _buildNavigationBar(context),
+              hasRail || immersive ? null : _buildNavigationBar(context),
         );
       },
     );
   }
 
-  Widget _buildNavigationRail(BuildContext context, Size size) {
+  Widget _buildNavigationRail(BuildContext context, AppChassis chassis) {
     final p = premiumPalette(context);
-    final extended = AppBreakpoints.isExpanded(size);
+    final extended = chassis == AppChassis.extendedRail;
+    // Téléphone couché : 52 px, pas de libellés, pas d'emblème. Sur 390 px de
+    // hauteur, l'emblème et son espacement valaient une destination et demie
+    // — rendus au texte.
+    final mini = chassis == AppChassis.miniRail;
+    final iconSize = mini ? 26.0 : 36.0;
     // Même crème que les pages : le rail et le contenu ne font qu'un.
     return NavigationRail(
       scrollable: true,
@@ -399,40 +407,43 @@ class _HomeShellState extends State<HomeShell> {
         _persistDestination(i);
       },
       extended: extended,
-      labelType: extended
+      minWidth: mini ? 52 : 72,
+      labelType: extended || mini
           ? NavigationRailLabelType.none
           : NavigationRailLabelType.all,
       // Même crème que les pages : un fond distinct coupait le rail du
       // contenu d'une ligne verticale en paysage/tablette.
       backgroundColor: premiumBackground(context),
-      leading: Padding(
-        padding: const EdgeInsets.only(bottom: 18),
-        // L'emblème du rail, dans la même famille que les onglets.
-        child: IconTheme(
-          data: IconThemeData(color: p.primary),
-          child: const HolyIcon(HolyGlyph.rouleau, size: 38),
-        ),
-      ),
+      leading: mini
+          ? null
+          : Padding(
+              padding: const EdgeInsets.only(bottom: 18),
+              // L'emblème du rail, dans la même famille que les onglets.
+              child: IconTheme(
+                data: IconThemeData(color: p.primary),
+                child: const HolyIcon(HolyGlyph.rouleau, size: 38),
+              ),
+            ),
       destinations: [
-        const NavigationRailDestination(
-          icon: HolyIcon(HolyGlyph.maison, size: 36),
-          label: Text('Accueil'),
+        NavigationRailDestination(
+          icon: HolyIcon(HolyGlyph.maison, size: iconSize),
+          label: const Text('Accueil'),
         ),
-        const NavigationRailDestination(
-          icon: HolyIcon(HolyGlyph.rouleau, size: 36),
-          label: Text('Lecture'),
+        NavigationRailDestination(
+          icon: HolyIcon(HolyGlyph.rouleau, size: iconSize),
+          label: const Text('Lecture'),
         ),
-        const NavigationRailDestination(
-          icon: HolyIcon(HolyGlyph.loupe, size: 36),
-          label: Text('Recherche'),
+        NavigationRailDestination(
+          icon: HolyIcon(HolyGlyph.loupe, size: iconSize),
+          label: const Text('Recherche'),
         ),
-        const NavigationRailDestination(
-          icon: HolyIcon(HolyGlyph.telechargement, size: 36),
-          label: Text('Bibliothèque'),
+        NavigationRailDestination(
+          icon: HolyIcon(HolyGlyph.telechargement, size: iconSize),
+          label: const Text('Bibliothèque'),
         ),
-        const NavigationRailDestination(
-          icon: HolyIcon(HolyGlyph.engrenage, size: 36),
-          label: Text('Réglages'),
+        NavigationRailDestination(
+          icon: HolyIcon(HolyGlyph.engrenage, size: iconSize),
+          label: const Text('Réglages'),
         ),
       ],
     );
