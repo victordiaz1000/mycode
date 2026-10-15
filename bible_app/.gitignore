@@ -43,3 +43,16 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Signature de publication — JAMAIS dans le dépôt.
+#
+# `key.properties` porte les mots de passe en clair, et le keystore est la
+# seule preuve que les mises à jour viennent bien de toi : publier l'un ou
+# l'autre laisserait n'importe qui signer une version à ta place.
+#
+# Le remote GitHub de ce projet est PUBLIC — une fuite serait immédiate et
+# irréversible (un secret poussé reste dans l'historique, et dans les caches
+# de GitHub, même après suppression).
+/android/key.properties
+*.jks
+*.keystore

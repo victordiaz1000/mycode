@@ -1,0 +1,23 @@
+# Modèle — à copier en `key.properties` DANS CE MÊME DOSSIER, puis remplir.
+#
+# Le vrai fichier porte les mots de passe EN CLAIR et n'entre jamais dans le
+# dépôt (`.gitignore` l'exclut, ainsi que tout `*.jks`). Ce modèle-ci, vide,
+# peut être versionné sans risque.
+#
+# Mode d'emploi complet : SIGNATURE.md, à la racine du dépôt.
+
+# Mot de passe du keystore, puis celui de la clé. `keytool` accepte le même
+# pour les deux — c'est l'usage courant pour une clé de publication unique.
+storePassword=
+keyPassword=
+
+# L'alias donné au `keytool -alias`.
+keyAlias=upload
+
+# Chemin ABSOLU du fichier .jks, hors du dépôt.
+#
+# Sous Windows : des barres obliques AVANT, jamais d'antislash. Ce fichier est
+# un `.properties` Java, où « \ » introduit une séquence d'échappement : un
+# « C:\cles\bym.jks » serait lu « C:clesbym.jks » et le build échouerait sur un
+# fichier introuvable.
+storeFile=C:/Users/laptek/cles/bym-upload.jks
