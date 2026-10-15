@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/lexicon_index.dart';
 import '../data/reference_parser.dart';
+import '../utils/breakpoints.dart';
 import '../widgets/lexicon_index_widgets.dart';
 import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
@@ -26,6 +27,14 @@ class _BymLexiconIndexScreenState extends State<BymLexiconIndexScreen> {
   String _query = '';
   String? _letter;
   List<DictionaryEntry>? _entries;
+
+  /// Étape G : l'entrée sélectionnée en volet de droite (≥ 840). Sous ce
+  /// seuil, le tap pousse la fiche comme avant.
+  DictionaryEntry? _selected;
+
+  /// Le volet large, lu aux deux endroits qui en dépendent (corps et liste).
+  bool _isWide(BuildContext context) =>
+      AppBreakpoints.isExpanded(MediaQuery.sizeOf(context));
 
   @override
   void initState() {
@@ -78,6 +87,10 @@ class _BymLexiconIndexScreenState extends State<BymLexiconIndexScreen> {
 
   @override
   Widget build(BuildContext context) {    final p = premiumPalette(context);
+    // Étape G : ≥ 840, index à gauche et fiche à droite ; en dessous,
+    // l'empilement actuel (le tap pousse la fiche).
+    final wide =
+        AppBreakpoints.isExpanded(MediaQuery.sizeOf(context));
     return Scaffold(
       backgroundColor: premiumBackground(context),
       appBar: AppBar(
@@ -104,51 +117,74 @@ class _BymLexiconIndexScreenState extends State<BymLexiconIndexScreen> {
       ),
       body: SafeArea(
         top: false,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              LexiconSearchField(
-                hint: 'Rechercher dans le lexique BYM…',
-                controller: _controller,
-                onChanged: (v) => setState(() => _query = v),
-              ),
-              const SizedBox(height: 12),
-              SizedBox(
-                height: 40,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    LexiconLetterChip(
-                      label: 'Toutes',
-                      active: _letter == null,
-                      accent: p.primary,
-                      onTap: () => setState(() => _letter = null),
-                    ),
-                    for (final letter in _letters) ...[
-                      const SizedBox(width: 8),
-                      LexiconLetterChip(
-                        key: Key('letter-chip-$letter'),
-                        label: letter,
-                        active: _letter == letter,
-                        accent: p.primary,
-                        onTap: () => setState(() => _letter = letter),
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-              const SizedBox(height: 10),
-              const LexiconSourceMention(
-                text: 'Notes internes de la BYM · une entrée par mot noté',
-              ),
-              const SizedBox(height: 12),
-              Expanded(child: _buildList(context)),
-            ],
-          ),
-        ),
+        child: wide
+            ? LexiconSplitView(
+                index: _searchColumn(context),
+                detail: _splitDetail(),
+              )
+            : _searchColumn(context),
       ),
+    );
+  }
+
+  /// La colonne de recherche + liste, partagée par les deux régimes.
+  Widget _searchColumn(BuildContext context) {
+    final p = premiumPalette(context);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          LexiconSearchField(
+            hint: 'Rechercher dans le lexique BYM…',
+            controller: _controller,
+            onChanged: (v) => setState(() => _query = v),
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            height: 40,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                LexiconLetterChip(
+                  label: 'Toutes',
+                  active: _letter == null,
+                  accent: p.primary,
+                  onTap: () => setState(() => _letter = null),
+                ),
+                for (final letter in _letters) ...[
+                  const SizedBox(width: 8),
+                  LexiconLetterChip(
+                    key: Key('letter-chip-$letter'),
+                    label: letter,
+                    active: _letter == letter,
+                    accent: p.primary,
+                    onTap: () => setState(() => _letter = letter),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(height: 10),
+          const LexiconSourceMention(
+            text: 'Notes internes de la BYM · une entrée par mot noté',
+          ),
+          const SizedBox(height: 12),
+          Expanded(child: _buildList(context)),
+        ],
+      ),
+    );
+  }
+
+  /// La fiche du volet droit, ou null (le bouche-trou invite à choisir).
+  Widget? _splitDetail() {
+    final selected = _selected;
+    if (selected == null) return null;
+    return BymLexiconEntryScreen(
+      key: ValueKey('bym-split-${selected.word}'),
+      entry: selected,
+      onOpenVerse: widget.onOpenVerse,
+      showBackButton: false,
     );
   }
 
@@ -212,14 +248,17 @@ class _BymLexiconIndexScreenState extends State<BymLexiconIndexScreen> {
             LexiconEntryCard(
               title: entry.word,
               subtitle: entry.definition,
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => BymLexiconEntryScreen(
-                    entry: entry,
-                    onOpenVerse: widget.onOpenVerse,
-                  ),
-                ),
-              ),
+              selected: _isWide(context) && _selected?.word == entry.word,
+              onTap: _isWide(context)
+                  ? () => setState(() => _selected = entry)
+                  : () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => BymLexiconEntryScreen(
+                          entry: entry,
+                          onOpenVerse: widget.onOpenVerse,
+                        ),
+                      ),
+                    ),
             ),
             const SizedBox(height: 8),
           ],

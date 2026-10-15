@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/strong_lexicon.dart';
+import '../utils/breakpoints.dart';
 import '../widgets/lexicon_index_widgets.dart';
 import '../widgets/premium_style.dart';
 import '../widgets/loading_skeleton.dart';
@@ -29,6 +30,10 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
   List<StrongDefinition>? _entries;
 
   static const List<String> _filtres = ['Tous', 'Grec', 'Hébreu'];
+
+  /// Étape F : l'entrée sélectionnée en volet de droite (≥ 840). Sous ce
+  /// seuil, le tap pousse la fiche comme avant.
+  StrongDefinition? _selected;
 
   @override
   void initState() {
@@ -71,6 +76,10 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
+    // Étape F : ≥ 840, index à gauche et fiche à droite ; en dessous,
+    // l'empilement actuel (le tap pousse la fiche).
+    final wide =
+        AppBreakpoints.isExpanded(MediaQuery.sizeOf(context));
     return Scaffold(
       backgroundColor: premiumBackground(context),
       appBar: AppBar(
@@ -97,31 +106,81 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
       ),
       body: SafeArea(
         top: false,
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        child: wide ? _wideBody(context) : _narrowBody(context),
+      ),
+    );
+  }
+
+  /// La colonne de recherche + liste, partagée par les deux régimes.
+  Widget _searchColumn(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          LexiconSearchField(
+            hint: 'Numéro, mot, translittération…',
+            controller: _controller,
+            onChanged: (v) => setState(() => _query = v),
+          ),
+          const SizedBox(height: 14),
+          Row(
             children: [
-              LexiconSearchField(
-                hint: 'Numéro, mot, translittération…',
-                controller: _controller,
-                onChanged: (v) => setState(() => _query = v),
-              ),
-              const SizedBox(height: 14),
-              Row(
-                children: [
-                  for (final filtre in _filtres) ...[
-                    _buildFiltreChip(context, filtre),
-                    const SizedBox(width: 8),
-                  ],
-                ],
-              ),
-              const SizedBox(height: 12),
-              const _SourceMention(),
-              const SizedBox(height: 12),
-              Expanded(child: _buildList(context)),
+              for (final filtre in _filtres) ...[
+                _buildFiltreChip(context, filtre),
+                const SizedBox(width: 8),
+              ],
             ],
           ),
+          const SizedBox(height: 12),
+          const _SourceMention(),
+          const SizedBox(height: 12),
+          Expanded(child: _buildList(context)),
+        ],
+      ),
+    );
+  }
+
+  Widget _narrowBody(BuildContext context) => _searchColumn(context);
+
+  /// Étape F : l'index à gauche (360 px), la fiche sélectionnée à droite.
+  Widget _wideBody(BuildContext context) {
+    final selected = _selected;
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(width: 360, child: _searchColumn(context)),
+        const VerticalDivider(width: 1),
+        Expanded(
+          child: selected == null
+              ? _emptyPane(context)
+              : StrongDetailScreen(
+                  key: ValueKey('strong-split-${selected.strong}'),
+                  strong: selected,
+                  onOpenVerse: widget.onOpenVerse,
+                  showBackButton: false,
+                ),
+        ),
+      ],
+    );
+  }
+
+  Widget _emptyPane(BuildContext context) {
+    final p = premiumPalette(context);
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.menu_book_outlined, size: 44, color: p.primary),
+            const SizedBox(height: 16),
+            Text(
+              'Choisissez une entrée dans la liste pour afficher sa fiche.',
+              textAlign: TextAlign.center,
+              style: premiumText(context, 14, FontWeight.w600, p.textGrey),
+            ),
+          ],
         ),
       ),
     );
@@ -176,6 +235,9 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
     if (filtered.isEmpty) {
       return const LexiconEmptyState();
     }
+    // Étape F : en volet large le tap sélectionne au lieu de pousser.
+    final wide =
+        AppBreakpoints.isExpanded(MediaQuery.sizeOf(context));
     return ListView(
       children: [
         Text(
@@ -188,6 +250,10 @@ class _StrongIndexScreenState extends State<StrongIndexScreen> {
             entry: entry,
             isGreek: _isGreek(entry),
             onOpenVerse: widget.onOpenVerse,
+            selected: wide && _selected?.strong == entry.strong,
+            onSelect: wide
+                ? (value) => setState(() => _selected = value)
+                : null,
           ),
           const SizedBox(height: 10),
         ],
@@ -223,29 +289,49 @@ class _EntryCard extends StatelessWidget {
   final bool isGreek;
   final void Function(int bookIndex, int chapter, int verse)? onOpenVerse;
 
+  /// Étape F : sélectionnée en volet large (tap = surlignage + fiche à
+  /// droite). Null en régime phone : le tap pousse la fiche comme avant.
+  final bool selected;
+  final ValueChanged<StrongDefinition>? onSelect;
+
   const _EntryCard({
     required this.entry,
     required this.isGreek,
     this.onOpenVerse,
+    this.selected = false,
+    this.onSelect,
   });
 
   @override
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
     final couleurLangue = isGreek ? p.greek : p.hebrew;
+    final select = onSelect;
     return Material(
       color: Colors.transparent,
       elevation: 0,
       child: Ink(
-        decoration: premiumSurface(context, radius: 20, depth: 0.9),
+        decoration: selected
+            ? BoxDecoration(
+                color: p.primarySoft,
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: premiumCardBorder(context, opacity: .5),
+                ),
+              )
+            : premiumSurface(context, radius: 20, depth: 0.9),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
-          onTap: () => Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (_) =>
-                  StrongDetailScreen(strong: entry, onOpenVerse: onOpenVerse),
-            ),
-          ),
+          onTap: select != null
+              ? () => select(entry)
+              : () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => StrongDetailScreen(
+                      strong: entry,
+                      onOpenVerse: onOpenVerse,
+                    ),
+                  ),
+                ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
             child: Row(

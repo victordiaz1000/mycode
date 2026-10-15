@@ -8,6 +8,7 @@ import '../data/local_repository.dart';
 import '../data/reading_history.dart';
 import '../data/tab_manager.dart';
 import '../models/chapter.dart';
+import '../utils/breakpoints.dart';
 import '../utils/date_format.dart';
 import '../widgets/loading_skeleton.dart';
 import '../widgets/premium_style.dart';
@@ -364,9 +365,10 @@ class _HomeScreenState extends State<HomeScreen> {
       if (studies.isEmpty) {
         rows.add(_noStudiesHint);
       } else {
-        for (final entry in studies) {
-          rows.add((c) => _studyCard(c, entry));
-        }
+        // Étape B : sur paysage/desktop (≥ 840) les cartes d'études passent
+        // en 2 colonnes — une seule rangée de ListView qui peint sa grille.
+        // Sous 840 : liste verticale inchangée.
+        rows.add((c) => _studiesList(c, studies));
       }
       rows.add((_) => const SizedBox(height: 30));
     }
@@ -376,9 +378,8 @@ class _HomeScreenState extends State<HomeScreen> {
       (_) => const SizedBox(height: 30),
       _historySection,
       (_) => const SizedBox(height: 30),
-      (c) => _measureSection(c, _kCapacity),
-      (_) => const SizedBox(height: 30),
-      (c) => _measureSection(c, _kLength),
+      // Étape B : les deux pavés Mesures côte-à-côte dès 840, empilés sinon.
+      (c) => _measuresBlock(c),
       (_) => const SizedBox(height: 30),
       _denominationsSection,
       (_) => const SizedBox(height: 30),
@@ -686,6 +687,10 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _openCompare,
       ),
     ];
+    // Étape B : ≥ 600 la rangée fixe remplace le carrousel horizontal.
+    if (AppBreakpoints.isTablet(MediaQuery.sizeOf(context))) {
+      return _quickActionsFixed(context, actions);
+    }
     return SizedBox(
       height: 112,
       child: ListView.separated(
@@ -697,7 +702,24 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _quickActionChip(BuildContext context, _QuickActionData a) {
+  /// Étape B : sur tablette+ (≥ 600) les 4 actions tiennent en une rangée
+  /// fixe — plus de défilement horizontal. La version phone ci-dessus est
+  /// conservée telle quelle.
+  Widget _quickActionsFixed(BuildContext context, List<_QuickActionData> actions) {
+    return SizedBox(
+      height: 112,
+      child: Row(
+        children: [
+          for (var i = 0; i < actions.length; i++) ...[
+            Expanded(child: _quickActionChip(context, actions[i], expanded: true)),
+            if (i < actions.length - 1) const SizedBox(width: 12),
+          ],
+        ],
+      ),
+    );
+  }
+
+  Widget _quickActionChip(BuildContext context, _QuickActionData a, {bool expanded = false}) {
     final p = _pal(context);
     final labelColor = a.enabled
         ? p.textDark
@@ -706,7 +728,7 @@ class _HomeScreenState extends State<HomeScreen> {
       onTap: a.enabled ? a.onTap : null,
       label: a.label,
       child: Container(
-        width: 96,
+        width: expanded ? double.infinity : 96,
         decoration: premiumSurface(context, radius: 22, depth: 0.7),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -735,7 +757,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(height: 10),
-            Text(a.label, style: _t(context, 13, FontWeight.w700, labelColor)),
+            Text(
+              a.label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: _t(context, 13, FontWeight.w700, labelColor),
+            ),
           ],
         ),
       ),
@@ -1092,6 +1119,53 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  /// Étape B : liste verticale sous 840, grille 2 colonnes au-delà.
+  ///
+  /// Une seule rangée de la `ListView` paresseuse : l'audit de débordement
+  /// la traverse comme avant, et l'ordre des cartes est conservé.
+  Widget _studiesList(BuildContext context, List<ReadingEntry> studies) {
+    if (!AppBreakpoints.isExpanded(MediaQuery.sizeOf(context))) {
+      return Column(
+        children: [for (final s in studies) _studyCard(context, s)],
+      );
+    }
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        const spacing = 12.0;
+        final itemWidth = (constraints.maxWidth - spacing) / 2;
+        return Wrap(
+          spacing: spacing,
+          runSpacing: 0,
+          children: [
+            for (final s in studies)
+              SizedBox(width: itemWidth, child: _studyCard(context, s)),
+          ],
+        );
+      },
+    );
+  }
+
+  /// Étape B : les deux pavés Mesures empilés sous 840, côte-à-côte au-delà.
+  Widget _measuresBlock(BuildContext context) {
+    if (!AppBreakpoints.isExpanded(MediaQuery.sizeOf(context))) {
+      return Column(
+        children: [
+          _measureSection(context, _kCapacity),
+          const SizedBox(height: 30),
+          _measureSection(context, _kLength),
+        ],
+      );
+    }
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(child: _measureSection(context, _kCapacity)),
+        const SizedBox(width: 16),
+        Expanded(child: _measureSection(context, _kLength)),
+      ],
     );
   }
 

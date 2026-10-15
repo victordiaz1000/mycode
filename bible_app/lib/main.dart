@@ -11,7 +11,9 @@ import 'screens/library_screen.dart';
 import 'screens/reader_screen.dart';
 import 'screens/search_screen.dart';
 import 'screens/settings_screen.dart';
+import 'utils/breakpoints.dart';
 import 'widgets/bible_theme_scope.dart';
+import 'widgets/centered_content.dart';
 import 'widgets/chapter_reader.dart';
 import 'widgets/holy_icons.dart';
 import 'widgets/loading_skeleton.dart';
@@ -333,8 +335,11 @@ class _HomeShellState extends State<HomeShell> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final tablet = width >= 600;
+    final size = MediaQuery.sizeOf(context);
+    // Le châssis se décide sur le côté court : un téléphone couché garde sa
+    // barre du bas (mesuré sur la largeur, il faisait 844 px et recevait le
+    // rail étendu dans 390 px de haut).
+    final tablet = AppBreakpoints.isTablet(size);
     // Immersion (reading) removes the navigation chrome: the reader shows its
     // own exit pill, and this shell hides rail and bottom bar while it lasts.
     return ValueListenableBuilder<bool>(
@@ -349,15 +354,24 @@ class _HomeShellState extends State<HomeShell> {
                   : InterfaceLoadingGate(
                       key: ValueKey('interface-gate-$i'),
                       variant: i,
-                      child: _pageCache[i]!,
+                      // Les pages sont plafonnées et centrées sur tablette+ —
+                      // la Lecture exceptée : elle gère sa propre largeur de
+                      // colonne (mesurée en caractères), son panneau d'étude
+                      // épinglé et ses volets parallèles, qui ont tous besoin
+                      // de la pleine largeur pour se répartir.
+                      child: i == BymDestination.lecture.index
+                          ? _pageCache[i]!
+                          : CenteredContent(child: _pageCache[i]!),
                     ),
           ],
         );
+        // Contenu pleine largeur contre le rail, comme avant — seule la
+        // teinte du rail a été unifiée. Sous 600 (phone), inchangé.
         return Scaffold(
           body: tablet
               ? Row(
                   children: [
-                    if (!immersive) _buildNavigationRail(context, width),
+                    if (!immersive) _buildNavigationRail(context, size),
                     Expanded(child: content),
                   ],
                 )
@@ -369,8 +383,10 @@ class _HomeShellState extends State<HomeShell> {
     );
   }
 
-  Widget _buildNavigationRail(BuildContext context, double width) {
+  Widget _buildNavigationRail(BuildContext context, Size size) {
     final p = premiumPalette(context);
+    final extended = AppBreakpoints.isExpanded(size);
+    // Même crème que les pages : le rail et le contenu ne font qu'un.
     return NavigationRail(
       scrollable: true,
       selectedIndex: _index,
@@ -382,11 +398,13 @@ class _HomeShellState extends State<HomeShell> {
         });
         _persistDestination(i);
       },
-      extended: width >= 840,
-      labelType: width >= 840
+      extended: extended,
+      labelType: extended
           ? NavigationRailLabelType.none
           : NavigationRailLabelType.all,
-      backgroundColor: p.surface,
+      // Même crème que les pages : un fond distinct coupait le rail du
+      // contenu d'une ligne verticale en paysage/tablette.
+      backgroundColor: premiumBackground(context),
       leading: Padding(
         padding: const EdgeInsets.only(bottom: 18),
         // L'emblème du rail, dans la même famille que les onglets.

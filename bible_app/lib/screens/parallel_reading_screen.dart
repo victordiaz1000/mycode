@@ -35,6 +35,12 @@ class ParallelReadingScreen extends StatefulWidget {
   /// never completes inside `testWidgets` fake-async.
   final LibraryStore? store;
 
+  /// Volets embarqués dans la lecture, à partir du palier `expanded` : ni
+  /// `Scaffold` ni `AppBar`, et le chapitre suit celui de l'hôte — ce sont ses
+  /// flèches qui le font avancer, pas les nôtres. En plein écran (le défaut),
+  /// l'écran garde sa coque et son propre pas de chapitre.
+  final bool embedded;
+
   const ParallelReadingScreen({
     super.key,
     required this.bookIndex,
@@ -42,6 +48,7 @@ class ParallelReadingScreen extends StatefulWidget {
     this.initialLeftCode = VersionRepository.embeddedCode,
     this.initialRightCode,
     this.store,
+    this.embedded = false,
   });
 
   @override
@@ -75,6 +82,27 @@ class _ParallelReadingScreenState extends State<ParallelReadingScreen> {
     _leftScroll.dispose();
     _rightScroll.dispose();
     super.dispose();
+  }
+
+  /// Embarqué, c'est l'hôte qui mène : ses flèches de chapitre et son
+  /// sélecteur de version arrivent ici par une reconstruction, pas par un
+  /// `setState` local. Sans cela les volets restaient sur le chapitre de leur
+  /// première construction pendant que la barre d'actions, elle, avançait.
+  @override
+  void didUpdateWidget(ParallelReadingScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Le cache des livres est indexé par code de version seul : il ne vaut que
+    // pour un livre donné, donc un changement de livre le périme.
+    if (widget.bookIndex != oldWidget.bookIndex) _futures.clear();
+    if (widget.initialLeftCode != oldWidget.initialLeftCode) {
+      _leftCode = widget.initialLeftCode;
+    }
+    if (widget.chapter != oldWidget.chapter ||
+        widget.bookIndex != oldWidget.bookIndex) {
+      _chapter = widget.chapter;
+      _load();
+      _resetPanes();
+    }
   }
 
   String _pickRightDefault() =>
@@ -186,6 +214,13 @@ class _ParallelReadingScreenState extends State<ParallelReadingScreen> {
       fontSize: baseSize,
       spacing: _prefs?.spacing ?? ReadingSpacing.normal,
     );
+    final panes = _buildPanes(context, theme, baseSize, rhythm);
+    // Embarqué dans la lecture : les volets seuls. La barre d'actions de
+    // l'hôte est déjà au-dessus — avec son sélecteur de version et ses flèches
+    // de chapitre — et son `SafeArea` englobe l'ensemble : y remettre une
+    // `AppBar` ferait deux titres et deux rangées de flèches pour un seul
+    // chapitre.
+    if (widget.embedded) return panes;
     return Scaffold(
       backgroundColor: premiumBackground(context),
       appBar: AppBar(
@@ -209,46 +244,58 @@ class _ParallelReadingScreenState extends State<ParallelReadingScreen> {
           ),
         ],
       ),
-      body: SafeArea(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: _Pane(
-                side: _Side.left,
-                code: _leftCode,
-                chapter: _chapter,
-                installed: _installed,
-                future: _book(_leftCode),
-                theme: theme,
-                fontSize: baseSize,
-                rhythm: rhythm,
-                textAlign: _prefs?.textAlign.align ?? TextAlign.left,
-                scrollController: _leftScroll,
-                onSelectVersion: (code) => _switchPane(_Side.left, code),
-                onVerseTap: (vn) => _sync(_Side.left, vn),
-              ),
-            ),
-            VerticalDivider(width: 1, color: premiumPalette(context).primary.withValues(alpha: .15)),
-            Expanded(
-              child: _Pane(
-                side: _Side.right,
-                code: _rightCode,
-                chapter: _chapter,
-                installed: _installed,
-                future: _book(_rightCode),
-                theme: theme,
-                fontSize: baseSize,
-                rhythm: rhythm,
-                textAlign: _prefs?.textAlign.align ?? TextAlign.left,
-                scrollController: _rightScroll,
-                onSelectVersion: (code) => _switchPane(_Side.right, code),
-                onVerseTap: (vn) => _sync(_Side.right, vn),
-              ),
-            ),
-          ],
+      body: SafeArea(child: panes),
+    );
+  }
+
+  /// Les deux volets verse-alignés : le corps commun au plein écran et à
+  /// l'embarqué.
+  Widget _buildPanes(
+    BuildContext context,
+    BibleTheme theme,
+    double baseSize,
+    ReadingRhythm rhythm,
+  ) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Expanded(
+          child: _Pane(
+            side: _Side.left,
+            code: _leftCode,
+            chapter: _chapter,
+            installed: _installed,
+            future: _book(_leftCode),
+            theme: theme,
+            fontSize: baseSize,
+            rhythm: rhythm,
+            textAlign: _prefs?.textAlign.align ?? TextAlign.left,
+            scrollController: _leftScroll,
+            onSelectVersion: (code) => _switchPane(_Side.left, code),
+            onVerseTap: (vn) => _sync(_Side.left, vn),
+          ),
         ),
-      ),
+        VerticalDivider(
+          width: 1,
+          color: premiumPalette(context).primary.withValues(alpha: .15),
+        ),
+        Expanded(
+          child: _Pane(
+            side: _Side.right,
+            code: _rightCode,
+            chapter: _chapter,
+            installed: _installed,
+            future: _book(_rightCode),
+            theme: theme,
+            fontSize: baseSize,
+            rhythm: rhythm,
+            textAlign: _prefs?.textAlign.align ?? TextAlign.left,
+            scrollController: _rightScroll,
+            onSelectVersion: (code) => _switchPane(_Side.right, code),
+            onVerseTap: (vn) => _sync(_Side.right, vn),
+          ),
+        ),
+      ],
     );
   }
 }

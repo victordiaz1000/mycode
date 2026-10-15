@@ -8,8 +8,7 @@ import '../data/app_database.dart';
 import '../data/app_preferences.dart';
 import '../data/book_catalog.dart';
 import '../data/bym_update_service.dart';
-import '../data/library_store.dart';
-import '../data/note_reference_linker.dart';
+import '../data/library_store.dart';import '../data/note_reference_linker.dart';
 import '../data/reference_parser.dart';
 import '../data/share_text.dart';
 import '../data/strong_lexicon.dart';
@@ -23,6 +22,7 @@ import '../models/user_data.dart';
 import '../models/verse.dart';
 import '../screens/ati_note_screen.dart';
 import '../screens/chapter_screen.dart';
+import '../utils/breakpoints.dart';
 import '../screens/ecran_comparer.dart';
 import '../screens/etude_verset_screen.dart';
 import '../screens/parallel_reading_screen.dart';
@@ -30,6 +30,7 @@ import '../screens/strong_detail_screen.dart';
 import 'fiche_text_settings.dart';
 import 'loading_skeleton.dart';
 import 'reader_actions_bar.dart';
+import 'strong_lemma.dart';
 import 'ati_word_sheet.dart';
 import 'note_editor_sheet.dart';
 import 'strong_extract_sheet.dart';
@@ -199,6 +200,25 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// selection actions (copy a range) and the find-in-page scan work on the
   /// same data the reader displays.
   Chapter? _chapterData;
+
+  /// Étape C : fiche Strong épinglée en panneau latéral sur desktop (≥ 1040).
+  /// Sous ce seuil, le tap Strong garde son comportement actuel (feuille
+  /// d'extrait / route plein écran). La clé du lecteur inclut déjà
+  /// livre+chapitre, donc aucun résidu en changeant de chapitre.
+  StrongDefinition? _sideStrong;
+
+  /// Étape C2 : verset à l'étude épinglé en panneau latéral sur desktop
+  /// (≥ 1040) — la feuille d'étude sans sa modale. Sous ce seuil, le tap
+  /// verset garde sa feuille. Un seul panneau à droite : l'étude y a
+  /// préséance sur la fiche Strong.
+  _SideStudy? _sideStudy;
+
+  /// §02 : la lecture parallèle en volets, dans la page. Demandée par le ⇄ de
+  /// la barre à partir du palier `expanded` ; en deçà, le même bouton pousse
+  /// l'écran plein comme avant. L'intention est conservée telle quelle et
+  /// relue à chaque construction : si la fenêtre rétrécit sous le palier, les
+  /// volets se replient d'eux-mêmes sans rien perdre (voir `build`).
+  bool _parallel = false;
 
   /// Accumulated horizontal delta of the swipe in progress — chapter paging
   /// (see [_onChapterSwipe]).
@@ -1088,9 +1108,33 @@ class _ChapterReaderState extends State<ChapterReader> {
     // Immersion: only the text remains. The find bar and the action bar are
     // the reader's own; the shells above hide theirs on the same preference.
     final immersive = _prefs.immersion;
+    // Étape C/C2 : sur desktop (≥ 1040) la fiche Strong et la feuille
+    // d'étude s'épinglent à droite au lieu d'une modale. Caché en
+    // immersion — seul le texte reste. Un seul panneau : l'étude a
+    // préséance sur la fiche Strong.
+    final size = MediaQuery.sizeOf(context);
+    final showSidePanel =
+        !immersive &&
+        (_sideStrong != null || _sideStudy != null) &&
+        AppBreakpoints.isDesktop(size);
+    // Proportion bornée plutôt que 360 px en dur : le panneau suit la fenêtre
+    // sans jamais écraser la colonne de lecture. Le `+ 12` est la gouttière
+    // entre le texte et le panneau.
+    final panelWidth = AppBreakpoints.sidePanelWidth(size.width);
+    // §02 : l'intention de lire en parallèle n'est honorée que là où deux
+    // colonnes restent lisibles. Relu ici plutôt que corrigé dans un
+    // `setState` : une fenêtre qu'on rétrécit puis réélargit retrouve ses
+    // volets, et la rotation d'une tablette ne perd rien.
+    final parallel = _parallel && !immersive && AppBreakpoints.isExpanded(size);
+    // §03 : au-delà de 1600, la place en trop devient une colonne utile — le
+    // sommaire du livre — au lieu de deux bandes de crème de part et d'autre
+    // du plafond de lecture. Rien en immersion : seul le texte reste.
+    final xl = AppBreakpoints.isXl(size) && !immersive;
     return Stack(
       children: [
-        Column(
+        Padding(
+          padding: EdgeInsets.only(right: showSidePanel ? panelWidth + 12 : 0),
+          child: Column(
           children: [
             if (!immersive) ...[
               ReaderActionsBar(
@@ -1123,9 +1167,12 @@ class _ChapterReaderState extends State<ChapterReader> {
                     // fond de la feuille ⋯.
                     if (_parallelInBar)
                       IconButton(
-                        tooltip: 'Lecture parallèle — deux versions',
+                        tooltip: parallel
+                            ? 'Fermer la lecture parallèle'
+                            : 'Lecture parallèle — deux versions',
+                        isSelected: parallel,
                         icon: const Icon(Icons.vertical_split),
-                        onPressed: _openParallel,
+                        onPressed: _toggleParallel,
                         visualDensity: VisualDensity.compact,
                       ),
                     // Le mode immersion sort du menu ⋯ à partir de 600, sur la
@@ -1151,7 +1198,29 @@ class _ChapterReaderState extends State<ChapterReader> {
               if (_findOpen) _buildFindBar(),
             ],
             Expanded(
-              child: GestureDetector(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  if (xl) _buildChapterOutline(),
+                  Expanded(
+                    child: parallel
+                        // §02 : les deux versions côte à côte dans la page. Les
+                        // volets reçoivent le chapitre de l'hôte, donc les
+                        // flèches de la barre les font avancer ensemble.
+                        ? ParallelReadingScreen(
+                            key: const ValueKey('parallel-embedded'),
+                            embedded: true,
+                            bookIndex: widget.bookIndex,
+                            chapter: widget.chapter,
+                            initialLeftCode: _versionCode,
+                            store: _library,
+                          )
+                        // Étape C : colonne de lecture plafonnée à 680 sur
+                        // tablette+ — lignes courtes et centrées, sans toucher
+                        // au phone.
+                        : _ReadingWidth(
+                            fontSize: bodyFontSize,
+                child: GestureDetector(
                 behavior: HitTestBehavior.translucent,
                 onHorizontalDragStart: (_) => _swipeDx = 0,
                 onHorizontalDragUpdate: (d) =>
@@ -1282,6 +1351,10 @@ class _ChapterReaderState extends State<ChapterReader> {
                   );
                 },
                 ),
+                ),
+                        ),
+                  ),
+                ],
               ),
             ),
             if (_multiMode)
@@ -1295,7 +1368,22 @@ class _ChapterReaderState extends State<ChapterReader> {
                 onDone: () => setState(() => _selected.clear()),
               ),
           ],
+          ),
         ),
+        if (showSidePanel)
+          Positioned(
+            top: 0,
+            bottom: 0,
+            right: 0,
+            width: panelWidth,
+            child: _sideStudy != null
+                ? _buildStudyPanel(_sideStudy!)
+                : _StrongSidePanel(
+                    strong: _sideStrong!,
+                    onClose: () => setState(() => _sideStrong = null),
+                    onOpenFull: () => _openStrongFiche(_sideStrong!),
+                  ),
+          ),
         if (immersive)
           Positioned(
             right: 16,
@@ -1427,6 +1515,15 @@ class _ChapterReaderState extends State<ChapterReader> {
         (versionByCode(_versionCode)?.carriesNotes ?? false) ||
             _versionCode == VersionRepository.dbyCode ||
             _versionCode == VersionRepository.sefCode;
+    // Étape C2 : sur desktop la feuille d'étude devient le panneau latéral —
+    // mêmes pastilles, mêmes tuiles, sans modale.
+    if (AppBreakpoints.isDesktop(MediaQuery.sizeOf(context))) {
+      setState(() {
+        _sideStrong = null;
+        _sideStudy = _SideStudy(verse: verse, lexiqueEnabled: lexiqueEnabled);
+      });
+      return;
+    }
     final action = await showStudySheet(
       context,
       reference:
@@ -1445,7 +1542,15 @@ class _ChapterReaderState extends State<ChapterReader> {
       onFavorite: (value) => _applyFavorite(vn, value),
     );
     if (action == null || !mounted) return;
+    await _handleStudyAction(action, verse);
+  }
 
+  /// La suite du tap verset, commune à la modale (phone/tablette) et au
+  /// panneau latéral (desktop, étape C2) : le panneau y branche ses tuiles
+  /// directement, la modale y passe son retour.
+  Future<void> _handleStudyAction(StudyAction action, Verse verse) async {
+    if (!mounted) return;
+    final vn = verse.number;
     switch (action) {
       case StudyAction.lexicon:
         await _openLexique(vn);
@@ -1779,10 +1884,71 @@ class _ChapterReaderState extends State<ChapterReader> {
     );
   }
 
+  /// §03 : le sommaire du livre, troisième colonne des très grands écrans.
+  ///
+  /// La liste des chapitres vient du livre déjà chargé — `_bookFuture`, le même
+  /// future que la lecture : aucune requête de plus, et le sommaire apparaît
+  /// avec le texte. Tant qu'il charge, la colonne reste vide plutôt que de
+  /// poser un squelette de plus à côté de celui du texte.
+  Widget _buildChapterOutline() {
+    final p = premiumPalette(context);
+    return SizedBox(
+      width: 206,
+      child: FutureBuilder<BibleBook>(
+        future: _bookFuture,
+        builder: (context, snapshot) {
+          final book = snapshot.data;
+          if (book == null) return const SizedBox.shrink();
+          final chapters = book.chapters.map((c) => c.chapter).toList();
+          return ListView(
+            padding: const EdgeInsets.fromLTRB(12, 12, 6, 12),
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8, bottom: 8),
+                child: Text(
+                  catalogEntry(widget.bookIndex).barLabel.toUpperCase(),
+                  style: premiumText(context, 11, FontWeight.w800, p.textGrey),
+                ),
+              ),
+              for (final n in chapters)
+                _OutlineTile(
+                  label: '$n',
+                  selected: n == widget.chapter,
+                  onTap: n == widget.chapter
+                      ? null
+                      : () => _openChapter(widget.bookIndex, n),
+                ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  /// Le ⇄ de la barre : il *bascule* les volets là où ils vivent dans la page,
+  /// et reste une simple ouverture là où la lecture parallèle est un écran.
+  void _toggleParallel() {
+    if (_parallel) {
+      setState(() => _parallel = false);
+      return;
+    }
+    _openParallel();
+  }
+
   /// The « Lecture parallèle » button: the current chapter across two
   /// versions, side by side. The left pane starts on the version being read.
+  ///
+  /// §02 : à partir du palier `expanded` les deux versions tiennent côte à
+  /// côte *dans* la page — on compare sans quitter le chapitre, sans perdre sa
+  /// position ni le panneau d'étude ouvert. En deçà, deux colonnes tomberaient
+  /// sous la quarantaine de caractères : l'écran plein reste la bonne réponse,
+  /// et c'est aussi lui que gardent les téléphones par la feuille ⋯.
   Future<void> _openParallel() async {
     if (!mounted) return;
+    if (AppBreakpoints.isExpanded(MediaQuery.sizeOf(context))) {
+      setState(() => _parallel = true);
+      return;
+    }
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) => ParallelReadingScreen(
@@ -2172,6 +2338,11 @@ class _ChapterReaderState extends State<ChapterReader> {
   Future<void> _onStrongInText(Verse _, String strong) async {
     final definition = await StrongLexicon.instance.lookup(strong);
     if (!mounted) return;
+    // Étape C : sur desktop la fiche s'épingle à droite au lieu d'une modale.
+    if (AppBreakpoints.isDesktop(MediaQuery.sizeOf(context))) {
+      setState(() => _sideStrong = definition);
+      return;
+    }
     await showStrongExtractSheet(
       context,
       strong: definition,
@@ -2184,7 +2355,39 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// an occurrence verse there targets that verse in the reading screen.
   Future<void> _onStrongTap(Verse _, String strong) async {
     final definition = await StrongLexicon.instance.lookup(strong);
+    if (!mounted) return;
+    // Étape C : sur desktop, même les liens Strong (ATI, notes) alimentent
+    // le panneau latéral au lieu d'empiler une route.
+    if (AppBreakpoints.isDesktop(MediaQuery.sizeOf(context))) {
+      setState(() => _sideStrong = definition);
+      return;
+    }
     await _openStrongFiche(definition);
+  }
+
+  /// Étape C2 : le panneau d'étude desktop — le même [StudySheetBody] que la
+  /// modale, dans la coque du panneau latéral. La clé inclut le verset : un
+  /// autre verset tapé repart d'un état frais (pastilles, favori).
+  Widget _buildStudyPanel(_SideStudy study) {
+    final vn = study.verse.number;
+    return Container(
+      margin: const EdgeInsets.fromLTRB(0, 8, 8, 8),
+      decoration: premiumSurface(context, radius: 18, depth: 1.2),
+      child: StudySheetBody(
+        key: ValueKey('study-${widget.bookIndex}-${widget.chapter}-$vn'),
+        reference:
+            '${catalogEntry(widget.bookIndex).abbreviation} ${study.verse.verse}',
+        verse: study.verse.text,
+        isFavorite: _favorites.contains(vn),
+        currentHighlight: _highlights[vn],
+        lexiqueEnabled: study.lexiqueEnabled,
+        lexiqueLabel: 'Lexique & Dictionnaire — verset mot à mot',
+        onHighlight: (color) => _applyHighlight(vn, color),
+        onFavorite: (value) => _applyFavorite(vn, value),
+        onAction: (action) => _handleStudyAction(action, study.verse),
+        onClose: () => setState(() => _sideStudy = null),
+      ),
+    );
   }
 
   /// La fiche complète : la route que pousse tout lien Strong du lecteur —
@@ -2210,8 +2413,323 @@ class _ChapterReaderState extends State<ChapterReader> {
   /// it, standalone use falls back to a pushed chapter.
   void _openStrongOccurrence(int bookIndex, int chapter, int verse) {
     Navigator.of(context).popUntil((route) => route.isFirst);
+    if (_sideStrong != null || _sideStudy != null) {
+      setState(() {
+        _sideStrong = null;
+        _sideStudy = null;
+      });
+    }
     _onReferenceTap(
       BibleReference(bookIndex: bookIndex, chapter: chapter, verse: verse),
+    );
+  }
+}
+
+/// Étape C2 : le verset à l'étude dans le panneau latéral desktop.
+class _SideStudy {
+  final Verse verse;
+  final bool lexiqueEnabled;
+
+  const _SideStudy({required this.verse, required this.lexiqueEnabled});
+}
+
+/// §03 : une ligne du sommaire XL — un numéro de chapitre, et l'état « c'est
+/// celui que tu lis ». `onTap` nul sur le chapitre courant : rien à rouvrir.
+class _OutlineTile extends StatelessWidget {
+  final String label;
+  final bool selected;
+  final VoidCallback? onTap;
+
+  const _OutlineTile({
+    required this.label,
+    required this.selected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 2),
+      child: Material(
+        color: selected ? p.primary.withValues(alpha: 0.12) : Colors.transparent,
+        borderRadius: BorderRadius.circular(10),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(10),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
+            child: Text(
+              label,
+              style: premiumText(
+                context,
+                13,
+                selected ? FontWeight.w800 : FontWeight.w500,
+                selected ? p.primary : p.textDark,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Étape C : plafonne la colonne de lecture sur tablette+, **en caractères**.
+///
+/// Un plafond en pixels traite 14 pt et 30 pt de la même façon : à 680 px, le
+/// « petit » tenait 95 caractères par ligne et le « géant » 45. La mesure
+/// confortable est un nombre de signes, pas une largeur — d'où le calcul
+/// ci-dessous, calibré pour rendre exactement les 680 px d'avant à la taille
+/// par défaut (22 pt), et suivre le lecteur quand il change de corps.
+///
+/// `LayoutBuilder` + `Padding` — pas `Center` + `ConstrainedBox` : la liste
+/// des versets garde des contraintes serrées et son défilement paresseux.
+/// Sous le palier tablette, l'enfant passe tel quel.
+class _ReadingWidth extends StatelessWidget {
+  final Widget child;
+
+  /// Corps du texte des versets, tel que le lecteur l'a réglé.
+  final double fontSize;
+
+  const _ReadingWidth({required this.child, required this.fontSize});
+
+  /// La fourchette classique de la typographie de labeur est 55-75 signes ;
+  /// 66 est son milieu.
+  static const double _charsPerLine = 66;
+
+  /// Largeur moyenne d'un signe, en fraction du corps, pour les serif de
+  /// lecture employées ici (Crimson Pro et voisines). 66 × 0,47 ≈ 31, donc
+  /// 22 pt × 31 ≈ 682 — le 680 d'avant, à deux pixels près.
+  static const double _avgAdvance = 0.47;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!AppBreakpoints.isTablet(MediaQuery.sizeOf(context))) {
+      return child;
+    }
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Bornes : en deçà de 520 la colonne deviendrait un ruban cerné de
+        // vide sur une tablette réglée en « petit » ; au-delà de 980 le regard
+        // perd sa ligne en revenant à la marge, même en « géant ».
+        final max = (fontSize * _charsPerLine * _avgAdvance).clamp(520.0, 980.0);
+        if (constraints.maxWidth <= max) return child;
+        final pad = (constraints.maxWidth - max) / 2;
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: pad),
+          child: child,
+        );
+      },
+    );
+  }
+}
+
+/// Étape C : la fiche Strong épinglée à droite sur desktop (≥ 1040).
+///
+/// Le même premier regard que la feuille d'extrait — badges, lemma,
+/// définition brève, signification — avec la fiche complète à un bouton.
+/// Le tap Strong garde sa modale / sa route sous ce seuil.
+class _StrongSidePanel extends StatelessWidget {
+  final StrongDefinition strong;
+  final VoidCallback onClose;
+  final VoidCallback onOpenFull;
+
+  const _StrongSidePanel({
+    required this.strong,
+    required this.onClose,
+    required this.onOpenFull,
+  });
+
+  bool get _isGreek =>
+      strong.language == 'greek' || strong.strong.startsWith('G');
+
+  String get _breve {
+    final lines = strong.senses.isNotEmpty
+        ? strong.senses
+        : strong.definition
+            .split(RegExp(r'[•\n]'))
+            .map((line) => line.trim())
+            .where((line) => line.isNotEmpty);
+    return lines.isEmpty ? '' : lines.first;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final p = premiumPalette(context);
+    final breve = _breve;
+    final signification = strong.signification;
+    return Container(
+      margin: const EdgeInsets.fromLTRB(0, 8, 8, 8),
+      decoration: premiumSurface(context, radius: 18, depth: 1.2),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 12, 8, 8),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    strong.strong,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: premiumText(context, 16, FontWeight.w800, p.primary),
+                  ),
+                ),
+                IconButton(
+                  tooltip: 'Fermer le panneau',
+                  icon: const Icon(Icons.close),
+                  visualDensity: VisualDensity.compact,
+                  onPressed: onClose,
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _SideBadge(
+                        _isGreek ? 'Grec' : 'Hébreu',
+                        _isGreek ? p.greek : p.hebrew,
+                      ),
+                      if (strong.partOfSpeech != null &&
+                          strong.partOfSpeech!.isNotEmpty) ...[
+                        const SizedBox(width: 8),
+                        _SideBadge(strong.partOfSpeech!, p.textGrey),
+                      ],
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  StrongLemma(
+                    lemma: strong.lemma,
+                    strong: strong.strong,
+                    language: strong.language,
+                    size: 28,
+                    align: TextAlign.center,
+                  ),
+                  if (strong.transliteration != null &&
+                      strong.transliteration!.isNotEmpty) ...[
+                    const SizedBox(height: 6),
+                    Center(
+                      child: Text(
+                        strong.transliteration!,
+                        textAlign: TextAlign.center,
+                        style: premiumText(
+                          context,
+                          14,
+                          FontWeight.w500,
+                          p.textGrey,
+                          italic: FontStyle.italic,
+                        ),
+                      ),
+                    ),
+                  ],
+                  if (breve.isNotEmpty) ...[
+                    const SizedBox(height: 14),
+                    Text(
+                      'Définition brève',
+                      style: premiumText(
+                        context,
+                        12,
+                        FontWeight.w500,
+                        p.textGrey,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      breve,
+                      style: premiumText(
+                        context,
+                        14,
+                        FontWeight.w500,
+                        p.textDark,
+                        height: 1.5,
+                      ),
+                    ),
+                  ],
+                  if (signification != null) ...[
+                    const SizedBox(height: 14),
+                    Text(
+                      'Signification',
+                      style: premiumText(
+                        context,
+                        12,
+                        FontWeight.w500,
+                        p.textGrey,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      signification,
+                      style: premiumText(
+                        context,
+                        14,
+                        FontWeight.w600,
+                        p.textDark,
+                        height: 1.45,
+                      ),
+                    ),
+                  ],
+                  const SizedBox(height: 18),
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton.icon(
+                      onPressed: onOpenFull,
+                      style: OutlinedButton.styleFrom(
+                        side: BorderSide(color: p.primary, width: 1.8),
+                        foregroundColor: p.primary,
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                      ),
+                      icon: const Icon(Icons.menu_book_rounded),
+                      label: Text(
+                        'Fiche complète',
+                        style: premiumText(
+                          context,
+                          13.5,
+                          FontWeight.w800,
+                          p.primary,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SideBadge extends StatelessWidget {
+  final String text;
+  final Color color;
+
+  const _SideBadge(this.text, this.color);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: .12),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: color.withValues(alpha: .28)),
+      ),
+      child: Text(
+        text,
+        style: premiumText(context, 12, FontWeight.w700, color),
+      ),
     );
   }
 }

@@ -4,6 +4,7 @@ import '../data/dictionary_catalog.dart';
 import '../data/dictionary_reader.dart';
 import '../data/dictionary_store.dart';
 import '../data/reference_parser.dart';
+import '../utils/breakpoints.dart';
 import '../widgets/loading_skeleton.dart';
 import '../widgets/lexicon_index_widgets.dart';
 import '../widgets/premium_style.dart';
@@ -40,6 +41,10 @@ class _DictionaryBrowseScreenState extends State<DictionaryBrowseScreen> {
   String _query = '';
   String? _letter;
   DictionaryReader? _reader;
+
+  /// Étape G : l'article sélectionné en volet de droite (≥ 840). Sous ce
+  /// seuil, le tap pousse la fiche comme avant.
+  DictionaryArticle? _selected;
 
   DictionaryStore get _store => widget.store ?? DictionaryStore();
 
@@ -100,6 +105,10 @@ class _DictionaryBrowseScreenState extends State<DictionaryBrowseScreen> {
   Widget build(BuildContext context) {
     final p = premiumPalette(context);
     final reader = _reader;
+    // Étape G : ≥ 840, index à gauche et fiche à droite ; en dessous,
+    // l'empilement actuel (le tap pousse la fiche).
+    final wide =
+        AppBreakpoints.isExpanded(MediaQuery.sizeOf(context));
     return Scaffold(
       backgroundColor: premiumBackground(context),
       appBar: AppBar(
@@ -131,47 +140,72 @@ class _DictionaryBrowseScreenState extends State<DictionaryBrowseScreen> {
                 padding: EdgeInsets.fromLTRB(16, 12, 16, 0),
                 child: DictionaryBrowseLoadingSkeleton(),
               )
-            : Padding(
-                padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    LexiconSearchField(
-                      hint: 'Rechercher dans ce dictionnaire…',
-                      controller: _controller,
-                      onChanged: (v) => setState(() => _query = v),
-                    ),
-                    const SizedBox(height: 12),
-                    SizedBox(
-                      height: 40,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          LexiconLetterChip(
-                            label: 'Toutes',
-                            active: _letter == null,
-                            accent: p.primary,
-                            onTap: () => setState(() => _letter = null),
-                          ),
-                          for (final letter in _letters) ...[
-                            const SizedBox(width: 8),
-                            LexiconLetterChip(
-                              key: Key('letter-chip-$letter'),
-                              label: letter,
-                              active: _letter == letter,
-                              accent: p.primary,
-                              onTap: () => setState(() => _letter = letter),
-                            ),
-                          ],
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Expanded(child: _buildList(context)),
-                  ],
-                ),
-              ),
+            : wide
+                ? LexiconSplitView(
+                    index: _searchColumn(context),
+                    detail: _splitDetail(reader),
+                  )
+                : _searchColumn(context),
       ),
+    );
+  }
+
+  /// La colonne de recherche + liste, partagée par les deux régimes.
+  Widget _searchColumn(BuildContext context) {
+    final p = premiumPalette(context);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          LexiconSearchField(
+            hint: 'Rechercher dans ce dictionnaire…',
+            controller: _controller,
+            onChanged: (v) => setState(() => _query = v),
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            height: 40,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                LexiconLetterChip(
+                  label: 'Toutes',
+                  active: _letter == null,
+                  accent: p.primary,
+                  onTap: () => setState(() => _letter = null),
+                ),
+                for (final letter in _letters) ...[
+                  const SizedBox(width: 8),
+                  LexiconLetterChip(
+                    key: Key('letter-chip-$letter'),
+                    label: letter,
+                    active: _letter == letter,
+                    accent: p.primary,
+                    onTap: () => setState(() => _letter = letter),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(height: 10),
+          Expanded(child: _buildList(context)),
+        ],
+      ),
+    );
+  }
+
+  /// La fiche du volet droit, ou null (le bouche-trou invite à choisir).
+  Widget? _splitDetail(DictionaryReader reader) {
+    final selected = _selected;
+    if (selected == null) return null;
+    return DictionaryEntryScreen(
+      key: ValueKey('dict-split-${selected.term}'),
+      entry: widget.entry,
+      article: selected,
+      reader: reader,
+      onOpenVerse: widget.onOpenVerse,
+      showBackButton: false,
     );
   }
 
@@ -240,16 +274,22 @@ class _DictionaryBrowseScreenState extends State<DictionaryBrowseScreen> {
             LexiconEntryCard(
               title: article.term,
               subtitle: article.definition,
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => DictionaryEntryScreen(
-                    entry: widget.entry,
-                    article: article,
-                    reader: reader,
-                    onOpenVerse: widget.onOpenVerse,
-                  ),
-                ),
-              ),
+              selected:
+                  AppBreakpoints.isExpanded(MediaQuery.sizeOf(context)) &&
+                  _selected?.term == article.term,
+              onTap:
+                  AppBreakpoints.isExpanded(MediaQuery.sizeOf(context))
+                  ? () => setState(() => _selected = article)
+                  : () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => DictionaryEntryScreen(
+                          entry: widget.entry,
+                          article: article,
+                          reader: reader,
+                          onOpenVerse: widget.onOpenVerse,
+                        ),
+                      ),
+                    ),
             ),
             const SizedBox(height: 8),
           ],

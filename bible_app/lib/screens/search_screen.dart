@@ -14,6 +14,7 @@ import '../data/search_engine.dart';
 import '../data/strong_lexicon.dart';
 import '../data/version_catalog.dart';
 import '../data/version_repository.dart';
+import '../utils/breakpoints.dart';
 import '../widgets/bible_theme_scope.dart';
 import '../widgets/premium_style.dart';
 import '../widgets/loading_skeleton.dart';
@@ -410,6 +411,54 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final bibleTheme = BibleThemeScope.of(context);
+    // Étape D : ≥ 840, les catégories et les filtres vivent dans un rail
+    // latéral de 300 px, les résultats prennent le reste. Sous ce seuil,
+    // l'empilement actuel (chips + filtres au-dessus des résultats).
+    final wide =
+        AppBreakpoints.isExpanded(MediaQuery.sizeOf(context));
+    final header = Padding(
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Rechercher',
+            style: premiumText(
+              context,
+              20,
+              FontWeight.w800,
+              bibleTheme.titleColor,
+            ),
+          ),
+          const SizedBox(height: 6),
+          // Filet d'accent sous le titre : la page a un point de
+          // départ net avant le champ.
+          Container(
+            width: 44,
+            height: 4,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(2),
+              gradient: LinearGradient(
+                colors: [
+                  bibleTheme.accentColor,
+                  bibleTheme.accentColor.withValues(alpha: 0),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 12),
+          _SearchField(
+            controller: _controller,
+            onChanged: _onChanged,
+            onClear: _clear,
+            // The keyboard's « Rechercher » key must not sit through
+            // the 300 ms debounce: flush and run now.
+            onSubmitted: _rerun,
+            hasText: _query.isNotEmpty,
+          ),
+        ],
+      ),
+    );
     return Scaffold(
       backgroundColor: premiumBackground(context),
       body: SafeArea(
@@ -417,70 +466,77 @@ class _SearchScreenState extends State<SearchScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Rechercher',
-                    style: premiumText(
-                      context,
-                      20,
-                      FontWeight.w800,
-                      bibleTheme.titleColor,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  // Filet d'accent sous le titre : la page a un point de
-                  // départ net avant le champ.
-                  Container(
-                    width: 44,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(2),
-                      gradient: LinearGradient(
-                        colors: [
-                          bibleTheme.accentColor,
-                          bibleTheme.accentColor.withValues(alpha: 0),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  _SearchField(
-                    controller: _controller,
-                    onChanged: _onChanged,
-                    onClear: _clear,
-                    // The keyboard's « Rechercher » key must not sit through
-                    // the 300 ms debounce: flush and run now.
-                    onSubmitted: _rerun,
-                    hasText: _query.isNotEmpty,
-                  ),
-                ],
-              ),
-            ),
+            header,
             const SizedBox(height: 14),
-            _CategoryChipRow(
-              selected: _selected,
-              counts: {
-                for (final g in _outcome?.groups ?? const <SearchGroup>[])
-                  g.category: g.total,
-              },
-              onToggle: _toggleCategory,
-            ),
-            const SizedBox(height: 8),
-            _FilterBar(
-              filters: _filters,
-              onChanged: _applyFilters,
-              installed: _installed,
-              onOpenLibrary: widget.onOpenLibrary,
-            ),
-            Divider(height: 1, color: theme.dividerColor.withValues(alpha: .5)),
-            Expanded(child: _body()),
+            if (!wide) ...[
+              _CategoryChipRow(
+                selected: _selected,
+                counts: {
+                  for (final g in _outcome?.groups ?? const <SearchGroup>[])
+                    g.category: g.total,
+                },
+                onToggle: _toggleCategory,
+              ),
+              const SizedBox(height: 8),
+              _FilterBar(
+                filters: _filters,
+                onChanged: _applyFilters,
+                installed: _installed,
+                onOpenLibrary: widget.onOpenLibrary,
+              ),
+              Divider(
+                height: 1,
+                color: theme.dividerColor.withValues(alpha: .5),
+              ),
+              Expanded(child: _body()),
+            ] else
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(width: 300, child: _rail(context)),
+                    VerticalDivider(
+                      width: 1,
+                      color: theme.dividerColor.withValues(alpha: .5),
+                    ),
+                    Expanded(child: _body()),
+                  ],
+                ),
+              ),
           ],
         ),
       ),
+    );
+  }
+
+  /// Étape D : le rail latéral de la recherche large — catégories puis
+  /// filtres, empilés et toujours visibles pendant le défilement des
+  /// résultats. Mêmes widgets et mêmes callbacks que l'empilement phone.
+  Widget _rail(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
+      children: [
+        const _RailLabel('Catégories'),
+        const SizedBox(height: 8),
+        _CategoryList(
+          selected: _selected,
+          counts: {
+            for (final g in _outcome?.groups ?? const <SearchGroup>[])
+              g.category: g.total,
+          },
+          onToggle: _toggleCategory,
+        ),
+        const SizedBox(height: 16),
+        const _RailLabel('Filtres'),
+        const SizedBox(height: 8),
+        _FilterBar(
+          filters: _filters,
+          onChanged: _applyFilters,
+          installed: _installed,
+          onOpenLibrary: widget.onOpenLibrary,
+          vertical: true,
+        ),
+      ],
     );
   }
 
@@ -784,6 +840,63 @@ class _CategoryChip extends StatelessWidget {
   }
 }
 
+/// Étape D : intitulé du rail latéral de la recherche large.
+class _RailLabel extends StatelessWidget {
+  final String text;
+
+  const _RailLabel(this.text);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text.toUpperCase(),
+      style: premiumText(
+        context,
+        11.5,
+        FontWeight.w800,
+        BibleThemeScope.of(context).accentColor,
+        spacing: 1.2,
+      ),
+    );
+  }
+}
+
+/// Étape D : les mêmes pastilles de catégories que [_CategoryChipRow],
+/// empilées pleine largeur dans le rail latéral (≥ 840). Même clé que la
+/// rangée horizontale — une seule des deux existe par construction.
+class _CategoryList extends StatelessWidget {
+  final Set<SearchCategory> selected;
+  final Map<SearchCategory, int> counts;
+  final ValueChanged<SearchCategory> onToggle;
+
+  const _CategoryList({
+    required this.selected,
+    required this.counts,
+    required this.onToggle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      key: categoryRowKey,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        for (final category in SearchCategory.values)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: _CategoryChip(
+              category: category,
+              active: selected.contains(category),
+              count: counts[category],
+              onTap: () => onToggle(category),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
 /// The small pill printing a result count, next to a chip or a group header.
 class _CountBadge extends StatelessWidget {
   final int count;
@@ -835,11 +948,16 @@ class _FilterBar extends StatelessWidget {
   /// Switches to the Bibliothèque, for the last row of the « Version » menu.
   final VoidCallback? onOpenLibrary;
 
+  /// Étape D : empilés dans le rail latéral (≥ 840) au lieu du défilement
+  /// horizontal. Mêmes menus, mêmes callbacks.
+  final bool vertical;
+
   const _FilterBar({
     required this.filters,
     required this.onChanged,
     this.installed = const {},
     this.onOpenLibrary,
+    this.vertical = false,
   });
 
   /// The versions that can actually be searched.
@@ -866,68 +984,86 @@ class _FilterBar extends StatelessWidget {
           (total, group) => total + group.versions.length,
         ) -
         searchable.length;
+    final versionMenu = _FilterMenu<String>(
+      label: 'Version',
+      value: filters.versionCode,
+      options: [
+        for (final version in searchable)
+          _FilterOption(
+            value: version.code,
+            label: version.code,
+            detail: _detailFor(version),
+          ),
+      ],
+      // What is left out has to stay reachable, or nothing on this screen
+      // says the other translations exist at all.
+      footer: missing == 0
+          ? null
+          : _FilterFooter(
+              label: 'Bibliothèque',
+              detail: '$missing autres versions à télécharger',
+              onTap: onOpenLibrary,
+            ),
+      onSelected: (code) => onChanged(filters.copyWith(versionCode: code)),
+    );
+    final sectionMenu = _FilterMenu<int>(
+      label: 'Section',
+      value: filters.sectionIndex ?? _allSections,
+      valueLabel: filters.sectionLabel,
+      options: [
+        const _FilterOption(value: _allSections, label: 'Tout'),
+        for (var i = 0; i < bibleSections.length; i++)
+          _FilterOption(
+            value: i,
+            label: bibleSections[i].name,
+            detail: bibleSections[i].subtitle,
+          ),
+      ],
+      // Picking a section releases the single-book restriction.
+      onSelected: (index) => onChanged(
+        index == _allSections
+            ? filters.copyWith(clearSection: true, clearBook: true)
+            : filters.copyWith(sectionIndex: index, clearBook: true),
+      ),
+    );
+    final bookMenu = _BookFilterMenu(filters: filters, onChanged: onChanged);
+    final orderMenu = _FilterMenu<SearchOrder>(
+      label: 'Ordre',
+      value: filters.order,
+      valueLabel: filters.order.label,
+      options: [
+        for (final order in SearchOrder.values)
+          _FilterOption(value: order, label: order.label),
+      ],
+      onSelected: (order) => onChanged(filters.copyWith(order: order)),
+    );
+    if (vertical) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          versionMenu,
+          const SizedBox(height: 14),
+          sectionMenu,
+          const SizedBox(height: 14),
+          bookMenu,
+          const SizedBox(height: 14),
+          orderMenu,
+        ],
+      );
+    }
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       padding: const EdgeInsets.fromLTRB(16, 4, 16, 10),
       child: Row(
         children: [
-          _FilterMenu<String>(
-            label: 'Version',
-            value: filters.versionCode,
-            options: [
-              for (final version in searchable)
-                _FilterOption(
-                  value: version.code,
-                  label: version.code,
-                  detail: _detailFor(version),
-                ),
-            ],
-            // What is left out has to stay reachable, or nothing on this screen
-            // says the other translations exist at all.
-            footer: missing == 0
-                ? null
-                : _FilterFooter(
-                    label: 'Bibliothèque',
-                    detail: '$missing autres versions à télécharger',
-                    onTap: onOpenLibrary,
-                  ),
-            onSelected: (code) =>
-                onChanged(filters.copyWith(versionCode: code)),
-          ),
+          versionMenu,
           const SizedBox(width: 22),
-          _FilterMenu<int>(
-            label: 'Section',
-            value: filters.sectionIndex ?? _allSections,
-            valueLabel: filters.sectionLabel,
-            options: [
-              const _FilterOption(value: _allSections, label: 'Tout'),
-              for (var i = 0; i < bibleSections.length; i++)
-                _FilterOption(
-                  value: i,
-                  label: bibleSections[i].name,
-                  detail: bibleSections[i].subtitle,
-                ),
-            ],
-            // Picking a section releases the single-book restriction.
-            onSelected: (index) => onChanged(
-              index == _allSections
-                  ? filters.copyWith(clearSection: true, clearBook: true)
-                  : filters.copyWith(sectionIndex: index, clearBook: true),
-            ),
-          ),
+          sectionMenu,
           const SizedBox(width: 22),
-          _BookFilterMenu(filters: filters, onChanged: onChanged),
+          bookMenu,
           const SizedBox(width: 22),
-          _FilterMenu<SearchOrder>(
-            label: 'Ordre',
-            value: filters.order,
-            valueLabel: filters.order.label,
-            options: [
-              for (final order in SearchOrder.values)
-                _FilterOption(value: order, label: order.label),
-            ],
-            onSelected: (order) => onChanged(filters.copyWith(order: order)),
-          ),
+          orderMenu,
         ],
       ),
     );

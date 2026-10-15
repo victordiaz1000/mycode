@@ -42,7 +42,20 @@ const _devices = <String, Size>{
   '600x1024 tablette7': Size(600, 1024),
   '834x1112 ipadair': Size(834, 1112),
   '1024x768 tablette paysage': Size(1024, 768),
+  '1280x800 desktop': Size(1280, 800),
   '800x360 telephone paysage': Size(800, 360),
+  // Les deux téléphones couchés qui manquaient au parc. Attention à ce que ce
+  // fichier prouve et à ce qu'il ne prouve pas : avant que les paliers passent
+  // sur le côté court, ces deux tailles recevaient le rail *étendu* (844 et 932
+  // px de large franchissent `expanded`), soit 190 px de libellés dans 390 px
+  // de haut — et pourtant elles passaient ici au vert, parce qu'un
+  // `NavigationRail` est `scrollable: true` et fait défiler ses destinations au
+  // lieu de déborder. Le mauvais châssis est donc invisible pour un audit de
+  // débordement : c'est `shell_chassis_test.dart` qui le tient.
+  '844x390 iphone14 paysage': Size(844, 390),
+  '932x430 maxpro paysage': Size(932, 430),
+  // Le palier XL : trois zones dans la lecture (sommaire + texte + étude).
+  '1600x900 xl': Size(1600, 900),
 };
 
 /// Le motif dessiné de chaque destination du shell, dans l'ordre de la barre :
@@ -56,8 +69,10 @@ const _destinations = <String, HolyGlyph>{
   'Réglages': HolyGlyph.engrenage,
 };
 
-/// L'indice que la barre affiche : le rail sur tablette (≥ 600 px), la barre du
-/// bas ailleurs. Il n'y en a jamais deux, mais il faut lire le bon type.
+/// L'indice que la barre affiche : le rail quand le **côté court** atteint
+/// 600 px (un iPad, dans les deux orientations), la barre du bas ailleurs — un
+/// téléphone couché reste donc sur sa barre. Il n'y en a jamais deux, mais il
+/// faut lire le bon type.
 int _selectedIndex(WidgetTester tester) {
   final rail = find.byType(NavigationRail);
   if (rail.evaluate().isNotEmpty) {
