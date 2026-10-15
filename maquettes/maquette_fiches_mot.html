@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BYM — Fiches mot : Strong & Lexique BYM</title>
+<style>
+:root{
+  --bg:#F6F0E3; --bg2:#EFE6D2; --card:#FFFDF7; --ink:#2B2416; --mut:#8A7E63;
+  --gold:#B9862F; --gold2:#D3A94F; --gold-soft:#F3E5C3; --line:#E4D6B6;
+  --rail:#2E2A1E; --ok:#3E6E41; --bad:#A33;
+  --mono:ui-monospace,'Cascadia Code',Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.55}
+header.top{position:sticky;top:0;z-index:50;background:rgba(246,240,227,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topin{max-width:1240px;margin:0 auto;padding:14px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.brand{font-weight:800;font-size:17px}.brand span{color:var(--gold)}
+.badge{font-size:11px;font-weight:800;letter-spacing:.08em;background:var(--ink);color:#F6F0E3;border-radius:99px;padding:4px 11px}
+.wrap{max-width:1240px;margin:0 auto;padding:26px 22px 90px}
+.hero{background:linear-gradient(135deg,#2E2A1E,#5A4419);color:#F6EFDC;border-radius:26px;padding:34px 30px;box-shadow:0 24px 50px rgba(60,40,10,.28)}
+.hero h1{font-size:clamp(23px,3.2vw,36px);line-height:1.14}.hero h1 em{color:var(--gold2);font-style:normal}
+.hero p{opacity:.85;max-width:820px;margin-top:10px;font-size:14.5px}
+.bpgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+.bp{background:rgba(255,255,255,.08);border:1px solid rgba(211,169,79,.35);border-radius:16px;padding:12px 14px}
+.bp b{display:block;font-size:20px;color:var(--gold2)}
+.bp span{font-size:12px;opacity:.9}
+h2.sec{font-size:21px;margin:42px 0 6px;display:flex;align-items:center;gap:10px}
+h2.sec i{font-style:normal;background:var(--ink);color:#fff;font-size:12px;font-weight:800;border-radius:9px;padding:3px 10px}
+.sub{color:var(--mut);font-size:13.5px;max-width:880px;margin-bottom:16px}
+.frames{display:grid;gap:18px}
+.frames.two{grid-template-columns:1fr 1fr}
+@media(max-width:1000px){.frames.two{grid-template-columns:1fr}.bpgrid{grid-template-columns:1fr 1fr}}
+.frame{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 12px 30px rgba(80,60,20,.10)}
+.frame.ko{border-color:#E0A8A8}.frame.go{border-color:#A9C6AA}
+.frame header{padding:10px 14px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--gold2);flex:0 0 auto}
+.dot.r{background:#C05858}.dot.g{background:#5E9161}
+.frame header small{margin-left:auto;color:var(--mut);font-weight:700;font-family:var(--mono)}
+.mock{background:#F1E8D0;padding:16px;display:flex;justify-content:center}
+.phone{width:286px;border-radius:20px;border:1px solid var(--line);background:#FBF7EC;overflow:hidden;position:relative;box-shadow:0 6px 18px rgba(80,60,20,.12)}
+.phbar{background:#fff;border-bottom:1px solid var(--line);padding:7px 10px;display:flex;align-items:center;gap:7px;font-size:10px;font-weight:800;color:var(--mut);min-height:30px}
+.phbody{height:452px;overflow:hidden;position:relative;padding:12px}
+.fold{position:absolute;left:0;right:0;top:330px;border-top:2px dashed #C05858;z-index:5}
+.fold b{position:absolute;right:4px;top:3px;background:#C05858;color:#fff;font-size:9px;font-weight:800;border-radius:5px;padding:1px 6px}
+/* --- chrome actuel --- */
+.sectitle{display:flex;align-items:center;gap:9px;margin:16px 0 10px}
+.sectitle .ic{width:27px;height:27px;border-radius:9px;background:rgba(185,134,47,.14);display:grid;place-items:center;font-size:12px;flex:0 0 auto}
+.sectitle b{font-size:14px}
+.cardx{background:#fff;border:1px solid var(--line);border-radius:13px;padding:11px}
+.headcard{background:#fff;border:1px solid var(--line);border-radius:17px;padding:16px;text-align:center}
+.lemma{font-size:25px;font-weight:800}
+.meta2{display:flex;gap:8px;margin-top:10px}
+.meta2 div{flex:1;background:#FBF7EC;border:1px solid var(--line);border-radius:10px;padding:7px;font-size:9.5px;color:var(--mut)}
+.meta2 div b{display:block;font-size:11.5px;color:var(--ink);margin-top:2px}
+.herograd{background:linear-gradient(135deg,#7A5A1E,#B9862F);color:#fff;border-radius:17px;padding:15px;box-shadow:0 6px 16px rgba(122,90,30,.35)}
+.herograd .k{font-size:9.5px;font-weight:800;letter-spacing:1.2px;opacity:.85}
+.herograd .w{font-size:23px;font-weight:800;margin-top:5px}
+.herograd .r{font-size:11.5px;opacity:.85;margin-top:3px}
+.lbl{font-size:10.5px;font-weight:800;color:var(--mut);letter-spacing:.5px;margin:14px 0 7px}
+.notebox{border-left:3px solid #8A6A2F;background:rgba(243,229,195,.55);border-radius:0 2px 2px 0;padding:8px 10px}
+.txt{font-size:11.5px;line-height:1.6;color:#3A3222}
+.txt a{color:var(--gold);text-decoration:underline;text-decoration-style:dotted;font-weight:700;background:rgba(185,134,47,.12)}
+.fbtn{margin-top:14px;background:#8A6A2F;color:#fff;border-radius:12px;padding:11px;text-align:center;font-size:12px;font-weight:800}
+/* --- rendu propose --- */
+.sticky{background:rgba(255,253,247,.97);border-bottom:1px solid rgba(185,134,47,.22);padding:9px 12px;display:flex;align-items:center;gap:8px}
+.sticky .t{font-size:17px;font-weight:800}
+.sticky .c{margin-left:auto;font-size:9.5px;font-weight:800;color:#6B4E14;background:var(--gold-soft);border:1px solid var(--line);border-radius:99px;padding:2px 7px}
+.metaline{font-size:10.5px;color:var(--mut);font-family:var(--mono);margin-bottom:3px}
+.lead{font-size:14.5px;font-weight:700;line-height:1.45;margin:9px 0 8px}
+.body{font-size:11.5px;line-height:1.65;color:#3A3222}
+.kv{margin-top:12px;border-top:1px solid var(--line);padding-top:9px;display:grid;grid-template-columns:62px 1fr;gap:3px 10px;font-size:11px}
+.kv dt{color:var(--mut);font-weight:700}
+.kv dd{color:#3A3222}
+.occtitle{margin:16px 0 8px;font-size:11px;font-weight:800;color:var(--mut);letter-spacing:.5px;display:flex;align-items:center;gap:8px}
+.occtitle::after{content:"";flex:1;height:1px;background:var(--line)}
+.occ{font-size:11px;line-height:1.5;padding:7px 0;border-bottom:1px solid #EFE6D2}
+.occ b{color:var(--gold);font-weight:800;margin-right:5px}
+.more{margin-top:10px;font-size:11.5px;font-weight:800;color:var(--gold)}
+/* mesures */
+.tblwrap{overflow-x:auto;border-radius:14px;box-shadow:0 10px 24px rgba(80,60,20,.08)}
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--card);border:1px solid var(--line)}
+.tbl th{background:#fff;text-align:left;font-size:11px;letter-spacing:.05em;color:var(--mut);padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl td{padding:9px 12px;border-bottom:1px solid #EFE6D2}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.mono{font-family:var(--mono);font-size:11.5px;white-space:nowrap}
+.tag{font-size:10.5px;font-weight:800;border-radius:99px;padding:2px 8px}
+.tag.ko{background:#F8E0E0;color:#8E2F2F}.tag.okk{background:#E2EFE2;color:#2F6E35}
+.meter{display:flex;height:28px;border-radius:9px;overflow:hidden;border:1px solid var(--line);font-size:10px;font-weight:800;color:#fff;margin:6px 0 2px}
+.meter div{display:grid;place-items:center;white-space:nowrap;overflow:hidden}
+.m1{background:#9C4A4A}.m0{background:#D8CDB2;color:#5B5340}
+.mlab{font-size:11.5px;color:var(--mut);display:flex;justify-content:space-between}
+.spec{background:#1E1B12;color:#EDE3C8;border-radius:16px;padding:18px;font-family:var(--mono);font-size:12.5px;line-height:1.6;overflow-x:auto;white-space:pre}
+.spec em{color:var(--gold2);font-style:normal}
+.note{background:#FFF6DE;border:1px solid #E7CF8F;border-radius:14px;padding:12px 14px;font-size:13px;margin-top:14px}
+.note.red{background:#FDEEEE;border-color:#E0A8A8}
+.ok{color:var(--ok);font-weight:800}.bad{color:var(--bad);font-weight:800}
+ol.dec{margin:10px 0 0 20px;font-size:13.5px;display:grid;gap:10px}
+footer{color:var(--mut);font-size:12px;text-align:center;padding:24px}
+kbd{background:#fff;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 7px;font-family:var(--mono);font-size:11.5px}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+  <div class="brand">BYM <span>classic</span></div>
+  <div class="badge">FICHES MOT · STRONG &amp; LEXIQUE BYM</div>
+</div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Sur une fiche Strong médiane, <em>le cadre mesure deux fois le texte.</em></h1>
+    <p>Quatre sections titrées, chacune avec sa pastille d'icône et son titre en 18&nbsp;pt gras, pour encadrer — mesuré sur les 14&nbsp;195 entrées de <kbd style="background:rgba(255,255,255,.12);color:#F6EFDC;border-color:rgba(211,169,79,.4)">strong_fr.json</kbd> — une centaine de caractères. Le Lexique BYM souffre du même mal sous une autre forme : trois cadres emboîtés pour un paragraphe. Ce rendu propose une hiérarchie par la typographie plutôt que par des boîtes.</p>
+    <div class="bpgrid">
+      <div class="bp"><b>31</b><span>caractères médians pour « Définition brève ». 63&nbsp;% tiennent sur UNE ligne.</span></div>
+      <div class="bp"><b>56</b><span>caractères médians pour « Définition complète » — à peine plus que la brève.</span></div>
+      <div class="bp"><b>20</b><span>caractères médians pour « Origine ». Une pastille et un titre pour vingt signes.</span></div>
+      <div class="bp"><b>77 %</b><span>des fiches n'ont aucune « Signification » : la section est absente, le plan reste.</span></div>
+    </div>
+  </div>
+
+  <!-- ====================== 01 ====================== -->
+  <h2 class="sec"><i>01</i> Ce que les quatre sections encadrent réellement</h2>
+  <p class="sub">Mesuré sur les 14&nbsp;195 entrées du lexique Strong français. Attention à ne pas confondre deux champs voisins : <kbd>signification</kbd> est la glose du source (« Abiel = Dieu est mon père »), tandis que <kbd>outline</kbd> est un <em>arbre</em> de sens — j'ai d'abord mesuré le second en croyant tenir le premier, ce qui donnait un chiffre faux.</p>
+  <div class="tblwrap">
+  <table class="tbl">
+    <tr><th>Section de la fiche</th><th>Présente dans</th><th>Médiane</th><th>Maximum</th><th>Verdict</th></tr>
+    <tr><td><b>Définition brève</b></td><td class="mono">100 %</td><td class="mono">31 car</td><td class="mono">901 car</td><td><span class="tag ko">une ligne dans 63 % des cas</span></td></tr>
+    <tr><td><b>Définition complète</b></td><td class="mono">100 %</td><td class="mono">56 car</td><td class="mono">2 330 car</td><td><span class="tag ko">25 car de plus que la « brève »</span></td></tr>
+    <tr><td><b>Origine</b></td><td class="mono">100 %</td><td class="mono">20 car</td><td class="mono">270 car</td><td><span class="tag ko">une donnée, pas une section</span></td></tr>
+    <tr><td><b>Signification</b></td><td class="mono">23 %</td><td class="mono">27 car</td><td class="mono">120 car</td><td><span class="tag ko">une donnée, pas une section</span></td></tr>
+    <tr><td><kbd>outline</kbd> (arbre de sens)</td><td class="mono">12 %</td><td class="mono">4 nœuds</td><td class="mono">31 nœuds</td><td><span class="tag okk">seule structure réelle</span></td></tr>
+  </table>
+  </div>
+  <div class="meter" style="margin-top:16px"><div class="m1" style="flex:0 0 65%">~198 px de titres de section (3 sections, la 4<sup>e</sup> absente 77 % du temps)</div><div class="m0" style="flex:1">107 car de contenu ≈ 2 lignes</div></div>
+  <div class="mlab"><span>Fiche médiane : le cadre occupe deux fois la place du texte</span><span>écran de téléphone : 844 px de haut</span></div>
+
+  <!-- ====================== 02 ====================== -->
+  <h2 class="sec"><i>02</i> La fiche Strong, avant / après</h2>
+  <div class="frames two">
+    <div class="frame ko">
+      <header><span class="dot r"></span>Aujourd'hui <small>strong_detail_screen.dart</small></header>
+      <div class="mock"><div class="phone">
+        <div class="phbar">←<span style="margin:0 auto">Détail du mot</span>Aa</div>
+        <div class="phbody">
+          <div class="fold"><b>ligne de flottaison</b></div>
+          <div class="headcard">
+            <span style="font-size:9.5px;font-weight:800;color:#6B4E14;background:var(--gold-soft);border:1px solid var(--line);border-radius:99px;padding:3px 9px">GREC</span>
+            <div class="lemma">ἀρχή</div>
+            <div class="meta2">
+              <div>Numéro Strong<b>G746</b></div>
+              <div>Prononciation<b>ar-khay'</b></div>
+            </div>
+          </div>
+          <div class="sectitle"><span class="ic">📖</span><b>Définition brève</b></div>
+          <div class="cardx"><div class="txt">commencement, origine</div></div>
+          <div class="sectitle"><span class="ic">☰</span><b>Définition complète</b></div>
+          <div class="cardx"><div class="txt">Le commencement, l'origine, ce qui est premier…</div></div>
+        </div>
+      </div></div>
+    </div>
+    <div class="frame go">
+      <header><span class="dot g"></span>Proposé <small>une seule section titrée</small></header>
+      <div class="mock"><div class="phone">
+        <div class="phbody" style="padding:0">
+          <div class="fold"><b>ligne de flottaison</b></div>
+          <div class="phbar" style="border-bottom:0">←<span style="margin-left:auto">Aa</span></div>
+          <div class="sticky"><span class="t">ἀρχή</span><span class="c">G746 · GREC</span></div>
+          <div style="padding:12px">
+            <div class="metaline">archē · ar-khay' · nom féminin</div>
+            <div class="lead">commencement, origine</div>
+            <div class="body">Le commencement, l'origine, ce qui est premier — dans l'ordre du temps comme dans celui du rang.</div>
+            <dl class="kv">
+              <dt>Origine</dt><dd>de ἄρχω</dd>
+              <dt>Glose</dt><dd>Archè = principe</dd>
+            </dl>
+            <div class="occtitle">OCCURRENCES · 56</div>
+            <div class="occ"><b>Jn 1:1</b> Au commencement était la Parole…</div>
+            <div class="occ"><b>Mc 1:1</b> Commencement de l'Évangile…</div>
+            <div class="occ"><b>Col 1:18</b> Il est le commencement…</div>
+            <div class="more">Voir les 53 autres versets →</div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+  <div class="note"><span class="ok">Les quatre décisions de ce rendu, chacune adossée au tableau ci-dessus :</span>
+  <b>1)</b> « brève » et « complète » fusionnent — 31 et 56 caractères médians ne sont pas deux sections, c'est un <em>chapeau</em> et un <em>corps</em>, que la typographie distingue déjà. <b>2)</b> « Origine » (20&nbsp;car) et « Signification » (27&nbsp;car, absente 77&nbsp;% du temps) deviennent deux lignes de métadonnées sous un filet : une donnée courte se lit mieux en paire clé-valeur qu'encadrée sous un titre. <b>3)</b> Les métadonnées de l'en-tête (translittération, prononciation, nature) passent sur <em>une</em> ligne au lieu d'une carte à deux colonnes. <b>4)</b> Il ne reste qu'un seul titre de section, « Occurrences » — la seule qui introduise vraiment autre chose.</div>
+  <div class="note"><span class="bad">À ne pas faire :</span> supprimer l'<kbd>outline</kbd>. C'est le seul contenu réellement structuré de la fiche (12&nbsp;% des entrées, jusqu'à 31&nbsp;nœuds hiérarchisés) et il garde sa liste indentée, telle quelle.</div>
+
+  <!-- ====================== 03 ====================== -->
+  <h2 class="sec"><i>03</i> Le Lexique BYM : trois cadres pour un paragraphe</h2>
+  <p class="sub">Une <kbd>AppBar</kbd> sans aucun titre, donc une bande vide ; puis une carte à dégradé saturé avec ombre portée — la présence d'une bannière, pour un mot ; puis une étiquette « Définition » qui nomme l'évidence ; puis la définition <em>re-encadrée</em> en carte de note. Ce dernier encadré a du sens dans la lecture, où la note se distingue du texte biblique. Ici l'écran entier <b>est</b> la note.</p>
+  <div class="frames two">
+    <div class="frame ko">
+      <header><span class="dot r"></span>Aujourd'hui <small>bym_lexicon_entry_screen.dart</small></header>
+      <div class="mock"><div class="phone">
+        <div class="phbar">←<span style="margin-left:auto">Aa</span></div>
+        <div class="phbody">
+          <div class="herograd">
+            <div class="k">NOTES BYM LEXIQUE</div>
+            <div class="w">vanité</div>
+            <div class="r">Ec. 1:2 · 38 occurrences</div>
+          </div>
+          <div class="lbl">Définition</div>
+          <div class="notebox"><div class="txt">Ce mot traduit l'hébreu <i>hèvèl</i>, « souffle », « buée » — ce qui s'évanouit. Voir <a>Ec. 12:8</a>.</div></div>
+          <div class="fbtn">📖 Ouvrir le verset</div>
+        </div>
+      </div></div>
+    </div>
+    <div class="frame go">
+      <header><span class="dot g"></span>Proposé <small>une seule surface</small></header>
+      <div class="mock"><div class="phone">
+        <div class="phbody" style="padding:0">
+          <div class="phbar" style="border-bottom:0">←<span style="margin-left:auto">Aa</span></div>
+          <div class="sticky"><span class="t">vanité</span><span class="c">BYM</span></div>
+          <div style="padding:12px">
+            <div class="metaline">Ec. 1:2 · 38 occurrences</div>
+            <div class="body" style="margin-top:10px">Ce mot traduit l'hébreu <i>hèvèl</i>, « souffle », « buée » — ce qui s'évanouit. Voir <a>Ec. 12:8</a>.</div>
+            <div class="fbtn" style="background:transparent;border:1px solid rgba(185,134,47,.45);color:#8A6A2F">Ouvrir le verset →</div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+  <div class="note"><span class="ok">Ce que la colonne de droite gagne :</span> le mot devient le <em>titre de la page</em> et reste visible au défilement, là où la carte à dégradé disparaissait au premier geste. La référence et le compte d'occurrences passent en ligne de métadonnées. Les renvois bibliques gardent exactement leur traitement actuel — accent, souligné pointillé, fond teinté — c'est la seule chose de cet écran qui mérite d'être mise en valeur, et elle le reste.</div>
+
+  <!-- ====================== 04 ====================== -->
+  <h2 class="sec"><i>04</i> Un bug trouvé en chemin : les recognizers fuient</h2>
+  <div class="note red"><kbd>bym_lexicon_entry_screen.dart:43</kbd> annonce que les <kbd>TapGestureRecognizer</kbd> sont « <em>Cleared on each build</em> ». <b>Ils ne le sont pas</b> : <kbd>_definition</kbd> fait <kbd>_recognizers.add(...)</kbd> et aucun <kbd>clear()</kbd> n'existe dans le fichier. La liste grossit à <b>chaque reconstruction</b> — et <kbd>FicheTextScope</kbd> reconstruit à chaque cran du curseur de taille de texte — pour n'être vidée qu'au <kbd>dispose</kbd>. Accessoirement <kbd>findNoteReferences</kbd> est relancé à chaque build sans cache, le défaut déjà corrigé dans <kbd>dictionary_article_view</kbd>. Le correctif est le même qu'y a été appliqué : calculer les liens dans <kbd>initState</kbd> / <kbd>didUpdateWidget</kbd>, disposer avant de recréer, garder <kbd>build</kbd> pur.</div>
+
+  <!-- ====================== 05 ====================== -->
+  <h2 class="sec"><i>05</i> Spec Flutter</h2>
+  <div class="spec">1) screens/strong_detail_screen.dart        <em>— le gros morceau</em>
+   - _buildSectionTitle : ne reste que pour « Occurrences »
+   - brève + complète  -> chapeau (w700, +3 pt) + corps, meme surface
+   - Origine, Signification -> &lt;dl&gt; clé/valeur sous un filet
+   - _buildHeader (128 lignes) -> en-tete epinglee + 1 ligne meta
+   - supprimer les Container/carte de chaque section (plus de boite
+     dans boite) ; garder l'outline indente tel quel
+
+2) screens/bym_lexicon_entry_screen.dart   <em>— plus court</em>
+   - carte heroGradient + premiumShadow -> en-tete epinglee sobre
+   - supprimer l'etiquette « Definition »
+   - definition : plus de notebox, le fond de page porte le texte
+     (les RENVOIS gardent accent + pointille + fond teinte)
+   - CORRECTIF : liens calcules dans initState/didUpdateWidget,
+     _disposeRecognizers() avant chaque recalcul, cache des refs
+
+3) en-tete partagee                        <em>— reutilisation</em>
+   - DictionaryFicheHeader (ecrit ce matin) sait deja faire
+     « terme + badge + compteur » en SliverPersistentHeader pinned
+   - la generaliser : badge libre, ligne meta optionnelle
+   - les TROIS familles de fiche partagent alors le meme en-tete
+
+4) contrainte volet                        <em>— ne pas l'oublier</em>
+   - les deux ecrans servent de volet droit du split >= 840
+     (showBackButton: false) : tout doit tenir dans ~460 px
+
+Tests : les deux fiches en volet et en route, et un cas qui compte les
+   recognizers apres 3 reconstructions (garde-fou de la fuite).</div>
+
+  <!-- ====================== 06 ====================== -->
+  <h2 class="sec"><i>06</i> Ce qui demande ton arbitrage</h2>
+  <ol class="dec">
+    <li><b>Les slivers, ici aussi ?</b> Contrairement à la fiche dictionnaire, ces deux écrans n'ont <em>pas</em> de problème de performance : les occurrences sont bornées à 5 et le reste part dans <kbd>StrongOccurrencesScreen</kbd>. Passer en <kbd>CustomScrollView</kbd> n'apporterait ici que l'en-tête épinglée. On le fait pour ça, ou on garde le <kbd>SingleChildScrollView</kbd> et une en-tête non épinglée ?</li>
+    <li><b>Le dégradé du Lexique BYM : perdu pour tout le monde ?</b> Il identifie la famille « Notes BYM » d'un coup d'œil. Je le remplace par un simple badge, mais si cette couleur te sert de repère entre les familles de fiche, on peut la garder en filet d'accent sous l'en-tête plutôt qu'en pavé.</li>
+    <li><b>Les occurrences visibles dans la fiche Strong : 5, ou plus ?</b> Le seuil actuel est <kbd>_limite = 5</kbd>. Rien n'oblige à le garder maintenant que la fiche respire — mais c'est ton choix de lecture, pas une contrainte technique.</li>
+  </ol>
+
+  <footer>Maquette statique — mesures prises le 15/10/2026 sur <kbd>assets/lexicon/strong_fr.json</kbd> (14 195 entrées) avec Dart 3.12.1. Quatrième maquette de la série.</footer>
+</div>
+</body>
+</html>

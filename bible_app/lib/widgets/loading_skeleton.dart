@@ -93,17 +93,23 @@ class _SkeletonSweep extends StatelessWidget {
     final rest = Color.lerp(scheme.surface, scheme.onSurface, .055)!;
     final glow = Color.lerp(rest, accent, .45)!;
     final travel = Curves.easeInOutSine.transform(progress) * 3.2 - 1.6;
-    return ShaderMask(
-      blendMode: BlendMode.srcATop,
-      shaderCallback: (bounds) => LinearGradient(
-        // En diagonale, du haut-gauche au bas-droite : la vague se pose sur
-        // les cartes au lieu de traverser en néon.
-        begin: Alignment(travel - .8, -.3),
-        end: Alignment(travel + .8, .3),
-        colors: [base, rest, glow, rest, base],
-        stops: const [0, .36, .5, .64, 1],
-      ).createShader(bounds),
-      child: child,
+    // Le masque recalcule son shader et repeint toute la zone à chaque tick :
+    // isolé dans sa propre couche, il ne fait repeindre que lui — sans cela
+    // chaque balayage (un par volet en lecture parallèle) salissait tout
+    // l'écran à 60 Hz.
+    return RepaintBoundary(
+      child: ShaderMask(
+        blendMode: BlendMode.srcATop,
+        shaderCallback: (bounds) => LinearGradient(
+          // En diagonale, du haut-gauche au bas-droite : la vague se pose sur
+          // les cartes au lieu de traverser en néon.
+          begin: Alignment(travel - .8, -.3),
+          end: Alignment(travel + .8, .3),
+          colors: [base, rest, glow, rest, base],
+          stops: const [0, .36, .5, .64, 1],
+        ).createShader(bounds),
+        child: child,
+      ),
     );
   }
 }
@@ -112,6 +118,10 @@ class _SkeletonSweep extends StatelessWidget {
 /// [LoadingSkeleton] mask it is what carries the full tint, while the cards
 /// only keep half of it ([kSkeletonCardFill]). That gap is what makes the
 /// structure readable.
+///
+/// La couleur doit rester **totalement opaque** : c'est l'alpha qui dessine
+/// la hiérarchie sous le masque, et `loading_skeleton_test` verrouille cet
+/// écart (cartes translucides, barres `Colors.white`).
 class SkeletonBox extends StatelessWidget {
   final double? width;
   final double height;
@@ -587,8 +597,45 @@ class _InterfaceLoadingGateState extends State<InterfaceLoadingGate> {
 
   @override
   Widget build(BuildContext context) {
-    if (_ready) return widget.child;
+    // Le report d'une frame étale les premiers builds dans l'IndexedStack du
+    // shell ; l'arrivée du contenu passe par un fondu plutôt qu'un
+    // remplacement sec, qui se lisait comme un flash sur les montages rapides.
+    if (_ready) return _GateFadeIn(child: widget.child);
     return _InterfaceSkeleton(variant: widget.variant);
+  }
+}
+
+/// Adoucit la bascule squelette → contenu du [InterfaceLoadingGate] : un
+/// fondu de 150 ms, nul en animations réduites. Un seul enfant à la fois —
+/// pas de double mise en page pendant la transition.
+class _GateFadeIn extends StatefulWidget {
+  final Widget child;
+  const _GateFadeIn({required this.child});
+
+  @override
+  State<_GateFadeIn> createState() => _GateFadeInState();
+}
+
+class _GateFadeInState extends State<_GateFadeIn> {
+  double _opacity = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) setState(() => _opacity = 1);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedOpacity(
+      opacity: _opacity,
+      duration: MediaQuery.disableAnimationsOf(context)
+          ? Duration.zero
+          : const Duration(milliseconds: 150),
+      child: widget.child,
+    );
   }
 }
 

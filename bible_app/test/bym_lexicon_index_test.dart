@@ -1,4 +1,5 @@
-﻿import 'package:flutter/material.dart';
+﻿import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -99,6 +100,70 @@ void main() {
 
     // « Es. 45:18 » dans la définition est un lien, rendu comme les
     // références des notes de lecture, et mène à Ésaïe 45:18.
+    final definition = find.byWidgetPredicate(
+      (w) => w is RichText && w.text.toPlainText().contains('Es. 45:18'),
+    );
+    expect(definition, findsOneWidget);
+    final paragraph = tester.renderObject<RenderParagraph>(definition);
+    final plain = paragraph.text.toPlainText();
+    const needle = 'Es. 45:18';
+    final idx = plain.indexOf(needle);
+    final boxes = paragraph.getBoxesForSelection(
+      TextSelection(baseOffset: idx, extentOffset: idx + needle.length),
+    );
+    expect(boxes, isNotEmpty);
+    await tester.tapAt(paragraph.localToGlobal(boxes.first.toRect().center));
+    await tester.pumpAndSettle();
+
+    expect(opened.single, [12, 45, 18]);
+  });
+
+  testWidgets('rebuilding the fiche reuses its link recognizers',
+      (tester) async {
+    final opened = <List<int>>[];
+    await pumpIndex(tester, onOpenVerse: (b, c, v) => opened.add([b, c, v]));
+
+    await tester.tap(find.text('Verset'));
+    await tester.pumpAndSettle();
+
+    List<GestureRecognizer?> liveRecognizers() {
+      final rich = tester.widgetList<RichText>(
+        find.byWidgetPredicate(
+          (w) => w is RichText && w.text.toPlainText().contains('Es. 45:18'),
+        ),
+      );
+      expect(rich, hasLength(1));
+      final found = <GestureRecognizer?>[];
+      void visit(InlineSpan span) {
+        if (span is TextSpan) {
+          if (span.recognizer != null) found.add(span.recognizer);
+          for (final child in span.children ?? const <InlineSpan>[]) {
+            visit(child);
+          }
+        }
+      }
+      visit(rich.single.text);
+      return found;
+    }
+
+    final before = liveRecognizers();
+    expect(before, hasLength(1));
+
+    // Trois reconstructions, comme les crans du curseur de taille de texte :
+    // `build` doit rester pur et ne pas recréer les recognizers — avant, la
+    // liste grossissait à chaque build jusqu'au `dispose`.
+    for (var i = 0; i < 3; i++) {
+      tester.element(find.byType(BymLexiconEntryScreen)).markNeedsBuild();
+      await tester.pumpAndSettle();
+    }
+
+    final after = liveRecognizers();
+    expect(after, hasLength(1));
+    expect(identical(after.single, before.single), isTrue,
+        reason: 'les recognizers sont recréés dans initState/didUpdateWidget, '
+            'pas à chaque build');
+
+    // Et le lien répond toujours.
     final definition = find.byWidgetPredicate(
       (w) => w is RichText && w.text.toPlainText().contains('Es. 45:18'),
     );
