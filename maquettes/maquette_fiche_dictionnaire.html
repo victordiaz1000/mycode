@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BYM — Fiche dictionnaire : rendu & charge</title>
+<style>
+:root{
+  --bg:#F6F0E3; --bg2:#EFE6D2; --card:#FFFDF7; --ink:#2B2416; --mut:#8A7E63;
+  --gold:#B9862F; --gold2:#D3A94F; --gold-soft:#F3E5C3; --line:#E4D6B6;
+  --rail:#2E2A1E; --ok:#3E6E41; --bad:#A33; --radius:18px;
+  --mono:ui-monospace,'Cascadia Code',Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.55}
+header.top{position:sticky;top:0;z-index:50;background:rgba(246,240,227,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topin{max-width:1240px;margin:0 auto;padding:14px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.brand{font-weight:800;font-size:17px}.brand span{color:var(--gold)}
+.badge{font-size:11px;font-weight:800;letter-spacing:.08em;background:var(--ink);color:#F6F0E3;border-radius:99px;padding:4px 11px}
+.wrap{max-width:1240px;margin:0 auto;padding:26px 22px 90px}
+.hero{background:linear-gradient(135deg,#2E2A1E,#5A4419);color:#F6EFDC;border-radius:26px;padding:34px 30px;box-shadow:0 24px 50px rgba(60,40,10,.28)}
+.hero h1{font-size:clamp(23px,3.2vw,36px);line-height:1.14}.hero h1 em{color:var(--gold2);font-style:normal}
+.hero p{opacity:.85;max-width:800px;margin-top:10px;font-size:14.5px}
+.bpgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.bp{background:rgba(255,255,255,.08);border:1px solid rgba(211,169,79,.35);border-radius:16px;padding:12px 14px}
+.bp b{display:block;font-size:12px;letter-spacing:.06em;color:var(--gold2)}
+.bp span{font-size:12.5px;opacity:.9}
+h2.sec{font-size:21px;margin:42px 0 6px;display:flex;align-items:center;gap:10px}
+h2.sec i{font-style:normal;background:var(--ink);color:#fff;font-size:12px;font-weight:800;border-radius:9px;padding:3px 10px}
+.sub{color:var(--mut);font-size:13.5px;max-width:860px;margin-bottom:16px}
+.frames{display:grid;gap:18px}
+.frames.two{grid-template-columns:1fr 1fr}
+.frames.three{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:1000px){.frames.two,.frames.three{grid-template-columns:1fr}.bpgrid{grid-template-columns:1fr}}
+.frame{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 12px 30px rgba(80,60,20,.10)}
+.frame.ko{border-color:#E0A8A8}.frame.go{border-color:#A9C6AA}
+.frame header{padding:10px 14px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--gold2);flex:0 0 auto}
+.dot.r{background:#C05858}.dot.g{background:#5E9161}
+.frame header small{margin-left:auto;color:var(--mut);font-weight:700;font-family:var(--mono)}
+.mock{background:#F1E8D0;padding:16px;display:flex;justify-content:center}
+/* --- téléphone --- */
+.phone{width:274px;border-radius:20px;border:1px solid var(--line);background:#FBF7EC;overflow:hidden;position:relative;box-shadow:0 6px 18px rgba(80,60,20,.12)}
+.phbar{background:#fff;border-bottom:1px solid var(--line);padding:7px 10px;display:flex;align-items:center;gap:7px;font-size:10px;font-weight:800;color:var(--mut)}
+.phbody{height:396px;overflow:hidden;position:relative;padding:12px}
+.fold{position:absolute;left:0;right:0;top:300px;border-top:2px dashed #C05858;z-index:5}
+.fold b{position:absolute;right:4px;top:3px;background:#C05858;color:#fff;font-size:9px;font-weight:800;border-radius:5px;padding:1px 6px}
+/* tête d'article actuelle */
+.headcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 16px;text-align:center}
+.hbadge{display:inline-block;font-size:9.5px;font-weight:800;color:#6B4E14;background:var(--gold-soft);border:1px solid var(--line);border-radius:99px;padding:3px 9px}
+.hterm{font-size:21px;font-weight:800;letter-spacing:.8px;margin-top:11px}
+.hrule{width:48px;height:4px;border-radius:2px;margin:9px auto 0;background:linear-gradient(90deg,var(--gold),rgba(185,134,47,0))}
+.hsub{font-size:10.5px;color:var(--mut);font-style:italic;margin-top:7px}
+.sectitle{display:flex;align-items:center;gap:8px;margin:18px 0 10px}
+.sectitle .ic{width:30px;height:30px;border-radius:10px;background:var(--gold-soft);border:1px solid rgba(185,134,47,.3);display:grid;place-items:center;font-size:13px}
+.sectitle b{font-size:13px}
+.artbox{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+.para{font-family:Georgia,serif;font-size:11.5px;line-height:1.65;margin-bottom:9px;color:#3A3222}
+.para a{color:var(--gold);text-decoration:underline;font-weight:600}
+.lireplus{margin-top:10px;border:1px solid rgba(185,134,47,.45);background:rgba(243,229,195,.4);border-radius:12px;padding:11px;text-align:center;font-size:11.5px;font-weight:800;color:var(--gold)}
+/* tête proposée */
+.sticky{background:rgba(255,253,247,.97);border-bottom:1px solid var(--line);padding:9px 12px;display:flex;align-items:center;gap:8px;position:sticky;top:0}
+.sticky .t{font-size:13.5px;font-weight:800;letter-spacing:.4px}
+.sticky .b{margin-left:auto;font-size:9px;font-weight:800;color:#6B4E14;background:var(--gold-soft);border:1px solid var(--line);border-radius:99px;padding:2px 7px}
+.leanhead{padding:2px 0 10px}
+.leanterm{font-size:19px;font-weight:800;letter-spacing:.6px}
+.leansub{font-size:10px;color:var(--mut);font-style:italic;margin-top:3px}
+.lazy{margin-top:8px;border-top:1px dashed var(--line);padding-top:8px;text-align:center;font-size:10px;color:var(--mut);font-style:italic}
+/* sommaire d'article */
+.outline{background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px;margin-bottom:10px}
+.outline .oh{font-size:9.5px;font-weight:800;letter-spacing:.06em;color:var(--mut);margin-bottom:6px}
+.outline .oi{font-size:11px;padding:4px 7px;border-radius:7px;display:flex;gap:7px}
+.outline .oi.on{background:var(--gold-soft);font-weight:800}
+.outline .oi span{color:var(--mut);margin-left:auto;font-family:var(--mono);font-size:9.5px}
+/* split */
+.split{display:grid;grid-template-columns:220px 1fr;min-height:330px;width:100%}
+.scol{padding:12px;border-right:1px solid var(--line)}
+.scol:last-child{border-right:0;background:#FBF7EC}
+.sitem{font-size:11px;padding:5px 8px;border-radius:7px}
+.sitem.on{background:#fff;border:1px solid var(--line);font-weight:800}
+/* mesures */
+.meter{display:flex;height:30px;border-radius:9px;overflow:hidden;border:1px solid var(--line);font-size:10px;font-weight:800;color:#fff;margin:4px 0 2px}
+.meter div{display:grid;place-items:center;white-space:nowrap;overflow:hidden}
+.m1{background:#9C4A4A}.m2{background:#B9862F}.m3{background:#6E6246}.m0{background:#D8CDB2;color:#5B5340}
+.mlab{font-size:11.5px;color:var(--mut);display:flex;justify-content:space-between}
+.tblwrap{overflow-x:auto;border-radius:14px;box-shadow:0 10px 24px rgba(80,60,20,.08)}
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--card);border:1px solid var(--line)}
+.tbl th{background:#fff;text-align:left;font-size:11px;letter-spacing:.05em;color:var(--mut);padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl td{padding:9px 12px;border-bottom:1px solid #EFE6D2}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.mono{font-family:var(--mono);font-size:11.5px;white-space:nowrap}
+.tag{font-size:10.5px;font-weight:800;border-radius:99px;padding:2px 8px}
+.tag.ko{background:#F8E0E0;color:#8E2F2F}.tag.okk{background:#E2EFE2;color:#2F6E35}
+.spec{background:#1E1B12;color:#EDE3C8;border-radius:16px;padding:18px;font-family:var(--mono);font-size:12.5px;line-height:1.6;overflow-x:auto;white-space:pre}
+.spec em{color:var(--gold2);font-style:normal}
+.note{background:#FFF6DE;border:1px solid #E7CF8F;border-radius:14px;padding:12px 14px;font-size:13px;margin-top:14px}
+.note.red{background:#FDEEEE;border-color:#E0A8A8}
+.ok{color:var(--ok);font-weight:800}.bad{color:var(--bad);font-weight:800}
+ol.dec{margin:10px 0 0 20px;font-size:13.5px;display:grid;gap:10px}
+footer{color:var(--mut);font-size:12px;text-align:center;padding:24px}
+kbd{background:#fff;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 7px;font-family:var(--mono);font-size:11.5px}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+  <div class="brand">BYM <span>classic</span></div>
+  <div class="badge">FICHE DICTIONNAIRE · RENDU &amp; CHARGE</div>
+</div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>La fiche n'est pas lente parce qu'elle calcule trop. <em>Elle est lente parce qu'elle construit tout.</em></h1>
+    <p>Trois coûts, tous mesurés sur le vrai <kbd style="background:rgba(255,255,255,.12);color:#F6EFDC;border-color:rgba(211,169,79,.4)">fredaw.json</kbd> : un gel de 245&nbsp;ms au premier accès, un bouton « Lire la suite » qui peut construire 705 paragraphes dans une seule frame, et une tête d'article qui repousse le premier mot à 60&nbsp;% de l'écran. Aucun des trois n'est le RegExp des liens croisés, que je soupçonnais d'abord à tort.</p>
+    <div class="bpgrid">
+      <div class="bp"><b>01 · LE CHARGEMENT</b><span>12,18&nbsp;Mo décodés sur l'isolate principal. 245&nbsp;ms ici, ~1&nbsp;s sur un téléphone.</span></div>
+      <div class="bp"><b>02 · « LIRE LA SUITE »</b><span>Un article fait jusqu'à 705 paragraphes. Aucune paresse : tout d'un coup.</span></div>
+      <div class="bp"><b>03 · LA TÊTE</b><span>Badge + terme + filet + sous-titre + titre de section + cadre imbriqué.</span></div>
+    </div>
+  </div>
+
+  <!-- ====================== 00 ====================== -->
+  <h2 class="sec"><i>00</i> D'abord : ce qu'il ne faut PAS optimiser</h2>
+  <div class="note red"><span class="bad">Piège.</span> Le RegExp des liens croisés (<kbd>dictionary_reader.dart:76</kbd>, <kbd>fredaw_lexicon.dart:142</kbd>) est une alternation de <b>4&nbsp;684 termes</b>, soit un motif de <b>36&nbsp;251 caractères</b>. Il a tout l'air du coupable. Mesure faite sur 20 paragraphes réels (14&nbsp;844 caractères) :
+  <div class="meter" style="margin-top:10px"><div class="m2" style="flex:0 0 18%">RegExp géant — 2 459 µs</div><div class="m0" style="flex:1">tokenisation + Set — 3 245 µs (la « solution » serait 30 % PLUS LENTE)</div></div>
+  <div class="mlab"><span>0,12&nbsp;ms par paragraphe</span><span>budget d'une frame : 16,7&nbsp;ms</span></div>
+  Dart compile les grosses alternations en automate efficace. Les deux approches trouvent les mêmes 334 liens. <span class="ok">Conclusion : ne pas y toucher</span> — et laisser cette note, parce que l'intuition contraire est très tentante.</div>
+
+  <!-- ====================== 01 ====================== -->
+  <h2 class="sec"><i>01</i> Le gel du premier accès : 12 Mo sur l'isolate principal</h2>
+  <p class="sub"><kbd>fredaw_lexicon.dart:63</kbd> — <kbd>jsonDecode(await _bundle.loadString(...))</kbd> puis une boucle sur 5&nbsp;535 entrées, le tout dans la frame. Aucun <kbd>compute()</kbd> ni <kbd>Isolate.run</kbd> dans tout <kbd>lib/</kbd> : rien n'est déchargé.</p>
+  <div class="meter"><div class="m1" style="flex:0 0 42%">lecture asset — 104 ms</div><div class="m2" style="flex:0 0 42%">jsonDecode — 103 ms</div><div class="m3" style="flex:0 0 16%">boucle — 38 ms</div></div>
+  <div class="mlab"><span><b>245 ms bloquants = 15 frames perdues</b> (machine de bureau)</span><span>×3 à ×5 sur téléphone → 0,7 à 1,2 s</span></div>
+  <div class="note"><span class="ok">Deux niveaux de correctif.</span> <b>Le minimum :</b> <kbd>Isolate.run</kbd> autour du décodage — les 245&nbsp;ms sortent de la frame, un squelette s'affiche, l'interface ne gèle plus. <b>Le vrai correctif :</b> scinder l'asset en un <b>index léger</b> (les 5&nbsp;535 termes seuls, quelques dizaines de Ko — il suffit à l'écran de parcours <em>et</em> au <kbd>linkPattern</kbd>) et les définitions chargées à la demande. Les 12&nbsp;Mo ne seraient alors jamais décodés d'un bloc. <span class="bad">Réserve :</span> ce second niveau implique de regénérer <kbd>fredaw.json</kbd>, donc de toucher ton convertisseur — le seul point de cette maquette qui sorte de l'app.</div>
+
+  <!-- ====================== 02 ====================== -->
+  <h2 class="sec"><i>02</i> « Lire la suite » : la distribution des articles le condamne</h2>
+  <p class="sub">La fiche est un <kbd>SingleChildScrollView</kbd> + <kbd>Column</kbd> (<kbd>dictionary_article_view.dart:180</kbd>) : zéro paresse, tout est construit <em>et mis en page</em> immédiatement. Le bouton n'existe que pour contenir ça — il déplace le problème, il ne le résout pas.</p>
+  <div class="tblwrap">
+  <table class="tbl">
+    <tr><th>Article Westphal</th><th>Caractères</th><th>Paragraphes</th><th>Ce que « Lire la suite » déclenche</th></tr>
+    <tr><td>moyenne des 5 535</td><td class="mono">2 218</td><td class="mono">5,8</td><td><span class="tag okk">sans douleur</span></td></tr>
+    <tr><td><b>PROPHÈTE 6.</b></td><td class="mono">140 121</td><td class="mono">705</td><td><span class="tag ko">705 widgets, 705 RegExp, ~1 000 recognizers, 140 k caractères mis en page — en 1 frame</span></td></tr>
+    <tr><td>JÉSUS-CHRIST (5)</td><td class="mono">80 648</td><td class="mono">101</td><td><span class="tag ko">idem, à l'échelle 101</span></td></tr>
+    <tr><td>PRÊTRES ET LÉVITES</td><td class="mono">63 824</td><td class="mono">64</td><td><span class="tag ko">idem</span></td></tr>
+    <tr><td>ÉVANGILES SYNOPTIQUES (4.)</td><td class="mono">61 387</td><td class="mono">73</td><td><span class="tag ko">idem</span></td></tr>
+  </table>
+  </div>
+  <div class="note"><span class="ok">Le renversement :</span> en <kbd>SliverList.builder</kbd>, les paragraphes se construisent à l'approche du viewport. Un article de 705 paragraphes s'ouvre alors <b>aussi vite qu'un de 3</b> — et le bouton « Lire la suite » n'a plus de raison d'exister. On ne cache plus l'article : on le rend paresseusement.</div>
+
+  <!-- ====================== 03 ====================== -->
+  <h2 class="sec"><i>03</i> Le rendu, côte à côte</h2>
+  <p class="sub">Même article, même téléphone. À gauche l'état actuel ; au milieu la proposition ; à droite ce que devient un article-traité.</p>
+  <div class="frames three">
+    <div class="frame ko">
+      <header><span class="dot r"></span>Aujourd'hui <small>phone 390</small></header>
+      <div class="mock"><div class="phone">
+        <div class="phbar">← <span style="margin-left:auto">Aa</span></div>
+        <div class="phbody">
+          <div class="fold"><b>ligne de flottaison</b></div>
+          <div class="headcard">
+            <span class="hbadge">WESTPHAL 1932</span>
+            <div class="hterm">ABBA</div>
+            <div class="hrule"></div>
+            <div class="hsub">Dictionnaire encyclopédique de la Bible</div>
+          </div>
+          <div class="sectitle"><span class="ic">📄</span><b>Article</b></div>
+          <div class="artbox">
+            <div class="para">Mot araméen signifiant « père », conservé tel quel par les premiers chrétiens dans la prière. Voir <a>PÈRE</a>, <a>PRIÈRE</a>.</div>
+            <div class="para">Saint <a>PAUL</a> l'emploie deux fois (Ro 8:15 ; Ga 4:6), toujours suivi…</div>
+            <div class="lireplus">Lire la suite (703 paragraphes) ⌄</div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+    <div class="frame go">
+      <header><span class="dot g"></span>Proposé <small>bandeau collant + slivers</small></header>
+      <div class="mock"><div class="phone">
+        <div class="phbar">← <span style="margin-left:auto">Aa</span></div>
+        <div class="phbody" style="padding:0">
+          <div class="fold"><b>ligne de flottaison</b></div>
+          <div class="sticky"><span class="t">ABBA</span><span class="b">WESTPHAL</span></div>
+          <div style="padding:12px">
+            <div class="leanhead">
+              <div class="leansub">Dictionnaire encyclopédique de la Bible</div>
+            </div>
+            <div class="para">Mot araméen signifiant « père », conservé tel quel par les premiers chrétiens dans la prière. Voir <a>PÈRE</a>, <a>PRIÈRE</a>.</div>
+            <div class="para">Saint <a>PAUL</a> l'emploie deux fois (Ro 8:15 ; Ga 4:6), toujours suivi du grec <i>ho patêr</i>, comme une glose liturgique figée.</div>
+            <div class="para">L'usage de <a>JÉSUS</a> à Gethsémané (Mr 14:36) en fait le mot propre de la prière filiale, et c'est à ce titre que la tradition…</div>
+            <div class="para">Les commentateurs rapprochent cette formule du <a>KADDISH</a> et des prières synagogales, où l'invocation…</div>
+            <div class="lazy">↓ les paragraphes suivants se construisent à l'approche</div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+    <div class="frame go">
+      <header><span class="dot g"></span>Article long — sommaire <small>PROPHÈTE, 705 §</small></header>
+      <div class="mock"><div class="phone">
+        <div class="phbar">← <span style="margin-left:auto">Aa</span></div>
+        <div class="phbody" style="padding:0">
+          <div class="fold"><b>ligne de flottaison</b></div>
+          <div class="sticky"><span class="t">PROPHÈTE</span><span class="b">6. · 705 §</span></div>
+          <div style="padding:12px">
+            <div class="outline">
+              <div class="oh">DANS CET ARTICLE</div>
+              <div class="oi on">1. Le mot et ses emplois <span>§1</span></div>
+              <div class="oi">2. Le prophétisme ancien <span>§38</span></div>
+              <div class="oi">3. Les grands prophètes <span>§112</span></div>
+              <div class="oi">4. Le message <span>§301</span></div>
+              <div class="oi">5. Prophétie et histoire <span>§498</span></div>
+            </div>
+            <div class="para">Le terme hébreu <i>nabi</i>, que la Septante rend par <i>prophêtês</i>, désigne d'abord celui qui parle au nom d'un autre…</div>
+            <div class="para">Cette acception se retrouve chez <a>AMOS</a>, dont l'œuvre ouvre le recueil…</div>
+            <div class="lazy">↓ 703 paragraphes, aucun construit d'avance</div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+  <div class="note"><span class="ok">Ce que la colonne du milieu gagne, concrètement :</span> le premier mot de l'article passe <b>au-dessus</b> de la ligne de flottaison au lieu d'en dessous. La tête perd son badge géant, son filet d'accent, son titre de section « Article » et son cadre imbriqué — le texte <em>est</em> le contenu, il n'a pas besoin d'être annoncé — et le bandeau collant garde le repère (terme + dictionnaire) pendant tout le défilement, ce que la carte de tête ne faisait pas puisqu'elle disparaissait au premier geste.</div>
+
+  <!-- ====================== 04 ====================== -->
+  <h2 class="sec"><i>04</i> Sur le split ≥ 840, la fiche peut cesser de se répéter</h2>
+  <p class="sub">Le master/detail est déjà en place (étape G). L'index de gauche nomme déjà le dictionnaire et le terme sélectionné : la fiche de droite n'a plus à le redire en 24&nbsp;pt.</p>
+  <div class="frames two">
+    <div class="frame">
+      <header><span class="dot"></span>Aujourd'hui <small>la tête est répétée</small></header>
+      <div class="mock" style="padding:0"><div class="split">
+        <div class="scol">
+          <div style="font-size:9.5px;font-weight:800;color:var(--mut);margin-bottom:7px">WESTPHAL 1932 · 5 535</div>
+          <div class="sitem on">ABBA</div><div class="sitem">ABDIAS</div><div class="sitem">ABEL</div><div class="sitem">ABIMÉLEC</div>
+        </div>
+        <div class="scol" style="text-align:center;padding:18px">
+          <span class="hbadge">WESTPHAL 1932</span>
+          <div class="hterm">ABBA</div>
+          <div class="hrule"></div>
+          <div class="hsub">Dictionnaire encyclopédique de la Bible</div>
+          <div class="sectitle" style="justify-content:center"><span class="ic">📄</span><b>Article</b></div>
+        </div>
+      </div></div>
+    </div>
+    <div class="frame go">
+      <header><span class="dot g"></span>Proposé <small>le texte commence en haut</small></header>
+      <div class="mock" style="padding:0"><div class="split">
+        <div class="scol">
+          <div style="font-size:9.5px;font-weight:800;color:var(--mut);margin-bottom:7px">WESTPHAL 1932 · 5 535</div>
+          <div class="sitem on">ABBA</div><div class="sitem">ABDIAS</div><div class="sitem">ABEL</div><div class="sitem">ABIMÉLEC</div>
+        </div>
+        <div class="scol" style="padding:0">
+          <div class="sticky"><span class="t">ABBA</span><span class="b">WESTPHAL</span></div>
+          <div style="padding:12px">
+            <div class="para">Mot araméen signifiant « père », conservé tel quel par les premiers chrétiens dans la prière. Voir <a>PÈRE</a>, <a>PRIÈRE</a>.</div>
+            <div class="para">Saint <a>PAUL</a> l'emploie deux fois (Ro 8:15 ; Ga 4:6), toujours suivi du grec <i>ho patêr</i>…</div>
+            <div class="para">L'usage de <a>JÉSUS</a> à Gethsémané (Mr 14:36) en fait le mot propre de la prière filiale…</div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ====================== 05 ====================== -->
+  <h2 class="sec"><i>05</i> Spec Flutter — par ordre de rentabilité</h2>
+  <div class="spec">1) widgets/dictionary_article_view.dart        <em>— le cœur</em>
+   - le widget cesse d'être une colonne et expose des SLIVERS
+     List&lt;Widget&gt; slivers(...)  →  SliverToBoxAdapter(tête)
+                                   + SliverList.builder(paragraphes)
+   - supprimer _limite / _toutLire / _LirePlusButton   <em>(plus de raison d'être)</em>
+   - garder _refsCache, garder _LinkifiedText tel quel <em>(déjà optimisés)</em>
+   - garder le RegExp         <em>→ voir section 00, ne PAS le réécrire</em>
+
+2) screens/dictionary_entry_screen.dart       <em>— 10 lignes</em>
+   - SingleChildScrollView → CustomScrollView(slivers: [...])
+   - SliverPersistentHeader(pinned: true) : terme + badge compacts
+   - idem screens/fredaw_entry_screen.dart et widgets/fredaw_article_view.dart
+
+3) data/fredaw_lexicon.dart — _ensureLoaded   <em>— le gel</em>
+   - jsonDecode + boucle dans Isolate.run(...)
+   - l'écran montre un squelette pendant ce temps (loading_skeleton.dart existe)
+   - idem data/dictionary_reader.dart pour les dictionnaires téléchargés
+
+4) le sommaire d'article                      <em>— nouveau, optionnel</em>
+   - déduire les sections des paragraphes-titres (court, capitales, numéroté)
+   - n'apparaît qu'au-delà d'un seuil (~25 paragraphes)
+   - si le corpus ne s'y prête pas : en rester au compteur « 705 § »
+
+5) scinder l'asset                            <em>— hors app, à décider</em>
+   - fredaw_index.json (termes seuls)  +  définitions à la demande
+   - touche le convertisseur, pas seulement bible_app
+
+Tests : un cas « article de 700 paragraphes » qui vérifie qu'un seul écran
+   de paragraphes est construit (find.byType(...) borné) — c'est la
+   garantie anti-régression de toute la section 02.</div>
+
+  <!-- ====================== 06 ====================== -->
+  <h2 class="sec"><i>06</i> Ce qui demande ton arbitrage</h2>
+  <div class="note" style="margin:0 0 14px"><span class="ok">Implémenté le 15/10/2026 — trois décisions tranchées par la mesure, pas par le goût.</span>
+  <b>1)</b> « Lire la suite » <b>supprimé</b>, son rôle d'avertissement repris par le compteur « 705&nbsp;§ » de l'en-tête épinglée. <b>2)</b> Sommaire automatique <b>abandonné</b> : l'heuristique de titres n'en détecte que <b>4 sur les 705 paragraphes</b> de « PROPHÈTE 6. » — inutilisable comme navigation. <b>3)</b> Chargement : <kbd>Isolate.run</kbd> seul, pas de scission d'asset (qui engagerait le convertisseur).
+  <br><br><span class="ok">Un gain non prévu, trouvé en cherchant le sommaire :</span> sur ces 705 blocs, <b>549 font moins de 70 caractères</b> et seulement 152 sont de la prose — ce sont les <b>vers</b> des citations poétiques, séparés un par un. L'écart uniforme de 14&nbsp;px disloquait donc chaque poème en autant de paragraphes. L'écart est désormais resserré à 4&nbsp;px entre deux lignes courtes consécutives, règle locale dont une erreur de jugement ne coûte qu'un écart plus serré, jamais de la prose collée.
+  <br><br><span class="bad">Deux corrections à cette maquette :</span> « PROPHÈTE 6. » fait <b>140 121</b> caractères et non 145 068 (ma première lecture décodait mal l'UTF-8 ; les 705 paragraphes, eux, sont confirmés par deux méthodes de comptage). Et le <kbd>Isolate.run</kbd> de la section 01 a dû être <b>conditionné au volume</b> (≥ 256 Ko) : <kbd>flutter_test</kbd> exécute ses <kbd>testWidgets</kbd> dans une zone <kbd>FakeAsync</kbd> où le <kbd>Future</kbd> d'un isolate n'aboutit jamais — 48 tests sont tombés sur « pumpAndSettle timed out » avant l'ajout du seuil.</div>
+  <ol class="dec">
+    <li><b>« Lire la suite » disparaît-il vraiment ?</b> En slivers il n'a plus d'utilité technique. Mais si tu t'en sers comme d'un <em>repère de lecture</em> — « cet article est court / cet article est un traité » — on peut le remplacer par le compteur du bandeau collant (« 705&nbsp;§ ») plutôt que de le supprimer sans contrepartie.</li>
+    <li><b>Le sommaire d'article : automatique ou pas du tout ?</b> Il suppose que les paragraphes de titre soient reconnaissables dans le corpus Westphal. Je ne l'ai pas vérifié — à faire avant de s'y engager. Sinon, on garde le compteur seul.</li>
+    <li><b>Jusqu'où va-t-on sur le chargement ?</b> <kbd>Isolate.run</kbd> seul supprime le gel et ne touche que l'app. Scinder l'asset supprime le coût lui-même mais engage le convertisseur. Je ferais le premier maintenant, le second seulement si la lenteur persiste sur ton téléphone.</li>
+    <li><b>Portée.</b> Deux périmètres distincts, à ne pas confondre. <kbd>DictionaryArticleView</kbd> n'a que <b>deux</b> consommateurs — <kbd>dictionary_entry_screen</kbd> (dictionnaires téléchargés) et <kbd>fredaw_article_view</kbd> → <kbd>fredaw_entry_screen</kbd> (Westphal) : le passage en slivers (points 1-2) ne touche donc que la fiche, et <kbd>etude_verset_screen</kbd> n'est pas concerné. En revanche le correctif de chargement (point 3) porte sur <kbd>fredaw_lexicon</kbd>, que <kbd>etude_verset_screen</kbd> partage bel et bien via <kbd>VerseDictionary</kbd> — c'est là, et seulement là, qu'il faut retester l'étude de verset. On y va d'un coup, ou dictionnaire téléchargé d'abord comme terrain d'essai ?</li>
+  </ol>
+
+  <footer>Maquette statique — mesures prises le 15/10/2026 sur <kbd>assets/lexicon/fredaw.json</kbd> (12,18 Mo, 5 535 entrées) avec Dart 3.12.1. Troisième maquette de la série, après <kbd>…tablette_desktop</kbd> et <kbd>…paysage_parallele_xl</kbd>.</footer>
+</div>
+</body>
+</html>

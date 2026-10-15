@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BYM — Rendu responsive 2 : paysage, parallèle, XL</title>
+<style>
+:root{
+  --bg:#F6F0E3; --bg2:#EFE6D2; --card:#FFFDF7; --ink:#2B2416; --mut:#8A7E63;
+  --gold:#B9862F; --gold2:#D3A94F; --gold-soft:#F3E5C3; --line:#E4D6B6;
+  --rail:#2E2A1E; --ok:#3E6E41; --bad:#A33; --radius:18px;
+  --mono:ui-monospace,'Cascadia Code',Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.55}
+header.top{position:sticky;top:0;z-index:50;background:rgba(246,240,227,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topin{max-width:1240px;margin:0 auto;padding:14px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.brand{font-weight:800;font-size:17px}.brand span{color:var(--gold)}
+.badge{font-size:11px;font-weight:800;letter-spacing:.08em;background:var(--ink);color:#F6F0E3;border-radius:99px;padding:4px 11px}
+.seg{display:flex;background:#fff;border:1px solid var(--line);border-radius:99px;padding:4px;gap:4px;margin-left:auto}
+.seg button{border:0;background:transparent;font:inherit;font-size:12.5px;font-weight:800;color:var(--mut);padding:8px 14px;border-radius:99px;cursor:pointer}
+.seg button.on{background:var(--ink);color:#fff}
+.wrap{max-width:1240px;margin:0 auto;padding:26px 22px 90px}
+.hero{background:linear-gradient(135deg,#2E2A1E,#5A4419);color:#F6EFDC;border-radius:26px;padding:34px 30px;box-shadow:0 24px 50px rgba(60,40,10,.28)}
+.hero h1{font-size:clamp(24px,3.4vw,38px);line-height:1.12}.hero h1 em{color:var(--gold2);font-style:normal}
+.hero p{opacity:.85;max-width:780px;margin-top:10px;font-size:14.5px}
+.bpgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.bp{background:rgba(255,255,255,.08);border:1px solid rgba(211,169,79,.35);border-radius:16px;padding:12px 14px}
+.bp b{display:block;font-size:12px;letter-spacing:.06em;color:var(--gold2)}
+.bp span{font-size:12.5px;opacity:.9}
+h2.sec{font-size:21px;margin:40px 0 6px;display:flex;align-items:center;gap:10px}
+h2.sec i{font-style:normal;background:var(--ink);color:#fff;font-size:12px;font-weight:800;border-radius:9px;padding:3px 10px}
+.sub{color:var(--mut);font-size:13.5px;max-width:860px;margin-bottom:16px}
+.frames{display:grid;gap:18px}
+.frames.two{grid-template-columns:1fr 1fr}
+.frames.three{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:1000px){.frames.two,.frames.three{grid-template-columns:1fr}.bpgrid{grid-template-columns:1fr}}
+.frame{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 12px 30px rgba(80,60,20,.10)}
+.frame.ko{border-color:#E0A8A8;box-shadow:0 12px 30px rgba(150,50,50,.12)}
+.frame.go{border-color:#A9C6AA}
+.frame header{padding:10px 14px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--gold2);flex:0 0 auto}
+.dot.r{background:#C05858}.dot.g{background:#5E9161}
+.frame header small{margin-left:auto;color:var(--mut);font-weight:700;font-family:var(--mono)}
+.mock{background:#FBF7EC;position:relative}
+/* --- shell --- */
+.shell{display:flex}
+.shell.land{min-height:176px}
+.shell.tall{min-height:330px}
+.rail{background:var(--rail);color:#D9C89A;display:flex;flex-direction:column;align-items:center;gap:10px;padding:12px 0;font-size:10px;flex:0 0 auto}
+.rail.mini{width:52px}.rail.compact{width:72px}
+.rail.wide{width:190px;align-items:stretch;padding:14px 12px}
+.rail .r{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:rgba(255,255,255,.07);flex:0 0 auto;font-size:15px}
+.rail .r.on{background:var(--gold);color:#241A04}
+.rail.wide .r{width:auto;height:34px;justify-content:flex-start;gap:10px;padding:0 11px;font-weight:800;font-size:12px;display:flex;align-items:center}
+.rail .cut{font-size:9px;color:#9A8A5E;letter-spacing:.04em;margin-top:2px}
+.sbody{flex:1;padding:14px;min-width:0;display:flex;flex-direction:column}
+.bbar{background:var(--rail);display:flex;justify-content:space-around;padding:7px 0;color:#D9C89A;font-size:15px}
+.bbar .r{width:30px;height:26px;border-radius:9px;display:grid;place-items:center}
+.bbar .r.on{background:var(--gold);color:#241A04}
+.col{max-width:680px;margin:0 auto;width:100%}
+.pill{display:inline-block;font-size:11px;font-weight:800;background:var(--gold-soft);border:1px solid var(--line);border-radius:99px;padding:3px 10px;color:#6B4E14}
+.card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:11px;margin-top:9px}
+.card h4{font-size:13px}.card p{font-size:12px;color:var(--mut)}
+.hor{display:flex;gap:9px;margin-top:9px}.hor .card{flex:1;margin-top:0}
+.hero-mini{background:linear-gradient(135deg,#7A5A1E,#B9862F);color:#fff;border-radius:13px;padding:13px;margin-top:9px}
+.hero-mini b{font-size:13px}.hero-mini p{font-size:11.5px;opacity:.9}
+/* lecture / parallèle */
+.read{display:grid;min-height:330px}
+.read.t1{grid-template-columns:1fr}
+.read.t2{grid-template-columns:1fr 300px}
+.read.par{grid-template-columns:1fr 1fr}
+.read.t3{grid-template-columns:206px 1fr 300px}
+.rcol{padding:13px;border-right:1px solid var(--line);min-width:0}
+.rcol:last-child{border-right:0}
+.rcol.side{background:#fff}.rcol.toc{background:#F1E8D0}
+.rhead{font-size:10.5px;font-weight:800;letter-spacing:.06em;color:var(--mut);display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.rhead .v{background:var(--ink);color:var(--gold-soft);border-radius:7px;padding:2px 7px;font-size:10px}
+.verse{font-family:Georgia,serif;font-size:13.5px;line-height:1.68;margin:8px 0}
+.verse b{color:var(--gold);font-size:10.5px;vertical-align:super;margin-right:5px;font-family:inherit}
+.verse.long{font-size:13.5px}
+.sync{position:absolute;left:0;right:0;height:1px;background:repeating-linear-gradient(90deg,#D9C89A 0 6px,transparent 6px 12px)}
+.toc .ti{font-size:11.5px;padding:5px 7px;border-radius:8px}
+.toc .ti.on{background:#fff;font-weight:800;border:1px solid var(--line)}
+.abar{display:flex;align-items:center;gap:7px;padding:8px 12px;background:#fff;border-bottom:1px solid var(--line);font-size:11px;font-weight:700;color:var(--mut)}
+.abtn{border:1px solid var(--line);border-radius:9px;padding:4px 9px;background:#FBF7EC}
+.abtn.on{background:var(--ink);color:var(--gold-soft);border-color:var(--ink)}
+.ghost{flex:1}
+/* tableau appareils */
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tblwrap{overflow-x:auto;border-radius:14px;box-shadow:0 10px 24px rgba(80,60,20,.08)}
+.tbl th{background:#fff;text-align:left;font-size:11px;letter-spacing:.05em;color:var(--mut);padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl td{padding:9px 12px;border-bottom:1px solid #EFE6D2;white-space:nowrap}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.mono{font-family:var(--mono);font-size:11.5px}
+.tag{font-size:10.5px;font-weight:800;border-radius:99px;padding:2px 8px}
+.tag.ko{background:#F8E0E0;color:#8E2F2F}
+.tag.okk{background:#E2EFE2;color:#2F6E35}
+.tag.mid{background:var(--gold-soft);color:#6B4E14}
+.spec{background:#1E1B12;color:#EDE3C8;border-radius:16px;padding:18px;font-family:var(--mono);font-size:12.5px;line-height:1.6;overflow-x:auto;white-space:pre}
+.spec em{color:var(--gold2);font-style:normal}
+.note{background:#FFF6DE;border:1px solid #E7CF8F;border-radius:14px;padding:12px 14px;font-size:13px;margin-top:14px}
+.ok{color:var(--ok);font-weight:800}.bad{color:var(--bad);font-weight:800}
+ul.check{margin:10px 0 0 18px;font-size:13.5px;display:grid;gap:7px}
+ol.dec{margin:10px 0 0 20px;font-size:13.5px;display:grid;gap:9px}
+footer{color:var(--mut);font-size:12px;text-align:center;padding:24px}
+kbd{background:#fff;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 7px;font-family:var(--mono);font-size:11.5px}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+  <div class="brand">BYM <span>classic</span></div>
+  <div class="badge">RENDU 2 · PAYSAGE · PARALLÈLE · XL</div>
+  <div class="seg" id="seg">
+    <button data-w="390">Phone 390</button>
+    <button data-w="834" class="on">Tablette 834</button>
+    <button data-w="1280">Desktop 1280</button>
+  </div>
+</div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Les paliers sont posés. <em>Mais ils ne lisent que <kbd style="background:rgba(255,255,255,.12);color:#F6EFDC;border-color:rgba(211,169,79,.4)">width</kbd>,</em> et trois cas y échappent.</h1>
+    <p>Le rendu 1 est implémenté : rail à 600, rail étendu + master/detail à 840, panneau d'étude épinglé à 1200, accueil en grille. Reste que <kbd style="background:rgba(255,255,255,.12);color:#F6EFDC;border-color:rgba(211,169,79,.4)">AppBreakpoints</kbd> décide à partir de la <b>largeur seule</b>. Conséquence mesurable : un iPhone couché reçoit la mise en page d'un petit desktop, et un iPad debout rate le master/detail de 6&nbsp;px.</p>
+    <div class="bpgrid">
+      <div class="bp"><b>01 · PAYSAGE TÉLÉPHONE</b><span>844×390 → <kbd style="background:rgba(255,255,255,.12);color:#F6EFDC;border-color:rgba(211,169,79,.4)">isExpanded</kbd> vrai. Rail étendu de 190&nbsp;px dans 390&nbsp;px de haut.</span></div>
+      <div class="bp"><b>02 · LECTURE PARALLÈLE</b><span>Existe, mais en <kbd style="background:rgba(255,255,255,.12);color:#F6EFDC;border-color:rgba(211,169,79,.4)">push</kbd> plein écran. En paysage c'est le mode naturel.</span></div>
+      <div class="bp"><b>03 · AU-DELÀ DE 1600</b><span>Rien de prévu : soit on étire, soit on laisse du vide. Troisième colonne.</span></div>
+    </div>
+  </div>
+
+  <!-- ====================== 01 ====================== -->
+  <h2 class="sec"><i>01</i> Le téléphone en paysage reçoit une interface de desktop</h2>
+  <p class="sub">C'est le cas le plus cassé, et il n'est pas dans tes tests. <kbd>main.dart:338</kbd> fait <kbd>isTablet(width)</kbd> et <kbd>main.dart:377</kbd> fait <kbd>isExpanded(width)</kbd>. Or en paysage, un iPhone 14 mesure <b>844&nbsp;px de large</b> : au-dessus de 840, donc rail <b>étendu</b> avec libellés, plus l'accueil en grille 2&nbsp;colonnes — le tout dans 390&nbsp;px de haut. Ton test <kbd>800x360 telephone paysage</kbd> tombe juste sous le seuil et ne voit rien.</p>
+
+  <div class="tblwrap">
+  <table class="tbl">
+    <tr><th>Appareil</th><th>Portrait</th><th>Paysage</th><th>Côté court</th><th>Palier appliqué en paysage</th></tr>
+    <tr><td>iPhone 14</td><td class="mono">390×844</td><td class="mono">844×390</td><td class="mono">390</td><td><span class="tag ko">expanded — rail étendu + grille</span></td></tr>
+    <tr><td>iPhone 14 Pro Max</td><td class="mono">430×932</td><td class="mono">932×430</td><td class="mono">430</td><td><span class="tag ko">expanded — rail étendu + grille</span></td></tr>
+    <tr><td>Pixel 7</td><td class="mono">412×915</td><td class="mono">915×412</td><td class="mono">412</td><td><span class="tag ko">expanded — rail étendu + grille</span></td></tr>
+    <tr><td>Android d'entrée</td><td class="mono">360×640</td><td class="mono">640×360</td><td class="mono">360</td><td><span class="tag mid">tablet — rail compact</span></td></tr>
+    <tr><td>iPad Air</td><td class="mono">834×1112</td><td class="mono">1112×834</td><td class="mono">834</td><td><span class="tag okk">expanded — correct</span></td></tr>
+    <tr><td>iPad Air <b>debout</b></td><td class="mono">834×1112</td><td>—</td><td class="mono">834</td><td><span class="tag ko">tablet seulement — rate 840 de 6 px</span></td></tr>
+  </table>
+  </div>
+
+  <div class="frames three" style="margin-top:18px">
+    <div class="frame ko">
+      <header><span class="dot r"></span>Aujourd'hui <small>844 × 390</small></header>
+      <div class="mock"><div class="shell land">
+        <div class="rail wide">
+          <div class="r on">🏠 Accueil</div>
+          <div class="r">📜 Lecture</div>
+          <div class="r">🔍 Recherche</div>
+          <div class="cut">⌄ 2 destinations hors champ</div>
+        </div>
+        <div class="sbody">
+          <div class="hero-mini"><b>Verset du jour</b><p>Le hero prend la moitié des 390 px de haut.</p></div>
+          <div class="hor"><div class="card"><h4>Étude</h4></div><div class="card"><h4>Favoris</h4></div></div>
+        </div>
+      </div></div>
+    </div>
+    <div class="frame go">
+      <header><span class="dot g"></span>Proposé A — téléphone reste téléphone <small>côté court 390</small></header>
+      <div class="mock"><div class="shell land" style="flex-direction:column">
+        <div class="sbody" style="padding:12px 16px">
+          <div class="col" style="max-width:560px">
+            <span class="pill">ACCUEIL</span>
+            <div class="hero-mini" style="padding:10px"><b>Verset du jour</b></div>
+            <div class="hor"><div class="card"><h4>Étude</h4></div><div class="card"><h4>Favoris</h4></div><div class="card"><h4>Notes</h4></div></div>
+          </div>
+        </div>
+        <div class="bbar"><div class="r on">🏠</div><div class="r">📜</div><div class="r">🔍</div><div class="r">⬇</div><div class="r">⚙</div></div>
+      </div></div>
+    </div>
+    <div class="frame">
+      <header><span class="dot"></span>Proposé B — rail minimal <small>si tu tiens au rail</small></header>
+      <div class="mock"><div class="shell land">
+        <div class="rail mini">
+          <div class="r on">🏠</div><div class="r">📜</div><div class="r">🔍</div><div class="r">⬇</div><div class="r">⚙</div>
+        </div>
+        <div class="sbody">
+          <div class="col" style="max-width:520px">
+            <span class="pill">ACCUEIL</span>
+            <div class="hor" style="margin-top:9px"><div class="card"><h4>Verset</h4></div><div class="card"><h4>Étude</h4></div><div class="card"><h4>Favoris</h4></div></div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="note"><span class="ok">La règle qui corrige les deux lignes rouges d'un coup :</span> décider le <b>châssis</b> (rail ou barre basse) sur le <b>côté court</b>, et ne décider le <b>contenu</b> (split, grille) qu'à l'intérieur d'un châssis tablette. Un iPhone n'a alors jamais de rail, dans aucune orientation ; un iPad en a toujours un.</div>
+  <div class="spec" style="margin-top:12px">// breakpoints.dart — le correctif tient en deux signatures
+static bool isTablet(Size size)   => size.shortestSide &gt;= tablet;      <em>// châssis</em>
+static bool isExpanded(Size size) => isTablet(size) &amp;&amp; size.width &gt;= expanded;
+static bool isDesktop(Size size)  => isTablet(size) &amp;&amp; size.width &gt;= desktop;
+
+<em>// iPhone 14 paysage  844×390 → court 390 → phone      ✔ barre basse, 1 colonne</em>
+<em>// iPad Air paysage  1112×834 → court 834 → expanded   ✔ split, inchangé</em>
+<em>// iPad Air portrait  834×1112 → court 834 → tablet     → voir décision n°1</em></div>
+
+  <!-- ====================== 02 ====================== -->
+  <h2 class="sec"><i>02</i> Lecture parallèle : sortir du plein écran</h2>
+  <p class="sub"><kbd>parallel_reading_screen.dart</kbd> est écrit et fonctionne, mais <kbd>chapter_reader.dart:1847</kbd> l'ouvre en <kbd>push</kbd> : on quitte le chapitre, on compare, on revient. Sur une tablette en paysage il y a la place pour deux versions côte à côte <b>sans changer d'écran</b> — c'était l'item 5 de ta spec du rendu 1, le seul jamais fait.</p>
+  <div class="frames two">
+    <div class="frame">
+      <header><span class="dot"></span>Aujourd'hui — un écran que l'on quitte <small>push plein écran</small></header>
+      <div class="mock">
+        <div class="abar"><span class="abtn on">Darby</span><span class="abtn">⇄ Parallèle</span><span class="ghost"></span><span class="abtn">⋯</span></div>
+        <div class="read t1"><div class="rcol">
+          <div class="rhead">JEAN 1 <span class="v">DARBY</span></div>
+          <div class="verse"><b>1</b> Au commencement était la Parole ; et la Parole était auprès de Dieu ; et la Parole était Dieu.</div>
+          <div class="verse"><b>2</b> Elle était au commencement auprès de Dieu.</div>
+          <div class="verse"><b>3</b> Toutes choses furent faites par elle, et sans elle pas une seule chose ne fut faite.</div>
+          <div class="note" style="margin-top:14px;font-size:12px">Le bouton <b>⇄</b> empile un nouvel écran : la position de lecture, la recherche en cours et le panneau d'étude sont laissés derrière.</div>
+        </div></div>
+      </div>
+    </div>
+    <div class="frame go">
+      <header><span class="dot g"></span>Proposé — deux volets dans la page <small>tablette paysage ≥ 840</small></header>
+      <div class="mock">
+        <div class="abar"><span class="abtn on">Darby</span><span class="abtn on">⇄</span><span class="abtn">SEF ▾</span><span class="ghost"></span><span class="abtn">🔗 scroll lié</span><span class="abtn">⋯</span></div>
+        <div class="read par">
+          <div class="rcol">
+            <div class="rhead">JEAN 1 <span class="v">DARBY</span></div>
+            <div class="verse"><b>1</b> Au commencement était la Parole ; et la Parole était auprès de Dieu ; et la Parole était Dieu.</div>
+            <div class="verse"><b>2</b> Elle était au commencement auprès de Dieu.</div>
+            <div class="verse"><b>3</b> Toutes choses furent faites par elle.</div>
+          </div>
+          <div class="rcol">
+            <div class="rhead">JEAN 1 <span class="v">SEF</span></div>
+            <div class="verse"><b>1</b> Au commencement était la Parole, et la Parole était avec Dieu, et la Parole était Dieu.</div>
+            <div class="verse"><b>2</b> Elle était au commencement avec Dieu.</div>
+            <div class="verse"><b>3</b> Tout a été fait par elle.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="note"><span class="ok">Ce que la version en volets gagne :</span> une seule barre d'actions (le sélecteur de droite choisit la 2<sup>e</sup> version), les versets alignés par numéro, le scroll lié désactivable, et le panneau d'étude de <kbd>chapter_reader.dart:1108</kbd> qui reste accessible par-dessus. <span class="bad">À ne pas faire :</span> deux volets sous 840 — à 760&nbsp;px utiles chaque colonne tomberait sous 40 caractères, illisible. Sous le seuil, on garde le <kbd>push</kbd> actuel.</div>
+
+  <!-- ====================== 03 ====================== -->
+  <h2 class="sec"><i>03</i> Au-delà de 1600 : une troisième colonne plutôt que du vide</h2>
+  <p class="sub">Si tu branches enfin <kbd>contentMaxWidth</kbd> (plafond 1120, écrit dans <kbd>breakpoints.dart:29</kbd> et utilisé nulle part), un écran de 1920 affichera 1120&nbsp;px de contenu et 800&nbsp;px de crème. Deux sorties possibles : accepter le vide, ou lui donner un rôle. Le panneau d'étude actuel est figé à <kbd>372&nbsp;px</kbd> en dur (<kbd>chapter_reader.dart:1115</kbd>) et ne s'ouvre pas sous 1200.</p>
+  <div class="frames three">
+    <div class="frame">
+      <header><span class="dot"></span>1280 — l'état actuel <small>lecture + étude</small></header>
+      <div class="mock"><div class="read t2">
+        <div class="rcol">
+          <div class="rhead">JEAN 1 <span class="v">DARBY</span></div>
+          <div class="verse"><b>1</b> Au commencement était la Parole ; et la Parole était auprès de Dieu.</div>
+          <div class="verse"><b>2</b> Elle était au commencement auprès de Dieu.</div>
+        </div>
+        <div class="rcol side">
+          <div class="stabs" style="display:flex;gap:6px;margin-bottom:10px"><span class="abtn on">Étude</span><span class="abtn">Strong</span></div>
+          <div class="card" style="margin-top:0"><h4>λόγος — G3056</h4><p>parole, discours, raison</p></div>
+          <div class="card"><h4>Note</h4><p>—</p></div>
+        </div>
+      </div></div>
+    </div>
+    <div class="frame ko">
+      <header><span class="dot r"></span>1920 — plafond seul <small>800 px perdus</small></header>
+      <div class="mock" style="display:flex">
+        <div class="read t2" style="flex:0 0 72%">
+          <div class="rcol">
+            <div class="rhead">JEAN 1 <span class="v">DARBY</span></div>
+            <div class="verse"><b>1</b> Au commencement était la Parole.</div>
+            <div class="verse"><b>2</b> Elle était au commencement.</div>
+          </div>
+          <div class="rcol side"><div class="card" style="margin-top:0"><h4>λόγος</h4><p>G3056</p></div></div>
+        </div>
+        <div style="flex:1;background:#F3ECDA;display:grid;place-items:center;color:var(--mut);font-size:11px;text-align:center;padding:10px">vide<br>inutilisé</div>
+      </div>
+    </div>
+    <div class="frame go">
+      <header><span class="dot g"></span>Proposé ≥ 1600 — trois zones <small>sommaire + lecture + étude</small></header>
+      <div class="mock"><div class="read t3">
+        <div class="rcol toc">
+          <div class="rhead">JEAN</div>
+          <div class="ti">1 · Le Verbe</div>
+          <div class="ti on">2 · Cana</div>
+          <div class="ti">3 · Nicodème</div>
+          <div class="ti">4 · La Samaritaine</div>
+        </div>
+        <div class="rcol">
+          <div class="rhead">JEAN 2 <span class="v">DARBY</span></div>
+          <div class="verse"><b>1</b> Et le troisième jour, il y eut une noce à Cana de Galilée.</div>
+          <div class="verse"><b>2</b> Et Jésus fut convié à la noce, et sa mère y était.</div>
+        </div>
+        <div class="rcol side">
+          <div class="rhead">ÉTUDE</div>
+          <div class="card" style="margin-top:0"><h4>Cana</h4><p>Lieu · Galilée</p></div>
+          <div class="card"><h4>G1056</h4><p>Γαλιλαία</p></div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+  <div class="note"><span class="ok">Et au passage, deux corrections sur le panneau existant :</span> le seuil de 1200 laisse un MacBook en demi-fenêtre (~1100&nbsp;px) retomber en bottom-sheet — <b>1040</b> serait plus juste ; et <kbd>372&nbsp;px</kbd> en dur gagnerait à devenir une proportion bornée (<kbd>clamp(320, 30%, 420)</kbd>), voire une poignée redimensionnable mémorisée dans <kbd>AppPreferences</kbd>.</div>
+
+  <!-- ====================== 04 ====================== -->
+  <h2 class="sec"><i>04</i> Spec Flutter — ce que ça change, fichier par fichier</h2>
+  <p class="sub">Aucune refonte. Le gros du travail est déjà fait au rendu 1 ; ici on corrige la <b>mesure</b> et on ajoute deux mises en page.</p>
+  <div class="spec">1) lib/utils/breakpoints.dart            <em>— MODIFIÉ, cœur du correctif</em>
+   - isTablet / isExpanded / isDesktop prennent une Size, pas un double
+   - isTablet  : size.shortestSide &gt;= 600        <em>(châssis, stable en rotation)</em>
+   - isExpanded: isTablet &amp;&amp; width &gt;= 840        <em>(contenu)</em>
+   - isDesktop : isTablet &amp;&amp; width &gt;= 1040       <em>(1200 → 1040)</em>
+   + xl = 1600                                  <em>(nouveau palier 3 zones)</em>
+   - garder les surcharges double le temps de la migration, @Deprecated
+
+2) main.dart — _BymShell.build                 <em>— 2 lignes</em>
+   - isTablet(MediaQuery.sizeOf(context))  au lieu de (...).width
+   - idem _buildNavigationRail → extended
+
+3) les 8 écrans qui comparent width &gt;= expanded <em>— mécanique</em>
+   home, search, strong_index, bym_lexicon_index, fredaw_index,
+   dictionary_browse, chapter_reader  → passer la Size
+
+4) chapter_reader.dart                         <em>— les deux mises en page</em>
+   - parallèle en volets si isExpanded &amp;&amp; !immersion : Row(1fr, 1fr)
+     sinon push actuel (inchangé) ; scroll lié par ValueNotifier&lt;int&gt; de verset
+   - panneau latéral : 372 → clamp(320, w*.30, 420)
+   - si width &gt;= xl : Row(sommaire 206, Expanded(versets), panneau)
+
+5) contentMaxWidth                             <em>— enfin branché (piste 1)</em>
+   - Center + ConstrainedBox dans le shell pour Home/Réglages/Biblio
+   - colonne de lecture mesurée en caractères, pas en px
+
+Tests: responsive_overflow_test.dart — ajouter les 3 cas qui manquent
+   '844x390 iphone paysage', '932x430 maxpro paysage', '1600x900 xl'
+   ces deux premiers échouent AUJOURD'HUI sur le rail étendu.</div>
+
+  <!-- ====================== 05 ====================== -->
+  <h2 class="sec"><i>05</i> Ce qui reste à décider — trois questions pour toi</h2>
+  <div class="note" style="margin:0 0 14px"><span class="ok">Implémenté le 15/10/2026.</span> Les trois sections ci-dessus sont dans <kbd>bible_app</kbd>, avec les réponses suivantes aux questions — à rediscuter librement, chacune tient en une ligne :
+  <b>1)</b> iPad Air debout → <b>colonne unique centrée</b> plafonnée à 720. <b>2)</b> Paysage téléphone → <b>proposition A</b>, la barre du bas est conservée. <b>3)</b> Sommaire XL → <b>liste des chapitres</b> du livre en cours.
+  <br><br><span class="bad">Une correction à la section 01 :</span> ces deux tailles de téléphone couché ne <em>débordaient</em> pas, contrairement à ce que cette maquette laissait entendre — un <kbd>NavigationRail</kbd> est <kbd>scrollable: true</kbd> et faisait défiler ses destinations. Le mauvais châssis était donc invisible pour l'audit anti-débordement, et c'est <kbd>shell_chassis_test.dart</kbd> qui le tient désormais.</div>
+  <ol class="dec">
+    <li><b>iPad Air debout (834&nbsp;px) : split ou colonne unique ?</b> Il rate <kbd>expanded = 840</kbd> de 6&nbsp;px. Soit on descend le seuil à <b>820</b> et il reçoit le master/detail (index 300 + fiche 460 — jouable mais serré), soit on l'assume en <b>colonne unique centrée</b>, plus reposant à lire. Je penche pour la colonne unique.</li>
+    <li><b>Paysage téléphone : proposition A ou B ?</b> A (barre basse conservée) est la plus cohérente — l'app ne change pas de nature quand on tourne l'appareil. B (rail de 52&nbsp;px) récupère ~40&nbsp;px de hauteur, utile en lecture, mais introduit un troisième châssis à maintenir.</li>
+    <li><b>Le sommaire de la zone XL : chapitres ou plan du chapitre ?</b> La liste des chapitres du livre est évidente à implémenter ; un plan par péricopes serait plus utile en étude mais demande des données que le corpus n'a peut-être pas.</li>
+  </ol>
+
+  <div class="note"><span class="ok">Ordre que je recommande :</span> <b>1)</b> le correctif <kbd>shortestSide</kbd> + les 3 tests manquants — petit, et il répare un cas réellement cassé aujourd'hui. <b>2)</b> le parallèle en volets — c'est le gain d'usage le plus visible sur tablette. <b>3)</b> la zone XL — confort, à faire en dernier.</div>
+
+  <footer>Maquette statique — rendu 2, suite de <kbd>maquette_responsive_tablette_desktop.html</kbd>. Redimensionne la fenêtre : cette page applique elle-même les paliers qu'elle propose.</footer>
+</div>
+<script>
+const btns=[...document.querySelectorAll('#seg button')];
+btns.forEach(b=>b.onclick=()=>{btns.forEach(x=>x.classList.remove('on'));b.classList.add('on');
+document.querySelector('.wrap').style.maxWidth=b.dataset.w==='390'?'480px':b.dataset.w==='834'?'900px':'1240px';});
+</script>
+</body>
+</html>
