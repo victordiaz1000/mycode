@@ -1,22 +1,44 @@
 import 'dart:ui' show Size;
 
+/// Où vit la navigation, et sous quelle forme.
+///
+/// Volontairement **indépendant** de la classe d'appareil
+/// ([AppBreakpoints.isTablet]) : c'est toute la leçon de ce fichier. Dès qu'un
+/// écran est assez large, le rail est préférable à la barre du bas, téléphone
+/// couché compris — c'est le comportement d'origine de l'app, et il convient.
+/// Ce qui ne convenait pas, c'est que ce même seuil de largeur décidait *aussi*
+/// de la mise en page du contenu, et donnait grilles et master/detail à un
+/// iPhone en paysage.
+enum AppChassis {
+  /// Barre du bas : sous [AppBreakpoints.tablet] de large.
+  bottomBar,
+
+  /// Rail compact, icônes et libellés : à partir de [AppBreakpoints.tablet].
+  rail,
+
+  /// Rail étendu : à partir de [AppBreakpoints.expanded].
+  extendedRail,
+}
+
 // Paliers responsive uniques de l'application (maquettes tablette/desktop).
 //
 // Source unique : ne plus comparer `width >= 600` / `>= 840` en dur dans les
 // écrans — passer par ici pour que les seuils bougent en un seul endroit.
 //
-// Deux familles de décisions, et c'est tout l'objet de ce fichier :
+// Deux familles de décisions, séparées à dessein — les confondre était le bug
+// d'origine, et il faut résister à l'envie de les refusionner :
 //
-//  * le **châssis** (rail latéral ou barre du bas) se décide sur le **côté
-//    court** de l'écran. C'est une propriété de l'appareil, pas de son
-//    orientation : un téléphone couché reste un téléphone. Mesuré sur la
+//  * le **châssis** ([AppChassis], via [AppBreakpoints.chassisFor]) répond à
+//    « rail ou barre du bas ». Il se décide sur la **largeur réelle**, comme
+//    depuis toujours : un écran large mérite un rail, même s'il appartient à
+//    un téléphone couché.
+//  * la **classe d'appareil** ([AppBreakpoints.isTablet] et ses dérivés)
+//    répond à « cet écran mérite-t-il une mise en page de tablette » —
+//    master/detail, grilles, panneau d'étude épinglé, plafond de contenu.
+//    Mesurée sur le **côté court**, donc stable en rotation. Mesurée sur la
 //    largeur, un iPhone 14 en paysage fait 844 px — au-dessus de [expanded] —
-//    et recevait le rail *étendu* de 190 px avec ses libellés dans 390 px de
-//    haut, plus l'accueil en grille deux colonnes.
-//  * le **contenu** (master/detail, grille, panneau d'étude) se décide sur la
-//    **largeur réelle**, mais seulement à l'intérieur d'un châssis tablette.
-//    D'où le `isTablet(size) &&` qui ouvre [isExpanded], [isDesktop] et [isXl] :
-//    sans lui, les trois reviendraient vraies sur un téléphone en paysage.
+//    et recevait l'accueil en grille deux colonnes et le master/detail comme
+//    un petit desktop.
 abstract final class AppBreakpoints {
   /// Tablette portrait : le shell passe en rail latéral.
   static const double tablet = 600;
@@ -42,11 +64,20 @@ abstract final class AppBreakpoints {
   /// Largeur max du contenu centré sur paysage/desktop.
   static const double maxWide = 1120;
 
-  /// Le châssis : rail latéral à partir d'ici, barre du bas en dessous.
+  /// La classe d'appareil : mise en page de tablette à partir d'ici.
   ///
-  /// Sur le côté court, donc stable en rotation — c'est ce qui garde la barre
-  /// du bas sur un téléphone en paysage et le rail sur un iPad debout.
+  /// Sur le côté court, donc stable en rotation. Ne dit **pas** où vit la
+  /// navigation — c'est [chassisFor] qui en décide, sur la largeur : un
+  /// téléphone couché garde son rail sans devenir une tablette pour autant.
   static bool isTablet(Size size) => size.shortestSide >= tablet;
+
+  /// Le châssis de navigation, sur la largeur réelle — le comportement
+  /// d'origine de l'app, qu'il n'y avait aucune raison de changer.
+  static AppChassis chassisFor(Size size) {
+    if (size.width >= expanded) return AppChassis.extendedRail;
+    if (size.width >= tablet) return AppChassis.rail;
+    return AppChassis.bottomBar;
+  }
 
   /// Master/detail et grilles : la largeur décide, le châssis autorise.
   static bool isExpanded(Size size) => isTablet(size) && size.width >= expanded;

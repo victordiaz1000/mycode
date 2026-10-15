@@ -336,10 +336,14 @@ class _HomeShellState extends State<HomeShell> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    // Le châssis se décide sur le côté court : un téléphone couché garde sa
-    // barre du bas (mesuré sur la largeur, il faisait 844 px et recevait le
-    // rail étendu dans 390 px de haut).
-    final tablet = AppBreakpoints.isTablet(size);
+    // Le châssis se décide sur la largeur, comme depuis toujours : un écran
+    // large mérite un rail, téléphone couché compris. Ce qui a change ce
+    // matin, c'est la *classe d'appareil* — `isTablet` et ses dérivés, sur le
+    // côté court — qui gouverne grilles, master/detail et panneaux. Les deux
+    // etaient confondus, et un iPhone en paysage recevait la mise en page
+    // d'un petit desktop.
+    final chassis = AppBreakpoints.chassisFor(size);
+    final hasRail = chassis != AppChassis.bottomBar;
     // Immersion (reading) removes the navigation chrome: the reader shows its
     // own exit pill, and this shell hides rail and bottom bar while it lasts.
     return ValueListenableBuilder<bool>(
@@ -368,24 +372,24 @@ class _HomeShellState extends State<HomeShell> {
         // Contenu pleine largeur contre le rail, comme avant — seule la
         // teinte du rail a été unifiée. Sous 600 (phone), inchangé.
         return Scaffold(
-          body: tablet
+          body: hasRail
               ? Row(
                   children: [
-                    if (!immersive) _buildNavigationRail(context, size),
+                    if (!immersive) _buildNavigationRail(context, chassis),
                     Expanded(child: content),
                   ],
                 )
               : content,
           bottomNavigationBar:
-              tablet || immersive ? null : _buildNavigationBar(context),
+              hasRail || immersive ? null : _buildNavigationBar(context),
         );
       },
     );
   }
 
-  Widget _buildNavigationRail(BuildContext context, Size size) {
+  Widget _buildNavigationRail(BuildContext context, AppChassis chassis) {
     final p = premiumPalette(context);
-    final extended = AppBreakpoints.isExpanded(size);
+    final extended = chassis == AppChassis.extendedRail;
     // Même crème que les pages : le rail et le contenu ne font qu'un.
     return NavigationRail(
       scrollable: true,

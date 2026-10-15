@@ -8,22 +8,26 @@ import 'package:bible_app/utils/breakpoints.dart';
 
 import 'support/fake_bible_bundle.dart';
 
-/// Le **châssis** du shell : rail latéral ou barre du bas, et rien d'autre.
+/// Les deux décisions que le shell prend sur la taille de l'écran, et qu'il
+/// ne faut **pas** reconfondre — c'était le bug d'origine.
+///
+///  * le **châssis** (`chassisFor`) : rail ou barre du bas, décidé sur la
+///    **largeur réelle**, comme depuis toujours. Un écran large mérite un
+///    rail, téléphone couché compris.
+///  * la **classe d'appareil** (`isTablet` et ses dérivés) : grilles,
+///    master/detail, panneau d'étude épinglé, plafond de contenu — décidés sur
+///    le **côté court**, donc stables en rotation.
+///
+/// Avant, une seule comparaison de largeur gouvernait les deux : un iPhone 14
+/// en paysage mesure 844 px, au-dessus du palier `expanded` de 840, et
+/// recevait donc l'accueil en grille deux colonnes et le master/detail comme
+/// un petit desktop. Le rail, lui, n'était pas le problème.
 ///
 /// Pourquoi ce fichier existe à côté de `responsive_overflow_test.dart` : cet
-/// audit-là ne pouvait pas voir le bug qu'on corrige ici. Un téléphone couché
-/// mesure 844 px de large — au-dessus du palier `expanded` de 840 — et recevait
-/// donc le rail *étendu*, 190 px de libellés, dans 390 px de hauteur. Comme un
-/// `NavigationRail` est `scrollable: true`, il faisait défiler ses cinq
-/// destinations au lieu de déborder : zéro `RenderFlex overflow`, test vert,
-/// mise en page absurde. Vérifié en remettant l'ancienne comparaison sur
-/// `width` — le balayage anti-débordement reste au vert, les attentes
-/// ci-dessous tombent.
-///
-/// La règle testée : le châssis suit le **côté court** de l'écran, donc il ne
-/// change pas quand on tourne l'appareil. Le *contenu* (master/detail, grilles)
-/// garde la largeur réelle comme critère, mais seulement dans un châssis
-/// tablette.
+/// audit-là ne pouvait rien voir de tout cela. Un `NavigationRail` est
+/// `scrollable: true` et fait défiler ses destinations au lieu de déborder, et
+/// une grille à deux colonnes ne déborde pas non plus — zéro `RenderFlex
+/// overflow`, test vert, mise en page inadaptée.
 void main() {
   group('AppBreakpoints — la règle, sans interface', () {
     test('un téléphone reste un téléphone dans les deux orientations', () {
@@ -38,12 +42,44 @@ void main() {
         Size(800, 360),
       ]) {
         expect(AppBreakpoints.isTablet(phone), isFalse, reason: '$phone');
-        // Le point du correctif : sans la garde de châssis, 844 et 932
-        // franchissaient `expanded` et ouvraient grilles et master/detail.
+        // Le point du correctif : sans la garde de classe d'appareil, 844 et
+        // 932 franchissaient `expanded` et ouvraient grilles et master/detail.
         expect(AppBreakpoints.isExpanded(phone), isFalse, reason: '$phone');
         expect(AppBreakpoints.isDesktop(phone), isFalse, reason: '$phone');
         expect(AppBreakpoints.contentMaxWidth(phone), isNull, reason: '$phone');
       }
+    });
+
+    test('le châssis, lui, ne regarde que la largeur', () {
+      // Debout, le téléphone est trop étroit : barre du bas.
+      expect(
+        AppBreakpoints.chassisFor(const Size(390, 844)),
+        AppChassis.bottomBar,
+      );
+      expect(
+        AppBreakpoints.chassisFor(const Size(360, 640)),
+        AppChassis.bottomBar,
+      );
+      // Couché, il est large : il garde son rail, comme avant le correctif.
+      // C'est voulu — seule la mise en page du contenu avait à changer.
+      expect(
+        AppBreakpoints.chassisFor(const Size(800, 360)),
+        AppChassis.rail,
+      );
+      expect(
+        AppBreakpoints.chassisFor(const Size(844, 390)),
+        AppChassis.extendedRail,
+      );
+      expect(
+        AppBreakpoints.chassisFor(const Size(932, 430)),
+        AppChassis.extendedRail,
+      );
+      // Et une tablette a son rail dans les deux sens.
+      expect(AppBreakpoints.chassisFor(const Size(834, 1112)), AppChassis.rail);
+      expect(
+        AppBreakpoints.chassisFor(const Size(1112, 834)),
+        AppChassis.extendedRail,
+      );
     });
 
     test('une tablette garde son rail debout comme couchée', () {
@@ -113,22 +149,34 @@ void main() {
 
     for (final device in const <String, Size>{
       '390x844 iphone14 debout': Size(390, 844),
-      '844x390 iphone14 couché': Size(844, 390),
-      '932x430 maxpro couché': Size(932, 430),
-      '800x360 telephone couché': Size(800, 360),
+      '360x640 budget debout': Size(360, 640),
     }.entries) {
-      testWidgets('${device.key} → barre du bas, jamais de rail', (
-        tester,
-      ) async {
+      testWidgets('${device.key} → barre du bas', (tester) async {
         await pumpAt(tester, device.value);
-        expect(
-          find.byType(NavigationRail),
-          findsNothing,
-          reason:
-              'un téléphone couché recevait le rail parce que sa *largeur* '
-              'dépassait le palier — le châssis se lit sur le côté court',
-        );
+        expect(find.byType(NavigationRail), findsNothing);
         expect(find.byType(NavigationBar), findsOneWidget);
+        drain(tester);
+      });
+    }
+
+    for (final device in const <String, (Size, bool)>{
+      '844x390 iphone14 couché': (Size(844, 390), true),
+      '932x430 maxpro couché': (Size(932, 430), true),
+      '800x360 telephone couché': (Size(800, 360), false),
+    }.entries) {
+      final (size, extended) = device.value;
+      testWidgets('${device.key} → garde son rail', (tester) async {
+        await pumpAt(tester, size);
+        final rail = find.byType(NavigationRail);
+        expect(
+          rail,
+          findsOneWidget,
+          reason:
+              'le rail d\'un téléphone couché n\'a jamais été le problème : '
+              'seule la mise en page du contenu avait à changer',
+        );
+        expect(find.byType(NavigationBar), findsNothing);
+        expect(tester.widget<NavigationRail>(rail).extended, extended);
         drain(tester);
       });
     }
