@@ -37,6 +37,38 @@ pièges de tests qu'on a déjà payés, pour ne pas les redécouvrir.
 
 ---
 
+## Responsive tablette/desktop — traité
+
+Paliers uniques dans `bible_app/lib/utils/breakpoints.dart` : **600 / 840 /
+1200**. Sous 600 (phone), aucun changement visuel — chaque étape l'a vérifié
+par les tests de débordement.
+
+- **Shell (`main.dart`)** — le rail prend le même crème que les pages
+  (`premiumBackground`) : son fond propre coupait le contenu d'une ligne
+  verticale en paysage/tablette (vérifié par captures avant/après).
+- **Accueil (`home_screen.dart`)** — quick-actions en rangée fixe dès 600,
+  études récentes en 2 colonnes dès 840, pavés Mesures côte-à-côte dès 840.
+- **Lecture (`chapter_reader.dart`)** — colonne plafonnée à 680 dès 600
+  (`_ReadingWidth`, contraintes serrées) ; dès 1200 la fiche Strong et la
+  feuille d'étude s'épinglent à droite au lieu des modales (`_sideStrong`,
+  `_sideStudy`, corps extrait en `StudySheetBody` partagé).
+- **Recherche (`search_screen.dart`)** — dès 840, rail latéral 300 px
+  (catégories + filtres verticaux, mêmes widgets/callbacks).
+- **Index Strong + lexique BYM + Westphal + dictionnaires** — split-view dès
+  840 (`LexiconSplitView` partagé, carte `selected`), fiches sans retour en
+  volet (`showBackButton`, vrai par défaut).
+- **Tests** — `desktop_side_panel_test` (4), `strong_index_split_test` (2),
+  `lexicon_index_split_test` (4), `1280x800 desktop` ajouté au balayage
+  anti-débordement.
+- **Retiré à la demande** (piste testée puis abandonnée) : centrage global
+  720/1120 du shell (décollait le contenu du rail), carte shell arrondie,
+  filet d'accent du rail, carte d'en-tête Accueil.
+- **4 échecs ATI pré-existants** (`ati_render_test` ×3,
+  `ati_interlinear_golden_test` ×1), vérifiés identiques sur arbre sans ces
+  changements : hors périmètre.
+
+---
+
 ## Pièges de tests — déjà payés, ne pas les redécouvrir
 
 - **`study_sheet_test.dart`** exigeait `d.color == p.surface` sur la carte
