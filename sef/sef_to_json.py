@@ -23,6 +23,12 @@ Conventions du dépôt victordiaz1000/-bym-bibles respectées :
 
 Contrôles : comptes de chapitres comparés au corpus BYM (source hébraïque),
 aucune balise résiduelle, rapport détaillé imprimé à la fin.
+
+⚠️ `EXTRAIT` est lu sur disque et `OUT` est le dépôt **publié** que l'app
+télécharge. Relancer ce script avec un `extrait/` plus vieux que la source
+publiee écrase silencieusement la correction en cours : on regenère depuis
+l'ancien SEF.xml. Toujours relancer `extract_sef.py` d'abord, et vérifier la
+date de `extrait/` avant.
 """
 import glob
 import html
@@ -35,7 +41,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 EXTRAIT = Path(r"C:\Users\laptek\Desktop\bym3\sef\extrait\livres")
 OUT = Path(r"C:\Users\laptek\Desktop\bym-bibles\sef")
-BYM = Path(r"C:\Users\laptek\Desktop\bym3\bible_app\assets\bible\bym")
+BYM = Path(r"C:\Users\laptek\Desktop\bym-classic\assets\bible\bym")
 
 # code → (numéro standard / index BYM, nom français)
 OT = {
@@ -230,8 +236,8 @@ def bym_chapter_counts():
     standard (`8.json` = Ruth ici) : la passerelle est
     `book_mapping.dart` ({index BYM: numéro standard}), à inverser.
     """
-    mapping_src = (Path(__file__).resolve().parent.parent /
-                   "bible_app" / "lib" / "data" / "book_mapping.dart")
+    mapping_src = (Path(__file__).resolve().parent.parent.parent /
+                   "bym-classic" / "lib" / "data" / "book_mapping.dart")
     block = re.search(r"_bymToStandard = \{(.*?)\}", mapping_src.read_text(
         encoding="utf-8"), re.S).group(1)
     std_of = {int(bym): int(std) for bym, std in re.findall(r"(\d+):\s*(\d+)", block)}
