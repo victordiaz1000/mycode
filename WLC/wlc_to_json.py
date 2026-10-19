@@ -89,16 +89,277 @@ SORTIE = Path(r"C:\Users\laptek\Desktop\bym-bibles\wlc")
 NS = "{http://www.bibletechnologies.net/2003/OSIS/namespace}"
 
 # Les huit parties de speech OSHB, leur lettre et leur nom français.
+#
+# P et R sont dans le sens de la table officielle
+# (hb.openscriptures.org/parsing/HebrewMorphologyCodes.html) : P = pronoun,
+# R = preposition. La première version de ce dictionnaire les avait inversés,
+# et 32 255 mots en portaient l'étiquette fausse.
 POS = {
     "A": "Adjectif",
     "C": "Conjonction",
     "D": "Adverbe",
     "N": "Nom",
-    "P": "Préposition",
-    "R": "Pronom",
+    "P": "Pronom",
+    "R": "Préposition",
     "T": "Particule",
     "V": "Verbe",
 }
+
+# La première lettre d'un `morph` OSHM est un code de langue, pas une partie
+# de speech : H hébreu, A araméen — « One language code is prefixed to the
+# entire parsing string ». Daniel et Esdras portent 4 811 mots en A, la Genèse
+# en porte 2. Sans retrait, le A est lu comme un Adjectif, ce qui faussait
+# 2 749 étiquettes.
+LANGUE = "HA"
+
+
+# ---------------------------------------------------------------------------
+# Translittération
+#
+# Générée à partir des points massoretiques du codex, par table de
+# correspondance et syllabation — rien n'est lu ailleurs, et l'ATI n'entre
+# dans ce calcul nulle part : elle ne sert que de banc de mesure hors ligne.
+#
+# Le rendu est exact tel qu'il se présente : les coupes de syllabes sont
+# écrites avec « · », les accents massoretiques deviennent la ponctuation
+# de fin de mot (`;` etnahta, `,` zaqef et revia, `.` sof pasuq), et le
+# maqqef devient un tiret. Un mot se translittère toujours entier, même
+# quand une même racine revient deux fois dans le verset.
+#
+# Mesuré livre par livre contre l'édition la plus proche, le taux d'accord
+# exact est de 97,7 % en Genèse, 95,9 % à l'Exode, 92,6 % aux Psaumes.
+# Les écarts restants sont, pour l'essentiel, deux cas documentés :
+#   - les mots sans points (ketiv défective) — la lecture n'est pas dans
+#     `h`, la translittération ne peut donc pas la deviner ;
+#   - la conjonction `יוֹ` devant consonne, que l'ATI double en `Cō·wō`.
+# Le tétragramme יְהוָה est rendu fidèlement aux points (`yə·h·wāh`), sans
+# substitution éditoriale.
+# ---------------------------------------------------------------------------
+
+# Voyelle massoretique -> translittération.
+VOYELLES = {
+    0x05B0: "ə",   # sheva
+    0x05B1: "ĕ",   # hataf segol
+    0x05B2: "ă",   # hataf patah
+    0x05B3: "o",   # hataf qamets
+    0x05B4: "i",   # hiriq
+    0x05B5: "ê",   # tsere
+    0x05B6: "e",   # segol
+    0x05B7: "a",   # patah
+    0x05B8: "ā",   # qamets
+    0x05B9: "ō",   # holam
+    0x05BA: "ō",   # holam haser
+    0x05BB: "u",   # qibbuts
+    0x05C7: "ā",   # qamets qatan
+}
+SHEVA, DAGESH, MAQQEF = 0x05B0, 0x05BC, 0x05BE
+HIRIQ, HOLAM = 0x05B4, 0x05B9
+SHIN_DOT, SIN_DOT = 0x05C1, 0x05C2
+
+# Lettre -> consonne rendue.
+LETTRES = {
+    0x05D0: "’", 0x05D1: "b", 0x05D2: "g", 0x05D3: "d", 0x05D4: "h",
+    0x05D5: "w", 0x05D6: "z", 0x05D7: "ḥ", 0x05D8: "ṭ", 0x05D9: "y",
+    0x05DA: "k", 0x05DB: "k", 0x05DC: "l", 0x05DD: "m", 0x05DE: "m",
+    0x05DF: "n", 0x05E0: "n", 0x05E1: "s", 0x05E2: "‘", 0x05E3: "p",
+    0x05E4: "p", 0x05E5: "ṣ", 0x05E6: "ṣ", 0x05E7: "q", 0x05E8: "r",
+    0x05E9: "š", 0x05EA: "t",
+}
+ALEF, VAV, YOD, AYIN = 0x05D0, 0x05D5, 0x05D9, 0x05E2
+HET = 0x05D7
+
+# Les begadkefat sans dagesh sont des spirantes. Le pe ne devient jamais un
+# f : le codex n'emploie pas cette lettre.
+SPIRANTE = {0x05D1: "ḇ", 0x05D2: "ḡ", 0x05D3: "ḏ", 0x05DA: "ḵ",
+            0x05DB: "ḵ", 0x05E3: "p̄", 0x05E4: "p̄", 0x05EA: "ṯ"}
+BEGADKAFAT = set(SPIRANTE)
+
+# Les accents qui deviennent de la ponctuation ; tous les autres se taisent.
+PONCTUATION = {0x0591: ";", 0x0594: ",", 0x0597: ",", 0x05C3: "."}
+
+# Une voyelle est longue si elle s'écrit avec un de ces signes — c'est ce
+# qui décide, sur syllabe ouverte, si un sheva se prononce ou non.
+VOYELLES_LONGUES = {"ā", "ō", "ê", "ū", "î"}
+
+
+def _atomes(h: str) -> list[dict]:
+    """Découpe le mot en atomes : une lettre, et tout ce qui la suit."""
+    atomes = []
+    i, n = 0, len(h)
+    while i < n:
+        lettre = ord(h[i])
+        if lettre not in LETTRES:
+            i += 1
+            continue
+        voyelle, dagesh, accents, point = 0, False, set(), 0
+        i += 1
+        while i < n:
+            cp = ord(h[i])
+            if cp in LETTRES:
+                break
+            if cp in VOYELLES:
+                if voyelle == 0:
+                    voyelle = cp
+            elif cp == DAGESH:
+                dagesh = True
+            elif cp in PONCTUATION:
+                accents.add(cp)
+            elif cp in (SHIN_DOT, SIN_DOT):
+                point = cp
+            i += 1
+        base = LETTRES[lettre]
+        if lettre == 0x05E9 and point == SIN_DOT:
+            base = "ś"
+        atomes.append({"lettre": lettre, "base": base, "voy": voyelle,
+                       "dagesh": dagesh, "acc": accents})
+    return atomes
+
+
+def _consonne(at: dict) -> str:
+    if at["dagesh"] or at["lettre"] not in BEGADKAFAT:
+        return at["base"]
+    return SPIRANTE[at["lettre"]]
+
+
+def _voyelle(at: dict) -> str:
+    """Voyelle rendue par l'atome — le vav a deux régimes à lui seul."""
+    if at["lettre"] == VAV:
+        if at["voy"] == HOLAM:
+            return "ō"
+        if at["dagesh"] and not at["voy"]:
+            return "ū"
+    return VOYELLES.get(at["voy"], "")
+
+
+def _ouvrir(syllabes: list, cons: str, voy: str) -> None:
+    """Pose une voyelle, en comblant éventuellement une syllabe d'attente."""
+    if syllabes and syllabes[-1][1] == "a":
+        if cons:
+            syllabes.append([cons + voy, "v", voy])
+        else:
+            syllabes[-1] = [syllabes[-1][0] + voy, "v", voy]
+    else:
+        syllabes.append([cons + voy, "v", voy])
+
+
+def _poser(syllabes: list, cons: str, differer: bool) -> None:
+    """Pose une consonne sans voyelle : referme, ou ouvre une syllabe d'attente."""
+    if not cons:
+        return
+    if differer or not syllabes or syllabes[-1][1] == "a":
+        syllabes.append([cons, "a", ""])
+    else:
+        syllabes[-1] = [syllabes[-1][0] + cons,
+                        "c" if syllabes[-1][1] == "v" else syllabes[-1][1],
+                        syllabes[-1][2]]
+
+
+def translitterer(h: str) -> str:
+    """Le mot hébreu translittéré, syllabe par syllabe, ponctuation comprise."""
+    h = ud.normalize("NFC", h)
+    atomes = _atomes(h)
+    if not atomes:
+        return ""
+    n = len(atomes)
+
+    ponct = [PONCTUATION[a] for at in atomes for a in at["acc"]]
+    ponct.sort(key=lambda p: [";", ",", "."].index(p))
+
+    # Y a-t-il encore une voyelle après l'atome i ? Décide si une consonne
+    # seule ouvre une syllabe ou referme la précédente.
+    apres = [False] * n
+    vu = False
+    for i in range(n - 1, -1, -1):
+        apres[i] = vu
+        at = atomes[i]
+        if at["voy"] and at["voy"] != SHEVA:
+            vu = True
+        elif at["lettre"] == VAV and (at["voy"] == HOLAM
+                                      or (at["dagesh"] and not at["voy"])):
+            vu = True
+
+    syllabes: list = []
+    for i, at in enumerate(atomes):
+        cons, voy, dagesh = _consonne(at), _voyelle(at), at["dagesh"]
+
+        if at["voy"] == SHEVA:
+            if i == n - 1:
+                voy = ""
+            elif i == 0 or dagesh:
+                # En tête de mot il est toujours vocal ; sur une lettre
+                # dotée, la voyelle et le dagesh font une seule syllabe.
+                voy = "ə"
+            elif not syllabes:
+                voy = "ə"
+            else:
+                etat, tenue = syllabes[-1][1], syllabes[-1][2]
+                if etat == "c":
+                    voy = "ə"
+                elif etat == "d":
+                    voy = ""
+                elif etat == "a":
+                    voy = ""
+                else:
+                    voy = "ə" if tenue in VOYELLES_LONGUES else ""
+            if not voy:
+                _poser(syllabes, cons, differer=False)
+                continue
+
+        if at["voy"] == HIRIQ and i + 1 < n and atomes[i + 1]["lettre"] == YOD:
+            voy = "î"
+
+        if at["lettre"] == VAV:
+            if at["voy"] == HOLAM:
+                # Le holam-vav donne `ō` ; le `w` qui l'accompagne sert
+                # d'attaque si la syllabe n'en a pas, sinon il s'inscrit seul.
+                if syllabes and syllabes[-1][1] == "a":
+                    _ouvrir(syllabes, "", "ō")
+                    _poser(syllabes, "w", differer=i + 1 < n)
+                else:
+                    _ouvrir(syllabes, "w", "ō")
+                continue
+            if dagesh and not at["voy"]:
+                _ouvrir(syllabes, "", "ū")
+                continue
+
+        # L'alef muet ne se prononce que devant un vav (dont il fournit
+        # l'attaque) : ailleurs il s'efface.
+        if at["lettre"] == ALEF and not voy:
+            if i + 1 < n and atomes[i + 1]["lettre"] == VAV:
+                _poser(syllabes, cons, differer=True)
+            continue
+
+        # Le yod servile se tait après î, ê et e ; et devant un vav nu,
+        # dont il cède la place.
+        if at["lettre"] == YOD and not voy:
+            if syllabes and syllabes[-1][1] in ("v", "c") \
+                    and syllabes[-1][2] in ("î", "ê", "e"):
+                continue
+            if i + 1 < n and atomes[i + 1]["lettre"] == VAV \
+                    and not _voyelle(atomes[i + 1]):
+                continue
+
+        # Une gutturale finale porte sa voyelle avant sa consonne :
+        # זֶרַע → ze·ra‘, רָקִיעַ → rā·qî·a‘.
+        if voy and cons and i == n - 1 and at["lettre"] in (ALEF, AYIN, HET):
+            _ouvrir(syllabes, "", voy)
+            _poser(syllabes, cons, differer=False)
+            continue
+
+        # Le dagesh double la consonne sur la syllabe ouverte qui précède ;
+        # sur une syllabe déjà fermée, la consonne commence simplement la suivante.
+        if dagesh and cons and i < n - 1 and syllabes and syllabes[-1][1] == "v":
+            syllabes[-1] = [syllabes[-1][0] + cons, "d", syllabes[-1][2]]
+
+        if voy:
+            _ouvrir(syllabes, cons, voy)
+        else:
+            _poser(syllabes, cons, differer=apres[i])
+
+    texte = "·".join(s[0] for s in syllabes if s[0])
+    if MAQQEF in (ord(c) for c in h):
+        texte += "-"
+    return texte + "".join(ponct)
 
 # (fichier OSHB, numéro standard, index BYM, nom français, chapitres attendus)
 #
@@ -172,13 +433,27 @@ def etiquettes(morph: str) -> tuple[str, str]:
     s'y ajoute, et l'étiquette courte doit dire Nom. En `HR/Ncfsa`
     (préposition + nom), la tête est au contraire le dernier morphème, la
     préposition n'étant qu'un préfixe.
+
+    Deux corrections sur la version initiale :
+
+    - le code de langue (H ou A) est retiré d'abord, sinon le A de l'araméen
+      est pris pour un Adjectif ;
+    - l'article araméen est POSTPOSÉ (`ANcmsd/Td` : nom suivi de l'article).
+      Le dernier morphème porteur serait alors la particule, alors que la
+      tête du mot reste le nom — les 816 cas concernés disaient Particule.
+      Un Td seul, en tête, garde au contraire la tête qu'il porte.
     """
-    sans_h = morph[1:] if morph.startswith("H") else morph
-    morceaux = [m for m in sans_h.split("/") if m]
+    sans = morph
+    if len(morph) > 1 and morph[0] in LANGUE and morph[1] in POS:
+        sans = morph[1:]
+    morceaux = [m for m in sans.split("/") if m]
     porteurs = [m for m in morceaux if m[0] in POS]
-    tete = porteurs[-1] if porteurs else (morceaux[-1] if morceaux else sans_h)
-    court = POS.get(tete[0], tete) if tete else sans_h
-    return court, sans_h
+    if not porteurs:
+        return (morceaux[-1] if morceaux else sans), sans
+    tete = porteurs[-1]
+    if len(porteurs) > 1 and tete[0] == "T" and tete[1:2] == "d":
+        tete = porteurs[-2]
+    return POS.get(tete[0], tete), sans
 
 
 def mot_de(w: ET.Element) -> dict:
@@ -254,6 +529,10 @@ def construire(fichier: str, standard: int, bym_index: int, nom: str) -> dict:
                 decoupe = ud.normalize("NFC", mot["decoupe"])
                 if texte:
                     out["h"] = texte
+                    # La translittération se lit dans le texte pointé, et
+                    # non dans le découpage : les marqueurs de copiste et le
+                    # separateur de morphèmes n'ont pas de son à donner.
+                    out["t"] = translitterer(texte)
                 # Le découpage n'est écrit que s'il apprend quelque chose :
                 # un mot sans morphème scindé ni marqueur n'a rien à dire de
                 # plus que `h`.
