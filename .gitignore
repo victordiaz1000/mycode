@@ -71,3 +71,23 @@ ATI/__pycache__/
 # comme `ATI/json/`, parce que c'est ce qui est publié sur -bym-bibles.
 NTI/extrait/
 NTI/__pycache__/
+
+# Kits de données : seuls les convertisseurs sont versionnés, comme pour WLC où
+# `WLC/wlc_to_json.py` est le seul fichier suivi du kit. `python
+# Bible-Interlineaire/il_to_json.py` lit le corpus du kit et écrit
+# `bym-bibles/il/` ; `python TR-Stephanus-1550/tr_to_json.py` lit `texte/` et
+# écrit `bym-bibles/tr/`. Le corpus (~314 Mo : PDF, zips, CSV, at/, nt/,
+# sources/, texte/, lexique/) reste hors historique — ce sont les JSON publiés
+# qui vont dans -bym-bibles. Le `!` laisse visibles les deux scripts.
+Bible-Interlineaire/*
+!Bible-Interlineaire/il_to_json.py
+TR-Stephanus-1550/*
+!TR-Stephanus-1550/tr_to_json.py
+
+# Bytecode Python : recréé au prochain import. Couvre la racine et les kits,
+# là où les entrées par dossier ci-dessus ne vont pas.
+__pycache__/
+
+# Réponse HTTP 302 d'une commande `curl` mal formée (2026-10-15), jamais
+# un contenu voulu.
+/-w
