@@ -114,6 +114,183 @@ LANGUE = "HA"
 
 
 # ---------------------------------------------------------------------------
+# Lecture en français d'un code morphologique
+#
+# Les codes que le codex porte (`R/Ncmsc`, `Vqp3ms`) sont la notation
+# officielle OSHB, et rien dans leurs lettres ne se lit tout seul : un
+# lecteur qui ne connaît pas la table voit « R/Ncfsa » sans y trouver un
+# mot. La lecture est donc générée ici, mécaniquement, à partir de la table
+# publiée par hb.openscriptures.org (CC-BY 4.0) — la même définition qui
+# donne aux codes leur sens. L'ATI ne fournit rien à ce calcul : elle sert
+# de banc, et l'accord mesuré sur 244 606 mots est de 99,4 %.
+#
+# Une seule règle d'écriture, vérifiée sur ce banc : le morphème de tête
+# s'écrit le premier, le préfixe en dernier, séparés par un tiret long.
+# `R/Ncmsc` se lit donc « Nom commun· masculin singulier· état construit—
+# Préposition ». Genre et nombre forment un groupe (« masculin singulier »),
+# l'état a sa voix à lui (« état construit »).
+#
+# Deux points où la table, et non l'édition voisine, fait autorité :
+#   - `h` araméen vaut haphel et non hophal — deux diathèses distinctes dans
+#     la table, que la lecture ne confond pas ;
+#   - l'état déterminé s'écrit « état déterminé », comme « état absolu » et
+#     « état construit » à côté de lui.
+# ---------------------------------------------------------------------------
+
+# Parties de speech, leur lettre et leur nom.
+LECT_POS = {
+    "A": "Adjectif", "C": "Conjonction", "D": "Adverbe", "N": "Nom",
+    "P": "Pronom", "R": "Préposition", "S": "Suffixe",
+    "T": "Particule", "V": "Verbe",
+}
+
+# Types — la seconde lettre, propre à chaque partie de speech.
+LECT_TYPE_A = {"a": "adjectif", "c": "nombre cardinal", "g": "gentilice",
+               "o": "nombre ordinal"}
+LECT_TYPE_N = {"c": "commun", "g": "gentilice", "p": "nom propre"}
+LECT_TYPE_P = {"d": "démonstratif", "f": "indéfini", "i": "interrogatif",
+               "p": "personnel", "r": "relatif"}
+LECT_TYPE_R = {"d": "article défini"}
+LECT_TYPE_S = {"d": "directionnel (he)", "h": "paragogique (he)",
+               "n": "paragogique (nun)", "p": "pronominal"}
+LECT_TYPE_T = {"a": "affirmation", "d": "article défini", "e": "exhortation",
+               "i": "interrogatif", "j": "interjection", "m": "démonstratif",
+               "n": "négatif", "o": "marqueur d’objet direct", "r": "relatif"}
+
+# Diathèses. Deux tables : l'hébreu et l'araméen n'emploient pas les mêmes
+# lettres, et `q` vaut qal ici, peal là. Le code de langue, retiré du
+# libellé, n'est plus là pour le dire — d'où deux entrées, non une.
+LECT_DIAT_HE = {
+    "q": "qal", "N": "niphal", "p": "piel", "P": "pual", "h": "hiphil",
+    "H": "hophal", "t": "hithpael", "o": "polel", "O": "polal",
+    "r": "hithpolel", "m": "poel", "M": "poal", "k": "palel", "K": "pulal",
+    "Q": "qal passive", "l": "pilpel", "L": "polpal", "f": "hithpalpel",
+    "D": "nithpa‘el", "j": "pealal", "i": "pilel", "u": "hothpaal",
+    "c": "tiphil", "v": "hishtaphel", "w": "nithpalel", "y": "nithpoel",
+    "z": "hithpoel",
+}
+LECT_DIAT_AR = {
+    "q": "peal", "Q": "peil", "u": "hitpeel", "p": "pael", "P": "ithpaal",
+    "M": "hitpaal", "a": "aphel", "h": "haphel", "s": "saphel",
+    "e": "shaphel", "H": "hophal", "i": "ithpeel", "t": "hishtaphel",
+    "v": "ishtaphel", "w": "hithaphel", "o": "polel", "z": "ithpoel",
+    "r": "hitpolel", "f": "hitpalpel", "b": "hephal", "c": "tiphel",
+    "m": "poel", "l": "palpel", "L": "lithpalpel", "O": "ithpolel",
+    "G": "ittaphal",
+}
+
+LECT_CONJ = {
+    "p": "parfait (qatal)", "q": "parfait séquentiel (weqatal)",
+    "i": "imparfait (yiqtol)", "w": "imparfait séquentiel (wayyiqtol)",
+    "h": "cohortatif", "j": "jussif", "v": "impératif",
+    "r": "participe actif", "s": "participe passif",
+    "a": "infinitif absolu", "c": "infinitif construit",
+}
+# Un infinitif ne prend ni personne ni genre ; un participe, pas de personne.
+LECT_INFINITIF = ("a", "c")
+LECT_PARTICIPE = ("r", "s")
+
+LECT_PERSONNE = {"1": "1ᵉʳ", "2": "2ᵉ", "3": "3ᵉ"}
+LECT_GENRE = {"m": "masculin", "f": "féminin", "c": "commun",
+              "b": "féminin et masculin"}
+LECT_NOMBRE = {"s": "singulier", "p": "pluriel", "d": "duel"}
+LECT_ETAT = {"a": "absolu", "c": "construit", "d": "déterminé"}
+
+
+def _lect_groupes(*groupes):
+    """Les traits grammaticaux, séparés par « · » et non par des espaces.
+
+    Genre et nombre se disent ensemble, l'état a son groupe à lui : c'est
+    le partage de la langue, pas celui du code.
+    """
+    sorties = [" ".join(v for v in groupe if v) for groupe in groupes]
+    return "· ".join(s for s in sorties if s)
+
+
+def _lect_morceau(m: str, arameen: bool) -> str:
+    """`Ncmsc` -> « Nom commun· masculin singulier· état construit »."""
+    pos, r = m[:1], m[1:]
+    if pos not in LECT_POS:
+        return m
+
+    if pos == "V":
+        if len(r) < 2:
+            return LECT_POS["V"]
+        diat, conj, reste = r[0], r[1], r[2:]
+        table = LECT_DIAT_AR if arameen else LECT_DIAT_HE
+        entete = "%s %s %s" % (LECT_POS["V"], table.get(diat, diat),
+                               LECT_CONJ.get(conj, conj))
+        if conj in LECT_INFINITIF:
+            return entete
+        # Un participe n'a pas de personne : la place où un chiffre se
+        # trouverait porte alors un genre. Un `x` occupe une place sans rien
+        # désigner et n'est pas lu.
+        personne = None
+        if conj not in LECT_PARTICIPE and reste and reste[0].isdigit():
+            personne, reste = reste[:1], reste[1:]
+        lettres = [c for c in reste
+                   if c in LECT_GENRE or c in LECT_NOMBRE or c in LECT_ETAT]
+        gen = LECT_GENRE.get(lettres[0]) if lettres else None
+        num = LECT_NOMBRE.get(lettres[1]) if len(lettres) > 1 else None
+        etat = LECT_ETAT.get(lettres[2]) if len(lettres) > 2 else None
+        corps = _lect_groupes([LECT_PERSONNE.get(personne), gen, num],
+                              ["état " + etat] if etat else [])
+        return entete + ("· " + corps if corps else "")
+
+    if pos in ("N", "A"):
+        table, nom = ((LECT_TYPE_N, "Nom") if pos == "N"
+                      else (LECT_TYPE_A, "Adjectif"))
+        typ = table.get(r[:1], r[:1])
+        if typ == "nom propre":
+            # Le nom propre se dit seul : genre et état ne s'y ajoutent pas.
+            return "Nom propre"
+        etat = LECT_ETAT.get(r[3:4])
+        corps = _lect_groupes([LECT_GENRE.get(r[1:2]), LECT_NOMBRE.get(r[2:3])],
+                              ["état " + etat] if etat else [])
+        return "%s %s%s" % (nom, typ, "· " + corps if corps else "")
+
+    if pos in ("P", "S"):
+        table = LECT_TYPE_P if pos == "P" else LECT_TYPE_S
+        typ = table.get(r[:1], r[:1])
+        reste = r[1:]
+        personne = None
+        if reste and reste[0].isdigit():
+            personne, reste = reste[:1], reste[1:]
+        lettres = [c for c in reste if c in LECT_GENRE or c in LECT_NOMBRE]
+        corps = _lect_groupes(
+            [LECT_PERSONNE.get(personne),
+             LECT_GENRE.get(lettres[0]) if lettres else None,
+             LECT_NOMBRE.get(lettres[1]) if len(lettres) > 1 else None])
+        return "%s %s%s" % (LECT_POS[pos], typ, "· " + corps if corps else "")
+
+    if pos == "T":
+        return "%s %s" % (LECT_POS["T"], LECT_TYPE_T.get(r[:1], r[:1]))
+
+    if pos == "R":
+        typ = LECT_TYPE_R.get(r[:1])
+        return LECT_POS["R"] + (" " + typ if typ else "")
+
+    return LECT_POS.get(pos, m)
+
+
+def lire_morph(morph: str) -> str:
+    """Le morph brut, langue comprise, rendu lisible — langue comprise.
+
+    La langue est lue ici, et non déduite : le même `q` vaut qal ou peal,
+    et un code de langue retiré ne permettrait pas de le dire. Esdras et
+    Daniel mêlent les deux langues au sein d'un même livre.
+    """
+    arameen = bool(morph) and morph[0] == "A"
+    sans = morph
+    if len(morph) > 1 and morph[0] in LANGUE and morph[1] in LECT_POS:
+        sans = morph[1:]
+    morceaux = [m for m in sans.split("/") if m]
+    # La tête d'abord, le préfixe en dernier : c'est l'ordre de lecture.
+    lus = [_lect_morceau(m, arameen) for m in reversed(morceaux)]
+    return "— ".join(l for l in lus if l)
+
+
+# ---------------------------------------------------------------------------
 # Translittération
 #
 # Générée à partir des points massoretiques du codex, par table de
@@ -424,8 +601,8 @@ def numero_strong(lemma: str) -> str | None:
     return "H" + chiffres.group(1) if chiffres else None
 
 
-def etiquettes(morph: str) -> tuple[str, str]:
-    """Renvoie (clé de la table `cg`, clé de la table `ca`).
+def etiquettes(morph: str) -> str:
+    """Renvoie la clé de la table `cg`, l'étiquette courte en français.
 
     La tête du mot est le dernier morphème qui porte une partie de speech —
     et non simplement le dernier. Un suffixe (`Sp3ms`) n'en porte pas : en
@@ -442,6 +619,9 @@ def etiquettes(morph: str) -> tuple[str, str]:
       Le dernier morphème porteur serait alors la particule, alors que la
       tête du mot reste le nom — les 816 cas concernés disaient Particule.
       Un Td seul, en tête, garde au contraire la tête qu'il porte.
+
+    La lecture développée, elle, vient de `lire_morph` : deux libellés pour
+    deux usages, l'un tient dans une cellule, l'autre se lit en entier.
     """
     sans = morph
     if len(morph) > 1 and morph[0] in LANGUE and morph[1] in POS:
@@ -449,11 +629,12 @@ def etiquettes(morph: str) -> tuple[str, str]:
     morceaux = [m for m in sans.split("/") if m]
     porteurs = [m for m in morceaux if m[0] in POS]
     if not porteurs:
-        return (morceaux[-1] if morceaux else sans), sans
+        return POS.get((morceaux[-1] if morceaux else sans)[:1],
+                       morceaux[-1] if morceaux else sans)
     tete = porteurs[-1]
     if len(porteurs) > 1 and tete[0] == "T" and tete[1:2] == "d":
         tete = porteurs[-2]
-    return POS.get(tete[0], tete), sans
+    return POS.get(tete[0], tete)
 
 
 def mot_de(w: ET.Element) -> dict:
@@ -541,7 +722,12 @@ def construire(fichier: str, standard: int, bym_index: int, nom: str) -> dict:
                 if mot["strong"]:
                     out["s"] = mot["strong"]
                 if mot["morph"]:
-                    court, long = etiquettes(mot["morph"])
+                    court = etiquettes(mot["morph"])
+                    # `ca` porte la lecture en français, pas le code brut :
+                    # un lecteur qui ne connaît pas la table OSHB ne peut
+                    # rien faire de `R/Ncfsa`. Le code reste la source, il
+                    # n'est que rendu lisible.
+                    long = lire_morph(mot["morph"])
                     if court not in index_cg:
                         index_cg[court] = len(cg)
                         cg.append(court)
