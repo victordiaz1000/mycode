@@ -78,7 +78,7 @@ git push origin vX.Y.Z
 Le déclencheur est `release-apk.yml`, `on.push.tags: ["v*"]` — ou `workflow_dispatch`, qui prend un
 `tag` en entrée et convient pour relancer une publication sans bouger les refs. Elle construit l'APK,
 le signe avec la clé de release, fabrique le `.sha256`, crée la release et attache les deux assets.
-Le nom attendu par l'app est **`bym-$version.apk`** : `bym-1.0.2.apk`, sans le build.
+Le nom attendu par l'app est **`bym-$version.apk`** : `bym-1.0.1.apk`, sans le build.
 
 **Le tag doit viser le commit qui contient le bump.** `git rev-parse "vX.Y.Z^{}"` doit donner `HEAD`
 (les guillemets sont nécessaires : PowerShell avale les accolades).
